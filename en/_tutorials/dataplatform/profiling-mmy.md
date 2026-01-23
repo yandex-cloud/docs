@@ -1,26 +1,26 @@
 # {{ mmy-name }} performance analysis and tuning
 
-The following issues normally impact {{ mmy-name }} cluster performance:
+The following issues usually cause reduced performance of a {{ mmy-name }} cluster:
 
-* [High CPU load, frequent disk reads and writes, and network requests](#cpu-io-deficit).
+* [High CPU, disk I/O, and network usage](#cpu-io-deficit).
 * [Inefficient query execution in {{ MY }}](#inefficient-queries).
 * [Locks](#localize-locking-issues).
 
-[Monitoring](../../managed-mysql/operations/monitoring.md) tools for {{ MY }} to [troubleshoot performance issues](../../managed-mysql/operations/performance-diagnostics.md) in {{ mmy-name }} clusters and special {{ MY }} queries will help detect these problems.
+{{ MY }} [monitoring](../../managed-mysql/operations/monitoring.md) and [performance diagnostic](../../managed-mysql/operations/performance-diagnostics.md) tools for a {{ mmy-name }} cluster, along with special {{ MY }} queries, will help detect these issues.
 
 ## Getting started {#before-start}
 
-1. Select databases to troubleshoot.
+1. Select the databases to analyze.
 1. [Enable statistics collection](../../managed-mysql/operations/performance-diagnostics.md).
-1. Create a [{{ MY }} user](../../managed-mysql/operations/cluster-users.md#adduser) with the [`PROCESS`](../../managed-mysql/operations/grant.md#db-privileges) privilege for these databases. Troubleshooting queries must run under this user's account.
+1. Create a [{{ MY }} user](../../managed-mysql/operations/cluster-users.md#adduser) with the [PROCESS](../../managed-mysql/operations/grant.md#db-privileges) privilege for these databases. Use this {{ MY }} user to run all diagnostic queries.
 
 ## Diagnosing resource shortages {#cpu-io-deficit}
 
-Resource shortage is a likely cause of cluster performance degradation. Resource shortages become evident from [cluster monitoring](../../managed-mysql/operations/monitoring.md) charts (CPU, disk I/O operations, network connections). If a continuously increasing resource utilization plot has leveled out, resource usage has reached its [limit](../../managed-mysql/concepts/limits.md) or exceeded the guaranteed service level.
+A resource shortage is a likely cause of reduced cluster performance. [Cluster monitoring](../../managed-mysql/operations/monitoring.md) charts (CPU, disk I/O, and network connections) clearly show any resource shortages. If a steadily growing resource usage chart flattens, the resource has hit its [limit](../../managed-mysql/concepts/limits.md) or run beyond the guaranteed service level. 
 
-Special queries can help determine the reasons for elevated resource utilization:
+You can use special queries to find out what causes increased resource usage:
 
-- To estimate Disk IO utilization by different {{ MY }} threads, execute the query:
+- To estimate disk I/O usage by different {{ MY }} threads, run this query:
 
    ```sql
    SELECT   t.name             AS thread_name,
@@ -40,9 +40,9 @@ Special queries can help determine the reasons for elevated resource utilization
    ORDER BY io.bytes DESC 
    ```
 
-   The query returns a list of {{ MY }} file threads, ranked in descending order by the amount of memory used. Threads that serve replication and the [InnoDB buffer](https://dev.mysql.com/doc/refman/8.0/en/innodb-buffer-pool.html) for caching tables and indexes are usually at the top of the list.
+   This query returns a list of {{ MY }} file threads ranked by the amount of memory they use, from highest to lowest. Threads that serve replication and the [InnoDB buffer](https://dev.mysql.com/doc/refman/8.0/en/innodb-buffer-pool.html) for caching tables and indexes usually lead the list.
 
-- To estimate network resource utilization by different {{ MY }} threads, execute the query:
+- To estimate network resource usage by different {{ MY }} threads, run this query:
 
    ```sql
    SELECT   t.name                       AS thread_name,
@@ -65,15 +65,15 @@ Special queries can help determine the reasons for elevated resource utilization
    ORDER BY net.bytes DESC
    ```
 
-   This query returns statistics from thread launch, so long-lived connections (such as replication) will be returned in the top rows.
+   This query returns statistics since the threads were started, so long-lived connections, such as those used for replication, will be closer to the top.
+   
+   Pay close attention to read and write operations affecting many rows. These can also cause increased network load. For writes, WAL changes will be applied to replicas, which further increases network load.
 
-   Note the read and write operations that handle a large number of rows. These can also cause increased network load. For writes, changes in WAL will be copied to replicas, which will further increase network load.
-
-- It is not possible to track CPU utilization with individual queries against {{ MY }}, but inefficient queries (see below) can be identified.
+- You cannot monitor CPU consumption for individual {{ MY }} queries, but you can identify queries that run inefficiently (see below). 
 
 ## Diagnosing inefficient query execution {#inefficient-queries}
 
-To identify problematic queries against {{ MY }}, execute the query:
+To identify {{ MY }} queries that run inefficiently, use this query:
 
 ```sql
 SELECT *
@@ -81,36 +81,36 @@ FROM   sys.statement_analysis
 LIMIT  10
 ```
 
-The query returns the 10 longest running queries in the entire server history.
+It returns the 10 longest-running queries in the entire server history.
 
-You should pay attention to queries with high `ROWS_EXAMINED`, `ROWS_SORTED` values, or the `FULL_SCAN` flag.
+Pay attention to queries with high values for `ROWS_EXAMINED`, `ROWS_SORTED`, or those with the `FULL_SCAN` flag.
 
-To learn more about the information in the output, see the [{{ MY }}](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html) documentation.
+For more information about the output, see [this {{ MY }} article](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html).
 
-## Detecting locks {#localize-locking-issues}
+## Diagnosing locks {#localize-locking-issues}
 
-Cluster performance may degrade because of locks obtained when there are multiple simultaneous attempts to access the same DB resource (table, row).
+Cluster performance may degrade because of locks caused by multiple simultaneous attempts to access the same database resource, e.g., table or row.
 
-To troubleshoot, check lock queues in queries:
+To diagnose locking issues, check the query lock wait queues:
 
-  - Table-level lock queue:
+  - Table-level lock wait queue:
 
     ```sql
     SELECT * FROM sys.schema_table_lock_waits 
     ```
 
-  - Individual row-level lock queue:
+  - Row-level lock wait queue:
 
     ```sql
     SELECT * FROM sys.innodb_lock_waits
     ```
 
-## Troubleshooting {#solving}
+## Troubleshooting {#solving} 
 
-You can try and optimize the problematic queries you have diagnosed. There are several ways to approach such optimization:
+You can try to optimize any queries with performance issues you have diagnosed. There are several ways for optimization:
 
-- Analyze the query plan using [the `EXPLAIN` command](https://dev.mysql.com/doc/refman/5.7/en/using-explain.html) and use the query optimization techniques from the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/5.7/en/statement-optimization.html).
+- Analyze the query plan using [the `EXPLAIN` command](https://dev.mysql.com/doc/refman/5.7/en/using-explain.html) and use the query optimization techniques from [this {{ MY }} article](https://dev.mysql.com/doc/refman/5.7/en/statement-optimization.html).
 
-- [Optimize InnoDB tables](https://dev.mysql.com/doc/refman/5.7/en/optimizing-innodb.html) to reduce disk workload.
+- [Optimize InnoDB tables](https://dev.mysql.com/doc/refman/5.7/en/optimizing-innodb.html) to reduce disk usage.
 
-If you can't optimize the identified problem queries or manage without them, you can [raise the host class](../../managed-mysql/operations/update.md#change-resource-preset).
+If optimizing or removing such queries is not an option, consider [upgrading your host class](../../managed-mysql/operations/update.md#change-resource-preset).

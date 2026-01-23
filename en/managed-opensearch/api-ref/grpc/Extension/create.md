@@ -29,10 +29,12 @@ Creates new extension version.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. Required. ID of the cluster. ||
+Required field. Required. ID of the cluster.
+
+The maximum string length in characters is 50. ||
 || extension_spec | **[ExtensionSpec](#yandex.cloud.mdb.opensearch.v1.ExtensionSpec)**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## ExtensionSpec {#yandex.cloud.mdb.opensearch.v1.ExtensionSpec}
@@ -41,17 +43,20 @@ Required field.  ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the extension. ||
+Required field. Name of the extension.
+
+The maximum string length in characters is 50. ||
 || uri | **string**
 
 Required field. URI of the extension file
-Currently only supports links that are stored in Yandex Object Storage. ||
+Currently only supports links that are stored in Yandex Object Storage.
+
+The maximum string length in characters is 50. ||
 || disabled | **bool** ||
 || type | enum **ExtensionType**
 
 Required field. Extension type
 
-- `EXTENSION_TYPE_UNSPECIFIED`
 - `EXTENSION_TYPE_SYNONYMS`
 - `EXTENSION_TYPE_STOPWORDS` ||
 |#
@@ -145,7 +150,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. Required. ID of the cluster. ||
+Required field. Required. ID of the cluster.
+
+The maximum string length in characters is 50. ||
 || extension_id | **string**
 
 Required field. Required. ID of the extension. ||
@@ -174,7 +181,6 @@ Flag is extension active now ||
 
 Extension type
 
-- `EXTENSION_TYPE_UNSPECIFIED`
 - `EXTENSION_TYPE_SYNONYMS`
 - `EXTENSION_TYPE_STOPWORDS` ||
 |#

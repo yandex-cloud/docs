@@ -11,11 +11,13 @@ apiPlayground:
             **string**
             Required field. ID of the Greenplum cluster.
             To get the Greenplum cluster ID use a [ClusterService.List](/docs/managed-greenplum/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         priority:
           description: |-
             **string** (int64)
             Priority of the Greenplum cluster rule.
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
       required:
@@ -44,10 +46,14 @@ DELETE https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/hbaR
 || clusterId | **string**
 
 Required field. ID of the Greenplum cluster.
-To get the Greenplum cluster ID use a [ClusterService.List](/docs/managed-greenplum/api-ref/Cluster/list#List) request. ||
+To get the Greenplum cluster ID use a [ClusterService.List](/docs/managed-greenplum/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || priority | **string** (int64)
 
-Required field. Priority of the Greenplum cluster rule. ||
+Required field. Priority of the Greenplum cluster rule.
+
+Acceptable values are 0 to 1000, inclusive. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

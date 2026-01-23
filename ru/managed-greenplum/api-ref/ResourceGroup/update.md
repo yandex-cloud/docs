@@ -9,7 +9,8 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -41,7 +42,8 @@ apiPlayground:
           name:
             description: |-
               **string**
-              Required field. 
+              Required field.
+              The string length in characters must be 3-200. Value must match the regular expression ` ^[^\|/*?.,;'<>]+$ `.
             pattern: ^[^\|/*?.,;'<>]+$
             type: string
           isUserDefined:
@@ -51,30 +53,35 @@ apiPlayground:
             description: |-
               **string** (int64)
               References to CONCURRENCY from gp resource group parameter
+              The minimum value is 0.
             type: string
             format: int64
           cpuRateLimit:
             description: |-
               **string** (int64)
               References to CPU_RATE_LIMIT from gp resource group parameter
+              Acceptable values are 1 to 100, inclusive.
             type: string
             format: int64
           memoryLimit:
             description: |-
               **string** (int64)
               References to MEMORY_LIMIT from gp resource group parameter
+              Acceptable values are 0 to 100, inclusive.
             type: string
             format: int64
           memorySharedQuota:
             description: |-
               **string** (int64)
               References to MEMORY_SHARED_QUOTA from gp resource group parameter
+              Acceptable values are 0 to 100, inclusive.
             type: string
             format: int64
           memorySpillRatio:
             description: |-
               **string** (int64)
               References to MEMORY_SPILL_RATIO from gp resource group parameter
+              Acceptable values are 0 to 100, inclusive.
             type: string
             format: int64
         required:
@@ -98,7 +105,9 @@ PATCH https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/resou
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.greenplum.v1.UpdateResourceGroupRequest}
@@ -139,23 +148,35 @@ The rest of the fields will be reset to the default. ||
 ||Field | Description ||
 || name | **string**
 
-Required field.  ||
+Required field.
+
+The string length in characters must be 3-200. Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 || isUserDefined | **boolean** ||
 || concurrency | **string** (int64)
 
-References to CONCURRENCY from gp resource group parameter ||
+References to CONCURRENCY from gp resource group parameter
+
+The minimum value is 0. ||
 || cpuRateLimit | **string** (int64)
 
-References to CPU_RATE_LIMIT from gp resource group parameter ||
+References to CPU_RATE_LIMIT from gp resource group parameter
+
+Acceptable values are 1 to 100, inclusive. ||
 || memoryLimit | **string** (int64)
 
-References to MEMORY_LIMIT from gp resource group parameter ||
+References to MEMORY_LIMIT from gp resource group parameter
+
+Acceptable values are 0 to 100, inclusive. ||
 || memorySharedQuota | **string** (int64)
 
-References to MEMORY_SHARED_QUOTA from gp resource group parameter ||
+References to MEMORY_SHARED_QUOTA from gp resource group parameter
+
+Acceptable values are 0 to 100, inclusive. ||
 || memorySpillRatio | **string** (int64)
 
-References to MEMORY_SPILL_RATIO from gp resource group parameter ||
+References to MEMORY_SPILL_RATIO from gp resource group parameter
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -270,10 +291,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || resourceGroupName | **string**
 
-Required field.  ||
+Required field.
+
+The string length in characters must be 3-200. Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -299,21 +324,33 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || name | **string**
 
-Required field.  ||
+Required field.
+
+The string length in characters must be 3-200. Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 || isUserDefined | **boolean** ||
 || concurrency | **string** (int64)
 
-References to CONCURRENCY from gp resource group parameter ||
+References to CONCURRENCY from gp resource group parameter
+
+The minimum value is 0. ||
 || cpuRateLimit | **string** (int64)
 
-References to CPU_RATE_LIMIT from gp resource group parameter ||
+References to CPU_RATE_LIMIT from gp resource group parameter
+
+Acceptable values are 1 to 100, inclusive. ||
 || memoryLimit | **string** (int64)
 
-References to MEMORY_LIMIT from gp resource group parameter ||
+References to MEMORY_LIMIT from gp resource group parameter
+
+Acceptable values are 0 to 100, inclusive. ||
 || memorySharedQuota | **string** (int64)
 
-References to MEMORY_SHARED_QUOTA from gp resource group parameter ||
+References to MEMORY_SHARED_QUOTA from gp resource group parameter
+
+Acceptable values are 0 to 100, inclusive. ||
 || memorySpillRatio | **string** (int64)
 
-References to MEMORY_SPILL_RATIO from gp resource group parameter ||
+References to MEMORY_SPILL_RATIO from gp resource group parameter
+
+Acceptable values are 0 to 100, inclusive. ||
 |#

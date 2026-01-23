@@ -11,11 +11,13 @@ apiPlayground:
             **string**
             Required field. ID of the Redis cluster the user belongs to.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         userName:
           description: |-
             **string**
             Required field. Name of the Redis user to be updated.
+            The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$ `.
           pattern: ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$
           type: string
       required:
@@ -42,6 +44,7 @@ apiPlayground:
           description: |-
             **string**
             New passwords the Redis user.
+            Must contain exactly 1 element.
           type: array
           items:
             type: string
@@ -105,10 +108,14 @@ PATCH https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/users/{us
 || clusterId | **string**
 
 Required field. ID of the Redis cluster the user belongs to.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || userName | **string**
 
-Required field. Name of the Redis user to be updated. ||
+Required field. Name of the Redis user to be updated.
+
+The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$ `. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.redis.v1.UpdateUserRequest}
@@ -144,7 +151,9 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || passwords[] | **string**
 
-New passwords the Redis user. ||
+New passwords the Redis user.
+
+Must contain exactly 1 element. ||
 || permissions | **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions)**
 
 New set of permissions to grant to the user. ||

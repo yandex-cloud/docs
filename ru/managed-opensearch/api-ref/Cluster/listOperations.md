@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the OpenSearch cluster resource to list operations for.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -23,12 +24,14 @@ apiPlayground:
             The maximum number of results per page to return.
             If the number of available results is larger than `pageSize`, the service returns
             a [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterOperationsResponse) returned by the previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -52,7 +55,9 @@ GET https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/operat
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the OpenSearch cluster resource to list operations for. ||
+Required field. ID of the OpenSearch cluster resource to list operations for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.opensearch.v1.ListClusterOperationsRequest}
@@ -64,10 +69,14 @@ Required field. ID of the OpenSearch cluster resource to list operations for. ||
 The maximum number of results per page to return.
 
 If the number of available results is larger than `pageSize`, the service returns
-a [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests. ||
+a [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
-Page token. To get the next page of results, set `pageToken` to the [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterOperationsResponse) returned by the previous list request. ||
+Page token. To get the next page of results, set `pageToken` to the [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterOperationsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.opensearch.v1.ListClusterOperationsResponse}

@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the PostgreSQL cluster.
             To get the PostgreSQL cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -24,6 +25,7 @@ apiPlayground:
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`, the service returns a [ListBackupRetentionPoliciesResponse.nextPageToken](#yandex.cloud.mdb.postgresql.v1.ListBackupRetentionPoliciesResponse)
             that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
@@ -31,6 +33,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken`
             to the [ListBackupRetentionPoliciesResponse.nextPageToken](#yandex.cloud.mdb.postgresql.v1.ListBackupRetentionPoliciesResponse) returned by the previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -55,7 +58,9 @@ GET https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/retent
 || clusterId | **string**
 
 Required field. ID of the PostgreSQL cluster.
-To get the PostgreSQL cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request. ||
+To get the PostgreSQL cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.postgresql.v1.ListBackupRetentionPoliciesRequest}
@@ -66,11 +71,15 @@ To get the PostgreSQL cluster ID use a [ClusterService.List](/docs/managed-postg
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListBackupRetentionPoliciesResponse.nextPageToken](#yandex.cloud.mdb.postgresql.v1.ListBackupRetentionPoliciesResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken`
-to the [ListBackupRetentionPoliciesResponse.nextPageToken](#yandex.cloud.mdb.postgresql.v1.ListBackupRetentionPoliciesResponse) returned by the previous list request. ||
+to the [ListBackupRetentionPoliciesResponse.nextPageToken](#yandex.cloud.mdb.postgresql.v1.ListBackupRetentionPoliciesResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.postgresql.v1.ListBackupRetentionPoliciesResponse}
@@ -122,7 +131,9 @@ Message to describe a retention policy for cluster backups.
 Required field. Required. Policy ID. ||
 || clusterId | **string**
 
-Required field. PostgreSQL cluster ID. ||
+Required field. PostgreSQL cluster ID.
+
+The maximum string length in characters is 50. ||
 || policyName | **string**
 
 Required field. Required. Policy name. ||

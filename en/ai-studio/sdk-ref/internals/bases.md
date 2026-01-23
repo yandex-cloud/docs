@@ -55,6 +55,10 @@ Domain for working with batch tasks
 
 Domain for working with [Yandex Cloud OpenAI Compatible API\_BaseSDK\_URL](https://yandex.cloud/docs/ai-studio/concepts/openai-compatibility).
 
+**speechkit**\: *[BaseSpeechKitDomain](#yandex_cloud_ml_sdk._speechkit.domain.BaseSpeechKitDomain)*{#yandex_cloud_ml_sdk._sdk.BaseSDK.speechkit}
+
+Domain for working with [Yandex SpeechKit](https://yandex.cloud/docs/speechkit) services.
+
 **setup\_default\_logging**(*log\_level='INFO'*, *log\_format='[%(levelname)1.1s %(asctime)s %(name)s:%(lineno)d] %(message)s'*, *date\_format='%Y-%m-%d %H:%M:%S'*){#yandex_cloud_ml_sdk._sdk.BaseSDK.setup_default_logging}
 
 Sets up the default logging configuration.
@@ -77,7 +81,15 @@ Read more about log\_levels, log\_format, and date\_format in [Python documentat
 
 *property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._types.model.BaseModel.uri}
 
-*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model.ConfigTypeT)*{#yandex_cloud_ml_sdk._types.model.BaseModel.config}
+*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model_config.ConfigTypeT)*{#yandex_cloud_ml_sdk._types.model.BaseModel.config}
+
+*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._types.model.BaseModel.owner}
+
+*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._types.model.BaseModel.name}
+
+*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._types.model.BaseModel.version}
+
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._types.model.BaseModel.fine_tuned}
 
 **configure**(*\*\*kwargs*){#yandex_cloud_ml_sdk._types.model.BaseModel.configure}
 
@@ -97,9 +109,32 @@ This class defines the interface for obtaining authentication metadata and check
 
 ## *class* yandex\_cloud\_ml\_sdk.\_tools.domain.**BaseTools**{#yandex_cloud_ml_sdk._tools.domain.BaseTools}
 
+Class for tools functionality.
+
+Tools are specialized utilities that extend the capabilities of language models and AI assistants by providing access to external functions, data sources, and computational resources. They enable models to perform actions beyond text generation, such as searching through knowledge bases, executing custom functions, and processing structured data.
+
+This class serves as the foundation for tool management in both synchronous and asynchronous contexts, providing a unified interface for tools. For more information see the description of members of this class.
+
+Tools are particularly useful in:
+
+- **AI Assistants**\: Extending conversational agents with external capabilities like web search, database queries, or API calls
+- **Completions**\: Enabling language models to invoke functions during text generation for dynamic content creation and problem-solving
+
+The tools framework supports both streaming and non-streaming operations, making it suitable for real-time applications and batch processing scenarios.
+
 *property* **function**\: *[FunctionToolsTypeT](../types/other.md#yandex_cloud_ml_sdk._tools.function.FunctionToolsTypeT)*{#yandex_cloud_ml_sdk._tools.domain.BaseTools.function}
 
+Get the function sub-domain for creating function tools.
+
 *property* **rephraser**\: *[RephraserFunction](../types/tools.md#yandex_cloud_ml_sdk._tools.search_index.rephraser.function.RephraserFunction)*{#yandex_cloud_ml_sdk._tools.domain.BaseTools.rephraser}
+
+Get the rephraser for creating query transformation models.
+
+The rephraser provides access to specialized language models designed to intelligently rewrite and enhance user search queries by incorporating conversational context. This is particularly useful in multi-turn conversations where the latest user message may lack context from previous exchanges.
+
+The rephraser works by: - Analyzing the conversation history and current user query - Reformulating the query to be more specific and contextually complete - Improving search relevance by expanding abbreviated or ambiguous terms - Maintaining semantic intent while adding necessary context
+
+The rephraser returns a factory that can create Rephraser model instances with different configurations, supporting various model types including the default ‘rephraser’ model or custom rephrasing models.
 
 **search\_index**(*indexes*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *max\_num\_results=Undefined*, *rephraser=Undefined*, *call\_strategy=Undefined*){#yandex_cloud_ml_sdk._tools.domain.BaseTools.search_index}
 
@@ -108,7 +143,7 @@ Creates SearchIndexTool (not to be confused with [**SearchIndex**](../sync/searc
 #|
 || Parameters | 
 
-- **indexes** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*BaseSearchIndex*](#yandex_cloud_ml_sdk._search_indexes.search_index.BaseSearchIndex) *\|* [*Iterable*](https://docs.python.org/3/library/typing.html#typing.Iterable)*[*[*BaseSearchIndex*](#yandex_cloud_ml_sdk._search_indexes.search_index.BaseSearchIndex)*] \|* [*Iterable*](https://docs.python.org/3/library/typing.html#typing.Iterable)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – parameter takes [**BaseSearchIndex**](#yandex_cloud_ml_sdk._search_indexes.search_index.BaseSearchIndex), string with search index id, or a list of this values in any combination.
+- **indexes** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*BaseSearchIndex*](#yandex_cloud_ml_sdk._search_indexes.search_index.BaseSearchIndex) *\|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*BaseSearchIndex*](#yandex_cloud_ml_sdk._search_indexes.search_index.BaseSearchIndex)*] \|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – parameter takes [**BaseSearchIndex**](#yandex_cloud_ml_sdk._search_indexes.search_index.BaseSearchIndex), string with search index id, or a list of this values in any combination.
 - **max\_num\_results** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – the maximum number of results to return from the search. Fewer results may be returned if necessary to fit within the prompt’s token limit. This ensures that the combined prompt and search results do not exceed the token constraints.
 - **rephraser** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*[True] \| ~yandex\_cloud\_ml\_sdk.\_tools.search\_index.rephraser.model.Rephraser \| ~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined*) – setting for rephrasing user queries; refer to [**Rephraser**](../types/tools.md#yandex_cloud_ml_sdk._tools.search_index.rephraser.model.Rephraser) documentation for details.
 - **call\_strategy** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['always'] \| ~yandex\_cloud\_ml\_sdk.\_types.tools.function.FunctionDictType \| ~yandex\_cloud\_ml\_sdk.\_tools.search\_index.call\_strategy.CallStrategy \| ~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined*) ||
@@ -149,29 +184,41 @@ NB: All of the **site**, **host**, **url** parameters are mutually exclusive.
 
 ## *class* yandex\_cloud\_ml\_sdk.\_tools.function.**BaseFunctionTools**{#yandex_cloud_ml_sdk._tools.function.BaseFunctionTools}
 
+Class for function tools.
+
 **\_\_call\_\_**(*parameters*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *name=Undefined*, *description=Undefined*, *strict=Undefined*){#yandex_cloud_ml_sdk._tools.function.BaseFunctionTools.__call__i}
 
-Call self as a function.
+Create a function tool with given parameters.
 
 #|
 || Parameters | 
 
-- **parameters** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, None \|* [*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\| TypeAliasForwardRef('yandex\_cloud\_ml\_sdk.\_types.schemas.JsonArray') \|* [*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, None \|* [*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\| TypeAliasForwardRef('yandex\_cloud\_ml\_sdk.\_types.schemas.JsonArray') \| JsonObject]] \|* [*type*](https://docs.python.org/3/library/functions.html#type))
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **strict** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) ||
+- **parameters** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, None \|* [*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\| TypeAliasForwardRef('yandex\_cloud\_ml\_sdk.\_types.schemas.JsonArray') \|* [*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, None \|* [*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\| TypeAliasForwardRef('yandex\_cloud\_ml\_sdk.\_types.schemas.JsonArray') \| JsonObject]] \|* [*type*](https://docs.python.org/3/library/functions.html#type)) – Function parameters specification. Can be one of: - JSON Schema dict: A dictionary containing a valid JSON schema that describes the function parameters, their types, descriptions, and validation rules. - Pydantic BaseModel class: A class inheriting from pydantic.BaseModel. The JSON schema will be automatically generated from the model definition. - Pydantic dataclass: A dataclass decorated with @pydantic.dataclasses.dataclass. The JSON schema will be automatically generated from the dataclass definition.
+- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Optional function name. If not provided: - For JSON Schema dict: must be provided explicitly or error will be raised. - For Pydantic models: automatically inferred from the class \_\_name\_\_ attribute.
+- **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Optional function description. If not provided: - For JSON Schema dict: taken from the ‘description’ field in the schema if present. - For Pydantic models: automatically inferred from the class docstring if present.
+- **strict** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Whether to enforce strict parameter validation. When True, the function call will strictly validate that only the defined parameters are provided. ||
 || Return type | [*FunctionTool*](../types/tools.md#yandex_cloud_ml_sdk._tools.tool.FunctionTool) ||
 |#
 
 ## *class* yandex\_cloud\_ml\_sdk.\_tools.tool.**BaseTool**{#yandex_cloud_ml_sdk._tools.tool.BaseTool}
 
+Сlass for all tools.
+
+This class serves as the foundation for all tool implementations that can be used with AI models.
+
 ## *class* yandex\_cloud\_ml\_sdk.\_tools.tool\_call.**BaseToolCall**{#yandex_cloud_ml_sdk._tools.tool_call.BaseToolCall}
 
-BaseToolCall(id: ‘str | None’, function: ‘FunctionCallTypeT | None’, \_proto\_origin: ‘ProtoToolCall | None’, \_json\_origin: ‘JsonObject | None’)
+A tool call returned by models as a result of server-side tool calls.
+
+This class encapsulates the response from language models when they invoke tools during conversation or completion. It contains information about the specific tool that was called, including its unique identifier and the associated function call with parameters and results.
 
 **id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._tools.tool_call.BaseToolCall.id}
 
+Unique tool call identifier
+
 **function**\: *[FunctionCallTypeT](../types/other.md#yandex_cloud_ml_sdk._tools.function_call.FunctionCallTypeT) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._tools.tool_call.BaseToolCall.function}
+
+Function call associated with this tool call
 
 ## *class* yandex\_cloud\_ml\_sdk.\_tools.tool\_call\_list.**ToolCallList**{#yandex_cloud_ml_sdk._tools.tool_call_list.ToolCallList}
 
@@ -187,13 +234,21 @@ Supporting start and stop arguments is optional, but recommended.
 
 **tool\_calls**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[ToolCallTypeT](../types/other.md#yandex_cloud_ml_sdk._tools.tool_call.ToolCallTypeT)*]... ,{#yandex_cloud_ml_sdk._tools.tool_call_list.ToolCallList.tool_calls}
 
+Collections of tool calls
+
 ## *class* yandex\_cloud\_ml\_sdk.\_tools.function\_call.**BaseFunctionCall**{#yandex_cloud_ml_sdk._tools.function_call.BaseFunctionCall}
 
-BaseFunctionCall(name: ‘str’, arguments: ‘JsonObject’, \_proto\_origin: ‘ProtoFunctionCall | None’)
+Represents a function call returned by models as a result of server-side tool calls.
+
+This class encapsulates the details of a function call that was invoked by the model during processing, including the function name and the arguments passed to it.
 
 **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._tools.function_call.BaseFunctionCall.name}
 
+Name of the function being called
+
 **arguments**\: *JsonObject*{#yandex_cloud_ml_sdk._tools.function_call.BaseFunctionCall.arguments}
+
+Arguments passed to the function
 
 ## *class* yandex\_cloud\_ml\_sdk.\_models.**BaseModels**{#yandex_cloud_ml_sdk._models.BaseModels}
 
@@ -263,9 +318,17 @@ Configures the model with specified parameters.
 
 *property* **batch**\: *[BatchSubdomainTypeT](../types/other.md#yandex_cloud_ml_sdk._types.batch.domain.BatchSubdomainTypeT)*{#yandex_cloud_ml_sdk._models.completions.model.BaseGPTModel.batch}
 
-*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model.ConfigTypeT)*{#yandex_cloud_ml_sdk._models.completions.model.BaseGPTModel.config}
+*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model_config.ConfigTypeT)*{#yandex_cloud_ml_sdk._models.completions.model.BaseGPTModel.config}
+
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._models.completions.model.BaseGPTModel.fine_tuned}
+
+*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._models.completions.model.BaseGPTModel.name}
+
+*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._models.completions.model.BaseGPTModel.owner}
 
 *property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._models.completions.model.BaseGPTModel.uri}
+
+*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._models.completions.model.BaseGPTModel.version}
 
 ## *class* yandex\_cloud\_ml\_sdk.\_models.text\_classifiers.function.**BaseTextClassifiers**{#yandex_cloud_ml_sdk._models.text_classifiers.function.BaseTextClassifiers}
 
@@ -284,6 +347,7 @@ Constructs the URI for the model based on the provided model’s name and versio
 
 - **model\_name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the name or URI of the model to call.
 - **model\_version** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the version of the model to be used. Defaults to ‘latest’. ||
+|| Return type | [*ModelTypeT*](../types/other.md#yandex_cloud_ml_sdk._types.model.ModelTypeT) ||
 |#
 
 ## *class* yandex\_cloud\_ml\_sdk.\_models.text\_embeddings.function.**BaseTextEmbeddings**{#yandex_cloud_ml_sdk._models.text_embeddings.function.BaseTextEmbeddings}
@@ -303,6 +367,7 @@ This method constructs the URI for the model based on the provided name and vers
 
 - **model\_name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the name or URI of the model to call.
 - **model\_version** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the version of the model to use. Defaults to ‘latest’. ||
+|| Return type | [*ModelTypeT*](../types/other.md#yandex_cloud_ml_sdk._types.model.ModelTypeT) ||
 |#
 
 ## *class* yandex\_cloud\_ml\_sdk.\_models.image\_generation.function.**BaseImageGeneration**{#yandex_cloud_ml_sdk._models.image_generation.function.BaseImageGeneration}
@@ -328,6 +393,7 @@ Constructs the URI for the model based on the provided model’s name and versio
 
 - **model\_name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the name or URI of the model to call.
 - **model\_version** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the version of the model to use. Defaults to ‘latest’. ||
+|| Return type | [*ModelTypeT*](../types/other.md#yandex_cloud_ml_sdk._types.model.ModelTypeT) ||
 |#
 
 ## *class* yandex\_cloud\_ml\_sdk.\_threads.domain.**BaseThreads**{#yandex_cloud_ml_sdk._threads.domain.BaseThreads}
@@ -549,9 +615,17 @@ Converts generative search instance to [**GenerativeSearchTool**](../types/tools
 || Return type | [*GenerativeSearchTool*](../types/tools.md#yandex_cloud_ml_sdk._tools.generative_search.GenerativeSearchTool) ||
 |#
 
-*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model.ConfigTypeT)*{#yandex_cloud_ml_sdk._search_api.generative.generative.BaseGenerativeSearch.config}
+*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model_config.ConfigTypeT)*{#yandex_cloud_ml_sdk._search_api.generative.generative.BaseGenerativeSearch.config}
+
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_api.generative.generative.BaseGenerativeSearch.fine_tuned}
+
+*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_api.generative.generative.BaseGenerativeSearch.name}
+
+*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_api.generative.generative.BaseGenerativeSearch.owner}
 
 *property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._search_api.generative.generative.BaseGenerativeSearch.uri}
+
+*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_api.generative.generative.BaseGenerativeSearch.version}
 
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_indexes.domain.**BaseSearchIndexes**{#yandex_cloud_ml_sdk._search_indexes.domain.BaseSearchIndexes}
 
@@ -724,6 +798,10 @@ a flag indicating if iyt is allowed to use the dataset to improve the models qua
 
 ## *class* yandex\_cloud\_ml\_sdk.\_tuning.domain.**BaseTuning**{#yandex_cloud_ml_sdk._tuning.domain.BaseTuning}
 
+Class for model tuning operations.
+
+This class serves as the foundation for all model fine-tuning operations, providing comprehensive functionality.
+
 ## *class* yandex\_cloud\_ml\_sdk.\_types.batch.domain.**BaseBatchSubdomain**{#yandex_cloud_ml_sdk._types.batch.domain.BaseBatchSubdomain}
 
 ## *class* yandex\_cloud\_ml\_sdk.\_messages.base.**BaseMessage**{#yandex_cloud_ml_sdk._messages.base.BaseMessage}
@@ -810,9 +888,17 @@ Configure the model with specified parameters.
 || Return type | Self ||
 |#
 
-*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model.ConfigTypeT)*{#yandex_cloud_ml_sdk._chat.completions.model.BaseChatModel.config}
+*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model_config.ConfigTypeT)*{#yandex_cloud_ml_sdk._chat.completions.model.BaseChatModel.config}
+
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._chat.completions.model.BaseChatModel.fine_tuned}
+
+*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._chat.completions.model.BaseChatModel.name}
+
+*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._chat.completions.model.BaseChatModel.owner}
 
 *property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._chat.completions.model.BaseChatModel.uri}
+
+*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._chat.completions.model.BaseChatModel.version}
 
 ## *class* yandex\_cloud\_ml\_sdk.\_chat.text\_embeddings.function.**BaseChatEmbeddings**{#yandex_cloud_ml_sdk._chat.text_embeddings.function.BaseChatEmbeddings}
 
@@ -843,9 +929,17 @@ Constructs the model URI based on the provided name and version. If the name con
 || Return type | Self ||
 |#
 
-*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model.ConfigTypeT)*{#yandex_cloud_ml_sdk._chat.text_embeddings.model.BaseChatEmbeddingsModel.config}
+*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model_config.ConfigTypeT)*{#yandex_cloud_ml_sdk._chat.text_embeddings.model.BaseChatEmbeddingsModel.config}
+
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._chat.text_embeddings.model.BaseChatEmbeddingsModel.fine_tuned}
+
+*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._chat.text_embeddings.model.BaseChatEmbeddingsModel.name}
+
+*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._chat.text_embeddings.model.BaseChatEmbeddingsModel.owner}
 
 *property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._chat.text_embeddings.model.BaseChatEmbeddingsModel.uri}
+
+*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._chat.text_embeddings.model.BaseChatEmbeddingsModel.version}
 
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_api.web.function.**BaseWebSearchFunction**{#yandex_cloud_ml_sdk._search_api.web.function.BaseWebSearchFunction}
 
@@ -919,3 +1013,297 @@ To learn more about parameters and their formats and possible values, refer to [
 - **site** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Restricts the search to the specific website. ||
 || Return type | [*ByImageSearchTypeT*](../types/other.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.ByImageSearchTypeT) ||
 |#
+
+## *class* yandex\_cloud\_ml\_sdk.\_speechkit.domain.**BaseSpeechKitDomain**{#yandex_cloud_ml_sdk._speechkit.domain.BaseSpeechKitDomain}
+
+Domain for working with [Yandex SpeechKit services](https://yandex.cloud/docs/speechkit/).
+
+**text\_to\_speech**\: *[BaseTextToSpeechFunction](#yandex_cloud_ml_sdk._speechkit.text_to_speech.function.BaseTextToSpeechFunction)*{#yandex_cloud_ml_sdk._speechkit.domain.BaseSpeechKitDomain.text_to_speech}
+
+API for [text to speech](https://yandex.cloud/docs/speechkit/tts/) service
+
+**tts**\: *[BaseTextToSpeechFunction](#yandex_cloud_ml_sdk._speechkit.text_to_speech.function.BaseTextToSpeechFunction)*{#yandex_cloud_ml_sdk._speechkit.domain.BaseSpeechKitDomain.tts}
+
+Synonym for *text\_to\_speech* function
+
+## *class* yandex\_cloud\_ml\_sdk.\_speechkit.text\_to\_speech.function.**BaseTextToSpeechFunction**{#yandex_cloud_ml_sdk._speechkit.text_to_speech.function.BaseTextToSpeechFunction}
+
+Text to Speech function for creating synthesis object which provides methods for invoking voice synthesizing.
+
+**\_\_call\_\_**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *loudness\_normalization=Undefined*, *audio\_format=Undefined*, *model=Undefined*, *voice=Undefined*, *role=Undefined*, *speed=Undefined*, *volume=Undefined*, *pitch\_shift=Undefined*, *duration\_ms=Undefined*, *duration\_min\_ms=Undefined*, *duration\_max\_ms=Undefined*, *single\_chunk\_mode=Undefined*){#yandex_cloud_ml_sdk._speechkit.text_to_speech.function.BaseTextToSpeechFunction.__call__i}
+
+Creates TextToSpeech object with provides methods for voice synthesizing.
+
+To learn more about parameters and their formats and possible values, refer to [TTS documentation](https://yandex.cloud/docs/speechkit/stt)
+
+#|
+|| Parameters | 
+
+- **loudness\_normalization** ([*LoudnessNormalization*](../types/speechkit.md#yandex_cloud_ml_sdk._speechkit.enums.LoudnessNormalization) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*LoudnessNormalization*](../types/speechkit.md#yandex_cloud_ml_sdk._speechkit.enums.LoudnessNormalization)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Specifies type of loudness normalization. Default: *LUFS*.
+- **audio\_format** ([*AudioFormat*](../types/speechkit.md#yandex_cloud_ml_sdk._speechkit.enums.AudioFormat) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*AudioFormat*](../types/speechkit.md#yandex_cloud_ml_sdk._speechkit.enums.AudioFormat)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Specifies output audio format. Default: 22050Hz, linear 16-bit signed little-endian PCM, with WAV header.
+- **model** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – The name of the TTS model to use for synthesis. Currently should be empty. Do not use it.
+- **voice** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – The voice to use for speech synthesis.
+- **role** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – The role or speaking style. Can be used to specify pronunciation character for the speaker.
+- **speed** ([*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Speed multiplier (default: 1.0).
+- **volume** ([*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Volume adjustment: \* For *MAX\_PEAK*\: range is (0, 1], default 0.7. \* For *LUFS*\: range is [-145, 0), default -19.
+- **pitch\_shift** ([*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Pitch adjustment, in Hz, range [-1000, 1000], default 0.
+- **duration\_ms** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Limit audio duration to exact value.
+- **duration\_min\_ms** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Limit the minimum audio duration.
+- **duration\_max\_ms** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Limit the maximum audio duration
+- **single\_chunk\_mode** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Automatically split long text to several utterances and bill accordingly. Some degradation in service quality is possible ||
+|| Return type | [*TextToSpeechTypeT*](../types/other.md#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.TextToSpeechTypeT) ||
+|#
+
+## *class* yandex\_cloud\_ml\_sdk.\_speechkit.text\_to\_speech.tts.**BaseTextToSpeech**{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech}
+
+Text to Speech class which provides concrete methods for working with SpeechKit TTS API and incapsulates sintesis setting.
+
+#### *class* **AudioFormat**{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.AudioFormat}
+
+*classmethod* **Unknown**(*name*, *value*){#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.AudioFormat.Unknown}
+
+#|
+|| Parameters | 
+
+- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+|#
+
+**\_\_new\_\_**(*value*){#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.AudioFormat.__new__i}
+
+**conjugate**(){#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.AudioFormat.conjugate}
+
+Returns self, the complex conjugate of any int.
+
+**bit\_length**(){#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.AudioFormat.bit_length}
+
+Number of bits necessary to represent self in binary.
+
+```python
+>>> bin(37)
+'0b100101'
+>>> (37).bit_length()
+6
+```
+
+**bit\_count**(){#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.AudioFormat.bit_count}
+
+Number of ones in the binary representation of the absolute value of self.
+
+Also known as the population count.
+
+```python
+>>> bin(13)
+'0b1101'
+>>> (13).bit_count()
+3
+```
+
+**as\_integer\_ratio**(){#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.AudioFormat.as_integer_ratio}
+
+Return a pair of integers, whose ratio is equal to the original int.
+
+The ratio is in lowest terms and has a positive denominator.
+
+```python
+>>> (10).as_integer_ratio()
+(10, 1)
+>>> (-10).as_integer_ratio()
+(-10, 1)
+>>> (0).as_integer_ratio()
+(0, 1)
+```
+
+**is\_integer**(){#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.AudioFormat.is_integer}
+
+Returns True. Exists for duck type compatibility with float.is\_integer.
+
+**real**{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.AudioFormat.real}
+
+the real part of a complex number
+
+**imag**{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.AudioFormat.imag}
+
+the imaginary part of a complex number
+
+**numerator**{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.AudioFormat.numerator}
+
+the numerator of a rational number in lowest terms
+
+**denominator**{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.AudioFormat.denominator}
+
+the denominator of a rational number in lowest terms
+
+*classmethod* **PCM16**(*sample\_rate\_hertz*, *channels=1*){#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.AudioFormat.PCM16}
+
+Audio bit depth 16-bit signed little-endian (Linear PCM).
+
+#|
+|| Parameters | 
+
+- **sample\_rate\_hertz** ([*int*](https://docs.python.org/3/library/functions.html#int))
+- **channels** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+|| Return type | [*PCM16*](../types/speechkit.md#yandex_cloud_ml_sdk._speechkit.enums.PCM16) ||
+|#
+
+**MP3** = *3*{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.AudioFormat.MP3}
+
+Data is encoded using MPEG-1/2 Layer III and compressed using the MP3 container format
+
+**WAV** = *1*{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.AudioFormat.WAV}
+
+Audio bit depth 16-bit signed little-endian (Linear PCM) paked into WAV container format
+
+**OGG\_OPUS** = *2*{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.AudioFormat.OGG_OPUS}
+
+Data is encoded using the OPUS audio codec and compressed using the OGG container format
+
+**\_\_init\_\_**(*\*args*, *\*\*kwds*){#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.AudioFormat.__init__i}
+
+#### *class* **LoudnessNormalization**{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.LoudnessNormalization}
+
+*classmethod* **Unknown**(*name*, *value*){#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.LoudnessNormalization.Unknown}
+
+#|
+|| Parameters | 
+
+- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+|#
+
+**\_\_new\_\_**(*value*){#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.LoudnessNormalization.__new__i}
+
+**conjugate**(){#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.LoudnessNormalization.conjugate}
+
+Returns self, the complex conjugate of any int.
+
+**bit\_length**(){#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.LoudnessNormalization.bit_length}
+
+Number of bits necessary to represent self in binary.
+
+```python
+>>> bin(37)
+'0b100101'
+>>> (37).bit_length()
+6
+```
+
+**bit\_count**(){#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.LoudnessNormalization.bit_count}
+
+Number of ones in the binary representation of the absolute value of self.
+
+Also known as the population count.
+
+```python
+>>> bin(13)
+'0b1101'
+>>> (13).bit_count()
+3
+```
+
+**as\_integer\_ratio**(){#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.LoudnessNormalization.as_integer_ratio}
+
+Return a pair of integers, whose ratio is equal to the original int.
+
+The ratio is in lowest terms and has a positive denominator.
+
+```python
+>>> (10).as_integer_ratio()
+(10, 1)
+>>> (-10).as_integer_ratio()
+(-10, 1)
+>>> (0).as_integer_ratio()
+(0, 1)
+```
+
+**is\_integer**(){#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.LoudnessNormalization.is_integer}
+
+Returns True. Exists for duck type compatibility with float.is\_integer.
+
+**real**{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.LoudnessNormalization.real}
+
+the real part of a complex number
+
+**imag**{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.LoudnessNormalization.imag}
+
+the imaginary part of a complex number
+
+**numerator**{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.LoudnessNormalization.numerator}
+
+the numerator of a rational number in lowest terms
+
+**denominator**{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.LoudnessNormalization.denominator}
+
+the denominator of a rational number in lowest terms
+
+**MAX\_PEAK** = *1*{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.LoudnessNormalization.MAX_PEAK}
+
+The type of normalization, wherein the gain is changed to bring the highest PCM sample value or analog signal peak to a given level.
+
+**LUFS** = *2*{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.LoudnessNormalization.LUFS}
+
+The type of normalization based on EBU R 128 recommendation
+
+**\_\_init\_\_**(*\*args*, *\*\*kwds*){#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.LoudnessNormalization.__init__i}
+
+**configure**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *loudness\_normalization=Undefined*, *audio\_format=Undefined*, *model=Undefined*, *voice=Undefined*, *role=Undefined*, *speed=Undefined*, *volume=Undefined*, *pitch\_shift=Undefined*, *duration\_ms=Undefined*, *duration\_min\_ms=Undefined*, *duration\_max\_ms=Undefined*, *single\_chunk\_mode=Undefined*){#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.configure}
+
+Returns the new object with config fields overrode by passed values.
+
+To return set value back to default, pass *None* value.
+
+To learn more about parameters and their formats and possible values, refer to [TTS documentation](https://yandex.cloud/docs/speechkit/stt)
+
+#|
+|| Parameters | 
+
+- **loudness\_normalization** ([*LoudnessNormalization*](../types/speechkit.md#yandex_cloud_ml_sdk._speechkit.enums.LoudnessNormalization) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*LoudnessNormalization*](../types/speechkit.md#yandex_cloud_ml_sdk._speechkit.enums.LoudnessNormalization)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Specifies type of loudness normalization. Default: *LUFS*.
+- **audio\_format** ([*AudioFormat*](../types/speechkit.md#yandex_cloud_ml_sdk._speechkit.enums.AudioFormat) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*AudioFormat*](../types/speechkit.md#yandex_cloud_ml_sdk._speechkit.enums.AudioFormat)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Specifies output audio format. Default: 22050Hz, linear 16-bit signed little-endian PCM, with WAV header.
+- **model** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – The name of the TTS model to use for synthesis. Currently should be empty. Do not use it.
+- **voice** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – The voice to use for speech synthesis.
+- **role** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – The role or speaking style. Can be used to specify pronunciation character for the speaker.
+- **speed** ([*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Speed multiplier (default: 1.0).
+- **volume** ([*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Volume adjustment: \* For *MAX\_PEAK*\: range is (0, 1], default 0.7. \* For *LUFS*\: range is [-145, 0), default -19.
+- **pitch\_shift** ([*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Pitch adjustment, in Hz, range [-1000, 1000], default 0.
+- **duration\_ms** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Limit audio duration to exact value.
+- **duration\_min\_ms** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Limit the minimum audio duration.
+- **duration\_max\_ms** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Limit the maximum audio duration.
+- **single\_chunk\_mode** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Automatically split long text to several utterances and bill accordingly. Some degradation in service quality is possible ||
+|| Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
+|#
+
+**create\_bistream**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *timeout=600*){#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.create_bistream}
+
+Creates a bidirectional stream object for using [Yandex SpeechKit Streaming synthesis](https://yandex.cloud/en/docs/speechkit/tts/api/tts-streaming).
+
+#|
+|| Parameters | **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – GRPC timeout in seconds that defines the maximum lifetime of the entire stream. The timeout countdown begins from the moment of the first stream interaction. ||
+|| Return type | [*TTSBidirectionalStreamTypeT*](../types/other.md#yandex_cloud_ml_sdk._speechkit.text_to_speech.bistream.TTSBidirectionalStreamTypeT) ||
+|#
+
+**\_\_init\_\_**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *sdk*, *uri*, *config=None*, *owner=None*){#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.__init__i}
+
+#|
+|| Parameters | 
+
+- **sdk** ([*yandex\_cloud\_ml\_sdk.\_sdk.BaseSDK*](#yandex_cloud_ml_sdk._sdk.BaseSDK))
+- **uri** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **config** ([*ConfigTypeT*](../types/other.md#yandex_cloud_ml_sdk._types.model_config.ConfigTypeT) *\| None*)
+- **owner** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\| None*) ||
+|#
+
+*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model_config.ConfigTypeT)*{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.config}
+
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.fine_tuned}
+
+*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.name}
+
+*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.owner}
+
+*property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.uri}
+
+*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.version}
+
+## *class* yandex\_cloud\_ml\_sdk.\_speechkit.text\_to\_speech.bistream.**BaseTTSBidirectionalStream**{#yandex_cloud_ml_sdk._speechkit.text_to_speech.bistream.BaseTTSBidirectionalStream}
+
+Bidirectional SpeechKit TTS API which allows to write requests and read synthesized result in realtime

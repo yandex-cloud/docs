@@ -197,22 +197,29 @@ Creates a PostgreSQL cluster in the specified folder.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder to create the PostgreSQL cluster in. ||
+Required field. ID of the folder to create the PostgreSQL cluster in.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Required field. Name of the PostgreSQL cluster. The name must be unique within the folder. ||
+Required field. Name of the PostgreSQL cluster. The name must be unique within the folder.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || description | **string**
 
-Description of the PostgreSQL cluster. ||
+Description of the PostgreSQL cluster.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource.
-For example, "project": "mvp" or "source": "dictionary". ||
+For example, "project": "mvp" or "source": "dictionary".
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || environment | enum **Environment**
 
 Required field. Deployment environment of the PostgreSQL cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy:
 only hotfixes are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -231,7 +238,9 @@ Required field. Descriptions of database users to be created in the PostgreSQL c
 Required field. Individual configurations for hosts that should be created for the PostgreSQL cluster. ||
 || network_id | **string**
 
-Required field. ID of the network to create the cluster in. ||
+Required field. ID of the network to create the cluster in.
+
+The maximum string length in characters is 50. ||
 || security_group_ids[] | **string**
 
 User security groups ||
@@ -407,7 +416,9 @@ Configuration setting which enables/disables autofailover in cluster. ||
 Time to start the daily backup, in the UTC timezone. ||
 || backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Retention policy of automated backups. ||
+Retention policy of automated backups.
+
+Acceptable values are 7 to 60, inclusive. ||
 || access | **[Access](#yandex.cloud.mdb.postgresql.v1.Access)**
 
 Access policy to DB ||
@@ -428,7 +439,6 @@ Disk size autoscaling ||
 Mode that the connection pooler is working in.
 See descriptions of all modes in the [documentation for PgBouncer](https://pgbouncer.github.io/usage).
 
-- `POOLING_MODE_UNSPECIFIED`
 - `SESSION`: Session pooling mode.
 - `TRANSACTION`: Transaction pooling mode.
 - `STATEMENT`: Statement pooling mode. ||
@@ -489,10 +499,14 @@ Allow access for YandexQuery. ||
 Configuration setting which enables/disables performance diagnostics service in cluster. ||
 || sessions_sampling_interval | **int64**
 
-Interval (in seconds) for pg_stat_activity sampling ||
+Interval (in seconds) for pg_stat_activity sampling
+
+Acceptable values are 1 to 86400, inclusive. ||
 || statements_sampling_interval | **int64**
 
-Interval (in seconds) for pg_stat_statements sampling ||
+Interval (in seconds) for pg_stat_statements sampling
+
+Acceptable values are 1 to 86400, inclusive. ||
 |#
 
 ## DiskSizeAutoscaling {#yandex.cloud.mdb.postgresql.v1.DiskSizeAutoscaling}
@@ -501,10 +515,14 @@ Interval (in seconds) for pg_stat_statements sampling ||
 ||Field | Description ||
 || planned_usage_threshold | **int64**
 
-Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. ||
+Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergency_usage_threshold | **int64**
 
-Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. ||
+Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
+
+Acceptable values are 0 to 100, inclusive. ||
 || disk_size_limit | **int64**
 
 New storage size (in bytes) that is set when one of the thresholds is achieved. ||
@@ -516,25 +534,35 @@ New storage size (in bytes) that is set when one of the thresholds is achieved. 
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the PostgreSQL database. 1-63 characters long. ||
+Required field. Name of the PostgreSQL database. 1-63 characters long.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || owner | **string**
 
 Required field. Name of the user to be assigned as the owner of the database.
-To get the list of available PostgreSQL users, make a [UserService.List](/docs/managed-postgresql/api-ref/grpc/User/list#List) request. ||
+To get the list of available PostgreSQL users, make a [UserService.List](/docs/managed-postgresql/api-ref/grpc/User/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || lc_collate | **string**
 
 POSIX locale for string sorting order.
-Can only be set at creation time. ||
+Can only be set at creation time.
+
+Value must match the regular expression ``` |[a-zA-Z_]+.UTF-8|C ```. ||
 || lc_ctype | **string**
 
 POSIX locale for character classification.
-Can only be set at creation time. ||
+Can only be set at creation time.
+
+Value must match the regular expression ``` |[a-zA-Z_]+.UTF-8|C ```. ||
 || extensions[] | **[Extension](#yandex.cloud.mdb.postgresql.v1.Extension)**
 
 PostgreSQL extensions to be enabled for the database. ||
 || template_db | **string**
 
-Name of the PostgreSQL database template. ||
+Name of the PostgreSQL database template.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Deletion Protection inhibits deletion of the database
@@ -561,10 +589,14 @@ Version of the extension. The setting is deprecated and has no effect. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the PostgreSQL user. ||
+Required field. Name of the PostgreSQL user.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_@.-]* `. ||
 || password | **string**
 
-Required field. Password of the PostgreSQL user. ||
+Required field. Password of the PostgreSQL user.
+
+The string length in characters must be 8-128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.postgresql.v1.Permission)**
 
 Set of permissions to grant to the user to access specific databases. ||
@@ -576,7 +608,9 @@ When used in session pooling, this setting limits the number of connections to e
 
 When used in transaction pooling, this setting limits the number of user's active transactions; therefore, in this mode user can open thousands of connections, but only `N` concurrent connections will be opened, where `N` is the value of the setting.
 
-Minimum value: `10` (default: `50`), when used in session pooling. ||
+Minimum value: `10` (default: `50`), when used in session pooling.
+
+The minimum value is 10. ||
 || settings | **[UserSettings](#yandex.cloud.mdb.postgresql.v1.UserSettings)**
 
 PostgreSQL settings for the user. ||
@@ -589,7 +623,9 @@ Default value: `true` (login is allowed). ||
 
 A set of roles and privileges that are granted to the user.
 
-For more information, see [the documentation](/docs/managed-postgresql/operations/grant). ||
+For more information, see [the documentation](/docs/managed-postgresql/operations/grant).
+
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `. ||
 || deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Deletion Protection inhibits deletion of the user
@@ -601,9 +637,8 @@ Password-based authentication method for user.
 Possible values are `` USER_PASSWORD_ENCRYPTION_MD5 `` or `` USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
 The default is `` password_encryption `` setting for cluster.
 
-- `USER_PASSWORD_ENCRYPTION_UNSPECIFIED`
-- `USER_PASSWORD_ENCRYPTION_MD5`
-- `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+- `USER_PASSWORD_ENCRYPTION_MD5`: MD5 password-based authentication method
+- `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256`: SCRAM-SHA-256 password-based authentication method ||
 || generate_password | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Generate password using Connection Manager. ||
@@ -611,9 +646,8 @@ Generate password using Connection Manager. ||
 
 Auth method for user
 
-- `AUTH_METHOD_UNSPECIFIED`
-- `AUTH_METHOD_PASSWORD`
-- `AUTH_METHOD_IAM` ||
+- `AUTH_METHOD_PASSWORD`: Standard authentication mode with password
+- `AUTH_METHOD_IAM`: Alternative authentication mode with IAM token ||
 |#
 
 ## Permission {#yandex.cloud.mdb.postgresql.v1.Permission}
@@ -627,7 +661,7 @@ Name of the database that the permission grants access to. ||
 
 ## UserSettings {#yandex.cloud.mdb.postgresql.v1.UserSettings}
 
-PostgreSQL user settings.
+PostgreSQL and connection pooler user settings.
 
 #|
 ||Field | Description ||
@@ -638,7 +672,6 @@ This setting defines the default isolation level to be set for all new SQL trans
 
 For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/transaction-iso.html).
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began. Default value.
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
@@ -672,7 +705,6 @@ These operations guarantee different levels of the data safety and visibility in
 
 For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT).
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
 - `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
 There is no synchronous write operation, data may be loss in case of storage subsystem failure.
@@ -694,7 +726,6 @@ This setting specifies which SQL statements should be logged (on the user level)
 
 For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html).
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`: Logs none of SQL statements. Default value.
 - `LOG_STATEMENT_DDL`: Logs all data definition statements (such as `CREATE`, `ALTER`, `DROP` and others).
 - `LOG_STATEMENT_MOD`: Logs all statements that fall in the `LOG_STATEMENT_DDL` category plus data-modifying statements (such as `INSERT`, `UPDATE` and others).
@@ -705,15 +736,15 @@ Mode that the connection pooler is working in with specified user.
 
 For more information, see the [Odyssey documentation](https://github.com/yandex/odyssey/blob/master/documentation/configuration.md#pool-string).
 
-- `POOLING_MODE_UNSPECIFIED`
 - `SESSION`: Server connection will be assigned to it for the whole duration the client stays connected. Default value.
 - `TRANSACTION`: Server connection is assigned to a client only during a transaction.
 - `STATEMENT`: Server connection will be put back into the pool immediately after a query completes. ||
 || prepared_statements_pooling | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-User can use prepared statements with transaction pooling.
+User can use [prepared statements](https://www.postgresql.org/docs/current/sql-prepare.html) with transaction pooling.
+This requires `pool_mode` to be set to TRANSACTION.
 
-For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-prepare.html). ||
+[Odyssey documentation](https://pg-odyssey.tech/configuration/rules.html#pool_reserve_prepared_statement). ||
 || catchup_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The connection pooler setting. It determines the maximum allowed replication lag (in seconds).
@@ -739,7 +770,9 @@ Sets the maximum allowed idle time, in milliseconds, between queries while in a 
 
 The default value is `0`, which disables the timeout.
 
-For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html). ||
+For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html).
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || statement_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum time (in milliseconds) to wait for statement.
@@ -775,14 +808,13 @@ The possible values are the following:
 
 The default value is PG_AUDIT_SETTINGS_LOG_UNSPECIFIED. In this case, the parameter is not configured.
 
-- `PG_AUDIT_SETTINGS_LOG_UNSPECIFIED`
-- `PG_AUDIT_SETTINGS_LOG_READ`
-- `PG_AUDIT_SETTINGS_LOG_WRITE`
-- `PG_AUDIT_SETTINGS_LOG_FUNCTION`
-- `PG_AUDIT_SETTINGS_LOG_ROLE`
-- `PG_AUDIT_SETTINGS_LOG_DDL`
-- `PG_AUDIT_SETTINGS_LOG_MISC`
-- `PG_AUDIT_SETTINGS_LOG_MISC_SET` ||
+- `PG_AUDIT_SETTINGS_LOG_READ`: `SELECT` and `COPY` queries are logged if the data source is a relation or query.
+- `PG_AUDIT_SETTINGS_LOG_WRITE`: `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY` queries are logged if the data target is a relation.
+- `PG_AUDIT_SETTINGS_LOG_FUNCTION`: Function invocations and `DO` sections are logged.
+- `PG_AUDIT_SETTINGS_LOG_ROLE`: Statements related to role and privilege management, such as `GRANT`, `REVOKE`, or `CREATE/ALTER/DROP ROLE`, are logged.
+- `PG_AUDIT_SETTINGS_LOG_DDL`: Any `DDL` statements that do not belong to the `ROLE` class are logged.
+- `PG_AUDIT_SETTINGS_LOG_MISC`: Miscellaneous commands, such as `DISCARD`, `FETCH`, `CHECKPOINT`, `VACUUM`, and `SET`, are logged.
+- `PG_AUDIT_SETTINGS_LOG_MISC_SET`: Miscellaneous `SET` commands, e.g., `SET ROLE`, are logged. ||
 |#
 
 ## HostSpec {#yandex.cloud.mdb.postgresql.v1.HostSpec}
@@ -792,12 +824,16 @@ The default value is PG_AUDIT_SETTINGS_LOG_UNSPECIFIED. In this case, the parame
 || zone_id | **string**
 
 ID of the availability zone where the host resides.
-To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request. ||
+To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request.
+
+The maximum string length in characters is 50. ||
 || subnet_id | **string**
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The ID of the network is set in the field [Cluster.network_id](#yandex.cloud.mdb.postgresql.v1.Cluster). ||
+The ID of the network is set in the field [Cluster.network_id](#yandex.cloud.mdb.postgresql.v1.Cluster).
+
+The maximum string length in characters is 50. ||
 || assign_public_ip | **bool**
 
 Whether the host should get a public IP address on creation.
@@ -964,7 +1000,6 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -974,7 +1009,9 @@ Day of the week (in `DDD` format).
 - `SUN` ||
 || hour | **int64**
 
-Hour of the day in UTC (in `HH` format). ||
+Hour of the day in UTC (in `HH` format).
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## BackupRetentionPolicySpec {#yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicySpec}
@@ -1105,7 +1142,8 @@ Message to describe a crontab schedule.
         "planned_usage_threshold": "int64",
         "emergency_usage_threshold": "int64",
         "disk_size_limit": "int64"
-      }
+      },
+      "full_version": "string"
     },
     "network_id": "string",
     "health": "Health",
@@ -1261,7 +1299,6 @@ Maximum 64 per resource. ||
 
 Deployment environment of the PostgreSQL cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy:
 only hotfixes are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -1486,7 +1523,9 @@ Configuration setting which enables/disables autofailover in cluster. ||
 Time to start the daily backup, in the UTC timezone. ||
 || backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Retention policy of automated backups. ||
+Retention policy of automated backups.
+
+Acceptable values are 7 to 60, inclusive. ||
 || access | **[Access](#yandex.cloud.mdb.postgresql.v1.Access2)**
 
 Access policy to DB ||
@@ -1496,6 +1535,9 @@ Configuration of the performance diagnostics service. ||
 || disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.postgresql.v1.DiskSizeAutoscaling2)**
 
 Disk size autoscaling ||
+|| full_version | **string**
+
+Full version ||
 |#
 
 ## ConnectionPoolerConfig {#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig2}
@@ -1507,7 +1549,6 @@ Disk size autoscaling ||
 Mode that the connection pooler is working in.
 See descriptions of all modes in the [documentation for PgBouncer](https://pgbouncer.github.io/usage).
 
-- `POOLING_MODE_UNSPECIFIED`
 - `SESSION`: Session pooling mode.
 - `TRANSACTION`: Transaction pooling mode.
 - `STATEMENT`: Statement pooling mode. ||
@@ -1568,10 +1609,14 @@ Allow access for YandexQuery. ||
 Configuration setting which enables/disables performance diagnostics service in cluster. ||
 || sessions_sampling_interval | **int64**
 
-Interval (in seconds) for pg_stat_activity sampling ||
+Interval (in seconds) for pg_stat_activity sampling
+
+Acceptable values are 1 to 86400, inclusive. ||
 || statements_sampling_interval | **int64**
 
-Interval (in seconds) for pg_stat_statements sampling ||
+Interval (in seconds) for pg_stat_statements sampling
+
+Acceptable values are 1 to 86400, inclusive. ||
 |#
 
 ## DiskSizeAutoscaling {#yandex.cloud.mdb.postgresql.v1.DiskSizeAutoscaling2}
@@ -1580,10 +1625,14 @@ Interval (in seconds) for pg_stat_statements sampling ||
 ||Field | Description ||
 || planned_usage_threshold | **int64**
 
-Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. ||
+Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergency_usage_threshold | **int64**
 
-Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. ||
+Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
+
+Acceptable values are 0 to 100, inclusive. ||
 || disk_size_limit | **int64**
 
 New storage size (in bytes) that is set when one of the thresholds is achieved. ||
@@ -1628,7 +1677,6 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -1638,7 +1686,9 @@ Day of the week (in `DDD` format).
 - `SUN` ||
 || hour | **int64**
 
-Hour of the day in UTC (in `HH` format). ||
+Hour of the day in UTC (in `HH` format).
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.mdb.postgresql.v1.MaintenanceOperation}
@@ -1649,7 +1699,9 @@ A planned maintenance operation.
 ||Field | Description ||
 || info | **string**
 
-Information about this maintenance operation. ||
+Information about this maintenance operation.
+
+The maximum string length in characters is 256. ||
 || delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time until which this maintenance operation is delayed. ||

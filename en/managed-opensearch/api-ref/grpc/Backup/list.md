@@ -25,7 +25,9 @@ Returns the list of available backups for the specified OpenSearch cluster.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder to list backups in. ||
+Required field. ID of the folder to list backups in.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page that should be returned.
@@ -34,11 +36,15 @@ If the number of available results is larger than `page_size`, the service retur
 a [ListBackupsResponse.next_page_token](#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse) that can be used to get the next page of results
 in subsequent list requests.
 
-Default value is 100. ||
+Default value is 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 The page token. To get the next page of results, set `page_token` to the [ListBackupsResponse.next_page_token](#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse)
-returned by the previous list request. ||
+returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListBackupsResponse {#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse}
@@ -103,7 +109,9 @@ Time when the backup operation was started. ||
 Time when the backup operation was completed. ||
 || indices[] | **string**
 
-Names of indices in the backup. ||
+Names of indices in the backup.
+
+The maximum number of elements is 100. ||
 || opensearch_version | **string**
 
 OpenSearch version used to create the backup. ||

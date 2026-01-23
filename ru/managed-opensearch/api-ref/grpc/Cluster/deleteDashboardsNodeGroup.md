@@ -26,10 +26,14 @@ Deletes a Dashboards type host group.
 
 Required field. ID of the OpenSearch cluster to delete the Dashboards type host group in.
 
-To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request. ||
+To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Required field. Name of the Dashboards type host group to delete. ||
+Required field. Name of the Dashboards type host group to delete.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

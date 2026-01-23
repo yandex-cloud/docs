@@ -12,23 +12,27 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the folder to create the PostgreSQL cluster in.
+            The maximum string length in characters is 50.
           type: string
         name:
           description: |-
             **string**
             Required field. Name of the PostgreSQL cluster. The name must be unique within the folder.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
         description:
           description: |-
             **string**
             Description of the PostgreSQL cluster.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource.
             For example, "project": "mvp" or "source": "dictionary".
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -42,7 +46,6 @@ apiPlayground:
           description: |-
             **enum** (Environment)
             Required field. Deployment environment of the PostgreSQL cluster.
-            - `ENVIRONMENT_UNSPECIFIED`
             - `PRODUCTION`: Stable environment with a conservative update policy:
             only hotfixes are applied during regular maintenance.
             - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -82,6 +85,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the network to create the cluster in.
+            The maximum string length in characters is 50.
           type: string
         securityGroupIds:
           description: |-
@@ -207,6 +211,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10 to 10000, inclusive.
             type: string
             format: int64
           bgwriterLruMaxpages:
@@ -221,12 +226,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           backendFlushAfter:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -236,7 +243,6 @@ apiPlayground:
           walLevel:
             description: |-
               **enum** (WalLevel)
-              - `WAL_LEVEL_UNSPECIFIED`
               - `WAL_LEVEL_REPLICA`
               - `WAL_LEVEL_LOGICAL`
             type: string
@@ -247,7 +253,6 @@ apiPlayground:
           synchronousCommit:
             description: |-
               **enum** (SynchronousCommit)
-              - `SYNCHRONOUS_COMMIT_UNSPECIFIED`
               - `SYNCHRONOUS_COMMIT_ON`
               - `SYNCHRONOUS_COMMIT_OFF`
               - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -265,6 +270,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 30000 to 86400000, inclusive.
             type: string
             format: int64
           checkpointCompletionTarget:
@@ -277,6 +283,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           maxWalSize:
@@ -304,7 +311,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -319,17 +325,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -342,7 +351,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -371,7 +379,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -400,7 +407,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -447,7 +453,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -463,7 +468,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -488,7 +492,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -516,12 +519,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -532,7 +535,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -543,7 +545,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -561,6 +562,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -577,7 +579,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -630,7 +631,9 @@ apiPlayground:
               This option has been removed in PostgreSQL 10.
             type: boolean
           autovacuumMaxWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 32, inclusive.
             type: string
             format: int64
           autovacuumVacuumCostDelay:
@@ -645,31 +648,41 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1000 to 86400000, inclusive.
             type: string
             format: int64
           archiveTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10000 to 86400000, inclusive.
             type: string
             format: int64
           trackActivityQuerySize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 100 to 102400, inclusive.
             type: string
             format: int64
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
       PostgresqlConfig10_1C:
         type: object
         properties:
           maxConnections:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 16.
             type: string
             format: int64
           sharedBuffers:
@@ -742,6 +755,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10 to 10000, inclusive.
             type: string
             format: int64
           bgwriterLruMaxpages:
@@ -756,12 +770,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           backendFlushAfter:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -771,7 +787,6 @@ apiPlayground:
           walLevel:
             description: |-
               **enum** (WalLevel)
-              - `WAL_LEVEL_UNSPECIFIED`
               - `WAL_LEVEL_REPLICA`
               - `WAL_LEVEL_LOGICAL`
             type: string
@@ -782,7 +797,6 @@ apiPlayground:
           synchronousCommit:
             description: |-
               **enum** (SynchronousCommit)
-              - `SYNCHRONOUS_COMMIT_UNSPECIFIED`
               - `SYNCHRONOUS_COMMIT_ON`
               - `SYNCHRONOUS_COMMIT_OFF`
               - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -800,6 +814,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 30000 to 86400000, inclusive.
             type: string
             format: int64
           checkpointCompletionTarget:
@@ -810,6 +825,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           maxWalSize:
@@ -837,7 +853,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -852,17 +867,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -875,7 +893,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -904,7 +921,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -933,7 +949,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -980,7 +995,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -996,7 +1010,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -1021,7 +1034,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -1049,12 +1061,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -1065,7 +1077,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -1076,7 +1087,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -1094,6 +1104,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -1110,7 +1121,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -1158,7 +1168,9 @@ apiPlayground:
             type: number
             format: double
           autovacuumMaxWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 32, inclusive.
             type: string
             format: int64
           autovacuumVacuumCostDelay:
@@ -1173,16 +1185,20 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1000 to 86400000, inclusive.
             type: string
             format: int64
           archiveTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10000 to 86400000, inclusive.
             type: string
             format: int64
           trackActivityQuerySize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 100 to 102400, inclusive.
             type: string
             format: int64
           enableBitmapscan:
@@ -1219,15 +1235,21 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxWorkerProcesses:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           autovacuumVacuumScaleFactor:
@@ -1245,17 +1267,20 @@ apiPlayground:
             description: '**string**'
             type: string
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
           sharedPreloadLibraries:
             description: |-
               **enum** (SharedPreloadLibraries)
-              - `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
               - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
               - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
               - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -1314,7 +1339,6 @@ apiPlayground:
           pgHintPlanDebugPrint:
             description: |-
               **enum** (PgHintPlanDebugPrint)
-              - `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
               - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
               - `PG_HINT_PLAN_DEBUG_PRINT_ON`
               - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
@@ -1329,7 +1353,6 @@ apiPlayground:
           pgHintPlanMessageLevel:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -1382,6 +1405,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 134217728, inclusive.
             type: string
             format: int64
           geqo:
@@ -1393,12 +1417,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               The number of tables to use geqo, default is 12
+              Acceptable values are 2 to 2147483647, inclusive.
             type: string
             format: int64
           geqoEffort:
             description: |-
               **string** (int64)
               tradeoff between planning time and query plan quality, default is 5
+              Acceptable values are 1 to 10, inclusive.
             type: string
             format: int64
           geqoPoolSize:
@@ -1436,6 +1462,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           logReplicationCommands:
@@ -1451,7 +1478,6 @@ apiPlayground:
             description: |-
               **enum** (PasswordEncryption)
               A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
-              - `PASSWORD_ENCRYPTION_UNSPECIFIED`
               - `PASSWORD_ENCRYPTION_MD5`
               - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`
             type: string
@@ -1463,7 +1489,9 @@ apiPlayground:
         type: object
         properties:
           maxConnections:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 16.
             type: string
             format: int64
           sharedBuffers:
@@ -1536,6 +1564,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10 to 10000, inclusive.
             type: string
             format: int64
           bgwriterLruMaxpages:
@@ -1550,12 +1579,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           backendFlushAfter:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -1565,7 +1596,6 @@ apiPlayground:
           walLevel:
             description: |-
               **enum** (WalLevel)
-              - `WAL_LEVEL_UNSPECIFIED`
               - `WAL_LEVEL_REPLICA`
               - `WAL_LEVEL_LOGICAL`
             type: string
@@ -1576,7 +1606,6 @@ apiPlayground:
           synchronousCommit:
             description: |-
               **enum** (SynchronousCommit)
-              - `SYNCHRONOUS_COMMIT_UNSPECIFIED`
               - `SYNCHRONOUS_COMMIT_ON`
               - `SYNCHRONOUS_COMMIT_OFF`
               - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -1594,6 +1623,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 30000 to 86400000, inclusive.
             type: string
             format: int64
           checkpointCompletionTarget:
@@ -1604,6 +1634,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           maxWalSize:
@@ -1631,7 +1662,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -1646,17 +1676,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -1669,7 +1702,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -1698,7 +1730,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -1727,7 +1758,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -1774,7 +1804,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -1790,7 +1819,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -1815,7 +1843,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -1843,12 +1870,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -1859,7 +1886,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -1870,7 +1896,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -1888,6 +1913,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -1904,7 +1930,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -1952,7 +1977,9 @@ apiPlayground:
             type: number
             format: double
           autovacuumMaxWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 32, inclusive.
             type: string
             format: int64
           autovacuumVacuumCostDelay:
@@ -1967,16 +1994,20 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1000 to 86400000, inclusive.
             type: string
             format: int64
           archiveTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10000 to 86400000, inclusive.
             type: string
             format: int64
           trackActivityQuerySize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 100 to 102400, inclusive.
             type: string
             format: int64
           enableBitmapscan:
@@ -2013,15 +2044,21 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxWorkerProcesses:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           autovacuumVacuumScaleFactor:
@@ -2039,17 +2076,20 @@ apiPlayground:
             description: '**string**'
             type: string
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
           sharedPreloadLibraries:
             description: |-
               **enum** (SharedPreloadLibraries)
-              - `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
               - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
               - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
               - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -2108,7 +2148,6 @@ apiPlayground:
           pgHintPlanDebugPrint:
             description: |-
               **enum** (PgHintPlanDebugPrint)
-              - `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
               - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
               - `PG_HINT_PLAN_DEBUG_PRINT_ON`
               - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
@@ -2123,7 +2162,6 @@ apiPlayground:
           pgHintPlanMessageLevel:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -2170,6 +2208,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 134217728, inclusive.
             type: string
             format: int64
           geqo:
@@ -2181,12 +2220,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               The number of tables to use geqo, default is 12
+              Acceptable values are 2 to 2147483647, inclusive.
             type: string
             format: int64
           geqoEffort:
             description: |-
               **string** (int64)
               tradeoff between planning time and query plan quality, default is 5
+              Acceptable values are 1 to 10, inclusive.
             type: string
             format: int64
           geqoPoolSize:
@@ -2224,6 +2265,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           logReplicationCommands:
@@ -2239,7 +2281,6 @@ apiPlayground:
             description: |-
               **enum** (PasswordEncryption)
               A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
-              - `PASSWORD_ENCRYPTION_UNSPECIFIED`
               - `PASSWORD_ENCRYPTION_MD5`
               - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`
             type: string
@@ -2251,7 +2292,9 @@ apiPlayground:
         type: object
         properties:
           maxConnections:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 16.
             type: string
             format: int64
           sharedBuffers:
@@ -2320,6 +2363,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10 to 10000, inclusive.
             type: string
             format: int64
           bgwriterLruMaxpages:
@@ -2334,12 +2378,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           backendFlushAfter:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -2349,7 +2395,6 @@ apiPlayground:
           walLevel:
             description: |-
               **enum** (WalLevel)
-              - `WAL_LEVEL_UNSPECIFIED`
               - `WAL_LEVEL_REPLICA`
               - `WAL_LEVEL_LOGICAL`
             type: string
@@ -2360,7 +2405,6 @@ apiPlayground:
           synchronousCommit:
             description: |-
               **enum** (SynchronousCommit)
-              - `SYNCHRONOUS_COMMIT_UNSPECIFIED`
               - `SYNCHRONOUS_COMMIT_ON`
               - `SYNCHRONOUS_COMMIT_OFF`
               - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -2378,6 +2422,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 30000 to 86400000, inclusive.
             type: string
             format: int64
           checkpointCompletionTarget:
@@ -2388,6 +2433,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           maxWalSize:
@@ -2415,7 +2461,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -2430,17 +2475,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -2453,7 +2501,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -2482,7 +2529,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -2511,7 +2557,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -2558,7 +2603,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -2574,7 +2618,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -2599,7 +2642,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -2627,12 +2669,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -2643,7 +2685,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -2654,7 +2695,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -2672,6 +2712,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -2688,7 +2729,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -2736,7 +2776,9 @@ apiPlayground:
             type: number
             format: double
           autovacuumMaxWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 32, inclusive.
             type: string
             format: int64
           autovacuumVacuumCostDelay:
@@ -2751,16 +2793,20 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1000 to 86400000, inclusive.
             type: string
             format: int64
           archiveTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10000 to 86400000, inclusive.
             type: string
             format: int64
           trackActivityQuerySize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 100 to 102400, inclusive.
             type: string
             format: int64
           enableBitmapscan:
@@ -2797,15 +2843,21 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxWorkerProcesses:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           autovacuumVacuumScaleFactor:
@@ -2841,7 +2893,9 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelMaintenanceWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 0.
             type: string
             format: int64
           parallelLeaderParticipation:
@@ -2852,17 +2906,20 @@ apiPlayground:
             type: number
             format: double
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
           sharedPreloadLibraries:
             description: |-
               **enum** (SharedPreloadLibraries)
-              - `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
               - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
               - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
               - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -2921,7 +2978,6 @@ apiPlayground:
           pgHintPlanDebugPrint:
             description: |-
               **enum** (PgHintPlanDebugPrint)
-              - `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
               - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
               - `PG_HINT_PLAN_DEBUG_PRINT_ON`
               - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
@@ -2936,7 +2992,6 @@ apiPlayground:
           pgHintPlanMessageLevel:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -2983,6 +3038,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 134217728, inclusive.
             type: string
             format: int64
           geqo:
@@ -2994,12 +3050,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               The number of tables to use geqo, default is 12
+              Acceptable values are 2 to 2147483647, inclusive.
             type: string
             format: int64
           geqoEffort:
             description: |-
               **string** (int64)
               tradeoff between planning time and query plan quality, default is 5
+              Acceptable values are 1 to 10, inclusive.
             type: string
             format: int64
           geqoPoolSize:
@@ -3049,6 +3107,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           logReplicationCommands:
@@ -3064,7 +3123,6 @@ apiPlayground:
             description: |-
               **enum** (PasswordEncryption)
               A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
-              - `PASSWORD_ENCRYPTION_UNSPECIFIED`
               - `PASSWORD_ENCRYPTION_MD5`
               - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`
             type: string
@@ -3076,7 +3134,9 @@ apiPlayground:
         type: object
         properties:
           maxConnections:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 16.
             type: string
             format: int64
           sharedBuffers:
@@ -3145,6 +3205,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10 to 10000, inclusive.
             type: string
             format: int64
           bgwriterLruMaxpages:
@@ -3159,12 +3220,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           backendFlushAfter:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -3174,7 +3237,6 @@ apiPlayground:
           walLevel:
             description: |-
               **enum** (WalLevel)
-              - `WAL_LEVEL_UNSPECIFIED`
               - `WAL_LEVEL_REPLICA`
               - `WAL_LEVEL_LOGICAL`
             type: string
@@ -3185,7 +3247,6 @@ apiPlayground:
           synchronousCommit:
             description: |-
               **enum** (SynchronousCommit)
-              - `SYNCHRONOUS_COMMIT_UNSPECIFIED`
               - `SYNCHRONOUS_COMMIT_ON`
               - `SYNCHRONOUS_COMMIT_OFF`
               - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -3203,6 +3264,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 30000 to 86400000, inclusive.
             type: string
             format: int64
           checkpointCompletionTarget:
@@ -3213,6 +3275,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           maxWalSize:
@@ -3240,7 +3303,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -3255,17 +3317,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -3278,7 +3343,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -3307,7 +3371,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -3336,7 +3399,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -3383,7 +3445,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -3399,7 +3460,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -3424,7 +3484,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -3452,12 +3511,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -3468,7 +3527,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -3479,7 +3537,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -3497,6 +3554,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -3513,7 +3571,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -3561,7 +3618,9 @@ apiPlayground:
             type: number
             format: double
           autovacuumMaxWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 32, inclusive.
             type: string
             format: int64
           autovacuumVacuumCostDelay:
@@ -3576,16 +3635,20 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1000 to 86400000, inclusive.
             type: string
             format: int64
           archiveTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10000 to 86400000, inclusive.
             type: string
             format: int64
           trackActivityQuerySize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 100 to 102400, inclusive.
             type: string
             format: int64
           onlineAnalyzeEnable:
@@ -3625,15 +3688,21 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxWorkerProcesses:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           autovacuumVacuumScaleFactor:
@@ -3669,7 +3738,9 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelMaintenanceWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 0.
             type: string
             format: int64
           parallelLeaderParticipation:
@@ -3680,17 +3751,20 @@ apiPlayground:
             type: number
             format: double
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
           sharedPreloadLibraries:
             description: |-
               **enum** (SharedPreloadLibraries)
-              - `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
               - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
               - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
               - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -3749,7 +3823,6 @@ apiPlayground:
           pgHintPlanDebugPrint:
             description: |-
               **enum** (PgHintPlanDebugPrint)
-              - `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
               - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
               - `PG_HINT_PLAN_DEBUG_PRINT_ON`
               - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
@@ -3764,7 +3837,6 @@ apiPlayground:
           pgHintPlanMessageLevel:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -3814,6 +3886,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 134217728, inclusive.
             type: string
             format: int64
           geqo:
@@ -3825,12 +3898,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               The number of tables to use geqo, default is 12
+              Acceptable values are 2 to 2147483647, inclusive.
             type: string
             format: int64
           geqoEffort:
             description: |-
               **string** (int64)
               tradeoff between planning time and query plan quality, default is 5
+              Acceptable values are 1 to 10, inclusive.
             type: string
             format: int64
           geqoPoolSize:
@@ -3880,6 +3955,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           logReplicationCommands:
@@ -3895,7 +3971,6 @@ apiPlayground:
             description: |-
               **enum** (PasswordEncryption)
               A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
-              - `PASSWORD_ENCRYPTION_UNSPECIFIED`
               - `PASSWORD_ENCRYPTION_MD5`
               - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`
             type: string
@@ -3907,7 +3982,9 @@ apiPlayground:
         type: object
         properties:
           maxConnections:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 16.
             type: string
             format: int64
           sharedBuffers:
@@ -3976,6 +4053,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10 to 10000, inclusive.
             type: string
             format: int64
           bgwriterLruMaxpages:
@@ -3990,12 +4068,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           backendFlushAfter:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -4005,7 +4085,6 @@ apiPlayground:
           walLevel:
             description: |-
               **enum** (WalLevel)
-              - `WAL_LEVEL_UNSPECIFIED`
               - `WAL_LEVEL_REPLICA`
               - `WAL_LEVEL_LOGICAL`
             type: string
@@ -4016,7 +4095,6 @@ apiPlayground:
           synchronousCommit:
             description: |-
               **enum** (SynchronousCommit)
-              - `SYNCHRONOUS_COMMIT_UNSPECIFIED`
               - `SYNCHRONOUS_COMMIT_ON`
               - `SYNCHRONOUS_COMMIT_OFF`
               - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -4034,6 +4112,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 30000 to 86400000, inclusive.
             type: string
             format: int64
           checkpointCompletionTarget:
@@ -4044,6 +4123,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           maxWalSize:
@@ -4071,7 +4151,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -4086,17 +4165,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -4109,7 +4191,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -4138,7 +4219,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -4167,7 +4247,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -4214,7 +4293,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -4230,7 +4308,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -4255,7 +4332,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -4283,12 +4359,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -4299,7 +4375,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -4310,7 +4385,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -4328,6 +4402,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -4344,7 +4419,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -4392,7 +4466,9 @@ apiPlayground:
             type: number
             format: double
           autovacuumMaxWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 32, inclusive.
             type: string
             format: int64
           autovacuumVacuumCostDelay:
@@ -4407,16 +4483,20 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1000 to 86400000, inclusive.
             type: string
             format: int64
           archiveTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10000 to 86400000, inclusive.
             type: string
             format: int64
           trackActivityQuerySize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 100 to 102400, inclusive.
             type: string
             format: int64
           enableBitmapscan:
@@ -4453,15 +4533,21 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxWorkerProcesses:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           autovacuumVacuumScaleFactor:
@@ -4497,7 +4583,9 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelMaintenanceWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 0.
             type: string
             format: int64
           parallelLeaderParticipation:
@@ -4514,7 +4602,6 @@ apiPlayground:
           planCacheMode:
             description: |-
               **enum** (PlanCacheMode)
-              - `PLAN_CACHE_MODE_UNSPECIFIED`
               - `PLAN_CACHE_MODE_AUTO`
               - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
               - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`
@@ -4525,17 +4612,20 @@ apiPlayground:
               - PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN
               - PLAN_CACHE_MODE_FORCE_GENERIC_PLAN
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
           sharedPreloadLibraries:
             description: |-
               **enum** (SharedPreloadLibraries)
-              - `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
               - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
               - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
               - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -4594,7 +4684,6 @@ apiPlayground:
           pgHintPlanDebugPrint:
             description: |-
               **enum** (PgHintPlanDebugPrint)
-              - `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
               - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
               - `PG_HINT_PLAN_DEBUG_PRINT_ON`
               - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
@@ -4609,7 +4698,6 @@ apiPlayground:
           pgHintPlanMessageLevel:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -4656,6 +4744,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 134217728, inclusive.
             type: string
             format: int64
           geqo:
@@ -4667,12 +4756,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               The number of tables to use geqo, default is 12
+              Acceptable values are 2 to 2147483647, inclusive.
             type: string
             format: int64
           geqoEffort:
             description: |-
               **string** (int64)
               tradeoff between planning time and query plan quality, default is 5
+              Acceptable values are 1 to 10, inclusive.
             type: string
             format: int64
           geqoPoolSize:
@@ -4722,6 +4813,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           logReplicationCommands:
@@ -4737,7 +4829,6 @@ apiPlayground:
             description: |-
               **enum** (PasswordEncryption)
               A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
-              - `PASSWORD_ENCRYPTION_UNSPECIFIED`
               - `PASSWORD_ENCRYPTION_MD5`
               - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`
             type: string
@@ -4749,7 +4840,9 @@ apiPlayground:
         type: object
         properties:
           maxConnections:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 16.
             type: string
             format: int64
           sharedBuffers:
@@ -4818,6 +4911,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10 to 10000, inclusive.
             type: string
             format: int64
           bgwriterLruMaxpages:
@@ -4832,12 +4926,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           backendFlushAfter:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -4847,7 +4943,6 @@ apiPlayground:
           walLevel:
             description: |-
               **enum** (WalLevel)
-              - `WAL_LEVEL_UNSPECIFIED`
               - `WAL_LEVEL_REPLICA`
               - `WAL_LEVEL_LOGICAL`
             type: string
@@ -4858,7 +4953,6 @@ apiPlayground:
           synchronousCommit:
             description: |-
               **enum** (SynchronousCommit)
-              - `SYNCHRONOUS_COMMIT_UNSPECIFIED`
               - `SYNCHRONOUS_COMMIT_ON`
               - `SYNCHRONOUS_COMMIT_OFF`
               - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -4876,6 +4970,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 30000 to 86400000, inclusive.
             type: string
             format: int64
           checkpointCompletionTarget:
@@ -4886,6 +4981,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           maxWalSize:
@@ -4913,7 +5009,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -4928,17 +5023,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -4951,7 +5049,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -4980,7 +5077,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -5009,7 +5105,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -5056,7 +5151,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -5072,7 +5166,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -5097,7 +5190,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -5125,12 +5217,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -5141,7 +5233,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -5152,7 +5243,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -5170,6 +5260,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -5186,7 +5277,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -5234,7 +5324,9 @@ apiPlayground:
             type: number
             format: double
           autovacuumMaxWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 32, inclusive.
             type: string
             format: int64
           autovacuumVacuumCostDelay:
@@ -5249,16 +5341,20 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1000 to 86400000, inclusive.
             type: string
             format: int64
           archiveTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10000 to 86400000, inclusive.
             type: string
             format: int64
           trackActivityQuerySize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 100 to 102400, inclusive.
             type: string
             format: int64
           onlineAnalyzeEnable:
@@ -5298,15 +5394,21 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxWorkerProcesses:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           autovacuumVacuumScaleFactor:
@@ -5342,7 +5444,9 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelMaintenanceWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 0.
             type: string
             format: int64
           parallelLeaderParticipation:
@@ -5359,7 +5463,6 @@ apiPlayground:
           planCacheMode:
             description: |-
               **enum** (PlanCacheMode)
-              - `PLAN_CACHE_MODE_UNSPECIFIED`
               - `PLAN_CACHE_MODE_AUTO`
               - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
               - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`
@@ -5370,17 +5473,20 @@ apiPlayground:
               - PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN
               - PLAN_CACHE_MODE_FORCE_GENERIC_PLAN
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
           sharedPreloadLibraries:
             description: |-
               **enum** (SharedPreloadLibraries)
-              - `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
               - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
               - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
               - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -5439,7 +5545,6 @@ apiPlayground:
           pgHintPlanDebugPrint:
             description: |-
               **enum** (PgHintPlanDebugPrint)
-              - `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
               - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
               - `PG_HINT_PLAN_DEBUG_PRINT_ON`
               - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
@@ -5454,7 +5559,6 @@ apiPlayground:
           pgHintPlanMessageLevel:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -5504,6 +5608,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 134217728, inclusive.
             type: string
             format: int64
           geqo:
@@ -5515,12 +5620,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               The number of tables to use geqo, default is 12
+              Acceptable values are 2 to 2147483647, inclusive.
             type: string
             format: int64
           geqoEffort:
             description: |-
               **string** (int64)
               tradeoff between planning time and query plan quality, default is 5
+              Acceptable values are 1 to 10, inclusive.
             type: string
             format: int64
           geqoPoolSize:
@@ -5570,6 +5677,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           logReplicationCommands:
@@ -5585,7 +5693,6 @@ apiPlayground:
             description: |-
               **enum** (PasswordEncryption)
               A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
-              - `PASSWORD_ENCRYPTION_UNSPECIFIED`
               - `PASSWORD_ENCRYPTION_MD5`
               - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`
             type: string
@@ -5597,7 +5704,9 @@ apiPlayground:
         type: object
         properties:
           maxConnections:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 16.
             type: string
             format: int64
           sharedBuffers:
@@ -5666,6 +5775,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10 to 10000, inclusive.
             type: string
             format: int64
           bgwriterLruMaxpages:
@@ -5680,12 +5790,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           backendFlushAfter:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -5695,7 +5807,6 @@ apiPlayground:
           walLevel:
             description: |-
               **enum** (WalLevel)
-              - `WAL_LEVEL_UNSPECIFIED`
               - `WAL_LEVEL_REPLICA`
               - `WAL_LEVEL_LOGICAL`
             type: string
@@ -5706,7 +5817,6 @@ apiPlayground:
           synchronousCommit:
             description: |-
               **enum** (SynchronousCommit)
-              - `SYNCHRONOUS_COMMIT_UNSPECIFIED`
               - `SYNCHRONOUS_COMMIT_ON`
               - `SYNCHRONOUS_COMMIT_OFF`
               - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -5724,6 +5834,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 30000 to 86400000, inclusive.
             type: string
             format: int64
           checkpointCompletionTarget:
@@ -5734,6 +5845,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           maxWalSize:
@@ -5761,7 +5873,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -5776,17 +5887,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -5799,7 +5913,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -5828,7 +5941,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -5857,7 +5969,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -5904,7 +6015,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -5920,7 +6030,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -5945,7 +6054,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -5973,12 +6081,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -5989,7 +6097,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -6000,7 +6107,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -6018,6 +6124,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -6034,7 +6141,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -6082,7 +6188,9 @@ apiPlayground:
             type: number
             format: double
           autovacuumMaxWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 32, inclusive.
             type: string
             format: int64
           autovacuumVacuumCostDelay:
@@ -6097,16 +6205,20 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1000 to 86400000, inclusive.
             type: string
             format: int64
           archiveTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10000 to 86400000, inclusive.
             type: string
             format: int64
           trackActivityQuerySize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 100 to 102400, inclusive.
             type: string
             format: int64
           enableBitmapscan:
@@ -6143,15 +6255,21 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxWorkerProcesses:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           autovacuumVacuumScaleFactor:
@@ -6187,7 +6305,9 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelMaintenanceWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 0.
             type: string
             format: int64
           parallelLeaderParticipation:
@@ -6204,7 +6324,6 @@ apiPlayground:
           planCacheMode:
             description: |-
               **enum** (PlanCacheMode)
-              - `PLAN_CACHE_MODE_UNSPECIFIED`
               - `PLAN_CACHE_MODE_AUTO`
               - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
               - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`
@@ -6215,17 +6334,20 @@ apiPlayground:
               - PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN
               - PLAN_CACHE_MODE_FORCE_GENERIC_PLAN
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
           sharedPreloadLibraries:
             description: |-
               **enum** (SharedPreloadLibraries)
-              - `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
               - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
               - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
               - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -6284,7 +6406,6 @@ apiPlayground:
           pgHintPlanDebugPrint:
             description: |-
               **enum** (PgHintPlanDebugPrint)
-              - `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
               - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
               - `PG_HINT_PLAN_DEBUG_PRINT_ON`
               - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
@@ -6299,7 +6420,6 @@ apiPlayground:
           pgHintPlanMessageLevel:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -6333,10 +6453,13 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 1099511627776, inclusive.
             type: string
             format: int64
           maintenanceIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           maxSlotWalKeepSize:
@@ -6405,6 +6528,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 134217728, inclusive.
             type: string
             format: int64
           geqo:
@@ -6416,12 +6540,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               The number of tables to use geqo, default is 12
+              Acceptable values are 2 to 2147483647, inclusive.
             type: string
             format: int64
           geqoEffort:
             description: |-
               **string** (int64)
               tradeoff between planning time and query plan quality, default is 5
+              Acceptable values are 1 to 10, inclusive.
             type: string
             format: int64
           geqoPoolSize:
@@ -6471,6 +6597,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           logReplicationCommands:
@@ -6486,7 +6613,6 @@ apiPlayground:
             description: |-
               **enum** (PasswordEncryption)
               A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
-              - `PASSWORD_ENCRYPTION_UNSPECIFIED`
               - `PASSWORD_ENCRYPTION_MD5`
               - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`
             type: string
@@ -6498,7 +6624,9 @@ apiPlayground:
         type: object
         properties:
           maxConnections:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 16.
             type: string
             format: int64
           sharedBuffers:
@@ -6567,6 +6695,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10 to 10000, inclusive.
             type: string
             format: int64
           bgwriterLruMaxpages:
@@ -6581,12 +6710,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           backendFlushAfter:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -6596,7 +6727,6 @@ apiPlayground:
           walLevel:
             description: |-
               **enum** (WalLevel)
-              - `WAL_LEVEL_UNSPECIFIED`
               - `WAL_LEVEL_REPLICA`
               - `WAL_LEVEL_LOGICAL`
             type: string
@@ -6607,7 +6737,6 @@ apiPlayground:
           synchronousCommit:
             description: |-
               **enum** (SynchronousCommit)
-              - `SYNCHRONOUS_COMMIT_UNSPECIFIED`
               - `SYNCHRONOUS_COMMIT_ON`
               - `SYNCHRONOUS_COMMIT_OFF`
               - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -6625,6 +6754,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 30000 to 86400000, inclusive.
             type: string
             format: int64
           checkpointCompletionTarget:
@@ -6635,6 +6765,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           maxWalSize:
@@ -6662,7 +6793,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -6677,17 +6807,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -6700,7 +6833,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -6729,7 +6861,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -6758,7 +6889,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -6805,7 +6935,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -6821,7 +6950,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -6846,7 +6974,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -6874,12 +7001,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -6890,7 +7017,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -6901,7 +7027,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -6919,6 +7044,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -6935,7 +7061,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -6983,7 +7108,9 @@ apiPlayground:
             type: number
             format: double
           autovacuumMaxWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 32, inclusive.
             type: string
             format: int64
           autovacuumVacuumCostDelay:
@@ -6998,16 +7125,20 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1000 to 86400000, inclusive.
             type: string
             format: int64
           archiveTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10000 to 86400000, inclusive.
             type: string
             format: int64
           trackActivityQuerySize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 100 to 102400, inclusive.
             type: string
             format: int64
           onlineAnalyzeEnable:
@@ -7047,15 +7178,21 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxWorkerProcesses:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           autovacuumVacuumScaleFactor:
@@ -7091,7 +7228,9 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelMaintenanceWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 0.
             type: string
             format: int64
           parallelLeaderParticipation:
@@ -7108,7 +7247,6 @@ apiPlayground:
           planCacheMode:
             description: |-
               **enum** (PlanCacheMode)
-              - `PLAN_CACHE_MODE_UNSPECIFIED`
               - `PLAN_CACHE_MODE_AUTO`
               - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
               - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`
@@ -7119,17 +7257,20 @@ apiPlayground:
               - PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN
               - PLAN_CACHE_MODE_FORCE_GENERIC_PLAN
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
           sharedPreloadLibraries:
             description: |-
               **enum** (SharedPreloadLibraries)
-              - `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
               - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
               - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
               - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -7188,7 +7329,6 @@ apiPlayground:
           pgHintPlanDebugPrint:
             description: |-
               **enum** (PgHintPlanDebugPrint)
-              - `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
               - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
               - `PG_HINT_PLAN_DEBUG_PRINT_ON`
               - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
@@ -7203,7 +7343,6 @@ apiPlayground:
           pgHintPlanMessageLevel:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -7237,10 +7376,13 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 1099511627776, inclusive.
             type: string
             format: int64
           maintenanceIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           maxSlotWalKeepSize:
@@ -7317,12 +7459,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               The number of tables to use geqo, default is 12
+              Acceptable values are 2 to 2147483647, inclusive.
             type: string
             format: int64
           geqoEffort:
             description: |-
               **string** (int64)
               tradeoff between planning time and query plan quality, default is 5
+              Acceptable values are 1 to 10, inclusive.
             type: string
             format: int64
           geqoPoolSize:
@@ -7372,6 +7516,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           logReplicationCommands:
@@ -7387,7 +7532,6 @@ apiPlayground:
             description: |-
               **enum** (PasswordEncryption)
               A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
-              - `PASSWORD_ENCRYPTION_UNSPECIFIED`
               - `PASSWORD_ENCRYPTION_MD5`
               - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`
             type: string
@@ -7399,7 +7543,9 @@ apiPlayground:
         type: object
         properties:
           maxConnections:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 16.
             type: string
             format: int64
           sharedBuffers:
@@ -7468,6 +7614,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10 to 10000, inclusive.
             type: string
             format: int64
           bgwriterLruMaxpages:
@@ -7482,12 +7629,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           backendFlushAfter:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -7497,7 +7646,6 @@ apiPlayground:
           walLevel:
             description: |-
               **enum** (WalLevel)
-              - `WAL_LEVEL_UNSPECIFIED`
               - `WAL_LEVEL_REPLICA`
               - `WAL_LEVEL_LOGICAL`
             type: string
@@ -7508,7 +7656,6 @@ apiPlayground:
           synchronousCommit:
             description: |-
               **enum** (SynchronousCommit)
-              - `SYNCHRONOUS_COMMIT_UNSPECIFIED`
               - `SYNCHRONOUS_COMMIT_ON`
               - `SYNCHRONOUS_COMMIT_OFF`
               - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -7526,6 +7673,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 30000 to 86400000, inclusive.
             type: string
             format: int64
           checkpointCompletionTarget:
@@ -7536,6 +7684,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           maxWalSize:
@@ -7563,7 +7712,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -7578,17 +7726,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -7601,7 +7752,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -7630,7 +7780,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -7659,7 +7808,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -7706,7 +7854,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -7722,7 +7869,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -7747,7 +7893,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -7775,12 +7920,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -7791,7 +7936,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -7802,7 +7946,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -7820,6 +7963,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -7836,7 +7980,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -7881,7 +8024,9 @@ apiPlayground:
             type: number
             format: double
           autovacuumMaxWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 32, inclusive.
             type: string
             format: int64
           autovacuumVacuumCostDelay:
@@ -7896,16 +8041,20 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1000 to 86400000, inclusive.
             type: string
             format: int64
           archiveTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10000 to 86400000, inclusive.
             type: string
             format: int64
           trackActivityQuerySize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 100 to 102400, inclusive.
             type: string
             format: int64
           enableBitmapscan:
@@ -7942,15 +8091,21 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxWorkerProcesses:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           autovacuumVacuumScaleFactor:
@@ -7986,7 +8141,9 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelMaintenanceWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 0.
             type: string
             format: int64
           parallelLeaderParticipation:
@@ -7999,7 +8156,6 @@ apiPlayground:
           planCacheMode:
             description: |-
               **enum** (PlanCacheMode)
-              - `PLAN_CACHE_MODE_UNSPECIFIED`
               - `PLAN_CACHE_MODE_AUTO`
               - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
               - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`
@@ -8010,17 +8166,20 @@ apiPlayground:
               - PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN
               - PLAN_CACHE_MODE_FORCE_GENERIC_PLAN
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
           sharedPreloadLibraries:
             description: |-
               **enum** (SharedPreloadLibraries)
-              - `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
               - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
               - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
               - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -8079,7 +8238,6 @@ apiPlayground:
           pgHintPlanDebugPrint:
             description: |-
               **enum** (PgHintPlanDebugPrint)
-              - `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
               - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
               - `PG_HINT_PLAN_DEBUG_PRINT_ON`
               - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
@@ -8094,7 +8252,6 @@ apiPlayground:
           pgHintPlanMessageLevel:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -8128,10 +8285,13 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 1099511627776, inclusive.
             type: string
             format: int64
           maintenanceIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           maxSlotWalKeepSize:
@@ -8232,6 +8392,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 134217728, inclusive.
             type: string
             format: int64
           geqo:
@@ -8243,12 +8404,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               The number of tables to use geqo, default is 12
+              Acceptable values are 2 to 2147483647, inclusive.
             type: string
             format: int64
           geqoEffort:
             description: |-
               **string** (int64)
               tradeoff between planning time and query plan quality, default is 5
+              Acceptable values are 1 to 10, inclusive.
             type: string
             format: int64
           geqoPoolSize:
@@ -8298,6 +8461,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           logReplicationCommands:
@@ -8313,7 +8477,6 @@ apiPlayground:
             description: |-
               **enum** (PasswordEncryption)
               A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
-              - `PASSWORD_ENCRYPTION_UNSPECIFIED`
               - `PASSWORD_ENCRYPTION_MD5`
               - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`
             type: string
@@ -8325,7 +8488,6 @@ apiPlayground:
             description: |-
               **enum** (AutoExplainLogFormat)
               Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
-              - `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
               - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
               - `AUTO_EXPLAIN_LOG_FORMAT_XML`
               - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
@@ -8341,7 +8503,9 @@ apiPlayground:
         type: object
         properties:
           maxConnections:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 16.
             type: string
             format: int64
           sharedBuffers:
@@ -8410,6 +8574,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10 to 10000, inclusive.
             type: string
             format: int64
           bgwriterLruMaxpages:
@@ -8424,12 +8589,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           backendFlushAfter:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -8439,7 +8606,6 @@ apiPlayground:
           walLevel:
             description: |-
               **enum** (WalLevel)
-              - `WAL_LEVEL_UNSPECIFIED`
               - `WAL_LEVEL_REPLICA`
               - `WAL_LEVEL_LOGICAL`
             type: string
@@ -8450,7 +8616,6 @@ apiPlayground:
           synchronousCommit:
             description: |-
               **enum** (SynchronousCommit)
-              - `SYNCHRONOUS_COMMIT_UNSPECIFIED`
               - `SYNCHRONOUS_COMMIT_ON`
               - `SYNCHRONOUS_COMMIT_OFF`
               - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -8468,6 +8633,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 30000 to 86400000, inclusive.
             type: string
             format: int64
           checkpointCompletionTarget:
@@ -8478,6 +8644,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           maxWalSize:
@@ -8505,7 +8672,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -8520,17 +8686,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -8543,7 +8712,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -8572,7 +8740,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -8601,7 +8768,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -8648,7 +8814,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -8664,7 +8829,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -8689,7 +8853,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -8717,12 +8880,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -8733,7 +8896,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -8744,7 +8906,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -8762,6 +8923,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -8778,7 +8940,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -8823,7 +8984,9 @@ apiPlayground:
             type: number
             format: double
           autovacuumMaxWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 32, inclusive.
             type: string
             format: int64
           autovacuumVacuumCostDelay:
@@ -8838,16 +9001,20 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1000 to 86400000, inclusive.
             type: string
             format: int64
           archiveTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10000 to 86400000, inclusive.
             type: string
             format: int64
           trackActivityQuerySize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 100 to 102400, inclusive.
             type: string
             format: int64
           onlineAnalyzeEnable:
@@ -8887,15 +9054,21 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxWorkerProcesses:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           autovacuumVacuumScaleFactor:
@@ -8931,7 +9104,9 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelMaintenanceWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 0.
             type: string
             format: int64
           parallelLeaderParticipation:
@@ -8944,7 +9119,6 @@ apiPlayground:
           planCacheMode:
             description: |-
               **enum** (PlanCacheMode)
-              - `PLAN_CACHE_MODE_UNSPECIFIED`
               - `PLAN_CACHE_MODE_AUTO`
               - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
               - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`
@@ -8955,17 +9129,20 @@ apiPlayground:
               - PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN
               - PLAN_CACHE_MODE_FORCE_GENERIC_PLAN
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
           sharedPreloadLibraries:
             description: |-
               **enum** (SharedPreloadLibraries)
-              - `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
               - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
               - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
               - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -9024,7 +9201,6 @@ apiPlayground:
           pgHintPlanDebugPrint:
             description: |-
               **enum** (PgHintPlanDebugPrint)
-              - `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
               - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
               - `PG_HINT_PLAN_DEBUG_PRINT_ON`
               - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
@@ -9039,7 +9215,6 @@ apiPlayground:
           pgHintPlanMessageLevel:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -9073,10 +9248,13 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 1099511627776, inclusive.
             type: string
             format: int64
           maintenanceIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           maxSlotWalKeepSize:
@@ -9185,12 +9363,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               The number of tables to use geqo, default is 12
+              Acceptable values are 2 to 2147483647, inclusive.
             type: string
             format: int64
           geqoEffort:
             description: |-
               **string** (int64)
               tradeoff between planning time and query plan quality, default is 5
+              Acceptable values are 1 to 10, inclusive.
             type: string
             format: int64
           geqoPoolSize:
@@ -9240,6 +9420,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           logReplicationCommands:
@@ -9255,7 +9436,6 @@ apiPlayground:
             description: |-
               **enum** (PasswordEncryption)
               A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
-              - `PASSWORD_ENCRYPTION_UNSPECIFIED`
               - `PASSWORD_ENCRYPTION_MD5`
               - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`
             type: string
@@ -9267,7 +9447,6 @@ apiPlayground:
             description: |-
               **enum** (AutoExplainLogFormat)
               Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
-              - `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
               - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
               - `AUTO_EXPLAIN_LOG_FORMAT_XML`
               - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
@@ -9283,7 +9462,9 @@ apiPlayground:
         type: object
         properties:
           maxConnections:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 16.
             type: string
             format: int64
           sharedBuffers:
@@ -9352,6 +9533,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10 to 10000, inclusive.
             type: string
             format: int64
           bgwriterLruMaxpages:
@@ -9366,12 +9548,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           backendFlushAfter:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -9381,7 +9565,6 @@ apiPlayground:
           walLevel:
             description: |-
               **enum** (WalLevel)
-              - `WAL_LEVEL_UNSPECIFIED`
               - `WAL_LEVEL_REPLICA`
               - `WAL_LEVEL_LOGICAL`
             type: string
@@ -9392,7 +9575,6 @@ apiPlayground:
           synchronousCommit:
             description: |-
               **enum** (SynchronousCommit)
-              - `SYNCHRONOUS_COMMIT_UNSPECIFIED`
               - `SYNCHRONOUS_COMMIT_ON`
               - `SYNCHRONOUS_COMMIT_OFF`
               - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -9410,6 +9592,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 30000 to 86400000, inclusive.
             type: string
             format: int64
           checkpointCompletionTarget:
@@ -9420,6 +9603,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           maxWalSize:
@@ -9447,7 +9631,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -9462,17 +9645,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -9485,7 +9671,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -9514,7 +9699,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -9543,7 +9727,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -9590,7 +9773,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -9606,7 +9788,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -9631,7 +9812,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -9659,12 +9839,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -9675,7 +9855,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -9686,7 +9865,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -9704,6 +9882,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -9720,7 +9899,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -9765,7 +9943,9 @@ apiPlayground:
             type: number
             format: double
           autovacuumMaxWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 32, inclusive.
             type: string
             format: int64
           autovacuumVacuumCostDelay:
@@ -9780,16 +9960,20 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1000 to 86400000, inclusive.
             type: string
             format: int64
           archiveTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10000 to 86400000, inclusive.
             type: string
             format: int64
           trackActivityQuerySize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 100 to 102400, inclusive.
             type: string
             format: int64
           enableBitmapscan:
@@ -9826,15 +10010,21 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxWorkerProcesses:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           autovacuumVacuumScaleFactor:
@@ -9870,7 +10060,9 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelMaintenanceWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 0.
             type: string
             format: int64
           parallelLeaderParticipation:
@@ -9883,7 +10075,6 @@ apiPlayground:
           planCacheMode:
             description: |-
               **enum** (PlanCacheMode)
-              - `PLAN_CACHE_MODE_UNSPECIFIED`
               - `PLAN_CACHE_MODE_AUTO`
               - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
               - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`
@@ -9894,17 +10085,20 @@ apiPlayground:
               - PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN
               - PLAN_CACHE_MODE_FORCE_GENERIC_PLAN
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
           sharedPreloadLibraries:
             description: |-
               **enum** (SharedPreloadLibraries)
-              - `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
               - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
               - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
               - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -9963,7 +10157,6 @@ apiPlayground:
           pgHintPlanDebugPrint:
             description: |-
               **enum** (PgHintPlanDebugPrint)
-              - `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
               - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
               - `PG_HINT_PLAN_DEBUG_PRINT_ON`
               - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
@@ -9978,7 +10171,6 @@ apiPlayground:
           pgHintPlanMessageLevel:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -10012,10 +10204,13 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 1099511627776, inclusive.
             type: string
             format: int64
           maintenanceIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           maxSlotWalKeepSize:
@@ -10116,6 +10311,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 134217728, inclusive.
             type: string
             format: int64
           enableGroupByReordering:
@@ -10130,12 +10326,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               The number of tables to use geqo, default is 12
+              Acceptable values are 2 to 2147483647, inclusive.
             type: string
             format: int64
           geqoEffort:
             description: |-
               **string** (int64)
               tradeoff between planning time and query plan quality, default is 5
+              Acceptable values are 1 to 10, inclusive.
             type: string
             format: int64
           geqoPoolSize:
@@ -10185,6 +10383,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           logReplicationCommands:
@@ -10200,7 +10399,6 @@ apiPlayground:
             description: |-
               **enum** (PasswordEncryption)
               A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
-              - `PASSWORD_ENCRYPTION_UNSPECIFIED`
               - `PASSWORD_ENCRYPTION_MD5`
               - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`
             type: string
@@ -10212,7 +10410,6 @@ apiPlayground:
             description: |-
               **enum** (AutoExplainLogFormat)
               Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
-              - `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
               - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
               - `AUTO_EXPLAIN_LOG_FORMAT_XML`
               - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
@@ -10228,7 +10425,9 @@ apiPlayground:
         type: object
         properties:
           maxConnections:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 16.
             type: string
             format: int64
           sharedBuffers:
@@ -10297,6 +10496,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10 to 10000, inclusive.
             type: string
             format: int64
           bgwriterLruMaxpages:
@@ -10311,12 +10511,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           backendFlushAfter:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -10326,7 +10528,6 @@ apiPlayground:
           walLevel:
             description: |-
               **enum** (WalLevel)
-              - `WAL_LEVEL_UNSPECIFIED`
               - `WAL_LEVEL_REPLICA`
               - `WAL_LEVEL_LOGICAL`
             type: string
@@ -10337,7 +10538,6 @@ apiPlayground:
           synchronousCommit:
             description: |-
               **enum** (SynchronousCommit)
-              - `SYNCHRONOUS_COMMIT_UNSPECIFIED`
               - `SYNCHRONOUS_COMMIT_ON`
               - `SYNCHRONOUS_COMMIT_OFF`
               - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -10355,6 +10555,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 30000 to 86400000, inclusive.
             type: string
             format: int64
           checkpointCompletionTarget:
@@ -10365,6 +10566,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           maxWalSize:
@@ -10392,7 +10594,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -10407,17 +10608,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -10430,7 +10634,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -10459,7 +10662,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -10488,7 +10690,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -10535,7 +10736,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -10551,7 +10751,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -10576,7 +10775,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -10604,12 +10802,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -10620,7 +10818,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -10631,7 +10828,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -10649,6 +10845,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -10665,7 +10862,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -10710,7 +10906,9 @@ apiPlayground:
             type: number
             format: double
           autovacuumMaxWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 32, inclusive.
             type: string
             format: int64
           autovacuumVacuumCostDelay:
@@ -10725,16 +10923,20 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1000 to 86400000, inclusive.
             type: string
             format: int64
           archiveTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10000 to 86400000, inclusive.
             type: string
             format: int64
           trackActivityQuerySize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 100 to 102400, inclusive.
             type: string
             format: int64
           onlineAnalyzeEnable:
@@ -10774,15 +10976,21 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxWorkerProcesses:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           autovacuumVacuumScaleFactor:
@@ -10818,7 +11026,9 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelMaintenanceWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 0.
             type: string
             format: int64
           parallelLeaderParticipation:
@@ -10831,7 +11041,6 @@ apiPlayground:
           planCacheMode:
             description: |-
               **enum** (PlanCacheMode)
-              - `PLAN_CACHE_MODE_UNSPECIFIED`
               - `PLAN_CACHE_MODE_AUTO`
               - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
               - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`
@@ -10842,17 +11051,20 @@ apiPlayground:
               - PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN
               - PLAN_CACHE_MODE_FORCE_GENERIC_PLAN
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
           sharedPreloadLibraries:
             description: |-
               **enum** (SharedPreloadLibraries)
-              - `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
               - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
               - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
               - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -10911,7 +11123,6 @@ apiPlayground:
           pgHintPlanDebugPrint:
             description: |-
               **enum** (PgHintPlanDebugPrint)
-              - `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
               - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
               - `PG_HINT_PLAN_DEBUG_PRINT_ON`
               - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
@@ -10926,7 +11137,6 @@ apiPlayground:
           pgHintPlanMessageLevel:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -10960,10 +11170,13 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 1099511627776, inclusive.
             type: string
             format: int64
           maintenanceIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           maxSlotWalKeepSize:
@@ -11067,6 +11280,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 134217728, inclusive.
             type: string
             format: int64
           enableGroupByReordering:
@@ -11081,12 +11295,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               The number of tables to use geqo, default is 12
+              Acceptable values are 2 to 2147483647, inclusive.
             type: string
             format: int64
           geqoEffort:
             description: |-
               **string** (int64)
               tradeoff between planning time and query plan quality, default is 5
+              Acceptable values are 1 to 10, inclusive.
             type: string
             format: int64
           geqoPoolSize:
@@ -11136,6 +11352,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           logReplicationCommands:
@@ -11151,7 +11368,6 @@ apiPlayground:
             description: |-
               **enum** (PasswordEncryption)
               A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
-              - `PASSWORD_ENCRYPTION_UNSPECIFIED`
               - `PASSWORD_ENCRYPTION_MD5`
               - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`
             type: string
@@ -11163,7 +11379,6 @@ apiPlayground:
             description: |-
               **enum** (AutoExplainLogFormat)
               Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
-              - `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
               - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
               - `AUTO_EXPLAIN_LOG_FORMAT_XML`
               - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
@@ -11179,7 +11394,9 @@ apiPlayground:
         type: object
         properties:
           maxConnections:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 16.
             type: string
             format: int64
           sharedBuffers:
@@ -11248,6 +11465,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10 to 10000, inclusive.
             type: string
             format: int64
           bgwriterLruMaxpages:
@@ -11262,12 +11480,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           backendFlushAfter:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -11277,7 +11497,6 @@ apiPlayground:
           walLevel:
             description: |-
               **enum** (WalLevel)
-              - `WAL_LEVEL_UNSPECIFIED`
               - `WAL_LEVEL_REPLICA`
               - `WAL_LEVEL_LOGICAL`
             type: string
@@ -11288,7 +11507,6 @@ apiPlayground:
           synchronousCommit:
             description: |-
               **enum** (SynchronousCommit)
-              - `SYNCHRONOUS_COMMIT_UNSPECIFIED`
               - `SYNCHRONOUS_COMMIT_ON`
               - `SYNCHRONOUS_COMMIT_OFF`
               - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -11306,6 +11524,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 30000 to 86400000, inclusive.
             type: string
             format: int64
           checkpointCompletionTarget:
@@ -11316,6 +11535,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           maxWalSize:
@@ -11343,7 +11563,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -11358,17 +11577,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           debugParallelQuery:
             description: |-
               **enum** (DebugParallelQuery)
-              - `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
               - `DEBUG_PARALLEL_QUERY_ON`
               - `DEBUG_PARALLEL_QUERY_OFF`
               - `DEBUG_PARALLEL_QUERY_REGRESS`
@@ -11381,7 +11603,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -11410,7 +11631,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -11439,7 +11659,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -11486,7 +11705,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -11502,7 +11720,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -11527,7 +11744,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -11555,12 +11771,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -11571,7 +11787,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -11582,7 +11797,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -11600,6 +11814,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -11616,7 +11831,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -11661,7 +11875,9 @@ apiPlayground:
             type: number
             format: double
           autovacuumMaxWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 32, inclusive.
             type: string
             format: int64
           autovacuumVacuumCostDelay:
@@ -11676,16 +11892,20 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1000 to 86400000, inclusive.
             type: string
             format: int64
           archiveTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10000 to 86400000, inclusive.
             type: string
             format: int64
           trackActivityQuerySize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 100 to 102400, inclusive.
             type: string
             format: int64
           enableBitmapscan:
@@ -11722,15 +11942,21 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxWorkerProcesses:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           autovacuumVacuumScaleFactor:
@@ -11766,7 +11992,9 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelMaintenanceWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 0.
             type: string
             format: int64
           parallelLeaderParticipation:
@@ -11779,7 +12007,6 @@ apiPlayground:
           planCacheMode:
             description: |-
               **enum** (PlanCacheMode)
-              - `PLAN_CACHE_MODE_UNSPECIFIED`
               - `PLAN_CACHE_MODE_AUTO`
               - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
               - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`
@@ -11790,17 +12017,20 @@ apiPlayground:
               - PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN
               - PLAN_CACHE_MODE_FORCE_GENERIC_PLAN
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
           sharedPreloadLibraries:
             description: |-
               **enum** (SharedPreloadLibraries)
-              - `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
               - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
               - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
               - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -11859,7 +12089,6 @@ apiPlayground:
           pgHintPlanDebugPrint:
             description: |-
               **enum** (PgHintPlanDebugPrint)
-              - `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
               - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
               - `PG_HINT_PLAN_DEBUG_PRINT_ON`
               - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
@@ -11874,7 +12103,6 @@ apiPlayground:
           pgHintPlanMessageLevel:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -11908,10 +12136,13 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 1099511627776, inclusive.
             type: string
             format: int64
           maintenanceIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           maxSlotWalKeepSize:
@@ -12012,6 +12243,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 134217728, inclusive.
             type: string
             format: int64
           enableGroupByReordering:
@@ -12026,12 +12258,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               The number of tables to use geqo, default is 12
+              Acceptable values are 2 to 2147483647, inclusive.
             type: string
             format: int64
           geqoEffort:
             description: |-
               **string** (int64)
               tradeoff between planning time and query plan quality, default is 5
+              Acceptable values are 1 to 10, inclusive.
             type: string
             format: int64
           geqoPoolSize:
@@ -12081,6 +12315,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           logReplicationCommands:
@@ -12096,7 +12331,6 @@ apiPlayground:
             description: |-
               **enum** (PasswordEncryption)
               A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
-              - `PASSWORD_ENCRYPTION_UNSPECIFIED`
               - `PASSWORD_ENCRYPTION_MD5`
               - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`
             type: string
@@ -12108,7 +12342,6 @@ apiPlayground:
             description: |-
               **enum** (AutoExplainLogFormat)
               Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
-              - `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
               - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
               - `AUTO_EXPLAIN_LOG_FORMAT_XML`
               - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
@@ -12124,7 +12357,9 @@ apiPlayground:
         type: object
         properties:
           maxConnections:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 16.
             type: string
             format: int64
           sharedBuffers:
@@ -12193,6 +12428,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10 to 10000, inclusive.
             type: string
             format: int64
           bgwriterLruMaxpages:
@@ -12207,12 +12443,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           backendFlushAfter:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -12222,7 +12460,6 @@ apiPlayground:
           walLevel:
             description: |-
               **enum** (WalLevel)
-              - `WAL_LEVEL_UNSPECIFIED`
               - `WAL_LEVEL_REPLICA`
               - `WAL_LEVEL_LOGICAL`
             type: string
@@ -12233,7 +12470,6 @@ apiPlayground:
           synchronousCommit:
             description: |-
               **enum** (SynchronousCommit)
-              - `SYNCHRONOUS_COMMIT_UNSPECIFIED`
               - `SYNCHRONOUS_COMMIT_ON`
               - `SYNCHRONOUS_COMMIT_OFF`
               - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -12251,6 +12487,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 30000 to 86400000, inclusive.
             type: string
             format: int64
           checkpointCompletionTarget:
@@ -12261,6 +12498,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           maxWalSize:
@@ -12288,7 +12526,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -12303,17 +12540,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           debugParallelQuery:
             description: |-
               **enum** (DebugParallelQuery)
-              - `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
               - `DEBUG_PARALLEL_QUERY_ON`
               - `DEBUG_PARALLEL_QUERY_OFF`
               - `DEBUG_PARALLEL_QUERY_REGRESS`
@@ -12326,7 +12566,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -12355,7 +12594,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -12384,7 +12622,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -12431,7 +12668,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -12447,7 +12683,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -12472,7 +12707,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -12500,12 +12734,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -12516,7 +12750,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -12527,7 +12760,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -12545,6 +12777,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -12561,7 +12794,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -12606,7 +12838,9 @@ apiPlayground:
             type: number
             format: double
           autovacuumMaxWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 32, inclusive.
             type: string
             format: int64
           autovacuumVacuumCostDelay:
@@ -12621,16 +12855,20 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1000 to 86400000, inclusive.
             type: string
             format: int64
           archiveTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10000 to 86400000, inclusive.
             type: string
             format: int64
           trackActivityQuerySize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 100 to 102400, inclusive.
             type: string
             format: int64
           onlineAnalyzeEnable:
@@ -12670,15 +12908,21 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxWorkerProcesses:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           autovacuumVacuumScaleFactor:
@@ -12714,7 +12958,9 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelMaintenanceWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 0.
             type: string
             format: int64
           parallelLeaderParticipation:
@@ -12727,7 +12973,6 @@ apiPlayground:
           planCacheMode:
             description: |-
               **enum** (PlanCacheMode)
-              - `PLAN_CACHE_MODE_UNSPECIFIED`
               - `PLAN_CACHE_MODE_AUTO`
               - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
               - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`
@@ -12738,17 +12983,20 @@ apiPlayground:
               - PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN
               - PLAN_CACHE_MODE_FORCE_GENERIC_PLAN
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
           sharedPreloadLibraries:
             description: |-
               **enum** (SharedPreloadLibraries)
-              - `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
               - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
               - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
               - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -12807,7 +13055,6 @@ apiPlayground:
           pgHintPlanDebugPrint:
             description: |-
               **enum** (PgHintPlanDebugPrint)
-              - `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
               - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
               - `PG_HINT_PLAN_DEBUG_PRINT_ON`
               - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
@@ -12822,7 +13069,6 @@ apiPlayground:
           pgHintPlanMessageLevel:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -12856,10 +13102,13 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 1099511627776, inclusive.
             type: string
             format: int64
           maintenanceIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           maxSlotWalKeepSize:
@@ -12963,6 +13212,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 134217728, inclusive.
             type: string
             format: int64
           enableGroupByReordering:
@@ -12977,12 +13227,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               The number of tables to use geqo, default is 12
+              Acceptable values are 2 to 2147483647, inclusive.
             type: string
             format: int64
           geqoEffort:
             description: |-
               **string** (int64)
               tradeoff between planning time and query plan quality, default is 5
+              Acceptable values are 1 to 10, inclusive.
             type: string
             format: int64
           geqoPoolSize:
@@ -13032,6 +13284,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           logReplicationCommands:
@@ -13047,7 +13300,6 @@ apiPlayground:
             description: |-
               **enum** (PasswordEncryption)
               A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
-              - `PASSWORD_ENCRYPTION_UNSPECIFIED`
               - `PASSWORD_ENCRYPTION_MD5`
               - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`
             type: string
@@ -13059,7 +13311,6 @@ apiPlayground:
             description: |-
               **enum** (AutoExplainLogFormat)
               Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
-              - `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
               - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
               - `AUTO_EXPLAIN_LOG_FORMAT_XML`
               - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
@@ -13075,7 +13326,9 @@ apiPlayground:
         type: object
         properties:
           maxConnections:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 16.
             type: string
             format: int64
           sharedBuffers:
@@ -13144,6 +13397,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10 to 10000, inclusive.
             type: string
             format: int64
           bgwriterLruMaxpages:
@@ -13158,18 +13412,19 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           backendFlushAfter:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           walLevel:
             description: |-
               **enum** (WalLevel)
-              - `WAL_LEVEL_UNSPECIFIED`
               - `WAL_LEVEL_REPLICA`
               - `WAL_LEVEL_LOGICAL`
             type: string
@@ -13180,7 +13435,6 @@ apiPlayground:
           synchronousCommit:
             description: |-
               **enum** (SynchronousCommit)
-              - `SYNCHRONOUS_COMMIT_UNSPECIFIED`
               - `SYNCHRONOUS_COMMIT_ON`
               - `SYNCHRONOUS_COMMIT_OFF`
               - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -13198,6 +13452,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 30000 to 86400000, inclusive.
             type: string
             format: int64
           checkpointCompletionTarget:
@@ -13208,6 +13463,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           maxWalSize:
@@ -13235,7 +13491,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -13250,17 +13505,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           debugParallelQuery:
             description: |-
               **enum** (DebugParallelQuery)
-              - `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
               - `DEBUG_PARALLEL_QUERY_ON`
               - `DEBUG_PARALLEL_QUERY_OFF`
               - `DEBUG_PARALLEL_QUERY_REGRESS`
@@ -13273,7 +13531,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -13302,7 +13559,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -13331,7 +13587,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -13378,7 +13633,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -13394,7 +13648,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -13419,7 +13672,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -13441,18 +13693,19 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           idleInTransactionSessionTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -13463,7 +13716,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -13474,7 +13726,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -13492,6 +13743,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -13508,7 +13760,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -13553,7 +13804,9 @@ apiPlayground:
             type: number
             format: double
           autovacuumMaxWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 32, inclusive.
             type: string
             format: int64
           autovacuumVacuumCostDelay:
@@ -13568,16 +13821,20 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1000 to 86400000, inclusive.
             type: string
             format: int64
           archiveTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10000 to 86400000, inclusive.
             type: string
             format: int64
           trackActivityQuerySize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 100 to 102400, inclusive.
             type: string
             format: int64
           enableBitmapscan:
@@ -13614,15 +13871,21 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxWorkerProcesses:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           autovacuumVacuumScaleFactor:
@@ -13658,7 +13921,9 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelMaintenanceWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 0.
             type: string
             format: int64
           parallelLeaderParticipation:
@@ -13671,7 +13936,6 @@ apiPlayground:
           planCacheMode:
             description: |-
               **enum** (PlanCacheMode)
-              - `PLAN_CACHE_MODE_UNSPECIFIED`
               - `PLAN_CACHE_MODE_AUTO`
               - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
               - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`
@@ -13682,17 +13946,20 @@ apiPlayground:
               - PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN
               - PLAN_CACHE_MODE_FORCE_GENERIC_PLAN
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 549755813888, inclusive.
             type: string
             format: int64
           sharedPreloadLibraries:
             description: |-
               **enum** (SharedPreloadLibraries)
-              - `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
               - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
               - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
               - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -13751,7 +14018,6 @@ apiPlayground:
           pgHintPlanDebugPrint:
             description: |-
               **enum** (PgHintPlanDebugPrint)
-              - `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
               - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
               - `PG_HINT_PLAN_DEBUG_PRINT_ON`
               - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
@@ -13766,7 +14032,6 @@ apiPlayground:
           pgHintPlanMessageLevel:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -13800,10 +14065,13 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 1099511627776, inclusive.
             type: string
             format: int64
           maintenanceIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           maxSlotWalKeepSize:
@@ -13904,6 +14172,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 134217728, inclusive.
             type: string
             format: int64
           enableGroupByReordering:
@@ -13924,6 +14193,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               tradeoff between planning time and query plan quality, default is 5
+              Acceptable values are 1 to 10, inclusive.
             type: string
             format: int64
           geqoPoolSize:
@@ -13973,6 +14243,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           logReplicationCommands:
@@ -13987,8 +14258,7 @@ apiPlayground:
           passwordEncryption:
             description: |-
               **enum** (PasswordEncryption)
-              A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
-              - `PASSWORD_ENCRYPTION_UNSPECIFIED`
+              A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
               - `PASSWORD_ENCRYPTION_MD5`
               - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`
             type: string
@@ -14000,7 +14270,6 @@ apiPlayground:
             description: |-
               **enum** (AutoExplainLogFormat)
               Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
-              - `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
               - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
               - `AUTO_EXPLAIN_LOG_FORMAT_XML`
               - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
@@ -14016,22 +14285,30 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxLogicalReplicationWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 4 to 100, inclusive.
             type: string
             format: int64
           maxWalSenders:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 20 to 100, inclusive.
             type: string
             format: int64
           maxReplicationSlots:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 20 to 100, inclusive.
             type: string
             format: int64
       PostgresqlConfig17_1C:
         type: object
         properties:
           maxConnections:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 16.
             type: string
             format: int64
           sharedBuffers:
@@ -14100,6 +14377,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10 to 10000, inclusive.
             type: string
             format: int64
           bgwriterLruMaxpages:
@@ -14114,18 +14392,19 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           backendFlushAfter:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           walLevel:
             description: |-
               **enum** (WalLevel)
-              - `WAL_LEVEL_UNSPECIFIED`
               - `WAL_LEVEL_REPLICA`
               - `WAL_LEVEL_LOGICAL`
             type: string
@@ -14136,7 +14415,6 @@ apiPlayground:
           synchronousCommit:
             description: |-
               **enum** (SynchronousCommit)
-              - `SYNCHRONOUS_COMMIT_UNSPECIFIED`
               - `SYNCHRONOUS_COMMIT_ON`
               - `SYNCHRONOUS_COMMIT_OFF`
               - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -14154,6 +14432,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 30000 to 86400000, inclusive.
             type: string
             format: int64
           checkpointCompletionTarget:
@@ -14164,6 +14443,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           maxWalSize:
@@ -14191,7 +14471,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -14206,17 +14485,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           debugParallelQuery:
             description: |-
               **enum** (DebugParallelQuery)
-              - `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
               - `DEBUG_PARALLEL_QUERY_ON`
               - `DEBUG_PARALLEL_QUERY_OFF`
               - `DEBUG_PARALLEL_QUERY_REGRESS`
@@ -14229,7 +14511,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -14258,7 +14539,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -14287,7 +14567,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -14334,7 +14613,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -14350,7 +14628,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -14375,7 +14652,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -14397,18 +14673,19 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           idleInTransactionSessionTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -14419,7 +14696,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -14430,7 +14706,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -14448,6 +14723,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -14464,7 +14740,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -14509,7 +14784,9 @@ apiPlayground:
             type: number
             format: double
           autovacuumMaxWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 32, inclusive.
             type: string
             format: int64
           autovacuumVacuumCostDelay:
@@ -14524,16 +14801,20 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1000 to 86400000, inclusive.
             type: string
             format: int64
           archiveTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10000 to 86400000, inclusive.
             type: string
             format: int64
           trackActivityQuerySize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 100 to 102400, inclusive.
             type: string
             format: int64
           onlineAnalyzeEnable:
@@ -14573,15 +14854,21 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxWorkerProcesses:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           autovacuumVacuumScaleFactor:
@@ -14617,7 +14904,9 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelMaintenanceWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 0.
             type: string
             format: int64
           parallelLeaderParticipation:
@@ -14630,7 +14919,6 @@ apiPlayground:
           planCacheMode:
             description: |-
               **enum** (PlanCacheMode)
-              - `PLAN_CACHE_MODE_UNSPECIFIED`
               - `PLAN_CACHE_MODE_AUTO`
               - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
               - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`
@@ -14641,17 +14929,20 @@ apiPlayground:
               - PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN
               - PLAN_CACHE_MODE_FORCE_GENERIC_PLAN
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 549755813888, inclusive.
             type: string
             format: int64
           sharedPreloadLibraries:
             description: |-
               **enum** (SharedPreloadLibraries)
-              - `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
               - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
               - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
               - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -14710,7 +15001,6 @@ apiPlayground:
           pgHintPlanDebugPrint:
             description: |-
               **enum** (PgHintPlanDebugPrint)
-              - `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
               - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
               - `PG_HINT_PLAN_DEBUG_PRINT_ON`
               - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
@@ -14725,7 +15015,6 @@ apiPlayground:
           pgHintPlanMessageLevel:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -14759,10 +15048,13 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 1099511627776, inclusive.
             type: string
             format: int64
           maintenanceIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           maxSlotWalKeepSize:
@@ -14866,6 +15158,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 134217728, inclusive.
             type: string
             format: int64
           enableGroupByReordering:
@@ -14886,6 +15179,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               tradeoff between planning time and query plan quality, default is 5
+              Acceptable values are 1 to 10, inclusive.
             type: string
             format: int64
           geqoPoolSize:
@@ -14935,6 +15229,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           logReplicationCommands:
@@ -14949,8 +15244,7 @@ apiPlayground:
           passwordEncryption:
             description: |-
               **enum** (PasswordEncryption)
-              A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
-              - `PASSWORD_ENCRYPTION_UNSPECIFIED`
+              A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
               - `PASSWORD_ENCRYPTION_MD5`
               - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`
             type: string
@@ -14962,7 +15256,6 @@ apiPlayground:
             description: |-
               **enum** (AutoExplainLogFormat)
               Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
-              - `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
               - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
               - `AUTO_EXPLAIN_LOG_FORMAT_XML`
               - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
@@ -14978,22 +15271,30 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxLogicalReplicationWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 4 to 100, inclusive.
             type: string
             format: int64
           maxWalSenders:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 20 to 100, inclusive.
             type: string
             format: int64
           maxReplicationSlots:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 20 to 100, inclusive.
             type: string
             format: int64
       PostgresqlConfig18:
         type: object
         properties:
           maxConnections:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 16.
             type: string
             format: int64
           sharedBuffers:
@@ -15062,6 +15363,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10 to 10000, inclusive.
             type: string
             format: int64
           bgwriterLruMaxpages:
@@ -15076,18 +15378,19 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           backendFlushAfter:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           walLevel:
             description: |-
               **enum** (WalLevel)
-              - `WAL_LEVEL_UNSPECIFIED`
               - `WAL_LEVEL_REPLICA`
               - `WAL_LEVEL_LOGICAL`
             type: string
@@ -15098,7 +15401,6 @@ apiPlayground:
           synchronousCommit:
             description: |-
               **enum** (SynchronousCommit)
-              - `SYNCHRONOUS_COMMIT_UNSPECIFIED`
               - `SYNCHRONOUS_COMMIT_ON`
               - `SYNCHRONOUS_COMMIT_OFF`
               - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -15116,6 +15418,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 30000 to 86400000, inclusive.
             type: string
             format: int64
           checkpointCompletionTarget:
@@ -15126,6 +15429,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           maxWalSize:
@@ -15153,7 +15457,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -15168,17 +15471,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           debugParallelQuery:
             description: |-
               **enum** (DebugParallelQuery)
-              - `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
               - `DEBUG_PARALLEL_QUERY_ON`
               - `DEBUG_PARALLEL_QUERY_OFF`
               - `DEBUG_PARALLEL_QUERY_REGRESS`
@@ -15191,7 +15497,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -15220,7 +15525,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -15249,7 +15553,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -15296,7 +15599,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -15312,7 +15614,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -15337,7 +15638,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -15359,18 +15659,19 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           idleInTransactionSessionTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -15381,7 +15682,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -15392,7 +15692,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -15410,6 +15709,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -15426,7 +15726,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -15471,7 +15770,9 @@ apiPlayground:
             type: number
             format: double
           autovacuumMaxWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 32, inclusive.
             type: string
             format: int64
           autovacuumVacuumCostDelay:
@@ -15486,16 +15787,20 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1000 to 86400000, inclusive.
             type: string
             format: int64
           archiveTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10000 to 86400000, inclusive.
             type: string
             format: int64
           trackActivityQuerySize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 100 to 102400, inclusive.
             type: string
             format: int64
           enableBitmapscan:
@@ -15532,15 +15837,21 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxWorkerProcesses:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           autovacuumVacuumScaleFactor:
@@ -15576,7 +15887,9 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelMaintenanceWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 0.
             type: string
             format: int64
           parallelLeaderParticipation:
@@ -15589,7 +15902,6 @@ apiPlayground:
           planCacheMode:
             description: |-
               **enum** (PlanCacheMode)
-              - `PLAN_CACHE_MODE_UNSPECIFIED`
               - `PLAN_CACHE_MODE_AUTO`
               - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
               - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`
@@ -15600,17 +15912,20 @@ apiPlayground:
               - PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN
               - PLAN_CACHE_MODE_FORCE_GENERIC_PLAN
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 549755813888, inclusive.
             type: string
             format: int64
           sharedPreloadLibraries:
             description: |-
               **enum** (SharedPreloadLibraries)
-              - `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
               - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
               - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
               - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -15669,7 +15984,6 @@ apiPlayground:
           pgHintPlanDebugPrint:
             description: |-
               **enum** (PgHintPlanDebugPrint)
-              - `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
               - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
               - `PG_HINT_PLAN_DEBUG_PRINT_ON`
               - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
@@ -15684,7 +15998,6 @@ apiPlayground:
           pgHintPlanMessageLevel:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -15718,10 +16031,13 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 1099511627776, inclusive.
             type: string
             format: int64
           maintenanceIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           maxSlotWalKeepSize:
@@ -15822,6 +16138,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 134217728, inclusive.
             type: string
             format: int64
           enableGroupByReordering:
@@ -15842,6 +16159,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               tradeoff between planning time and query plan quality, default is 5
+              Acceptable values are 1 to 10, inclusive.
             type: string
             format: int64
           geqoPoolSize:
@@ -15891,6 +16209,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           logReplicationCommands:
@@ -15905,8 +16224,7 @@ apiPlayground:
           passwordEncryption:
             description: |-
               **enum** (PasswordEncryption)
-              A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
-              - `PASSWORD_ENCRYPTION_UNSPECIFIED`
+              A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
               - `PASSWORD_ENCRYPTION_MD5`
               - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`
             type: string
@@ -15918,7 +16236,6 @@ apiPlayground:
             description: |-
               **enum** (AutoExplainLogFormat)
               Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
-              - `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
               - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
               - `AUTO_EXPLAIN_LOG_FORMAT_XML`
               - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
@@ -15934,22 +16251,30 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxLogicalReplicationWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 4 to 100, inclusive.
             type: string
             format: int64
           maxWalSenders:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 20 to 100, inclusive.
             type: string
             format: int64
           maxReplicationSlots:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 20 to 100, inclusive.
             type: string
             format: int64
       PostgresqlConfig18_1C:
         type: object
         properties:
           maxConnections:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 16.
             type: string
             format: int64
           sharedBuffers:
@@ -16018,6 +16343,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10 to 10000, inclusive.
             type: string
             format: int64
           bgwriterLruMaxpages:
@@ -16032,18 +16358,19 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           backendFlushAfter:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           walLevel:
             description: |-
               **enum** (WalLevel)
-              - `WAL_LEVEL_UNSPECIFIED`
               - `WAL_LEVEL_REPLICA`
               - `WAL_LEVEL_LOGICAL`
             type: string
@@ -16054,7 +16381,6 @@ apiPlayground:
           synchronousCommit:
             description: |-
               **enum** (SynchronousCommit)
-              - `SYNCHRONOUS_COMMIT_UNSPECIFIED`
               - `SYNCHRONOUS_COMMIT_ON`
               - `SYNCHRONOUS_COMMIT_OFF`
               - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -16072,6 +16398,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 30000 to 86400000, inclusive.
             type: string
             format: int64
           checkpointCompletionTarget:
@@ -16082,6 +16409,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes
+              Acceptable values are 0 to 2097152, inclusive.
             type: string
             format: int64
           maxWalSize:
@@ -16109,7 +16437,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -16124,17 +16451,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           debugParallelQuery:
             description: |-
               **enum** (DebugParallelQuery)
-              - `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
               - `DEBUG_PARALLEL_QUERY_ON`
               - `DEBUG_PARALLEL_QUERY_OFF`
               - `DEBUG_PARALLEL_QUERY_REGRESS`
@@ -16147,7 +16477,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -16176,7 +16505,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -16205,7 +16533,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -16252,7 +16579,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -16268,7 +16594,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -16293,7 +16618,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -16315,18 +16639,19 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           idleInTransactionSessionTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -16337,7 +16662,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -16348,7 +16672,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -16366,6 +16689,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -16382,7 +16706,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -16427,7 +16750,9 @@ apiPlayground:
             type: number
             format: double
           autovacuumMaxWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 32, inclusive.
             type: string
             format: int64
           autovacuumVacuumCostDelay:
@@ -16442,16 +16767,20 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1000 to 86400000, inclusive.
             type: string
             format: int64
           archiveTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 10000 to 86400000, inclusive.
             type: string
             format: int64
           trackActivityQuerySize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 100 to 102400, inclusive.
             type: string
             format: int64
           onlineAnalyzeEnable:
@@ -16491,15 +16820,21 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxWorkerProcesses:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           autovacuumVacuumScaleFactor:
@@ -16535,7 +16870,9 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelMaintenanceWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              The minimum value is 0.
             type: string
             format: int64
           parallelLeaderParticipation:
@@ -16548,7 +16885,6 @@ apiPlayground:
           planCacheMode:
             description: |-
               **enum** (PlanCacheMode)
-              - `PLAN_CACHE_MODE_UNSPECIFIED`
               - `PLAN_CACHE_MODE_AUTO`
               - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
               - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`
@@ -16559,17 +16895,20 @@ apiPlayground:
               - PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN
               - PLAN_CACHE_MODE_FORCE_GENERIC_PLAN
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 549755813888, inclusive.
             type: string
             format: int64
           sharedPreloadLibraries:
             description: |-
               **enum** (SharedPreloadLibraries)
-              - `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
               - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
               - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
               - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -16628,7 +16967,6 @@ apiPlayground:
           pgHintPlanDebugPrint:
             description: |-
               **enum** (PgHintPlanDebugPrint)
-              - `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
               - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
               - `PG_HINT_PLAN_DEBUG_PRINT_ON`
               - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
@@ -16643,7 +16981,6 @@ apiPlayground:
           pgHintPlanMessageLevel:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -16677,10 +17014,13 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 1099511627776, inclusive.
             type: string
             format: int64
           maintenanceIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           maxSlotWalKeepSize:
@@ -16784,6 +17124,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in bytes.
+              Acceptable values are 65536 to 134217728, inclusive.
             type: string
             format: int64
           enableGroupByReordering:
@@ -16804,6 +17145,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               tradeoff between planning time and query plan quality, default is 5
+              Acceptable values are 1 to 10, inclusive.
             type: string
             format: int64
           geqoPoolSize:
@@ -16853,6 +17195,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           logReplicationCommands:
@@ -16867,8 +17210,7 @@ apiPlayground:
           passwordEncryption:
             description: |-
               **enum** (PasswordEncryption)
-              A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
-              - `PASSWORD_ENCRYPTION_UNSPECIFIED`
+              A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
               - `PASSWORD_ENCRYPTION_MD5`
               - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`
             type: string
@@ -16880,7 +17222,6 @@ apiPlayground:
             description: |-
               **enum** (AutoExplainLogFormat)
               Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
-              - `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
               - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
               - `AUTO_EXPLAIN_LOG_FORMAT_XML`
               - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
@@ -16896,15 +17237,21 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxLogicalReplicationWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 4 to 100, inclusive.
             type: string
             format: int64
           maxWalSenders:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 20 to 100, inclusive.
             type: string
             format: int64
           maxReplicationSlots:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 20 to 100, inclusive.
             type: string
             format: int64
       ConnectionPoolerConfig:
@@ -16915,7 +17262,6 @@ apiPlayground:
               **enum** (PoolingMode)
               Mode that the connection pooler is working in.
               See descriptions of all modes in the [documentation for PgBouncer](https://pgbouncer.github.io/usage).
-              - `POOLING_MODE_UNSPECIFIED`
               - `SESSION`: Session pooling mode.
               - `TRANSACTION`: Transaction pooling mode.
               - `STATEMENT`: Statement pooling mode.
@@ -17024,12 +17370,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               Interval (in seconds) for pg_stat_activity sampling
+              Acceptable values are 1 to 86400, inclusive.
             type: string
             format: int64
           statementsSamplingInterval:
             description: |-
               **string** (int64)
               Interval (in seconds) for pg_stat_statements sampling
+              Acceptable values are 1 to 86400, inclusive.
             type: string
             format: int64
       DiskSizeAutoscaling:
@@ -17039,12 +17387,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
+              Acceptable values are 0 to 100, inclusive.
             type: string
             format: int64
           emergencyUsageThreshold:
             description: |-
               **string** (int64)
               Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
+              Acceptable values are 0 to 100, inclusive.
             type: string
             format: int64
           diskSizeLimit:
@@ -17209,6 +17559,7 @@ apiPlayground:
             description: |-
               **boolean**
               Configuration setting which enables/disables autofailover in cluster.
+            deprecated: true
             type: boolean
           backupWindowStart:
             description: |-
@@ -17219,6 +17570,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Retention policy of automated backups.
+              Acceptable values are 7 to 60, inclusive.
             type: string
             format: int64
           access:
@@ -17297,6 +17649,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. Name of the PostgreSQL database. 1-63 characters long.
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
             pattern: '[a-zA-Z0-9_-]*'
             type: string
           owner:
@@ -17304,6 +17657,7 @@ apiPlayground:
               **string**
               Required field. Name of the user to be assigned as the owner of the database.
               To get the list of available PostgreSQL users, make a [UserService.List](/docs/managed-postgresql/api-ref/User/list#List) request.
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
             pattern: '[a-zA-Z0-9_-]*'
             type: string
           lcCollate:
@@ -17311,6 +17665,7 @@ apiPlayground:
               **string**
               POSIX locale for string sorting order.
               Can only be set at creation time.
+              Value must match the regular expression ` |[a-zA-Z_]+.UTF-8|C `.
             pattern: '|[a-zA-Z_]+.UTF-8|C'
             type: string
           lcCtype:
@@ -17318,6 +17673,7 @@ apiPlayground:
               **string**
               POSIX locale for character classification.
               Can only be set at creation time.
+              Value must match the regular expression ` |[a-zA-Z_]+.UTF-8|C `.
             pattern: '|[a-zA-Z_]+.UTF-8|C'
             type: string
           extensions:
@@ -17331,6 +17687,7 @@ apiPlayground:
             description: |-
               **string**
               Name of the PostgreSQL database template.
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
             pattern: '[a-zA-Z0-9_-]*'
             type: string
           deletionProtection:
@@ -17367,14 +17724,13 @@ apiPlayground:
               * PG_AUDIT_SETTINGS_LOG_MISC: Miscellaneous commands, such as `DISCARD`, `FETCH`, `CHECKPOINT`, `VACUUM`, and `SET`, are logged.
               * PG_AUDIT_SETTINGS_LOG_MISC_SET: Miscellaneous `SET` commands, e.g., `SET ROLE`, are logged.
               The default value is PG_AUDIT_SETTINGS_LOG_UNSPECIFIED. In this case, the parameter is not configured.
-              - `PG_AUDIT_SETTINGS_LOG_UNSPECIFIED`
-              - `PG_AUDIT_SETTINGS_LOG_READ`
-              - `PG_AUDIT_SETTINGS_LOG_WRITE`
-              - `PG_AUDIT_SETTINGS_LOG_FUNCTION`
-              - `PG_AUDIT_SETTINGS_LOG_ROLE`
-              - `PG_AUDIT_SETTINGS_LOG_DDL`
-              - `PG_AUDIT_SETTINGS_LOG_MISC`
-              - `PG_AUDIT_SETTINGS_LOG_MISC_SET`
+              - `PG_AUDIT_SETTINGS_LOG_READ`: `SELECT` and `COPY` queries are logged if the data source is a relation or query.
+              - `PG_AUDIT_SETTINGS_LOG_WRITE`: `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY` queries are logged if the data target is a relation.
+              - `PG_AUDIT_SETTINGS_LOG_FUNCTION`: Function invocations and `DO` sections are logged.
+              - `PG_AUDIT_SETTINGS_LOG_ROLE`: Statements related to role and privilege management, such as `GRANT`, `REVOKE`, or `CREATE/ALTER/DROP ROLE`, are logged.
+              - `PG_AUDIT_SETTINGS_LOG_DDL`: Any `DDL` statements that do not belong to the `ROLE` class are logged.
+              - `PG_AUDIT_SETTINGS_LOG_MISC`: Miscellaneous commands, such as `DISCARD`, `FETCH`, `CHECKPOINT`, `VACUUM`, and `SET`, are logged.
+              - `PG_AUDIT_SETTINGS_LOG_MISC_SET`: Miscellaneous `SET` commands, e.g., `SET ROLE`, are logged.
             type: array
             items:
               type: string
@@ -17396,7 +17752,6 @@ apiPlayground:
               SQL sets an isolation level for each transaction.
               This setting defines the default isolation level to be set for all new SQL transactions.
               For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/transaction-iso.html).
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -17435,7 +17790,6 @@ apiPlayground:
               When synchronization is enabled, cluster waits for the synchronous operations to be completed prior to reporting `success` to the client.
               These operations guarantee different levels of the data safety and visibility in the cluster.
               For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT).
-              - `SYNCHRONOUS_COMMIT_UNSPECIFIED`
               - `SYNCHRONOUS_COMMIT_ON`
               - `SYNCHRONOUS_COMMIT_OFF`
               - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -17462,7 +17816,6 @@ apiPlayground:
               **enum** (LogStatement)
               This setting specifies which SQL statements should be logged (on the user level).
               For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html).
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -17479,7 +17832,6 @@ apiPlayground:
               **enum** (PoolingMode)
               Mode that the connection pooler is working in with specified user.
               For more information, see the [Odyssey documentation](https://github.com/yandex/odyssey/blob/master/documentation/configuration.md#pool-string).
-              - `POOLING_MODE_UNSPECIFIED`
               - `SESSION`: Session pooling mode.
               - `TRANSACTION`: Transaction pooling mode.
               - `STATEMENT`: Statement pooling mode.
@@ -17492,8 +17844,9 @@ apiPlayground:
           preparedStatementsPooling:
             description: |-
               **boolean**
-              User can use prepared statements with transaction pooling.
-              For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-prepare.html).
+              User can use [prepared statements](https://www.postgresql.org/docs/current/sql-prepare.html) with transaction pooling.
+              This requires `pool_mode` to be set to TRANSACTION.
+              [Odyssey documentation](https://pg-odyssey.tech/configuration/rules.html#pool_reserve_prepared_statement).
             type: boolean
           catchupTimeout:
             description: |-
@@ -17521,6 +17874,7 @@ apiPlayground:
               Sets the maximum allowed idle time, in milliseconds, between queries while in a transaction.
               The default value is `0`, which disables the timeout.
               For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html).
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           statementTimeout:
@@ -17545,12 +17899,14 @@ apiPlayground:
             description: |-
               **string**
               Required field. Name of the PostgreSQL user.
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_@.-]* `.
             pattern: '[a-zA-Z0-9_@.-]*'
             type: string
           password:
             description: |-
               **string**
               Required field. Password of the PostgreSQL user.
+              The string length in characters must be 8-128.
             type: string
           permissions:
             description: |-
@@ -17566,6 +17922,7 @@ apiPlayground:
               When used in session pooling, this setting limits the number of connections to every single host in PostgreSQL cluster. In this case, the setting's value must be greater than the total number of connections that backend services can open to access the PostgreSQL cluster. The setting's value should not exceed the value of the [Cluster.config.postgresqlConfig_12.effectiveConfig.maxConnections](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig12) setting.
               When used in transaction pooling, this setting limits the number of user's active transactions; therefore, in this mode user can open thousands of connections, but only `N` concurrent connections will be opened, where `N` is the value of the setting.
               Minimum value: `10` (default: `50`), when used in session pooling.
+              The minimum value is 10.
             default: 50`), when used in session pooling
             type: string
             format: int64
@@ -17586,6 +17943,7 @@ apiPlayground:
               **string**
               A set of roles and privileges that are granted to the user.
               For more information, see [the documentation](/docs/managed-postgresql/operations/grant).
+              The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
             pattern: '[a-zA-Z0-9_]*'
             type: array
             items:
@@ -17603,9 +17961,8 @@ apiPlayground:
               Password-based authentication method for user.
               Possible values are `` USER_PASSWORD_ENCRYPTION_MD5 `` or `` USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
               The default is `` password_encryption `` setting for cluster.
-              - `USER_PASSWORD_ENCRYPTION_UNSPECIFIED`
-              - `USER_PASSWORD_ENCRYPTION_MD5`
-              - `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256`
+              - `USER_PASSWORD_ENCRYPTION_MD5`: MD5 password-based authentication method
+              - `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256`: SCRAM-SHA-256 password-based authentication method
             type: string
             enum:
               - USER_PASSWORD_ENCRYPTION_UNSPECIFIED
@@ -17620,9 +17977,8 @@ apiPlayground:
             description: |-
               **enum** (AuthMethod)
               Auth method for user
-              - `AUTH_METHOD_UNSPECIFIED`
-              - `AUTH_METHOD_PASSWORD`
-              - `AUTH_METHOD_IAM`
+              - `AUTH_METHOD_PASSWORD`: Standard authentication mode with password
+              - `AUTH_METHOD_IAM`: Alternative authentication mode with IAM token
             type: string
             enum:
               - AUTH_METHOD_UNSPECIFIED
@@ -17671,7 +18027,9 @@ apiPlayground:
             type: string
             format: int64
           backendFlushAfter:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 2048, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -17687,7 +18045,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -17702,17 +18059,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -17725,7 +18085,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -17754,7 +18113,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -17783,7 +18141,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -17830,7 +18187,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -17846,7 +18202,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -17871,7 +18226,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -17899,12 +18253,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -17915,7 +18269,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -17926,7 +18279,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -17944,6 +18296,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -17960,7 +18313,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -18013,11 +18365,15 @@ apiPlayground:
               This option has been removed in PostgreSQL 10.
             type: boolean
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
       PostgresqlHostConfig10_1C:
@@ -18060,7 +18416,9 @@ apiPlayground:
             type: string
             format: int64
           backendFlushAfter:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 2048, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -18076,7 +18434,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -18091,17 +18448,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -18114,7 +18474,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -18143,7 +18502,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -18172,7 +18530,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -18219,7 +18576,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -18235,7 +18591,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -18260,7 +18615,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -18288,12 +18642,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -18304,7 +18658,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -18315,7 +18668,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -18333,6 +18685,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -18349,7 +18702,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -18430,22 +18782,30 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           timezone:
             description: '**string**'
             type: string
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
       PostgresqlHostConfig10:
@@ -18488,7 +18848,9 @@ apiPlayground:
             type: string
             format: int64
           backendFlushAfter:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 2048, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -18504,7 +18866,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -18519,17 +18880,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -18542,7 +18906,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -18571,7 +18934,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -18600,7 +18962,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -18647,7 +19008,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -18663,7 +19023,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -18688,7 +19047,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -18716,12 +19074,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -18732,7 +19090,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -18743,7 +19100,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -18761,6 +19117,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -18777,7 +19134,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -18858,22 +19214,30 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           timezone:
             description: '**string**'
             type: string
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
       PostgresqlHostConfig11:
@@ -18910,7 +19274,9 @@ apiPlayground:
             type: string
             format: int64
           backendFlushAfter:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 2048, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -18926,7 +19292,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -18941,17 +19306,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -18964,7 +19332,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -18993,7 +19360,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -19022,7 +19388,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -19069,7 +19434,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -19085,7 +19449,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -19110,7 +19473,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -19138,12 +19500,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -19154,7 +19516,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -19165,7 +19526,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -19183,6 +19543,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -19199,7 +19560,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -19280,22 +19640,30 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           timezone:
             description: '**string**'
             type: string
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
       PostgresqlHostConfig11_1C:
@@ -19332,7 +19700,9 @@ apiPlayground:
             type: string
             format: int64
           backendFlushAfter:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 2048, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -19348,7 +19718,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -19363,17 +19732,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -19386,7 +19758,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -19415,7 +19786,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -19444,7 +19814,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -19491,7 +19860,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -19507,7 +19875,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -19532,7 +19899,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -19560,12 +19926,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -19576,7 +19942,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -19587,7 +19952,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -19605,6 +19969,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -19621,7 +19986,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -19702,22 +20066,30 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           timezone:
             description: '**string**'
             type: string
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
       PostgresqlHostConfig12:
@@ -19754,7 +20126,9 @@ apiPlayground:
             type: string
             format: int64
           backendFlushAfter:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 2048, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -19770,7 +20144,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -19785,17 +20158,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -19808,7 +20184,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -19837,7 +20212,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -19866,7 +20240,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -19913,7 +20286,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -19929,7 +20301,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -19954,7 +20325,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -19982,12 +20352,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -19998,7 +20368,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -20009,7 +20378,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -20027,6 +20395,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -20043,7 +20412,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -20124,22 +20492,30 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           timezone:
             description: '**string**'
             type: string
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
       PostgresqlHostConfig12_1C:
@@ -20176,7 +20552,9 @@ apiPlayground:
             type: string
             format: int64
           backendFlushAfter:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 2048, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -20192,7 +20570,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -20207,17 +20584,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -20230,7 +20610,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -20259,7 +20638,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -20288,7 +20666,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -20335,7 +20712,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -20351,7 +20727,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -20376,7 +20751,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -20404,12 +20778,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -20420,7 +20794,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -20431,7 +20804,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -20449,6 +20821,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -20465,7 +20838,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -20546,22 +20918,30 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           timezone:
             description: '**string**'
             type: string
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
       PostgresqlHostConfig13:
@@ -20598,7 +20978,9 @@ apiPlayground:
             type: string
             format: int64
           backendFlushAfter:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 2048, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -20614,7 +20996,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -20629,17 +21010,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -20652,7 +21036,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -20681,7 +21064,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -20710,7 +21092,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -20757,7 +21138,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -20773,7 +21153,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -20798,7 +21177,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -20826,12 +21204,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -20842,7 +21220,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -20853,7 +21230,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -20871,6 +21247,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -20887,7 +21264,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -20968,22 +21344,30 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           timezone:
             description: '**string**'
             type: string
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
       PostgresqlHostConfig13_1C:
@@ -21020,7 +21404,9 @@ apiPlayground:
             type: string
             format: int64
           backendFlushAfter:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 2048, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -21036,7 +21422,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -21051,17 +21436,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -21074,7 +21462,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -21103,7 +21490,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -21132,7 +21518,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -21179,7 +21564,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -21195,7 +21579,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -21220,7 +21603,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -21248,12 +21630,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -21264,7 +21646,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -21275,7 +21656,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -21293,6 +21673,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -21309,7 +21690,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -21390,22 +21770,30 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           timezone:
             description: '**string**'
             type: string
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
       PostgresqlHostConfig14:
@@ -21442,7 +21830,9 @@ apiPlayground:
             type: string
             format: int64
           backendFlushAfter:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 2048, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -21458,7 +21848,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -21473,17 +21862,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -21496,7 +21888,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -21525,7 +21916,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -21554,7 +21944,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -21601,7 +21990,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -21617,7 +22005,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -21642,7 +22029,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -21670,12 +22056,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -21686,7 +22072,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -21697,7 +22082,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -21715,6 +22099,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -21731,7 +22116,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -21809,22 +22193,30 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           timezone:
             description: '**string**'
             type: string
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
       PostgresqlHostConfig14_1C:
@@ -21861,7 +22253,9 @@ apiPlayground:
             type: string
             format: int64
           backendFlushAfter:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 2048, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -21877,7 +22271,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -21892,17 +22285,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -21915,7 +22311,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -21944,7 +22339,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -21973,7 +22367,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -22020,7 +22413,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -22036,7 +22428,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -22061,7 +22452,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -22089,12 +22479,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -22105,7 +22495,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -22116,7 +22505,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -22134,6 +22522,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -22150,7 +22539,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -22228,22 +22616,30 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           timezone:
             description: '**string**'
             type: string
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
       PostgresqlHostConfig15:
@@ -22280,7 +22676,9 @@ apiPlayground:
             type: string
             format: int64
           backendFlushAfter:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 2048, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -22296,7 +22694,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -22311,17 +22708,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -22334,7 +22734,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -22363,7 +22762,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -22392,7 +22790,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -22439,7 +22836,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -22455,7 +22851,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -22480,7 +22875,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -22508,12 +22902,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -22524,7 +22918,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -22535,7 +22928,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -22553,6 +22945,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -22569,7 +22962,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -22647,22 +23039,30 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           timezone:
             description: '**string**'
             type: string
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
       PostgresqlHostConfig15_1C:
@@ -22699,7 +23099,9 @@ apiPlayground:
             type: string
             format: int64
           backendFlushAfter:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 2048, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -22715,7 +23117,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -22730,17 +23131,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
               - `FORCE_PARALLEL_MODE_ON`
               - `FORCE_PARALLEL_MODE_OFF`
               - `FORCE_PARALLEL_MODE_REGRESS`
@@ -22753,7 +23157,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -22782,7 +23185,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -22811,7 +23213,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -22858,7 +23259,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -22874,7 +23274,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -22899,7 +23298,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -22927,12 +23325,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -22943,7 +23341,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -22954,7 +23351,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -22972,6 +23368,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -22988,7 +23385,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -23066,22 +23462,30 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           timezone:
             description: '**string**'
             type: string
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
       PostgresqlHostConfig16:
@@ -23118,7 +23522,9 @@ apiPlayground:
             type: string
             format: int64
           backendFlushAfter:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 2048, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -23134,7 +23540,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -23149,17 +23554,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           debugParallelQuery:
             description: |-
               **enum** (DebugParallelQuery)
-              - `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
               - `DEBUG_PARALLEL_QUERY_ON`
               - `DEBUG_PARALLEL_QUERY_OFF`
               - `DEBUG_PARALLEL_QUERY_REGRESS`
@@ -23172,7 +23580,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -23201,7 +23608,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -23230,7 +23636,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -23277,7 +23682,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -23293,7 +23697,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -23318,7 +23721,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -23346,12 +23748,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -23362,7 +23764,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -23373,7 +23774,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -23391,6 +23791,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -23407,7 +23808,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -23485,22 +23885,30 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           timezone:
             description: '**string**'
             type: string
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
       PostgresqlHostConfig16_1C:
@@ -23537,7 +23945,9 @@ apiPlayground:
             type: string
             format: int64
           backendFlushAfter:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 2048, inclusive.
             type: string
             format: int64
           oldSnapshotThreshold:
@@ -23553,7 +23963,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -23568,17 +23977,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           debugParallelQuery:
             description: |-
               **enum** (DebugParallelQuery)
-              - `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
               - `DEBUG_PARALLEL_QUERY_ON`
               - `DEBUG_PARALLEL_QUERY_OFF`
               - `DEBUG_PARALLEL_QUERY_REGRESS`
@@ -23591,7 +24003,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -23620,7 +24031,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -23649,7 +24059,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -23696,7 +24105,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -23712,7 +24120,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -23737,7 +24144,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -23765,12 +24171,12 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -23781,7 +24187,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -23792,7 +24197,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -23810,6 +24214,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -23826,7 +24231,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -23904,22 +24308,30 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           timezone:
             description: '**string**'
             type: string
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
       PostgresqlHostConfig17:
@@ -23956,7 +24368,9 @@ apiPlayground:
             type: string
             format: int64
           backendFlushAfter:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 2048, inclusive.
             type: string
             format: int64
           maxStandbyStreamingDelay:
@@ -23968,7 +24382,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -23983,17 +24396,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           debugParallelQuery:
             description: |-
               **enum** (DebugParallelQuery)
-              - `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
               - `DEBUG_PARALLEL_QUERY_ON`
               - `DEBUG_PARALLEL_QUERY_OFF`
               - `DEBUG_PARALLEL_QUERY_REGRESS`
@@ -24006,7 +24422,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -24035,7 +24450,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -24064,7 +24478,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -24111,7 +24524,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -24127,7 +24539,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -24152,7 +24563,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -24174,18 +24584,19 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           idleInTransactionSessionTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -24196,7 +24607,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -24207,7 +24617,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -24225,6 +24634,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -24241,7 +24651,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -24319,22 +24728,30 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           timezone:
             description: '**string**'
             type: string
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 549755813888, inclusive.
             type: string
             format: int64
       PostgresqlHostConfig17_1C:
@@ -24371,7 +24788,9 @@ apiPlayground:
             type: string
             format: int64
           backendFlushAfter:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 2048, inclusive.
             type: string
             format: int64
           maxStandbyStreamingDelay:
@@ -24383,7 +24802,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -24398,17 +24816,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           debugParallelQuery:
             description: |-
               **enum** (DebugParallelQuery)
-              - `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
               - `DEBUG_PARALLEL_QUERY_ON`
               - `DEBUG_PARALLEL_QUERY_OFF`
               - `DEBUG_PARALLEL_QUERY_REGRESS`
@@ -24421,7 +24842,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -24450,7 +24870,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -24479,7 +24898,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -24526,7 +24944,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -24542,7 +24959,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -24567,7 +24983,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -24589,18 +25004,19 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           idleInTransactionSessionTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -24611,7 +25027,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -24622,7 +25037,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -24640,6 +25054,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -24656,7 +25071,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -24734,22 +25148,30 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           timezone:
             description: '**string**'
             type: string
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 549755813888, inclusive.
             type: string
             format: int64
       PostgresqlHostConfig18:
@@ -24786,7 +25208,9 @@ apiPlayground:
             type: string
             format: int64
           backendFlushAfter:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 2048, inclusive.
             type: string
             format: int64
           maxStandbyStreamingDelay:
@@ -24798,7 +25222,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -24813,17 +25236,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           debugParallelQuery:
             description: |-
               **enum** (DebugParallelQuery)
-              - `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
               - `DEBUG_PARALLEL_QUERY_ON`
               - `DEBUG_PARALLEL_QUERY_OFF`
               - `DEBUG_PARALLEL_QUERY_REGRESS`
@@ -24836,7 +25262,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -24865,7 +25290,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -24894,7 +25318,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -24941,7 +25364,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -24957,7 +25379,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -24982,7 +25403,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -25004,18 +25424,19 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           idleInTransactionSessionTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -25026,7 +25447,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -25037,7 +25457,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -25055,6 +25474,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -25071,7 +25491,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -25149,22 +25568,30 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           timezone:
             description: '**string**'
             type: string
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 549755813888, inclusive.
             type: string
             format: int64
       PostgresqlHostConfig18_1C:
@@ -25201,7 +25628,9 @@ apiPlayground:
             type: string
             format: int64
           backendFlushAfter:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 2048, inclusive.
             type: string
             format: int64
           maxStandbyStreamingDelay:
@@ -25213,7 +25642,6 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
               - `CONSTRAINT_EXCLUSION_ON`
               - `CONSTRAINT_EXCLUSION_OFF`
               - `CONSTRAINT_EXCLUSION_PARTITION`
@@ -25228,17 +25656,20 @@ apiPlayground:
             type: number
             format: double
           fromCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           joinCollapseLimit:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           debugParallelQuery:
             description: |-
               **enum** (DebugParallelQuery)
-              - `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
               - `DEBUG_PARALLEL_QUERY_ON`
               - `DEBUG_PARALLEL_QUERY_OFF`
               - `DEBUG_PARALLEL_QUERY_REGRESS`
@@ -25251,7 +25682,6 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -25280,7 +25710,6 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -25309,7 +25738,6 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `LOG_LEVEL_DEBUG5`
               - `LOG_LEVEL_DEBUG4`
               - `LOG_LEVEL_DEBUG3`
@@ -25356,7 +25784,6 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
               - `LOG_ERROR_VERBOSITY_TERSE`
               - `LOG_ERROR_VERBOSITY_DEFAULT`
               - `LOG_ERROR_VERBOSITY_VERBOSE`
@@ -25372,7 +25799,6 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_UNSPECIFIED`
               - `LOG_STATEMENT_NONE`
               - `LOG_STATEMENT_DDL`
               - `LOG_STATEMENT_MOD`
@@ -25397,7 +25823,6 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_UNSPECIFIED`
               - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
               - `TRANSACTION_ISOLATION_READ_COMMITTED`
               - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -25419,18 +25844,19 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           idleInTransactionSessionTimeout:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_UNSPECIFIED`
               - `BYTEA_OUTPUT_HEX`
               - `BYTEA_OUTPUT_ESCAPED`
             type: string
@@ -25441,7 +25867,6 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_UNSPECIFIED`
               - `XML_BINARY_BASE64`
               - `XML_BINARY_HEX`
             type: string
@@ -25452,7 +25877,6 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_UNSPECIFIED`
               - `XML_OPTION_DOCUMENT`
               - `XML_OPTION_CONTENT`
             type: string
@@ -25470,6 +25894,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               in milliseconds.
+              Acceptable values are 1 to 2147483647, inclusive.
             type: string
             format: int64
           maxLocksPerTransaction:
@@ -25486,7 +25911,6 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE_UNSPECIFIED`
               - `BACKSLASH_QUOTE`
               - `BACKSLASH_QUOTE_ON`
               - `BACKSLASH_QUOTE_OFF`
@@ -25564,22 +25988,30 @@ apiPlayground:
             description: '**boolean**'
             type: boolean
           maxParallelWorkers:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           maxParallelWorkersPerGather:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1024, inclusive.
             type: string
             format: int64
           timezone:
             description: '**string**'
             type: string
           effectiveIoConcurrency:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           effectiveCacheSize:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Acceptable values are 0 to 549755813888, inclusive.
             type: string
             format: int64
       ConfigHostSpec:
@@ -25746,6 +26178,7 @@ apiPlayground:
               **string**
               ID of the availability zone where the host resides.
               To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+              The maximum string length in characters is 50.
             type: string
           subnetId:
             description: |-
@@ -25753,6 +26186,7 @@ apiPlayground:
               ID of the subnet that the host should belong to. This subnet should be a part
               of the network that the cluster belongs to.
               The ID of the network is set in the field [Cluster.networkId](#yandex.cloud.mdb.postgresql.v1.Cluster).
+              The maximum string length in characters is 50.
             type: string
           assignPublicIp:
             description: |-
@@ -25793,7 +26227,6 @@ apiPlayground:
             description: |-
               **enum** (WeekDay)
               Day of the week (in `DDD` format).
-              - `WEEK_DAY_UNSPECIFIED`
               - `MON`
               - `TUE`
               - `WED`
@@ -25815,6 +26248,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Hour of the day in UTC (in `HH` format).
+              Acceptable values are 1 to 24, inclusive.
             type: string
             format: int64
       MaintenanceWindow:
@@ -30251,22 +30685,29 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder to create the PostgreSQL cluster in. ||
+Required field. ID of the folder to create the PostgreSQL cluster in.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Required field. Name of the PostgreSQL cluster. The name must be unique within the folder. ||
+Required field. Name of the PostgreSQL cluster. The name must be unique within the folder.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || description | **string**
 
-Description of the PostgreSQL cluster. ||
+Description of the PostgreSQL cluster.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource.
-For example, "project": "mvp" or "source": "dictionary". ||
+For example, "project": "mvp" or "source": "dictionary".
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || environment | **enum** (Environment)
 
 Required field. Deployment environment of the PostgreSQL cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy:
 only hotfixes are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -30285,7 +30726,9 @@ Required field. Descriptions of database users to be created in the PostgreSQL c
 Required field. Individual configurations for hosts that should be created for the PostgreSQL cluster. ||
 || networkId | **string**
 
-Required field. ID of the network to create the cluster in. ||
+Required field. ID of the network to create the cluster in.
+
+The maximum string length in characters is 50. ||
 || securityGroupIds[] | **string**
 
 User security groups ||
@@ -30461,7 +30904,9 @@ Configuration setting which enables/disables autofailover in cluster. ||
 Time to start the daily backup, in the UTC timezone. ||
 || backupRetainPeriodDays | **string** (int64)
 
-Retention policy of automated backups. ||
+Retention policy of automated backups.
+
+Acceptable values are 7 to 60, inclusive. ||
 || access | **[Access](#yandex.cloud.mdb.postgresql.v1.Access)**
 
 Access policy to DB ||
@@ -30511,24 +30956,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -30536,13 +30985,17 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double)
 
 Acceptable values are 0.0 to 1.0, inclusive. ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -30555,22 +31008,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -30584,7 +31038,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -30598,7 +31051,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -30619,14 +31071,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -30636,7 +31086,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -30649,20 +31098,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -30670,13 +31118,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -30695,18 +31144,30 @@ in milliseconds. ||
 || sqlInheritance | **boolean**
 
 This option has been removed in PostgreSQL 10. ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlConfig10_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig10_1C}
@@ -30717,7 +31178,9 @@ parameters whose detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -30747,24 +31210,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -30772,11 +31239,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -30789,22 +31260,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -30818,7 +31290,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -30832,7 +31303,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -30853,14 +31323,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -30870,7 +31338,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -30883,20 +31350,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -30904,13 +31370,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -30926,16 +31393,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -30947,18 +31422,27 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -30981,14 +31465,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -31009,16 +31491,22 @@ in milliseconds. ||
 || pgQualstatsSampleRate | **number** (double) ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -31036,7 +31524,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -31045,7 +31535,6 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 |#
@@ -31058,7 +31547,9 @@ parameters whose detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -31088,24 +31579,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -31113,11 +31608,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -31130,22 +31629,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -31159,7 +31659,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -31173,7 +31672,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -31194,14 +31692,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -31211,7 +31707,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -31224,20 +31719,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -31245,13 +31739,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -31267,16 +31762,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -31288,18 +31791,27 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -31322,14 +31834,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -31348,16 +31858,22 @@ in milliseconds. ||
 || pgQualstatsSampleRate | **number** (double) ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -31375,7 +31891,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -31384,7 +31902,6 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 |#
@@ -31397,7 +31914,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -31426,24 +31945,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -31451,11 +31974,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -31468,22 +31995,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -31497,7 +32025,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -31511,7 +32038,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -31532,14 +32058,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -31549,7 +32073,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -31562,20 +32085,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -31583,13 +32105,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -31605,16 +32128,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -31626,9 +32157,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -31639,14 +32176,19 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || vacuumCleanupIndexScaleFactor | **number** (double) ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -31669,14 +32211,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -31695,16 +32235,22 @@ in milliseconds. ||
 || pgQualstatsSampleRate | **number** (double) ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -31725,7 +32271,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -31734,7 +32282,6 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 |#
@@ -31747,7 +32294,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -31776,24 +32325,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -31801,11 +32354,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -31818,22 +32375,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -31847,7 +32405,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -31861,7 +32418,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -31882,14 +32438,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -31899,7 +32453,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -31912,20 +32465,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -31933,13 +32485,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -31955,16 +32508,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || onlineAnalyzeEnable | **boolean** ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
@@ -31977,9 +32538,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -31990,14 +32557,19 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || vacuumCleanupIndexScaleFactor | **number** (double) ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -32020,14 +32592,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -32047,16 +32617,22 @@ in milliseconds. ||
 || plantunerFixEmptyTable | **boolean** ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -32077,7 +32653,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -32086,7 +32664,6 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 |#
@@ -32099,7 +32676,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -32128,24 +32707,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -32153,11 +32736,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -32170,22 +32757,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -32199,7 +32787,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -32213,7 +32800,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -32234,14 +32820,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -32251,7 +32835,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -32264,20 +32847,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -32285,13 +32867,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -32307,16 +32890,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -32328,9 +32919,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -32341,21 +32938,25 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || vacuumCleanupIndexScaleFactor | **number** (double) ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -32378,14 +32979,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -32404,16 +33003,22 @@ in milliseconds. ||
 || pgQualstatsSampleRate | **number** (double) ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -32434,7 +33039,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -32443,7 +33050,6 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 |#
@@ -32456,7 +33062,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -32485,24 +33093,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -32510,11 +33122,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -32527,22 +33143,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -32556,7 +33173,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -32570,7 +33186,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -32591,14 +33206,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -32608,7 +33221,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -32621,20 +33233,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -32642,13 +33253,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -32664,16 +33276,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || onlineAnalyzeEnable | **boolean** ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
@@ -32686,9 +33306,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -32699,21 +33325,25 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || vacuumCleanupIndexScaleFactor | **number** (double) ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -32736,14 +33366,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -32763,16 +33391,22 @@ in milliseconds. ||
 || plantunerFixEmptyTable | **boolean** ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -32793,7 +33427,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -32802,7 +33438,6 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 |#
@@ -32815,7 +33450,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -32844,24 +33481,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -32869,11 +33510,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -32886,22 +33531,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -32915,7 +33561,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -32929,7 +33574,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -32950,14 +33594,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -32967,7 +33609,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -32980,20 +33621,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -33001,13 +33641,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -33023,16 +33664,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -33044,9 +33693,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -33057,21 +33712,25 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || vacuumCleanupIndexScaleFactor | **number** (double) ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -33094,14 +33753,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -33116,8 +33773,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -33144,16 +33805,22 @@ in bytes. ||
 || pgQualstatsSampleRate | **number** (double) ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -33174,7 +33841,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -33183,7 +33852,6 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 |#
@@ -33196,7 +33864,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -33225,24 +33895,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -33250,11 +33924,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -33267,22 +33945,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -33296,7 +33975,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -33310,7 +33988,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -33331,14 +34008,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -33348,7 +34023,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -33361,20 +34035,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -33382,13 +34055,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -33404,16 +34078,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || onlineAnalyzeEnable | **boolean** ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
@@ -33426,9 +34108,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -33439,21 +34127,25 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || vacuumCleanupIndexScaleFactor | **number** (double) ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -33476,14 +34168,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -33498,8 +34188,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -33530,10 +34224,14 @@ in bytes. ||
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -33554,7 +34252,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -33563,7 +34263,6 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 |#
@@ -33576,7 +34275,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -33605,24 +34306,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -33630,11 +34335,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -33647,22 +34356,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -33676,7 +34386,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -33690,7 +34399,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -33711,14 +34419,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -33728,7 +34434,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -33741,20 +34446,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -33762,13 +34466,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -33783,16 +34488,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -33804,9 +34517,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -33817,20 +34536,24 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -33853,14 +34576,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -33875,8 +34596,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -33918,16 +34643,22 @@ in milliseconds. ||
 || pgQualstatsSampleRate | **number** (double) ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -33948,7 +34679,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -33957,14 +34690,12 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
 - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
@@ -33979,7 +34710,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -34008,24 +34741,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -34033,11 +34770,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -34050,22 +34791,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -34079,7 +34821,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -34093,7 +34834,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -34114,14 +34854,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -34131,7 +34869,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -34144,20 +34881,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -34165,13 +34901,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -34186,16 +34923,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || onlineAnalyzeEnable | **boolean** ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
@@ -34208,9 +34953,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -34221,20 +34972,24 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -34257,14 +35012,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -34279,8 +35032,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -34326,10 +35083,14 @@ in milliseconds. ||
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -34350,7 +35111,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -34359,14 +35122,12 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
 - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
@@ -34381,7 +35142,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -34410,24 +35173,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -34435,11 +35202,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -34452,22 +35223,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -34481,7 +35253,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -34495,7 +35266,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -34516,14 +35286,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -34533,7 +35301,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -34546,20 +35313,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -34567,13 +35333,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -34588,16 +35355,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -34609,9 +35384,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -34622,20 +35403,24 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -34659,14 +35444,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -34681,8 +35464,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -34724,17 +35511,23 @@ in milliseconds. ||
 || pgQualstatsSampleRate | **number** (double) ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || enableGroupByReordering | **boolean** ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -34755,7 +35548,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -34764,14 +35559,12 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
 - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
@@ -34786,7 +35579,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -34815,24 +35610,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -34840,11 +35639,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -34857,22 +35660,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -34886,7 +35690,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -34900,7 +35703,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -34921,14 +35723,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -34938,7 +35738,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -34951,20 +35750,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -34972,13 +35770,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -34993,16 +35792,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || onlineAnalyzeEnable | **boolean** ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
@@ -35015,9 +35822,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -35028,20 +35841,24 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -35065,14 +35882,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -35087,8 +35902,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -35131,17 +35950,23 @@ in milliseconds. ||
 || plantunerFixEmptyTable | **boolean** ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || enableGroupByReordering | **boolean** ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -35162,7 +35987,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -35171,14 +35998,12 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
 - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
@@ -35193,7 +36018,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -35222,24 +36049,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -35247,11 +36078,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -35264,22 +36099,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -35294,7 +36130,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -35309,7 +36144,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -35331,14 +36165,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -35348,7 +36180,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -35361,20 +36192,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -35382,13 +36212,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -35403,16 +36234,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -35424,9 +36263,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -35437,20 +36282,24 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -35474,14 +36323,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -35497,8 +36344,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -35540,17 +36391,23 @@ in milliseconds. ||
 || pgQualstatsSampleRate | **number** (double) ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || enableGroupByReordering | **boolean** ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -35571,7 +36428,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -35580,14 +36439,12 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
 - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
@@ -35602,7 +36459,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -35631,24 +36490,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -35656,11 +36519,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -35673,22 +36540,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -35703,7 +36571,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -35718,7 +36585,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -35740,14 +36606,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -35757,7 +36621,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -35770,20 +36633,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -35791,13 +36653,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -35812,16 +36675,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || onlineAnalyzeEnable | **boolean** ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
@@ -35834,9 +36705,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -35847,20 +36724,24 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -35884,14 +36765,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -35907,8 +36786,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -35951,17 +36834,23 @@ in milliseconds. ||
 || plantunerFixEmptyTable | **boolean** ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || enableGroupByReordering | **boolean** ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -35982,7 +36871,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -35991,14 +36882,12 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
 - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
@@ -36013,7 +36902,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -36042,23 +36933,27 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -36066,11 +36961,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -36083,22 +36982,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -36113,7 +37013,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -36128,7 +37027,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -36150,14 +37048,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -36167,7 +37063,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -36177,23 +37072,24 @@ in milliseconds. ||
 in milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -36201,13 +37097,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -36222,16 +37119,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -36243,9 +37148,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -36256,20 +37167,24 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 0 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -36293,14 +37208,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -36316,8 +37229,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -36359,7 +37276,9 @@ in milliseconds. ||
 || pgQualstatsSampleRate | **number** (double) ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || enableGroupByReordering | **boolean** ||
 || geqo | **boolean**
 
@@ -36369,7 +37288,9 @@ enable Genetic Query Optimizer, by default is on ||
 The number of tables to use geqo, default is 12 ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -36390,31 +37311,37 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
 in milliseconds. The default is 1000 (1 sec). ||
 || passwordEncryption | **enum** (PasswordEncryption)
 
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
 - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 || trackCommitTimestamp | **boolean** ||
-|| maxLogicalReplicationWorkers | **string** (int64) ||
-|| maxWalSenders | **string** (int64) ||
-|| maxReplicationSlots | **string** (int64) ||
+|| maxLogicalReplicationWorkers | **string** (int64)
+
+Acceptable values are 4 to 100, inclusive. ||
+|| maxWalSenders | **string** (int64)
+
+Acceptable values are 20 to 100, inclusive. ||
+|| maxReplicationSlots | **string** (int64)
+
+Acceptable values are 20 to 100, inclusive. ||
 |#
 
 ## PostgresqlConfig17_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig17_1C}
@@ -36425,7 +37352,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -36454,23 +37383,27 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -36478,11 +37411,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -36495,22 +37432,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -36525,7 +37463,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -36540,7 +37477,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -36562,14 +37498,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -36579,7 +37513,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -36589,23 +37522,24 @@ in milliseconds. ||
 in milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -36613,13 +37547,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -36634,16 +37569,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || onlineAnalyzeEnable | **boolean** ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
@@ -36656,9 +37599,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -36669,20 +37618,24 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 0 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -36706,14 +37659,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -36729,8 +37680,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -36773,7 +37728,9 @@ in milliseconds. ||
 || plantunerFixEmptyTable | **boolean** ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || enableGroupByReordering | **boolean** ||
 || geqo | **boolean**
 
@@ -36783,7 +37740,9 @@ enable Genetic Query Optimizer, by default is on ||
 The number of tables to use geqo, default is 12 ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -36804,31 +37763,37 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
 in milliseconds. The default is 1000 (1 sec). ||
 || passwordEncryption | **enum** (PasswordEncryption)
 
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
 - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 || trackCommitTimestamp | **boolean** ||
-|| maxLogicalReplicationWorkers | **string** (int64) ||
-|| maxWalSenders | **string** (int64) ||
-|| maxReplicationSlots | **string** (int64) ||
+|| maxLogicalReplicationWorkers | **string** (int64)
+
+Acceptable values are 4 to 100, inclusive. ||
+|| maxWalSenders | **string** (int64)
+
+Acceptable values are 20 to 100, inclusive. ||
+|| maxReplicationSlots | **string** (int64)
+
+Acceptable values are 20 to 100, inclusive. ||
 |#
 
 ## PostgresqlConfig18 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18}
@@ -36839,7 +37804,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -36868,23 +37835,27 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -36892,11 +37863,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -36909,22 +37884,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -36939,7 +37915,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -36954,7 +37929,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -36976,14 +37950,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -36993,7 +37965,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -37003,23 +37974,24 @@ in milliseconds. ||
 in milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -37027,13 +37999,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -37048,16 +38021,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -37069,9 +38050,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -37082,20 +38069,24 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 0 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -37119,14 +38110,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -37142,8 +38131,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -37185,7 +38178,9 @@ in milliseconds. ||
 || pgQualstatsSampleRate | **number** (double) ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || enableGroupByReordering | **boolean** ||
 || geqo | **boolean**
 
@@ -37195,7 +38190,9 @@ enable Genetic Query Optimizer, by default is on ||
 The number of tables to use geqo, default is 12 ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -37216,31 +38213,37 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
 in milliseconds. The default is 1000 (1 sec). ||
 || passwordEncryption | **enum** (PasswordEncryption)
 
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
 - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 || trackCommitTimestamp | **boolean** ||
-|| maxLogicalReplicationWorkers | **string** (int64) ||
-|| maxWalSenders | **string** (int64) ||
-|| maxReplicationSlots | **string** (int64) ||
+|| maxLogicalReplicationWorkers | **string** (int64)
+
+Acceptable values are 4 to 100, inclusive. ||
+|| maxWalSenders | **string** (int64)
+
+Acceptable values are 20 to 100, inclusive. ||
+|| maxReplicationSlots | **string** (int64)
+
+Acceptable values are 20 to 100, inclusive. ||
 |#
 
 ## PostgresqlConfig18_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18_1C}
@@ -37251,7 +38254,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -37280,23 +38285,27 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -37304,11 +38313,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -37321,22 +38334,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -37351,7 +38365,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -37366,7 +38379,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -37388,14 +38400,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -37405,7 +38415,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -37415,23 +38424,24 @@ in milliseconds. ||
 in milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -37439,13 +38449,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -37460,16 +38471,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || onlineAnalyzeEnable | **boolean** ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
@@ -37482,9 +38501,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -37495,20 +38520,24 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 0 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -37532,14 +38561,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -37555,8 +38582,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -37599,7 +38630,9 @@ in milliseconds. ||
 || plantunerFixEmptyTable | **boolean** ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || enableGroupByReordering | **boolean** ||
 || geqo | **boolean**
 
@@ -37609,7 +38642,9 @@ enable Genetic Query Optimizer, by default is on ||
 The number of tables to use geqo, default is 12 ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -37630,31 +38665,37 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
 in milliseconds. The default is 1000 (1 sec). ||
 || passwordEncryption | **enum** (PasswordEncryption)
 
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
 - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 || trackCommitTimestamp | **boolean** ||
-|| maxLogicalReplicationWorkers | **string** (int64) ||
-|| maxWalSenders | **string** (int64) ||
-|| maxReplicationSlots | **string** (int64) ||
+|| maxLogicalReplicationWorkers | **string** (int64)
+
+Acceptable values are 4 to 100, inclusive. ||
+|| maxWalSenders | **string** (int64)
+
+Acceptable values are 20 to 100, inclusive. ||
+|| maxReplicationSlots | **string** (int64)
+
+Acceptable values are 20 to 100, inclusive. ||
 |#
 
 ## ConnectionPoolerConfig {#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig}
@@ -37666,7 +38707,6 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 Mode that the connection pooler is working in.
 See descriptions of all modes in the [documentation for PgBouncer](https://pgbouncer.github.io/usage).
 
-- `POOLING_MODE_UNSPECIFIED`
 - `SESSION`: Session pooling mode.
 - `TRANSACTION`: Transaction pooling mode.
 - `STATEMENT`: Statement pooling mode. ||
@@ -37751,10 +38791,14 @@ Allow access for YandexQuery. ||
 Configuration setting which enables/disables performance diagnostics service in cluster. ||
 || sessionsSamplingInterval | **string** (int64)
 
-Interval (in seconds) for pg_stat_activity sampling ||
+Interval (in seconds) for pg_stat_activity sampling
+
+Acceptable values are 1 to 86400, inclusive. ||
 || statementsSamplingInterval | **string** (int64)
 
-Interval (in seconds) for pg_stat_statements sampling ||
+Interval (in seconds) for pg_stat_statements sampling
+
+Acceptable values are 1 to 86400, inclusive. ||
 |#
 
 ## DiskSizeAutoscaling {#yandex.cloud.mdb.postgresql.v1.DiskSizeAutoscaling}
@@ -37763,10 +38807,14 @@ Interval (in seconds) for pg_stat_statements sampling ||
 ||Field | Description ||
 || plannedUsageThreshold | **string** (int64)
 
-Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. ||
+Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergencyUsageThreshold | **string** (int64)
 
-Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. ||
+Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
+
+Acceptable values are 0 to 100, inclusive. ||
 || diskSizeLimit | **string** (int64)
 
 New storage size (in bytes) that is set when one of the thresholds is achieved. ||
@@ -37778,25 +38826,35 @@ New storage size (in bytes) that is set when one of the thresholds is achieved. 
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the PostgreSQL database. 1-63 characters long. ||
+Required field. Name of the PostgreSQL database. 1-63 characters long.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || owner | **string**
 
 Required field. Name of the user to be assigned as the owner of the database.
-To get the list of available PostgreSQL users, make a [UserService.List](/docs/managed-postgresql/api-ref/User/list#List) request. ||
+To get the list of available PostgreSQL users, make a [UserService.List](/docs/managed-postgresql/api-ref/User/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || lcCollate | **string**
 
 POSIX locale for string sorting order.
-Can only be set at creation time. ||
+Can only be set at creation time.
+
+Value must match the regular expression ``` |[a-zA-Z_]+.UTF-8|C ```. ||
 || lcCtype | **string**
 
 POSIX locale for character classification.
-Can only be set at creation time. ||
+Can only be set at creation time.
+
+Value must match the regular expression ``` |[a-zA-Z_]+.UTF-8|C ```. ||
 || extensions[] | **[Extension](#yandex.cloud.mdb.postgresql.v1.Extension)**
 
 PostgreSQL extensions to be enabled for the database. ||
 || templateDb | **string**
 
-Name of the PostgreSQL database template. ||
+Name of the PostgreSQL database template.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || deletionProtection | **boolean**
 
 Deletion Protection inhibits deletion of the database
@@ -37823,10 +38881,14 @@ Version of the extension. The setting is deprecated and has no effect. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the PostgreSQL user. ||
+Required field. Name of the PostgreSQL user.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_@.-]* `. ||
 || password | **string**
 
-Required field. Password of the PostgreSQL user. ||
+Required field. Password of the PostgreSQL user.
+
+The string length in characters must be 8-128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.postgresql.v1.Permission)**
 
 Set of permissions to grant to the user to access specific databases. ||
@@ -37838,7 +38900,9 @@ When used in session pooling, this setting limits the number of connections to e
 
 When used in transaction pooling, this setting limits the number of user's active transactions; therefore, in this mode user can open thousands of connections, but only `N` concurrent connections will be opened, where `N` is the value of the setting.
 
-Minimum value: `10` (default: `50`), when used in session pooling. ||
+Minimum value: `10` (default: `50`), when used in session pooling.
+
+The minimum value is 10. ||
 || settings | **[UserSettings](#yandex.cloud.mdb.postgresql.v1.UserSettings)**
 
 PostgreSQL settings for the user. ||
@@ -37851,7 +38915,9 @@ Default value: `true` (login is allowed). ||
 
 A set of roles and privileges that are granted to the user.
 
-For more information, see [the documentation](/docs/managed-postgresql/operations/grant). ||
+For more information, see [the documentation](/docs/managed-postgresql/operations/grant).
+
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `. ||
 || deletionProtection | **boolean**
 
 Deletion Protection inhibits deletion of the user
@@ -37863,9 +38929,8 @@ Password-based authentication method for user.
 Possible values are `` USER_PASSWORD_ENCRYPTION_MD5 `` or `` USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
 The default is `` password_encryption `` setting for cluster.
 
-- `USER_PASSWORD_ENCRYPTION_UNSPECIFIED`
-- `USER_PASSWORD_ENCRYPTION_MD5`
-- `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+- `USER_PASSWORD_ENCRYPTION_MD5`: MD5 password-based authentication method
+- `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256`: SCRAM-SHA-256 password-based authentication method ||
 || generatePassword | **boolean**
 
 Generate password using Connection Manager. ||
@@ -37873,9 +38938,8 @@ Generate password using Connection Manager. ||
 
 Auth method for user
 
-- `AUTH_METHOD_UNSPECIFIED`
-- `AUTH_METHOD_PASSWORD`
-- `AUTH_METHOD_IAM` ||
+- `AUTH_METHOD_PASSWORD`: Standard authentication mode with password
+- `AUTH_METHOD_IAM`: Alternative authentication mode with IAM token ||
 |#
 
 ## Permission {#yandex.cloud.mdb.postgresql.v1.Permission}
@@ -37889,7 +38953,7 @@ Name of the database that the permission grants access to. ||
 
 ## UserSettings {#yandex.cloud.mdb.postgresql.v1.UserSettings}
 
-PostgreSQL user settings.
+PostgreSQL and connection pooler user settings.
 
 #|
 ||Field | Description ||
@@ -37900,7 +38964,6 @@ This setting defines the default isolation level to be set for all new SQL trans
 
 For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/transaction-iso.html).
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began. Default value.
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
@@ -37934,7 +38997,6 @@ These operations guarantee different levels of the data safety and visibility in
 
 For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT).
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
 - `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
 There is no synchronous write operation, data may be loss in case of storage subsystem failure.
@@ -37956,7 +39018,6 @@ This setting specifies which SQL statements should be logged (on the user level)
 
 For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html).
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`: Logs none of SQL statements. Default value.
 - `LOG_STATEMENT_DDL`: Logs all data definition statements (such as `CREATE`, `ALTER`, `DROP` and others).
 - `LOG_STATEMENT_MOD`: Logs all statements that fall in the `LOG_STATEMENT_DDL` category plus data-modifying statements (such as `INSERT`, `UPDATE` and others).
@@ -37967,15 +39028,15 @@ Mode that the connection pooler is working in with specified user.
 
 For more information, see the [Odyssey documentation](https://github.com/yandex/odyssey/blob/master/documentation/configuration.md#pool-string).
 
-- `POOLING_MODE_UNSPECIFIED`
 - `SESSION`: Server connection will be assigned to it for the whole duration the client stays connected. Default value.
 - `TRANSACTION`: Server connection is assigned to a client only during a transaction.
 - `STATEMENT`: Server connection will be put back into the pool immediately after a query completes. ||
 || preparedStatementsPooling | **boolean**
 
-User can use prepared statements with transaction pooling.
+User can use [prepared statements](https://www.postgresql.org/docs/current/sql-prepare.html) with transaction pooling.
+This requires `pool_mode` to be set to TRANSACTION.
 
-For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-prepare.html). ||
+[Odyssey documentation](https://pg-odyssey.tech/configuration/rules.html#pool_reserve_prepared_statement). ||
 || catchupTimeout | **string** (int64)
 
 The connection pooler setting. It determines the maximum allowed replication lag (in seconds).
@@ -38001,7 +39062,9 @@ Sets the maximum allowed idle time, in milliseconds, between queries while in a 
 
 The default value is `0`, which disables the timeout.
 
-For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html). ||
+For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html).
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || statementTimeout | **string** (int64)
 
 The maximum time (in milliseconds) to wait for statement.
@@ -38037,14 +39100,13 @@ The possible values are the following:
 
 The default value is PG_AUDIT_SETTINGS_LOG_UNSPECIFIED. In this case, the parameter is not configured.
 
-- `PG_AUDIT_SETTINGS_LOG_UNSPECIFIED`
-- `PG_AUDIT_SETTINGS_LOG_READ`
-- `PG_AUDIT_SETTINGS_LOG_WRITE`
-- `PG_AUDIT_SETTINGS_LOG_FUNCTION`
-- `PG_AUDIT_SETTINGS_LOG_ROLE`
-- `PG_AUDIT_SETTINGS_LOG_DDL`
-- `PG_AUDIT_SETTINGS_LOG_MISC`
-- `PG_AUDIT_SETTINGS_LOG_MISC_SET` ||
+- `PG_AUDIT_SETTINGS_LOG_READ`: `SELECT` and `COPY` queries are logged if the data source is a relation or query.
+- `PG_AUDIT_SETTINGS_LOG_WRITE`: `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY` queries are logged if the data target is a relation.
+- `PG_AUDIT_SETTINGS_LOG_FUNCTION`: Function invocations and `DO` sections are logged.
+- `PG_AUDIT_SETTINGS_LOG_ROLE`: Statements related to role and privilege management, such as `GRANT`, `REVOKE`, or `CREATE/ALTER/DROP ROLE`, are logged.
+- `PG_AUDIT_SETTINGS_LOG_DDL`: Any `DDL` statements that do not belong to the `ROLE` class are logged.
+- `PG_AUDIT_SETTINGS_LOG_MISC`: Miscellaneous commands, such as `DISCARD`, `FETCH`, `CHECKPOINT`, `VACUUM`, and `SET`, are logged.
+- `PG_AUDIT_SETTINGS_LOG_MISC_SET`: Miscellaneous `SET` commands, e.g., `SET ROLE`, are logged. ||
 |#
 
 ## HostSpec {#yandex.cloud.mdb.postgresql.v1.HostSpec}
@@ -38054,12 +39116,16 @@ The default value is PG_AUDIT_SETTINGS_LOG_UNSPECIFIED. In this case, the parame
 || zoneId | **string**
 
 ID of the availability zone where the host resides.
-To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request. ||
+To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+
+The maximum string length in characters is 50. ||
 || subnetId | **string**
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The ID of the network is set in the field [Cluster.networkId](#yandex.cloud.mdb.postgresql.v1.Cluster). ||
+The ID of the network is set in the field [Cluster.networkId](#yandex.cloud.mdb.postgresql.v1.Cluster).
+
+The maximum string length in characters is 50. ||
 || assignPublicIp | **boolean**
 
 Whether the host should get a public IP address on creation.
@@ -38213,29 +39279,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -38249,7 +39318,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -38263,7 +39331,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -38284,14 +39351,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -38301,7 +39366,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -38314,20 +39378,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -38335,13 +39398,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -38360,8 +39424,12 @@ in milliseconds. ||
 || sqlInheritance | **boolean**
 
 This option has been removed in PostgreSQL 10. ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig10_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig10_1C}
@@ -38390,29 +39458,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -38426,7 +39497,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -38440,7 +39510,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -38461,14 +39530,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -38478,7 +39545,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -38491,20 +39557,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -38512,13 +39577,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -38545,11 +39611,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig10 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig10}
@@ -38578,29 +39652,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -38614,7 +39691,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -38628,7 +39704,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -38649,14 +39724,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -38666,7 +39739,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -38679,20 +39751,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -38700,13 +39771,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -38733,11 +39805,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig11 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig11}
@@ -38763,29 +39843,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -38799,7 +39882,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -38813,7 +39895,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -38834,14 +39915,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -38851,7 +39930,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -38864,20 +39942,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -38885,13 +39962,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -38918,11 +39996,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig11_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig11_1C}
@@ -38948,29 +40034,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -38984,7 +40073,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -38998,7 +40086,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -39019,14 +40106,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -39036,7 +40121,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -39049,20 +40133,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -39070,13 +40153,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -39103,11 +40187,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig12 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig12}
@@ -39133,29 +40225,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -39169,7 +40264,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -39183,7 +40277,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -39204,14 +40297,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -39221,7 +40312,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -39234,20 +40324,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -39255,13 +40344,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -39288,11 +40378,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig12_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig12_1C}
@@ -39318,29 +40416,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -39354,7 +40455,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -39368,7 +40468,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -39389,14 +40488,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -39406,7 +40503,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -39419,20 +40515,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -39440,13 +40535,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -39473,11 +40569,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig13 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig13}
@@ -39503,29 +40607,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -39539,7 +40646,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -39553,7 +40659,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -39574,14 +40679,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -39591,7 +40694,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -39604,20 +40706,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -39625,13 +40726,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -39658,11 +40760,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig13_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig13_1C}
@@ -39688,29 +40798,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -39724,7 +40837,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -39738,7 +40850,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -39759,14 +40870,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -39776,7 +40885,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -39789,20 +40897,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -39810,13 +40917,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -39843,11 +40951,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig14 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig14}
@@ -39873,29 +40989,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -39909,7 +41028,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -39923,7 +41041,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -39944,14 +41061,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -39961,7 +41076,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -39974,20 +41088,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -39995,13 +41108,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -40027,11 +41141,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig14_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig14_1C}
@@ -40057,29 +41179,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -40093,7 +41218,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -40107,7 +41231,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -40128,14 +41251,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -40145,7 +41266,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -40158,20 +41278,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -40179,13 +41298,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -40211,11 +41331,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig15 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig15}
@@ -40241,29 +41369,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -40277,7 +41408,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -40291,7 +41421,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -40312,14 +41441,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -40329,7 +41456,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -40342,20 +41468,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -40363,13 +41488,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -40395,11 +41521,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig15_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig15_1C}
@@ -40425,29 +41559,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -40461,7 +41598,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -40475,7 +41611,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -40496,14 +41631,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -40513,7 +41646,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -40526,20 +41658,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -40547,13 +41678,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -40579,11 +41711,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig16 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig16}
@@ -40609,29 +41749,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -40646,7 +41789,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -40661,7 +41803,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -40683,14 +41824,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -40700,7 +41839,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -40713,20 +41851,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -40734,13 +41871,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -40766,11 +41904,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig16_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig16_1C}
@@ -40796,29 +41942,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -40833,7 +41982,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -40848,7 +41996,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -40870,14 +42017,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -40887,7 +42032,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -40900,20 +42044,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -40921,13 +42064,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -40953,11 +42097,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig17 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17}
@@ -40983,28 +42135,31 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -41019,7 +42174,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -41034,7 +42188,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -41056,14 +42209,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -41073,7 +42224,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -41083,23 +42233,24 @@ in milliseconds. ||
 in milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -41107,13 +42258,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -41139,11 +42291,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 0 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig17_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17_1C}
@@ -41169,28 +42329,31 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -41205,7 +42368,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -41220,7 +42382,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -41242,14 +42403,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -41259,7 +42418,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -41269,23 +42427,24 @@ in milliseconds. ||
 in milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -41293,13 +42452,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -41325,11 +42485,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 0 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig18 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18}
@@ -41355,28 +42523,31 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -41391,7 +42562,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -41406,7 +42576,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -41428,14 +42597,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -41445,7 +42612,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -41455,23 +42621,24 @@ in milliseconds. ||
 in milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -41479,13 +42646,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -41511,11 +42679,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 0 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig18_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18_1C}
@@ -41541,28 +42717,31 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -41577,7 +42756,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -41592,7 +42770,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -41614,14 +42791,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -41631,7 +42806,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -41641,23 +42815,24 @@ in milliseconds. ||
 in milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -41665,13 +42840,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -41697,11 +42873,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 0 to 549755813888, inclusive. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow}
@@ -41736,7 +42920,6 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -41746,7 +42929,9 @@ Day of the week (in `DDD` format).
 - `SUN` ||
 || hour | **string** (int64)
 
-Hour of the day in UTC (in `HH` format). ||
+Hour of the day in UTC (in `HH` format).
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## BackupRetentionPolicySpec {#yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicySpec}
@@ -50672,7 +51857,8 @@ Message to describe a crontab schedule.
         "plannedUsageThreshold": "string",
         "emergencyUsageThreshold": "string",
         "diskSizeLimit": "string"
-      }
+      },
+      "fullVersion": "string"
     },
     "networkId": "string",
     "health": "string",
@@ -50880,7 +52066,6 @@ Maximum 64 per resource. ||
 
 Deployment environment of the PostgreSQL cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy:
 only hotfixes are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -51105,7 +52290,9 @@ Configuration setting which enables/disables autofailover in cluster. ||
 Time to start the daily backup, in the UTC timezone. ||
 || backupRetainPeriodDays | **string** (int64)
 
-Retention policy of automated backups. ||
+Retention policy of automated backups.
+
+Acceptable values are 7 to 60, inclusive. ||
 || access | **[Access](#yandex.cloud.mdb.postgresql.v1.Access2)**
 
 Access policy to DB ||
@@ -51115,6 +52302,9 @@ Configuration of the performance diagnostics service. ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.postgresql.v1.DiskSizeAutoscaling2)**
 
 Disk size autoscaling ||
+|| fullVersion | **string**
+
+Full version ||
 |#
 
 ## PostgresqlConfigSet9_6 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet9_6}
@@ -51171,24 +52361,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -51196,13 +52390,17 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double)
 
 Acceptable values are 0.0 to 1.0, inclusive. ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -51215,22 +52413,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -51244,7 +52443,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -51258,7 +52456,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -51279,14 +52476,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -51296,7 +52491,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -51309,20 +52503,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -51330,13 +52523,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -51355,18 +52549,30 @@ in milliseconds. ||
 || sqlInheritance | **boolean**
 
 This option has been removed in PostgreSQL 10. ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlConfigSet10_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet10_1C}
@@ -51393,7 +52599,9 @@ parameters whose detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -51423,24 +52631,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -51448,11 +52660,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -51465,22 +52681,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -51494,7 +52711,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -51508,7 +52724,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -51529,14 +52744,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -51546,7 +52759,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -51559,20 +52771,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -51580,13 +52791,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -51602,16 +52814,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -51623,18 +52843,27 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -51657,14 +52886,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -51685,16 +52912,22 @@ in milliseconds. ||
 || pgQualstatsSampleRate | **number** (double) ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -51712,7 +52945,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -51721,7 +52956,6 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 |#
@@ -51750,7 +52984,9 @@ parameters whose detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -51780,24 +53016,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -51805,11 +53045,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -51822,22 +53066,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -51851,7 +53096,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -51865,7 +53109,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -51886,14 +53129,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -51903,7 +53144,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -51916,20 +53156,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -51937,13 +53176,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -51959,16 +53199,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -51980,18 +53228,27 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -52014,14 +53271,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -52040,16 +53295,22 @@ in milliseconds. ||
 || pgQualstatsSampleRate | **number** (double) ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -52067,7 +53328,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -52076,7 +53339,6 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 |#
@@ -52105,7 +53367,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -52134,24 +53398,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -52159,11 +53427,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -52176,22 +53448,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -52205,7 +53478,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -52219,7 +53491,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -52240,14 +53511,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -52257,7 +53526,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -52270,20 +53538,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -52291,13 +53558,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -52313,16 +53581,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -52334,9 +53610,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -52347,14 +53629,19 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || vacuumCleanupIndexScaleFactor | **number** (double) ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -52377,14 +53664,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -52403,16 +53688,22 @@ in milliseconds. ||
 || pgQualstatsSampleRate | **number** (double) ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -52433,7 +53724,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -52442,7 +53735,6 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 |#
@@ -52471,7 +53763,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -52500,24 +53794,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -52525,11 +53823,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -52542,22 +53844,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -52571,7 +53874,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -52585,7 +53887,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -52606,14 +53907,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -52623,7 +53922,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -52636,20 +53934,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -52657,13 +53954,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -52679,16 +53977,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || onlineAnalyzeEnable | **boolean** ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
@@ -52701,9 +54007,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -52714,14 +54026,19 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || vacuumCleanupIndexScaleFactor | **number** (double) ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -52744,14 +54061,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -52771,16 +54086,22 @@ in milliseconds. ||
 || plantunerFixEmptyTable | **boolean** ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -52801,7 +54122,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -52810,7 +54133,6 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 |#
@@ -52839,7 +54161,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -52868,24 +54192,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -52893,11 +54221,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -52910,22 +54242,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -52939,7 +54272,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -52953,7 +54285,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -52974,14 +54305,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -52991,7 +54320,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -53004,20 +54332,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -53025,13 +54352,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -53047,16 +54375,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -53068,9 +54404,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -53081,21 +54423,25 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || vacuumCleanupIndexScaleFactor | **number** (double) ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -53118,14 +54464,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -53144,16 +54488,22 @@ in milliseconds. ||
 || pgQualstatsSampleRate | **number** (double) ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -53174,7 +54524,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -53183,7 +54535,6 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 |#
@@ -53212,7 +54563,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -53241,24 +54594,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -53266,11 +54623,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -53283,22 +54644,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -53312,7 +54674,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -53326,7 +54687,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -53347,14 +54707,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -53364,7 +54722,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -53377,20 +54734,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -53398,13 +54754,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -53420,16 +54777,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || onlineAnalyzeEnable | **boolean** ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
@@ -53442,9 +54807,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -53455,21 +54826,25 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || vacuumCleanupIndexScaleFactor | **number** (double) ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -53492,14 +54867,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -53519,16 +54892,22 @@ in milliseconds. ||
 || plantunerFixEmptyTable | **boolean** ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -53549,7 +54928,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -53558,7 +54939,6 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 |#
@@ -53587,7 +54967,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -53616,24 +54998,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -53641,11 +55027,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -53658,22 +55048,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -53687,7 +55078,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -53701,7 +55091,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -53722,14 +55111,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -53739,7 +55126,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -53752,20 +55138,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -53773,13 +55158,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -53795,16 +55181,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -53816,9 +55210,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -53829,21 +55229,25 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || vacuumCleanupIndexScaleFactor | **number** (double) ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -53866,14 +55270,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -53888,8 +55290,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -53916,16 +55322,22 @@ in bytes. ||
 || pgQualstatsSampleRate | **number** (double) ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -53946,7 +55358,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -53955,7 +55369,6 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 |#
@@ -53984,7 +55397,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -54013,24 +55428,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -54038,11 +55457,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -54055,22 +55478,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -54084,7 +55508,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -54098,7 +55521,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -54119,14 +55541,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -54136,7 +55556,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -54149,20 +55568,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -54170,13 +55588,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -54192,16 +55611,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || onlineAnalyzeEnable | **boolean** ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
@@ -54214,9 +55641,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -54227,21 +55660,25 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || vacuumCleanupIndexScaleFactor | **number** (double) ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -54264,14 +55701,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -54286,8 +55721,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -54318,10 +55757,14 @@ in bytes. ||
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -54342,7 +55785,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -54351,7 +55796,6 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 |#
@@ -54380,7 +55824,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -54409,24 +55855,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -54434,11 +55884,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -54451,22 +55905,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -54480,7 +55935,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -54494,7 +55948,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -54515,14 +55968,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -54532,7 +55983,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -54545,20 +55995,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -54566,13 +56015,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -54587,16 +56037,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -54608,9 +56066,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -54621,20 +56085,24 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -54657,14 +56125,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -54679,8 +56145,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -54722,16 +56192,22 @@ in milliseconds. ||
 || pgQualstatsSampleRate | **number** (double) ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -54752,7 +56228,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -54761,14 +56239,12 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
 - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
@@ -54799,7 +56275,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -54828,24 +56306,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -54853,11 +56335,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -54870,22 +56356,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -54899,7 +56386,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -54913,7 +56399,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -54934,14 +56419,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -54951,7 +56434,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -54964,20 +56446,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -54985,13 +56466,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -55006,16 +56488,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || onlineAnalyzeEnable | **boolean** ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
@@ -55028,9 +56518,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -55041,20 +56537,24 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -55077,14 +56577,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -55099,8 +56597,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -55146,10 +56648,14 @@ in milliseconds. ||
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -55170,7 +56676,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -55179,14 +56687,12 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
 - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
@@ -55217,7 +56723,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -55246,24 +56754,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -55271,11 +56783,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -55288,22 +56804,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -55317,7 +56834,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -55331,7 +56847,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -55352,14 +56867,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -55369,7 +56882,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -55382,20 +56894,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -55403,13 +56914,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -55424,16 +56936,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -55445,9 +56965,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -55458,20 +56984,24 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -55495,14 +57025,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -55517,8 +57045,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -55560,17 +57092,23 @@ in milliseconds. ||
 || pgQualstatsSampleRate | **number** (double) ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || enableGroupByReordering | **boolean** ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -55591,7 +57129,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -55600,14 +57140,12 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
 - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
@@ -55638,7 +57176,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -55667,24 +57207,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -55692,11 +57236,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -55709,22 +57257,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -55738,7 +57287,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -55752,7 +57300,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -55773,14 +57320,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -55790,7 +57335,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -55803,20 +57347,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -55824,13 +57367,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -55845,16 +57389,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || onlineAnalyzeEnable | **boolean** ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
@@ -55867,9 +57419,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -55880,20 +57438,24 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -55917,14 +57479,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -55939,8 +57499,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -55983,17 +57547,23 @@ in milliseconds. ||
 || plantunerFixEmptyTable | **boolean** ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || enableGroupByReordering | **boolean** ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -56014,7 +57584,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -56023,14 +57595,12 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
 - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
@@ -56061,7 +57631,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -56090,24 +57662,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -56115,11 +57691,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -56132,22 +57712,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -56162,7 +57743,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -56177,7 +57757,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -56199,14 +57778,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -56216,7 +57793,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -56229,20 +57805,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -56250,13 +57825,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -56271,16 +57847,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -56292,9 +57876,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -56305,20 +57895,24 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -56342,14 +57936,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -56365,8 +57957,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -56408,17 +58004,23 @@ in milliseconds. ||
 || pgQualstatsSampleRate | **number** (double) ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || enableGroupByReordering | **boolean** ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -56439,7 +58041,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -56448,14 +58052,12 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
 - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
@@ -56486,7 +58088,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -56515,24 +58119,28 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -56540,11 +58148,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -56557,22 +58169,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -56587,7 +58200,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -56602,7 +58214,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -56624,14 +58235,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -56641,7 +58250,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -56654,20 +58262,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -56675,13 +58282,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -56696,16 +58304,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || onlineAnalyzeEnable | **boolean** ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
@@ -56718,9 +58334,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -56731,20 +58353,24 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -56768,14 +58394,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -56791,8 +58415,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -56835,17 +58463,23 @@ in milliseconds. ||
 || plantunerFixEmptyTable | **boolean** ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || enableGroupByReordering | **boolean** ||
 || geqo | **boolean**
 
 enable Genetic Query Optimizer, by default is on ||
 || geqoThreshold | **string** (int64)
 
-The number of tables to use geqo, default is 12 ||
+The number of tables to use geqo, default is 12
+
+Acceptable values are 2 to 2147483647, inclusive. ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -56866,7 +58500,9 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
@@ -56875,14 +58511,12 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
 - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
@@ -56913,7 +58547,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -56942,23 +58578,27 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -56966,11 +58606,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -56983,22 +58627,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -57013,7 +58658,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -57028,7 +58672,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -57050,14 +58693,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -57067,7 +58708,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -57077,23 +58717,24 @@ in milliseconds. ||
 in milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -57101,13 +58742,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -57122,16 +58764,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -57143,9 +58793,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -57156,20 +58812,24 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 0 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -57193,14 +58853,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -57216,8 +58874,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -57259,7 +58921,9 @@ in milliseconds. ||
 || pgQualstatsSampleRate | **number** (double) ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || enableGroupByReordering | **boolean** ||
 || geqo | **boolean**
 
@@ -57269,7 +58933,9 @@ enable Genetic Query Optimizer, by default is on ||
 The number of tables to use geqo, default is 12 ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -57290,31 +58956,37 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
 in milliseconds. The default is 1000 (1 sec). ||
 || passwordEncryption | **enum** (PasswordEncryption)
 
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
 - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 || trackCommitTimestamp | **boolean** ||
-|| maxLogicalReplicationWorkers | **string** (int64) ||
-|| maxWalSenders | **string** (int64) ||
-|| maxReplicationSlots | **string** (int64) ||
+|| maxLogicalReplicationWorkers | **string** (int64)
+
+Acceptable values are 4 to 100, inclusive. ||
+|| maxWalSenders | **string** (int64)
+
+Acceptable values are 20 to 100, inclusive. ||
+|| maxReplicationSlots | **string** (int64)
+
+Acceptable values are 20 to 100, inclusive. ||
 |#
 
 ## PostgresqlConfigSet17_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17_1C}
@@ -57341,7 +59013,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -57370,23 +59044,27 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -57394,11 +59072,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -57411,22 +59093,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -57441,7 +59124,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -57456,7 +59138,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -57478,14 +59159,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -57495,7 +59174,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -57505,23 +59183,24 @@ in milliseconds. ||
 in milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -57529,13 +59208,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -57550,16 +59230,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || onlineAnalyzeEnable | **boolean** ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
@@ -57572,9 +59260,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -57585,20 +59279,24 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 0 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -57622,14 +59320,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -57645,8 +59341,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -57689,7 +59389,9 @@ in milliseconds. ||
 || plantunerFixEmptyTable | **boolean** ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || enableGroupByReordering | **boolean** ||
 || geqo | **boolean**
 
@@ -57699,7 +59401,9 @@ enable Genetic Query Optimizer, by default is on ||
 The number of tables to use geqo, default is 12 ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -57720,31 +59424,37 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
 in milliseconds. The default is 1000 (1 sec). ||
 || passwordEncryption | **enum** (PasswordEncryption)
 
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
 - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 || trackCommitTimestamp | **boolean** ||
-|| maxLogicalReplicationWorkers | **string** (int64) ||
-|| maxWalSenders | **string** (int64) ||
-|| maxReplicationSlots | **string** (int64) ||
+|| maxLogicalReplicationWorkers | **string** (int64)
+
+Acceptable values are 4 to 100, inclusive. ||
+|| maxWalSenders | **string** (int64)
+
+Acceptable values are 20 to 100, inclusive. ||
+|| maxReplicationSlots | **string** (int64)
+
+Acceptable values are 20 to 100, inclusive. ||
 |#
 
 ## PostgresqlConfigSet18 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18}
@@ -57771,7 +59481,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -57800,23 +59512,27 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -57824,11 +59540,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -57841,22 +59561,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -57871,7 +59592,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -57886,7 +59606,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -57908,14 +59627,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -57925,7 +59642,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -57935,23 +59651,24 @@ in milliseconds. ||
 in milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -57959,13 +59676,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -57980,16 +59698,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
 || enableHashjoin | **boolean** ||
@@ -58001,9 +59727,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -58014,20 +59746,24 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 0 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -58051,14 +59787,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -58074,8 +59808,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -58117,7 +59855,9 @@ in milliseconds. ||
 || pgQualstatsSampleRate | **number** (double) ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || enableGroupByReordering | **boolean** ||
 || geqo | **boolean**
 
@@ -58127,7 +59867,9 @@ enable Genetic Query Optimizer, by default is on ||
 The number of tables to use geqo, default is 12 ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -58148,31 +59890,37 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
 in milliseconds. The default is 1000 (1 sec). ||
 || passwordEncryption | **enum** (PasswordEncryption)
 
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
 - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 || trackCommitTimestamp | **boolean** ||
-|| maxLogicalReplicationWorkers | **string** (int64) ||
-|| maxWalSenders | **string** (int64) ||
-|| maxReplicationSlots | **string** (int64) ||
+|| maxLogicalReplicationWorkers | **string** (int64)
+
+Acceptable values are 4 to 100, inclusive. ||
+|| maxWalSenders | **string** (int64)
+
+Acceptable values are 20 to 100, inclusive. ||
+|| maxReplicationSlots | **string** (int64)
+
+Acceptable values are 20 to 100, inclusive. ||
 |#
 
 ## PostgresqlConfigSet18_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18_1C}
@@ -58199,7 +59947,9 @@ parameters which detailed description is available in
 
 #|
 ||Field | Description ||
-|| maxConnections | **string** (int64) ||
+|| maxConnections | **string** (int64)
+
+The minimum value is 16. ||
 || sharedBuffers | **string** (int64)
 
 in bytes. ||
@@ -58228,23 +59978,27 @@ in milliseconds. ||
 || vacuumCostLimit | **string** (int64) ||
 || bgwriterDelay | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 10 to 10000, inclusive. ||
 || bgwriterLruMaxpages | **string** (int64) ||
 || bgwriterLruMultiplier | **number** (double) ||
 || bgwriterFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || backendFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_UNSPECIFIED`
 - `WAL_LEVEL_REPLICA`
 - `WAL_LEVEL_LOGICAL` ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`
 - `SYNCHRONOUS_COMMIT_OFF`
 - `SYNCHRONOUS_COMMIT_LOCAL`
@@ -58252,11 +60006,15 @@ in bytes ||
 - `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
 || checkpointTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 30000 to 86400000, inclusive. ||
 || checkpointCompletionTarget | **number** (double) ||
 || checkpointFlushAfter | **string** (int64)
 
-in bytes ||
+in bytes
+
+Acceptable values are 0 to 2097152, inclusive. ||
 || maxWalSize | **string** (int64)
 
 in bytes. ||
@@ -58269,22 +60027,23 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -58299,7 +60058,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -58314,7 +60072,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -58336,14 +60093,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -58353,7 +60108,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -58363,23 +60117,24 @@ in milliseconds. ||
 in milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -58387,13 +60142,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -58408,16 +60164,24 @@ in milliseconds. ||
 || exitOnError | **boolean** ||
 || seqPageCost | **number** (double) ||
 || randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumMaxWorkers | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
 || autovacuumVacuumCostDelay | **string** (int64) ||
 || autovacuumVacuumCostLimit | **string** (int64) ||
 || autovacuumNaptime | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1000 to 86400000, inclusive. ||
 || archiveTimeout | **string** (int64)
 
-in milliseconds. ||
-|| trackActivityQuerySize | **string** (int64) ||
+in milliseconds.
+
+Acceptable values are 10000 to 86400000, inclusive. ||
+|| trackActivityQuerySize | **string** (int64)
+
+Acceptable values are 100 to 102400, inclusive. ||
 || onlineAnalyzeEnable | **boolean** ||
 || enableBitmapscan | **boolean** ||
 || enableHashagg | **boolean** ||
@@ -58430,9 +60194,15 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64) ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxWorkerProcesses | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || autovacuumVacuumScaleFactor | **number** (double) ||
 || autovacuumAnalyzeScaleFactor | **number** (double) ||
 || defaultTransactionReadOnly | **boolean** ||
@@ -58443,20 +60213,24 @@ in milliseconds. ||
 || enablePartitionwiseAggregate | **boolean** ||
 || enablePartitionwiseJoin | **boolean** ||
 || jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| maxParallelMaintenanceWorkers | **string** (int64)
+
+The minimum value is 0. ||
 || parallelLeaderParticipation | **boolean** ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_UNSPECIFIED`
 - `PLAN_CACHE_MODE_AUTO`
 - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
 - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 0 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
 - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
 - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
 - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
@@ -58480,14 +60254,12 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
 - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
 - `PG_HINT_PLAN_DEBUG_PRINT_ON`
 - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
 - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -58503,8 +60275,12 @@ in milliseconds. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
-in bytes. ||
-|| maintenanceIoConcurrency | **string** (int64) ||
+in bytes.
+
+Acceptable values are 65536 to 1099511627776, inclusive. ||
+|| maintenanceIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSlotWalKeepSize | **string** (int64)
 
 in bytes. ||
@@ -58547,7 +60323,9 @@ in milliseconds. ||
 || plantunerFixEmptyTable | **boolean** ||
 || maxStackDepth | **string** (int64)
 
-in bytes. ||
+in bytes.
+
+Acceptable values are 65536 to 134217728, inclusive. ||
 || enableGroupByReordering | **boolean** ||
 || geqo | **boolean**
 
@@ -58557,7 +60335,9 @@ enable Genetic Query Optimizer, by default is on ||
 The number of tables to use geqo, default is 12 ||
 || geqoEffort | **string** (int64)
 
-tradeoff between planning time and query plan quality, default is 5 ||
+tradeoff between planning time and query plan quality, default is 5
+
+Acceptable values are 1 to 10, inclusive. ||
 || geqoPoolSize | **string** (int64)
 
 number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
@@ -58578,31 +60358,37 @@ initial value of the random number generator used by GEQO ||
 in milliseconds. ||
 || sessionDurationTimeout | **string** (int64)
 
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || logReplicationCommands | **boolean** ||
 || logAutovacuumMinDuration | **string** (int64)
 
 in milliseconds. The default is 1000 (1 sec). ||
 || passwordEncryption | **enum** (PasswordEncryption)
 
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
 
-- `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
 - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 || trackCommitTimestamp | **boolean** ||
-|| maxLogicalReplicationWorkers | **string** (int64) ||
-|| maxWalSenders | **string** (int64) ||
-|| maxReplicationSlots | **string** (int64) ||
+|| maxLogicalReplicationWorkers | **string** (int64)
+
+Acceptable values are 4 to 100, inclusive. ||
+|| maxWalSenders | **string** (int64)
+
+Acceptable values are 20 to 100, inclusive. ||
+|| maxReplicationSlots | **string** (int64)
+
+Acceptable values are 20 to 100, inclusive. ||
 |#
 
 ## ConnectionPoolerConfig {#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig2}
@@ -58614,7 +60400,6 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 Mode that the connection pooler is working in.
 See descriptions of all modes in the [documentation for PgBouncer](https://pgbouncer.github.io/usage).
 
-- `POOLING_MODE_UNSPECIFIED`
 - `SESSION`: Session pooling mode.
 - `TRANSACTION`: Transaction pooling mode.
 - `STATEMENT`: Statement pooling mode. ||
@@ -58699,10 +60484,14 @@ Allow access for YandexQuery. ||
 Configuration setting which enables/disables performance diagnostics service in cluster. ||
 || sessionsSamplingInterval | **string** (int64)
 
-Interval (in seconds) for pg_stat_activity sampling ||
+Interval (in seconds) for pg_stat_activity sampling
+
+Acceptable values are 1 to 86400, inclusive. ||
 || statementsSamplingInterval | **string** (int64)
 
-Interval (in seconds) for pg_stat_statements sampling ||
+Interval (in seconds) for pg_stat_statements sampling
+
+Acceptable values are 1 to 86400, inclusive. ||
 |#
 
 ## DiskSizeAutoscaling {#yandex.cloud.mdb.postgresql.v1.DiskSizeAutoscaling2}
@@ -58711,10 +60500,14 @@ Interval (in seconds) for pg_stat_statements sampling ||
 ||Field | Description ||
 || plannedUsageThreshold | **string** (int64)
 
-Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. ||
+Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergencyUsageThreshold | **string** (int64)
 
-Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. ||
+Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
+
+Acceptable values are 0 to 100, inclusive. ||
 || diskSizeLimit | **string** (int64)
 
 New storage size (in bytes) that is set when one of the thresholds is achieved. ||
@@ -58752,7 +60545,6 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -58762,7 +60554,9 @@ Day of the week (in `DDD` format).
 - `SUN` ||
 || hour | **string** (int64)
 
-Hour of the day in UTC (in `HH` format). ||
+Hour of the day in UTC (in `HH` format).
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.mdb.postgresql.v1.MaintenanceOperation}
@@ -58773,7 +60567,9 @@ A planned maintenance operation.
 ||Field | Description ||
 || info | **string**
 
-Information about this maintenance operation. ||
+Information about this maintenance operation.
+
+The maximum string length in characters is 256. ||
 || delayedUntil | **string** (date-time)
 
 Time until which this maintenance operation is delayed.

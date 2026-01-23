@@ -27,15 +27,21 @@ Retrieves a list of available backups for the specified Greenplum® cluster.
 
 Required field. ID of the Greenplum® cluster.
 
-To get the Greenplum® cluster ID use a [ClusterService.List](/docs/managed-greenplum/api-ref/grpc/Cluster/list#List) request. ||
+To get the Greenplum® cluster ID use a [ClusterService.List](/docs/managed-greenplum/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `page_size`, the service returns a [ListClusterBackupsResponse.next_page_token](#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) that can be used to get the next page of results in subsequent list requests. ||
+If the number of available results is larger than `page_size`, the service returns a [ListClusterBackupsResponse.next_page_token](#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
-Page token. To get the next page of results, set `page_token` to the [ListClusterBackupsResponse.next_page_token](#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) returned by the previous list request. ||
+Page token. To get the next page of results, set `page_token` to the [ListClusterBackupsResponse.next_page_token](#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListClusterBackupsResponse {#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse}
@@ -99,14 +105,12 @@ Size of the backup in bytes. ||
 
 How this backup was created (manual/automatic/etc...)
 
-- `BACKUP_CREATION_TYPE_UNSPECIFIED`
 - `AUTOMATED`: Backup created by automated daily schedule
 - `MANUAL`: Backup created by user request ||
 || method | enum **BackupMethod**
 
 Method of backup creation
 
-- `BACKUP_METHOD_UNSPECIFIED`
 - `BASE`: Base backup
 - `INCREMENTAL`: Delta (incremental) Greenplum backup ||
 || journal_size | **int64**

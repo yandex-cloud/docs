@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Required. ID of the cluster.
+            The maximum string length in characters is 50.
           type: string
         extensionId:
           description: |-
@@ -42,7 +43,9 @@ GET https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/extens
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the cluster. ||
+Required field. Required. ID of the cluster.
+
+The maximum string length in characters is 50. ||
 || extensionId | **string**
 
 Required field. Required. ID of the extension to return. ||
@@ -84,7 +87,6 @@ Flag is extension active now ||
 
 Extension type
 
-- `EXTENSION_TYPE_UNSPECIFIED`
 - `EXTENSION_TYPE_SYNONYMS`
 - `EXTENSION_TYPE_STOPWORDS` ||
 |#

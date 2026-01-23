@@ -34,10 +34,14 @@ Updates the specified hosts.
 || cluster_id | **string**
 
 Required field. ID of the MySQL cluster to update hosts in.
-To get the MySQL cluster ID, use a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request. ||
+To get the MySQL cluster ID, use a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || update_host_specs[] | **[UpdateHostSpec](#yandex.cloud.mdb.mysql.v1.UpdateHostSpec)**
 
-New configurations to apply to hosts. ||
+New configurations to apply to hosts.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## UpdateHostSpec {#yandex.cloud.mdb.mysql.v1.UpdateHostSpec}
@@ -57,13 +61,17 @@ To get a MySQL host name, use a [ClusterService.ListHosts](/docs/managed-mysql/a
 Field mask that specifies which settings of the MySQL host should be updated. ||
 || backup_priority | **int64**
 
-Host backup priority. ||
+Host backup priority.
+
+Acceptable values are 0 to 100, inclusive. ||
 || assign_public_ip | **bool**
 
 Whether the host should get a public IP address on creation. ||
 || priority | **int64**
 
-Host master promotion priority. ||
+Host master promotion priority.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

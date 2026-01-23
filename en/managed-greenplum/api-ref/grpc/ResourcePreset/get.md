@@ -33,7 +33,6 @@ To get the resource preset ID, use a [ResourcePresetService.List](/docs/managed-
 
 Required field. Required. ResourcePreset type - master or segment.
 
-- `TYPE_UNSPECIFIED`
 - `MASTER`: Greenplum® master host.
 - `SEGMENT`: Greenplum® segment host. ||
 |#
@@ -80,7 +79,6 @@ RAM volume for a Greenplum® host created with the preset, in bytes. ||
 
 Host type.
 
-- `TYPE_UNSPECIFIED`
 - `MASTER`: Greenplum® master host.
 - `SEGMENT`: Greenplum® segment host. ||
 || host_count_divider | **int64**

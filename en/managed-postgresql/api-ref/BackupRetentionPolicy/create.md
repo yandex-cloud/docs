@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the PostgreSQL cluster.
             To get the PostgreSQL cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -76,7 +77,9 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/reten
 || clusterId | **string**
 
 Required field. ID of the PostgreSQL cluster.
-To get the PostgreSQL cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request. ||
+To get the PostgreSQL cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.postgresql.v1.CreateBackupRetentionPolicyRequest}
@@ -161,7 +164,9 @@ Message to describe a retention policy for cluster backups.
 Required field. Required. Policy ID. ||
 || clusterId | **string**
 
-Required field. PostgreSQL cluster ID. ||
+Required field. PostgreSQL cluster ID.
+
+The maximum string length in characters is 50. ||
 || policyName | **string**
 
 Required field. Required. Policy name. ||

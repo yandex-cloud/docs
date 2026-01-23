@@ -32,14 +32,15 @@ Retrieves logs for the specified Redis cluster.
 || cluster_id | **string**
 
 Required field. ID of the Redis cluster to request logs for.
-To get the Redis cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request. ||
+To get the Redis cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || column_filter[] | **string**
 
 Columns from the logs table to request.
 If no columns are specified, entire log records are returned. ||
 || service_type | enum **ServiceType**
 
-- `SERVICE_TYPE_UNSPECIFIED`
 - `REDIS`: Logs of Redis activity. ||
 || from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
@@ -51,11 +52,15 @@ End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc333
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse) returned by the previous list request. ||
+[ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListClusterLogsResponse {#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse}

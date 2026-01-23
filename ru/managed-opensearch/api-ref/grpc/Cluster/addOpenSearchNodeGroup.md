@@ -49,7 +49,9 @@ Creates an OpenSearch type host group.
 
 Required field. ID of the OpenSearch cluster to create the OpenSearch type host group in.
 
-To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request. ||
+To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || node_group_spec | **[NodeGroup](#yandex.cloud.mdb.opensearch.v1.OpenSearchCreateSpec.NodeGroup)**
 
 Configuration of the new host group. ||
@@ -63,19 +65,27 @@ Configuration of the host group.
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the group. ||
+Required field. Name of the group.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || resources | **[Resources](#yandex.cloud.mdb.opensearch.v1.Resources)**
 
 Resources allocated to the hosts. ||
 || hosts_count | **int64**
 
-Number of hosts in the group. ||
+Number of hosts in the group.
+
+The minimum value is 1. ||
 || zone_ids[] | **string**
 
-IDs of the availability zones the hosts belong to. ||
+IDs of the availability zones the hosts belong to.
+
+The maximum number of elements is 10. The maximum string length in characters for each value is 50. ||
 || subnet_ids[] | **string**
 
-IDs of the subnets that the hosts belong to. ||
+IDs of the subnets that the hosts belong to.
+
+The maximum number of elements is 10. The maximum string length in characters for each value is 50. ||
 || assign_public_ip | **bool**
 
 Determines whether a public IP is assigned to the hosts in the group. ||
@@ -83,7 +93,6 @@ Determines whether a public IP is assigned to the hosts in the group. ||
 
 Roles of the hosts in the group.
 
-- `GROUP_ROLE_UNSPECIFIED`
 - `DATA`
 - `MANAGER` ||
 || disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
@@ -114,10 +123,14 @@ Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd
 ||Field | Description ||
 || planned_usage_threshold | **int64**
 
-Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergency_usage_threshold | **int64**
 
-Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || disk_size_limit | **int64**
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||

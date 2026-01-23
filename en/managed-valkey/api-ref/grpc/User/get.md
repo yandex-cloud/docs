@@ -27,11 +27,15 @@ To get the list of available Redis User resources, make a [List](/docs/managed-r
 || cluster_id | **string**
 
 Required field. ID of the Redis cluster the user belongs to.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || user_name | **string**
 
 Required field. Name of the Redis User resource to return.
-To get the name of the user, use a [UserService.List](/docs/managed-redis/api-ref/grpc/User/list#List) request. ||
+To get the name of the user, use a [UserService.List](/docs/managed-redis/api-ref/grpc/User/list#List) request.
+
+The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$ `. ||
 |#
 
 ## User {#yandex.cloud.mdb.redis.v1.User}

@@ -26,12 +26,16 @@ Deletes a user in a cluster.
 
 Required field. ID of the cluster to delete the user from.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || user_name | **string**
 
 Required field. Name of the user to delete.
 
-To get this name, make a [UserService.List](/docs/managed-mysql/api-ref/grpc/User/list#List) request. ||
+To get this name, make a [UserService.List](/docs/managed-mysql/api-ref/grpc/User/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

@@ -21,9 +21,15 @@ sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/Extension/list.md
 
 #|
 ||Field | Description ||
-|| page_size | **int64** ||
-|| page_token | **string** ||
-|| folder_id | **string** ||
+|| page_size | **int64**
+
+The maximum value is 1000. ||
+|| page_token | **string**
+
+The maximum string length in characters is 100. ||
+|| folder_id | **string**
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ListExtensionsResponse {#yandex.cloud.mdb.clickhouse.v1.ListExtensionsResponse}

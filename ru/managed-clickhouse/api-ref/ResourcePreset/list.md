@@ -13,6 +13,7 @@ apiPlayground:
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`, the service returns a [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListResourcePresetsResponse)
             that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
@@ -20,6 +21,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, Set `pageToken` to the [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListResourcePresetsResponse)
             returned by the previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -45,11 +47,15 @@ GET https://{{ api-host-mdb }}/managed-clickhouse/v1/resourcePresets
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListResourcePresetsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, Set `pageToken` to the [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListResourcePresetsResponse)
-returned by the previous list request. ||
+returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.clickhouse.v1.ListResourcePresetsResponse}

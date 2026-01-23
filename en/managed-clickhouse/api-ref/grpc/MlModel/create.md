@@ -28,15 +28,18 @@ Creates a machine learning model in the specified cluster.
 
 Required field. ID of the cluster to create a model in.
 
-To get a cluster ID make a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request. ||
+To get a cluster ID make a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || ml_model_name | **string**
 
-Required field. Model name. The model name is one of the arguments of the modelEvaluate() function, which is used to call the model in ClickHouse. ||
+Required field. Model name. The model name is one of the arguments of the modelEvaluate() function, which is used to call the model in ClickHouse.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || type | enum **MlModelType**
 
 Required field. Type of the model.
 
-- `ML_MODEL_TYPE_UNSPECIFIED`
 - `ML_MODEL_TYPE_CATBOOST`: CatBoost model. ||
 || uri | **string**
 
@@ -150,7 +153,6 @@ ID of the ClickHouse cluster that the model belongs to. ||
 
 Type of the model.
 
-- `ML_MODEL_TYPE_UNSPECIFIED`
 - `ML_MODEL_TYPE_CATBOOST`: CatBoost model. ||
 || uri | **string**
 

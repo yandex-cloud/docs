@@ -28,7 +28,9 @@ Creates a new database in a cluster.
 
 Required field. ID of the cluster to create the database in.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || database_spec | **[DatabaseSpec](#yandex.cloud.mdb.mysql.v1.DatabaseSpec)**
 
 Required field. Configuration of the database. ||
@@ -40,7 +42,9 @@ Required field. Configuration of the database. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the database. ||
+Required field. Name of the database.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

@@ -27,12 +27,13 @@ Reschedules a planned maintenance operation.
 
 Required field. ID of the OpenSearch cluster to reschedule the maintenance operation for.
 
-To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request. ||
+To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || reschedule_type | enum **RescheduleType**
 
 Required field. The type of the reschedule request.
 
-- `RESCHEDULE_TYPE_UNSPECIFIED`: Time of the maintenance is not specified..
 - `IMMEDIATE`: Start the maintenance operation immediately.
 - `NEXT_AVAILABLE_WINDOW`: Start the maintenance operation within the next available maintenance window.
 - `SPECIFIC_TIME`: Start the maintenance operation at the specific time. ||
@@ -176,7 +177,8 @@ The value can also point to a moment in the past if [reschedule_type.IMMEDIATE](
           // end of the list of possible fields
         },
         "snapshot_max_age_days": "google.protobuf.Int64Value"
-      }
+      },
+      "full_version": "string"
     },
     "network_id": "string",
     "health": "Health",
@@ -305,7 +307,6 @@ Maximum 64 labels per resource. ||
 
 Deployment environment of the OpenSearch cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy:
 only hotfixes are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -397,6 +398,9 @@ Access policy for external services. ||
 || snapshot_management | **[SnapshotManagement](#yandex.cloud.mdb.opensearch.v1.SnapshotManagement)**
 
 Snapshot management configuration ||
+|| full_version | **string**
+
+Full version ||
 |#
 
 ## OpenSearch {#yandex.cloud.mdb.opensearch.v1.OpenSearch}
@@ -447,7 +451,6 @@ Determines whether a public IP is assigned to the hosts in the group. ||
 
 Roles of the host group.
 
-- `GROUP_ROLE_UNSPECIFIED`
 - `DATA`
 - `MANAGER` ||
 || disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
@@ -478,10 +481,14 @@ Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd
 ||Field | Description ||
 || planned_usage_threshold | **int64**
 
-Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergency_usage_threshold | **int64**
 
-Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || disk_size_limit | **int64**
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
@@ -493,7 +500,7 @@ Limit on how large the storage for database instances can automatically grow, in
 ||Field | Description ||
 || effective_config | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)**
 
-Required field.  ||
+Required field. ||
 || user_config | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)** ||
 || default_config | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)** ||
 |#
@@ -574,7 +581,9 @@ Snapshot management configuration
 Snapshot creation schedule ||
 || snapshot_max_age_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Snapshot max age in days ||
+Snapshot max age in days
+
+The minimum value is 7. ||
 |#
 
 ## SnapshotSchedule {#yandex.cloud.mdb.opensearch.v1.SnapshotSchedule}
@@ -608,7 +617,9 @@ Hourly based snapshot schedule
 ||Field | Description ||
 || minute | **int64**
 
-The minute of the hour at which the backup should be created. ||
+The minute of the hour at which the backup should be created.
+
+Acceptable values are 0 to 59, inclusive. ||
 |#
 
 ## DailySnapshotSchedule {#yandex.cloud.mdb.opensearch.v1.DailySnapshotSchedule}
@@ -619,10 +630,14 @@ Daily based snapshot schedule
 ||Field | Description ||
 || hour | **int64**
 
-The hour of the day in UTC timezone at which the backup should be created. ||
+The hour of the day in UTC timezone at which the backup should be created.
+
+Acceptable values are 0 to 23, inclusive. ||
 || minute | **int64**
 
-The minute of the hour at which the backup should be created. ||
+The minute of the hour at which the backup should be created.
+
+Acceptable values are 0 to 59, inclusive. ||
 |#
 
 ## WeeklySnapshotSchedule {#yandex.cloud.mdb.opensearch.v1.WeeklySnapshotSchedule}
@@ -635,7 +650,6 @@ Weekly based snapshot schedule
 
 Day of the week
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -645,10 +659,14 @@ Day of the week
 - `SUN` ||
 || hour | **int64**
 
-The hour of the day in UTC timezone at which the backup should be created. ||
+The hour of the day in UTC timezone at which the backup should be created.
+
+Acceptable values are 0 to 23, inclusive. ||
 || minute | **int64**
 
-The minute of the hour at which the backup should be created. ||
+The minute of the hour at which the backup should be created.
+
+Acceptable values are 0 to 59, inclusive. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow}
@@ -688,7 +706,6 @@ A weekly maintenance window.
 
 Day of the week.
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`: Monday
 - `TUE`: Tuesday
 - `WED`: Wednesday
@@ -698,7 +715,9 @@ Day of the week.
 - `SUN`: Sunday ||
 || hour | **int64**
 
-Hour of the day in the UTC timezone. ||
+Hour of the day in the UTC timezone.
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.mdb.opensearch.v1.MaintenanceOperation}
@@ -707,7 +726,9 @@ Hour of the day in the UTC timezone. ||
 ||Field | Description ||
 || info | **string**
 
-The description of the operation. ||
+The description of the operation.
+
+The maximum string length in characters is 256. ||
 || delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Delay time for the maintenance operation. ||

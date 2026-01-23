@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the Greenplum cluster.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -21,12 +22,14 @@ apiPlayground:
           description: |-
             **string** (int64)
             Cluster revision
+            Value must be greater than 0.
           type: string
           format: int64
         resourceGroupName:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The string length in characters must be 3-200. Value must match the regular expression ` ^[^\|/*?.,;'<>]+$ `.
           pattern: ^[^\|/*?.,;'<>]+$
           type: string
       required:
@@ -53,7 +56,9 @@ GET https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/resourc
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Greenplum cluster. ||
+Required field. ID of the Greenplum cluster.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.greenplum.v1.GetResourceGroupAtRevisionRequest}
@@ -62,10 +67,14 @@ Required field. ID of the Greenplum cluster. ||
 ||Field | Description ||
 || revision | **string** (int64)
 
-Cluster revision ||
+Cluster revision
+
+Value must be greater than 0. ||
 || resourceGroupName | **string**
 
-Required field.  ||
+Required field.
+
+The string length in characters must be 3-200. Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 |#
 
 ## Response {#yandex.cloud.mdb.greenplum.v1.ResourceGroup}
@@ -88,21 +97,33 @@ Required field.  ||
 ||Field | Description ||
 || name | **string**
 
-Required field.  ||
+Required field.
+
+The string length in characters must be 3-200. Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 || isUserDefined | **boolean** ||
 || concurrency | **string** (int64)
 
-References to CONCURRENCY from gp resource group parameter ||
+References to CONCURRENCY from gp resource group parameter
+
+The minimum value is 0. ||
 || cpuRateLimit | **string** (int64)
 
-References to CPU_RATE_LIMIT from gp resource group parameter ||
+References to CPU_RATE_LIMIT from gp resource group parameter
+
+Acceptable values are 1 to 100, inclusive. ||
 || memoryLimit | **string** (int64)
 
-References to MEMORY_LIMIT from gp resource group parameter ||
+References to MEMORY_LIMIT from gp resource group parameter
+
+Acceptable values are 0 to 100, inclusive. ||
 || memorySharedQuota | **string** (int64)
 
-References to MEMORY_SHARED_QUOTA from gp resource group parameter ||
+References to MEMORY_SHARED_QUOTA from gp resource group parameter
+
+Acceptable values are 0 to 100, inclusive. ||
 || memorySpillRatio | **string** (int64)
 
-References to MEMORY_SPILL_RATIO from gp resource group parameter ||
+References to MEMORY_SPILL_RATIO from gp resource group parameter
+
+Acceptable values are 0 to 100, inclusive. ||
 |#

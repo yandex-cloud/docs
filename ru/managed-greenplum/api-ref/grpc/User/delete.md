@@ -24,10 +24,14 @@ Delete user
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || user_name | **string**
 
-Required field.  ||
+Required field.
+
+The string length in characters must be 1-63. Value must match the regular expression ` ^[a-zA-Z_][a-zA-Z0-9_]{0,62}$ `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -112,8 +116,12 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || user_name | **string**
 
-Required field.  ||
+Required field.
+
+The string length in characters must be 1-63. Value must match the regular expression ` ^[a-zA-Z_][a-zA-Z0-9_]{0,62}$ `. ||
 |#

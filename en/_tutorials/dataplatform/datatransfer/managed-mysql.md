@@ -24,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - Manually {#manual}
 
-        1. Create a [{{ mmy-name }} target cluster](../../../managed-mysql/operations/cluster-create.md) with your preferred configuration. For this operation, the following requirements apply:
+        1. Create a [target {{ mmy-name }} cluster](../../../managed-mysql/operations/cluster-create.md) with any suitable configuration. In this case, the following applies:
 
             * The {{ MY }} version must be the same as or higher than in the source cluster.
 
@@ -38,30 +38,30 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create):
 
-            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.on_premise.title }}`
+            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.on_premise.title }}`.
 
                 Configure the source cluster connection settings.
 
         1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create):
 
-            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`
+            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
 
                 Select your target cluster from the list and specify its connection settings.
 
-        1. [Create](../../../data-transfer/operations/transfer.md#create) a _{{ dt-type-copy-repl }}_-type transfer configured to use the new endpoints.
+        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy-repl }}_-type that will use the endpoints you created.
         1. [Activate](../../../data-transfer/operations/transfer.md#activate) the transfer.
 
             {% note warning %}
 
-            Do not make any data schema changes in the source or target cluster during the transfer. For more information, see [{#T}](../../../data-transfer/operations/db-actions.md).
+            Avoid changing the data schema in either the source or target cluster while the transfer is in progress. For more information, see [{#T}](../../../data-transfer/operations/db-actions.md).
 
             {% endnote %}
 
     - {{ TF }} {#tf}
 
-        1. [Prepare the source cluster](../../../data-transfer/operations/prepare.md#source-my).
+        1. [Set up the source cluster](../../../data-transfer/operations/prepare.md#source-my).
 
         1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
         1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
@@ -83,20 +83,20 @@ If you no longer need the resources you created, [delete them](#clear-out).
         1. In the `data-transfer-mysql-mmy.tf` file, specify the following:
 
             * [Source endpoint parameters](../../../data-transfer/operations/endpoint/source/mysql.md#on-premise).
-            * [Target endpoint settings](../../../data-transfer/operations/endpoint/target/mysql.md#managed-service) inherited from the target cluster configuration:
+            * [Target endpoint parameters](../../../data-transfer/operations/endpoint/target/mysql.md#managed-service) inherited from the cluster configuration:
 
                 * `target_mysql_version`: {{ MY }} version. Make sure it is the same as or higher than in the source cluster.
                 * `target_sql_mode`: [SQL mode](../../../managed-mysql/concepts/settings-list.md#setting-sql-mode). It must be the same as in the source cluster.
                 * `target_db_name`: Database name.
                 * `target_user` and `target_password`: Database owner username and password.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will display any configuration errors detected in your files.
+            {{ TF }} will show any errors found in your configuration files.
 
         1. Create the required infrastructure:
 
@@ -119,7 +119,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources you do not need, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs group=instructions %}
 

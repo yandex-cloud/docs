@@ -27,11 +27,15 @@ To get the list of available PostgreSQL Database resources, make a [List](/docs/
 || cluster_id | **string**
 
 Required field. ID of the PostgreSQL cluster that the database belongs to.
-To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || database_name | **string**
 
 Required field. Name of the PostgreSQL Database resource to return.
-To get the name of the database use a [DatabaseService.List](/docs/managed-postgresql/api-ref/grpc/Database/list#List) request. ||
+To get the name of the database use a [DatabaseService.List](/docs/managed-postgresql/api-ref/grpc/Database/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Database {#yandex.cloud.mdb.postgresql.v1.Database}

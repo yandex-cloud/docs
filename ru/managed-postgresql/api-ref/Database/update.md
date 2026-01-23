@@ -11,12 +11,14 @@ apiPlayground:
             **string**
             Required field. ID of the PostgreSQL cluster to update a database in.
             To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         databaseName:
           description: |-
             **string**
             Required field. Name of the database to update.
             To get the name of the database use a [DatabaseService.List](/docs/managed-postgresql/api-ref/Database/list#List) request.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
       required:
@@ -31,6 +33,7 @@ apiPlayground:
           description: |-
             **string**
             Optional. New name of the database.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
         updateMask:
@@ -98,11 +101,15 @@ PATCH https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/data
 || clusterId | **string**
 
 Required field. ID of the PostgreSQL cluster to update a database in.
-To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request. ||
+To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || databaseName | **string**
 
 Required field. Name of the database to update.
-To get the name of the database use a [DatabaseService.List](/docs/managed-postgresql/api-ref/Database/list#List) request. ||
+To get the name of the database use a [DatabaseService.List](/docs/managed-postgresql/api-ref/Database/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.postgresql.v1.UpdateDatabaseRequest}
@@ -125,7 +132,9 @@ To get the name of the database use a [DatabaseService.List](/docs/managed-postg
 ||Field | Description ||
 || newDatabaseName | **string**
 
-Optional. New name of the database. ||
+Optional. New name of the database.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.

@@ -38,7 +38,9 @@ Creates a Redis user in the specified cluster.
 || cluster_id | **string**
 
 Required field. ID of the Redis cluster to create a user in.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || user_spec | **[UserSpec](#yandex.cloud.mdb.redis.v1.UserSpec)**
 
 Properties of the user to be created. ||
@@ -50,10 +52,14 @@ Properties of the user to be created. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the Redis user. ||
+Required field. Name of the Redis user.
+
+The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$ `. ||
 || passwords[] | **string**
 
-Password of the Redis user. ||
+Password of the Redis user.
+
+Must contain exactly 1 element. Each value must match the regular expression ` ^[a-zA-Z0-9@=+?*.,!&#$^<>_-]*$ `. ||
 || permissions | **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions)**
 
 Set of permissions to grant to the user. ||

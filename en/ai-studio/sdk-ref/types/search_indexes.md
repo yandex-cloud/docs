@@ -194,7 +194,7 @@ A class which contains mean index combination strategy with evaluation technique
 
 the technique used for mean evaluation
 
-**weights**\: *[Collection](https://docs.python.org/3/library/typing.html#typing.Collection)[[float](https://docs.python.org/3/library/functions.html#float)] | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_indexes.combination_strategy.MeanIndexCombinationStrategy.weights}
+**weights**\: *[Collection](https://docs.python.org/3/library/collections.abc.html#collections.abc.Collection)[[float](https://docs.python.org/3/library/functions.html#float)] | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_indexes.combination_strategy.MeanIndexCombinationStrategy.weights}
 
 the weights associated with the evaluation technique
 
@@ -204,7 +204,7 @@ the weights associated with the evaluation technique
 || Parameters | 
 
 - **mean\_evaluation\_technique** ([*MeanIndexEvaluationTechnique*](#yandex_cloud_ml_sdk._search_indexes.combination_strategy.MeanIndexEvaluationTechnique) *\| None*)
-- **weights** ([*Collection*](https://docs.python.org/3/library/typing.html#typing.Collection)*[*[*float*](https://docs.python.org/3/library/functions.html#float)*] \| None*) ||
+- **weights** ([*Collection*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Collection)*[*[*float*](https://docs.python.org/3/library/functions.html#float)*] \| None*) ||
 || Return type | None ||
 |#
 

@@ -11,12 +11,14 @@ apiPlayground:
             **string**
             Required field. ID of the cluster that the database belongs to.
             To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         databaseName:
           description: |-
             **string**
             Required field. Name of the database to return information about.
             To get this name, make a [DatabaseService.List](/docs/managed-mysql/api-ref/Database/list#List) request.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
       required:
@@ -47,12 +49,16 @@ GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/databases/{
 
 Required field. ID of the cluster that the database belongs to.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || databaseName | **string**
 
 Required field. Name of the database to return information about.
 
-To get this name, make a [DatabaseService.List](/docs/managed-mysql/api-ref/Database/list#List) request. ||
+To get this name, make a [DatabaseService.List](/docs/managed-mysql/api-ref/Database/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Response {#yandex.cloud.mdb.mysql.v1.Database}

@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Required. ID of the OpenSearch cluster.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -47,7 +48,9 @@ POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}:switc
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the OpenSearch cluster. ||
+Required field. Required. ID of the OpenSearch cluster.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.opensearch.v1.SwitchMasterRequest}

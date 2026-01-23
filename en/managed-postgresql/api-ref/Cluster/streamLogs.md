@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Required. ID of the PostgreSQL cluster.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -27,7 +28,6 @@ apiPlayground:
         serviceType:
           description: |-
             **enum** (ServiceType)
-            - `SERVICE_TYPE_UNSPECIFIED`
             - `POSTGRESQL`: Logs of PostgreSQL activity.
             - `POOLER`: Logs of connection pooler activity.
           type: string
@@ -64,6 +64,7 @@ apiPlayground:
             **string**
             Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs
             request to start streaming from next log record.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
@@ -77,6 +78,7 @@ apiPlayground:
             Examples of a filter:
             `message.hostname='node1.db.cloud.yandex.net'`
             `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`
+            The maximum string length in characters is 1000.
           type: string
       additionalProperties: false
     body: null
@@ -100,7 +102,9 @@ GET https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}:stream
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the PostgreSQL cluster. ||
+Required field. Required. ID of the PostgreSQL cluster.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.postgresql.v1.StreamClusterLogsRequest}
@@ -112,7 +116,6 @@ Required field. Required. ID of the PostgreSQL cluster. ||
 Columns from logs table to get in the response. ||
 || serviceType | **enum** (ServiceType)
 
-- `SERVICE_TYPE_UNSPECIFIED`
 - `POSTGRESQL`: Logs of PostgreSQL activity.
 - `POOLER`: Logs of connection pooler activity. ||
 || fromTime | **string** (date-time)
@@ -140,7 +143,9 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || recordToken | **string**
 
 Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs
-request to start streaming from next log record. ||
+request to start streaming from next log record.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -151,7 +156,9 @@ The expression must specify:
 3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`.
 Examples of a filter:
 `message.hostname='node1.db.cloud.yandex.net'`
-`message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"` ||
+`message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.mdb.postgresql.v1.StreamLogRecord}

@@ -23,7 +23,9 @@ List all PXF datasources
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ListPXFDatasourcesResponse {#yandex.cloud.mdb.greenplum.v1.ListPXFDatasourcesResponse}
@@ -137,7 +139,9 @@ Required field.  ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Data source name. ||
+Required field. Data source name.
+
+The string length in characters must be 3-200. Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 || s3 | **[PXFDatasourceS3](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceS3)**
 
 Settings of an external S3 data source.
@@ -166,10 +170,14 @@ Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`. ||
 ||Field | Description ||
 || access_key | **string**
 
-Public key to access S3 storage. ||
+Public key to access S3 storage.
+
+The maximum string length in characters is 200. ||
 || secret_key | **string**
 
-Secret key to access S3 storage. ||
+Secret key to access S3 storage.
+
+The maximum string length in characters is 200. ||
 || fast_upload | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Manages a fast upload of big files to S3 storage. In case of the `false` value, the PXF generates files on disk before sending them to the S3 storage. In case of the `true` value, the PXF generates files in RAM (the PXF writes to disc only if there is not enough RAM).
@@ -177,7 +185,9 @@ Manages a fast upload of big files to S3 storage. In case of the `false` value, 
 The fast upload is enabled by default. ||
 || endpoint | **string**
 
-S3 storage address. The default value is `storage.yandexcloud.net` used for Yandex Object Storage. ||
+S3 storage address. The default value is `storage.yandexcloud.net` used for Yandex Object Storage.
+
+The maximum string length in characters is 200. Value must match the regular expression ``` (((s3|https?)://)?([a-z0-9]([a-z0-9-]*[a-z0-9])?[.])+[a-z]{2,})? ```. ||
 |#
 
 ## PXFDatasourceJDBC {#yandex.cloud.mdb.greenplum.v1.PXFDatasourceJDBC}
@@ -196,35 +206,49 @@ JDBC driver class in Java. The possible values are the following:
 * `org.postgresql.Driver`
 * `oracle.jdbc.driver.OracleDriver`
 * `net.snowflake.client.jdbc.SnowflakeDriver`
-* `io.trino.jdbc.TrinoDriver` ||
+* `io.trino.jdbc.TrinoDriver`
+
+The maximum string length in characters is 50. ||
 || url | **string**
 
 URL that the JDBC driver uses to connect to the database. Examples:
 
 * `jdbc:mysql://mysqlhost:3306/testdb`: Local MySQL DB.
 * `jdbc:postgresql://c-<cluster_id>.rw.mdb.yandexcloud.net:6432/db1`: Managed Service for PostgreSQL cluster. The address contains the special FQDN of the cluster's master.
-* `jdbc:oracle:thin:@host.example:1521:orcl`: Oracle DB. ||
+* `jdbc:oracle:thin:@host.example:1521:orcl`: Oracle DB.
+
+The maximum string length in characters is 1000. ||
 || user | **string**
 
-Username of the DB owner. ||
+Username of the DB owner.
+
+The maximum string length in characters is 200. ||
 || password | **string**
 
-Password of the DB owner. ||
+Password of the DB owner.
+
+The maximum string length in characters is 200. ||
 || statement_batch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of rows to read in an external table, in a batch.
 
-The default value is `100`. ||
+The default value is `100`.
+
+Acceptable values are 50 to 1000, inclusive. ||
 || statement_fetch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of rows to fetch (buffer) when reading from an external table.
 
-The default value is `1000`. ||
+The default value is `1000`.
+
+Acceptable values are 50 to 10000, inclusive. ||
 || statement_query_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Amount of time (in seconds) the JDBC driver waits for a statement to run. This timeout applies to statements created for both read and write operations.
 
-The default value is `60`. ||
+The default value is `60`.
+
+Acceptable values are 5 to 43200, inclusive. ||
 || pool_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Determines whether JDBC connection pooling is used in a server configuration. By default, it is used. ||
@@ -232,22 +256,30 @@ Determines whether JDBC connection pooling is used in a server configuration. By
 
 Maximum number of connections to the DB backend.
 
-The default value is `5`. ||
+The default value is `5`.
+
+Acceptable values are 1 to 200, inclusive. ||
 || pool_connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum time, in milliseconds, to wait for a connection from the pool.
 
-The default value is `30000`. ||
+The default value is `30000`.
+
+Acceptable values are 5000 to 600000, inclusive. ||
 || pool_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum amount of time, in milliseconds, after which an inactive connection is considered idle.
 
-The default value is `30000`. ||
+The default value is `30000`.
+
+Acceptable values are 5000 to 600000, inclusive. ||
 || pool_minimum_idle | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Minimum number of idle connections maintained in the connection pool.
 
-The default value is `0`. ||
+The default value is `0`.
+
+Acceptable values are 0 to 200, inclusive. ||
 |#
 
 ## PXFDatasourceHDFS {#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFS}
@@ -267,17 +299,23 @@ Enables authentication on behalf of the Greenplum® user when connecting to the 
 The authentication is disabled by default. ||
 || username | **string**
 
-Login username for the remote file storage or DBMS if authentication on behalf of the Greenplum® user is enabled. ||
+Login username for the remote file storage or DBMS if authentication on behalf of the Greenplum® user is enabled.
+
+The maximum string length in characters is 128. ||
 || sasl_connection_retries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of times that PXF retries a SASL connection request after a refused connection returns a `GSS initiate failed` error.
 
-The default value is `5`. ||
+The default value is `5`.
+
+Acceptable values are 1 to 50, inclusive. ||
 || zk_hosts[] | **string**
 
 ZooKeeper server hosts.
 
-Specify values in the `<address>:<port>` format. ||
+Specify values in the `<address>:<port>` format.
+
+The maximum number of elements is 200. The string length in characters for each value must be 1-200. ||
 || dfs | **[PXFDatasourceHDFSDfs](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfs)**
 
 Settings of the distributed file system. ||
@@ -292,10 +330,14 @@ Settings of the ResourceManager service that is responsible for tracking resourc
 ||Field | Description ||
 || default_fs | **string**
 
-URI whose scheme and authority determine the file system implementation. ||
+URI whose scheme and authority determine the file system implementation.
+
+The maximum string length in characters is 200. ||
 || security_auth_to_local | **string**
 
-Rules for mapping Kerberos principals to operating system user accounts. ||
+Rules for mapping Kerberos principals to operating system user accounts.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## PXFDatasourceKerberos {#yandex.cloud.mdb.greenplum.v1.PXFDatasourceKerberos}
@@ -307,22 +349,34 @@ Rules for mapping Kerberos principals to operating system user accounts. ||
 Determines whether the Kerberos authentication server is used. By default, it is not used. ||
 || primary | **string**
 
-Host of the primary KDC server (Key Distribution Center). ||
+Host of the primary KDC server (Key Distribution Center).
+
+The maximum string length in characters is 128. ||
 || realm | **string**
 
-Kerberos realm for a Greenplum® DB. ||
+Kerberos realm for a Greenplum® DB.
+
+The maximum string length in characters is 1000. ||
 || kdc_servers[] | **string**
 
-KDC server hosts. ||
+KDC server hosts.
+
+The maximum number of elements is 200. The string length in characters for each value must be 1-200. ||
 || admin_server | **string**
 
-Administration server host. Usually, this is the primary Kerberos server. ||
+Administration server host. Usually, this is the primary Kerberos server.
+
+The maximum string length in characters is 128. ||
 || default_domain | **string**
 
-Domain that is used for the host name extension. Applicable when Kerberos 4 service members become Kerberos 5 service members (for example, when rcmd.hostname is replaced with host/hostname.domain). ||
+Domain that is used for the host name extension. Applicable when Kerberos 4 service members become Kerberos 5 service members (for example, when rcmd.hostname is replaced with host/hostname.domain).
+
+The maximum string length in characters is 128. ||
 || keytab_base64 | **string**
 
-Base64 encoded contents of the keytab file. ||
+Base64 encoded contents of the keytab file.
+
+Value must match the regular expression ``` ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$ ```. The maximum string length in characters is 65536. ||
 |#
 
 ## PXFDatasourceHDFSDfs {#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfs}
@@ -346,7 +400,9 @@ Determines whether the datanode hostname is used when connecting to datanodes. |
 
 List of HDFS service logical names.
 
-Specify them separated by commas. The names can be arbitrary. ||
+Specify them separated by commas. The names can be arbitrary.
+
+No more than 10000 per resource. ||
 || nameservices | **string**
 
 Corresponds well-known HDFS client setting "dfs.nameservices" for this datasource ||
@@ -356,10 +412,18 @@ Corresponds well-known HDFS client setting "dfs.nameservices" for this datasourc
 
 #|
 ||Field | Description ||
-|| rpc_address | **string** ||
-|| service_rpc_address | **string** ||
-|| http_address | **string** ||
-|| https_address | **string** ||
+|| rpc_address | **string**
+
+The maximum string length in characters is 1000. ||
+|| service_rpc_address | **string**
+
+The maximum string length in characters is 1000. ||
+|| http_address | **string**
+
+The maximum string length in characters is 1000. ||
+|| https_address | **string**
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## PXFDatasourceHDFSYarn {#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarn}
@@ -381,10 +445,14 @@ The switch of ResourceManagers is enabled by default if the high availability is
 Determines whether the embedded ActiveStandbyElector method should be used for the election of the active ResourceManager. If the current active ResourceManager has failed and does not respond, the ActiveStandbyElector method makes another ResourceManager active which then takes over. ||
 || resourcemanager_cluster_id | **string**
 
-Cluster ID. Specify it, so the ResourceManager service does not become active for a different cluster. ||
+Cluster ID. Specify it, so the ResourceManager service does not become active for a different cluster.
+
+The maximum string length in characters is 1000. ||
 || ha_rm | **object** (map<**string**, **[PXFDatasourceHDFSYarnHaRm](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarnHaRm)**>)
 
-Highly available ResourceManager service. ||
+Highly available ResourceManager service.
+
+No more than 10000 per resource. ||
 |#
 
 ## PXFDatasourceHDFSYarnHaRm {#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarnHaRm}
@@ -416,17 +484,23 @@ Enables authentication on behalf of the Greenplum® user when connecting to the 
 The authentication is disabled by default. ||
 || username | **string**
 
-Login username for the remote file storage or DBMS if authentication on behalf of the Greenplum® user is enabled. ||
+Login username for the remote file storage or DBMS if authentication on behalf of the Greenplum® user is enabled.
+
+The maximum string length in characters is 128. ||
 || sasl_connection_retries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of times that PXF retries a SASL connection request after a refused connection returns a `GSS initiate failed` error.
 
-The default value is `5`. ||
+The default value is `5`.
+
+Acceptable values are 1 to 50, inclusive. ||
 || zk_hosts[] | **string**
 
 ZooKeeper server hosts.
 
-Specify values in the `<address>:<port>` format. ||
+Specify values in the `<address>:<port>` format.
+
+The maximum number of elements is 200. The string length in characters for each value must be 1-200. ||
 || ppd | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Specifies if predicate pushdown is enabled for queries on external tables.
@@ -434,11 +508,17 @@ Specifies if predicate pushdown is enabled for queries on external tables.
 The predicate pushdown is enabled by default. ||
 || metastore_uris[] | **string**
 
-List of URIs separated by commas. To request metadata, the remote DBMS connects to Metastore by one of these URIs. ||
+List of URIs separated by commas. To request metadata, the remote DBMS connects to Metastore by one of these URIs.
+
+The maximum number of elements is 200. The string length in characters for each value must be 1-200. ||
 || metastore_kerberos_principal | **string**
 
-Service principal for the Metastore Thrift server. ||
+Service principal for the Metastore Thrift server.
+
+The maximum string length in characters is 1000. ||
 || auth_kerberos_principal | **string**
 
-Kerberos server principal. ||
+Kerberos server principal.
+
+The maximum string length in characters is 1000. ||
 |#

@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Redis cluster.
             To get the Redis cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -24,6 +25,7 @@ apiPlayground:
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`, the service returns a [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListClusterBackupsResponse)
             that can be used to get the next page of results in subsequent list requests.
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         pageToken:
@@ -31,6 +33,7 @@ apiPlayground:
             **string**
             Page token.  To get the next page of results, set `pageToken` to the [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListClusterBackupsResponse)
             returned by the previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -55,7 +58,9 @@ GET https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/backups
 || clusterId | **string**
 
 Required field. ID of the Redis cluster.
-To get the Redis cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request. ||
+To get the Redis cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.redis.v1.ListClusterBackupsRequest}
@@ -66,11 +71,15 @@ To get the Redis cluster ID use a [ClusterService.List](/docs/managed-redis/api-
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListClusterBackupsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token.  To get the next page of results, set `pageToken` to the [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListClusterBackupsResponse)
-returned by the previous list request. ||
+returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.redis.v1.ListClusterBackupsResponse}
@@ -154,7 +163,6 @@ Shard names used as a source for backup. ||
 
 How this backup was created (manual/automatic/etc...)
 
-- `BACKUP_TYPE_UNSPECIFIED`
 - `AUTOMATED`: Backup created by automated daily schedule
 - `MANUAL`: Backup created by user request ||
 |#

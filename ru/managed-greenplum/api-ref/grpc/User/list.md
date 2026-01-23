@@ -23,7 +23,9 @@ List all users
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ListUsersResponse {#yandex.cloud.mdb.greenplum.v1.ListUsersResponse}
@@ -51,11 +53,17 @@ Required field.  ||
 ||Field | Description ||
 || name | **string**
 
-Required field. User name ||
+Required field. User name
+
+The string length in characters must be 1-63. Value must match the regular expression ` ^[a-zA-Z_][a-zA-Z0-9_]{0,62}$ `. ||
 || password | **string**
 
-User password. Used only in create and update requests ||
+User password. Used only in create and update requests
+
+The string length in characters must be 6-200. ||
 || resource_group | **string**
 
-Resource group for user's queries ||
+Resource group for user's queries
+
+Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 |#

@@ -1,6 +1,6 @@
 ---
 title: Configuring {{ mch-full-name }} for Graphite
-description: '{{ mch-full-name }} can be used as data storage for Graphite.'
+description: You can use {{ mch-full-name }} to store Graphite data.
 ---
 
 # Configuring {{ mch-full-name }} for Graphite

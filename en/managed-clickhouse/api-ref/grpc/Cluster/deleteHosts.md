@@ -27,10 +27,14 @@ Deletes the specified hosts for a cluster.
 || cluster_id | **string**
 
 Required field. ID of the ClickHouse cluster to remove hosts from.
-To get the ClickHouse cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request. ||
+To get the ClickHouse cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || host_names[] | **string**
 
-Names of hosts to delete. ||
+Names of hosts to delete.
+
+The number of elements must be greater than 0. The maximum string length in characters for each value is 253. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

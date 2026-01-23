@@ -31,15 +31,16 @@ Same as ListLogs but using server-side streaming. Also allows for `tail -f` sema
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. Required. ID of the ClickHouse cluster. ||
+Required field. Required. ID of the ClickHouse cluster.
+
+The maximum string length in characters is 50. ||
 || column_filter[] | **string**
 
 Columns from logs table to get in the response. ||
 || service_type | enum **ServiceType**
 
-Required field. 
+Required field.
 
-- `SERVICE_TYPE_UNSPECIFIED`
 - `CLICKHOUSE`: Logs of ClickHouse activity.
 - `CLICKHOUSE_KEEPER`: Logs of ClickHouse Keeper activity. ||
 || from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
@@ -53,7 +54,9 @@ they appear. In essence it has `tail -f` semantics. ||
 || record_token | **string**
 
 Record token. Set `record_token` to the [StreamLogRecord.next_record_token](#yandex.cloud.mdb.clickhouse.v1.StreamLogRecord) returned by a previous StreamLogs
-request to start streaming from next log record. ||
+request to start streaming from next log record.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -63,7 +66,9 @@ The expression must specify:
 3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`.
 Examples of a filter:
 - `message.hostname='node1.db.cloud.yandex.net'`
-- `message.severity IN ('Error', 'Fatal') AND message.hostname != 'node2.db.cloud.yandex.net'`. ||
+- `message.severity IN ('Error', 'Fatal') AND message.hostname != 'node2.db.cloud.yandex.net'`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## StreamLogRecord {#yandex.cloud.mdb.clickhouse.v1.StreamLogRecord}

@@ -99,7 +99,7 @@ Converts generative search instance to [**GenerativeSearchTool**](../types/tools
 || Return type | [*GenerativeSearchTool*](../types/tools.md#yandex_cloud_ml_sdk._tools.generative_search.GenerativeSearchTool) ||
 |#
 
-*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model.ConfigTypeT)*{#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.config}
+*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model_config.ConfigTypeT)*{#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.config}
 
 **configure**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *site=Undefined*, *host=Undefined*, *url=Undefined*, *fix\_misspell=Undefined*, *enable\_nrfm\_docs=Undefined*, *search\_filters=Undefined*){#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.configure}
 
@@ -128,7 +128,15 @@ NB: All of the **site**, **host**, **url** parameters are mutually exclusive and
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.fine_tuned}
+
+*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.name}
+
+*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.owner}
+
 *property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.uri}
+
+*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.version}
 
 ## Web search
 
@@ -211,7 +219,7 @@ To change initial search settings use **.configure** method:
 || Returns | Operation with parsed search results object or bytes string return depending on **format** parameter. ||
 |#
 
-*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model.ConfigTypeT)*{#yandex_cloud_ml_sdk._search_api.web.web.AsyncWebSearch.config}
+*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model_config.ConfigTypeT)*{#yandex_cloud_ml_sdk._search_api.web.web.AsyncWebSearch.config}
 
 **configure**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *search\_type=Undefined*, *family\_mode=Undefined*, *fix\_typo\_mode=Undefined*, *localization=Undefined*, *sort\_order=Undefined*, *sort\_mode=Undefined*, *group\_mode=Undefined*, *groups\_on\_page=Undefined*, *docs\_in\_group=Undefined*, *max\_passages=Undefined*, *region=Undefined*, *user\_agent=Undefined*, *metadata=Undefined*){#yandex_cloud_ml_sdk._search_api.web.web.AsyncWebSearch.configure}
 
@@ -238,7 +246,15 @@ To learn more about parameters and their formats and possible values, refer to [
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_api.web.web.AsyncWebSearch.fine_tuned}
+
+*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_api.web.web.AsyncWebSearch.name}
+
+*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_api.web.web.AsyncWebSearch.owner}
+
 *property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._search_api.web.web.AsyncWebSearch.uri}
+
+*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_api.web.web.AsyncWebSearch.version}
 
 ### *class* yandex\_cloud\_ml\_sdk.\_search\_api.web.result.**AsyncWebSearchResult**{#yandex_cloud_ml_sdk._search_api.web.result.AsyncWebSearchResult}
 
@@ -341,7 +357,7 @@ To change initial search settings use **.configure** method:
 || Returns | Parsed search results object or bytes string depending on **format** parameter. ||
 |#
 
-*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model.ConfigTypeT)*{#yandex_cloud_ml_sdk._search_api.image.image.AsyncImageSearch.config}
+*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model_config.ConfigTypeT)*{#yandex_cloud_ml_sdk._search_api.image.image.AsyncImageSearch.config}
 
 **configure**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *search\_type=Undefined*, *family\_mode=Undefined*, *fix\_typo\_mode=Undefined*, *format=Undefined*, *size=Undefined*, *orientation=Undefined*, *color=Undefined*, *site=Undefined*, *docs\_on\_page=Undefined*, *user\_agent=Undefined*){#yandex_cloud_ml_sdk._search_api.image.image.AsyncImageSearch.configure}
 
@@ -365,7 +381,15 @@ To learn more about parameters and their formats and possible values, refer to [
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_api.image.image.AsyncImageSearch.fine_tuned}
+
+*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_api.image.image.AsyncImageSearch.name}
+
+*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_api.image.image.AsyncImageSearch.owner}
+
 *property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._search_api.image.image.AsyncImageSearch.uri}
+
+*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_api.image.image.AsyncImageSearch.version}
 
 ### *class* yandex\_cloud\_ml\_sdk.\_search\_api.image.result.**AsyncImageSearchResult**{#yandex_cloud_ml_sdk._search_api.image.result.AsyncImageSearchResult}
 
@@ -492,7 +516,7 @@ To change initial search settings use **.configure** method:
 || Return type | [*AsyncByImageSearchResult*](#yandex_cloud_ml_sdk._search_api.by_image.result.AsyncByImageSearchResult) ||
 |#
 
-*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model.ConfigTypeT)*{#yandex_cloud_ml_sdk._search_api.by_image.by_image.AsyncByImageSearch.config}
+*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model_config.ConfigTypeT)*{#yandex_cloud_ml_sdk._search_api.by_image.by_image.AsyncByImageSearch.config}
 
 **configure**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *family\_mode=Undefined*, *site=Undefined*){#yandex_cloud_ml_sdk._search_api.by_image.by_image.AsyncByImageSearch.configure}
 
@@ -508,7 +532,15 @@ To learn more about parameters and their formats and possible values, refer to [
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_api.by_image.by_image.AsyncByImageSearch.fine_tuned}
+
+*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_api.by_image.by_image.AsyncByImageSearch.name}
+
+*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_api.by_image.by_image.AsyncByImageSearch.owner}
+
 *property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._search_api.by_image.by_image.AsyncByImageSearch.uri}
+
+*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_api.by_image.by_image.AsyncByImageSearch.version}
 
 ### *class* yandex\_cloud\_ml\_sdk.\_search\_api.by\_image.result.**AsyncByImageSearchResult**{#yandex_cloud_ml_sdk._search_api.by_image.result.AsyncByImageSearchResult}
 

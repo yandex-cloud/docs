@@ -7,6 +7,33 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.187.0 (23.01.26) {#version0.187.0}
+
+#### Изменения в CLI {#cli}
+
+Для инструментов командной строки YC CLI добавлено обращение к сервису инициализации.
+
+#### Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ mpg-name }}
+
+Добавлен параметр выбора типа шифрования пароля пользователя `--user_password_encryption` в следующие команды:
+  * `yc managed-postgresql user create`;
+  * `yc managed-postgresql user update`.
+
+##### {{ objstorage-name }}
+
+В команду получения подписанной ссылки `yc storage s3 presign` добавлен параметр `--http-method` для указания метода HTTP (GET/PUT).
+
+##### {{ mtr-name }}
+
+Добавлен параметр `private-access` в команды управления кластером:
+  * `yc managed-trino cluster create`;
+  * `yc managed-trino cluster update`;
+  * `yc managed-trino cluster get`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.186.0 (19.01.26) {#version0.186.0}
 
 #### Изменения в CLI {#cli-0.186.0}
@@ -40,8 +67,6 @@ description: На странице представлены релизы CLI, а
 Добавлены параметры для настройки сложности пароля в следующие команды:
 * `yc organization-manager idp userpool create`;
 * `yc organization-manager idp userpool update`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.185.0 (22.12.25) {#version0.185.0}
 

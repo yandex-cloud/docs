@@ -56,10 +56,14 @@ Creates new hosts for a cluster.
 || cluster_id | **string**
 
 Required field. ID of the PostgreSQL cluster to add hosts to.
-To get the PostgreSQL cluster ID, use a [ClusterService.List](/docs/managed-postgresql/api-ref/grpc/Cluster/list#List) request. ||
+To get the PostgreSQL cluster ID, use a [ClusterService.List](/docs/managed-postgresql/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || host_specs[] | **[HostSpec](#yandex.cloud.mdb.postgresql.v1.HostSpec)**
 
-Configurations for PostgreSQL hosts that should be added to the cluster. ||
+Configurations for PostgreSQL hosts that should be added to the cluster.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## HostSpec {#yandex.cloud.mdb.postgresql.v1.HostSpec}
@@ -69,12 +73,16 @@ Configurations for PostgreSQL hosts that should be added to the cluster. ||
 || zone_id | **string**
 
 ID of the availability zone where the host resides.
-To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request. ||
+To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request.
+
+The maximum string length in characters is 50. ||
 || subnet_id | **string**
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The ID of the network is set in the field [Cluster.network_id](/docs/managed-postgresql/api-ref/grpc/Cluster/get#yandex.cloud.mdb.postgresql.v1.Cluster). ||
+The ID of the network is set in the field [Cluster.network_id](/docs/managed-postgresql/api-ref/grpc/Cluster/get#yandex.cloud.mdb.postgresql.v1.Cluster).
+
+The maximum string length in characters is 50. ||
 || assign_public_ip | **bool**
 
 Whether the host should get a public IP address on creation.

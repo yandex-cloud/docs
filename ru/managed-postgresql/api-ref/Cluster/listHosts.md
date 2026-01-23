@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the PostgreSQL cluster.
             To get the PostgreSQL cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -24,6 +25,7 @@ apiPlayground:
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`, the service returns a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.postgresql.v1.ListClusterHostsResponse)
             that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
@@ -31,6 +33,7 @@ apiPlayground:
             **string**
             Page token.  To get the next page of results, set `pageToken` to the [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.postgresql.v1.ListClusterHostsResponse)
             returned by the previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -55,7 +58,9 @@ GET https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/hosts
 || clusterId | **string**
 
 Required field. ID of the PostgreSQL cluster.
-To get the PostgreSQL cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request. ||
+To get the PostgreSQL cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.postgresql.v1.ListClusterHostsRequest}
@@ -66,11 +71,15 @@ To get the PostgreSQL cluster ID use a [ClusterService.List](/docs/managed-postg
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.postgresql.v1.ListClusterHostsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token.  To get the next page of results, set `pageToken` to the [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.postgresql.v1.ListClusterHostsResponse)
-returned by the previous list request. ||
+returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.postgresql.v1.ListClusterHostsResponse}
@@ -1506,7 +1515,6 @@ Possible values:
 
 Type of the service provided by the host. If the field has default value, it is not returned in the response.
 
-- `TYPE_UNSPECIFIED`: Service type of the host is unspecified. Default value.
 - `POSTGRESQL`: The host is a PostgreSQL server.
 - `POOLER`: The host is a PgBouncer server. ||
 || health | **enum** (Health)
@@ -1684,29 +1692,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -1720,7 +1731,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -1734,7 +1744,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -1755,14 +1764,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -1772,7 +1779,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -1785,20 +1791,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -1806,13 +1811,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -1831,8 +1837,12 @@ in milliseconds. ||
 || sqlInheritance | **boolean**
 
 This option has been removed in PostgreSQL 10. ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig10_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig10_1C}
@@ -1861,29 +1871,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -1897,7 +1910,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -1911,7 +1923,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -1932,14 +1943,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -1949,7 +1958,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -1962,20 +1970,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -1983,13 +1990,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -2016,11 +2024,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig10 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig10}
@@ -2049,29 +2065,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -2085,7 +2104,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -2099,7 +2117,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -2120,14 +2137,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -2137,7 +2152,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -2150,20 +2164,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -2171,13 +2184,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -2204,11 +2218,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig11 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig11}
@@ -2234,29 +2256,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -2270,7 +2295,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -2284,7 +2308,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -2305,14 +2328,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -2322,7 +2343,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -2335,20 +2355,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -2356,13 +2375,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -2389,11 +2409,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig11_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig11_1C}
@@ -2419,29 +2447,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -2455,7 +2486,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -2469,7 +2499,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -2490,14 +2519,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -2507,7 +2534,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -2520,20 +2546,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -2541,13 +2566,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -2574,11 +2600,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig12 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig12}
@@ -2604,29 +2638,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -2640,7 +2677,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -2654,7 +2690,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -2675,14 +2710,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -2692,7 +2725,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -2705,20 +2737,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -2726,13 +2757,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -2759,11 +2791,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig12_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig12_1C}
@@ -2789,29 +2829,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -2825,7 +2868,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -2839,7 +2881,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -2860,14 +2901,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -2877,7 +2916,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -2890,20 +2928,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -2911,13 +2948,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -2944,11 +2982,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig13 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig13}
@@ -2974,29 +3020,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -3010,7 +3059,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -3024,7 +3072,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -3045,14 +3092,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -3062,7 +3107,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -3075,20 +3119,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -3096,13 +3139,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -3129,11 +3173,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig13_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig13_1C}
@@ -3159,29 +3211,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -3195,7 +3250,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -3209,7 +3263,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -3230,14 +3283,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -3247,7 +3298,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -3260,20 +3310,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -3281,13 +3330,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -3314,11 +3364,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig14 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig14}
@@ -3344,29 +3402,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -3380,7 +3441,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -3394,7 +3454,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -3415,14 +3474,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -3432,7 +3489,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -3445,20 +3501,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -3466,13 +3521,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -3498,11 +3554,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig14_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig14_1C}
@@ -3528,29 +3592,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -3564,7 +3631,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -3578,7 +3644,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -3599,14 +3664,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -3616,7 +3679,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -3629,20 +3691,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -3650,13 +3711,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -3682,11 +3744,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig15 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig15}
@@ -3712,29 +3782,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -3748,7 +3821,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -3762,7 +3834,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -3783,14 +3854,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -3800,7 +3869,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -3813,20 +3881,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -3834,13 +3901,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -3866,11 +3934,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig15_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig15_1C}
@@ -3896,29 +3972,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_UNSPECIFIED`
 - `FORCE_PARALLEL_MODE_ON`
 - `FORCE_PARALLEL_MODE_OFF`
 - `FORCE_PARALLEL_MODE_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -3932,7 +4011,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -3946,7 +4024,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -3967,14 +4044,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -3984,7 +4059,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -3997,20 +4071,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -4018,13 +4091,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -4050,11 +4124,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig16 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig16}
@@ -4080,29 +4162,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -4117,7 +4202,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -4132,7 +4216,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -4154,14 +4237,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -4171,7 +4252,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -4184,20 +4264,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -4205,13 +4284,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -4237,11 +4317,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig16_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig16_1C}
@@ -4267,29 +4355,32 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -4304,7 +4395,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -4319,7 +4409,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -4341,14 +4430,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -4358,7 +4445,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -4371,20 +4457,19 @@ in milliseconds. ||
 in milliseconds. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -4392,13 +4477,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -4424,11 +4510,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 1048576 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig17 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17}
@@ -4454,28 +4548,31 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -4490,7 +4587,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -4505,7 +4601,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -4527,14 +4622,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -4544,7 +4637,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -4554,23 +4646,24 @@ in milliseconds. ||
 in milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -4578,13 +4671,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -4610,11 +4704,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 0 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig17_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17_1C}
@@ -4640,28 +4742,31 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -4676,7 +4781,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -4691,7 +4795,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -4713,14 +4816,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -4730,7 +4831,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -4740,23 +4840,24 @@ in milliseconds. ||
 in milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -4764,13 +4865,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -4796,11 +4898,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 0 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig18 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18}
@@ -4826,28 +4936,31 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -4862,7 +4975,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -4877,7 +4989,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -4899,14 +5010,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -4916,7 +5025,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -4926,23 +5034,24 @@ in milliseconds. ||
 in milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -4950,13 +5059,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -4982,11 +5092,19 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 0 to 549755813888, inclusive. ||
 |#
 
 ## PostgresqlHostConfig18_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18_1C}
@@ -5012,28 +5130,31 @@ in bytes. ||
 || tempFileLimit | **string** (int64)
 
 in bytes. ||
-|| backendFlushAfter | **string** (int64) ||
+|| backendFlushAfter | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 || maxStandbyStreamingDelay | **string** (int64)
 
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
 - `CONSTRAINT_EXCLUSION_ON`
 - `CONSTRAINT_EXCLUSION_OFF`
 - `CONSTRAINT_EXCLUSION_PARTITION` ||
 || cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64) ||
-|| joinCollapseLimit | **string** (int64) ||
+|| fromCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
+|| joinCollapseLimit | **string** (int64)
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
 - `DEBUG_PARALLEL_QUERY_ON`
 - `DEBUG_PARALLEL_QUERY_OFF`
 - `DEBUG_PARALLEL_QUERY_REGRESS` ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -5048,7 +5169,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -5063,7 +5183,6 @@ in milliseconds. ||
 - `LOG_LEVEL_PANIC` ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `LOG_LEVEL_DEBUG5`
 - `LOG_LEVEL_DEBUG4`
 - `LOG_LEVEL_DEBUG3`
@@ -5085,14 +5204,12 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
 - `LOG_ERROR_VERBOSITY_TERSE`
 - `LOG_ERROR_VERBOSITY_DEFAULT`
 - `LOG_ERROR_VERBOSITY_VERBOSE` ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`
 - `LOG_STATEMENT_DDL`
 - `LOG_STATEMENT_MOD`
@@ -5102,7 +5219,6 @@ in milliseconds. ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
 - `TRANSACTION_ISOLATION_READ_COMMITTED`
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`
@@ -5112,23 +5228,24 @@ in milliseconds. ||
 in milliseconds. ||
 || lockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || idleInTransactionSessionTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_UNSPECIFIED`
 - `BYTEA_OUTPUT_HEX`
 - `BYTEA_OUTPUT_ESCAPED` ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_UNSPECIFIED`
 - `XML_BINARY_BASE64`
 - `XML_BINARY_HEX` ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_UNSPECIFIED`
 - `XML_OPTION_DOCUMENT`
 - `XML_OPTION_CONTENT` ||
 || ginPendingListLimit | **string** (int64)
@@ -5136,13 +5253,14 @@ in milliseconds. ||
 in bytes. ||
 || deadlockTimeout | **string** (int64)
 
-in milliseconds. ||
+in milliseconds.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || maxLocksPerTransaction | **string** (int64) ||
 || maxPredLocksPerTransaction | **string** (int64) ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE_UNSPECIFIED`
 - `BACKSLASH_QUOTE`
 - `BACKSLASH_QUOTE_ON`
 - `BACKSLASH_QUOTE_OFF`
@@ -5168,9 +5286,17 @@ in milliseconds. ||
 || enableSeqscan | **boolean** ||
 || enableSort | **boolean** ||
 || enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64) ||
-|| maxParallelWorkersPerGather | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
+|| maxParallelWorkersPerGather | **string** (int64)
+
+Acceptable values are 0 to 1024, inclusive. ||
 || timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64) ||
-|| effectiveCacheSize | **string** (int64) ||
+|| effectiveIoConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| effectiveCacheSize | **string** (int64)
+
+Acceptable values are 0 to 549755813888, inclusive. ||
 |#

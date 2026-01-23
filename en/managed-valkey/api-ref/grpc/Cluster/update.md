@@ -191,26 +191,34 @@ Updates the specified Redis cluster.
 || cluster_id | **string**
 
 Required field. ID of the Redis cluster to update.
-To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request. ||
+To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the Redis cluster should be updated. ||
 || description | **string**
 
-New description of the Redis cluster. ||
+New description of the Redis cluster.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Custom labels for the Redis cluster as `` key:value `` pairs. Maximum 64 per cluster.
 For example, "project": "mvp" or "source": "dictionary".
 
 The new set of labels will completely replace the old ones. To add a label, request the current
-set with the [ClusterService.Get](/docs/managed-redis/api-ref/grpc/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. ||
+set with the [ClusterService.Get](/docs/managed-redis/api-ref/grpc/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || config_spec | **[ConfigSpec](#yandex.cloud.mdb.redis.v1.ConfigSpec)**
 
 New configuration and resources for hosts in the cluster. ||
 || name | **string**
 
-New name for the cluster. ||
+New name for the cluster.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.redis.v1.MaintenanceWindow)**
 
 New maintenance window settings for the cluster. ||
@@ -229,7 +237,9 @@ Persistence mode
 - `ON_REPLICAS`: cluster persistence on replicas only ||
 || network_id | **string**
 
-ID of the network to move the cluster to. ||
+ID of the network to move the cluster to.
+
+The maximum string length in characters is 50. ||
 || announce_hostnames | **bool**
 
 Enable FQDN instead of ip ||
@@ -303,7 +313,6 @@ Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
 
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
-- `MAXMEMORY_POLICY_UNSPECIFIED`
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
 - `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
 - `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
@@ -320,19 +329,29 @@ Time that Redis keeps the connection open while the client is idle.
 If no new command is sent during that time, the connection is closed. ||
 || password | **string**
 
-Authentication password. ||
+Authentication password.
+
+Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Number of database buckets on a single redis-server process. ||
+Number of database buckets on a single redis-server process.
+
+Value must be greater than 0. ||
 || slowlog_log_slower_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+The minimum value is 0. ||
 || slowlog_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Max slow requests number to log. ||
+Max slow requests number to log.
+
+The minimum value is 0. ||
 || notify_keyspace_events | **string**
 
-String setting for pub\sub functionality. ||
+String setting for pub\sub functionality.
+
+Value must match the regular expression ` [KEg$lshzxeAtm]{0,12} `. ||
 || client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for pubsub operations. ||
@@ -347,13 +366,19 @@ Redis connection output buffers limits for clients. ||
 ||Field | Description ||
 || hard_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Total limit in bytes. ||
+Total limit in bytes.
+
+The minimum value is 0. ||
 || soft_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Limit in bytes during certain time period. ||
+Limit in bytes during certain time period.
+
+The minimum value is 0. ||
 || soft_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Seconds for soft limit. ||
+Seconds for soft limit.
+
+The minimum value is 0. ||
 |#
 
 ## RedisConfig6_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0}
@@ -371,7 +396,6 @@ Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
 
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
-- `MAXMEMORY_POLICY_UNSPECIFIED`
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
 - `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
 - `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
@@ -388,19 +412,29 @@ Time that Redis keeps the connection open while the client is idle.
 If no new command is sent during that time, the connection is closed. ||
 || password | **string**
 
-Authentication password. ||
+Authentication password.
+
+Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Number of database buckets on a single redis-server process. ||
+Number of database buckets on a single redis-server process.
+
+Value must be greater than 0. ||
 || slowlog_log_slower_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+The minimum value is 0. ||
 || slowlog_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Max slow requests number to log. ||
+Max slow requests number to log.
+
+The minimum value is 0. ||
 || notify_keyspace_events | **string**
 
-String setting for pub\sub functionality. ||
+String setting for pub\sub functionality.
+
+Value must match the regular expression ` [KEg$lshzxeAtm]{0,13} `. ||
 || client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for pubsub operations. ||
@@ -415,13 +449,19 @@ Redis connection output buffers limits for clients. ||
 ||Field | Description ||
 || hard_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Total limit in bytes. ||
+Total limit in bytes.
+
+The minimum value is 0. ||
 || soft_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Limit in bytes during certain time period. ||
+Limit in bytes during certain time period.
+
+The minimum value is 0. ||
 || soft_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Seconds for soft limit. ||
+Seconds for soft limit.
+
+The minimum value is 0. ||
 |#
 
 ## RedisConfig6_2 {#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2}
@@ -439,7 +479,6 @@ Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
 
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
-- `MAXMEMORY_POLICY_UNSPECIFIED`
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
 - `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
 - `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
@@ -456,19 +495,29 @@ Time that Redis keeps the connection open while the client is idle.
 If no new command is sent during that time, the connection is closed. ||
 || password | **string**
 
-Authentication password. ||
+Authentication password.
+
+Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Number of database buckets on a single redis-server process. ||
+Number of database buckets on a single redis-server process.
+
+Value must be greater than 0. ||
 || slowlog_log_slower_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+The minimum value is 0. ||
 || slowlog_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Max slow requests number to log. ||
+Max slow requests number to log.
+
+The minimum value is 0. ||
 || notify_keyspace_events | **string**
 
-String setting for pub\sub functionality. ||
+String setting for pub\sub functionality.
+
+Value must match the regular expression ` [KEg$lshzxeAtm]{0,13} `. ||
 || client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for pubsub operations. ||
@@ -477,7 +526,9 @@ Redis connection output buffers limits for pubsub operations. ||
 Redis connection output buffers limits for clients. ||
 || maxmemory_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Redis maxmemory percent ||
+Redis maxmemory percent
+
+Acceptable values are 1 to 75, inclusive. ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2.ClientOutputBufferLimit}
@@ -486,13 +537,19 @@ Redis maxmemory percent ||
 ||Field | Description ||
 || hard_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Total limit in bytes. ||
+Total limit in bytes.
+
+The minimum value is 0. ||
 || soft_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Limit in bytes during certain time period. ||
+Limit in bytes during certain time period.
+
+The minimum value is 0. ||
 || soft_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Seconds for soft limit. ||
+Seconds for soft limit.
+
+The minimum value is 0. ||
 |#
 
 ## RedisConfig7_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0}
@@ -510,7 +567,6 @@ Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
 
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
-- `MAXMEMORY_POLICY_UNSPECIFIED`
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
 - `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
 - `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
@@ -527,19 +583,29 @@ Time that Redis keeps the connection open while the client is idle.
 If no new command is sent during that time, the connection is closed. ||
 || password | **string**
 
-Authentication password. ||
+Authentication password.
+
+Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Number of database buckets on a single redis-server process. ||
+Number of database buckets on a single redis-server process.
+
+Value must be greater than 0. ||
 || slowlog_log_slower_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+The minimum value is 0. ||
 || slowlog_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Max slow requests number to log. ||
+Max slow requests number to log.
+
+The minimum value is 0. ||
 || notify_keyspace_events | **string**
 
-String setting for pub\sub functionality. ||
+String setting for pub\sub functionality.
+
+Value must match the regular expression ` [KEg$lshzxeAtm]{0,13} `. ||
 || client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for pubsub operations. ||
@@ -548,7 +614,9 @@ Redis connection output buffers limits for pubsub operations. ||
 Redis connection output buffers limits for clients. ||
 || maxmemory_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Redis maxmemory percent ||
+Redis maxmemory percent
+
+Acceptable values are 1 to 75, inclusive. ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0.ClientOutputBufferLimit}
@@ -557,13 +625,19 @@ Redis maxmemory percent ||
 ||Field | Description ||
 || hard_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Total limit in bytes. ||
+Total limit in bytes.
+
+The minimum value is 0. ||
 || soft_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Limit in bytes during certain time period. ||
+Limit in bytes during certain time period.
+
+The minimum value is 0. ||
 || soft_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Seconds for soft limit. ||
+Seconds for soft limit.
+
+The minimum value is 0. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.redis.v1.Resources}
@@ -612,7 +686,6 @@ Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
 
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
-- `MAXMEMORY_POLICY_UNSPECIFIED`
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
 - `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
 - `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
@@ -629,19 +702,29 @@ Time that Redis keeps the connection open while the client is idle.
 If no new command is sent during that time, the connection is closed. ||
 || password | **string**
 
-Authentication password. ||
+Authentication password.
+
+Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Number of database buckets on a single redis-server process. ||
+Number of database buckets on a single redis-server process.
+
+Value must be greater than 0. ||
 || slowlog_log_slower_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+The minimum value is 0. ||
 || slowlog_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Max slow requests number to log. ||
+Max slow requests number to log.
+
+The minimum value is 0. ||
 || notify_keyspace_events | **string**
 
-String setting for pub\sub functionality. ||
+String setting for pub\sub functionality.
+
+Value must match the regular expression ` [KEg$lshzxeAtm]{0,13} `. ||
 || client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for pubsub operations. ||
@@ -650,13 +733,19 @@ Redis connection output buffers limits for pubsub operations. ||
 Redis connection output buffers limits for clients. ||
 || maxmemory_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Redis maxmemory percent ||
+Redis maxmemory percent
+
+Acceptable values are 1 to 75, inclusive. ||
 || lua_time_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Maximum time in milliseconds for Lua scripts, 0 - disabled mechanism ||
+Maximum time in milliseconds for Lua scripts, 0 - disabled mechanism
+
+The minimum value is 0. ||
 || repl_backlog_size_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Replication backlog size as a percentage of flavor maxmemory ||
+Replication backlog size as a percentage of flavor maxmemory
+
+Value must be greater than 0. ||
 || cluster_require_full_coverage | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Controls whether all hash slots must be covered by nodes ||
@@ -668,10 +757,14 @@ Allows read operations when cluster is down ||
 Permits Pub/Sub shard operations when cluster is down ||
 || lfu_decay_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10) ||
+The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10)
+
+The minimum value is 0. ||
 || lfu_log_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Determines how the frequency counter represents key hits. ||
+Determines how the frequency counter represents key hits.
+
+The minimum value is 0. ||
 || turn_before_switchover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Allows to turn before switchover in RDSync ||
@@ -686,10 +779,14 @@ Use JIT for lua scripts and functions ||
 Allow redis to use io-threads ||
 || zset_max_listpack_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist ||
+Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist
+
+Acceptable values are 32 to 2048, inclusive. ||
 || aof_max_size_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-AOF maximum size as a percentage of disk available ||
+AOF maximum size as a percentage of disk available
+
+Acceptable values are 1 to 99, inclusive. ||
 || activedefrag | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enable active (online) memory defragmentation ||
@@ -701,13 +798,19 @@ Enable active (online) memory defragmentation ||
 ||Field | Description ||
 || hard_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Total limit in bytes. ||
+Total limit in bytes.
+
+The minimum value is 0. ||
 || soft_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Limit in bytes during certain time period. ||
+Limit in bytes during certain time period.
+
+The minimum value is 0. ||
 || soft_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Seconds for soft limit. ||
+Seconds for soft limit.
+
+The minimum value is 0. ||
 |#
 
 ## DiskSizeAutoscaling {#yandex.cloud.mdb.redis.v1.DiskSizeAutoscaling}
@@ -716,10 +819,14 @@ Seconds for soft limit. ||
 ||Field | Description ||
 || planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
@@ -749,10 +856,14 @@ valkey-bloom module settings ||
 Enable valkey-search module ||
 || reader_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Controls the amount of threads executing queries ||
+Controls the amount of threads executing queries
+
+The minimum value is 0. ||
 || writer_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Controls the amount of threads processing index mutations ||
+Controls the amount of threads processing index mutations
+
+The minimum value is 0. ||
 |#
 
 ## ValkeyJson {#yandex.cloud.mdb.redis.v1.ValkeyJson}
@@ -812,7 +923,6 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -822,7 +932,9 @@ Day of the week (in `DDD` format).
 - `SUN` ||
 || hour | **int64**
 
-Hour of the day in UTC (in `HH` format). ||
+Hour of the day in UTC (in `HH` format).
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -1233,7 +1345,8 @@ Hour of the day in UTC (in `HH` format). ||
         "valkey_bloom": {
           "enabled": "bool"
         }
-      }
+      },
+      "full_version": "string"
     },
     "network_id": "string",
     "health": "Health",
@@ -1362,7 +1475,6 @@ Maximum 64 per cluster. ||
 
 Deployment environment of the Redis cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy:
 only hotfixes are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -1501,6 +1613,9 @@ Retain period of automatically created backup in days ||
 || modules | **[ValkeyModules](#yandex.cloud.mdb.redis.v1.ValkeyModules2)**
 
 Valkey modules settings ||
+|| full_version | **string**
+
+Full version ||
 |#
 
 ## RedisConfigSet5_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfigSet5_0}
@@ -1534,7 +1649,6 @@ Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
 
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
-- `MAXMEMORY_POLICY_UNSPECIFIED`
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
 - `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
 - `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
@@ -1551,19 +1665,29 @@ Time that Redis keeps the connection open while the client is idle.
 If no new command is sent during that time, the connection is closed. ||
 || password | **string**
 
-Authentication password. ||
+Authentication password.
+
+Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Number of database buckets on a single redis-server process. ||
+Number of database buckets on a single redis-server process.
+
+Value must be greater than 0. ||
 || slowlog_log_slower_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+The minimum value is 0. ||
 || slowlog_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Max slow requests number to log. ||
+Max slow requests number to log.
+
+The minimum value is 0. ||
 || notify_keyspace_events | **string**
 
-String setting for pub\sub functionality. ||
+String setting for pub\sub functionality.
+
+Value must match the regular expression ` [KEg$lshzxeAtm]{0,12} `. ||
 || client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit2)**
 
 Redis connection output buffers limits for pubsub operations. ||
@@ -1578,13 +1702,19 @@ Redis connection output buffers limits for clients. ||
 ||Field | Description ||
 || hard_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Total limit in bytes. ||
+Total limit in bytes.
+
+The minimum value is 0. ||
 || soft_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Limit in bytes during certain time period. ||
+Limit in bytes during certain time period.
+
+The minimum value is 0. ||
 || soft_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Seconds for soft limit. ||
+Seconds for soft limit.
+
+The minimum value is 0. ||
 |#
 
 ## RedisConfigSet6_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfigSet6_0}
@@ -1618,7 +1748,6 @@ Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
 
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
-- `MAXMEMORY_POLICY_UNSPECIFIED`
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
 - `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
 - `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
@@ -1635,19 +1764,29 @@ Time that Redis keeps the connection open while the client is idle.
 If no new command is sent during that time, the connection is closed. ||
 || password | **string**
 
-Authentication password. ||
+Authentication password.
+
+Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Number of database buckets on a single redis-server process. ||
+Number of database buckets on a single redis-server process.
+
+Value must be greater than 0. ||
 || slowlog_log_slower_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+The minimum value is 0. ||
 || slowlog_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Max slow requests number to log. ||
+Max slow requests number to log.
+
+The minimum value is 0. ||
 || notify_keyspace_events | **string**
 
-String setting for pub\sub functionality. ||
+String setting for pub\sub functionality.
+
+Value must match the regular expression ` [KEg$lshzxeAtm]{0,13} `. ||
 || client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0.ClientOutputBufferLimit2)**
 
 Redis connection output buffers limits for pubsub operations. ||
@@ -1662,13 +1801,19 @@ Redis connection output buffers limits for clients. ||
 ||Field | Description ||
 || hard_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Total limit in bytes. ||
+Total limit in bytes.
+
+The minimum value is 0. ||
 || soft_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Limit in bytes during certain time period. ||
+Limit in bytes during certain time period.
+
+The minimum value is 0. ||
 || soft_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Seconds for soft limit. ||
+Seconds for soft limit.
+
+The minimum value is 0. ||
 |#
 
 ## RedisConfigSet6_2 {#yandex.cloud.mdb.redis.v1.config.RedisConfigSet6_2}
@@ -1702,7 +1847,6 @@ Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
 
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
-- `MAXMEMORY_POLICY_UNSPECIFIED`
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
 - `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
 - `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
@@ -1719,19 +1863,29 @@ Time that Redis keeps the connection open while the client is idle.
 If no new command is sent during that time, the connection is closed. ||
 || password | **string**
 
-Authentication password. ||
+Authentication password.
+
+Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Number of database buckets on a single redis-server process. ||
+Number of database buckets on a single redis-server process.
+
+Value must be greater than 0. ||
 || slowlog_log_slower_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+The minimum value is 0. ||
 || slowlog_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Max slow requests number to log. ||
+Max slow requests number to log.
+
+The minimum value is 0. ||
 || notify_keyspace_events | **string**
 
-String setting for pub\sub functionality. ||
+String setting for pub\sub functionality.
+
+Value must match the regular expression ` [KEg$lshzxeAtm]{0,13} `. ||
 || client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2.ClientOutputBufferLimit2)**
 
 Redis connection output buffers limits for pubsub operations. ||
@@ -1740,7 +1894,9 @@ Redis connection output buffers limits for pubsub operations. ||
 Redis connection output buffers limits for clients. ||
 || maxmemory_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Redis maxmemory percent ||
+Redis maxmemory percent
+
+Acceptable values are 1 to 75, inclusive. ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2.ClientOutputBufferLimit2}
@@ -1749,13 +1905,19 @@ Redis maxmemory percent ||
 ||Field | Description ||
 || hard_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Total limit in bytes. ||
+Total limit in bytes.
+
+The minimum value is 0. ||
 || soft_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Limit in bytes during certain time period. ||
+Limit in bytes during certain time period.
+
+The minimum value is 0. ||
 || soft_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Seconds for soft limit. ||
+Seconds for soft limit.
+
+The minimum value is 0. ||
 |#
 
 ## RedisConfigSet7_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfigSet7_0}
@@ -1789,7 +1951,6 @@ Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
 
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
-- `MAXMEMORY_POLICY_UNSPECIFIED`
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
 - `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
 - `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
@@ -1806,19 +1967,29 @@ Time that Redis keeps the connection open while the client is idle.
 If no new command is sent during that time, the connection is closed. ||
 || password | **string**
 
-Authentication password. ||
+Authentication password.
+
+Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Number of database buckets on a single redis-server process. ||
+Number of database buckets on a single redis-server process.
+
+Value must be greater than 0. ||
 || slowlog_log_slower_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+The minimum value is 0. ||
 || slowlog_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Max slow requests number to log. ||
+Max slow requests number to log.
+
+The minimum value is 0. ||
 || notify_keyspace_events | **string**
 
-String setting for pub\sub functionality. ||
+String setting for pub\sub functionality.
+
+Value must match the regular expression ` [KEg$lshzxeAtm]{0,13} `. ||
 || client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0.ClientOutputBufferLimit2)**
 
 Redis connection output buffers limits for pubsub operations. ||
@@ -1827,7 +1998,9 @@ Redis connection output buffers limits for pubsub operations. ||
 Redis connection output buffers limits for clients. ||
 || maxmemory_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Redis maxmemory percent ||
+Redis maxmemory percent
+
+Acceptable values are 1 to 75, inclusive. ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0.ClientOutputBufferLimit2}
@@ -1836,13 +2009,19 @@ Redis maxmemory percent ||
 ||Field | Description ||
 || hard_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Total limit in bytes. ||
+Total limit in bytes.
+
+The minimum value is 0. ||
 || soft_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Limit in bytes during certain time period. ||
+Limit in bytes during certain time period.
+
+The minimum value is 0. ||
 || soft_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Seconds for soft limit. ||
+Seconds for soft limit.
+
+The minimum value is 0. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.redis.v1.Resources2}
@@ -1907,7 +2086,6 @@ Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
 
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
-- `MAXMEMORY_POLICY_UNSPECIFIED`
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
 - `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
 - `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
@@ -1924,19 +2102,29 @@ Time that Redis keeps the connection open while the client is idle.
 If no new command is sent during that time, the connection is closed. ||
 || password | **string**
 
-Authentication password. ||
+Authentication password.
+
+Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Number of database buckets on a single redis-server process. ||
+Number of database buckets on a single redis-server process.
+
+Value must be greater than 0. ||
 || slowlog_log_slower_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+The minimum value is 0. ||
 || slowlog_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Max slow requests number to log. ||
+Max slow requests number to log.
+
+The minimum value is 0. ||
 || notify_keyspace_events | **string**
 
-String setting for pub\sub functionality. ||
+String setting for pub\sub functionality.
+
+Value must match the regular expression ` [KEg$lshzxeAtm]{0,13} `. ||
 || client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit2)**
 
 Redis connection output buffers limits for pubsub operations. ||
@@ -1945,13 +2133,19 @@ Redis connection output buffers limits for pubsub operations. ||
 Redis connection output buffers limits for clients. ||
 || maxmemory_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Redis maxmemory percent ||
+Redis maxmemory percent
+
+Acceptable values are 1 to 75, inclusive. ||
 || lua_time_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Maximum time in milliseconds for Lua scripts, 0 - disabled mechanism ||
+Maximum time in milliseconds for Lua scripts, 0 - disabled mechanism
+
+The minimum value is 0. ||
 || repl_backlog_size_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Replication backlog size as a percentage of flavor maxmemory ||
+Replication backlog size as a percentage of flavor maxmemory
+
+Value must be greater than 0. ||
 || cluster_require_full_coverage | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Controls whether all hash slots must be covered by nodes ||
@@ -1963,10 +2157,14 @@ Allows read operations when cluster is down ||
 Permits Pub/Sub shard operations when cluster is down ||
 || lfu_decay_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10) ||
+The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10)
+
+The minimum value is 0. ||
 || lfu_log_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Determines how the frequency counter represents key hits. ||
+Determines how the frequency counter represents key hits.
+
+The minimum value is 0. ||
 || turn_before_switchover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Allows to turn before switchover in RDSync ||
@@ -1981,10 +2179,14 @@ Use JIT for lua scripts and functions ||
 Allow redis to use io-threads ||
 || zset_max_listpack_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist ||
+Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist
+
+Acceptable values are 32 to 2048, inclusive. ||
 || aof_max_size_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-AOF maximum size as a percentage of disk available ||
+AOF maximum size as a percentage of disk available
+
+Acceptable values are 1 to 99, inclusive. ||
 || activedefrag | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enable active (online) memory defragmentation ||
@@ -1996,13 +2198,19 @@ Enable active (online) memory defragmentation ||
 ||Field | Description ||
 || hard_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Total limit in bytes. ||
+Total limit in bytes.
+
+The minimum value is 0. ||
 || soft_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Limit in bytes during certain time period. ||
+Limit in bytes during certain time period.
+
+The minimum value is 0. ||
 || soft_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Seconds for soft limit. ||
+Seconds for soft limit.
+
+The minimum value is 0. ||
 |#
 
 ## DiskSizeAutoscaling {#yandex.cloud.mdb.redis.v1.DiskSizeAutoscaling2}
@@ -2011,10 +2219,14 @@ Seconds for soft limit. ||
 ||Field | Description ||
 || planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
@@ -2044,10 +2256,14 @@ valkey-bloom module settings ||
 Enable valkey-search module ||
 || reader_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Controls the amount of threads executing queries ||
+Controls the amount of threads executing queries
+
+The minimum value is 0. ||
 || writer_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Controls the amount of threads processing index mutations ||
+Controls the amount of threads processing index mutations
+
+The minimum value is 0. ||
 |#
 
 ## ValkeyJson {#yandex.cloud.mdb.redis.v1.ValkeyJson2}
@@ -2107,7 +2323,6 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -2117,7 +2332,9 @@ Day of the week (in `DDD` format).
 - `SUN` ||
 || hour | **int64**
 
-Hour of the day in UTC (in `HH` format). ||
+Hour of the day in UTC (in `HH` format).
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.mdb.redis.v1.MaintenanceOperation}
@@ -2128,7 +2345,9 @@ A planned maintenance operation.
 ||Field | Description ||
 || info | **string**
 
-Information about this maintenance operation. ||
+Information about this maintenance operation.
+
+The maximum string length in characters is 256. ||
 || delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time until which this maintenance operation is delayed. ||

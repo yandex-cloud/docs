@@ -10,12 +10,14 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the cluster that the model belongs to.
+            The maximum string length in characters is 50.
           type: string
         mlModelName:
           description: |-
             **string**
             Required field. Name of the model to return.
             To get a model name make a [MlModelService.List](/docs/managed-clickhouse/api-ref/MlModel/list#List) request.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
       required:
@@ -46,12 +48,16 @@ GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/mlMode
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the cluster that the model belongs to. ||
+Required field. ID of the cluster that the model belongs to.
+
+The maximum string length in characters is 50. ||
 || mlModelName | **string**
 
 Required field. Name of the model to return.
 
-To get a model name make a [MlModelService.List](/docs/managed-clickhouse/api-ref/MlModel/list#List) request. ||
+To get a model name make a [MlModelService.List](/docs/managed-clickhouse/api-ref/MlModel/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Response {#yandex.cloud.mdb.clickhouse.v1.MlModel}
@@ -79,7 +85,6 @@ ID of the ClickHouse cluster that the model belongs to. ||
 
 Type of the model.
 
-- `ML_MODEL_TYPE_UNSPECIFIED`
 - `ML_MODEL_TYPE_CATBOOST`: CatBoost model. ||
 || uri | **string**
 

@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the cluster that the external dictionaries belong to.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -23,6 +24,7 @@ apiPlayground:
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`, the service returns a [ListClusterExternalDictionaryResponse.next_page_token]
             that can be used to get the next page of results in subsequent list requests.
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         pageToken:
@@ -30,6 +32,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the [ListClusterExternalDictionaryResponse.next_page_token]
             returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -53,7 +56,9 @@ GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/extern
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the cluster that the external dictionaries belong to. ||
+Required field. ID of the cluster that the external dictionaries belong to.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.clickhouse.v1.ListClusterExternalDictionariesRequest}
@@ -64,11 +69,15 @@ Required field. ID of the cluster that the external dictionaries belong to. ||
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListClusterExternalDictionaryResponse.next_page_token]
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the [ListClusterExternalDictionaryResponse.next_page_token]
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.clickhouse.v1.ListClusterExternalDictionariesResponse}
@@ -306,7 +315,9 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query
 
 Description of the fields available for database queries.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes).
+
+The number of elements must be greater than 0. ||
 |#
 
 ## Id {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Id}
@@ -328,7 +339,9 @@ Complex key.
 ||Field | Description ||
 || attributes[] | **[Attribute](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Attribute)**
 
-Attributes of a complex key. ||
+Attributes of a complex key.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## Attribute {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Attribute}
@@ -369,7 +382,6 @@ Required field. Layout type.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#ways-to-store-dictionaries-in-memory).
 
-- `TYPE_UNSPECIFIED`
 - `FLAT`: The dictionary is completely stored in memory in the form of flat arrays.
 Applicable only for dictionaries with numeric keys of the UInt64 type.
 - `HASHED`: The dictionary is completely stored in memory in the form of a hash table.
@@ -402,7 +414,9 @@ Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
 
 Default value: **1000000000**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+
+The minimum value is 0. ||
 || allowReadExpiredKeys | **boolean**
 
 Allows to read expired keys.
@@ -418,7 +432,9 @@ Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
 
 Default value: **100000**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+
+The minimum value is 0. ||
 || updateQueuePushTimeoutMilliseconds | **string** (int64)
 
 Max timeout in milliseconds for push update task into queue.
@@ -426,7 +442,9 @@ Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
 
 Default value: **10**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+
+The minimum value is 0. ||
 || queryWaitTimeoutMilliseconds | **string** (int64)
 
 Max wait timeout in milliseconds for update task to complete.
@@ -434,7 +452,9 @@ Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
 
 Default value: **60000** (1 minute).
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+
+The minimum value is 0. ||
 || maxThreadsForUpdates | **string** (int64)
 
 Max threads for cache dictionary update.
@@ -442,7 +462,9 @@ Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
 
 Default value: **4**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+
+The minimum value is 0. ||
 || initialArraySize | **string** (int64)
 
 Initial dictionary key size.
@@ -450,7 +472,9 @@ Applicable only for **FLAT** layout type.
 
 Default value: **1024**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#flat). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#flat).
+
+The minimum value is 0. ||
 || maxArraySize | **string** (int64)
 
 Maximum dictionary key size.
@@ -458,7 +482,9 @@ Applicable only for **FLAT** layout type.
 
 Default value: **500000**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#flat). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#flat).
+
+The minimum value is 0. ||
 || accessToKeyFromAttributes | **boolean**
 
 Allows to retrieve key attribute using **dictGetString** function.
@@ -519,7 +545,9 @@ Required field. Database name. ||
 Required field. Table name. ||
 || port | **string** (int64)
 
-Port to use when connecting to a replica of the dictionary source. ||
+Port to use when connecting to a replica of the dictionary source.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || user | **string**
 
 Required field. Name of the user for replicas of the dictionary source. ||
@@ -549,15 +577,21 @@ Should a connection be shared for some requests. ||
 ||Field | Description ||
 || host | **string**
 
-Required field. MySQL host of the replica. ||
+Required field. MySQL host of the replica.
+
+The maximum string length in characters is 253. ||
 || priority | **string** (int64)
 
 The priority of the replica that ClickHouse takes into account when connecting.
-Replica with the highest priority should have this field set to the lowest number. ||
+Replica with the highest priority should have this field set to the lowest number.
+
+The minimum value is 0. ||
 || port | **string** (int64)
 
 Port to use when connecting to the replica.
-If a port is not specified for a replica, ClickHouse uses the port specified for the source. ||
+If a port is not specified for a replica, ClickHouse uses the port specified for the source.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || user | **string**
 
 Name of the MySQL database user.
@@ -580,10 +614,14 @@ Required field. Database name. ||
 Required field. Table name. ||
 || host | **string**
 
-ClickHouse host. ||
+ClickHouse host.
+
+The maximum string length in characters is 253. ||
 || port | **string** (int64)
 
-Port to use when connecting to the host. ||
+Port to use when connecting to the host.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || user | **string**
 
 Required field. Name of the ClickHouse database user. ||
@@ -610,10 +648,14 @@ Required field. Database name. ||
 Required field. Collection name. ||
 || host | **string**
 
-Required field. MongoDB host. ||
+Required field. MongoDB host.
+
+The maximum string length in characters is 253. ||
 || port | **string** (int64)
 
-Port to use when connecting to the host. ||
+Port to use when connecting to the host.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || user | **string**
 
 Required field. Name of the MongoDB database user. ||
@@ -640,7 +682,9 @@ Required field. Table name. ||
 PostgreSQL hosts. ||
 || port | **string** (int64)
 
-Port to use when connecting to the PostgreSQL hosts. ||
+Port to use when connecting to the PostgreSQL hosts.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || user | **string**
 
 Required field. Name of the PostrgreSQL database user. ||
@@ -654,7 +698,6 @@ Query for checking the dictionary status, to pull only updated data. ||
 
 Mode of SSL TCP/IP connection to the PostgreSQL host.
 
-- `SSL_MODE_UNSPECIFIED`
 - `DISABLE`: Only try a non-SSL connection.
 - `ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.
 - `PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.

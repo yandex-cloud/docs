@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the resource preset to return.
             To get the resource preset ID, use a [ResourcePresetService.List](/docs/managed-clickhouse/api-ref/ResourcePreset/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - resourcePresetId
@@ -40,7 +41,9 @@ GET https://{{ api-host-mdb }}/managed-clickhouse/v1/resourcePresets/{resourcePr
 || resourcePresetId | **string**
 
 Required field. ID of the resource preset to return.
-To get the resource preset ID, use a [ResourcePresetService.List](/docs/managed-clickhouse/api-ref/ResourcePreset/list#List) request. ||
+To get the resource preset ID, use a [ResourcePresetService.List](/docs/managed-clickhouse/api-ref/ResourcePreset/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.mdb.clickhouse.v1.ResourcePreset}

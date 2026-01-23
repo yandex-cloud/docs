@@ -28,10 +28,14 @@ Updates the specified machine learning model.
 
 Required field. ID of the cluster to update the model in.
 
-To get a cluster ID make a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request. ||
+To get a cluster ID make a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || ml_model_name | **string**
 
-Required field. Name of the the model to update. ||
+Required field. Name of the the model to update.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
 || uri | **string**
 
@@ -145,7 +149,6 @@ ID of the ClickHouse cluster that the model belongs to. ||
 
 Type of the model.
 
-- `ML_MODEL_TYPE_UNSPECIFIED`
 - `ML_MODEL_TYPE_CATBOOST`: CatBoost model. ||
 || uri | **string**
 

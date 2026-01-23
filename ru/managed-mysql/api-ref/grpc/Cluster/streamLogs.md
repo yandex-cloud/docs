@@ -35,7 +35,9 @@ This method is similar to [ListLogs](/docs/managed-mysql/api-ref/grpc/Cluster/li
 
 Required field. ID of the cluster to stream logs for.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || column_filter[] | **string**
 
 Columns from the logs table to request.
@@ -44,7 +46,6 @@ If no columns are specified, complete log records are returned. ||
 
 The log type.
 
-- `SERVICE_TYPE_UNSPECIFIED`
 - `MYSQL_ERROR`: MySQL error log.
 - `MYSQL_GENERAL`: MySQL general query log.
 - `MYSQL_SLOW_QUERY`: MySQL slow query log.
@@ -62,7 +63,9 @@ In essence it has `tail -f` command semantics. ||
 
 Record token that can be used to control logs streaming.
 
-Set `record_token` to the [StreamLogRecord.next_record_token](#yandex.cloud.mdb.mysql.v1.StreamLogRecord), returned by the previous [ClusterService.StreamLogs](#StreamLogs) request to start streaming from the next log record. ||
+Set `record_token` to the [StreamLogRecord.next_record_token](#yandex.cloud.mdb.mysql.v1.StreamLogRecord), returned by the previous [ClusterService.StreamLogs](#StreamLogs) request to start streaming from the next log record.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that selects clusters logs listed in the response.
@@ -71,7 +74,9 @@ The expression must specify:
 1. The field name. Currently filtering can be applied to the [LogRecord.logs.hostname] field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-Examples of a filter: `message.hostname='node1.db.cloud.yandex.net'` ||
+Examples of a filter: `message.hostname='node1.db.cloud.yandex.net'`
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## StreamLogRecord {#yandex.cloud.mdb.mysql.v1.StreamLogRecord}

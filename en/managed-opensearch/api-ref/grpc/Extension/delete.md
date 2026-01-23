@@ -24,7 +24,9 @@ Deletes the specified extension.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. Required. ID of the cluster. ||
+Required field. Required. ID of the cluster.
+
+The maximum string length in characters is 50. ||
 || extension_id | **string**
 
 Required field. Required. ID of the extension to delete. ||
@@ -112,7 +114,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. Required. ID of the cluster. ||
+Required field. Required. ID of the cluster.
+
+The maximum string length in characters is 50. ||
 || extension_id | **string**
 
 Required field. Required. ID of the extension to delete. ||

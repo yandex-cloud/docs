@@ -26,12 +26,16 @@ Deletes a format schema from a cluster.
 
 Required field. ClickHouse cluster ID.
 
-To get a ClickHouse cluster ID, use the [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) method. ||
+To get a ClickHouse cluster ID, use the [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) method.
+
+The maximum string length in characters is 50. ||
 || format_schema_name | **string**
 
 Required field. Format schema name.
 
-To get a format schema name, use the [FormatSchemaService.List](/docs/managed-clickhouse/api-ref/grpc/FormatSchema/list#List) method. ||
+To get a format schema name, use the [FormatSchemaService.List](/docs/managed-clickhouse/api-ref/grpc/FormatSchema/list#List) method.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

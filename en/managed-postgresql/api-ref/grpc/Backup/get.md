@@ -74,14 +74,12 @@ Size of backup, in bytes ||
 
 How this backup was created (manual/automatic/etc...)
 
-- `BACKUP_CREATION_TYPE_UNSPECIFIED`
 - `AUTOMATED`: Backup created by automated daily schedule
 - `MANUAL`: Backup created by user request ||
 || method | enum **BackupMethod**
 
 Method of backup creation
 
-- `BACKUP_METHOD_UNSPECIFIED`
 - `BASE`: Base backup
 - `INCREMENTAL`: Delta (incremental) PostgreSQL backup ||
 || journal_size | **int64**
@@ -91,7 +89,6 @@ Size of the journal associated with backup, in bytes ||
 
 Status of backup
 
-- `BACKUP_STATUS_UNSPECIFIED`
 - `DONE`: Backup is done
 - `CREATING`: Backup is creating ||
 |#

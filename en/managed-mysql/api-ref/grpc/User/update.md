@@ -47,18 +47,24 @@ Updates a user in a cluster.
 
 Required field. ID of the cluster to update the user in.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || user_name | **string**
 
 Required field. Name of the user to update.
 
-To get this name, make a [UserService.List](/docs/managed-mysql/api-ref/grpc/User/list#List) request. ||
+To get this name, make a [UserService.List](/docs/managed-mysql/api-ref/grpc/User/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which settings of the user should be updated. ||
 || password | **string**
 
-New password for the user. ||
+New password for the user.
+
+The string length in characters must be 8-128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mysql.v1.Permission)**
 
 A new set of permissions that should be granted to the user. ||
@@ -66,7 +72,6 @@ A new set of permissions that should be granted to the user. ||
 
 New set of global permissions to grant to the user.
 
-- `GLOBAL_PERMISSION_UNSPECIFIED`
 - `REPLICATION_CLIENT`: Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements.
 - `REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server,
 using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.
@@ -89,7 +94,6 @@ Set of changed user connection limits. ||
 
 New user authentication plugin.
 
-- `AUTH_PLUGIN_UNSPECIFIED`
 - `MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).
 - `CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).
 - `SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).
@@ -113,7 +117,8 @@ Roles granted to the user within the database.
 
 See [the documentation](/docs/managed-mysql/operations/grant) for details.
 
-- `PRIVILEGE_UNSPECIFIED`
+The minimum number of elements is 1.
+
 - `ALL_PRIVILEGES`: All privileges that can be made available to the user.
 - `ALTER`: Altering tables.
 - `ALTER_ROUTINE`: Altering stored routines and functions.
@@ -145,16 +150,24 @@ See [the documentation](/docs/managed-mysql/operations/grant) for details.
 ||Field | Description ||
 || max_questions_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum permitted number of user questions per hour. ||
+The maximum permitted number of user questions per hour.
+
+The minimum value is 0. ||
 || max_updates_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum permitted number of user updates per hour. ||
+The maximum permitted number of user updates per hour.
+
+The minimum value is 0. ||
 || max_connections_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum permitted number of simultaneous client connections per hour. ||
+The maximum permitted number of simultaneous client connections per hour.
+
+The minimum value is 0. ||
 || max_user_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections permitted to any given MySQL user account. ||
+The maximum number of simultaneous connections permitted to any given MySQL user account.
+
+The minimum value is 0. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -290,7 +303,6 @@ Set of permissions granted to the user. ||
 
 Set of global permissions to grant to the user.
 
-- `GLOBAL_PERMISSION_UNSPECIFIED`
 - `REPLICATION_CLIENT`: Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements.
 - `REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server,
 using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.
@@ -313,7 +325,6 @@ Set of user connection limits. ||
 
 User authentication plugin.
 
-- `AUTH_PLUGIN_UNSPECIFIED`
 - `MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).
 - `CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).
 - `SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).
@@ -337,7 +348,8 @@ Roles granted to the user within the database.
 
 See [the documentation](/docs/managed-mysql/operations/grant) for details.
 
-- `PRIVILEGE_UNSPECIFIED`
+The minimum number of elements is 1.
+
 - `ALL_PRIVILEGES`: All privileges that can be made available to the user.
 - `ALTER`: Altering tables.
 - `ALTER_ROUTINE`: Altering stored routines and functions.
@@ -369,16 +381,24 @@ See [the documentation](/docs/managed-mysql/operations/grant) for details.
 ||Field | Description ||
 || max_questions_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum permitted number of user questions per hour. ||
+The maximum permitted number of user questions per hour.
+
+The minimum value is 0. ||
 || max_updates_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum permitted number of user updates per hour. ||
+The maximum permitted number of user updates per hour.
+
+The minimum value is 0. ||
 || max_connections_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum permitted number of simultaneous client connections per hour. ||
+The maximum permitted number of simultaneous client connections per hour.
+
+The minimum value is 0. ||
 || max_user_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-The maximum number of simultaneous connections permitted to any given MySQL user account. ||
+The maximum number of simultaneous connections permitted to any given MySQL user account.
+
+The minimum value is 0. ||
 |#
 
 ## ConnectionManager {#yandex.cloud.mdb.mysql.v1.ConnectionManager}

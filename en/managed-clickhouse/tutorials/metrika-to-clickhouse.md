@@ -1,6 +1,6 @@
 ---
 title: How to load data from {{ metrika }} to a {{ CH }} data mart
-description: Follow this guide to migrate data from a {{ metrika }} tag to a {{ CH }} cluster.
+description: In this tutorial, you will learn how to migrate metrics from {{ metrika }} to a {{ CH }} cluster.
 canonical: '{{ link-docs }}/tutorials/dataplatform/metrika-to-clickhouse'
 noIndex: true
 ---

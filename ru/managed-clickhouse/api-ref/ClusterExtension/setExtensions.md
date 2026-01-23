@@ -9,7 +9,8 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -19,7 +20,9 @@ apiPlayground:
       type: object
       properties:
         extensionSpecs:
-          description: '**[ExtensionSpec](#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)**'
+          description: |-
+            **[ExtensionSpec](#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)**
+            The number of elements must be greater than 0.
           type: array
           items:
             $ref: '#/definitions/ExtensionSpec'
@@ -31,7 +34,8 @@ apiPlayground:
           name:
             description: |-
               **string**
-              Required field. 
+              Required field.
+              The maximum string length in characters is 63.
             type: string
           version:
             description: '**string**'
@@ -57,7 +61,9 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/exten
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.clickhouse.v1.SetClusterExtensionsRequest}
@@ -75,7 +81,9 @@ Required field.  ||
 
 #|
 ||Field | Description ||
-|| extensionSpecs[] | **[ExtensionSpec](#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)** ||
+|| extensionSpecs[] | **[ExtensionSpec](#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)**
+
+The number of elements must be greater than 0. ||
 |#
 
 ## ExtensionSpec {#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec}
@@ -84,7 +92,9 @@ Required field.  ||
 ||Field | Description ||
 || name | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 63. ||
 || version | **string** ||
 |#
 
@@ -242,10 +252,14 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Required. Extension name. ||
+Required field. Required. Extension name.
+
+The maximum string length in characters is 63. ||
 || clusterId | **string**
 
-Required field. Required. ID of the ClickHouse cluster. ||
+Required field. Required. ID of the ClickHouse cluster.
+
+The maximum string length in characters is 50. ||
 || version | **string**
 
 Required field. Required. Extension version. ||

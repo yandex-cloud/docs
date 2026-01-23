@@ -50,10 +50,14 @@ Updates an OpenSearch type host group.
 
 Required field. ID of the OpenSearch cluster to update the OpenSearch type host group in.
 
-To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request. ||
+To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Required field. Name of the OpenSearch type host group to be updated. ||
+Required field. Name of the OpenSearch type host group to be updated.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the host group configuration should be updated. ||
@@ -76,7 +80,6 @@ Number of hosts in the group. ||
 
 Opensearch roles applicable to the node group.
 
-- `GROUP_ROLE_UNSPECIFIED`
 - `DATA`
 - `MANAGER` ||
 || zone_ids[] | **string**
@@ -116,10 +119,14 @@ Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd
 ||Field | Description ||
 || planned_usage_threshold | **int64**
 
-Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergency_usage_threshold | **int64**
 
-Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || disk_size_limit | **int64**
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||

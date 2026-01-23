@@ -1,16 +1,16 @@
-# Delivering data from {{ mmy-full-name }} to {{ mkf-full-name }} using Debezium
+# Transferring data from {{ mmy-full-name }} to {{ mkf-full-name }} using Debezium
 
-You can track data changes in {{ mmy-name }} and send them to {{ mkf-name }} using Change Data Capture (CDC).
+You can track data changes in {{ mmy-name }} and send them to {{ mkf-name }} using change data capture (CDC).
 
-In this article, you will learn how to create a virtual machine in {{ yandex-cloud }} and set up [Debezium](https://debezium.io/documentation/reference/index.html), software used for CDC.
+In this tutorial, you will learn how to create a virtual machine in {{ yandex-cloud }} and set up [Debezium](https://debezium.io/documentation/reference/index.html), an open-source software framework for CDC.
 
 
 ## Required paid resources {#paid-resources}
 
 * {{ mkf-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
 * {{ mmy-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
-* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for public IP addresses assigned to cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* VM fee, which covers the use of computing resources, storage, and public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -21,18 +21,18 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
     * Database: `db1`
     * User: `user1`
 
-1. [Create a {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) _target cluster_ in any suitable configuration with publicly available hosts.
+1. [Create a {{ mkf-name }} _target cluster_](../../managed-kafka/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
 
-1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) and a public IP address.
-
-
-1. If you are using security groups, configure them to enable connecting to the clusters both from the internet and from the created VM. In addition, enable connecting to this VM over SSH from the internet:
-
-   * [Configuring {{ mkf-name }} cluster security groups](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-   * [Configuring {{ mmy-name }} cluster security groups](../../managed-mysql/operations/connect.md#configure-security-groups).
+1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) running [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) with a public IP address.
 
 
-1. [Connect to a virtual machine over SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) and perform preliminary setup:
+1. If you use security groups, configure them to allow connections to the clusters from the internet and from the VM you created, and to allow SSH access to that VM from the internet:
+
+    * [Configuring {{ mkf-name }} cluster security groups](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
+    * [Configuring {{ mmy-name }} cluster security groups](../../managed-mysql/operations/connect.md#configure-security-groups).
+
+
+1. [Connect to your VM over SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) and complete its initial setup:
 
     1. Install the dependencies:
 
@@ -43,33 +43,33 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
         Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-    1. Create a folder for {{ KF }}:
+    1. Create a directory for {{ KF }}:
 
         ```bash
         sudo mkdir -p /opt/kafka/
         ```
 
-    1. Download and unpack the archive with {{ KF }} executable files in this folder. For example, to download and unpack {{ KF }} 3.0, run the command:
+    1. Download the archive with {{ KF }} executables and unpack it into this directory. For example, to download and unpack {{ KF }} 3.0, run this command:
 
         ```bash
         wget https://archive.apache.org/dist/kafka/3.0.0/kafka_2.13-3.0.0.tgz && \
         sudo tar xf kafka_2.13-3.0.0.tgz --strip 1 --directory /opt/kafka/
         ```
 
-        You can check the current {{ KF }} version on the [page with project downloads](https://kafka.apache.org/downloads).
+        You can check the current {{ KF }} version on the [project’s download page](https://kafka.apache.org/downloads).
 
-    1. Install certificates on the VM and check the availability of clusters:
+    1. Install certificates on the VM and make sure you can access the clusters:
 
-        * [{{ mkf-name }}](../../managed-kafka/operations/connect/clients.md) (use `kafkacat`)
-        * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#get-ssl-cert) (use `mysql`)
+        * [{{ mkf-name }}](../../managed-kafka/operations/connect/clients.md) (use `kafkacat`).
+        * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#get-ssl-cert) (use `mysql`).
 
-    1. Create a folder that will store the files required for the operation of the Debezium connector:
+    1. Create a directory to store the files required for the Debezium connector:
 
         ```bash
         sudo mkdir -p /etc/debezium/plugins/
         ```
 
-    1. The Debezium connector can connect to {{ mkf-name }} broker hosts if an SSL certificate is added to Java secure storage (Java Key Store). For added storage security, add a password, at least 6 characters long, to the `-storepass` parameter:
+    1. To enable the Debezium connector to connect to {{ mkf-name }} broker hosts, add the SSL certificate to Java Key Store. For extra storage security, specify a password of at least six characters in the `-storepass` setting:
 
         ```bash
         sudo keytool \
@@ -80,13 +80,13 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
             --noprompt
         ```
 
-## Preparing the source cluster {#prepare-source}
+## Set up the source cluster {#prepare-source}
 
 1. [Assign](../../managed-mysql/operations/cluster-users.md#update-settings) the `REPLICATION CLIENT` and `REPLICATION SLAVE` global privileges to `user1`.
 
-1. [Connect](../../managed-mysql/operations/connect.md) to the `db1` database under `user1`.
+1. [Connect](../../managed-mysql/operations/connect.md) to the `db1` database as `user1`.
 
-1. Add test data to the database. In this example, a simple table with information from car sensors is used.
+1. Add test data to the database. In this example, we will use a simple table containing information from certain car sensors.
 
     1. Create a table:
 
@@ -113,13 +113,13 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
           ('iv9a94th678t********', '2020-06-07 15:00:10', 55.70985913, 37.62141918,  417.0, 15.7, 10.3, 17, NULL);
         ```
 
-## Configure Debezium {#setup-debezium}
+## Set up the Debezium connector {#setup-debezium}
 
-1. Connect to the virtual machine over SSH.
+1. Connect to the VM over SSH.
 
-1. Download an up-to-date [Debezium connector](https://debezium.io/releases/) and unpack it to the `/etc/debezium/plugins/` directory.
+1. Download the current [Debezium connector](https://debezium.io/releases/) and unpack into the `/etc/debezium/plugins/` directory.
 
-    You can check the current connector version on the [project page](https://debezium.io/releases/). The commands for version `1.9.4.Final` are below.
+    You can check the current connector version on the [project page](https://debezium.io/releases/). Below are commands for `1.9.4.Final`.
 
     ```bash
     VERSION="1.9.4.Final"
@@ -167,34 +167,34 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
     Where:
 
-    * `name`: Logical name of the Debezium connector. Used for the connector's internal needs.
-    * `database.hostname`: [Special FQDN](../../managed-mysql/operations/connect.md#fqdn-master) for connection to the source cluster's master host.
+    * `name`: Logical name of the Debezium connector. It is used for the connector’s internal needs.
+    * `database.hostname`: [Special FQDN](../../managed-mysql/operations/connect.md#fqdn-master) for connecting to the master host of the source cluster.
 
         You can get the cluster ID with the [list of clusters in the folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
 
-    * `database.user`: {{ MY }} user name.
+    * `database.user`: {{ MY }} username.
     * `database.dbname`: {{ MY }} database name.
     * `database.server.name`: Name of the database server that [Debezium will use](#prepare-target) when choosing a topic for sending messages.
-    * `table.include.list`: Names of tables for Debezium to track changes in. Specify full names that include the database name (`db1`). [Debezium will use](#prepare-target) values from this field when selecting a topic for sending messages.
-    * `heartbeat.interval.ms` and `heartbeat.topics.prefix`: Heartbeat settings [required for](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-property-heartbeat-interval-ms) Debezium.
-    * `database.history.kafka.topic`: Name of the service topic the connector uses to send notifications about changes to the data schema in the source cluster.
+    * `table.include.list`: Names of tables for which Debezium will capture changes. Specify full names that include the database name (`db1`). [Debezium will use](#prepare-target) values from this field when choosing a topic for sending messages.
+    * `heartbeat.interval.ms` and `heartbeat.topics.prefix`: Heartbeat settings [required](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-property-heartbeat-interval-ms) for Debezium.
+    * `database.history.kafka.topic`: Name of the service topic where the connector publishes notifications about schema changes in the source cluster.
 
-## Prepare the target cluster {#prepare-target}
+## Set up the target cluster {#prepare-target}
 
 1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) to store data from the source cluster:
 
     * **{{ ui-key.yacloud.common.name }}**: `mmy.db1.measurements`.
 
-        Data topic names [follow](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-topic-names) the `<server_name>.<schema_name>.<table_name>` convention.
+        Data topic names [follow](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-topic-names) the `<server_name>.<database_name>.<table_name>` convention.
 
         According to the [Debezium configuration file](#setup-debezium):
 
-        * The `mmy` server name is specified in the `database.server.name` parameter.
-        * The `db1` database name is specified together with the `measurements` table name in the `table.include.list` parameter.
+        * `database.server.name` specifies the server name, `mmy`.
+        * `table.include.list` specifies the database name, `db1`, along with the table name, `measurements`.
 
-    If you need to track data changes in multiple tables, create a separate topic for each one of them.
+    If you need to track data changes in multiple tables, create a separate topic for each one.
 
-1. Create a service topic to track the connector status:
+1. Create a service topic for tracking the connector status:
 
     * **{{ ui-key.yacloud.common.name }}**: `__debezium-heartbeat.mmy`.
 
@@ -202,24 +202,24 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
         According to the [Debezium configuration file](#setup-debezium):
 
-        * The `__debezium-heartbeat` prefix is specified in the `heartbeat.topics.prefix` parameter.
-        * The `mmy` server name is specified in the `database.server.name` parameter.
+        * `heartbeat.topics.prefix` specifies the prefix, `__debezium-heartbeat`.
+        * `database.server.name` specifies the server name, `mmy`.
 
     * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}**: `Compact`.
 
-    If you need data from multiple source clusters, create a separate service topic for each of them.
+    If you need to capture data from multiple source clusters, create a separate service topic for each one.
 
-1. Create a service topic to track changes to the data format schema:
+1. Create a service topic for tracking to data format schema changes:
 
-    * **{{ ui-key.yacloud.common.name }}**: `dbhistory.mmy`
-    * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}**: `Delete`
-    * **{{ ui-key.yacloud.kafka.label_partitions }}**: `1`
+    * **{{ ui-key.yacloud.common.name }}**: `dbhistory.mmy`.
+    * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}**: `Delete`.
+    * **{{ ui-key.yacloud.kafka.label_partitions }}**: `1`.
 
 1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `debezium`.
 
 1. [Grant](../../managed-kafka/operations/cluster-accounts.md#grant-permission) `debezium` the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` permissions for the topics you created.
 
-## Start Debezium {#run-connector}
+## Run the Debezium connector {#run-connector}
 
 1. Create a file with Debezium worker settings:
 
@@ -250,7 +250,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
     offset.storage.file.filename=/etc/debezium/worker.offset
     ```
 
-1. In a separate terminal, start the connector:
+1. In a separate terminal, run the connector:
 
     ```bash
     sudo /opt/kafka/bin/connect-standalone.sh \
@@ -258,9 +258,9 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
         /etc/debezium/mdb-connector.properties
     ```
 
-## Check the health of Debezium {#verify-debezium}
+## Check that Debezium works properly {#verify-debezium}
 
-1. In a separate terminal, run the `kafkacat` utility in consumer mode:
+1. In a separate terminal, run `kafkacat` in consumer mode:
 
     ```bash
     kafkacat \
@@ -278,7 +278,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
     The output will return the data format schema of the `db1.measurements` table and information about the previously added rows.
 
-    {% cut "Example of the message fragment" %}
+    {% cut "Message snippet example" %}
 
     ```json
     {

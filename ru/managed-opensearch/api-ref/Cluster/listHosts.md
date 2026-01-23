@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the OpenSearch cluster.
             To get the OpenSearch cluster ID use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -24,6 +25,7 @@ apiPlayground:
             The maximum number of results per page to return.
             If the number of available results is larger than `pageSize`, the service returns
             a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
@@ -31,6 +33,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse)
             returned by the previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -55,7 +58,9 @@ GET https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/hosts
 || clusterId | **string**
 
 Required field. ID of the OpenSearch cluster.
-To get the OpenSearch cluster ID use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request. ||
+To get the OpenSearch cluster ID use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.opensearch.v1.ListClusterHostsRequest}
@@ -67,11 +72,15 @@ To get the OpenSearch cluster ID use a [ClusterService.List](/docs/managed-opens
 The maximum number of results per page to return.
 
 If the number of available results is larger than `pageSize`, the service returns
-a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. ||
+a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse)
-returned by the previous list request. ||
+returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse}
@@ -161,7 +170,6 @@ Resources allocated to the OpenSearch host. ||
 
 Type of the host. If the field has default value, it is not returned in the response.
 
-- `TYPE_UNSPECIFIED`: Type of the host is unspecified. Default value.
 - `OPENSEARCH`: An OpenSearch type host.
 - `DASHBOARDS`: A Dashboards type host. ||
 || health | **enum** (Health)
@@ -188,7 +196,6 @@ Name of the host group that the host belongs to. ||
 
 Roles of the host.
 
-- `GROUP_ROLE_UNSPECIFIED`
 - `DATA`
 - `MANAGER` ||
 |#

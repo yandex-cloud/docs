@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the cluster to create the database in.
             To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -35,6 +36,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. Name of the database.
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
             pattern: '[a-zA-Z0-9_-]*'
             type: string
         required:
@@ -60,7 +62,9 @@ POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/databases
 
 Required field. ID of the cluster to create the database in.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.mysql.v1.CreateDatabaseRequest}
@@ -86,7 +90,9 @@ Required field. Configuration of the database. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the database. ||
+Required field. Name of the database.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

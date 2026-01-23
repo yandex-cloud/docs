@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Redis cluster to remove hosts from.
             To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -23,6 +24,7 @@ apiPlayground:
           description: |-
             **string**
             Names of hosts to delete.
+            The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
           type: array
           items:
             type: string
@@ -48,7 +50,9 @@ POST https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/hosts:batc
 || clusterId | **string**
 
 Required field. ID of the Redis cluster to remove hosts from.
-To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request. ||
+To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.redis.v1.DeleteClusterHostsRequest}
@@ -65,7 +69,9 @@ To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api
 ||Field | Description ||
 || hostNames[] | **string**
 
-Names of hosts to delete. ||
+Names of hosts to delete.
+
+The number of elements must be greater than 0. The maximum string length in characters for each value is 253. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

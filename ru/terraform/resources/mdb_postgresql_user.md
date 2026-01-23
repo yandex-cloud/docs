@@ -125,6 +125,9 @@ resource "yandex_vpc_subnet" "foo" {
 
 * `pgaudit` - Settings of the PostgreSQL Audit Extension (pgaudit). [Full description](https://yandex.cloud/ru/docs/managed-postgresql/api-ref/grpc/Cluster/create#yandex.cloud.mdb.postgresql.v1.PGAuditSettings). String (json with with escaped quotes). Example `"{\"log\": [\"READ\", \"WRITE\"]}"`
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
+- `user_password_encryption` (String) Password-based authentication method for user.
+Possible values are `USER_PASSWORD_ENCRYPTION_MD5` or `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256`.
+The default is password_encryption setting for cluster.
 
 ### Read-Only
 

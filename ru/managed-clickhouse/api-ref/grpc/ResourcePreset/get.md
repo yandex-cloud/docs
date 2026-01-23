@@ -26,7 +26,9 @@ To get the list of available ResourcePreset resources, make a [List](/docs/manag
 || resource_preset_id | **string**
 
 Required field. ID of the resource preset to return.
-To get the resource preset ID, use a [ResourcePresetService.List](/docs/managed-clickhouse/api-ref/grpc/ResourcePreset/list#List) request. ||
+To get the resource preset ID, use a [ResourcePresetService.List](/docs/managed-clickhouse/api-ref/grpc/ResourcePreset/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ResourcePreset {#yandex.cloud.mdb.clickhouse.v1.ResourcePreset}

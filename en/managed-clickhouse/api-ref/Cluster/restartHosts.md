@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Required. ID of the Clickhouse cluster.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -22,6 +23,7 @@ apiPlayground:
           description: |-
             **string**
             Required. Name of the hosts to restart.
+            The number of elements must be greater than 0. The maximum string length in characters for each value is 353.
           type: array
           items:
             type: string
@@ -44,7 +46,9 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/hosts
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the Clickhouse cluster. ||
+Required field. Required. ID of the Clickhouse cluster.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.clickhouse.v1.RestartClusterHostsRequest}
@@ -61,7 +65,9 @@ Required field. Required. ID of the Clickhouse cluster. ||
 ||Field | Description ||
 || hostNames[] | **string**
 
-Required. Name of the hosts to restart. ||
+Required. Name of the hosts to restart.
+
+The number of elements must be greater than 0. The maximum string length in characters for each value is 353. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

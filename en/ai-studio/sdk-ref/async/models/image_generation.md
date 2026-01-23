@@ -26,6 +26,7 @@ Constructs the URI for the model based on the provided model’s name and versio
 
 - **model\_name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the name or URI of the model to call.
 - **model\_version** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the version of the model to use. Defaults to ‘latest’. ||
+|| Return type | [*ModelTypeT*](../../types/other.md#yandex_cloud_ml_sdk._types.model.ModelTypeT) ||
 |#
 
 # Model
@@ -41,7 +42,7 @@ Executes the image generation operation asynchronously and returns an operation 
 #|
 || Parameters | 
 
-- **messages** ([*ImageMessage*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessage) *\|* [*ImageMessageDict*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessageDict) *\|* [*AnyMessage*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.AnyMessage) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Iterable*](https://docs.python.org/3/library/typing.html#typing.Iterable)*[*[*ImageMessage*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessage) *\|* [*ImageMessageDict*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessageDict) *\|* [*AnyMessage*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.AnyMessage) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – the input messages for image generation.
+- **messages** ([*ImageMessage*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessage) *\|* [*ImageMessageDict*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessageDict) *\|* [*TextMessage*](../../types/message.md#yandex_cloud_ml_sdk._types.message.TextMessage) *\|* [*AnyMessage*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.AnyMessage) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*ImageMessage*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessage) *\|* [*ImageMessageDict*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessageDict) *\|* [*TextMessage*](../../types/message.md#yandex_cloud_ml_sdk._types.message.TextMessage) *\|* [*AnyMessage*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.AnyMessage) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – the input messages for image generation.
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
 || Return type | [*AsyncOperation*](../../types/operation.md#yandex_cloud_ml_sdk._types.operation.AsyncOperation)[[*ImageGenerationModelResult*](../../types/model_results.md#yandex_cloud_ml_sdk._models.image_generation.result.ImageGenerationModelResult)] ||
 |#
@@ -58,7 +59,7 @@ Attaches to an ongoing image generation operation.
 || Return type | [*AsyncOperation*](../../types/operation.md#yandex_cloud_ml_sdk._types.operation.AsyncOperation)[[*ImageGenerationModelResult*](../../types/model_results.md#yandex_cloud_ml_sdk._models.image_generation.result.ImageGenerationModelResult)] ||
 |#
 
-*property* **config**\: *[ConfigTypeT](../../types/other.md#yandex_cloud_ml_sdk._types.model.ConfigTypeT)*{#yandex_cloud_ml_sdk._models.image_generation.model.AsyncImageGenerationModel.config}
+*property* **config**\: *[ConfigTypeT](../../types/other.md#yandex_cloud_ml_sdk._types.model_config.ConfigTypeT)*{#yandex_cloud_ml_sdk._models.image_generation.model.AsyncImageGenerationModel.config}
 
 **configure**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *seed=Undefined*, *width\_ratio=Undefined*, *height\_ratio=Undefined*, *mime\_type=Undefined*){#yandex_cloud_ml_sdk._models.image_generation.model.AsyncImageGenerationModel.configure}
 
@@ -74,4 +75,12 @@ Configures the image generation model with specified parameters and returns the 
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._models.image_generation.model.AsyncImageGenerationModel.fine_tuned}
+
+*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._models.image_generation.model.AsyncImageGenerationModel.name}
+
+*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._models.image_generation.model.AsyncImageGenerationModel.owner}
+
 *property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._models.image_generation.model.AsyncImageGenerationModel.uri}
+
+*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._models.image_generation.model.AsyncImageGenerationModel.version}

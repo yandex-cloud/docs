@@ -33,7 +33,9 @@ Update resource group
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
 || resource_group | **[ResourceGroup](#yandex.cloud.mdb.greenplum.v1.ResourceGroup)** ||
 |#
@@ -44,23 +46,35 @@ Required field.  ||
 ||Field | Description ||
 || name | **string**
 
-Required field.  ||
+Required field.
+
+The string length in characters must be 3-200. Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 || is_user_defined | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
 || concurrency | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-References to CONCURRENCY from gp resource group parameter ||
+References to CONCURRENCY from gp resource group parameter
+
+The minimum value is 0. ||
 || cpu_rate_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-References to CPU_RATE_LIMIT from gp resource group parameter ||
+References to CPU_RATE_LIMIT from gp resource group parameter
+
+Acceptable values are 1 to 100, inclusive. ||
 || memory_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-References to MEMORY_LIMIT from gp resource group parameter ||
+References to MEMORY_LIMIT from gp resource group parameter
+
+Acceptable values are 0 to 100, inclusive. ||
 || memory_shared_quota | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-References to MEMORY_SHARED_QUOTA from gp resource group parameter ||
+References to MEMORY_SHARED_QUOTA from gp resource group parameter
+
+Acceptable values are 0 to 100, inclusive. ||
 || memory_spill_ratio | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-References to MEMORY_SPILL_RATIO from gp resource group parameter ||
+References to MEMORY_SPILL_RATIO from gp resource group parameter
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -153,10 +167,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || resource_group_name | **string**
 
-Required field.  ||
+Required field.
+
+The string length in characters must be 3-200. Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 |#
 
 ## ResourceGroup {#yandex.cloud.mdb.greenplum.v1.ResourceGroup2}
@@ -165,21 +183,33 @@ Required field.  ||
 ||Field | Description ||
 || name | **string**
 
-Required field.  ||
+Required field.
+
+The string length in characters must be 3-200. Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 || is_user_defined | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
 || concurrency | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-References to CONCURRENCY from gp resource group parameter ||
+References to CONCURRENCY from gp resource group parameter
+
+The minimum value is 0. ||
 || cpu_rate_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-References to CPU_RATE_LIMIT from gp resource group parameter ||
+References to CPU_RATE_LIMIT from gp resource group parameter
+
+Acceptable values are 1 to 100, inclusive. ||
 || memory_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-References to MEMORY_LIMIT from gp resource group parameter ||
+References to MEMORY_LIMIT from gp resource group parameter
+
+Acceptable values are 0 to 100, inclusive. ||
 || memory_shared_quota | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-References to MEMORY_SHARED_QUOTA from gp resource group parameter ||
+References to MEMORY_SHARED_QUOTA from gp resource group parameter
+
+Acceptable values are 0 to 100, inclusive. ||
 || memory_spill_ratio | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-References to MEMORY_SPILL_RATIO from gp resource group parameter ||
+References to MEMORY_SPILL_RATIO from gp resource group parameter
+
+Acceptable values are 0 to 100, inclusive. ||
 |#

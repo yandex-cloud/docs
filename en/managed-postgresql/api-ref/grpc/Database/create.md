@@ -38,7 +38,9 @@ Creates a new PostgreSQL database in the specified cluster.
 || cluster_id | **string**
 
 Required field. ID of the PostgreSQL cluster to create a database in.
-To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || database_spec | **[DatabaseSpec](#yandex.cloud.mdb.postgresql.v1.DatabaseSpec)**
 
 Required field. Configuration of the database to create. ||
@@ -50,25 +52,35 @@ Required field. Configuration of the database to create. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the PostgreSQL database. 1-63 characters long. ||
+Required field. Name of the PostgreSQL database. 1-63 characters long.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || owner | **string**
 
 Required field. Name of the user to be assigned as the owner of the database.
-To get the list of available PostgreSQL users, make a [UserService.List](/docs/managed-postgresql/api-ref/grpc/User/list#List) request. ||
+To get the list of available PostgreSQL users, make a [UserService.List](/docs/managed-postgresql/api-ref/grpc/User/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || lc_collate | **string**
 
 POSIX locale for string sorting order.
-Can only be set at creation time. ||
+Can only be set at creation time.
+
+Value must match the regular expression ``` |[a-zA-Z_]+.UTF-8|C ```. ||
 || lc_ctype | **string**
 
 POSIX locale for character classification.
-Can only be set at creation time. ||
+Can only be set at creation time.
+
+Value must match the regular expression ``` |[a-zA-Z_]+.UTF-8|C ```. ||
 || extensions[] | **[Extension](#yandex.cloud.mdb.postgresql.v1.Extension)**
 
 PostgreSQL extensions to be enabled for the database. ||
 || template_db | **string**
 
-Name of the PostgreSQL database template. ||
+Name of the PostgreSQL database template.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Deletion Protection inhibits deletion of the database

@@ -11,12 +11,14 @@ apiPlayground:
             **string**
             Required field. ID of the cluster to delete the user from.
             To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         userName:
           description: |-
             **string**
             Required field. Name of the user to delete.
             To get this name, make a [UserService.List](/docs/managed-mysql/api-ref/User/list#List) request.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
       required:
@@ -47,12 +49,16 @@ DELETE https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/users/{u
 
 Required field. ID of the cluster to delete the user from.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || userName | **string**
 
 Required field. Name of the user to delete.
 
-To get this name, make a [UserService.List](/docs/managed-mysql/api-ref/User/list#List) request. ||
+To get this name, make a [UserService.List](/docs/managed-mysql/api-ref/User/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -31,7 +31,7 @@ the multiplier applied to the backoff after each attempt
 
 the maximum amount of jitter to add to the backoff
 
-**retriable\_codes**\: *[Iterable](https://docs.python.org/3/library/typing.html#typing.Iterable)[[StatusCode](https://grpc.github.io/grpc/python/grpc.html#grpc.StatusCode)*] = *(StatusCode.UNAVAILABLE, StatusCode.RESOURCE\_EXHAUSTED)*{#yandex_cloud_ml_sdk._retry.RetryPolicy.retriable_codes}
+**retriable\_codes**\: *[Iterable](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)[[StatusCode](https://grpc.github.io/grpc/python/grpc.html#grpc.StatusCode)*] = *(StatusCode.UNAVAILABLE, StatusCode.RESOURCE\_EXHAUSTED)*{#yandex_cloud_ml_sdk._retry.RetryPolicy.retriable_codes}
 
 the grpc status codes that are considered retriable
 

@@ -82,13 +82,13 @@ Set up the infrastructure:
         * `target_user` and `target_password`: {{ CH }} database owner username and password.
         * `transfer_enabled`: Set to `0` to postpone transfer creation until you manually [set up a source endpoint](#prepare-transfer).
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will display any configuration errors detected in your files.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -135,7 +135,7 @@ Set up the infrastructure:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `JSON`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: You can specify a schema using one of these two methods:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: You can define a schema using one of two methods:
               * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`.
 
                 Set a list of topic fields manually:
@@ -208,33 +208,33 @@ Set up the infrastructure:
 
     - Manually {#manual}
 
-        1. [Create](../../data-transfer/operations/transfer.md#create) a **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**-type transfer configured to use the new endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**-type that will use the endpoints you created.
         1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
     - {{ TF }} {#tf}
 
         1. In the `data-transfer-yds-mch.tf` file, specify the following variables:
 
-            * `source_endpoint_id`: ID of the source endpoint.
-            * `transfer_enabled`: `1` to create a transfer.
+            * `source_endpoint_id`: Source endpoint ID.
+            * `transfer_enabled`: Set to `1` to create a transfer.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will display any configuration errors detected in your files.
+            {{ TF }} will show any errors found in your configuration files.
 
         1. Create the required infrastructure:
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            The transfer will activate automatically upon creation.
+            Once created, your transfer will be activated automatically.
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
@@ -254,9 +254,9 @@ Set up the infrastructure:
     }
     ```
 
-1. Make sure that the {{ yds-name }} stream data has been transferred to the {{ mch-name }} cluster database:
+1. Check that the {{ yds-name }} stream data has been transferred to your {{ mch-name }} cluster database:
 
-   1. [Connect to the {{ mch-name }} target cluster](../../managed-clickhouse/operations/connect/clients.md).
+   1. [Connect to the target {{ mch-name }} cluster](../../managed-clickhouse/operations/connect/clients.md).
    1. Check that the {{ CH }} database now contains a table named after the [{{ yds-name }} data stream](#prepare-source). The table must have columns matching the [source endpoint’s data schema](#prepare-transfer) and must include the test data that you sent.
 
 ## Delete the resources you created {#clear-out}
@@ -267,7 +267,7 @@ Before deleting the resources, [deactivate the transfer](../../data-transfer/ope
 
 {% endnote %}
 
-To reduce the consumption of resources you do not need, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. Delete the resources depending on how you created them:

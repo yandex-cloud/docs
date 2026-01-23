@@ -11,12 +11,14 @@ apiPlayground:
             **string**
             Required field. ID of the Redis cluster the user belongs to.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         userName:
           description: |-
             **string**
             Required field. Name of the Redis User resource to return.
             To get the name of the user, use a [UserService.List](/docs/managed-redis/api-ref/User/list#List) request.
+            The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$ `.
           pattern: ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$
           type: string
       required:
@@ -48,11 +50,15 @@ GET https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/users/{user
 || clusterId | **string**
 
 Required field. ID of the Redis cluster the user belongs to.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || userName | **string**
 
 Required field. Name of the Redis User resource to return.
-To get the name of the user, use a [UserService.List](/docs/managed-redis/api-ref/User/list#List) request. ||
+To get the name of the user, use a [UserService.List](/docs/managed-redis/api-ref/User/list#List) request.
+
+The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$ `. ||
 |#
 
 ## Response {#yandex.cloud.mdb.redis.v1.User}

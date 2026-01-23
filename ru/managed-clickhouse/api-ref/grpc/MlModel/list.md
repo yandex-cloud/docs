@@ -25,17 +25,23 @@ Retrieves the list of machine learning models in the specified cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the cluster that models belongs to. ||
+Required field. ID of the cluster that models belongs to.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListMlModelsResponse.next_page_token](#yandex.cloud.mdb.clickhouse.v1.ListMlModelsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListMlModelsResponse.next_page_token](#yandex.cloud.mdb.clickhouse.v1.ListMlModelsResponse) returned by the previous list request. ||
+[ListMlModelsResponse.next_page_token](#yandex.cloud.mdb.clickhouse.v1.ListMlModelsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListMlModelsResponse {#yandex.cloud.mdb.clickhouse.v1.ListMlModelsResponse}
@@ -82,7 +88,6 @@ ID of the ClickHouse cluster that the model belongs to. ||
 
 Type of the model.
 
-- `ML_MODEL_TYPE_UNSPECIFIED`
 - `ML_MODEL_TYPE_CATBOOST`: CatBoost model. ||
 || uri | **string**
 

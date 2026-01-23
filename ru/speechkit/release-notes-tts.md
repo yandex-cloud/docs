@@ -5,6 +5,10 @@
 Подробнее о голосовых моделях читайте в разделе [О технологии](tts/index.md#voices).
 
 
+## Релиз 21.01.2026 {#210126}
+
+Синтез {{ speechkit-name }} поддержан в {{ ml-sdk-full-name }}. Подробнее см. в [документации {{ ml-sdk-name }}](../ai-studio/sdk/index.md) и в [репозитории проекта на GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk).
+
 ## Релиз 28.05.25 {#280525}
 
 Появился новый способ создания уникального голоса — {{ brand-voice-lite-name }}. Подробнее см. в разделе [{#T}](tts/brand-voice/index.md).

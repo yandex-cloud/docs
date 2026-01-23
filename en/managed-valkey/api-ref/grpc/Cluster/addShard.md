@@ -34,15 +34,21 @@ Creates a new shard.
 || cluster_id | **string**
 
 Required field. ID of the Redis cluster to create a shard in.
-To get the cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || shard_name | **string**
 
 Required field. Name of the shard.
-The name must be unique within the cluster. ||
+The name must be unique within the cluster.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || host_specs[] | **[HostSpec](#yandex.cloud.mdb.redis.v1.HostSpec)**
 
 Configurations for Redis hosts that should be created with the shard.
-Must contain at least one element. ||
+Must contain at least one element.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## HostSpec {#yandex.cloud.mdb.redis.v1.HostSpec}
@@ -61,7 +67,9 @@ The ID of the network is set in the field [Cluster.network_id](/docs/managed-red
 || shard_name | **string**
 
 ID of the Redis shard the host belongs to.
-To get the shard ID use a [ClusterService.ListShards](/docs/managed-redis/api-ref/grpc/Cluster/listShards#ListShards) request. ||
+To get the shard ID use a [ClusterService.ListShards](/docs/managed-redis/api-ref/grpc/Cluster/listShards#ListShards) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || replica_priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 A replica with a low priority number is considered better for promotion.

@@ -9,7 +9,8 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -33,7 +34,7 @@ apiPlayground:
         user:
           description: |-
             **[User](#yandex.cloud.mdb.greenplum.v1.User)**
-            Required field. 
+            Required field.
           $ref: '#/definitions/User'
       required:
         - user
@@ -46,17 +47,20 @@ apiPlayground:
             description: |-
               **string**
               Required field. User name
+              The string length in characters must be 1-63. Value must match the regular expression ` ^[a-zA-Z_][a-zA-Z0-9_]{0,62}$ `.
             pattern: ^[a-zA-Z_][a-zA-Z0-9_]{0,62}$
             type: string
           password:
             description: |-
               **string**
               User password. Used only in create and update requests
+              The string length in characters must be 6-200.
             type: string
           resourceGroup:
             description: |-
               **string**
               Resource group for user's queries
+              Value must match the regular expression ` ^[^\|/*?.,;'<>]+$ `.
             pattern: ^[^\|/*?.,;'<>]+$
             type: string
         required:
@@ -80,7 +84,9 @@ PATCH https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/users
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.greenplum.v1.UpdateUserRequest}
@@ -110,7 +116,7 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || user | **[User](#yandex.cloud.mdb.greenplum.v1.User)**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## User {#yandex.cloud.mdb.greenplum.v1.User}
@@ -119,13 +125,19 @@ Required field.  ||
 ||Field | Description ||
 || name | **string**
 
-Required field. User name ||
+Required field. User name
+
+The string length in characters must be 1-63. Value must match the regular expression ` ^[a-zA-Z_][a-zA-Z0-9_]{0,62}$ `. ||
 || password | **string**
 
-User password. Used only in create and update requests ||
+User password. Used only in create and update requests
+
+The string length in characters must be 6-200. ||
 || resourceGroup | **string**
 
-Resource group for user's queries ||
+Resource group for user's queries
+
+Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -236,10 +248,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || userName | **string**
 
-Required field.  ||
+Required field.
+
+The string length in characters must be 1-63. Value must match the regular expression ` ^[a-zA-Z_][a-zA-Z0-9_]{0,62}$ `. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -265,11 +281,17 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. User name ||
+Required field. User name
+
+The string length in characters must be 1-63. Value must match the regular expression ` ^[a-zA-Z_][a-zA-Z0-9_]{0,62}$ `. ||
 || password | **string**
 
-User password. Used only in create and update requests ||
+User password. Used only in create and update requests
+
+The string length in characters must be 6-200. ||
 || resourceGroup | **string**
 
-Resource group for user's queries ||
+Resource group for user's queries
+
+Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 |#

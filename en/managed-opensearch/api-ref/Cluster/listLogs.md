@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the OpenSearch cluster to request logs for.
             To get the OpenSearch cluster ID use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -54,6 +55,7 @@ apiPlayground:
             The maximum number of results per page to return.
             If the number of available results is larger than `pageSize`, the service returns a [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterLogsResponse)
             that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
@@ -61,6 +63,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterLogsResponse) returned by the previous list request.
+            The maximum string length in characters is 100.
           type: string
         alwaysNextPageToken:
           description: |-
@@ -78,12 +81,12 @@ apiPlayground:
             Examples of a filter:
             * `message.hostname='node1.db.cloud.yandex.net'`;
             * `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`.
+            The maximum string length in characters is 1000.
           type: string
         serviceType:
           description: |-
             **enum** (ServiceType)
             Type of the service to request logs about.
-            - `SERVICE_TYPE_UNSPECIFIED`: Type is not specified.
             - `OPENSEARCH`: OpenSearch logs.
             - `DASHBOARDS`: Dashboards logs.
           type: string
@@ -116,7 +119,9 @@ GET https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}:logs
 
 Required field. ID of the OpenSearch cluster to request logs for.
 
-To get the OpenSearch cluster ID use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request. ||
+To get the OpenSearch cluster ID use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.opensearch.v1.ListClusterLogsRequest}
@@ -152,11 +157,15 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 The maximum number of results per page to return.
 
 If the number of available results is larger than `pageSize`, the service returns a [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterLogsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterLogsResponse) returned by the previous list request. ||
+[ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterLogsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 || alwaysNextPageToken | **boolean**
 
 The service always returns a [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterLogsResponse), even if the current page is empty. ||
@@ -174,12 +183,13 @@ The expression must specify:
 
 Examples of a filter:
 * `message.hostname='node1.db.cloud.yandex.net'`;
-* `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`. ||
+* `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`.
+
+The maximum string length in characters is 1000. ||
 || serviceType | **enum** (ServiceType)
 
 Type of the service to request logs about.
 
-- `SERVICE_TYPE_UNSPECIFIED`: Type is not specified.
 - `OPENSEARCH`: OpenSearch logs.
 - `DASHBOARDS`: Dashboards logs. ||
 |#

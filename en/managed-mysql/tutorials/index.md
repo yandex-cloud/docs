@@ -1,6 +1,6 @@
 ---
 title: '{{ mmy-full-name }} use cases'
-description: Different use cases for {{ mmy-full-name }} in {{ yandex-cloud }}.
+description: Various {{ mmy-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ mmy-name }} tutorials

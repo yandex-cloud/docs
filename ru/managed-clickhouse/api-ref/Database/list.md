@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the ClickHouse cluster to list databases in.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -24,6 +25,7 @@ apiPlayground:
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`, the service returns a [ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListDatabasesResponse)
             that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
@@ -31,6 +33,7 @@ apiPlayground:
             **string**
             Page token.  to get the next page of results, set `pageToken` to the [ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListDatabasesResponse)
             returned by the previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -55,7 +58,9 @@ GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/databa
 || clusterId | **string**
 
 Required field. ID of the ClickHouse cluster to list databases in.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.clickhouse.v1.ListDatabasesRequest}
@@ -66,11 +71,15 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListDatabasesResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token.  to get the next page of results, set `pageToken` to the [ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListDatabasesResponse)
-returned by the previous list request. ||
+returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.clickhouse.v1.ListDatabasesResponse}
@@ -120,7 +129,6 @@ ID of the ClickHouse cluster that the database belongs to. ||
 
 Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
 
-- `DATABASE_ENGINE_UNSPECIFIED`
 - `DATABASE_ENGINE_ATOMIC`
 - `DATABASE_ENGINE_REPLICATED` ||
 |#

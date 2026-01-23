@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Required. ID of the ClickHouse cluster.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -27,8 +28,7 @@ apiPlayground:
         serviceType:
           description: |-
             **enum** (ServiceType)
-            Required field. 
-            - `SERVICE_TYPE_UNSPECIFIED`
+            Required field.
             - `CLICKHOUSE`: Logs of ClickHouse activity.
             - `CLICKHOUSE_KEEPER`: Logs of ClickHouse Keeper activity.
           type: string
@@ -65,6 +65,7 @@ apiPlayground:
             **string**
             Record token. Set `recordToken` to the [StreamLogRecord.nextRecordToken](#yandex.cloud.mdb.clickhouse.v1.StreamLogRecord) returned by a previous StreamLogs
             request to start streaming from next log record.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
@@ -77,6 +78,7 @@ apiPlayground:
             Examples of a filter:
             - `message.hostname='node1.db.cloud.yandex.net'`
             - `message.severity IN ('Error', 'Fatal') AND message.hostname != 'node2.db.cloud.yandex.net'`.
+            The maximum string length in characters is 1000.
           type: string
       required:
         - serviceType
@@ -102,7 +104,9 @@ GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}:stream
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the ClickHouse cluster. ||
+Required field. Required. ID of the ClickHouse cluster.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.clickhouse.v1.StreamClusterLogsRequest}
@@ -114,9 +118,8 @@ Required field. Required. ID of the ClickHouse cluster. ||
 Columns from logs table to get in the response. ||
 || serviceType | **enum** (ServiceType)
 
-Required field. 
+Required field.
 
-- `SERVICE_TYPE_UNSPECIFIED`
 - `CLICKHOUSE`: Logs of ClickHouse activity.
 - `CLICKHOUSE_KEEPER`: Logs of ClickHouse Keeper activity. ||
 || fromTime | **string** (date-time)
@@ -144,7 +147,9 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || recordToken | **string**
 
 Record token. Set `recordToken` to the [StreamLogRecord.nextRecordToken](#yandex.cloud.mdb.clickhouse.v1.StreamLogRecord) returned by a previous StreamLogs
-request to start streaming from next log record. ||
+request to start streaming from next log record.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -154,7 +159,9 @@ The expression must specify:
 3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`.
 Examples of a filter:
 - `message.hostname='node1.db.cloud.yandex.net'`
-- `message.severity IN ('Error', 'Fatal') AND message.hostname != 'node2.db.cloud.yandex.net'`. ||
+- `message.severity IN ('Error', 'Fatal') AND message.hostname != 'node2.db.cloud.yandex.net'`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.mdb.clickhouse.v1.StreamLogRecord}
