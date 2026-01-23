@@ -26,12 +26,16 @@ Retrieves information about the specified database.
 
 Required field. ID of the cluster that the database belongs to.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || database_name | **string**
 
 Required field. Name of the database to return information about.
 
-To get this name, make a [DatabaseService.List](/docs/managed-mysql/api-ref/grpc/Database/list#List) request. ||
+To get this name, make a [DatabaseService.List](/docs/managed-mysql/api-ref/grpc/Database/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Database {#yandex.cloud.mdb.mysql.v1.Database}

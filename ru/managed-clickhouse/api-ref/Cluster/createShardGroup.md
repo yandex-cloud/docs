@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the ClickHouse cluster to add a shard group to.
             To get the cluster ID, make a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -23,6 +24,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Name for the new shard group.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
         description:
@@ -63,7 +65,9 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/shard
 
 Required field. ID of the ClickHouse cluster to add a shard group to.
 
-To get the cluster ID, make a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, make a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.clickhouse.v1.CreateClusterShardGroupRequest}
@@ -82,7 +86,9 @@ To get the cluster ID, make a [ClusterService.List](/docs/managed-clickhouse/api
 ||Field | Description ||
 || shardGroupName | **string**
 
-Required field. Name for the new shard group. ||
+Required field. Name for the new shard group.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || description | **string**
 
 Description of the new shard group. 0-256 characters long. ||

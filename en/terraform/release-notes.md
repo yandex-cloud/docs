@@ -5,6 +5,15 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/release-notes.md
 
 
 
+## 0.180.0 (January 22, 2026)
+##### FEATURES:
+* trino: add `private_access` field to trino_cluster resource
+* CloudOrganization: added new userpool domain resource
+* postgresql: user_password_encryption management via terraform
+##### ENHANCEMENTS:
+* mdb_clickhouse: fix description for `log_processors_profiles` attribute to reference correct system table
+* mdb_clickhouse: ensure consistent ordering of shard names in cluster configuration
+
 ## 0.179.0 (January 19, 2026)
 ##### FEATURES:
 * mdb: add `mdb_clickhouse_cluster_v2` resource

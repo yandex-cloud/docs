@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Redis cluster to request logs for.
             To get the Redis cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -29,7 +30,6 @@ apiPlayground:
         serviceType:
           description: |-
             **enum** (ServiceType)
-            - `SERVICE_TYPE_UNSPECIFIED`
             - `REDIS`: Logs of Redis activity.
           type: string
           enum:
@@ -63,6 +63,7 @@ apiPlayground:
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`, the service returns a [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse)
             that can be used to get the next page of results in subsequent list requests.
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         pageToken:
@@ -70,6 +71,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse) returned by the previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -94,7 +96,9 @@ GET https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}:logs
 || clusterId | **string**
 
 Required field. ID of the Redis cluster to request logs for.
-To get the Redis cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request. ||
+To get the Redis cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.redis.v1.ListClusterLogsRequest}
@@ -107,7 +111,6 @@ Columns from the logs table to request.
 If no columns are specified, entire log records are returned. ||
 || serviceType | **enum** (ServiceType)
 
-- `SERVICE_TYPE_UNSPECIFIED`
 - `REDIS`: Logs of Redis activity. ||
 || fromTime | **string** (date-time)
 
@@ -133,11 +136,15 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse) returned by the previous list request. ||
+[ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse}

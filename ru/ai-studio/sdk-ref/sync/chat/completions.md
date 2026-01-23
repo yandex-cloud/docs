@@ -9,14 +9,21 @@ A class for working with chat completions models.
 
 This class provides the core functionality for creating chat model instances and managing completions. It handles model URI construction and provides methods for listing available models.
 
-**list**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *timeout=60*){#yandex_cloud_ml_sdk._chat.completions.function.ChatCompletions.list}
+**list**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *timeout=60*, *filters=None*){#yandex_cloud_ml_sdk._chat.completions.function.ChatCompletions.list}
 
 Returns all available models in selected subdomain (completions, embeddings, etc)
 
 #|
-|| Parameters | **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – The timeout, or the maximum time to wait for the request to complete in seconds. ||
+|| Parameters | 
+
+- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – The timeout, or the maximum time to wait for the request to complete in seconds.
+- **filters** ([*ModelFilter*](../../types/other.md#yandex_cloud_ml_sdk._chat.utils.ModelFilter) *\| None*) – Optional dict with filters, where keys are model attribute names and values are the desired values. ||
 || Return type | [tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[*ChatModel*](#yandex_cloud_ml_sdk._chat.completions.model.ChatModel), …] ||
 |#
+
+```python
+>>> filters = {'owner': 'alice', 'version': 'v2', 'fine_tuned': True}
+```
 
 **\_\_call\_\_**(*model\_name*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *model\_version='latest'*){#yandex_cloud_ml_sdk._chat.completions.function.ChatCompletions.__call__i}
 
@@ -64,7 +71,7 @@ Executes the model with the provided messages and yields partial results as they
 || Return type | [*Iterator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterator)[[*ChatModelResult*](../../types/model_results.md#yandex_cloud_ml_sdk._chat.completions.result.ChatModelResult)[[*ToolCall*](../tools.md#yandex_cloud_ml_sdk._tools.tool_call.ToolCall)]] ||
 |#
 
-*property* **config**\: *[ConfigTypeT](../../types/other.md#yandex_cloud_ml_sdk._types.model.ConfigTypeT)*{#yandex_cloud_ml_sdk._chat.completions.model.ChatModel.config}
+*property* **config**\: *[ConfigTypeT](../../types/other.md#yandex_cloud_ml_sdk._types.model_config.ConfigTypeT)*{#yandex_cloud_ml_sdk._chat.completions.model.ChatModel.config}
 
 **configure**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *temperature=Undefined*, *max\_tokens=Undefined*, *reasoning\_mode=Undefined*, *response\_format=Undefined*, *tools=Undefined*, *parallel\_tool\_calls=Undefined*, *tool\_choice=Undefined*, *extra\_query=Undefined*){#yandex_cloud_ml_sdk._chat.completions.model.ChatModel.configure}
 
@@ -84,4 +91,12 @@ Configure the model with specified parameters.
 || Return type | Self ||
 |#
 
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._chat.completions.model.ChatModel.fine_tuned}
+
+*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._chat.completions.model.ChatModel.name}
+
+*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._chat.completions.model.ChatModel.owner}
+
 *property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._chat.completions.model.ChatModel.uri}
+
+*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._chat.completions.model.ChatModel.version}

@@ -54,7 +54,7 @@ List all assistants.
 
 - **page\_size** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Number of assistants per page
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – The timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
-|| Return type | [*AsyncIterator*](https://docs.python.org/3/library/typing.html#typing.AsyncIterator)[[*AsyncAssistant*](#yandex_cloud_ml_sdk._assistants.assistant.AsyncAssistant)] ||
+|| Return type | [*AsyncIterator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.AsyncIterator)[[*AsyncAssistant*](#yandex_cloud_ml_sdk._assistants.assistant.AsyncAssistant)] ||
 |#
 
 ## *class* yandex\_cloud\_ml\_sdk.\_assistants.assistant.**AsyncAssistant**{#yandex_cloud_ml_sdk._assistants.assistant.AsyncAssistant}
@@ -112,7 +112,7 @@ This method retrieves historical versions of the assistant in a paginated manner
 - **page\_size** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Maximum number of versions to return per page
 - **page\_token** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Token for pagination
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – The timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
-|| Return type | [*AsyncIterator*](https://docs.python.org/3/library/typing.html#typing.AsyncIterator)[[*AssistantVersion*](../types/assistants.md#yandex_cloud_ml_sdk._assistants.assistant.AssistantVersion)] ||
+|| Return type | [*AsyncIterator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.AsyncIterator)[[*AssistantVersion*](../types/assistants.md#yandex_cloud_ml_sdk._assistants.assistant.AssistantVersion)] ||
 |#
 
 *async* **run**(*thread*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *custom\_temperature=Undefined*, *custom\_max\_tokens=Undefined*, *custom\_max\_prompt\_tokens=Undefined*, *custom\_prompt\_truncation\_strategy=Undefined*, *custom\_response\_format=Undefined*, *timeout=60*){#yandex_cloud_ml_sdk._assistants.assistant.AsyncAssistant.run}

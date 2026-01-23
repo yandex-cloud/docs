@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the ClickHouse cluster to update hosts in.
             To get the ClickHouse cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -23,6 +24,7 @@ apiPlayground:
           description: |-
             **[UpdateHostSpec](#yandex.cloud.mdb.clickhouse.v1.UpdateHostSpec)**
             New configurations to apply to hosts.
+            The number of elements must be greater than 0.
           type: array
           items:
             $ref: '#/definitions/UpdateHostSpec'
@@ -76,7 +78,9 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/hosts
 || clusterId | **string**
 
 Required field. ID of the ClickHouse cluster to update hosts in.
-To get the ClickHouse cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request. ||
+To get the ClickHouse cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.clickhouse.v1.UpdateClusterHostsRequest}
@@ -97,7 +101,9 @@ To get the ClickHouse cluster ID, use a [ClusterService.List](/docs/managed-clic
 ||Field | Description ||
 || updateHostSpecs[] | **[UpdateHostSpec](#yandex.cloud.mdb.clickhouse.v1.UpdateHostSpec)**
 
-New configurations to apply to hosts. ||
+New configurations to apply to hosts.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## UpdateHostSpec {#yandex.cloud.mdb.clickhouse.v1.UpdateHostSpec}

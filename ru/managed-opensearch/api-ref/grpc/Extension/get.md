@@ -24,7 +24,9 @@ Returns the specified extension of OpenSearch cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. Required. ID of the cluster. ||
+Required field. Required. ID of the cluster.
+
+The maximum string length in characters is 50. ||
 || extension_id | **string**
 
 Required field. Required. ID of the extension to return. ||
@@ -64,7 +66,6 @@ Flag is extension active now ||
 
 Extension type
 
-- `EXTENSION_TYPE_UNSPECIFIED`
 - `EXTENSION_TYPE_SYNONYMS`
 - `EXTENSION_TYPE_STOPWORDS` ||
 |#

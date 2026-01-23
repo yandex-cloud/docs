@@ -55,6 +55,10 @@ Domain for working with batch tasks
 
 Domain for working with [Yandex Cloud OpenAI Compatible API\_BaseSDK\_URL](https://yandex.cloud/docs/ai-studio/concepts/openai-compatibility).
 
+**speechkit**\: *[AsyncSpeechKitDomain](speechkit/domain.md#yandex_cloud_ml_sdk._speechkit.domain.AsyncSpeechKitDomain)*{#yandex_cloud_ml_sdk.AsyncYCloudML.speechkit}
+
+Domain for working with [Yandex SpeechKit](https://yandex.cloud/docs/speechkit) services.
+
 **\_\_init\_\_**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *folder\_id=Undefined*, *endpoint=Undefined*, *auth=Undefined*, *retry\_policy=Undefined*, *yc\_profile=Undefined*, *service\_map=Undefined*, *interceptors=Undefined*, *enable\_server\_data\_logging=Undefined*, *verify=Undefined*){#yandex_cloud_ml_sdk.AsyncYCloudML.__init__i}
 
 Construct a new asynchronous sdk instance.
@@ -70,7 +74,7 @@ Construct a new asynchronous sdk instance.
 - **verify** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*pathlib.Path*](https://docs.python.org/3/library/pathlib.html#pathlib.Path) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*os.PathLike*](https://docs.python.org/3/library/os.html#os.PathLike)) – SSL certificates (a.k.a CA bundle) used to verify the identity of requested hosts. Either *True* (default CA bundle), a path to an SSL certificate file, or *False* (which will disable verification).
 - **retry\_policy** ([*RetryPolicy*](../retry.md#yandex_cloud_ml_sdk._retry.RetryPolicy) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
 - **yc\_profile** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **interceptors** ([*Sequence*](https://docs.python.org/3/library/typing.html#typing.Sequence)*[*[*ClientInterceptor*](https://grpc.github.io/grpc/python/grpc_asyncio.html#grpc.aio.ClientInterceptor)*] \|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) ||
+- **interceptors** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*ClientInterceptor*](https://grpc.github.io/grpc/python/grpc_asyncio.html#grpc.aio.ClientInterceptor)*] \|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) ||
 |#
 
 **setup\_default\_logging**(*log\_level='INFO'*, *log\_format='[%(levelname)1.1s %(asctime)s %(name)s:%(lineno)d] %(message)s'*, *date\_format='%Y-%m-%d %H:%M:%S'*){#yandex_cloud_ml_sdk.AsyncYCloudML.setup_default_logging}
@@ -238,7 +242,11 @@ Read more about log\_levels, log\_format, and date\_format in [Python documentat
       - [**AsyncGenerativeSearch.as\_tool()**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.as_tool)
       - [**AsyncGenerativeSearch.config**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.config)
       - [**AsyncGenerativeSearch.configure()**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.configure)
+      - [**AsyncGenerativeSearch.fine\_tuned**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.fine_tuned)
+      - [**AsyncGenerativeSearch.name**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.name)
+      - [**AsyncGenerativeSearch.owner**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.owner)
       - [**AsyncGenerativeSearch.uri**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.uri)
+      - [**AsyncGenerativeSearch.version**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.version)
   - [Web search](search_api.md#id2)
     - [**AsyncWebSearchFunction**](search_api.md#yandex_cloud_ml_sdk._search_api.web.function.AsyncWebSearchFunction)
       - [**AsyncWebSearchFunction.\_\_call\_\_()**](search_api.md#yandex_cloud_ml_sdk._search_api.web.function.AsyncWebSearchFunction.__call__i)
@@ -247,7 +255,11 @@ Read more about log\_levels, log\_format, and date\_format in [Python documentat
       - [**AsyncWebSearch.run\_deferred()**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.AsyncWebSearch.run_deferred)
       - [**AsyncWebSearch.config**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.AsyncWebSearch.config)
       - [**AsyncWebSearch.configure()**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.AsyncWebSearch.configure)
+      - [**AsyncWebSearch.fine\_tuned**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.AsyncWebSearch.fine_tuned)
+      - [**AsyncWebSearch.name**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.AsyncWebSearch.name)
+      - [**AsyncWebSearch.owner**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.AsyncWebSearch.owner)
       - [**AsyncWebSearch.uri**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.AsyncWebSearch.uri)
+      - [**AsyncWebSearch.version**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.AsyncWebSearch.version)
     - [**AsyncWebSearchResult**](search_api.md#yandex_cloud_ml_sdk._search_api.web.result.AsyncWebSearchResult)
       - [**AsyncWebSearchResult.next\_page()**](search_api.md#yandex_cloud_ml_sdk._search_api.web.result.AsyncWebSearchResult.next_page)
       - [**AsyncWebSearchResult.next\_page\_deferred()**](search_api.md#yandex_cloud_ml_sdk._search_api.web.result.AsyncWebSearchResult.next_page_deferred)
@@ -264,7 +276,11 @@ Read more about log\_levels, log\_format, and date\_format in [Python documentat
       - [**AsyncImageSearch.run()**](search_api.md#yandex_cloud_ml_sdk._search_api.image.image.AsyncImageSearch.run)
       - [**AsyncImageSearch.config**](search_api.md#yandex_cloud_ml_sdk._search_api.image.image.AsyncImageSearch.config)
       - [**AsyncImageSearch.configure()**](search_api.md#yandex_cloud_ml_sdk._search_api.image.image.AsyncImageSearch.configure)
+      - [**AsyncImageSearch.fine\_tuned**](search_api.md#yandex_cloud_ml_sdk._search_api.image.image.AsyncImageSearch.fine_tuned)
+      - [**AsyncImageSearch.name**](search_api.md#yandex_cloud_ml_sdk._search_api.image.image.AsyncImageSearch.name)
+      - [**AsyncImageSearch.owner**](search_api.md#yandex_cloud_ml_sdk._search_api.image.image.AsyncImageSearch.owner)
       - [**AsyncImageSearch.uri**](search_api.md#yandex_cloud_ml_sdk._search_api.image.image.AsyncImageSearch.uri)
+      - [**AsyncImageSearch.version**](search_api.md#yandex_cloud_ml_sdk._search_api.image.image.AsyncImageSearch.version)
     - [**AsyncImageSearchResult**](search_api.md#yandex_cloud_ml_sdk._search_api.image.result.AsyncImageSearchResult)
       - [**AsyncImageSearchResult.next\_page()**](search_api.md#yandex_cloud_ml_sdk._search_api.image.result.AsyncImageSearchResult.next_page)
       - [**AsyncImageSearchResult.count()**](search_api.md#yandex_cloud_ml_sdk._search_api.image.result.AsyncImageSearchResult.count)
@@ -282,7 +298,11 @@ Read more about log\_levels, log\_format, and date\_format in [Python documentat
       - [**AsyncByImageSearch.run\_from\_id()**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.AsyncByImageSearch.run_from_id)
       - [**AsyncByImageSearch.config**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.AsyncByImageSearch.config)
       - [**AsyncByImageSearch.configure()**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.AsyncByImageSearch.configure)
+      - [**AsyncByImageSearch.fine\_tuned**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.AsyncByImageSearch.fine_tuned)
+      - [**AsyncByImageSearch.name**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.AsyncByImageSearch.name)
+      - [**AsyncByImageSearch.owner**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.AsyncByImageSearch.owner)
       - [**AsyncByImageSearch.uri**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.AsyncByImageSearch.uri)
+      - [**AsyncByImageSearch.version**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.AsyncByImageSearch.version)
     - [**AsyncByImageSearchResult**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.result.AsyncByImageSearchResult)
       - [**AsyncByImageSearchResult.next\_page()**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.result.AsyncByImageSearchResult.next_page)
       - [**AsyncByImageSearchResult.count()**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.result.AsyncByImageSearchResult.count)
@@ -360,3 +380,7 @@ Read more about log\_levels, log\_format, and date\_format in [Python documentat
   - [**AsyncChat**](chat/domain.md#yandex_cloud_ml_sdk._chat.AsyncChat)
     - [**AsyncChat.completions**](chat/domain.md#yandex_cloud_ml_sdk._chat.AsyncChat.completions)
     - [**AsyncChat.text\_embeddings**](chat/domain.md#yandex_cloud_ml_sdk._chat.AsyncChat.text_embeddings)
+- [SpheechKit domain](speechkit/domain.md)
+  - [**AsyncSpeechKitDomain**](speechkit/domain.md#yandex_cloud_ml_sdk._speechkit.domain.AsyncSpeechKitDomain)
+    - [**AsyncSpeechKitDomain.text\_to\_speech**](speechkit/domain.md#yandex_cloud_ml_sdk._speechkit.domain.AsyncSpeechKitDomain.text_to_speech)
+    - [**AsyncSpeechKitDomain.tts**](speechkit/domain.md#yandex_cloud_ml_sdk._speechkit.domain.AsyncSpeechKitDomain.tts)

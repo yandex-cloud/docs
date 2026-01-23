@@ -11,12 +11,14 @@ apiPlayground:
             **string**
             Required field. ID of the ClickHouse cluster that contains the shard group to delete.
             To get the cluster ID, make a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         shardGroupName:
           description: |-
             **string**
             Required field. Name of the shard group that should be deleted.
             To get the name, make a [ClusterService.ListShardGroups](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#ListShardGroups) request.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
       required:
@@ -47,12 +49,16 @@ DELETE https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/sha
 
 Required field. ID of the ClickHouse cluster that contains the shard group to delete.
 
-To get the cluster ID, make a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, make a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || shardGroupName | **string**
 
 Required field. Name of the shard group that should be deleted.
 
-To get the name, make a [ClusterService.ListShardGroups](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#ListShardGroups) request. ||
+To get the name, make a [ClusterService.ListShardGroups](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#ListShardGroups) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

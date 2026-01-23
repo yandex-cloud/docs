@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the PostgreSQL cluster to delete.
             To get the PostgreSQL cluster ID, use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -38,7 +39,9 @@ DELETE https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}
 || clusterId | **string**
 
 Required field. ID of the PostgreSQL cluster to delete.
-To get the PostgreSQL cluster ID, use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request. ||
+To get the PostgreSQL cluster ID, use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

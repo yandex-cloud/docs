@@ -27,15 +27,21 @@ Retrieves a list of master hosts for the specified cluster.
 
 Required field. ID of the Greenplum® cluster.
 
-To get the Greenplum® cluster ID use a [ClusterService.List](/docs/managed-greenplum/api-ref/grpc/Cluster/list#List) request. ||
+To get the Greenplum® cluster ID use a [ClusterService.List](/docs/managed-greenplum/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. ||
+If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
-Page token. To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse) returned by the previous list request. ||
+Page token. To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListClusterHostsResponse {#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse}
@@ -88,7 +94,9 @@ Required field. Name of the Greenplum® host.
 
 The host name is assigned by the platform at creation time and cannot be changed.
 
-The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. ||
+The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host.
+
+The maximum string length in characters is 63. ||
 || cluster_id | **string**
 
 ID of the Greenplum® cluster. The ID is assigned by the platform at creation time. ||
@@ -99,7 +107,6 @@ ID of the availability zone the Greenplum® host belongs to. ||
 
 Type of the host. If the field has default value, it is not returned in the response.
 
-- `TYPE_UNSPECIFIED`: Host type is not specified. Default value.
 - `MASTER`: A Greenplum® master host.
 - `REPLICA`: A Greenplum® master replica host.
 - `SEGMENT`: A Greenplum® segment host. ||

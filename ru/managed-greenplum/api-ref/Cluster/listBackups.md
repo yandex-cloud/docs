@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Greenplum® cluster.
             To get the Greenplum® cluster ID use a [ClusterService.List](/docs/managed-greenplum/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -23,12 +24,14 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return.
             If the number of available results is larger than `pageSize`, the service returns a [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) returned by the previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -54,7 +57,9 @@ GET https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/backups
 
 Required field. ID of the Greenplum® cluster.
 
-To get the Greenplum® cluster ID use a [ClusterService.List](/docs/managed-greenplum/api-ref/Cluster/list#List) request. ||
+To get the Greenplum® cluster ID use a [ClusterService.List](/docs/managed-greenplum/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsRequest}
@@ -65,10 +70,14 @@ To get the Greenplum® cluster ID use a [ClusterService.List](/docs/managed-gree
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `pageSize`, the service returns a [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) that can be used to get the next page of results in subsequent list requests. ||
+If the number of available results is larger than `pageSize`, the service returns a [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
-Page token. To get the next page of results, set `pageToken` to the [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) returned by the previous list request. ||
+Page token. To get the next page of results, set `pageToken` to the [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse}
@@ -148,14 +157,12 @@ Size of the backup in bytes. ||
 
 How this backup was created (manual/automatic/etc...)
 
-- `BACKUP_CREATION_TYPE_UNSPECIFIED`
 - `AUTOMATED`: Backup created by automated daily schedule
 - `MANUAL`: Backup created by user request ||
 || method | **enum** (BackupMethod)
 
 Method of backup creation
 
-- `BACKUP_METHOD_UNSPECIFIED`
 - `BASE`: Base backup
 - `INCREMENTAL`: Delta (incremental) Greenplum backup ||
 || journalSize | **string** (int64)

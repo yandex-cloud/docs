@@ -26,17 +26,23 @@ Retrieves a list of hosts for the specified cluster.
 || cluster_id | **string**
 
 Required field. ID of the OpenSearch cluster.
-To get the OpenSearch cluster ID use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request. ||
+To get the OpenSearch cluster ID use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return.
 
 If the number of available results is larger than `page_size`, the service returns
-a [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. ||
+a [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse)
-returned by the previous list request. ||
+returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListClusterHostsResponse {#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse}
@@ -124,7 +130,6 @@ Resources allocated to the OpenSearch host. ||
 
 Type of the host. If the field has default value, it is not returned in the response.
 
-- `TYPE_UNSPECIFIED`: Type of the host is unspecified. Default value.
 - `OPENSEARCH`: An OpenSearch type host.
 - `DASHBOARDS`: A Dashboards type host. ||
 || health | enum **Health**
@@ -151,7 +156,6 @@ Name of the host group that the host belongs to. ||
 
 Roles of the host.
 
-- `GROUP_ROLE_UNSPECIFIED`
 - `DATA`
 - `MANAGER` ||
 |#

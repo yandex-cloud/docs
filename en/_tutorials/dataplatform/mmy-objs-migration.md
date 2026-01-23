@@ -5,7 +5,7 @@
 
 To transfer data:
 
-1. [Prepare the source cluster](#prepare-source).
+1. [Set up the source cluster](#prepare-source).
 1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
@@ -21,7 +21,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
-Set up the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -63,13 +63,13 @@ Set up the infrastructure:
             * `source_user` and `source_password`: Database owner username and password.
         * `transfer_enabled`: Set to `0` to ensure that no transfer is created before you [manually create the target endpoint](#prepare-transfer).
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will display any configuration errors detected in your files.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -79,13 +79,13 @@ Set up the infrastructure:
 
 {% endlist %}
 
-## Prepare the source cluster {#prepare-source}
+## Set up the source cluster {#prepare-source}
 
 1. If you created the infrastructure manually, [set up your source cluster](../../data-transfer/operations/prepare.md#source-my).
 
 1. [Connect to the {{ mmy-name }} source cluster](../../managed-mysql/operations/connect.md).
 
-1. Populate the database with test data. In this example, we will use a table containing information from car sensors.
+1. Add test data to the database. In this example, we will use a table containing information from car sensors.
 
     Create a table:
 
@@ -147,24 +147,24 @@ Set up the infrastructure:
 
               * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.include_tables.title }}**, **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.exclude_tables.title }}**: Regular expressions for the tables you want to transfer and for those you want to ignore. These parameters are optional.
 
-        1. [Create](../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**-type transfer configured to use the new endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**-type that will use the previously created endpoints.
         1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
     - {{ TF }} {#tf}
 
         1. In the `data-transfer-mmy-objs.tf` file, specify the following variables:
 
-            * `target_endpoint_id`: ID of the target endpoint.
-            * `transfer_enabled`: `1` to create a transfer.
+            * `target_endpoint_id`: Target endpoint ID.
+            * `transfer_enabled`: Set to `1` to create a transfer.
             * `include_tables_regex`, `exclude_tables_regex`: Regular expressions for the tables you want to transfer and for those you want to ignore. These variables are optional.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will display any configuration errors detected in your files.
+            {{ TF }} will show any errors found in your configuration files.
 
         1. Create the required infrastructure:
 
@@ -193,7 +193,7 @@ Before deleting the resources, [deactivate the transfer](../../data-transfer/ope
 
 {% endnote %}
 
-To reduce the consumption of resources you do not need, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
@@ -208,7 +208,7 @@ To reduce the consumption of resources you do not need, delete them:
        1. [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
 
        
-       1. If you have created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
+       1. If you created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
 
 
    - {{ TF }} {#tf}

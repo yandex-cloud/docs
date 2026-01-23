@@ -28,10 +28,12 @@ Creates user
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || user | **[User](#yandex.cloud.mdb.greenplum.v1.User)**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## User {#yandex.cloud.mdb.greenplum.v1.User}
@@ -40,13 +42,19 @@ Required field.  ||
 ||Field | Description ||
 || name | **string**
 
-Required field. User name ||
+Required field. User name
+
+The string length in characters must be 1-63. Value must match the regular expression ` ^[a-zA-Z_][a-zA-Z0-9_]{0,62}$ `. ||
 || password | **string**
 
-User password. Used only in create and update requests ||
+User password. Used only in create and update requests
+
+The string length in characters must be 6-200. ||
 || resource_group | **string**
 
-Resource group for user's queries ||
+Resource group for user's queries
+
+Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -135,10 +143,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || user_name | **string**
 
-Required field.  ||
+Required field.
+
+The string length in characters must be 1-63. Value must match the regular expression ` ^[a-zA-Z_][a-zA-Z0-9_]{0,62}$ `. ||
 |#
 
 ## User {#yandex.cloud.mdb.greenplum.v1.User2}
@@ -147,11 +159,17 @@ Required field.  ||
 ||Field | Description ||
 || name | **string**
 
-Required field. User name ||
+Required field. User name
+
+The string length in characters must be 1-63. Value must match the regular expression ` ^[a-zA-Z_][a-zA-Z0-9_]{0,62}$ `. ||
 || password | **string**
 
-User password. Used only in create and update requests ||
+User password. Used only in create and update requests
+
+The string length in characters must be 6-200. ||
 || resource_group | **string**
 
-Resource group for user's queries ||
+Resource group for user's queries
+
+Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 |#

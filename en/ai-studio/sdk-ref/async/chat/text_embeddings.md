@@ -5,10 +5,13 @@ sourcePath: en/_sdk-ref/sdk-ref/async/chat/text_embeddings.md
 
 ## *class* yandex\_cloud\_ml\_sdk.\_chat.text\_embeddings.function.**AsyncChatEmbeddings**{#yandex_cloud_ml_sdk._chat.text_embeddings.function.AsyncChatEmbeddings}
 
-*async* **list**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *timeout=60*){#yandex_cloud_ml_sdk._chat.text_embeddings.function.AsyncChatEmbeddings.list}
+*async* **list**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *timeout=60*, *filters=None*){#yandex_cloud_ml_sdk._chat.text_embeddings.function.AsyncChatEmbeddings.list}
 
 #|
-|| Parameters | **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) ||
+|| Parameters | 
+
+- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float))
+- **filters** ([*ModelFilter*](../../types/other.md#yandex_cloud_ml_sdk._chat.utils.ModelFilter) *\| None*) ||
 || Return type | [tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[*AsyncChatEmbeddingsModel*](#yandex_cloud_ml_sdk._chat.text_embeddings.model.AsyncChatEmbeddingsModel), …] ||
 |#
 
@@ -37,7 +40,7 @@ Constructs the model URI based on the provided name and version. If the name con
 || Return type | [*ChatEmbeddingsModelResult*](../../types/model_results.md#yandex_cloud_ml_sdk._chat.text_embeddings.result.ChatEmbeddingsModelResult) ||
 |#
 
-*property* **config**\: *[ConfigTypeT](../../types/other.md#yandex_cloud_ml_sdk._types.model.ConfigTypeT)*{#yandex_cloud_ml_sdk._chat.text_embeddings.model.AsyncChatEmbeddingsModel.config}
+*property* **config**\: *[ConfigTypeT](../../types/other.md#yandex_cloud_ml_sdk._types.model_config.ConfigTypeT)*{#yandex_cloud_ml_sdk._chat.text_embeddings.model.AsyncChatEmbeddingsModel.config}
 
 **configure**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *dimensions=Undefined*, *encoding\_format=Undefined*, *extra\_query=Undefined*){#yandex_cloud_ml_sdk._chat.text_embeddings.model.AsyncChatEmbeddingsModel.configure}
 
@@ -50,4 +53,12 @@ Constructs the model URI based on the provided name and version. If the name con
 || Return type | Self ||
 |#
 
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._chat.text_embeddings.model.AsyncChatEmbeddingsModel.fine_tuned}
+
+*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._chat.text_embeddings.model.AsyncChatEmbeddingsModel.name}
+
+*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._chat.text_embeddings.model.AsyncChatEmbeddingsModel.owner}
+
 *property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._chat.text_embeddings.model.AsyncChatEmbeddingsModel.uri}
+
+*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._chat.text_embeddings.model.AsyncChatEmbeddingsModel.version}

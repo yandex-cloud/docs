@@ -27,11 +27,15 @@ Returns list of available ClickHouse versions.
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`, the service returns a [ListVersionsResponse.next_page_token](#yandex.cloud.mdb.clickhouse.v1.ListVersionsResponse) that can be used
 to get the next page of results in subsequent ListVersions requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. Set `page_token` to the [ListVersionsResponse.next_page_token](#yandex.cloud.mdb.clickhouse.v1.ListVersionsResponse) returned by a previous ListVersions
-request to get the next page of results. ||
+request to get the next page of results.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListVersionsResponse {#yandex.cloud.mdb.clickhouse.v1.ListVersionsResponse}
@@ -46,7 +50,8 @@ request to get the next page of results. ||
       "updatable_to": [
         "string"
       ],
-      "lts": "bool"
+      "lts": "bool",
+      "full_version": "string"
     }
   ],
   "next_page_token": "string"
@@ -86,4 +91,7 @@ List of versions that can be updated from current. ||
 || lts | **bool**
 
 Whether version is LTS. ||
+|| full_version | **string**
+
+Full version. ||
 |#

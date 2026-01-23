@@ -12,6 +12,7 @@ apiPlayground:
             **string**
             Required field. ID of the folder to list OpenSearch clusters in.
             To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -19,6 +20,7 @@ apiPlayground:
             The maximum number of results per page to return.
             If the number of available results is larger than `pageSize`, the service returns
             a [ListClustersResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClustersResponse) that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
@@ -26,6 +28,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the [ListClustersResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClustersResponse)
             returned by the previous list request.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
@@ -35,6 +38,7 @@ apiPlayground:
             1. The field name. Currently you can only use filtering with the [Cluster.name](#yandex.cloud.mdb.opensearch.v1.Cluster) field.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.
+            The maximum string length in characters is 1000.
           type: string
       required:
         - folderId
@@ -62,17 +66,23 @@ GET https://{{ api-host-mdb }}/managed-opensearch/v1/clusters
 
 Required field. ID of the folder to list OpenSearch clusters in.
 
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return.
 
 If the number of available results is larger than `pageSize`, the service returns
-a [ListClustersResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClustersResponse) that can be used to get the next page of results in subsequent list requests. ||
+a [ListClustersResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClustersResponse) that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the [ListClustersResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClustersResponse)
-returned by the previous list request. ||
+returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -83,7 +93,9 @@ The expression must specify:
 
 2. An `=` operator.
 
-3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`. ||
+3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.mdb.opensearch.v1.ListClustersResponse}
@@ -210,7 +222,8 @@ The expression must specify:
             // end of the list of possible fields
           },
           "snapshotMaxAgeDays": "string"
-        }
+        },
+        "fullVersion": "string"
       },
       "networkId": "string",
       "health": "string",
@@ -295,7 +308,6 @@ Maximum 64 labels per resource. ||
 
 Deployment environment of the OpenSearch cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy:
 only hotfixes are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -387,6 +399,9 @@ Access policy for external services. ||
 || snapshotManagement | **[SnapshotManagement](#yandex.cloud.mdb.opensearch.v1.SnapshotManagement)**
 
 Snapshot management configuration ||
+|| fullVersion | **string**
+
+Full version ||
 |#
 
 ## OpenSearch {#yandex.cloud.mdb.opensearch.v1.OpenSearch}
@@ -437,7 +452,6 @@ Determines whether a public IP is assigned to the hosts in the group. ||
 
 Roles of the host group.
 
-- `GROUP_ROLE_UNSPECIFIED`
 - `DATA`
 - `MANAGER` ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
@@ -468,10 +482,14 @@ Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd
 ||Field | Description ||
 || plannedUsageThreshold | **string** (int64)
 
-Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergencyUsageThreshold | **string** (int64)
 
-Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || diskSizeLimit | **string** (int64)
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
@@ -483,7 +501,7 @@ Limit on how large the storage for database instances can automatically grow, in
 ||Field | Description ||
 || effectiveConfig | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)**
 
-Required field.  ||
+Required field. ||
 || userConfig | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)** ||
 || defaultConfig | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)** ||
 |#
@@ -564,7 +582,9 @@ Snapshot management configuration
 Snapshot creation schedule ||
 || snapshotMaxAgeDays | **string** (int64)
 
-Snapshot max age in days ||
+Snapshot max age in days
+
+The minimum value is 7. ||
 |#
 
 ## SnapshotSchedule {#yandex.cloud.mdb.opensearch.v1.SnapshotSchedule}
@@ -598,7 +618,9 @@ Hourly based snapshot schedule
 ||Field | Description ||
 || minute | **string** (int64)
 
-The minute of the hour at which the backup should be created. ||
+The minute of the hour at which the backup should be created.
+
+Acceptable values are 0 to 59, inclusive. ||
 |#
 
 ## DailySnapshotSchedule {#yandex.cloud.mdb.opensearch.v1.DailySnapshotSchedule}
@@ -609,10 +631,14 @@ Daily based snapshot schedule
 ||Field | Description ||
 || hour | **string** (int64)
 
-The hour of the day in UTC timezone at which the backup should be created. ||
+The hour of the day in UTC timezone at which the backup should be created.
+
+Acceptable values are 0 to 23, inclusive. ||
 || minute | **string** (int64)
 
-The minute of the hour at which the backup should be created. ||
+The minute of the hour at which the backup should be created.
+
+Acceptable values are 0 to 59, inclusive. ||
 |#
 
 ## WeeklySnapshotSchedule {#yandex.cloud.mdb.opensearch.v1.WeeklySnapshotSchedule}
@@ -625,7 +651,6 @@ Weekly based snapshot schedule
 
 Day of the week
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -635,10 +660,14 @@ Day of the week
 - `SUN` ||
 || hour | **string** (int64)
 
-The hour of the day in UTC timezone at which the backup should be created. ||
+The hour of the day in UTC timezone at which the backup should be created.
+
+Acceptable values are 0 to 23, inclusive. ||
 || minute | **string** (int64)
 
-The minute of the hour at which the backup should be created. ||
+The minute of the hour at which the backup should be created.
+
+Acceptable values are 0 to 59, inclusive. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow}
@@ -669,7 +698,6 @@ A weekly maintenance window.
 
 Day of the week.
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`: Monday
 - `TUE`: Tuesday
 - `WED`: Wednesday
@@ -679,7 +707,9 @@ Day of the week.
 - `SUN`: Sunday ||
 || hour | **string** (int64)
 
-Hour of the day in the UTC timezone. ||
+Hour of the day in the UTC timezone.
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.mdb.opensearch.v1.MaintenanceOperation}
@@ -688,7 +718,9 @@ Hour of the day in the UTC timezone. ||
 ||Field | Description ||
 || info | **string**
 
-The description of the operation. ||
+The description of the operation.
+
+The maximum string length in characters is 256. ||
 || delayedUntil | **string** (date-time)
 
 Delay time for the maintenance operation.

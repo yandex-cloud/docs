@@ -1,6 +1,6 @@
 ---
 title: '{{ mch-name }}. FAQ'
-description: What is {{ mch-name }}? Not sure when to use {{ mch-name }} or VMs with databases? Want to know the role of {{ mch-name }} in database management and maintenance? Find answers to these and other questions in this article.
+description: What is {{ mch-name }}? Not sure whether to use {{ mch-name }} or VMs running databases? Want to know the role of {{ mch-name }} in database management and maintenance? Find answers to these and other questions in this article.
 ---
 
 # General questions about {{ mch-name }}

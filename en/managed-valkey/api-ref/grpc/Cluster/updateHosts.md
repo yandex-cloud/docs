@@ -32,10 +32,14 @@ Updates the specified hosts.
 || cluster_id | **string**
 
 Required field. ID of the Redis cluster to update hosts in.
-To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request. ||
+To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || update_host_specs[] | **[UpdateHostSpec](#yandex.cloud.mdb.redis.v1.UpdateHostSpec)**
 
-New configurations to apply to hosts. ||
+New configurations to apply to hosts.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## UpdateHostSpec {#yandex.cloud.mdb.redis.v1.UpdateHostSpec}

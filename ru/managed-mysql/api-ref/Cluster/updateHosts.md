@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the MySQL cluster to update hosts in.
             To get the MySQL cluster ID, use a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -23,6 +24,7 @@ apiPlayground:
           description: |-
             **[UpdateHostSpec](#yandex.cloud.mdb.mysql.v1.UpdateHostSpec)**
             New configurations to apply to hosts.
+            The number of elements must be greater than 0.
           type: array
           items:
             $ref: '#/definitions/UpdateHostSpec'
@@ -59,6 +61,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Host backup priority.
+              Acceptable values are 0 to 100, inclusive.
             type: string
             format: int64
           assignPublicIp:
@@ -70,6 +73,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Host master promotion priority.
+              Acceptable values are 0 to 100, inclusive.
             type: string
             format: int64
         required:
@@ -94,7 +98,9 @@ POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/hosts:batc
 || clusterId | **string**
 
 Required field. ID of the MySQL cluster to update hosts in.
-To get the MySQL cluster ID, use a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request. ||
+To get the MySQL cluster ID, use a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.mysql.v1.UpdateClusterHostsRequest}
@@ -118,7 +124,9 @@ To get the MySQL cluster ID, use a [ClusterService.List](/docs/managed-mysql/api
 ||Field | Description ||
 || updateHostSpecs[] | **[UpdateHostSpec](#yandex.cloud.mdb.mysql.v1.UpdateHostSpec)**
 
-New configurations to apply to hosts. ||
+New configurations to apply to hosts.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## UpdateHostSpec {#yandex.cloud.mdb.mysql.v1.UpdateHostSpec}
@@ -145,13 +153,17 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || backupPriority | **string** (int64)
 
-Host backup priority. ||
+Host backup priority.
+
+Acceptable values are 0 to 100, inclusive. ||
 || assignPublicIp | **boolean**
 
 Whether the host should get a public IP address on creation. ||
 || priority | **string** (int64)
 
-Host master promotion priority. ||
+Host master promotion priority.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

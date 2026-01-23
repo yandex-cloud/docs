@@ -10,7 +10,7 @@ In this section, you will learn about:
 
 * [Resources you can assign a role for](#resources).
 * [Roles this service has](#roles-list).
-* [Roles required for specific actions](#required-roles).
+* [Roles required](#required-roles) for specific actions.
 
 {% include [about-access-management](../_includes/iam/about-access-management.md) %}
 
@@ -82,7 +82,7 @@ The chart below shows the roles existing in the service and their permission inh
 
 ## Required roles {#required-roles}
 
-As a user, you need the [{{ roles.mch.editor }} role or higher](../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mch.viewer }}` role only allows you to view the list of clusters.
+To use {{ mch-name }}, you need the [{{ roles.mch.editor }} role or higher](../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mch.viewer }}` role only allows you to view the list of clusters.
 
 To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the `{{ roles.mch.editor }}` role or higher.
 

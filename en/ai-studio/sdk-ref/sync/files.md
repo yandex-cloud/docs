@@ -66,7 +66,7 @@ Lists Files in the SDK folder.
 
 - **page\_size** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – The maximum number of files to return per page.
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – Timeout for the operation in seconds. Defaults to 60. ||
-|| Return type | [*Iterator*](https://docs.python.org/3/library/typing.html#typing.Iterator)[[*File*](#yandex_cloud_ml_sdk._files.file.File)] ||
+|| Return type | [*Iterator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterator)[[*File*](#yandex_cloud_ml_sdk._files.file.File)] ||
 |#
 
 ## *class* yandex\_cloud\_ml\_sdk.\_files.file.**File**{#yandex_cloud_ml_sdk._files.file.File}

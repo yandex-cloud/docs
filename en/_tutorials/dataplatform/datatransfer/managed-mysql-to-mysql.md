@@ -22,7 +22,7 @@
                 
                 Configure the target cluster connection settings.
 
-        1. [Create](../../../data-transfer/operations/transfer.md#create) a _{{ dt-type-copy-repl }}_-type transfer configured to use the new endpoints.
+        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy-repl }}_-type that will use the endpoints you created.
 
         1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate).
 
@@ -40,13 +40,13 @@
             * [Source endpoint parameters](../../../data-transfer/operations/endpoint/source/mysql.md#managed-service).
             * [Target endpoint parameters](../../../data-transfer/operations/endpoint/target/mysql.md#on-premise).
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will display any configuration errors detected in your files.
+            {{ TF }} will show any errors found in your configuration files.
 
         1. Create the required infrastructure:
 
@@ -71,7 +71,7 @@
 
     For more information about transfer statuses, see [Transfer lifecycle](../../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
-1. To reduce the consumption of resources you do not need, delete them:
+1. Delete the endpoints and transfer you created:
 
     {% list tabs group=instructions %}
 

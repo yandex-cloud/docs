@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Redis cluster to create a user in.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -61,12 +62,14 @@ apiPlayground:
             description: |-
               **string**
               Required field. Name of the Redis user.
+              The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$ `.
             pattern: ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$
             type: string
           passwords:
             description: |-
               **string**
               Password of the Redis user.
+              Must contain exactly 1 element. Each value must match the regular expression ` ^[a-zA-Z0-9@=+?*.,!&#$^<>_-]*$ `.
             uniqueItems: true
             pattern: ^[a-zA-Z0-9@=+?*.,!&#$^<>_-]*$
             type: array
@@ -104,7 +107,9 @@ POST https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/users
 || clusterId | **string**
 
 Required field. ID of the Redis cluster to create a user in.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.redis.v1.CreateUserRequest}
@@ -141,10 +146,14 @@ Properties of the user to be created. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the Redis user. ||
+Required field. Name of the Redis user.
+
+The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$ `. ||
 || passwords[] | **string**
 
-Password of the Redis user. ||
+Password of the Redis user.
+
+Must contain exactly 1 element. Each value must match the regular expression ` ^[a-zA-Z0-9@=+?*.,!&#$^<>_-]*$ `. ||
 || permissions | **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions)**
 
 Set of permissions to grant to the user. ||

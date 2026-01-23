@@ -32,12 +32,12 @@ Set up the infrastructure:
 - Manually {#manual}
 
     1. [Create a {{ ydb-name }} database](../../../ydb/operations/manage-databases.md) named `ydb1` with your preferred configuration.
-    1. [Create a {{ mch-name }} cluster](../../../managed-clickhouse/operations/cluster-create.md) of any suitable configuration with publicly accessible hosts and the following settings:
+    1. [Create a {{ mch-name }} cluster](../../../managed-clickhouse/operations/cluster-create.md) with publicly accessible hosts and the following settings:
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`.
 
-    1. If using security groups, make sure they are configured correctly and allow connections to your [{{ mch-name }}](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) cluster.
+    1. If using security groups, make sure they are configured correctly and allow inbound connections to your [{{ mch-name }}](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) cluster.
 
     
     1. [Create a service account](../../../iam/operations/sa/create.md#create-sa) named `ydb-account` with the `ydb.editor` role. The transfer will use it to access the database.
@@ -58,7 +58,7 @@ Set up the infrastructure:
         * [Subnet](../../../vpc/concepts/network.md#subnet).
         * [Security group](../../../vpc/concepts/security-groups.md) and rules for internet access to the {{ mch-name }} cluster.
         * {{ ydb-name }} database.
-        * Target {{ mch-name }} cluster.
+        * {{ mch-name }} target cluster.
         * Source endpoint.
         * Target endpoint.
         * Transfer.
@@ -68,13 +68,13 @@ Set up the infrastructure:
         * `mch_version`: {{ CH }} version.
         * `mch_password`: {{ CH }} database owner’s password.
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will display any configuration errors detected in your files.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -84,7 +84,7 @@ Set up the infrastructure:
 
 {% endlist %}
 
-## Prepare the test data {#prepare-data}
+## Prepare your test data {#prepare-data}
 
 1. [Connect to the {{ ydb-name }} database](../../../ydb/operations/connection.md).
 1. [Create a row-oriented table](../../../ydb/operations/schema.md#create-table) named `table1` with the following columns:
@@ -141,7 +141,7 @@ Set up the infrastructure:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}**: `user1`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}**: `<user_password>`.
 
-    1. [Create](../../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**-type transfer configured to use the new endpoints.
+    1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**-type that will use the endpoints you created.
 
     1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
@@ -149,27 +149,27 @@ Set up the infrastructure:
 
     1. In the `ydb-to-clickhouse.tf` file, set `transfer_enabled` to `1`.
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will display any configuration errors detected in your files.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-        The transfer will activate automatically upon creation.
+        Once created, your transfer will be activated automatically.
 
 {% endlist %}
 
 ## Test your transfer {#verify-transfer}
 
-Make sure the transfer works correctly by testing copying and replication.
+To make sure the transfer works correctly, test the copy and replication operations.
 
-### Test copying {#verify-copy}
+### Test the copy operation {#verify-copy}
 
 1. [Connect](../../../managed-clickhouse/operations/connect/clients.md) to the `db1` database in the {{ mch-name }} target cluster.
 
@@ -193,7 +193,7 @@ Make sure the transfer works correctly by testing copying and replication.
 
     {% endcut %}
 
-### Test replication {#verify-replication}
+### Test the replication operation {#verify-replication}
 
 1. [Connect to the {{ ydb-name }} database](../../../ydb/operations/connection.md).
 
@@ -240,7 +240,7 @@ Before deleting the resources, [deactivate the transfer](../../../data-transfer/
 
 {% endnote %}
 
-To reduce the consumption of resources you do not need, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs group=instructions %}
 

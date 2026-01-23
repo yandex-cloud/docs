@@ -24,10 +24,14 @@ Delete backup for the specified OpenSearch cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. Required. ID of the OpenSearch cluster. ||
+Required field. Required. ID of the OpenSearch cluster.
+
+The maximum string length in characters is 50. ||
 || backup_id | **string**
 
-Required field. Required. ID of the backup to delete. ||
+Required field. Required. ID of the backup to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

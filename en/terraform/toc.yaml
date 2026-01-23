@@ -355,6 +355,9 @@ items:
                   - name: organizationmanager_idp_userpool
                     href: resources/organizationmanager_idp_userpool.md
                     title: ''
+                  - name: organizationmanager_idp_userpool_domain
+                    href: resources/organizationmanager_idp_userpool_domain.md
+                    title: ''
                   - name: organizationmanager_mfa_enforcement
                     href: resources/organizationmanager_mfa_enforcement.md
                     title: ''

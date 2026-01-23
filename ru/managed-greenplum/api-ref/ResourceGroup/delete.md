@@ -9,12 +9,14 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 50.
           type: string
         resourceGroupName:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The string length in characters must be 3-200. Value must match the regular expression ` ^[^\|/*?.,;'<>]+$ `.
           pattern: ^[^\|/*?.,;'<>]+$
           type: string
       required:
@@ -43,10 +45,14 @@ DELETE https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/reso
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || resourceGroupName | **string**
 
-Required field.  ||
+Required field.
+
+The string length in characters must be 3-200. Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -137,10 +143,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || resourceGroupName | **string**
 
-Required field.  ||
+Required field.
+
+The string length in characters must be 3-200. Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 |#
 
 ## Status {#google.rpc.Status}

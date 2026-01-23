@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the cluster to create a model in.
             To get a cluster ID make a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -23,13 +24,13 @@ apiPlayground:
           description: |-
             **string**
             Required field. Model name. The model name is one of the arguments of the modelEvaluate() function, which is used to call the model in ClickHouse.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
         type:
           description: |-
             **enum** (MlModelType)
             Required field. Type of the model.
-            - `ML_MODEL_TYPE_UNSPECIFIED`
             - `ML_MODEL_TYPE_CATBOOST`: CatBoost model.
           type: string
           enum:
@@ -67,7 +68,9 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/mlMod
 
 Required field. ID of the cluster to create a model in.
 
-To get a cluster ID make a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request. ||
+To get a cluster ID make a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.clickhouse.v1.CreateMlModelRequest}
@@ -84,12 +87,13 @@ To get a cluster ID make a [ClusterService.List](/docs/managed-clickhouse/api-re
 ||Field | Description ||
 || mlModelName | **string**
 
-Required field. Model name. The model name is one of the arguments of the modelEvaluate() function, which is used to call the model in ClickHouse. ||
+Required field. Model name. The model name is one of the arguments of the modelEvaluate() function, which is used to call the model in ClickHouse.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || type | **enum** (MlModelType)
 
 Required field. Type of the model.
 
-- `ML_MODEL_TYPE_UNSPECIFIED`
 - `ML_MODEL_TYPE_CATBOOST`: CatBoost model. ||
 || uri | **string**
 
@@ -242,7 +246,6 @@ ID of the ClickHouse cluster that the model belongs to. ||
 
 Type of the model.
 
-- `ML_MODEL_TYPE_UNSPECIFIED`
 - `ML_MODEL_TYPE_CATBOOST`: CatBoost model. ||
 || uri | **string**
 

@@ -55,6 +55,10 @@ Domain for working with batch tasks
 
 Domain for working with [Yandex Cloud OpenAI Compatible API\_BaseSDK\_URL](https://yandex.cloud/docs/ai-studio/concepts/openai-compatibility).
 
+**speechkit**\: *[SpeechKitDomain](speechkit/domain.md#yandex_cloud_ml_sdk._speechkit.domain.SpeechKitDomain)*{#yandex_cloud_ml_sdk.YCloudML.speechkit}
+
+Domain for working with [Yandex SpeechKit](https://yandex.cloud/docs/speechkit) services.
+
 **\_\_init\_\_**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *folder\_id=Undefined*, *endpoint=Undefined*, *auth=Undefined*, *retry\_policy=Undefined*, *yc\_profile=Undefined*, *service\_map=Undefined*, *interceptors=Undefined*, *enable\_server\_data\_logging=Undefined*, *verify=Undefined*){#yandex_cloud_ml_sdk.YCloudML.__init__i}
 
 Construct a new asynchronous sdk instance.
@@ -70,7 +74,7 @@ Construct a new asynchronous sdk instance.
 - **verify** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*pathlib.Path*](https://docs.python.org/3/library/pathlib.html#pathlib.Path) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*os.PathLike*](https://docs.python.org/3/library/os.html#os.PathLike)) – SSL certificates (a.k.a CA bundle) used to verify the identity of requested hosts. Either *True* (default CA bundle), a path to an SSL certificate file, or *False* (which will disable verification).
 - **retry\_policy** ([*RetryPolicy*](../retry.md#yandex_cloud_ml_sdk._retry.RetryPolicy) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
 - **yc\_profile** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **interceptors** ([*Sequence*](https://docs.python.org/3/library/typing.html#typing.Sequence)*[*[*ClientInterceptor*](https://grpc.github.io/grpc/python/grpc_asyncio.html#grpc.aio.ClientInterceptor)*] \|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) ||
+- **interceptors** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*ClientInterceptor*](https://grpc.github.io/grpc/python/grpc_asyncio.html#grpc.aio.ClientInterceptor)*] \|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) ||
 |#
 
 **setup\_default\_logging**(*log\_level='INFO'*, *log\_format='[%(levelname)1.1s %(asctime)s %(name)s:%(lineno)d] %(message)s'*, *date\_format='%Y-%m-%d %H:%M:%S'*){#yandex_cloud_ml_sdk.YCloudML.setup_default_logging}
@@ -238,14 +242,22 @@ Read more about log\_levels, log\_format, and date\_format in [Python documentat
       - [**GenerativeSearch.as\_tool()**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.GenerativeSearch.as_tool)
       - [**GenerativeSearch.config**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.GenerativeSearch.config)
       - [**GenerativeSearch.configure()**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.GenerativeSearch.configure)
+      - [**GenerativeSearch.fine\_tuned**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.GenerativeSearch.fine_tuned)
+      - [**GenerativeSearch.name**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.GenerativeSearch.name)
+      - [**GenerativeSearch.owner**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.GenerativeSearch.owner)
       - [**GenerativeSearch.uri**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.GenerativeSearch.uri)
+      - [**GenerativeSearch.version**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.GenerativeSearch.version)
   - [Web search](search_api.md#id2)
     - [**WebSearchFunction**](search_api.md#yandex_cloud_ml_sdk._search_api.web.function.WebSearchFunction)
       - [**WebSearchFunction.\_\_call\_\_()**](search_api.md#yandex_cloud_ml_sdk._search_api.web.function.WebSearchFunction.__call__i)
     - [**WebSearch**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.WebSearch)
       - [**WebSearch.config**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.WebSearch.config)
       - [**WebSearch.configure()**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.WebSearch.configure)
+      - [**WebSearch.fine\_tuned**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.WebSearch.fine_tuned)
+      - [**WebSearch.name**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.WebSearch.name)
+      - [**WebSearch.owner**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.WebSearch.owner)
       - [**WebSearch.uri**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.WebSearch.uri)
+      - [**WebSearch.version**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.WebSearch.version)
       - [**WebSearch.run()**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.WebSearch.run)
       - [**WebSearch.run\_deferred()**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.WebSearch.run_deferred)
     - [**WebSearchResult**](search_api.md#yandex_cloud_ml_sdk._search_api.web.result.WebSearchResult)
@@ -263,7 +275,11 @@ Read more about log\_levels, log\_format, and date\_format in [Python documentat
     - [**ImageSearch**](search_api.md#yandex_cloud_ml_sdk._search_api.image.image.ImageSearch)
       - [**ImageSearch.config**](search_api.md#yandex_cloud_ml_sdk._search_api.image.image.ImageSearch.config)
       - [**ImageSearch.configure()**](search_api.md#yandex_cloud_ml_sdk._search_api.image.image.ImageSearch.configure)
+      - [**ImageSearch.fine\_tuned**](search_api.md#yandex_cloud_ml_sdk._search_api.image.image.ImageSearch.fine_tuned)
+      - [**ImageSearch.name**](search_api.md#yandex_cloud_ml_sdk._search_api.image.image.ImageSearch.name)
+      - [**ImageSearch.owner**](search_api.md#yandex_cloud_ml_sdk._search_api.image.image.ImageSearch.owner)
       - [**ImageSearch.uri**](search_api.md#yandex_cloud_ml_sdk._search_api.image.image.ImageSearch.uri)
+      - [**ImageSearch.version**](search_api.md#yandex_cloud_ml_sdk._search_api.image.image.ImageSearch.version)
       - [**ImageSearch.run()**](search_api.md#yandex_cloud_ml_sdk._search_api.image.image.ImageSearch.run)
     - [**ImageSearchResult**](search_api.md#yandex_cloud_ml_sdk._search_api.image.result.ImageSearchResult)
       - [**ImageSearchResult.next\_page()**](search_api.md#yandex_cloud_ml_sdk._search_api.image.result.ImageSearchResult.next_page)
@@ -282,7 +298,11 @@ Read more about log\_levels, log\_format, and date\_format in [Python documentat
       - [**ByImageSearch.run\_from\_id()**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.ByImageSearch.run_from_id)
       - [**ByImageSearch.config**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.ByImageSearch.config)
       - [**ByImageSearch.configure()**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.ByImageSearch.configure)
+      - [**ByImageSearch.fine\_tuned**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.ByImageSearch.fine_tuned)
+      - [**ByImageSearch.name**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.ByImageSearch.name)
+      - [**ByImageSearch.owner**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.ByImageSearch.owner)
       - [**ByImageSearch.uri**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.ByImageSearch.uri)
+      - [**ByImageSearch.version**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.ByImageSearch.version)
     - [**ByImageSearchResult**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.result.ByImageSearchResult)
       - [**ByImageSearchResult.next\_page()**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.result.ByImageSearchResult.next_page)
       - [**ByImageSearchResult.count()**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.result.ByImageSearchResult.count)
@@ -360,3 +380,7 @@ Read more about log\_levels, log\_format, and date\_format in [Python documentat
   - [**Chat**](chat/domain.md#yandex_cloud_ml_sdk._chat.Chat)
     - [**Chat.completions**](chat/domain.md#yandex_cloud_ml_sdk._chat.Chat.completions)
     - [**Chat.text\_embeddings**](chat/domain.md#yandex_cloud_ml_sdk._chat.Chat.text_embeddings)
+- [SpheechKit domain](speechkit/domain.md)
+  - [**SpeechKitDomain**](speechkit/domain.md#yandex_cloud_ml_sdk._speechkit.domain.SpeechKitDomain)
+    - [**SpeechKitDomain.text\_to\_speech**](speechkit/domain.md#yandex_cloud_ml_sdk._speechkit.domain.SpeechKitDomain.text_to_speech)
+    - [**SpeechKitDomain.tts**](speechkit/domain.md#yandex_cloud_ml_sdk._speechkit.domain.SpeechKitDomain.tts)

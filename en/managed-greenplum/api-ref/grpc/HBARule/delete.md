@@ -25,10 +25,14 @@ Delete specified HBA rule for the specified Greenplum cluster.
 || cluster_id | **string**
 
 Required field. ID of the Greenplum cluster.
-To get the Greenplum cluster ID use a [ClusterService.List](/docs/managed-greenplum/api-ref/grpc/Cluster/list#List) request. ||
+To get the Greenplum cluster ID use a [ClusterService.List](/docs/managed-greenplum/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || priority | **int64**
 
-Priority of the Greenplum cluster rule. ||
+Priority of the Greenplum cluster rule.
+
+Acceptable values are 0 to 1000, inclusive. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

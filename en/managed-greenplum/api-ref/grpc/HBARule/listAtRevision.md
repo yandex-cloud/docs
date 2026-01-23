@@ -25,10 +25,14 @@ Retrieves a list of HBA rules for Greenplum clusters for particular revision.
 || cluster_id | **string**
 
 Required field. ID of the Greenplum cluster.
-To get the Greenplum cluster ID use a [ClusterService.List](/docs/managed-greenplum/api-ref/grpc/Cluster/list#List) request. ||
+To get the Greenplum cluster ID use a [ClusterService.List](/docs/managed-greenplum/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || revision | **int64**
 
-Cluster revision ||
+Cluster revision
+
+Value must be greater than 0. ||
 |#
 
 ## ListHBARulesResponse {#yandex.cloud.mdb.greenplum.v1.ListHBARulesResponse}
@@ -61,10 +65,11 @@ Requested list of hba rules for the cluster. ||
 ||Field | Description ||
 || priority | **int64**
 
-Priority of the Greenplum cluster rule. ||
+Priority of the Greenplum cluster rule.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || connection_type | enum **ConnectionType**
 
-- `CONNECTION_TYPE_UNSPECIFIED`
 - `HOST`: Matches connection attempts made using TCP/IP.
 - `HOSTSSL`: Matches connection attempts made using TCP/IP, but only when the connection is made with SSL encryption.
 - `HOSTNOSSL`: Matches connection attempts made over TCP/IP that do not use SSL. ||
@@ -82,7 +87,6 @@ Required field. Specifies the client machine addresses that this record matches.
 Specifies the authentication method to use when a connection matches this record.
 https://gpdb.docs.pivotal.io/6-6/security-guide/topics/Authenticate.html
 
-- `AUTH_METHOD_UNSPECIFIED`
 - `MD5`: Perform SCRAM-SHA-256 or MD5 authentication to verify the user's password.
 - `LDAP`: Perform LDAP authentication, if MDB_GREENPLUM_LDAP flag is set
 - `REJECT`: Disable authentication

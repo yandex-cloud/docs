@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the ClickHouse cluster the shards belong to.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -24,6 +25,7 @@ apiPlayground:
             **string**
             Names of the shards to be deleted.
             To get the name of a shard, use a [ClusterService.ListShards](/docs/managed-clickhouse/api-ref/Cluster/listShards#ListShards) request.
+            The number of elements must be greater than 0. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: array
           items:
@@ -50,7 +52,9 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/shard
 || clusterId | **string**
 
 Required field. ID of the ClickHouse cluster the shards belong to.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.clickhouse.v1.DeleteClusterShardsRequest}
@@ -68,7 +72,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-
 || shardNames[] | **string**
 
 Names of the shards to be deleted.
-To get the name of a shard, use a [ClusterService.ListShards](/docs/managed-clickhouse/api-ref/Cluster/listShards#ListShards) request. ||
+To get the name of a shard, use a [ClusterService.ListShards](/docs/managed-clickhouse/api-ref/Cluster/listShards#ListShards) request.
+
+The number of elements must be greater than 0. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

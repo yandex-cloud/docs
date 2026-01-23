@@ -28,7 +28,9 @@ Creates a new ClickHouse database in the specified cluster.
 || cluster_id | **string**
 
 Required field. ID of the ClickHouse cluster to create a database in.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || database_spec | **[DatabaseSpec](#yandex.cloud.mdb.clickhouse.v1.DatabaseSpec)**
 
 Required field. Configuration of the database to create. ||
@@ -40,12 +42,13 @@ Required field. Configuration of the database to create. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the ClickHouse database. 1-63 characters long. ||
+Required field. Name of the ClickHouse database. 1-63 characters long.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || engine | enum **DatabaseEngine**
 
 Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
 
-- `DATABASE_ENGINE_UNSPECIFIED`
 - `DATABASE_ENGINE_ATOMIC`
 - `DATABASE_ENGINE_REPLICATED` ||
 |#
@@ -159,7 +162,6 @@ ID of the ClickHouse cluster that the database belongs to. ||
 
 Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
 
-- `DATABASE_ENGINE_UNSPECIFIED`
 - `DATABASE_ENGINE_ATOMIC`
 - `DATABASE_ENGINE_REPLICATED` ||
 |#

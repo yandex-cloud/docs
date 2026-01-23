@@ -16,7 +16,7 @@ It returns an operation that can be used to track the creation process.
 #|
 || Parameters | 
 
-- **files** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*BaseFile*](../internals/bases.md#yandex_cloud_ml_sdk._files.file.BaseFile) *\|* [*Iterable*](https://docs.python.org/3/library/typing.html#typing.Iterable)*[*[*BaseFile*](../internals/bases.md#yandex_cloud_ml_sdk._files.file.BaseFile)*] \|* [*Iterable*](https://docs.python.org/3/library/typing.html#typing.Iterable)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – the files to be indexed.
+- **files** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*BaseFile*](../internals/bases.md#yandex_cloud_ml_sdk._files.file.BaseFile) *\|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*BaseFile*](../internals/bases.md#yandex_cloud_ml_sdk._files.file.BaseFile)*] \|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – the files to be indexed.
 - **index\_type** ([*BaseSearchIndexType*](../types/search_indexes.md#yandex_cloud_ml_sdk._search_indexes.index_type.BaseSearchIndexType) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – the type of the search index.
 - **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – the name of the search index.
 - **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – a description for the search index.
@@ -52,7 +52,7 @@ This method retrieves a list of search indexes. It continues to fetch search ind
 
 - **page\_size** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – the maximum number of search indexes to return per page.
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the time to wait for the operation to complete. Defaults to 60 seconds. ||
-|| Return type | [*AsyncIterator*](https://docs.python.org/3/library/typing.html#typing.AsyncIterator)[[*AsyncSearchIndex*](#yandex_cloud_ml_sdk._search_indexes.search_index.AsyncSearchIndex)] ||
+|| Return type | [*AsyncIterator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.AsyncIterator)[[*AsyncSearchIndex*](#yandex_cloud_ml_sdk._search_indexes.search_index.AsyncSearchIndex)] ||
 |#
 
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_indexes.search\_index.**AsyncSearchIndex**{#yandex_cloud_ml_sdk._search_indexes.search_index.AsyncSearchIndex}
@@ -103,7 +103,7 @@ Lists all files associated with the search index.
 
 - **page\_size** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – the number of files to retrieve per page.
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the time to wait for the list request. Defaults to 60 seconds. ||
-|| Return type | [*AsyncIterator*](https://docs.python.org/3/library/typing.html#typing.AsyncIterator)[[*SearchIndexFile*](../types/search_indexes.md#yandex_cloud_ml_sdk._search_indexes.file.SearchIndexFile)] ||
+|| Return type | [*AsyncIterator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.AsyncIterator)[[*SearchIndexFile*](../types/search_indexes.md#yandex_cloud_ml_sdk._search_indexes.file.SearchIndexFile)] ||
 |#
 
 *async* **add\_files\_deferred**(*files*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *timeout=60*){#yandex_cloud_ml_sdk._search_indexes.search_index.AsyncSearchIndex.add_files_deferred}
@@ -113,7 +113,7 @@ Adds files to the search index in a deferred manner.
 #|
 || Parameters | 
 
-- **files** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*BaseFile*](../internals/bases.md#yandex_cloud_ml_sdk._files.file.BaseFile) *\|* [*Iterable*](https://docs.python.org/3/library/typing.html#typing.Iterable)*[*[*BaseFile*](../internals/bases.md#yandex_cloud_ml_sdk._files.file.BaseFile)*] \|* [*Iterable*](https://docs.python.org/3/library/typing.html#typing.Iterable)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – the files to add to the search index.
+- **files** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*BaseFile*](../internals/bases.md#yandex_cloud_ml_sdk._files.file.BaseFile) *\|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*BaseFile*](../internals/bases.md#yandex_cloud_ml_sdk._files.file.BaseFile)*] \|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – the files to add to the search index.
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the time to wait for the add files request. Defaults to 60 seconds. ||
 || Return type | [*AsyncOperation*](../types/operation.md#yandex_cloud_ml_sdk._types.operation.AsyncOperation)[[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[*SearchIndexFile*](../types/search_indexes.md#yandex_cloud_ml_sdk._search_indexes.file.SearchIndexFile), …]] ||
 |#

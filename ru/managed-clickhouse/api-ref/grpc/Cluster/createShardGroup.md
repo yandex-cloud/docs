@@ -30,10 +30,14 @@ Creates a new shard group in the specified cluster.
 
 Required field. ID of the ClickHouse cluster to add a shard group to.
 
-To get the cluster ID, make a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, make a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || shard_group_name | **string**
 
-Required field. Name for the new shard group. ||
+Required field. Name for the new shard group.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || description | **string**
 
 Description of the new shard group. 0-256 characters long. ||

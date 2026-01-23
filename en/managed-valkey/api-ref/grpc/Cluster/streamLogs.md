@@ -31,13 +31,14 @@ Same as ListLogs but using server-side streaming. Also allows for 'tail -f' sema
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. Required. ID of the Redis cluster. ||
+Required field. Required. ID of the Redis cluster.
+
+The maximum string length in characters is 50. ||
 || column_filter[] | **string**
 
 Columns from logs table to get in the response. ||
 || service_type | enum **ServiceType**
 
-- `SERVICE_TYPE_UNSPECIFIED`
 - `REDIS`: Logs of Redis activity. ||
 || from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
@@ -50,7 +51,9 @@ they appear. In essence it has 'tail -f' semantics. ||
 || record_token | **string**
 
 Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs
-request to start streaming from next log record. ||
+request to start streaming from next log record.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -58,7 +61,9 @@ The expression must specify:
 1. The field name. Currently filtering can be applied to the [LogRecord.logs.hostname] field
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-Examples of a filter `message.hostname='node1.db.cloud.yandex.net'`. ||
+Examples of a filter `message.hostname='node1.db.cloud.yandex.net'`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## StreamLogRecord {#yandex.cloud.mdb.redis.v1.StreamLogRecord}

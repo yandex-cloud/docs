@@ -115,4 +115,4 @@ OperationErrorInfo(code: ‘int’, message: ‘str’, details: ‘Iterable[str
 
 **message**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._types.operation.OperationErrorInfo.message}
 
-**details**\: *[Iterable](https://docs.python.org/3/library/typing.html#typing.Iterable)[[str](https://docs.python.org/3/library/stdtypes.html#str)] | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._types.operation.OperationErrorInfo.details}
+**details**\: *[Iterable](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)[[str](https://docs.python.org/3/library/stdtypes.html#str)] | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._types.operation.OperationErrorInfo.details}

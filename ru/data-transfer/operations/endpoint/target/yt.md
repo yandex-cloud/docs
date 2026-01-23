@@ -1,6 +1,6 @@
 ---
-title: Как настроить эндпоинт-приемник {{ ytsaurus-name }} в {{ data-transfer-full-name }}
-description: Из статьи вы узнаете, как задать настройки при создании или изменении эндпоинта-приемника {{ ytsaurus-name }} в {{ data-transfer-full-name }}.
+title: Как настроить эндпоинт-приемник YTsaurus в {{ data-transfer-full-name }}
+description: Из статьи вы узнаете, как задать настройки при создании или изменении эндпоинта-приемника YTsaurus в {{ data-transfer-full-name }}.
 ---
 
 # Передача данных в эндпоинт-приемник {{ ytsaurus-name }}

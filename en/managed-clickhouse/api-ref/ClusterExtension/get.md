@@ -9,12 +9,14 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 50.
           type: string
         extensionName:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 63.
           type: string
       required:
         - clusterId
@@ -40,10 +42,14 @@ GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/extens
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || extensionName | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 63. ||
 |#
 
 ## Response {#yandex.cloud.mdb.clickhouse.v1.ClusterExtension}
@@ -62,10 +68,14 @@ Required field.  ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Required. Extension name. ||
+Required field. Required. Extension name.
+
+The maximum string length in characters is 63. ||
 || clusterId | **string**
 
-Required field. Required. ID of the ClickHouse cluster. ||
+Required field. Required. ID of the ClickHouse cluster.
+
+The maximum string length in characters is 50. ||
 || version | **string**
 
 Required field. Required. Extension version. ||

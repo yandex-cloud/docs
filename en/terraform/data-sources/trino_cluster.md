@@ -46,6 +46,7 @@ data "yandex_trino_cluster" "tirno_cluster_by_id" {
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `logging` (Attributes) Cloud Logging configuration. (see [below for nested schema](#nestedatt--logging))
 - `maintenance_window` (Attributes) Configuration of window for maintenance operations. (see [below for nested schema](#nestedatt--maintenance_window))
+- `private_access` (Boolean) Enables access to the cluster only via private endpoint.
 - `query_properties` (Map of String) Query properties configuration.
 - `resource_groups_json` (String) Resource groups configuration as a json.
 - `retry_policy` (Attributes) Configuration for retry policy, specifying the spooling storage destination and other settings. (see [below for nested schema](#nestedatt--retry_policy))

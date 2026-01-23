@@ -292,12 +292,6 @@ Search type.
 - **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
 |#
 
-*classmethod* **get\_available**(){#yandex_cloud_ml_sdk._search_api.enums.SearchType.get_available}
-
-#|
-|| Return type | [tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), …] ||
-|#
-
 **\_\_new\_\_**(*value*){#yandex_cloud_ml_sdk._search_api.enums.SearchType.__new__i}
 
 **conjugate**(){#yandex_cloud_ml_sdk._search_api.enums.SearchType.conjugate}
@@ -390,12 +384,6 @@ Regardless of a search query, documents of the Adult category and those with pro
 - **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
 |#
 
-*classmethod* **get\_available**(){#yandex_cloud_ml_sdk._search_api.enums.FamilyMode.get_available}
-
-#|
-|| Return type | [tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), …] ||
-|#
-
 **\_\_new\_\_**(*value*){#yandex_cloud_ml_sdk._search_api.enums.FamilyMode.__new__i}
 
 **conjugate**(){#yandex_cloud_ml_sdk._search_api.enums.FamilyMode.conjugate}
@@ -482,12 +470,6 @@ Autocorrection is off.
 
 - **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
 - **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
-|#
-
-*classmethod* **get\_available**(){#yandex_cloud_ml_sdk._search_api.enums.FixTypoMode.get_available}
-
-#|
-|| Return type | [tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), …] ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_cloud_ml_sdk._search_api.enums.FixTypoMode.__new__i}
@@ -578,12 +560,6 @@ Direct order from most recent to oldest (default).
 - **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
 |#
 
-*classmethod* **get\_available**(){#yandex_cloud_ml_sdk._search_api.enums.SortOrder.get_available}
-
-#|
-|| Return type | [tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), …] ||
-|#
-
 **\_\_new\_\_**(*value*){#yandex_cloud_ml_sdk._search_api.enums.SortOrder.__new__i}
 
 **conjugate**(){#yandex_cloud_ml_sdk._search_api.enums.SortOrder.conjugate}
@@ -672,12 +648,6 @@ Sort documents by update time.
 - **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
 |#
 
-*classmethod* **get\_available**(){#yandex_cloud_ml_sdk._search_api.enums.SortMode.get_available}
-
-#|
-|| Return type | [tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), …] ||
-|#
-
 **\_\_new\_\_**(*value*){#yandex_cloud_ml_sdk._search_api.enums.SortMode.__new__i}
 
 **conjugate**(){#yandex_cloud_ml_sdk._search_api.enums.SortMode.conjugate}
@@ -764,12 +734,6 @@ Grouping by domain. Each group contains documents from one domain.
 
 - **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
 - **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
-|#
-
-*classmethod* **get\_available**(){#yandex_cloud_ml_sdk._search_api.enums.GroupMode.get_available}
-
-#|
-|| Return type | [tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), …] ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_cloud_ml_sdk._search_api.enums.GroupMode.__new__i}
@@ -864,12 +828,6 @@ Maximum number of groups that can be returned per page.
 - **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
 |#
 
-*classmethod* **get\_available**(){#yandex_cloud_ml_sdk._search_api.enums.Localization.get_available}
-
-#|
-|| Return type | [tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), …] ||
-|#
-
 **\_\_new\_\_**(*value*){#yandex_cloud_ml_sdk._search_api.enums.Localization.__new__i}
 
 **conjugate**(){#yandex_cloud_ml_sdk._search_api.enums.Localization.conjugate}
@@ -952,12 +910,6 @@ Search result format
 
 - **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
 - **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
-|#
-
-*classmethod* **get\_available**(){#yandex_cloud_ml_sdk._search_api.enums.Format.get_available}
-
-#|
-|| Return type | [tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), …] ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_cloud_ml_sdk._search_api.enums.Format.__new__i}
@@ -1050,12 +1002,6 @@ PNG format.
 - **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
 |#
 
-*classmethod* **get\_available**(){#yandex_cloud_ml_sdk._search_api.enums.ImageFormat.get_available}
-
-#|
-|| Return type | [tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), …] ||
-|#
-
 **\_\_new\_\_**(*value*){#yandex_cloud_ml_sdk._search_api.enums.ImageFormat.__new__i}
 
 **conjugate**(){#yandex_cloud_ml_sdk._search_api.enums.ImageFormat.conjugate}
@@ -1144,12 +1090,6 @@ Square aspect ratio.
 
 - **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
 - **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
-|#
-
-*classmethod* **get\_available**(){#yandex_cloud_ml_sdk._search_api.enums.ImageOrientation.get_available}
-
-#|
-|| Return type | [tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), …] ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_cloud_ml_sdk._search_api.enums.ImageOrientation.__new__i}
@@ -1252,12 +1192,6 @@ Desktop wallpapers.
 
 - **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
 - **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
-|#
-
-*classmethod* **get\_available**(){#yandex_cloud_ml_sdk._search_api.enums.ImageSize.get_available}
-
-#|
-|| Return type | [tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), …] ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_cloud_ml_sdk._search_api.enums.ImageSize.__new__i}
@@ -1380,12 +1314,6 @@ Black is the main color of the image.
 
 - **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
 - **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
-|#
-
-*classmethod* **get\_available**(){#yandex_cloud_ml_sdk._search_api.enums.ImageColor.get_available}
-
-#|
-|| Return type | [tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), …] ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_cloud_ml_sdk._search_api.enums.ImageColor.__new__i}

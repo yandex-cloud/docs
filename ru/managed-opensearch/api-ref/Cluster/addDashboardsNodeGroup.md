@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the OpenSearch cluster to create the Dashboards type host group in.
             To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -52,12 +53,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+              Acceptable values are 0 to 100, inclusive.
             type: string
             format: int64
           emergencyUsageThreshold:
             description: |-
               **string** (int64)
               Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+              Acceptable values are 0 to 100, inclusive.
             type: string
             format: int64
           diskSizeLimit:
@@ -73,6 +76,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. Name of the group.
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
             pattern: '[a-zA-Z0-9_-]*'
             type: string
           resources:
@@ -84,6 +88,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Number of hosts in the group.
+              The minimum value is 1.
             type: string
             format: int64
           zoneIds:
@@ -97,6 +102,7 @@ apiPlayground:
             description: |-
               **string**
               IDs of the subnets that the hosts belong to.
+              The maximum number of elements is 10. The maximum string length in characters for each value is 50.
             type: array
             items:
               type: string
@@ -133,7 +139,9 @@ POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/dashb
 
 Required field. ID of the OpenSearch cluster to create the Dashboards type host group in.
 
-To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request. ||
+To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.opensearch.v1.AddDashboardsNodeGroupRequest}
@@ -177,19 +185,25 @@ Configuration of the new host group. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the group. ||
+Required field. Name of the group.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || resources | **[Resources](#yandex.cloud.mdb.opensearch.v1.Resources)**
 
 Resources allocated to the hosts. ||
 || hostsCount | **string** (int64)
 
-Number of hosts in the group. ||
+Number of hosts in the group.
+
+The minimum value is 1. ||
 || zoneIds[] | **string**
 
 IDs of the availability zones the hosts belong to. ||
 || subnetIds[] | **string**
 
-IDs of the subnets that the hosts belong to. ||
+IDs of the subnets that the hosts belong to.
+
+The maximum number of elements is 10. The maximum string length in characters for each value is 50. ||
 || assignPublicIp | **boolean**
 
 Determines whether a public IP is assigned to the hosts in the group. ||
@@ -221,10 +235,14 @@ Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd
 ||Field | Description ||
 || plannedUsageThreshold | **string** (int64)
 
-Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergencyUsageThreshold | **string** (int64)
 
-Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || diskSizeLimit | **string** (int64)
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||

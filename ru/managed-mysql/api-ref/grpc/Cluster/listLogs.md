@@ -36,7 +36,9 @@ Alternatively, logs can be streamed using [StreamLogs](/docs/managed-mysql/api-r
 
 Required field. ID of the cluster to request logs for.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || column_filter[] | **string**
 
 Columns from the logs table to request.
@@ -45,7 +47,6 @@ If no columns are specified, complete log records are returned. ||
 
 The log type.
 
-- `SERVICE_TYPE_UNSPECIFIED`
 - `MYSQL_ERROR`: MySQL error log.
 - `MYSQL_GENERAL`: MySQL general query log.
 - `MYSQL_SLOW_QUERY`: MySQL slow query log.
@@ -62,12 +63,16 @@ The logs in the response will be within `from_time` to `to_time` range. ||
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `page_size`, the API returns a [ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListLogs](#ListLogs) requests. ||
+If the number of available results is larger than `page_size`, the API returns a [ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListLogs](#ListLogs) requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token that can be used to iterate through multiple pages of results.
 
-To get the next page of results, set `page_token` to the [ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) returned by the previous [ClusterService.ListLogs](#ListLogs) request. ||
+To get the next page of results, set `page_token` to the [ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) returned by the previous [ClusterService.ListLogs](#ListLogs) request.
+
+The maximum string length in characters is 100. ||
 || always_next_page_token | **bool**
 
 Option that controls the behavior of result pagination.

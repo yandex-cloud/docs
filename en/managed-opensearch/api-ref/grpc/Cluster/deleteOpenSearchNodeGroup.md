@@ -26,7 +26,9 @@ Deletes an OpenSearch type host group.
 
 Required field. ID of the OpenSearch cluster to delete the OpenSearch type host group in.
 
-To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request. ||
+To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Name of the OpenSearch type host group to delete. ||

@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the PostgreSQL cluster to create a database in.
             To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -50,6 +51,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. Name of the PostgreSQL database. 1-63 characters long.
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
             pattern: '[a-zA-Z0-9_-]*'
             type: string
           owner:
@@ -57,6 +59,7 @@ apiPlayground:
               **string**
               Required field. Name of the user to be assigned as the owner of the database.
               To get the list of available PostgreSQL users, make a [UserService.List](/docs/managed-postgresql/api-ref/User/list#List) request.
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
             pattern: '[a-zA-Z0-9_-]*'
             type: string
           lcCollate:
@@ -64,6 +67,7 @@ apiPlayground:
               **string**
               POSIX locale for string sorting order.
               Can only be set at creation time.
+              Value must match the regular expression ` |[a-zA-Z_]+.UTF-8|C `.
             pattern: '|[a-zA-Z_]+.UTF-8|C'
             type: string
           lcCtype:
@@ -71,6 +75,7 @@ apiPlayground:
               **string**
               POSIX locale for character classification.
               Can only be set at creation time.
+              Value must match the regular expression ` |[a-zA-Z_]+.UTF-8|C `.
             pattern: '|[a-zA-Z_]+.UTF-8|C'
             type: string
           extensions:
@@ -84,6 +89,7 @@ apiPlayground:
             description: |-
               **string**
               Name of the PostgreSQL database template.
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
             pattern: '[a-zA-Z0-9_-]*'
             type: string
           deletionProtection:
@@ -116,7 +122,9 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/datab
 || clusterId | **string**
 
 Required field. ID of the PostgreSQL cluster to create a database in.
-To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request. ||
+To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.postgresql.v1.CreateDatabaseRequest}
@@ -153,25 +161,35 @@ Required field. Configuration of the database to create. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the PostgreSQL database. 1-63 characters long. ||
+Required field. Name of the PostgreSQL database. 1-63 characters long.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || owner | **string**
 
 Required field. Name of the user to be assigned as the owner of the database.
-To get the list of available PostgreSQL users, make a [UserService.List](/docs/managed-postgresql/api-ref/User/list#List) request. ||
+To get the list of available PostgreSQL users, make a [UserService.List](/docs/managed-postgresql/api-ref/User/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || lcCollate | **string**
 
 POSIX locale for string sorting order.
-Can only be set at creation time. ||
+Can only be set at creation time.
+
+Value must match the regular expression ``` |[a-zA-Z_]+.UTF-8|C ```. ||
 || lcCtype | **string**
 
 POSIX locale for character classification.
-Can only be set at creation time. ||
+Can only be set at creation time.
+
+Value must match the regular expression ``` |[a-zA-Z_]+.UTF-8|C ```. ||
 || extensions[] | **[Extension](#yandex.cloud.mdb.postgresql.v1.Extension)**
 
 PostgreSQL extensions to be enabled for the database. ||
 || templateDb | **string**
 
-Name of the PostgreSQL database template. ||
+Name of the PostgreSQL database template.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || deletionProtection | **boolean**
 
 Deletion Protection inhibits deletion of the database

@@ -22,8 +22,12 @@ sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/Extension/get.md
 ||Field | Description ||
 || extension_name | **string**
 
-Required field.  ||
-|| folder_id | **string** ||
+Required field.
+
+The maximum string length in characters is 63. ||
+|| folder_id | **string**
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Extension {#yandex.cloud.mdb.clickhouse.v1.Extension}

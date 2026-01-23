@@ -27,15 +27,18 @@ Retrieves the list of available resource presets.
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `page_size`, the service returns a [ListResourcePresetsResponse.next_page_token](#yandex.cloud.mdb.greenplum.v1.ListResourcePresetsResponse) that can be used to get the next page of results in subsequent list requests. ||
+If the number of available results is larger than `page_size`, the service returns a [ListResourcePresetsResponse.next_page_token](#yandex.cloud.mdb.greenplum.v1.ListResourcePresetsResponse) that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
-Page token. To get the next page of results, set `page_token` to the [ListResourcePresetsResponse.next_page_token](#yandex.cloud.mdb.greenplum.v1.ListResourcePresetsResponse) returned by the previous list request. ||
+Page token. To get the next page of results, set `page_token` to the [ListResourcePresetsResponse.next_page_token](#yandex.cloud.mdb.greenplum.v1.ListResourcePresetsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 || type | enum **Type**
 
 Required field. Required. ResourcePreset type - master or segment.
 
-- `TYPE_UNSPECIFIED`
 - `MASTER`: Greenplum® master host.
 - `SEGMENT`: Greenplum® segment host. ||
 |#
@@ -75,7 +78,9 @@ This token allows you to get the next page of results for list requests.
 
 If the number of results is larger than [ListResourcePresetsRequest.page_size](#yandex.cloud.mdb.greenplum.v1.ListResourcePresetsRequest), use the `next_page_token` as the value for the [ListResourcePresetsRequest.page_token](#yandex.cloud.mdb.greenplum.v1.ListResourcePresetsRequest) parameter in the next list request.
 
-Each subsequent list request has its own `next_page_token` to continue paging through the results. ||
+Each subsequent list request has its own `next_page_token` to continue paging through the results.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ResourcePreset {#yandex.cloud.mdb.greenplum.v1.ResourcePreset}
@@ -103,7 +108,6 @@ RAM volume for a Greenplum® host created with the preset, in bytes. ||
 
 Host type.
 
-- `TYPE_UNSPECIFIED`
 - `MASTER`: Greenplum® master host.
 - `SEGMENT`: Greenplum® segment host. ||
 || host_count_divider | **int64**

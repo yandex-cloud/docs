@@ -26,12 +26,16 @@ Returns detailed information about a given format schema.
 
 Required field. ClickHouse cluster ID.
 
-To get a ClickHouse cluster ID, use the [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) method. ||
+To get a ClickHouse cluster ID, use the [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) method.
+
+The maximum string length in characters is 50. ||
 || format_schema_name | **string**
 
 Required field. Format schema name.
 
-To get a format schema name, use the [FormatSchemaService.List](/docs/managed-clickhouse/api-ref/grpc/FormatSchema/list#List) method. ||
+To get a format schema name, use the [FormatSchemaService.List](/docs/managed-clickhouse/api-ref/grpc/FormatSchema/list#List) method.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## FormatSchema {#yandex.cloud.mdb.clickhouse.v1.FormatSchema}
@@ -60,7 +64,6 @@ Schema type. Possible values are the following:
 * FORMAT_SCHEMA_TYPE_PROTOBUF - [Protobuf](https://protobuf.dev/) data format (including [ProtobufSingle](https://clickhouse.com/docs/en/interfaces/formats#protobufsingle)).
 * FORMAT_SCHEMA_TYPE_CAPNPROTO - [Cap'n Proto](https://capnproto.org/) data format.
 
-- `FORMAT_SCHEMA_TYPE_UNSPECIFIED`
 - `FORMAT_SCHEMA_TYPE_PROTOBUF`
 - `FORMAT_SCHEMA_TYPE_CAPNPROTO` ||
 || uri | **string**

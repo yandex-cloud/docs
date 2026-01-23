@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the cluster to delete hosts from.
             To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -24,6 +25,7 @@ apiPlayground:
             **string**
             Names of hosts to delete.
             To get these names, make a [ClusterService.ListHosts](/docs/managed-mysql/api-ref/Cluster/listHosts#ListHosts) request.
+            The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
           type: array
           items:
             type: string
@@ -50,7 +52,9 @@ POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/hosts:batc
 
 Required field. ID of the cluster to delete hosts from.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.mysql.v1.DeleteClusterHostsRequest}
@@ -69,7 +73,9 @@ To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster
 
 Names of hosts to delete.
 
-To get these names, make a [ClusterService.ListHosts](/docs/managed-mysql/api-ref/Cluster/listHosts#ListHosts) request. ||
+To get these names, make a [ClusterService.ListHosts](/docs/managed-mysql/api-ref/Cluster/listHosts#ListHosts) request.
+
+The number of elements must be greater than 0. The maximum string length in characters for each value is 253. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

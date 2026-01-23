@@ -26,16 +26,22 @@ Retrieves the list of Redis User resources in the specified cluster.
 || cluster_id | **string**
 
 Required field. ID of the cluster to list Redis users in.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListUsersResponse.next_page_token](#yandex.cloud.mdb.redis.v1.ListUsersResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListUsersResponse.next_page_token](#yandex.cloud.mdb.redis.v1.ListUsersResponse) returned by the previous list request. ||
+[ListUsersResponse.next_page_token](#yandex.cloud.mdb.redis.v1.ListUsersResponse) returned by the previous list request.
+
+The maximum string length in characters is 400. ||
 |#
 
 ## ListUsersResponse {#yandex.cloud.mdb.redis.v1.ListUsersResponse}

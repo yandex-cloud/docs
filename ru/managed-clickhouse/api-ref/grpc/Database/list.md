@@ -26,16 +26,22 @@ Retrieves the list of ClickHouse Database resources in the specified cluster.
 || cluster_id | **string**
 
 Required field. ID of the ClickHouse cluster to list databases in.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListDatabasesResponse.next_page_token](#yandex.cloud.mdb.clickhouse.v1.ListDatabasesResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token.  to get the next page of results, set `page_token` to the [ListDatabasesResponse.next_page_token](#yandex.cloud.mdb.clickhouse.v1.ListDatabasesResponse)
-returned by the previous list request. ||
+returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListDatabasesResponse {#yandex.cloud.mdb.clickhouse.v1.ListDatabasesResponse}
@@ -83,7 +89,6 @@ ID of the ClickHouse cluster that the database belongs to. ||
 
 Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
 
-- `DATABASE_ENGINE_UNSPECIFIED`
 - `DATABASE_ENGINE_ATOMIC`
 - `DATABASE_ENGINE_REPLICATED` ||
 |#

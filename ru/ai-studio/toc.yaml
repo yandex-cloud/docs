@@ -1162,6 +1162,8 @@ items:
                 href: sdk-ref/sync/batch
               - name: Chat domain
                 href: sdk-ref/sync/chat/domain
+              - name: SpheechKit domain
+                href: sdk-ref/sync/speechkit/domain
           - name: Async SDK
             items:
               - name: Overview
@@ -1190,6 +1192,8 @@ items:
                 href: sdk-ref/async/batch
               - name: Chat domain
                 href: sdk-ref/async/chat/domain
+              - name: SpheechKit domain
+                href: sdk-ref/async/speechkit/domain
           - name: Authentication
             href: sdk-ref/auth
           - name: Types
@@ -1220,6 +1224,8 @@ items:
                 href: sdk-ref/types/other
               - name: Batch
                 href: sdk-ref/types/batch
+              - name: Speechkit
+                href: sdk-ref/types/speechkit
           - name: Request retries
             href: sdk-ref/retry
           - name: Base classes
@@ -1277,6 +1283,9 @@ items:
             href: sdk-ref/sync/chat/text_embeddings
             hidden: true
           - name: Domain
+            href: sdk-ref/sync/speechkit/text_to_speech
+            hidden: true
+          - name: Domain
             href: sdk-ref/async/models/completions
             hidden: true
           - name: Domain
@@ -1294,8 +1303,14 @@ items:
           - name: Domain
             href: sdk-ref/async/chat/text_embeddings
             hidden: true
+          - name: Domain
+            href: sdk-ref/async/speechkit/text_to_speech
+            hidden: true
           - name: Result types for models
             href: sdk-ref/types/model_results
+            hidden: true
+          - name: Speechkit
+            href: sdk-ref/types/speechkit
             hidden: true
   - name: Практические руководства
     items:

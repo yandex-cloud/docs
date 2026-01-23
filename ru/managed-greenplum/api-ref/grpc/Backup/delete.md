@@ -109,5 +109,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 Required. ID of the Greenplum backup that is currently being deleted. ||
 || cluster_id | **string**
 
-ID of the Greenplum backup that is being deleted. ||
+ID of the Greenplum backup that is being deleted.
+
+The maximum string length in characters is 50. ||
 |#

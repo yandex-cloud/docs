@@ -142,6 +142,7 @@ resource "yandex_trino_cluster" "trino" {
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `logging` (Attributes) Cloud Logging configuration. (see [below for nested schema](#nestedatt--logging))
 - `maintenance_window` (Attributes) Configuration of window for maintenance operations. (see [below for nested schema](#nestedatt--maintenance_window))
+- `private_access` (Boolean) Enables access to the cluster only via private endpoint.
 - `query_properties` (Map of String) Query properties configuration.
 - `resource_groups_json` (String) Resource groups configuration as a Trino-like json. Note, that some fields are not supported in Managed Trino, refer to documentation for more details. We recommend using `jsonencode()` as it can help sidestep different issues with formatting, whitespace and other nuances inherent to JSON.
 - `retry_policy` (Attributes) Configuration for retry policy, specifying the spooling storage destination and other settings. (see [below for nested schema](#nestedatt--retry_policy))

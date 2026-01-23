@@ -7,15 +7,25 @@ sourcePath: en/_sdk-ref/sdk-ref/types/tools.md
 
 ### *class* yandex\_cloud\_ml\_sdk.\_tools.search\_index.tool.**SearchIndexTool**{#yandex_cloud_ml_sdk._tools.search_index.tool.SearchIndexTool}
 
-SearchIndexTool(search\_index\_ids: ‘tuple[str, …]’, max\_num\_results: ‘int | None’ = None, rephraser: ‘Rephraser | None’ = None, call\_strategy: ‘CallStrategy | None’ = None)
+Tool for working with search indexes.
+
+A SearchIndexTool represents an executable tool that provides instructions on how to apply and interact with search indexes, as opposed to a SearchIndex which represents the data/resource itself — actual search index data and provides methods for managing the index (adding files, updating metadata, etc.). A SearchIndexTool encapsulates the configuration and behavior for performing search operations across one or more search indexes.
 
 **search\_index\_ids**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str)*]... ,{#yandex_cloud_ml_sdk._tools.search_index.tool.SearchIndexTool.search_index_ids}
 
+Tuple of search index IDs to use with this tool
+
 **max\_num\_results**\: *[int](https://docs.python.org/3/library/functions.html#int) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._tools.search_index.tool.SearchIndexTool.max_num_results}
+
+Maximum number of results to return from search, optional
 
 **rephraser**\: *[Rephraser](#yandex_cloud_ml_sdk._tools.search_index.rephraser.model.Rephraser) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._tools.search_index.tool.SearchIndexTool.rephraser}
 
+Rephraser instance for query rephrasing, optional
+
 **call\_strategy**\: *[CallStrategy](#yandex_cloud_ml_sdk._tools.search_index.call_strategy.CallStrategy) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._tools.search_index.tool.SearchIndexTool.call_strategy}
+
+Strategy for calling the search index, optional
 
 ### *class* yandex\_cloud\_ml\_sdk.\_tools.search\_index.rephraser.function.**RephraserFunction**{#yandex_cloud_ml_sdk._tools.search_index.rephraser.function.RephraserFunction}
 
@@ -45,7 +55,9 @@ Class for incapsulating rephraser settings.
 
 Used to rewrite the last user message for search, incorporating context from the previous conversation.
 
-*property* **config**\: *[ConfigTypeT](other.md#yandex_cloud_ml_sdk._types.model.ConfigTypeT)*{#yandex_cloud_ml_sdk._tools.search_index.rephraser.model.Rephraser.config}
+For usage search index tool with and without rephraser example see ([sync SDK](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/blob/master/examples/sync/assistants/rephraser.py)/[async SDK](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/blob/master/examples/async/assistants/rephraser.py)).
+
+*property* **config**\: *[ConfigTypeT](other.md#yandex_cloud_ml_sdk._types.model_config.ConfigTypeT)*{#yandex_cloud_ml_sdk._tools.search_index.rephraser.model.Rephraser.config}
 
 **configure**(*\*\*kwargs*){#yandex_cloud_ml_sdk._tools.search_index.rephraser.model.Rephraser.configure}
 
@@ -53,25 +65,51 @@ Used to rewrite the last user message for search, incorporating context from the
 || Return type | Self ||
 |#
 
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._tools.search_index.rephraser.model.Rephraser.fine_tuned}
+
+*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._tools.search_index.rephraser.model.Rephraser.name}
+
+*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._tools.search_index.rephraser.model.Rephraser.owner}
+
 *property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._tools.search_index.rephraser.model.Rephraser.uri}
+
+*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._tools.search_index.rephraser.model.Rephraser.version}
 
 ### *class* yandex\_cloud\_ml\_sdk.\_tools.search\_index.call\_strategy.**CallStrategy**{#yandex_cloud_ml_sdk._tools.search_index.call_strategy.CallStrategy}
 
+Represents call strategy for search index tools.
+
+The call strategy determines when a tool should be called: - ‘always’: call the tool on every request - function dict: call based on function instruction
+
 *property* **value**\: *[Literal](https://docs.python.org/3/library/typing.html#typing.Literal)['always'] | [FunctionDictType](message.md#yandex_cloud_ml_sdk._types.tools.function.FunctionDictType)*{#yandex_cloud_ml_sdk._tools.search_index.call_strategy.CallStrategy.value}
+
+Get the current call strategy value.
 
 ## Function tool
 
 ### *class* yandex\_cloud\_ml\_sdk.\_tools.tool.**FunctionTool**{#yandex_cloud_ml_sdk._tools.tool.FunctionTool}
 
-FunctionTool(name: ‘str’, description: ‘str | None’, parameters: ‘JsonSchemaType’, strict: ‘bool | None’)
+A function tool that can be called by AI models.
+
+This class represents a callable function that can be used by AI models for function calling capabilities. It encapsulates the function’s metadata including its name, description, parameter schema, and validation settings.
+
+The function tool can be used with both completions and assistants APIs, providing a unified interface for defining external functions that models can invoke during conversations or completion requests.
 
 **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._tools.tool.FunctionTool.name}
 
+Name of the function
+
 **description**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._tools.tool.FunctionTool.description}
+
+Optional function description
 
 **parameters**\: *JsonSchemaType*{#yandex_cloud_ml_sdk._tools.tool.FunctionTool.parameters}
 
+Function parameters schema
+
 **strict**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._tools.tool.FunctionTool.strict}
+
+Whether to enforce strict parameter validation
 
 ## Generative search tool
 

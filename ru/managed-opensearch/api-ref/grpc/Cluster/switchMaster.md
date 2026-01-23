@@ -26,7 +26,9 @@ Switches current master or ensures that master not on specified hosts.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. Required. ID of the OpenSearch cluster. ||
+Required field. Required. ID of the OpenSearch cluster.
+
+The maximum string length in characters is 50. ||
 || from_hosts[] | **string**
 
 Hosts list which are forbidden to be masters after operation.

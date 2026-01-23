@@ -28,17 +28,23 @@ Retrieves the list of OpenSearch clusters that belong to the specified folder.
 
 Required field. ID of the folder to list OpenSearch clusters in.
 
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return.
 
 If the number of available results is larger than `page_size`, the service returns
-a [ListClustersResponse.next_page_token](#yandex.cloud.mdb.opensearch.v1.ListClustersResponse) that can be used to get the next page of results in subsequent list requests. ||
+a [ListClustersResponse.next_page_token](#yandex.cloud.mdb.opensearch.v1.ListClustersResponse) that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#yandex.cloud.mdb.opensearch.v1.ListClustersResponse)
-returned by the previous list request. ||
+returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -49,7 +55,9 @@ The expression must specify:
 
 2. An `=` operator.
 
-3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`. ||
+3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListClustersResponse {#yandex.cloud.mdb.opensearch.v1.ListClustersResponse}
@@ -174,7 +182,8 @@ The expression must specify:
             // end of the list of possible fields
           },
           "snapshot_max_age_days": "google.protobuf.Int64Value"
-        }
+        },
+        "full_version": "string"
       },
       "network_id": "string",
       "health": "Health",
@@ -252,7 +261,6 @@ Maximum 64 labels per resource. ||
 
 Deployment environment of the OpenSearch cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy:
 only hotfixes are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -344,6 +352,9 @@ Access policy for external services. ||
 || snapshot_management | **[SnapshotManagement](#yandex.cloud.mdb.opensearch.v1.SnapshotManagement)**
 
 Snapshot management configuration ||
+|| full_version | **string**
+
+Full version ||
 |#
 
 ## OpenSearch {#yandex.cloud.mdb.opensearch.v1.OpenSearch}
@@ -394,7 +405,6 @@ Determines whether a public IP is assigned to the hosts in the group. ||
 
 Roles of the host group.
 
-- `GROUP_ROLE_UNSPECIFIED`
 - `DATA`
 - `MANAGER` ||
 || disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
@@ -425,10 +435,14 @@ Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd
 ||Field | Description ||
 || planned_usage_threshold | **int64**
 
-Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergency_usage_threshold | **int64**
 
-Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || disk_size_limit | **int64**
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
@@ -440,7 +454,7 @@ Limit on how large the storage for database instances can automatically grow, in
 ||Field | Description ||
 || effective_config | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)**
 
-Required field.  ||
+Required field. ||
 || user_config | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)** ||
 || default_config | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)** ||
 |#
@@ -521,7 +535,9 @@ Snapshot management configuration
 Snapshot creation schedule ||
 || snapshot_max_age_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Snapshot max age in days ||
+Snapshot max age in days
+
+The minimum value is 7. ||
 |#
 
 ## SnapshotSchedule {#yandex.cloud.mdb.opensearch.v1.SnapshotSchedule}
@@ -555,7 +571,9 @@ Hourly based snapshot schedule
 ||Field | Description ||
 || minute | **int64**
 
-The minute of the hour at which the backup should be created. ||
+The minute of the hour at which the backup should be created.
+
+Acceptable values are 0 to 59, inclusive. ||
 |#
 
 ## DailySnapshotSchedule {#yandex.cloud.mdb.opensearch.v1.DailySnapshotSchedule}
@@ -566,10 +584,14 @@ Daily based snapshot schedule
 ||Field | Description ||
 || hour | **int64**
 
-The hour of the day in UTC timezone at which the backup should be created. ||
+The hour of the day in UTC timezone at which the backup should be created.
+
+Acceptable values are 0 to 23, inclusive. ||
 || minute | **int64**
 
-The minute of the hour at which the backup should be created. ||
+The minute of the hour at which the backup should be created.
+
+Acceptable values are 0 to 59, inclusive. ||
 |#
 
 ## WeeklySnapshotSchedule {#yandex.cloud.mdb.opensearch.v1.WeeklySnapshotSchedule}
@@ -582,7 +604,6 @@ Weekly based snapshot schedule
 
 Day of the week
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -592,10 +613,14 @@ Day of the week
 - `SUN` ||
 || hour | **int64**
 
-The hour of the day in UTC timezone at which the backup should be created. ||
+The hour of the day in UTC timezone at which the backup should be created.
+
+Acceptable values are 0 to 23, inclusive. ||
 || minute | **int64**
 
-The minute of the hour at which the backup should be created. ||
+The minute of the hour at which the backup should be created.
+
+Acceptable values are 0 to 59, inclusive. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow}
@@ -635,7 +660,6 @@ A weekly maintenance window.
 
 Day of the week.
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`: Monday
 - `TUE`: Tuesday
 - `WED`: Wednesday
@@ -645,7 +669,9 @@ Day of the week.
 - `SUN`: Sunday ||
 || hour | **int64**
 
-Hour of the day in the UTC timezone. ||
+Hour of the day in the UTC timezone.
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.mdb.opensearch.v1.MaintenanceOperation}
@@ -654,7 +680,9 @@ Hour of the day in the UTC timezone. ||
 ||Field | Description ||
 || info | **string**
 
-The description of the operation. ||
+The description of the operation.
+
+The maximum string length in characters is 256. ||
 || delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Delay time for the maintenance operation. ||

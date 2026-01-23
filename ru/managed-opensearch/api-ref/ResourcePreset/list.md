@@ -13,6 +13,7 @@ apiPlayground:
             The maximum number of results per page to return.
             If the number of available results is larger than `pageSize`, the service returns
             a [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListResourcePresetsResponse) that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
@@ -20,6 +21,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListResourcePresetsResponse)
             returned by the previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -46,11 +48,15 @@ GET https://{{ api-host-mdb }}/managed-opensearch/v1/resourcePresets
 The maximum number of results per page to return.
 
 If the number of available results is larger than `pageSize`, the service returns
-a [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListResourcePresetsResponse) that can be used to get the next page of results in subsequent list requests. ||
+a [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListResourcePresetsResponse) that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListResourcePresetsResponse)
-returned by the previous list request. ||
+returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.opensearch.v1.ListResourcePresetsResponse}
@@ -85,7 +91,9 @@ This token allows you to get the next page of results for list requests.
 If the number of results is larger than [ListResourcePresetsRequest.pageSize](#yandex.cloud.mdb.opensearch.v1.ListResourcePresetsRequest), use the `nextPageToken` as the value
 for the [ListResourcePresetsRequest.pageToken](#yandex.cloud.mdb.opensearch.v1.ListResourcePresetsRequest) parameter in the next list request.
 
-Each subsequent list request has its own `nextPageToken` to continue paging through the results. ||
+Each subsequent list request has its own `nextPageToken` to continue paging through the results.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ResourcePreset {#yandex.cloud.mdb.opensearch.v1.ResourcePreset}

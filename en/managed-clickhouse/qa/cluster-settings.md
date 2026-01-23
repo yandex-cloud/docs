@@ -1,4 +1,4 @@
-# {{ CH }} cluster configuration
+# {{ CH }} cluster settings
 
 {% include [cluster-settings-minitoc](../../_qa/managed-clickhouse/minitoc/cluster-settings.md) %}
 

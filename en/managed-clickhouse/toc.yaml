@@ -47,7 +47,7 @@ items:
             href: operations/connect/fqdn.md
           - name: Connecting from applications
             href: operations/connect/clients.md
-          - name: Code snippets
+          - name: Code examples
             href: operations/connect/code-examples.md
       - name: Databases
         items:
@@ -55,7 +55,7 @@ items:
             href: operations/web-sql-query.md
           - name: Managing databases
             href: operations/databases.md
-          - name: DB user management
+          - name: Managing database users
             href: operations/cluster-users.md
       - name: Storing and processing data
         items:
@@ -89,7 +89,7 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Adding data to a DB
+      - name: Adding data to a database
         href: tutorials/insert.md
       - name: Migrating data to {{ mch-name }} using {{ CH }}
         href: tutorials/data-migration.md
@@ -165,11 +165,11 @@ items:
         href: tutorials/metrika-to-clickhouse.md
       - name: '{{ tracker-full-name }}: data export and visualization'
         href: tutorials/data-from-tracker.md
-      - name: Retail chain's dashboard based on a {{ CH }} DB
+      - name: Retail chain's dashboard based on a {{ CH }} database
         href: tutorials/data-from-ch-visualization.md
       - name: >-
-          Analyzing sales and locations of pizzerias based on data from the {{
-          CH }} database and Marketplace
+          Analyzing sales and locations of pizzerias based on data from a {{ CH
+          }} database and Marketplace
         href: tutorials/data-from-ch-to-geolayers-visualization.md
       - name: >-
           Geocoding with the Yandex Maps API for data visualization in {{
@@ -177,9 +177,9 @@ items:
         href: tutorials/data-from-ch-geocoder.md
       - name: >-
           Importing data from {{ objstorage-name }}, processing, and exporting
-          to {{ mch-name }}
+          it to {{ mch-name }}
         href: tutorials/s3-data-processing-ch.md
-      - name: Operations with data using {{ yq-name }}
+      - name: Working with data using {{ yq-name }}
         href: tutorials/yq-clickhouse.md
       - name: Federated data queries using {{ yq-name }}
         href: tutorials/yq-federative-queries.md
@@ -197,7 +197,7 @@ items:
         href: concepts/high-availability.md
       - name: Host classes
         items:
-          - name: Available host classes
+          - name: Active host classes
             href: concepts/instance-types.md
           - name: Archive
             items:

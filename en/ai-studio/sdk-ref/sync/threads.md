@@ -52,7 +52,7 @@ This method retrieves a list of threads. It continues to fetch threads until the
 
 - **page\_size** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – the maximum number of threads to return per page.
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – timeout for the service call in seconds. Defaults to 60 seconds. ||
-|| Return type | [*Iterator*](https://docs.python.org/3/library/typing.html#typing.Iterator)[[*Thread*](#yandex_cloud_ml_sdk._threads.thread.Thread)] ||
+|| Return type | [*Iterator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterator)[[*Thread*](#yandex_cloud_ml_sdk._threads.thread.Thread)] ||
 |#
 
 ## *class* yandex\_cloud\_ml\_sdk.\_threads.thread.**Thread**{#yandex_cloud_ml_sdk._threads.thread.Thread}
@@ -107,7 +107,7 @@ This method allows iterating over messages in the thread.
 
 #|
 || Parameters | **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – timeout for the operation. Defaults to 60 seconds. ||
-|| Return type | [*Iterator*](https://docs.python.org/3/library/typing.html#typing.Iterator)[[*Message*](../types/message.md#yandex_cloud_ml_sdk._messages.message.Message)] ||
+|| Return type | [*Iterator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterator)[[*Message*](../types/message.md#yandex_cloud_ml_sdk._messages.message.Message)] ||
 |#
 
 **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._threads.thread.Thread.name}

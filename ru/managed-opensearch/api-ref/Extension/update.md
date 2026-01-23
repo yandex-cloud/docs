@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Required. ID of the cluster.
+            The maximum string length in characters is 50.
           type: string
         extensionId:
           description: |-
@@ -48,7 +49,9 @@ PATCH https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/exte
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the cluster. ||
+Required field. Required. ID of the cluster.
+
+The maximum string length in characters is 50. ||
 || extensionId | **string**
 
 Required field. Required. ID of the extension to update. ||
@@ -178,7 +181,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the cluster. ||
+Required field. Required. ID of the cluster.
+
+The maximum string length in characters is 50. ||
 || extensionId | **string**
 
 Required field. Required. ID of the extension. ||
@@ -224,7 +229,6 @@ Flag is extension active now ||
 
 Extension type
 
-- `EXTENSION_TYPE_UNSPECIFIED`
 - `EXTENSION_TYPE_SYNONYMS`
 - `EXTENSION_TYPE_STOPWORDS` ||
 |#

@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Required. ID of the cluster to list extensions in.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -24,6 +25,7 @@ apiPlayground:
             results is larger than `page_size`, the service returns a `next_page_token` that can be used
             to get the next page of results in subsequent ListBackups requests.
             Acceptable values are 0 to 1000, inclusive. Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -32,6 +34,7 @@ apiPlayground:
             **string**
             Page token. Set `page_token` to the `next_page_token` returned by a previous ListBackups
             request to get the next page of results.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -55,7 +58,9 @@ GET https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/extens
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the cluster to list extensions in. ||
+Required field. Required. ID of the cluster to list extensions in.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.opensearch.v1.ListExtensionsRequest}
@@ -67,11 +72,15 @@ Required field. Required. ID of the cluster to list extensions in. ||
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`, the service returns a `next_page_token` that can be used
 to get the next page of results in subsequent ListBackups requests.
-Acceptable values are 0 to 1000, inclusive. Default value: 100. ||
+Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. Set `page_token` to the `next_page_token` returned by a previous ListBackups
-request to get the next page of results. ||
+request to get the next page of results.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.opensearch.v1.ListExtensionsResponse}
@@ -131,7 +140,6 @@ Flag is extension active now ||
 
 Extension type
 
-- `EXTENSION_TYPE_UNSPECIFIED`
 - `EXTENSION_TYPE_SYNONYMS`
 - `EXTENSION_TYPE_STOPWORDS` ||
 |#
