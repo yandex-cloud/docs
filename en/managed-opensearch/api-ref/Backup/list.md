@@ -11,6 +11,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the folder to list backups in.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -20,6 +21,7 @@ apiPlayground:
             a [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse) that can be used to get the next page of results
             in subsequent list requests.
             Default value is 100.
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         pageToken:
@@ -27,6 +29,7 @@ apiPlayground:
             **string**
             The page token. To get the next page of results, set `pageToken` to the [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse)
             returned by the previous list request.
+            The maximum string length in characters is 100.
           type: string
       required:
         - folderId
@@ -52,7 +55,9 @@ GET https://{{ api-host-mdb }}/managed-opensearch/v1/backups
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder to list backups in. ||
+Required field. ID of the folder to list backups in.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page that should be returned.
@@ -61,11 +66,15 @@ If the number of available results is larger than `pageSize`, the service return
 a [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse) that can be used to get the next page of results
 in subsequent list requests.
 
-Default value is 100. ||
+Default value is 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 The page token. To get the next page of results, set `pageToken` to the [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse)
-returned by the previous list request. ||
+returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse}
@@ -146,7 +155,9 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || indices[] | **string**
 
-Names of indices in the backup. ||
+Names of indices in the backup.
+
+The maximum number of elements is 100. ||
 || opensearchVersion | **string**
 
 OpenSearch version used to create the backup. ||

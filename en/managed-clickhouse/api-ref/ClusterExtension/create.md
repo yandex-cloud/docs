@@ -9,7 +9,8 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -21,7 +22,7 @@ apiPlayground:
         extensionSpec:
           description: |-
             **[ExtensionSpec](#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)**
-            Required field. 
+            Required field.
           $ref: '#/definitions/ExtensionSpec'
       required:
         - extensionSpec
@@ -33,7 +34,8 @@ apiPlayground:
           name:
             description: |-
               **string**
-              Required field. 
+              Required field.
+              The maximum string length in characters is 63.
             type: string
           version:
             description: '**string**'
@@ -57,7 +59,9 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/exten
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.clickhouse.v1.CreateClusterExtensionRequest}
@@ -75,7 +79,7 @@ Required field.  ||
 ||Field | Description ||
 || extensionSpec | **[ExtensionSpec](#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## ExtensionSpec {#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec}
@@ -84,7 +88,9 @@ Required field.  ||
 ||Field | Description ||
 || name | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 63. ||
 || version | **string** ||
 |#
 
@@ -221,10 +227,14 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Required. Extension name. ||
+Required field. Required. Extension name.
+
+The maximum string length in characters is 63. ||
 || clusterId | **string**
 
-Required field. Required. ID of the ClickHouse cluster. ||
+Required field. Required. ID of the ClickHouse cluster.
+
+The maximum string length in characters is 50. ||
 || version | **string**
 
 Required field. Required. Extension version. ||

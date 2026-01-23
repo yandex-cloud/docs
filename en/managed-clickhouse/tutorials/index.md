@@ -5,11 +5,11 @@ description: Various {{ mch-full-name }} use cases in {{ yandex-cloud }}.
 
 # {{ mch-name }} tutorials
 
-* [Adding data to a DB](insert.md)
+* [Adding data to the database](insert.md)
 * [{#T}](data-migration.md)
 * [{#T}](ch-to-mch-migration.md)
 * [Sharding tables](sharding.md)
-* [Using a hybrid storage](hybrid-storage.md)
+* [Using hybrid storage](hybrid-storage.md)
 * [Fetching data from {{ mkf-name }}](fetch-data-from-mkf.md)
 * [Fetching data from RabbitMQ](fetch-data-from-rabbitmq.md)
 * [Exchanging data with {{ dataproc-full-name }}](exchange-data-with-dp.md)

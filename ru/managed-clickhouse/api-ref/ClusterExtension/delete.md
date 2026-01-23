@@ -9,12 +9,14 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 50.
           type: string
         extensionName:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 63.
           type: string
       required:
         - clusterId
@@ -40,10 +42,14 @@ DELETE https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/ext
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || extensionName | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 63. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

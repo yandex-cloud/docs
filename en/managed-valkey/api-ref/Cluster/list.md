@@ -12,6 +12,7 @@ apiPlayground:
             **string**
             Required field. ID of the folder to list Redis clusters in.
             To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -19,6 +20,7 @@ apiPlayground:
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`, the service returns a [ListClustersResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListClustersResponse)
             that can be used to get the next page of results in subsequent list requests.
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         pageToken:
@@ -26,6 +28,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the [ListClustersResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListClustersResponse)
             returned by the previous list request.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
@@ -35,6 +38,7 @@ apiPlayground:
             1. The field name. Currently you can only use filtering with the [Cluster.name](#yandex.cloud.mdb.redis.v1.Cluster) field.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{,61}[a-z0-9])?`.
+            The maximum string length in characters is 1000.
           type: string
       required:
         - folderId
@@ -62,23 +66,31 @@ GET https://{{ api-host-mdb }}/managed-redis/v1/clusters
 || folderId | **string**
 
 Required field. ID of the folder to list Redis clusters in.
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListClustersResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListClustersResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the [ListClustersResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListClustersResponse)
-returned by the previous list request. ||
+returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters clusters listed in the response.
 The expression must specify:
 1. The field name. Currently you can only use filtering with the [Cluster.name](#yandex.cloud.mdb.redis.v1.Cluster) field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{,61}[a-z0-9])?`. ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{,61}[a-z0-9])?`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.mdb.redis.v1.ListClustersResponse}
@@ -486,7 +498,8 @@ The expression must specify:
           "valkeyBloom": {
             "enabled": "boolean"
           }
-        }
+        },
+        "fullVersion": "string"
       },
       "networkId": "string",
       "health": "string",
@@ -572,7 +585,6 @@ Maximum 64 per cluster. ||
 
 Deployment environment of the Redis cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy:
 only hotfixes are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -711,6 +723,9 @@ Retain period of automatically created backup in days ||
 || modules | **[ValkeyModules](#yandex.cloud.mdb.redis.v1.ValkeyModules)**
 
 Valkey modules settings ||
+|| fullVersion | **string**
+
+Full version ||
 |#
 
 ## RedisConfigSet5_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfigSet5_0}
@@ -744,7 +759,6 @@ Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
 
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
-- `MAXMEMORY_POLICY_UNSPECIFIED`
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
 - `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
 - `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
@@ -761,19 +775,29 @@ Time that Redis keeps the connection open while the client is idle.
 If no new command is sent during that time, the connection is closed. ||
 || password | **string**
 
-Authentication password. ||
+Authentication password.
+
+Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **string** (int64)
 
-Number of database buckets on a single redis-server process. ||
+Number of database buckets on a single redis-server process.
+
+Value must be greater than 0. ||
 || slowlogLogSlowerThan | **string** (int64)
 
-Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+The minimum value is 0. ||
 || slowlogMaxLen | **string** (int64)
 
-Max slow requests number to log. ||
+Max slow requests number to log.
+
+The minimum value is 0. ||
 || notifyKeyspaceEvents | **string**
 
-String setting for pub\sub functionality. ||
+String setting for pub\sub functionality.
+
+Value must match the regular expression ` [KEg$lshzxeAtm]{0,12} `. ||
 || clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for pubsub operations. ||
@@ -788,13 +812,19 @@ Redis connection output buffers limits for clients. ||
 ||Field | Description ||
 || hardLimit | **string** (int64)
 
-Total limit in bytes. ||
+Total limit in bytes.
+
+The minimum value is 0. ||
 || softLimit | **string** (int64)
 
-Limit in bytes during certain time period. ||
+Limit in bytes during certain time period.
+
+The minimum value is 0. ||
 || softSeconds | **string** (int64)
 
-Seconds for soft limit. ||
+Seconds for soft limit.
+
+The minimum value is 0. ||
 |#
 
 ## RedisConfigSet6_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfigSet6_0}
@@ -828,7 +858,6 @@ Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
 
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
-- `MAXMEMORY_POLICY_UNSPECIFIED`
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
 - `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
 - `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
@@ -845,19 +874,29 @@ Time that Redis keeps the connection open while the client is idle.
 If no new command is sent during that time, the connection is closed. ||
 || password | **string**
 
-Authentication password. ||
+Authentication password.
+
+Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **string** (int64)
 
-Number of database buckets on a single redis-server process. ||
+Number of database buckets on a single redis-server process.
+
+Value must be greater than 0. ||
 || slowlogLogSlowerThan | **string** (int64)
 
-Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+The minimum value is 0. ||
 || slowlogMaxLen | **string** (int64)
 
-Max slow requests number to log. ||
+Max slow requests number to log.
+
+The minimum value is 0. ||
 || notifyKeyspaceEvents | **string**
 
-String setting for pub\sub functionality. ||
+String setting for pub\sub functionality.
+
+Value must match the regular expression ` [KEg$lshzxeAtm]{0,13} `. ||
 || clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for pubsub operations. ||
@@ -872,13 +911,19 @@ Redis connection output buffers limits for clients. ||
 ||Field | Description ||
 || hardLimit | **string** (int64)
 
-Total limit in bytes. ||
+Total limit in bytes.
+
+The minimum value is 0. ||
 || softLimit | **string** (int64)
 
-Limit in bytes during certain time period. ||
+Limit in bytes during certain time period.
+
+The minimum value is 0. ||
 || softSeconds | **string** (int64)
 
-Seconds for soft limit. ||
+Seconds for soft limit.
+
+The minimum value is 0. ||
 |#
 
 ## RedisConfigSet6_2 {#yandex.cloud.mdb.redis.v1.config.RedisConfigSet6_2}
@@ -912,7 +957,6 @@ Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
 
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
-- `MAXMEMORY_POLICY_UNSPECIFIED`
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
 - `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
 - `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
@@ -929,19 +973,29 @@ Time that Redis keeps the connection open while the client is idle.
 If no new command is sent during that time, the connection is closed. ||
 || password | **string**
 
-Authentication password. ||
+Authentication password.
+
+Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **string** (int64)
 
-Number of database buckets on a single redis-server process. ||
+Number of database buckets on a single redis-server process.
+
+Value must be greater than 0. ||
 || slowlogLogSlowerThan | **string** (int64)
 
-Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+The minimum value is 0. ||
 || slowlogMaxLen | **string** (int64)
 
-Max slow requests number to log. ||
+Max slow requests number to log.
+
+The minimum value is 0. ||
 || notifyKeyspaceEvents | **string**
 
-String setting for pub\sub functionality. ||
+String setting for pub\sub functionality.
+
+Value must match the regular expression ` [KEg$lshzxeAtm]{0,13} `. ||
 || clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for pubsub operations. ||
@@ -950,7 +1004,9 @@ Redis connection output buffers limits for pubsub operations. ||
 Redis connection output buffers limits for clients. ||
 || maxmemoryPercent | **string** (int64)
 
-Redis maxmemory percent ||
+Redis maxmemory percent
+
+Acceptable values are 1 to 75, inclusive. ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2.ClientOutputBufferLimit}
@@ -959,13 +1015,19 @@ Redis maxmemory percent ||
 ||Field | Description ||
 || hardLimit | **string** (int64)
 
-Total limit in bytes. ||
+Total limit in bytes.
+
+The minimum value is 0. ||
 || softLimit | **string** (int64)
 
-Limit in bytes during certain time period. ||
+Limit in bytes during certain time period.
+
+The minimum value is 0. ||
 || softSeconds | **string** (int64)
 
-Seconds for soft limit. ||
+Seconds for soft limit.
+
+The minimum value is 0. ||
 |#
 
 ## RedisConfigSet7_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfigSet7_0}
@@ -999,7 +1061,6 @@ Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
 
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
-- `MAXMEMORY_POLICY_UNSPECIFIED`
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
 - `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
 - `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
@@ -1016,19 +1077,29 @@ Time that Redis keeps the connection open while the client is idle.
 If no new command is sent during that time, the connection is closed. ||
 || password | **string**
 
-Authentication password. ||
+Authentication password.
+
+Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **string** (int64)
 
-Number of database buckets on a single redis-server process. ||
+Number of database buckets on a single redis-server process.
+
+Value must be greater than 0. ||
 || slowlogLogSlowerThan | **string** (int64)
 
-Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+The minimum value is 0. ||
 || slowlogMaxLen | **string** (int64)
 
-Max slow requests number to log. ||
+Max slow requests number to log.
+
+The minimum value is 0. ||
 || notifyKeyspaceEvents | **string**
 
-String setting for pub\sub functionality. ||
+String setting for pub\sub functionality.
+
+Value must match the regular expression ` [KEg$lshzxeAtm]{0,13} `. ||
 || clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for pubsub operations. ||
@@ -1037,7 +1108,9 @@ Redis connection output buffers limits for pubsub operations. ||
 Redis connection output buffers limits for clients. ||
 || maxmemoryPercent | **string** (int64)
 
-Redis maxmemory percent ||
+Redis maxmemory percent
+
+Acceptable values are 1 to 75, inclusive. ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0.ClientOutputBufferLimit}
@@ -1046,13 +1119,19 @@ Redis maxmemory percent ||
 ||Field | Description ||
 || hardLimit | **string** (int64)
 
-Total limit in bytes. ||
+Total limit in bytes.
+
+The minimum value is 0. ||
 || softLimit | **string** (int64)
 
-Limit in bytes during certain time period. ||
+Limit in bytes during certain time period.
+
+The minimum value is 0. ||
 || softSeconds | **string** (int64)
 
-Seconds for soft limit. ||
+Seconds for soft limit.
+
+The minimum value is 0. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.redis.v1.Resources}
@@ -1141,7 +1220,6 @@ Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
 
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
-- `MAXMEMORY_POLICY_UNSPECIFIED`
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
 - `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
 - `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
@@ -1158,19 +1236,29 @@ Time that Redis keeps the connection open while the client is idle.
 If no new command is sent during that time, the connection is closed. ||
 || password | **string**
 
-Authentication password. ||
+Authentication password.
+
+Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **string** (int64)
 
-Number of database buckets on a single redis-server process. ||
+Number of database buckets on a single redis-server process.
+
+Value must be greater than 0. ||
 || slowlogLogSlowerThan | **string** (int64)
 
-Threshold for logging slow requests to server in microseconds (log only slower than it). ||
+Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+The minimum value is 0. ||
 || slowlogMaxLen | **string** (int64)
 
-Max slow requests number to log. ||
+Max slow requests number to log.
+
+The minimum value is 0. ||
 || notifyKeyspaceEvents | **string**
 
-String setting for pub\sub functionality. ||
+String setting for pub\sub functionality.
+
+Value must match the regular expression ` [KEg$lshzxeAtm]{0,13} `. ||
 || clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for pubsub operations. ||
@@ -1179,13 +1267,19 @@ Redis connection output buffers limits for pubsub operations. ||
 Redis connection output buffers limits for clients. ||
 || maxmemoryPercent | **string** (int64)
 
-Redis maxmemory percent ||
+Redis maxmemory percent
+
+Acceptable values are 1 to 75, inclusive. ||
 || luaTimeLimit | **string** (int64)
 
-Maximum time in milliseconds for Lua scripts, 0 - disabled mechanism ||
+Maximum time in milliseconds for Lua scripts, 0 - disabled mechanism
+
+The minimum value is 0. ||
 || replBacklogSizePercent | **string** (int64)
 
-Replication backlog size as a percentage of flavor maxmemory ||
+Replication backlog size as a percentage of flavor maxmemory
+
+Value must be greater than 0. ||
 || clusterRequireFullCoverage | **boolean**
 
 Controls whether all hash slots must be covered by nodes ||
@@ -1197,10 +1291,14 @@ Allows read operations when cluster is down ||
 Permits Pub/Sub shard operations when cluster is down ||
 || lfuDecayTime | **string** (int64)
 
-The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10) ||
+The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10)
+
+The minimum value is 0. ||
 || lfuLogFactor | **string** (int64)
 
-Determines how the frequency counter represents key hits. ||
+Determines how the frequency counter represents key hits.
+
+The minimum value is 0. ||
 || turnBeforeSwitchover | **boolean**
 
 Allows to turn before switchover in RDSync ||
@@ -1215,10 +1313,14 @@ Use JIT for lua scripts and functions ||
 Allow redis to use io-threads ||
 || zsetMaxListpackEntries | **string** (int64)
 
-Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist ||
+Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist
+
+Acceptable values are 32 to 2048, inclusive. ||
 || aofMaxSizePercent | **string** (int64)
 
-AOF maximum size as a percentage of disk available ||
+AOF maximum size as a percentage of disk available
+
+Acceptable values are 1 to 99, inclusive. ||
 || activedefrag | **boolean**
 
 Enable active (online) memory defragmentation ||
@@ -1230,13 +1332,19 @@ Enable active (online) memory defragmentation ||
 ||Field | Description ||
 || hardLimit | **string** (int64)
 
-Total limit in bytes. ||
+Total limit in bytes.
+
+The minimum value is 0. ||
 || softLimit | **string** (int64)
 
-Limit in bytes during certain time period. ||
+Limit in bytes during certain time period.
+
+The minimum value is 0. ||
 || softSeconds | **string** (int64)
 
-Seconds for soft limit. ||
+Seconds for soft limit.
+
+The minimum value is 0. ||
 |#
 
 ## DiskSizeAutoscaling {#yandex.cloud.mdb.redis.v1.DiskSizeAutoscaling}
@@ -1245,10 +1353,14 @@ Seconds for soft limit. ||
 ||Field | Description ||
 || plannedUsageThreshold | **string** (int64)
 
-Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergencyUsageThreshold | **string** (int64)
 
-Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || diskSizeLimit | **string** (int64)
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
@@ -1278,10 +1390,14 @@ valkey-bloom module settings ||
 Enable valkey-search module ||
 || readerThreads | **string** (int64)
 
-Controls the amount of threads executing queries ||
+Controls the amount of threads executing queries
+
+The minimum value is 0. ||
 || writerThreads | **string** (int64)
 
-Controls the amount of threads processing index mutations ||
+Controls the amount of threads processing index mutations
+
+The minimum value is 0. ||
 |#
 
 ## ValkeyJson {#yandex.cloud.mdb.redis.v1.ValkeyJson}
@@ -1334,7 +1450,6 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -1344,7 +1459,9 @@ Day of the week (in `DDD` format).
 - `SUN` ||
 || hour | **string** (int64)
 
-Hour of the day in UTC (in `HH` format). ||
+Hour of the day in UTC (in `HH` format).
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.mdb.redis.v1.MaintenanceOperation}
@@ -1355,7 +1472,9 @@ A planned maintenance operation.
 ||Field | Description ||
 || info | **string**
 
-Information about this maintenance operation. ||
+Information about this maintenance operation.
+
+The maximum string length in characters is 256. ||
 || delayedUntil | **string** (date-time)
 
 Time until which this maintenance operation is delayed.

@@ -31,7 +31,9 @@ Same as ListLogs but using server-side streaming. Also allows for 'tail -f' sema
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the OpenSearch cluster. ||
+Required field. ID of the OpenSearch cluster.
+
+The maximum string length in characters is 50. ||
 || column_filter[] | **string**
 
 Columns from log table to get in the response.
@@ -49,7 +51,9 @@ In essence it has `tail -f` semantics. ||
 || record_token | **string**
 
 Record token. Set `record_token` to the `next_record_token` returned by the previous [StreamLogs](#StreamLogs)
-request to start streaming from the next log record. ||
+request to start streaming from the next log record.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -64,12 +68,13 @@ The expression must specify:
 
 Examples of a filter:
 * `message.hostname='node1.db.cloud.yandex.net'`;
-* `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`. ||
+* `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`.
+
+The maximum string length in characters is 1000. ||
 || service_type | enum **ServiceType**
 
 Type of the service to request logs about.
 
-- `SERVICE_TYPE_UNSPECIFIED`: Type is not specified.
 - `OPENSEARCH`: OpenSearch logs.
 - `DASHBOARDS`: Dashboards logs. ||
 |#

@@ -32,7 +32,9 @@ Add a new retention policy.
 || cluster_id | **string**
 
 Required field. ID of the PostgreSQL cluster.
-To get the PostgreSQL cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/grpc/Cluster/list#List) request. ||
+To get the PostgreSQL cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || cron | **[CronTab](#yandex.cloud.mdb.postgresql.v1.CronTab)**
 
 CronTab schedule. ||
@@ -96,7 +98,9 @@ Message to describe a retention policy for cluster backups.
 Required field. Required. Policy ID. ||
 || cluster_id | **string**
 
-Required field. PostgreSQL cluster ID. ||
+Required field. PostgreSQL cluster ID.
+
+The maximum string length in characters is 50. ||
 || policy_name | **string**
 
 Required field. Required. Policy name. ||

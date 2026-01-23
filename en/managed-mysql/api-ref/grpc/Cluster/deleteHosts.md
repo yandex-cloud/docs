@@ -28,12 +28,16 @@ Deletes the specified hosts for a cluster.
 
 Required field. ID of the cluster to delete hosts from.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || host_names[] | **string**
 
 Names of hosts to delete.
 
-To get these names, make a [ClusterService.ListHosts](/docs/managed-mysql/api-ref/grpc/Cluster/listHosts#ListHosts) request. ||
+To get these names, make a [ClusterService.ListHosts](/docs/managed-mysql/api-ref/grpc/Cluster/listHosts#ListHosts) request.
+
+The number of elements must be greater than 0. The maximum string length in characters for each value is 253. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

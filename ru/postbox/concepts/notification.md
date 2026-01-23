@@ -25,6 +25,15 @@
             "subject":"Message sent using Yandex Cloud Postbox"
         },
         "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+               "123.123.123.123"
+            ],
             "key1": [
                 "value1"
             ],
@@ -59,6 +68,24 @@
             "subject":"Message sent using Yandex Cloud Postbox"
         },
         "tags": {
+            "ses:configuration-set": [
+               "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
+            "ses:outgoing-tls-cipher": [
+                "AES_128_GCM_SHA256"
+            ],
+            "ses:outgoing-tls-version": [
+                "TLSv1.3"
+            ],
+            "ses:outgoing-ip": [
+                "51.250.56.125"
+            ],
             "key1": [
                 "value1"
             ],
@@ -100,6 +127,15 @@
             "subject":"Message sent using Yandex Cloud Postbox"
         },
         "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
             "key1": [
                 "value1"
             ],
@@ -147,6 +183,15 @@
             "subject":"Message sent using Yandex Cloud Postbox"
         },
         "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
             "key1": [
                 "value1"
             ],
@@ -185,6 +230,15 @@
             "subject":"Message sent using {{ postbox-full-name }}"
         },
         "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
             "key1": [
                 "value1"
             ],
@@ -232,6 +286,15 @@
             "subject":"Message sent using Yandex Cloud Postbox"
         },
         "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
             "key1": [
                 "value1"
             ],
@@ -274,6 +337,15 @@
             "subject":"Message sent using Yandex Cloud Postbox"
         },
         "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
             "key1": [
                 "value1"
             ],
@@ -395,6 +467,26 @@
 `ipAddress` | Строка | IP-адрес устройства получателя, с которого было открыто письмо.
 `timestamp` | Строка | Дата в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`). Время, когда письмо было открыто.
 `userAgent` | Строка | Идентификационная строка (`User-Agent`) устройства или почтового клиента, с которого было открыто письмо.
+
+## Системные теги {#system-tags}
+
+При отправке письма {{ postbox-name }} добавляет к письму следующие системные теги, которые затем включаются в уведомления.
+
+Общие теги:
+
+Название | Описание
+--- | ---
+`ses:configuration-set` | Идентификатор [конфигурации](glossary.md#configuration), использованной при отправке письма.
+`ses:from-domain` | Домен, с которого отправлено письмо.
+`ses:source-ip` | IP-адрес сервера, с которого пользователь отправил письмо в {{ postbox-name }}.
+
+Дополнительные теги, которые включаются только в [уведомления о доставке](#delivery):
+
+Название | Описание
+--- | ---
+`ses:outgoing-tls-version` | Версия TLS, использованная при отправке письма на сервер получателя.
+`ses:outgoing-tls-cipher` | Шифр TLS, использованный при отправке письма на сервер получателя.
+`ses:outgoing-ip` | IP-адрес сервера, с которого {{ postbox-name }} отправил письмо на сервер получателя.
 
 ## Уровень качества обслуживания (QoS) {#qos}
 

@@ -148,19 +148,24 @@ Possible values:
 * true - the restore point refers to the first backup point after `time`. ||
 || name | **string**
 
-Required field. Name of the new PostgreSQL cluster. The name must be unique within the folder. ||
+Required field. Name of the new PostgreSQL cluster. The name must be unique within the folder.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || description | **string**
 
-Description of the new PostgreSQL cluster. ||
+Description of the new PostgreSQL cluster.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource.
-For example, "project": "mvp" or "source": "dictionary". ||
+For example, "project": "mvp" or "source": "dictionary".
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || environment | enum **Environment**
 
 Required field. Deployment environment of the new PostgreSQL cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy:
 only hotfixes are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -171,13 +176,19 @@ Required field. Configuration for the PostgreSQL cluster to be created. ||
 || host_specs[] | **[HostSpec](#yandex.cloud.mdb.postgresql.v1.HostSpec)**
 
 Configurations for PostgreSQL hosts that should be created for
-the cluster that is being created from the backup. ||
+the cluster that is being created from the backup.
+
+The number of elements must be greater than 0. ||
 || network_id | **string**
 
-Required field. ID of the network to create the PostgreSQL cluster in. ||
+Required field. ID of the network to create the PostgreSQL cluster in.
+
+The maximum string length in characters is 50. ||
 || folder_id | **string**
 
-ID of the folder to create the PostgreSQL cluster in. ||
+ID of the folder to create the PostgreSQL cluster in.
+
+The maximum string length in characters is 50. ||
 || security_group_ids[] | **string**
 
 User security groups ||
@@ -350,7 +361,9 @@ Configuration setting which enables/disables autofailover in cluster. ||
 Time to start the daily backup, in the UTC timezone. ||
 || backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Retention policy of automated backups. ||
+Retention policy of automated backups.
+
+Acceptable values are 7 to 60, inclusive. ||
 || access | **[Access](#yandex.cloud.mdb.postgresql.v1.Access)**
 
 Access policy to DB ||
@@ -371,7 +384,6 @@ Disk size autoscaling ||
 Mode that the connection pooler is working in.
 See descriptions of all modes in the [documentation for PgBouncer](https://pgbouncer.github.io/usage).
 
-- `POOLING_MODE_UNSPECIFIED`
 - `SESSION`: Session pooling mode.
 - `TRANSACTION`: Transaction pooling mode.
 - `STATEMENT`: Statement pooling mode. ||
@@ -432,10 +444,14 @@ Allow access for YandexQuery. ||
 Configuration setting which enables/disables performance diagnostics service in cluster. ||
 || sessions_sampling_interval | **int64**
 
-Interval (in seconds) for pg_stat_activity sampling ||
+Interval (in seconds) for pg_stat_activity sampling
+
+Acceptable values are 1 to 86400, inclusive. ||
 || statements_sampling_interval | **int64**
 
-Interval (in seconds) for pg_stat_statements sampling ||
+Interval (in seconds) for pg_stat_statements sampling
+
+Acceptable values are 1 to 86400, inclusive. ||
 |#
 
 ## DiskSizeAutoscaling {#yandex.cloud.mdb.postgresql.v1.DiskSizeAutoscaling}
@@ -444,10 +460,14 @@ Interval (in seconds) for pg_stat_statements sampling ||
 ||Field | Description ||
 || planned_usage_threshold | **int64**
 
-Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. ||
+Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergency_usage_threshold | **int64**
 
-Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. ||
+Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
+
+Acceptable values are 0 to 100, inclusive. ||
 || disk_size_limit | **int64**
 
 New storage size (in bytes) that is set when one of the thresholds is achieved. ||
@@ -460,12 +480,16 @@ New storage size (in bytes) that is set when one of the thresholds is achieved. 
 || zone_id | **string**
 
 ID of the availability zone where the host resides.
-To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request. ||
+To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request.
+
+The maximum string length in characters is 50. ||
 || subnet_id | **string**
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The ID of the network is set in the field [Cluster.network_id](#yandex.cloud.mdb.postgresql.v1.Cluster). ||
+The ID of the network is set in the field [Cluster.network_id](#yandex.cloud.mdb.postgresql.v1.Cluster).
+
+The maximum string length in characters is 50. ||
 || assign_public_ip | **bool**
 
 Whether the host should get a public IP address on creation.
@@ -632,7 +656,6 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -642,7 +665,9 @@ Day of the week (in `DDD` format).
 - `SUN` ||
 || hour | **int64**
 
-Hour of the day in UTC (in `HH` format). ||
+Hour of the day in UTC (in `HH` format).
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -727,7 +752,8 @@ Hour of the day in UTC (in `HH` format). ||
         "planned_usage_threshold": "int64",
         "emergency_usage_threshold": "int64",
         "disk_size_limit": "int64"
-      }
+      },
+      "full_version": "string"
     },
     "network_id": "string",
     "health": "Health",
@@ -857,7 +883,6 @@ Maximum 64 per resource. ||
 
 Deployment environment of the PostgreSQL cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy:
 only hotfixes are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -1082,7 +1107,9 @@ Configuration setting which enables/disables autofailover in cluster. ||
 Time to start the daily backup, in the UTC timezone. ||
 || backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Retention policy of automated backups. ||
+Retention policy of automated backups.
+
+Acceptable values are 7 to 60, inclusive. ||
 || access | **[Access](#yandex.cloud.mdb.postgresql.v1.Access2)**
 
 Access policy to DB ||
@@ -1092,6 +1119,9 @@ Configuration of the performance diagnostics service. ||
 || disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.postgresql.v1.DiskSizeAutoscaling2)**
 
 Disk size autoscaling ||
+|| full_version | **string**
+
+Full version ||
 |#
 
 ## ConnectionPoolerConfig {#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig2}
@@ -1103,7 +1133,6 @@ Disk size autoscaling ||
 Mode that the connection pooler is working in.
 See descriptions of all modes in the [documentation for PgBouncer](https://pgbouncer.github.io/usage).
 
-- `POOLING_MODE_UNSPECIFIED`
 - `SESSION`: Session pooling mode.
 - `TRANSACTION`: Transaction pooling mode.
 - `STATEMENT`: Statement pooling mode. ||
@@ -1164,10 +1193,14 @@ Allow access for YandexQuery. ||
 Configuration setting which enables/disables performance diagnostics service in cluster. ||
 || sessions_sampling_interval | **int64**
 
-Interval (in seconds) for pg_stat_activity sampling ||
+Interval (in seconds) for pg_stat_activity sampling
+
+Acceptable values are 1 to 86400, inclusive. ||
 || statements_sampling_interval | **int64**
 
-Interval (in seconds) for pg_stat_statements sampling ||
+Interval (in seconds) for pg_stat_statements sampling
+
+Acceptable values are 1 to 86400, inclusive. ||
 |#
 
 ## DiskSizeAutoscaling {#yandex.cloud.mdb.postgresql.v1.DiskSizeAutoscaling2}
@@ -1176,10 +1209,14 @@ Interval (in seconds) for pg_stat_statements sampling ||
 ||Field | Description ||
 || planned_usage_threshold | **int64**
 
-Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. ||
+Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergency_usage_threshold | **int64**
 
-Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. ||
+Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
+
+Acceptable values are 0 to 100, inclusive. ||
 || disk_size_limit | **int64**
 
 New storage size (in bytes) that is set when one of the thresholds is achieved. ||
@@ -1224,7 +1261,6 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -1234,7 +1270,9 @@ Day of the week (in `DDD` format).
 - `SUN` ||
 || hour | **int64**
 
-Hour of the day in UTC (in `HH` format). ||
+Hour of the day in UTC (in `HH` format).
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.mdb.postgresql.v1.MaintenanceOperation}
@@ -1245,7 +1283,9 @@ A planned maintenance operation.
 ||Field | Description ||
 || info | **string**
 
-Information about this maintenance operation. ||
+Information about this maintenance operation.
+
+The maximum string length in characters is 256. ||
 || delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time until which this maintenance operation is delayed. ||

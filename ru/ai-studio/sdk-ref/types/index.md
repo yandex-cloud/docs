@@ -15,3 +15,4 @@ sourcePath: en/_sdk-ref/sdk-ref/types/index.md
 - [Search index types](search_indexes.md)
 - [Other types](other.md)
 - [Batch](batch.md)
+- [Speechkit](speechkit.md)

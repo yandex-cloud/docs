@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the cluster to request logs for.
             To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -30,7 +31,6 @@ apiPlayground:
           description: |-
             **enum** (ServiceType)
             The log type.
-            - `SERVICE_TYPE_UNSPECIFIED`
             - `MYSQL_ERROR`: MySQL error log.
             - `MYSQL_GENERAL`: MySQL general query log.
             - `MYSQL_SLOW_QUERY`: MySQL slow query log.
@@ -71,6 +71,7 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return.
             If the number of available results is larger than `pageSize`, the API returns a [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListLogs](#ListLogs) requests.
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         pageToken:
@@ -78,6 +79,7 @@ apiPlayground:
             **string**
             Page token that can be used to iterate through multiple pages of results.
             To get the next page of results, set `pageToken` to the [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) returned by the previous [ClusterService.ListLogs](#ListLogs) request.
+            The maximum string length in characters is 100.
           type: string
         alwaysNextPageToken:
           description: |-
@@ -111,7 +113,9 @@ GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}:logs
 
 Required field. ID of the cluster to request logs for.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.mysql.v1.ListClusterLogsRequest}
@@ -126,7 +130,6 @@ If no columns are specified, complete log records are returned. ||
 
 The log type.
 
-- `SERVICE_TYPE_UNSPECIFIED`
 - `MYSQL_ERROR`: MySQL error log.
 - `MYSQL_GENERAL`: MySQL general query log.
 - `MYSQL_SLOW_QUERY`: MySQL slow query log.
@@ -157,12 +160,16 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `pageSize`, the API returns a [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListLogs](#ListLogs) requests. ||
+If the number of available results is larger than `pageSize`, the API returns a [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListLogs](#ListLogs) requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token that can be used to iterate through multiple pages of results.
 
-To get the next page of results, set `pageToken` to the [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) returned by the previous [ClusterService.ListLogs](#ListLogs) request. ||
+To get the next page of results, set `pageToken` to the [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) returned by the previous [ClusterService.ListLogs](#ListLogs) request.
+
+The maximum string length in characters is 100. ||
 || alwaysNextPageToken | **boolean**
 
 Option that controls the behavior of result pagination.

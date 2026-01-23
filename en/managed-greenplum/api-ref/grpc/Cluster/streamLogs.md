@@ -31,7 +31,9 @@ Same as [ListLogs](/docs/managed-greenplum/api-ref/grpc/Cluster/listLogs#ListLog
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Greenplum® cluster. ||
+Required field. ID of the Greenplum® cluster.
+
+The maximum string length in characters is 50. ||
 || column_filter[] | **string**
 
 Columns from log table to get in the response.
@@ -40,7 +42,6 @@ If no columns are specified, entire log records are returned. ||
 
 Type of the service to request logs about.
 
-- `SERVICE_TYPE_UNSPECIFIED`: Type is not specified.
 - `GREENPLUM`: Greenplum® activity logs.
 - `GREENPLUM_POOLER`: Greenplum® pooler logs.
 - `GREENPLUM_PXF`: Greenplum® PXF service logs. ||
@@ -56,7 +57,9 @@ If this field is not set, all existing logs are sent as well as the new ones as 
 In essence it has `tail -f` semantics. ||
 || record_token | **string**
 
-Record token. Set `record_token` to the [StreamLogs.next_record_token] returned by the previous [StreamLogs](#StreamLogs) request to start streaming from the next log record. ||
+Record token. Set `record_token` to the [StreamLogs.next_record_token] returned by the previous [StreamLogs](#StreamLogs) request to start streaming from the next log record.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -72,7 +75,9 @@ The expression must specify:
 Examples of a filter:
 
 * `message.hostname='node1.db.cloud.yandex.net'`;
-* `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`. ||
+* `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## StreamLogRecord {#yandex.cloud.mdb.greenplum.v1.StreamLogRecord}

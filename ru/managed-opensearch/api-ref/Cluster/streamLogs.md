@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the OpenSearch cluster.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -54,6 +55,7 @@ apiPlayground:
             **string**
             Record token. Set `record_token` to the `next_record_token` returned by the previous [StreamLogs](#StreamLogs)
             request to start streaming from the next log record.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
@@ -66,12 +68,12 @@ apiPlayground:
             Examples of a filter:
             * `message.hostname='node1.db.cloud.yandex.net'`;
             * `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`.
+            The maximum string length in characters is 1000.
           type: string
         serviceType:
           description: |-
             **enum** (ServiceType)
             Type of the service to request logs about.
-            - `SERVICE_TYPE_UNSPECIFIED`: Type is not specified.
             - `OPENSEARCH`: OpenSearch logs.
             - `DASHBOARDS`: Dashboards logs.
           type: string
@@ -101,7 +103,9 @@ GET https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}:stream
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the OpenSearch cluster. ||
+Required field. ID of the OpenSearch cluster.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.opensearch.v1.StreamClusterLogsRequest}
@@ -139,7 +143,9 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || recordToken | **string**
 
 Record token. Set `record_token` to the `next_record_token` returned by the previous [StreamLogs](#StreamLogs)
-request to start streaming from the next log record. ||
+request to start streaming from the next log record.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -154,12 +160,13 @@ The expression must specify:
 
 Examples of a filter:
 * `message.hostname='node1.db.cloud.yandex.net'`;
-* `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`. ||
+* `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`.
+
+The maximum string length in characters is 1000. ||
 || serviceType | **enum** (ServiceType)
 
 Type of the service to request logs about.
 
-- `SERVICE_TYPE_UNSPECIFIED`: Type is not specified.
 - `OPENSEARCH`: OpenSearch logs.
 - `DASHBOARDS`: Dashboards logs. ||
 |#

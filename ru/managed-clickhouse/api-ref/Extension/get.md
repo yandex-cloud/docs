@@ -9,7 +9,8 @@ apiPlayground:
         extensionName:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 63.
           type: string
       required:
         - extensionName
@@ -18,7 +19,9 @@ apiPlayground:
       type: object
       properties:
         folderId:
-          description: '**string**'
+          description: |-
+            **string**
+            The maximum string length in characters is 50.
           type: string
       additionalProperties: false
     body: null
@@ -40,14 +43,18 @@ GET https://{{ api-host-mdb }}/managed-clickhouse/v1/extensions/{extensionName}
 ||Field | Description ||
 || extensionName | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 63. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.clickhouse.v1.GetExtensionRequest}
 
 #|
 ||Field | Description ||
-|| folderId | **string** ||
+|| folderId | **string**
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.mdb.clickhouse.v1.Extension}

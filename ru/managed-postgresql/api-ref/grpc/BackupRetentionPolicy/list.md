@@ -26,16 +26,22 @@ List all retention policies.
 || cluster_id | **string**
 
 Required field. ID of the PostgreSQL cluster.
-To get the PostgreSQL cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/grpc/Cluster/list#List) request. ||
+To get the PostgreSQL cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListBackupRetentionPoliciesResponse.next_page_token](#yandex.cloud.mdb.postgresql.v1.ListBackupRetentionPoliciesResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token`
-to the [ListBackupRetentionPoliciesResponse.next_page_token](#yandex.cloud.mdb.postgresql.v1.ListBackupRetentionPoliciesResponse) returned by the previous list request. ||
+to the [ListBackupRetentionPoliciesResponse.next_page_token](#yandex.cloud.mdb.postgresql.v1.ListBackupRetentionPoliciesResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListBackupRetentionPoliciesResponse {#yandex.cloud.mdb.postgresql.v1.ListBackupRetentionPoliciesResponse}
@@ -85,7 +91,9 @@ Message to describe a retention policy for cluster backups.
 Required field. Required. Policy ID. ||
 || cluster_id | **string**
 
-Required field. PostgreSQL cluster ID. ||
+Required field. PostgreSQL cluster ID.
+
+The maximum string length in characters is 50. ||
 || policy_name | **string**
 
 Required field. Required. Policy name. ||

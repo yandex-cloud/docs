@@ -11,12 +11,14 @@ apiPlayground:
             **string**
             Required field. ID of the PostgreSQL cluster that the database belongs to.
             To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         databaseName:
           description: |-
             **string**
             Required field. Name of the PostgreSQL Database resource to return.
             To get the name of the database use a [DatabaseService.List](/docs/managed-postgresql/api-ref/Database/list#List) request.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
       required:
@@ -48,11 +50,15 @@ GET https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/databa
 || clusterId | **string**
 
 Required field. ID of the PostgreSQL cluster that the database belongs to.
-To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request. ||
+To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || databaseName | **string**
 
 Required field. Name of the PostgreSQL Database resource to return.
-To get the name of the database use a [DatabaseService.List](/docs/managed-postgresql/api-ref/Database/list#List) request. ||
+To get the name of the database use a [DatabaseService.List](/docs/managed-postgresql/api-ref/Database/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Response {#yandex.cloud.mdb.postgresql.v1.Database}

@@ -24,7 +24,9 @@ Restarts OpenSearch on specified host.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. Required. ID of the OpenSearch cluster. ||
+Required field. Required. ID of the OpenSearch cluster.
+
+The maximum string length in characters is 50. ||
 || host | **string**
 
 Required field. Required. Host to restart OpenSearch service on. ||

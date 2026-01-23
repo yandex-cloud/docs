@@ -27,17 +27,23 @@ Retrieves a list of operations for a cluster.
 
 Required field. ID of the cluster to list operations for.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `page_size`, the API returns a [ListClusterOperationsResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListClusterOperationsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListOperations](#ListOperations) requests. ||
+If the number of available results is larger than `page_size`, the API returns a [ListClusterOperationsResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListClusterOperationsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListOperations](#ListOperations) requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token that can be used to iterate through multiple pages of results.
 
-To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListClusterOperationsResponse) returned by the previous [ClusterService.ListOperations](#ListOperations) request. ||
+To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListClusterOperationsResponse) returned by the previous [ClusterService.ListOperations](#ListOperations) request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListClusterOperationsResponse {#yandex.cloud.mdb.mysql.v1.ListClusterOperationsResponse}

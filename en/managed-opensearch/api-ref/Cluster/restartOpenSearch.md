@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Required. ID of the OpenSearch cluster.
+            The maximum string length in characters is 50.
           type: string
         host:
           description: |-
@@ -42,7 +43,9 @@ POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/host/
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the OpenSearch cluster. ||
+Required field. Required. ID of the OpenSearch cluster.
+
+The maximum string length in characters is 50. ||
 || host | **string**
 
 Required field. Required. Host to restart OpenSearch service on. ||

@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Redis cluster to update hosts in.
             To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -23,6 +24,7 @@ apiPlayground:
           description: |-
             **[UpdateHostSpec](#yandex.cloud.mdb.redis.v1.UpdateHostSpec)**
             New configurations to apply to hosts.
+            The number of elements must be greater than 0.
           type: array
           items:
             $ref: '#/definitions/UpdateHostSpec'
@@ -84,7 +86,9 @@ POST https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/hosts:batc
 || clusterId | **string**
 
 Required field. ID of the Redis cluster to update hosts in.
-To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request. ||
+To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.redis.v1.UpdateClusterHostsRequest}
@@ -106,7 +110,9 @@ To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api
 ||Field | Description ||
 || updateHostSpecs[] | **[UpdateHostSpec](#yandex.cloud.mdb.redis.v1.UpdateHostSpec)**
 
-New configurations to apply to hosts. ||
+New configurations to apply to hosts.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## UpdateHostSpec {#yandex.cloud.mdb.redis.v1.UpdateHostSpec}

@@ -26,11 +26,15 @@ Returns the specified shard.
 
 Required field. ID of the cluster that the shard belongs to.
 To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request.
-To get the name of the database, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request. ||
+To get the name of the database, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || shard_name | **string**
 
 Required field. Name of the shard to request information about.
-To get the name of a shard, use a [ClusterService.ListShards](/docs/managed-clickhouse/api-ref/grpc/Cluster/listShards#ListShards) request. ||
+To get the name of a shard, use a [ClusterService.ListShards](/docs/managed-clickhouse/api-ref/grpc/Cluster/listShards#ListShards) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Shard {#yandex.cloud.mdb.clickhouse.v1.Shard}
@@ -95,6 +99,9 @@ To get the name of a shard, use a [ClusterService.ListShards](/docs/managed-clic
           "error_log_enabled": "google.protobuf.BoolValue",
           "error_log_retention_size": "google.protobuf.Int64Value",
           "error_log_retention_time": "google.protobuf.Int64Value",
+          "query_metric_log_enabled": "google.protobuf.BoolValue",
+          "query_metric_log_retention_size": "google.protobuf.Int64Value",
+          "query_metric_log_retention_time": "google.protobuf.Int64Value",
           "access_control_improvements": {
             "select_from_system_db_requires_grant": "google.protobuf.BoolValue",
             "select_from_information_schema_requires_grant": "google.protobuf.BoolValue"
@@ -115,6 +122,9 @@ To get the name of a shard, use a [ClusterService.ListShards](/docs/managed-clic
           "async_insert_threads": "google.protobuf.Int64Value",
           "backup_threads": "google.protobuf.Int64Value",
           "restore_threads": "google.protobuf.Int64Value",
+          "vector_similarity_index_cache_size": "google.protobuf.Int64Value",
+          "vector_similarity_index_cache_max_entries": "google.protobuf.Int64Value",
+          "max_build_vector_similarity_index_thread_pool_size": "google.protobuf.Int64Value",
           "merge_tree": {
             "parts_to_delay_insert": "google.protobuf.Int64Value",
             "parts_to_throw_insert": "google.protobuf.Int64Value",
@@ -321,7 +331,9 @@ To get the name of a shard, use a [ClusterService.ListShards](/docs/managed-clic
             "max_poll_interval_ms": "google.protobuf.Int64Value",
             "session_timeout_ms": "google.protobuf.Int64Value",
             "debug": "Debug",
-            "auto_offset_reset": "AutoOffsetReset"
+            "auto_offset_reset": "AutoOffsetReset",
+            "message_max_bytes": "google.protobuf.Int64Value",
+            "batch_size": "google.protobuf.Int64Value"
           },
           "kafka_topics": [
             {
@@ -335,7 +347,9 @@ To get the name of a shard, use a [ClusterService.ListShards](/docs/managed-clic
                 "max_poll_interval_ms": "google.protobuf.Int64Value",
                 "session_timeout_ms": "google.protobuf.Int64Value",
                 "debug": "Debug",
-                "auto_offset_reset": "AutoOffsetReset"
+                "auto_offset_reset": "AutoOffsetReset",
+                "message_max_bytes": "google.protobuf.Int64Value",
+                "batch_size": "google.protobuf.Int64Value"
               }
             }
           ],
@@ -423,6 +437,9 @@ To get the name of a shard, use a [ClusterService.ListShards](/docs/managed-clic
           "error_log_enabled": "google.protobuf.BoolValue",
           "error_log_retention_size": "google.protobuf.Int64Value",
           "error_log_retention_time": "google.protobuf.Int64Value",
+          "query_metric_log_enabled": "google.protobuf.BoolValue",
+          "query_metric_log_retention_size": "google.protobuf.Int64Value",
+          "query_metric_log_retention_time": "google.protobuf.Int64Value",
           "access_control_improvements": {
             "select_from_system_db_requires_grant": "google.protobuf.BoolValue",
             "select_from_information_schema_requires_grant": "google.protobuf.BoolValue"
@@ -443,6 +460,9 @@ To get the name of a shard, use a [ClusterService.ListShards](/docs/managed-clic
           "async_insert_threads": "google.protobuf.Int64Value",
           "backup_threads": "google.protobuf.Int64Value",
           "restore_threads": "google.protobuf.Int64Value",
+          "vector_similarity_index_cache_size": "google.protobuf.Int64Value",
+          "vector_similarity_index_cache_max_entries": "google.protobuf.Int64Value",
+          "max_build_vector_similarity_index_thread_pool_size": "google.protobuf.Int64Value",
           "merge_tree": {
             "parts_to_delay_insert": "google.protobuf.Int64Value",
             "parts_to_throw_insert": "google.protobuf.Int64Value",
@@ -649,7 +669,9 @@ To get the name of a shard, use a [ClusterService.ListShards](/docs/managed-clic
             "max_poll_interval_ms": "google.protobuf.Int64Value",
             "session_timeout_ms": "google.protobuf.Int64Value",
             "debug": "Debug",
-            "auto_offset_reset": "AutoOffsetReset"
+            "auto_offset_reset": "AutoOffsetReset",
+            "message_max_bytes": "google.protobuf.Int64Value",
+            "batch_size": "google.protobuf.Int64Value"
           },
           "kafka_topics": [
             {
@@ -663,7 +685,9 @@ To get the name of a shard, use a [ClusterService.ListShards](/docs/managed-clic
                 "max_poll_interval_ms": "google.protobuf.Int64Value",
                 "session_timeout_ms": "google.protobuf.Int64Value",
                 "debug": "Debug",
-                "auto_offset_reset": "AutoOffsetReset"
+                "auto_offset_reset": "AutoOffsetReset",
+                "message_max_bytes": "google.protobuf.Int64Value",
+                "batch_size": "google.protobuf.Int64Value"
               }
             }
           ],
@@ -751,6 +775,9 @@ To get the name of a shard, use a [ClusterService.ListShards](/docs/managed-clic
           "error_log_enabled": "google.protobuf.BoolValue",
           "error_log_retention_size": "google.protobuf.Int64Value",
           "error_log_retention_time": "google.protobuf.Int64Value",
+          "query_metric_log_enabled": "google.protobuf.BoolValue",
+          "query_metric_log_retention_size": "google.protobuf.Int64Value",
+          "query_metric_log_retention_time": "google.protobuf.Int64Value",
           "access_control_improvements": {
             "select_from_system_db_requires_grant": "google.protobuf.BoolValue",
             "select_from_information_schema_requires_grant": "google.protobuf.BoolValue"
@@ -771,6 +798,9 @@ To get the name of a shard, use a [ClusterService.ListShards](/docs/managed-clic
           "async_insert_threads": "google.protobuf.Int64Value",
           "backup_threads": "google.protobuf.Int64Value",
           "restore_threads": "google.protobuf.Int64Value",
+          "vector_similarity_index_cache_size": "google.protobuf.Int64Value",
+          "vector_similarity_index_cache_max_entries": "google.protobuf.Int64Value",
+          "max_build_vector_similarity_index_thread_pool_size": "google.protobuf.Int64Value",
           "merge_tree": {
             "parts_to_delay_insert": "google.protobuf.Int64Value",
             "parts_to_throw_insert": "google.protobuf.Int64Value",
@@ -977,7 +1007,9 @@ To get the name of a shard, use a [ClusterService.ListShards](/docs/managed-clic
             "max_poll_interval_ms": "google.protobuf.Int64Value",
             "session_timeout_ms": "google.protobuf.Int64Value",
             "debug": "Debug",
-            "auto_offset_reset": "AutoOffsetReset"
+            "auto_offset_reset": "AutoOffsetReset",
+            "message_max_bytes": "google.protobuf.Int64Value",
+            "batch_size": "google.protobuf.Int64Value"
           },
           "kafka_topics": [
             {
@@ -991,7 +1023,9 @@ To get the name of a shard, use a [ClusterService.ListShards](/docs/managed-clic
                 "max_poll_interval_ms": "google.protobuf.Int64Value",
                 "session_timeout_ms": "google.protobuf.Int64Value",
                 "debug": "Debug",
-                "auto_offset_reset": "AutoOffsetReset"
+                "auto_offset_reset": "AutoOffsetReset",
+                "message_max_bytes": "google.protobuf.Int64Value",
+                "batch_size": "google.protobuf.Int64Value"
               }
             }
           ],
@@ -1114,7 +1148,9 @@ Default value: **16**.
 
 Change of the setting is applied with restart on value decrease and without restart on value increase.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_pool_size). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_pool_size).
+
+The minimum value is 1. ||
 || background_merges_mutations_concurrency_ratio | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets a ratio between the number of threads and the number of background merges and mutations that can be executed concurrently.
@@ -1136,7 +1172,9 @@ Default value: **512**.
 
 Change of the setting is applied with restart on value decrease and without restart on value increase.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_schedule_pool_size). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_schedule_pool_size).
+
+The minimum value is 1. ||
 || background_fetches_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of threads that will be used for fetching data parts from another replica for MergeTree-engine tables in a background.
@@ -1145,7 +1183,9 @@ Default value: **32** for versions 25.1 and higher, **16** for versions 24.12 an
 
 Change of the setting is applied with restart.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_fetches_pool_size). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_fetches_pool_size).
+
+The minimum value is 1. ||
 || background_move_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of threads that will be used for moving data parts to another disk or volume for MergeTree-engine tables in a background.
@@ -1154,7 +1194,9 @@ Default value: **8**.
 
 Change of the setting is applied with restart on value decrease and without restart on value increase.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_move_pool_size). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_move_pool_size).
+
+The minimum value is 1. ||
 || background_distributed_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of threads that will be used for executing distributed sends.
@@ -1163,7 +1205,9 @@ Default value: **16**.
 
 Change of the setting is applied with restart on value decrease and without restart on value increase.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_distributed_schedule_pool_size). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_distributed_schedule_pool_size).
+
+The minimum value is 1. ||
 || background_buffer_flush_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of threads that will be used for performing flush operations for Buffer-engine tables in the background.
@@ -1172,7 +1216,9 @@ Default value: **16**.
 
 Change of the setting is applied with restart on value decrease and without restart on value increase.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_buffer_flush_schedule_pool_size). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_buffer_flush_schedule_pool_size).
+
+The minimum value is 1. ||
 || background_message_broker_schedule_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of threads that will be used for executing background operations for message streaming.
@@ -1181,7 +1227,9 @@ Default value: **16**.
 
 Change of the setting is applied with restart on value decrease and without restart on value increase.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_message_broker_schedule_pool_size). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_message_broker_schedule_pool_size).
+
+The minimum value is 1. ||
 || background_common_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of threads that will be used for performing a variety of operations (mostly garbage collection) for MergeTree-engine tables in a background.
@@ -1190,7 +1238,9 @@ Default value: **8**.
 
 Change of the setting is applied with restart on value decrease and without restart on value increase.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_common_pool_size). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_common_pool_size).
+
+The minimum value is 1. ||
 || dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Lazy loading of dictionaries. If enabled, then each dictionary is loaded on the first use. Otherwise, the server loads all dictionaries at startup.
@@ -1204,7 +1254,6 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 Logging level.
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `TRACE`
 - `DEBUG`
 - `INFORMATION`
@@ -1215,12 +1264,16 @@ Logging level.
 The maximum size that query_log can grow to before old data will be removed. If set to **0**,
 automatic removal of query_log data based on size is disabled.
 
-Default value: **1073741824** (1 GiB). ||
+Default value: **1073741824** (1 GiB).
+
+The minimum value is 0. ||
 || query_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum time that query_log records will be retained before removal. If set to **0**, automatic removal of query_log data based on time is disabled.
 
-Default value: **2592000000** (30 days). ||
+Default value: **2592000000** (30 days).
+
+The minimum value is 0. ||
 || query_thread_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables query_thread_log system table.
@@ -1235,25 +1288,33 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that query_thread_log can grow to before old data will be removed. If set to **0**,
 automatic removal of query_thread_log data based on size is disabled.
 
-Default value: **536870912** (512 MiB). ||
+Default value: **536870912** (512 MiB).
+
+The minimum value is 0. ||
 || query_thread_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum time that query_thread_log records will be retained before removal. If set to **0**,
 automatic removal of query_thread_log data based on time is disabled.
 
-Default value: **2592000000** (30 days). ||
+Default value: **2592000000** (30 days).
+
+The minimum value is 0. ||
 || part_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum size that part_log can grow to before old data will be removed. If set to **0**,
 automatic removal of part_log data based on size is disabled.
 
-Default value: **536870912** (512 MiB). ||
+Default value: **536870912** (512 MiB).
+
+The minimum value is 0. ||
 || part_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum time that part_log records will be retained before removal. If set to **0**,
 automatic removal of part_log data based on time is disabled.
 
-Default value: **2592000000** (30 days). ||
+Default value: **2592000000** (30 days).
+
+The minimum value is 0. ||
 || metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables metric_log system table.
@@ -1268,13 +1329,17 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that metric_log can grow to before old data will be removed. If set to **0**,
 automatic removal of metric_log data based on size is disabled.
 
-Default value: **536870912** (512 MiB). ||
+Default value: **536870912** (512 MiB).
+
+The minimum value is 0. ||
 || metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum time that metric_log records will be retained before removal. If set to **0**,
 automatic removal of metric_log data based on time is disabled.
 
-Default value: **2592000000** (30 days). ||
+Default value: **2592000000** (30 days).
+
+The minimum value is 0. ||
 || trace_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables trace_log system table.
@@ -1325,7 +1390,6 @@ Default value: **TRACE**.
 
 Change of the setting is applied with restart.
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `TRACE`
 - `DEBUG`
 - `INFORMATION`
@@ -1345,13 +1409,17 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that opentelemetry_span_log can grow to before old data will be removed. If set to **0**,
 automatic removal of opentelemetry_span_log data based on size is disabled.
 
-Default value: **0**. ||
+Default value: **0**.
+
+The minimum value is 0. ||
 || opentelemetry_span_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum time that opentelemetry_span_log records will be retained before removal. If set to **0**,
 automatic removal of opentelemetry_span_log data based on time is disabled.
 
-Default value: **2592000000** (30 days). ||
+Default value: **2592000000** (30 days).
+
+The minimum value is 0. ||
 || query_views_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables query_views_log system table.
@@ -1366,13 +1434,17 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that query_views_log can grow to before old data will be removed. If set to **0**,
 automatic removal of query_views_log data based on size is disabled.
 
-Default value: **0**. ||
+Default value: **0**.
+
+The minimum value is 0. ||
 || query_views_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum time that query_views_log records will be retained before removal. If set to **0**,
 automatic removal of query_views_log data based on time is disabled.
 
-Default value: **2592000000** (30 days). ||
+Default value: **2592000000** (30 days).
+
+The minimum value is 0. ||
 || asynchronous_metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables asynchronous_metric_log system table.
@@ -1387,13 +1459,17 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that asynchronous_metric_log can grow to before old data will be removed. If set to **0**,
 automatic removal of asynchronous_metric_log data based on size is disabled.
 
-Default value: **0**. ||
+Default value: **0**.
+
+The minimum value is 0. ||
 || asynchronous_metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum time that asynchronous_metric_log records will be retained before removal. If set to **0**,
 automatic removal of asynchronous_metric_log data based on time is disabled.
 
-Default value: **2592000000** (30 days). ||
+Default value: **2592000000** (30 days).
+
+The minimum value is 0. ||
 || session_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables session_log system table.
@@ -1408,13 +1484,17 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that session_log can grow to before old data will be removed. If set to **0**,
 automatic removal of session_log data based on size is disabled.
 
-Default value: **536870912** (512 MiB) for versions 25.3 and higher, **0** for versions 25.2 and lower. ||
+Default value: **536870912** (512 MiB) for versions 25.3 and higher, **0** for versions 25.2 and lower.
+
+The minimum value is 0. ||
 || session_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum time that session_log records will be retained before removal. If set to **0**,
 automatic removal of session_log data based on time is disabled.
 
-Default value: **2592000000** (30 days). ||
+Default value: **2592000000** (30 days).
+
+The minimum value is 0. ||
 || zookeeper_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables zookeeper_log system table.
@@ -1429,13 +1509,17 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that zookeeper_log can grow to before old data will be removed. If set to **0**,
 automatic removal of zookeeper_log data based on size is disabled.
 
-Default value: **0**. ||
+Default value: **0**.
+
+The minimum value is 0. ||
 || zookeeper_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum time that zookeeper_log records will be retained before removal. If set to **0**,
 automatic removal of zookeeper_log data based on time is disabled.
 
-Default value: **2592000000** (30 days). ||
+Default value: **2592000000** (30 days).
+
+The minimum value is 0. ||
 || asynchronous_insert_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables asynchronous_insert_log system table.
@@ -1450,13 +1534,17 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that asynchronous_insert_log can grow to before old data will be removed. If set to **0**,
 automatic removal of asynchronous_insert_log data based on size is disabled.
 
-Default value: **0**. ||
+Default value: **0**.
+
+The minimum value is 0. ||
 || asynchronous_insert_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum time that asynchronous_insert_log records will be retained before removal. If set to **0**,
 automatic removal of asynchronous_insert_log data based on time is disabled.
 
-Default value: **2592000000** (30 days). ||
+Default value: **2592000000** (30 days).
+
+The minimum value is 0. ||
 || processors_profile_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables processors_profile_log system table.
@@ -1471,13 +1559,17 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that processors_profile_log can grow to before old data will be removed. If set to **0**,
 automatic removal of processors_profile_log data based on size is disabled.
 
-Default value: **0**. ||
+Default value: **0**.
+
+The minimum value is 0. ||
 || processors_profile_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum time that processors_profile_log records will be retained before removal. If set to **0**,
 automatic removal of processors_profile_log data based on time is disabled.
 
-Default value: **2592000000** (30 days). ||
+Default value: **2592000000** (30 days).
+
+The minimum value is 0. ||
 || error_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables error_log system table.
@@ -1492,13 +1584,42 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that error_log can grow to before old data will be removed. If set to **0**,
 automatic removal of error_log data based on size is disabled.
 
-Default value: **0**. ||
+Default value: **0**.
+
+The minimum value is 0. ||
 || error_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum time that error_log records will be retained before removal. If set to **0**,
 automatic removal of error_log data based on time is disabled.
 
-Default value: **2592000000** (30 days). ||
+Default value: **2592000000** (30 days).
+
+The minimum value is 0. ||
+|| query_metric_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables or disables query_metric_log system table.
+
+Default value: **false**.
+
+Change of the setting is applied with restart.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/system-tables/query_metric_log). ||
+|| query_metric_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum size that query_metric_log can grow to before old data will be removed. If set to **0**,
+automatic removal of query_metric_log data based on size is disabled.
+
+Default value: **536870912** (512 MiB).
+
+The minimum value is 0. ||
+|| query_metric_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum time that query_metric_log records will be retained before removal. If set to **0**,
+automatic removal of query_metric_log data based on time is disabled.
+
+Default value: **2592000000** (30 days).
+
+The minimum value is 0. ||
 || access_control_improvements | **[AccessControlImprovements](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.AccessControlImprovements)**
 
 Access control settings. ||
@@ -1510,33 +1631,41 @@ Default value: **4096**.
 
 Change of the setting is applied with restart.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#max_connections). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#max_connections).
+
+Acceptable values are 128 to 8192, inclusive. ||
 || max_concurrent_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of concurrently executed queries.
 
 Default value: **500**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#max_concurrent_queries). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#max_concurrent_queries).
+
+The minimum value is 100. ||
 || max_table_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum size of the table that can be deleted using **DROP** or **TRUNCATE** query.
 
 Default value: **50000000000** (48828125 KiB).
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#max_table_size_to_drop). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#max_table_size_to_drop).
+
+The minimum value is 0. ||
 || max_partition_size_to_drop | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum size of the partition that can be deleted using **DROP** or **TRUNCATE** query.
 
 Default value: **50000000000** (48828125 KiB).
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#max_partition_size_to_drop). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#max_partition_size_to_drop).
+
+The minimum value is 0. ||
 || keep_alive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of seconds that ClickHouse waits for incoming requests for HTTP protocol before closing the connection.
 
-Default value: **30**.
+Default value: **3** for versions 25.10 and higher, **30** for versions 25.9 and lower.
 
 Change of the setting is applied with restart.
 
@@ -1609,7 +1738,9 @@ Default value: **16**.
 
 Change of the setting is applied with restart.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#async_insert_threads). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#async_insert_threads).
+
+The minimum value is 0. ||
 || backup_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of threads to execute **BACKUP** requests.
@@ -1628,6 +1759,39 @@ Default value: **16**.
 Change of the setting is applied with restart.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#restore_threads). ||
+|| vector_similarity_index_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Size of cache for vector similarity indexes, in bytes. **0** means disabled.
+
+Default value: **5368709120** (5 GiB).
+
+Change of the setting is applied with restart.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#vector_similarity_index_cache_size).
+
+The minimum value is 0. ||
+|| vector_similarity_index_cache_max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Size of cache for vector similarity indexes, in entries. **0** means disabled.
+
+Default value: **10000000**.
+
+Change of the setting is applied with restart.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#vector_similarity_index_cache_max_entries).
+
+The minimum value is 0. ||
+|| max_build_vector_similarity_index_thread_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum number of threads to use for building vector indexes. **0** means unlimited.
+
+Default value: **16**.
+
+Change of the setting is applied with restart.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#max_build_vector_similarity_index_thread_pool_size).
+
+The minimum value is 0. ||
 || merge_tree | **[MergeTree](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.MergeTree)**
 
 Settings for the MergeTree table engine family.
@@ -1758,7 +1922,9 @@ an **INSERT** is artificially slowed down.
 
 Default value: **0**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#inactive_parts_to_delay_insert). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#inactive_parts_to_delay_insert).
+
+The minimum value is 0. ||
 || inactive_parts_to_throw_insert | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 If the number of inactive parts in a single partition more than the **inactive_parts_to_throw_insert** value,
@@ -1766,7 +1932,9 @@ If the number of inactive parts in a single partition more than the **inactive_p
 
 Default value: **0**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#inactive_parts_to_throw_insert). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#inactive_parts_to_throw_insert).
+
+The minimum value is 0. ||
 || max_avg_part_size_for_too_many_parts | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The "Too many parts" check according to **parts_to_delay_insert** and **parts_to_throw_insert** will be active only if the average
@@ -1776,7 +1944,9 @@ if the parts are successfully merged to larger parts. This does not affect the t
 
 Default value: **1073741824** (1 GiB).
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#max_avg_part_size_for_too_many_parts). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#max_avg_part_size_for_too_many_parts).
+
+The minimum value is 0. ||
 || max_parts_in_total | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 If the total number of active parts in all partitions of a table exceeds the **max_parts_in_total** value,
@@ -1822,7 +1992,9 @@ Corresponds roughly to the maximum possible part size created by an automatic ba
 
 Default value: **161061273600** (150 GiB).
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#max_bytes_to_merge_at_max_space_in_pool). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#max_bytes_to_merge_at_max_space_in_pool).
+
+The minimum value is 0. ||
 || min_bytes_for_wide_part | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Minimum number of bytes in a data part that can be stored in Wide format.
@@ -1843,14 +2015,18 @@ Minimum period to clean old queue logs, blocks hashes and parts.
 
 Default value: **30**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#cleanup_delay_period). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#cleanup_delay_period).
+
+The minimum value is 0. ||
 || max_cleanup_delay_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum period to clean old queue logs, blocks hashes and parts.
 
 Default value: **300** (5 minutes).
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#max_cleanup_delay_period). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#max_cleanup_delay_period).
+
+The minimum value is 0. ||
 || merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Minimum time to wait before trying to select parts to merge again after no parts were selected. A lower setting value will trigger
@@ -1858,7 +2034,9 @@ selecting tasks in background_schedule_pool frequently which result in large amo
 
 Default value: **5000** (5 seconds).
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#merge_selecting_sleep_ms). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#merge_selecting_sleep_ms).
+
+The minimum value is 0. ||
 || max_merge_selecting_sleep_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum time to wait before trying to select parts to merge again after no parts were selected. A lower setting value will trigger
@@ -1866,14 +2044,18 @@ selecting tasks in background_schedule_pool frequently which result in large amo
 
 Default value: **60000** (1 minute).
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#max_merge_selecting_sleep_ms). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#max_merge_selecting_sleep_ms).
+
+The minimum value is 0. ||
 || min_age_to_force_merge_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Merge parts if every part in the range is older than the specified value. **0** means disabled.
 
 Default value: **0**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds).
+
+The minimum value is 0. ||
 || min_age_to_force_merge_on_partition_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Whether **min_age_to_force_merge_seconds** should be applied only on the entire partition and not on subset.
@@ -1896,7 +2078,6 @@ Default value: **DEDUPLICATE_MERGE_PROJECTION_MODE_THROW**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#deduplicate_merge_projection_mode).
 
-- `DEDUPLICATE_MERGE_PROJECTION_MODE_UNSPECIFIED`
 - `DEDUPLICATE_MERGE_PROJECTION_MODE_IGNORE`
 - `DEDUPLICATE_MERGE_PROJECTION_MODE_THROW`
 - `DEDUPLICATE_MERGE_PROJECTION_MODE_DROP`
@@ -1909,7 +2090,6 @@ Default value: **LIGHTWEIGHT_MUTATION_PROJECTION_MODE_THROW**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#lightweight_mutation_projection_mode).
 
-- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_UNSPECIFIED`
 - `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_THROW`
 - `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_DROP`
 - `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_REBUILD` ||
@@ -1924,7 +2104,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 The number of seconds after which the hash sums of the inserted blocks are removed from ClickHouse Keeper.
 
-Default value: **604800** (7 days).
+Default value: **3600** (1 hour) for versions 25.10 and higher, **604800** (7 days) for versions 25.9 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window_seconds). ||
 || fsync_after_insert | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
@@ -2026,7 +2206,6 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 Required field. Compression method to use for the specified combination of **min_part_size** and **min_part_size_ratio**.
 
-- `METHOD_UNSPECIFIED`
 - `LZ4`: [LZ4 compression algorithm](https://lz4.github.io/lz4).
 - `ZSTD`: [ZSTD compression algorithm](https://facebook.github.io/zstd).
 - `LZ4HC`: [LZ4 HC (high compression) algorithm](https://clickhouse.com/docs/sql-reference/statements/create/table#lz4hc). ||
@@ -2123,7 +2302,9 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query
 
 Description of the fields available for database queries.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes).
+
+The number of elements must be greater than 0. ||
 |#
 
 ## Id {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Id}
@@ -2145,7 +2326,9 @@ Complex key.
 ||Field | Description ||
 || attributes[] | **[Attribute](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Attribute)**
 
-Attributes of a complex key. ||
+Attributes of a complex key.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## Attribute {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Attribute}
@@ -2186,7 +2369,6 @@ Required field. Layout type.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#ways-to-store-dictionaries-in-memory).
 
-- `TYPE_UNSPECIFIED`
 - `FLAT`: The dictionary is completely stored in memory in the form of flat arrays.
 Applicable only for dictionaries with numeric keys of the UInt64 type.
 - `HASHED`: The dictionary is completely stored in memory in the form of a hash table.
@@ -2219,7 +2401,9 @@ Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
 
 Default value: **1000000000**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+
+The minimum value is 0. ||
 || allow_read_expired_keys | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Allows to read expired keys.
@@ -2235,7 +2419,9 @@ Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
 
 Default value: **100000**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+
+The minimum value is 0. ||
 || update_queue_push_timeout_milliseconds | **int64**
 
 Max timeout in milliseconds for push update task into queue.
@@ -2243,7 +2429,9 @@ Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
 
 Default value: **10**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+
+The minimum value is 0. ||
 || query_wait_timeout_milliseconds | **int64**
 
 Max wait timeout in milliseconds for update task to complete.
@@ -2251,7 +2439,9 @@ Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
 
 Default value: **60000** (1 minute).
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+
+The minimum value is 0. ||
 || max_threads_for_updates | **int64**
 
 Max threads for cache dictionary update.
@@ -2259,7 +2449,9 @@ Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
 
 Default value: **4**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+
+The minimum value is 0. ||
 || initial_array_size | **int64**
 
 Initial dictionary key size.
@@ -2267,7 +2459,9 @@ Applicable only for **FLAT** layout type.
 
 Default value: **1024**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#flat). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#flat).
+
+The minimum value is 0. ||
 || max_array_size | **int64**
 
 Maximum dictionary key size.
@@ -2275,7 +2469,9 @@ Applicable only for **FLAT** layout type.
 
 Default value: **500000**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#flat). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#flat).
+
+The minimum value is 0. ||
 || access_to_key_from_attributes | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Allows to retrieve key attribute using **dictGetString** function.
@@ -2336,7 +2532,9 @@ Required field. Database name. ||
 Required field. Table name. ||
 || port | **int64**
 
-Port to use when connecting to a replica of the dictionary source. ||
+Port to use when connecting to a replica of the dictionary source.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || user | **string**
 
 Required field. Name of the user for replicas of the dictionary source. ||
@@ -2366,15 +2564,21 @@ Should a connection be shared for some requests. ||
 ||Field | Description ||
 || host | **string**
 
-Required field. MySQL host of the replica. ||
+Required field. MySQL host of the replica.
+
+The maximum string length in characters is 253. ||
 || priority | **int64**
 
 The priority of the replica that ClickHouse takes into account when connecting.
-Replica with the highest priority should have this field set to the lowest number. ||
+Replica with the highest priority should have this field set to the lowest number.
+
+The minimum value is 0. ||
 || port | **int64**
 
 Port to use when connecting to the replica.
-If a port is not specified for a replica, ClickHouse uses the port specified for the source. ||
+If a port is not specified for a replica, ClickHouse uses the port specified for the source.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || user | **string**
 
 Name of the MySQL database user.
@@ -2397,10 +2601,14 @@ Required field. Database name. ||
 Required field. Table name. ||
 || host | **string**
 
-ClickHouse host. ||
+ClickHouse host.
+
+The maximum string length in characters is 253. ||
 || port | **int64**
 
-Port to use when connecting to the host. ||
+Port to use when connecting to the host.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || user | **string**
 
 Required field. Name of the ClickHouse database user. ||
@@ -2427,10 +2635,14 @@ Required field. Database name. ||
 Required field. Collection name. ||
 || host | **string**
 
-Required field. MongoDB host. ||
+Required field. MongoDB host.
+
+The maximum string length in characters is 253. ||
 || port | **int64**
 
-Port to use when connecting to the host. ||
+Port to use when connecting to the host.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || user | **string**
 
 Required field. Name of the MongoDB database user. ||
@@ -2457,7 +2669,9 @@ Required field. Table name. ||
 PostgreSQL hosts. ||
 || port | **int64**
 
-Port to use when connecting to the PostgreSQL hosts. ||
+Port to use when connecting to the PostgreSQL hosts.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || user | **string**
 
 Required field. Name of the PostrgreSQL database user. ||
@@ -2471,7 +2685,6 @@ Query for checking the dictionary status, to pull only updated data. ||
 
 Mode of SSL TCP/IP connection to the PostgreSQL host.
 
-- `SSL_MODE_UNSPECIFIED`
 - `DISABLE`: Only try a non-SSL connection.
 - `ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.
 - `PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.
@@ -2491,7 +2704,9 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 Required field. Name for the specified combination of settings for Graphite rollup. ||
 || patterns[] | **[Pattern](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.GraphiteRollup.Pattern)**
 
-Pattern to use for the rollup. ||
+Pattern to use for the rollup.
+
+The number of elements must be greater than 0. ||
 || path_column_name | **string**
 
 The name of the column storing the metric name (Graphite sensor).
@@ -2555,7 +2770,6 @@ Protocol used to communicate with brokers.
 
 Default value: **SECURITY_PROTOCOL_PLAINTEXT**.
 
-- `SECURITY_PROTOCOL_UNSPECIFIED`
 - `SECURITY_PROTOCOL_PLAINTEXT`
 - `SECURITY_PROTOCOL_SSL`
 - `SECURITY_PROTOCOL_SASL_PLAINTEXT`
@@ -2566,7 +2780,6 @@ SASL mechanism to use for authentication.
 
 Default value: **SASL_MECHANISM_GSSAPI**.
 
-- `SASL_MECHANISM_UNSPECIFIED`
 - `SASL_MECHANISM_GSSAPI`
 - `SASL_MECHANISM_PLAIN`
 - `SASL_MECHANISM_SCRAM_SHA_256`
@@ -2588,19 +2801,22 @@ Maximum allowed time between calls to consume messages for high-level consumers.
 If this interval is exceeded the consumer is considered failed and the group will
 rebalance in order to reassign the partitions to another consumer group member.
 
-Default value: **300000** (5 minutes). ||
+Default value: **300000** (5 minutes).
+
+The minimum value is 0. ||
 || session_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Client group session and failure detection timeout. The consumer sends periodic heartbeats (heartbeat.interval.ms)
 to indicate its liveness to the broker. If no hearts are received by the broker for a group member within
 the session timeout, the broker will remove the consumer from the group and trigger a rebalance.
 
-Default value: **45000** (45 seconds). ||
+Default value: **45000** (45 seconds).
+
+The minimum value is 0. ||
 || debug | enum **Debug**
 
 Debug context to enable.
 
-- `DEBUG_UNSPECIFIED`
 - `DEBUG_GENERIC`
 - `DEBUG_BROKER`
 - `DEBUG_TOPIC`
@@ -2628,7 +2844,6 @@ Action to take when there is no initial offset in offset store or the desired of
 
 Default value: **AUTO_OFFSET_RESET_LARGEST**.
 
-- `AUTO_OFFSET_RESET_UNSPECIFIED`
 - `AUTO_OFFSET_RESET_SMALLEST`
 - `AUTO_OFFSET_RESET_EARLIEST`
 - `AUTO_OFFSET_RESET_BEGINNING`
@@ -2636,6 +2851,20 @@ Default value: **AUTO_OFFSET_RESET_LARGEST**.
 - `AUTO_OFFSET_RESET_LATEST`
 - `AUTO_OFFSET_RESET_END`
 - `AUTO_OFFSET_RESET_ERROR` ||
+|| message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum Kafka protocol request message size.
+
+Default value: **1000000**.
+
+Acceptable values are 1000 to 1000000000, inclusive. ||
+|| batch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum size (in bytes) of all messages batched in one MessageSet, including protocol framing overhead.
+
+Default value: **1000000**.
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 |#
 
 ## KafkaTopic {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.KafkaTopic}
@@ -2695,22 +2924,30 @@ Query cache configuration.
 
 The maximum cache size in bytes.
 
-Default value: **1073741824** (1 GiB). ||
+Default value: **1073741824** (1 GiB).
+
+The minimum value is 0. ||
 || max_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of **SELECT** query results stored in the cache.
 
-Default value: **1024**. ||
+Default value: **1024**.
+
+The minimum value is 0. ||
 || max_entry_size_in_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum size in bytes **SELECT** query results may have to be saved in the cache.
 
-Default value: **1048576** (1 MiB). ||
+Default value: **1048576** (1 MiB).
+
+The minimum value is 0. ||
 || max_entry_size_in_rows | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of rows **SELECT** query results may have to be saved in the cache.
 
-Default value: **30000000**. ||
+Default value: **30000000**.
+
+The minimum value is 0. ||
 |#
 
 ## JdbcBridge {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.JdbcBridge}
@@ -2726,7 +2963,9 @@ Host of jdbc bridge. ||
 
 Port of jdbc bridge.
 
-Default value: **9019**. ||
+Default value: **9019**.
+
+Acceptable values are 0 to 65535, inclusive. ||
 |#
 
 ## Macro {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Macro}
@@ -2737,10 +2976,14 @@ ClickHouse macro.
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the macro. ||
+Required field. Name of the macro.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_][a-zA-Z0-9_-]* `. ||
 || value | **string**
 
-Required field. Value of the macro. ||
+Required field. Value of the macro.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_][a-zA-Z0-9_-]* `. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.clickhouse.v1.Resources}
@@ -2769,10 +3012,14 @@ Possible values:
 ||Field | Description ||
 || planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||

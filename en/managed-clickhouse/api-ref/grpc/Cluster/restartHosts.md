@@ -24,10 +24,14 @@ sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/Cluster/restartHosts
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. Required. ID of the Clickhouse cluster. ||
+Required field. Required. ID of the Clickhouse cluster.
+
+The maximum string length in characters is 50. ||
 || host_names[] | **string**
 
-Required. Name of the hosts to restart. ||
+Required. Name of the hosts to restart.
+
+The number of elements must be greater than 0. The maximum string length in characters for each value is 353. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

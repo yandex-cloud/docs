@@ -25,10 +25,12 @@ sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/ClusterExtension/upd
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || extension_spec | **[ExtensionSpec](#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## ExtensionSpec {#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec}
@@ -37,7 +39,9 @@ Required field.  ||
 ||Field | Description ||
 || name | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 63. ||
 || version | **string** ||
 |#
 
@@ -135,10 +139,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Required. Extension name. ||
+Required field. Required. Extension name.
+
+The maximum string length in characters is 63. ||
 || cluster_id | **string**
 
-Required field. Required. ID of the ClickHouse cluster. ||
+Required field. Required. ID of the ClickHouse cluster.
+
+The maximum string length in characters is 50. ||
 || version | **string**
 
 Required field. Required. Extension version. ||

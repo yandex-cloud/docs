@@ -36,7 +36,9 @@ For detailed description, see the [Logs](/yandex-mdb-guide/concepts/logs.html) s
 
 Required field. ID of the OpenSearch cluster to request logs for.
 
-To get the OpenSearch cluster ID use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request. ||
+To get the OpenSearch cluster ID use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || column_filter[] | **string**
 
 Columns from log table to request.
@@ -52,11 +54,15 @@ End timestamp for the logs request. ||
 The maximum number of results per page to return.
 
 If the number of available results is larger than `page_size`, the service returns a [ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.opensearch.v1.ListClusterLogsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.opensearch.v1.ListClusterLogsResponse) returned by the previous list request. ||
+[ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.opensearch.v1.ListClusterLogsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 || always_next_page_token | **bool**
 
 The service always returns a [ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.opensearch.v1.ListClusterLogsResponse), even if the current page is empty. ||
@@ -74,12 +80,13 @@ The expression must specify:
 
 Examples of a filter:
 * `message.hostname='node1.db.cloud.yandex.net'`;
-* `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`. ||
+* `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`.
+
+The maximum string length in characters is 1000. ||
 || service_type | enum **ServiceType**
 
 Type of the service to request logs about.
 
-- `SERVICE_TYPE_UNSPECIFIED`: Type is not specified.
 - `OPENSEARCH`: OpenSearch logs.
 - `DASHBOARDS`: Dashboards logs. ||
 |#

@@ -3,7 +3,7 @@ sourcePath: en/_sdk-ref/sdk-ref/index.md
 ---
 # yandex-cloud-ml-sdk documentation
 
-Current package version: 0.17.0
+Current package version: 0.18.0
 
 # SDK Reference
 
@@ -20,6 +20,7 @@ Current package version: 0.17.0
   - [Tuning domain](sync/tuning.md)
   - [Batch domain](sync/batch.md)
   - [Chat domain](sync/chat/domain.md)
+  - [SpheechKit domain](sync/speechkit/domain.md)
 - [Async SDK](async/sdk.md)
   - [Models domain](async/models/domain.md)
   - [Assistants domain](async/assistants.md)
@@ -33,6 +34,7 @@ Current package version: 0.17.0
   - [Tuning domain](async/tuning.md)
   - [Batch domain](async/batch.md)
   - [Chat domain](async/chat/domain.md)
+  - [SpheechKit domain](async/speechkit/domain.md)
 
 - [Authentication](auth.md)
 - [Types](types/index.md)

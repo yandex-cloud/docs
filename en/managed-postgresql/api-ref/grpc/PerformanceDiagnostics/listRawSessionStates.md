@@ -29,7 +29,9 @@ Retrieves raw statistics on sessions. Corresponds to the [pg_stat_activity view]
 
 Required field. ID of a PostgreSQL cluster to request session statistics for.
 
-To get a PostgreSQL cluster ID, use the [ClusterService.List](/docs/managed-postgresql/api-ref/grpc/Cluster/list#List) request. ||
+To get a PostgreSQL cluster ID, use the [ClusterService.List](/docs/managed-postgresql/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Beginning of the period for which you need to request data (in the [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format). ||
@@ -38,10 +40,14 @@ Beginning of the period for which you need to request data (in the [RFC3339](htt
 End of the period for which you need to request data (in the [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format). ||
 || page_size | **int64**
 
-The maximum number of results per page to return. If the number of the results is larger than `page_size`, the service returns [ListRawSessionStatesResponse.next_page_token](#yandex.cloud.mdb.postgresql.v1.ListRawSessionStatesResponse). You can use it to get the next page of the results in subsequent requests. ||
+The maximum number of results per page to return. If the number of the results is larger than `page_size`, the service returns [ListRawSessionStatesResponse.next_page_token](#yandex.cloud.mdb.postgresql.v1.ListRawSessionStatesResponse). You can use it to get the next page of the results in subsequent requests.
+
+The maximum value is 10000. ||
 || page_token | **string**
 
-Page token. To get the next page of results, set `page_token` to the [ListRawSessionStatesResponse.next_page_token](#yandex.cloud.mdb.postgresql.v1.ListRawSessionStatesResponse) returned by the previous PostgreSQL session list request. ||
+Page token. To get the next page of results, set `page_token` to the [ListRawSessionStatesResponse.next_page_token](#yandex.cloud.mdb.postgresql.v1.ListRawSessionStatesResponse) returned by the previous PostgreSQL session list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListRawSessionStatesResponse {#yandex.cloud.mdb.postgresql.v1.ListRawSessionStatesResponse}

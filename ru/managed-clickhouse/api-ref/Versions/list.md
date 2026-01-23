@@ -14,6 +14,7 @@ apiPlayground:
             results is larger than `pageSize`, the service returns a [ListVersionsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListVersionsResponse) that can be used
             to get the next page of results in subsequent ListVersions requests.
             Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -22,6 +23,7 @@ apiPlayground:
             **string**
             Page token. Set `pageToken` to the [ListVersionsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListVersionsResponse) returned by a previous ListVersions
             request to get the next page of results.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -48,11 +50,15 @@ GET https://{{ api-host-mdb }}/managed-clickhouse/v1/versions
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `pageSize`, the service returns a [ListVersionsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListVersionsResponse) that can be used
 to get the next page of results in subsequent ListVersions requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. Set `pageToken` to the [ListVersionsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListVersionsResponse) returned by a previous ListVersions
-request to get the next page of results. ||
+request to get the next page of results.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.clickhouse.v1.ListVersionsResponse}
@@ -69,7 +75,8 @@ request to get the next page of results. ||
       "updatableTo": [
         "string"
       ],
-      "lts": "boolean"
+      "lts": "boolean",
+      "fullVersion": "string"
     }
   ],
   "nextPageToken": "string"
@@ -109,4 +116,7 @@ List of versions that can be updated from current. ||
 || lts | **boolean**
 
 Whether version is LTS. ||
+|| fullVersion | **string**
+
+Full version. ||
 |#

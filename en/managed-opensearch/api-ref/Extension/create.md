@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Required. ID of the cluster.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -21,7 +22,7 @@ apiPlayground:
         extensionSpec:
           description: |-
             **[ExtensionSpec](#yandex.cloud.mdb.opensearch.v1.ExtensionSpec)**
-            Required field. 
+            Required field.
           $ref: '#/definitions/ExtensionSpec'
       required:
         - extensionSpec
@@ -34,12 +35,14 @@ apiPlayground:
             description: |-
               **string**
               Required field. Name of the extension.
+              The maximum string length in characters is 50.
             type: string
           uri:
             description: |-
               **string**
               Required field. URI of the extension file
               Currently only supports links that are stored in Yandex Object Storage.
+              The maximum string length in characters is 50.
             type: string
           disabled:
             description: '**boolean**'
@@ -48,7 +51,6 @@ apiPlayground:
             description: |-
               **enum** (ExtensionType)
               Required field. Extension type
-              - `EXTENSION_TYPE_UNSPECIFIED`
               - `EXTENSION_TYPE_SYNONYMS`
               - `EXTENSION_TYPE_STOPWORDS`
             type: string
@@ -79,7 +81,9 @@ POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/exten
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the cluster. ||
+Required field. Required. ID of the cluster.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.opensearch.v1.CreateExtensionRequest}
@@ -99,7 +103,7 @@ Required field. Required. ID of the cluster. ||
 ||Field | Description ||
 || extensionSpec | **[ExtensionSpec](#yandex.cloud.mdb.opensearch.v1.ExtensionSpec)**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## ExtensionSpec {#yandex.cloud.mdb.opensearch.v1.ExtensionSpec}
@@ -108,17 +112,20 @@ Required field.  ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the extension. ||
+Required field. Name of the extension.
+
+The maximum string length in characters is 50. ||
 || uri | **string**
 
 Required field. URI of the extension file
-Currently only supports links that are stored in Yandex Object Storage. ||
+Currently only supports links that are stored in Yandex Object Storage.
+
+The maximum string length in characters is 50. ||
 || disabled | **boolean** ||
 || type | **enum** (ExtensionType)
 
 Required field. Extension type
 
-- `EXTENSION_TYPE_UNSPECIFIED`
 - `EXTENSION_TYPE_SYNONYMS`
 - `EXTENSION_TYPE_STOPWORDS` ||
 |#
@@ -234,7 +241,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the cluster. ||
+Required field. Required. ID of the cluster.
+
+The maximum string length in characters is 50. ||
 || extensionId | **string**
 
 Required field. Required. ID of the extension. ||
@@ -280,7 +289,6 @@ Flag is extension active now ||
 
 Extension type
 
-- `EXTENSION_TYPE_UNSPECIFIED`
 - `EXTENSION_TYPE_SYNONYMS`
 - `EXTENSION_TYPE_STOPWORDS` ||
 |#

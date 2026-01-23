@@ -27,17 +27,23 @@ Retrieves a list of shard groups that belong to specified cluster.
 
 Required field. ID of the cluster that the shard group belongs to.
 
-To get the cluster ID, make a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, make a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `page_size`, the service returns a [ListClusterShardGroupsResponse.next_page_token](#yandex.cloud.mdb.clickhouse.v1.ListClusterShardGroupsResponse) that can be used to get the next page of results in subsequent list requests. ||
+If the number of available results is larger than `page_size`, the service returns a [ListClusterShardGroupsResponse.next_page_token](#yandex.cloud.mdb.clickhouse.v1.ListClusterShardGroupsResponse) that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token.
 
-To get the next page of results, set `page_token` to the [ListClusterShardGroupsResponse.next_page_token](#yandex.cloud.mdb.clickhouse.v1.ListClusterShardGroupsResponse) returned by the previous list request. ||
+To get the next page of results, set `page_token` to the [ListClusterShardGroupsResponse.next_page_token](#yandex.cloud.mdb.clickhouse.v1.ListClusterShardGroupsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListClusterShardGroupsResponse {#yandex.cloud.mdb.clickhouse.v1.ListClusterShardGroupsResponse}

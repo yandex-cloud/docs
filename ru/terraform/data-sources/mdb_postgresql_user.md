@@ -33,11 +33,17 @@ output "permission" {
 - `cluster_id` (String) The ID of the PostgreSQL cluster.
 - `name` (String) The name of the PostgreSQL user.
 
-### Optional
+### Read-Only
 
+- `auth_method` (String) Authentication method for the user. Possible values are `AUTH_METHOD_PASSWORD`, `AUTH_METHOD_IAM`. Default is `AUTH_METHOD_PASSWORD`.
 - `conn_limit` (Number) The maximum number of connections per user. (Default 50).
+- `connection_manager` (Map of String) Connection Manager connection configuration. Filled in by the server automatically.
 - `deletion_protection` (String) The `true` value means that resource is protected from accidental deletion.
+- `grants` (List of String) List of the user's grants.
+- `id` (String) The ID of this resource.
 - `login` (Boolean) User's ability to login.
+- `password` (String, Sensitive) The password of the user.
+- `permission` (Set of Object) Set of permissions granted to the user. (see [below for nested schema](#nestedatt--permission))
 - `settings` (Map of String) Map of user settings. [Full description](https://yandex.cloud/docs/managed-postgresql/api-ref/grpc/Cluster/create#yandex.cloud.mdb.postgresql.v1.UserSettings).
 
 * `default_transaction_isolation` - defines the default isolation level to be set for all new SQL transactions. One of:
@@ -81,15 +87,9 @@ output "permission" {
 * `statement_timeout` - The maximum time (in milliseconds) to wait for statement. Value of 0 (default) disables the timeout. Integer.
 
 * `pgaudit` - Settings of the PostgreSQL Audit Extension (pgaudit). [Full description](https://yandex.cloud/ru/docs/managed-postgresql/api-ref/grpc/Cluster/create#yandex.cloud.mdb.postgresql.v1.PGAuditSettings). String (json with with escaped quotes). Example `"{\"log\": [\"READ\", \"WRITE\"]}"`
-
-### Read-Only
-
-- `auth_method` (String) Authentication method for the user. Possible values are `AUTH_METHOD_PASSWORD`, `AUTH_METHOD_IAM`. Default is `AUTH_METHOD_PASSWORD`.
-- `connection_manager` (Map of String) Connection Manager connection configuration. Filled in by the server automatically.
-- `grants` (List of String) List of the user's grants.
-- `id` (String) The ID of this resource.
-- `password` (String, Sensitive) The password of the user.
-- `permission` (Set of Object) Set of permissions granted to the user. (see [below for nested schema](#nestedatt--permission))
+- `user_password_encryption` (String) Password-based authentication method for user.
+Possible values are `USER_PASSWORD_ENCRYPTION_MD5` or `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256`.
+The default is password_encryption setting for cluster.
 
 <a id="nestedatt--permission"></a>
 ### Nested Schema for `permission`

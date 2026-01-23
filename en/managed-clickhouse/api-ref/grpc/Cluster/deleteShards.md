@@ -27,11 +27,15 @@ Deletes the specified shards (one or more).
 || cluster_id | **string**
 
 Required field. ID of the ClickHouse cluster the shards belong to.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || shard_names[] | **string**
 
 Names of the shards to be deleted.
-To get the name of a shard, use a [ClusterService.ListShards](/docs/managed-clickhouse/api-ref/grpc/Cluster/listShards#ListShards) request. ||
+To get the name of a shard, use a [ClusterService.ListShards](/docs/managed-clickhouse/api-ref/grpc/Cluster/listShards#ListShards) request.
+
+The number of elements must be greater than 0. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

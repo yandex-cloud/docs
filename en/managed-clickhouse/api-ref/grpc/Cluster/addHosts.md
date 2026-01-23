@@ -34,10 +34,14 @@ Creates new hosts for a cluster.
 || cluster_id | **string**
 
 Required field. ID of the ClickHouse cluster to add hosts to.
-To get the ClickHouse cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request. ||
+To get the ClickHouse cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || host_specs[] | **[HostSpec](#yandex.cloud.mdb.clickhouse.v1.HostSpec)**
 
-Configurations for ClickHouse hosts that should be added to the cluster. ||
+Configurations for ClickHouse hosts that should be added to the cluster.
+
+The number of elements must be greater than 0. ||
 || copy_schema | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Whether to copy schema to new ClickHouse hosts from replicas. ||
@@ -50,12 +54,13 @@ Whether to copy schema to new ClickHouse hosts from replicas. ||
 || zone_id | **string**
 
 ID of the availability zone where the host resides.
-To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request. ||
+To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request.
+
+The maximum string length in characters is 50. ||
 || type | enum **Type**
 
 Required field. Type of the host to be deployed.
 
-- `TYPE_UNSPECIFIED`: Host type is unspecified. Default value.
 - `CLICKHOUSE`: ClickHouse host.
 - `ZOOKEEPER`: ZooKeeper host.
 - `KEEPER`: ClickHouse Keeper host. ||
@@ -63,7 +68,9 @@ Required field. Type of the host to be deployed.
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The ID of the network is set in the [Cluster.network_id](/docs/managed-clickhouse/api-ref/grpc/Cluster/get#yandex.cloud.mdb.clickhouse.v1.Cluster) field. ||
+The ID of the network is set in the [Cluster.network_id](/docs/managed-clickhouse/api-ref/grpc/Cluster/get#yandex.cloud.mdb.clickhouse.v1.Cluster) field.
+
+The maximum string length in characters is 50. ||
 || assign_public_ip | **bool**
 
 Whether the host should get a public IP address on creation.
@@ -76,7 +83,9 @@ Possible values:
 * true - the host should have a public IP address. ||
 || shard_name | **string**
 
-Name of the shard that the host is assigned to. ||
+Name of the shard that the host is assigned to.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

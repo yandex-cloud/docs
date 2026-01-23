@@ -66,7 +66,9 @@ Time when the backup operation was started. ||
 Time when the backup operation was completed. ||
 || indices[] | **string**
 
-Names of indices in the backup. ||
+Names of indices in the backup.
+
+The maximum number of elements is 100. ||
 || opensearch_version | **string**
 
 OpenSearch version used to create the backup. ||

@@ -35,10 +35,14 @@ Adds new hosts in a cluster.
 
 Required field. ID of the cluster to add hosts to.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || host_specs[] | **[HostSpec](#yandex.cloud.mdb.mysql.v1.HostSpec)**
 
-Configuration of the newly added hosts. ||
+Configuration of the newly added hosts.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## HostSpec {#yandex.cloud.mdb.mysql.v1.HostSpec}
@@ -49,12 +53,16 @@ Configuration of the newly added hosts. ||
 
 ID of the availability zone where the host resides.
 
-To get a list of available zones, make the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request. ||
+To get a list of available zones, make the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request.
+
+The maximum string length in characters is 50. ||
 || subnet_id | **string**
 
 ID of the subnet to assign to the host.
 
-This subnet should be a part of the cluster network (the network ID is specified in the [ClusterService.CreateClusterRequest.network_id](/docs/managed-mysql/api-ref/grpc/Cluster/create#yandex.cloud.mdb.mysql.v1.CreateClusterRequest)). ||
+This subnet should be a part of the cluster network (the network ID is specified in the [ClusterService.CreateClusterRequest.network_id](/docs/managed-mysql/api-ref/grpc/Cluster/create#yandex.cloud.mdb.mysql.v1.CreateClusterRequest)).
+
+The maximum string length in characters is 50. ||
 || assign_public_ip | **bool**
 
 Option that enables public IP address for the host so that the host can be accessed from the internet.
@@ -70,10 +78,14 @@ Possible values:
 [Host.name](/docs/managed-mysql/api-ref/grpc/Cluster/listHosts#yandex.cloud.mdb.mysql.v1.Host) of the host to be used as the replication source (for cascading replication). ||
 || backup_priority | **int64**
 
-Host backup priority ||
+Host backup priority
+
+Acceptable values are 0 to 100, inclusive. ||
 || priority | **int64**
 
-Host master promotion priority ||
+Host master promotion priority
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

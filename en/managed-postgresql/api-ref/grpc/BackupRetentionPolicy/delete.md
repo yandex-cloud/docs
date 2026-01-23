@@ -28,7 +28,9 @@ Unique identifier for the [BackupRetentionPolicy](/docs/managed-postgresql/api-r
 || cluster_id | **string**
 
 Required field. ID of the PostgreSQL cluster.
-To get the PostgreSQL cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/grpc/Cluster/list#List) request. ||
+To get the PostgreSQL cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## DeleteBackupRetentionPolicyResponse {#yandex.cloud.mdb.postgresql.v1.DeleteBackupRetentionPolicyResponse}

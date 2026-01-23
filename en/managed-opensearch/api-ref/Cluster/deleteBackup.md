@@ -10,11 +10,13 @@ apiPlayground:
           description: |-
             **string**
             Required field. Required. ID of the OpenSearch cluster.
+            The maximum string length in characters is 50.
           type: string
         backupId:
           description: |-
             **string**
             Required field. Required. ID of the backup to delete.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -42,10 +44,14 @@ DELETE https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/bac
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the OpenSearch cluster. ||
+Required field. Required. ID of the OpenSearch cluster.
+
+The maximum string length in characters is 50. ||
 || backupId | **string**
 
-Required field. Required. ID of the backup to delete. ||
+Required field. Required. ID of the backup to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

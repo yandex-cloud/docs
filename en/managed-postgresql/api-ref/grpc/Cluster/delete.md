@@ -24,7 +24,9 @@ Deletes the specified PostgreSQL cluster.
 || cluster_id | **string**
 
 Required field. ID of the PostgreSQL cluster to delete.
-To get the PostgreSQL cluster ID, use a [ClusterService.List](/docs/managed-postgresql/api-ref/grpc/Cluster/list#List) request. ||
+To get the PostgreSQL cluster ID, use a [ClusterService.List](/docs/managed-postgresql/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

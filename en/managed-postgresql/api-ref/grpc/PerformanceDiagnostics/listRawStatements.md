@@ -29,7 +29,9 @@ Retrieves statistics on planning and execution of SQL statements (queries).
 
 Required field. ID of a PostgreSQL cluster to request query statistics for.
 
-To get a PostgreSQL cluster ID, use the [ClusterService.List](/docs/managed-postgresql/api-ref/grpc/Cluster/list#List) method. ||
+To get a PostgreSQL cluster ID, use the [ClusterService.List](/docs/managed-postgresql/api-ref/grpc/Cluster/list#List) method.
+
+The maximum string length in characters is 50. ||
 || from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Beginning of the period for which you need to request data (in the [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format). ||
@@ -38,10 +40,14 @@ Beginning of the period for which you need to request data (in the [RFC3339](htt
 End of the period for which you need to request data (in the [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format). ||
 || page_size | **int64**
 
-The maximum number of results per page to return. If the number of the results is larger than `page_size`, the service returns [ListRawStatementsResponse.next_page_token](#yandex.cloud.mdb.postgresql.v1.ListRawStatementsResponse). You can use it to get the next page of the results in subsequent requests. ||
+The maximum number of results per page to return. If the number of the results is larger than `page_size`, the service returns [ListRawStatementsResponse.next_page_token](#yandex.cloud.mdb.postgresql.v1.ListRawStatementsResponse). You can use it to get the next page of the results in subsequent requests.
+
+The maximum value is 10000. ||
 || page_token | **string**
 
-Page token. To get the next page of results, set `page_token` to the [ListRawStatementsResponse.next_page_token](#yandex.cloud.mdb.postgresql.v1.ListRawStatementsResponse) returned by the previous SQL statement list request. ||
+Page token. To get the next page of results, set `page_token` to the [ListRawStatementsResponse.next_page_token](#yandex.cloud.mdb.postgresql.v1.ListRawStatementsResponse) returned by the previous SQL statement list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListRawStatementsResponse {#yandex.cloud.mdb.postgresql.v1.ListRawStatementsResponse}

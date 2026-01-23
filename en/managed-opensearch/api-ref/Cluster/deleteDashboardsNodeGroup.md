@@ -11,11 +11,13 @@ apiPlayground:
             **string**
             Required field. ID of the OpenSearch cluster to delete the Dashboards type host group in.
             To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         name:
           description: |-
             **string**
             Required field. Name of the Dashboards type host group to delete.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
       required:
@@ -46,10 +48,14 @@ DELETE https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/das
 
 Required field. ID of the OpenSearch cluster to delete the Dashboards type host group in.
 
-To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request. ||
+To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Required field. Name of the Dashboards type host group to delete. ||
+Required field. Name of the Dashboards type host group to delete.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

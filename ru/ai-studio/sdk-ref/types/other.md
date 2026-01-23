@@ -367,6 +367,14 @@ If there is only one argument, it must be a dictionary mapping Unicode ordinals 
 
 ### *class* yandex\_cloud\_ml\_sdk.\_search\_api.types.**XMLSearchDocumentTypeT**{#yandex_cloud_ml_sdk._search_api.types.XMLSearchDocumentTypeT}
 
+### *class* yandex\_cloud\_ml\_sdk.\_types.model\_config.**ConfigTypeT**{#yandex_cloud_ml_sdk._types.model_config.ConfigTypeT}
+
+### *class* yandex\_cloud\_ml\_sdk.\_speechkit.text\_to\_speech.tts.**TextToSpeechTypeT**{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.TextToSpeechTypeT}
+
+### *class* yandex\_cloud\_ml\_sdk.\_types.enum.**ProtoBasedEnumTypeT**{#yandex_cloud_ml_sdk._types.enum.ProtoBasedEnumTypeT}
+
+### *class* yandex\_cloud\_ml\_sdk.\_speechkit.text\_to\_speech.bistream.**TTSBidirectionalStreamTypeT**{#yandex_cloud_ml_sdk._speechkit.text_to_speech.bistream.TTSBidirectionalStreamTypeT}
+
 ## Miscellaneous types
 
 ### *class* yandex\_cloud\_ml\_sdk.\_types.misc.**Undefined**{#yandex_cloud_ml_sdk._types.misc.Undefined}
@@ -391,7 +399,7 @@ yandex\_cloud\_ml\_sdk.\_types.schemas.**StrResponseType**{#yandex_cloud_ml_sdk.
 
 Type for string response formats
 
-Alias of **Literal**[**'json'**]
+Alias of [**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[**'json'**]
 
 yandex\_cloud\_ml\_sdk.\_types.schemas.**JsonVal**{#yandex_cloud_ml_sdk._types.schemas.JsonVal}
 
@@ -441,7 +449,7 @@ yandex\_cloud\_ml\_sdk.\_types.schemas.**ResponseType**{#yandex_cloud_ml_sdk._ty
 
 Types availailable for response format
 
-Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[**Literal**[**'json'**], [**JsonSchemaResponseType**](#yandex_cloud_ml_sdk._types.schemas.JsonSchemaResponseType), [**type**](https://docs.python.org/3/library/functions.html#type)]
+Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[**'json'**], [**JsonSchemaResponseType**](#yandex_cloud_ml_sdk._types.schemas.JsonSchemaResponseType), [**type**](https://docs.python.org/3/library/functions.html#type)]
 
 yandex\_cloud\_ml\_sdk.\_types.schemas.**ParametersType**{#yandex_cloud_ml_sdk._types.schemas.ParametersType}
 
@@ -502,7 +510,7 @@ Bases: [**TypedDict**](https://docs.python.org/3/library/typing.html#typing.Type
 #|
 || Required Keys | 
 
-- **type** (**Literal**[**'json\_object'**, **'json\_schema'**])
+- **type** ([**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[**'json\_object'**, **'json\_schema'**])
 - **json\_schema** ([**JsonSchemaResponseFormat**](#yandex_cloud_ml_sdk._types.schemas.JsonSchemaResponseFormat)) – Field with json schema which describes response format ||
 |#
 
@@ -558,3 +566,22 @@ type alias for completion tools
 yandex\_cloud\_ml\_sdk.\_types.tools.tool\_choice.**ToolChoiceType**{#yandex_cloud_ml_sdk._types.tools.tool_choice.ToolChoiceType}
 
 alias of [**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[‘none’, ‘None’, ‘NONE’, ‘auto’, ‘Auto’, ‘AUTO’, ‘required’, ‘Required’, ‘REQUIRED’] | [**FunctionDictType**](message.md#yandex_cloud_ml_sdk._types.tools.function.FunctionDictType) | [**FunctionTool**](tools.md#yandex_cloud_ml_sdk._tools.tool.FunctionTool)
+
+*typeddict* yandex\_cloud\_ml\_sdk.\_chat.utils.**ModelFilter**{#yandex_cloud_ml_sdk._chat.utils.ModelFilter}
+
+Options to filter models by owner, version, or fine-tuned status.
+
+Example:
+
+```python
+>>> filters = {'name': 'my-model', 'owner': 'alice', 'version': 'v2', 'fine_tuned': True}
+```
+
+#|
+|| Optional Keys | 
+
+- **name** ([**str**](https://docs.python.org/3/library/stdtypes.html#str))
+- **owner** ([**str**](https://docs.python.org/3/library/stdtypes.html#str))
+- **version** ([**str**](https://docs.python.org/3/library/stdtypes.html#str))
+- **fine\_tuned** ([**bool**](https://docs.python.org/3/library/functions.html#bool)) ||
+|#

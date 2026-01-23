@@ -8,14 +8,20 @@ apiPlayground:
       type: object
       properties:
         pageSize:
-          description: '**string** (int64)'
+          description: |-
+            **string** (int64)
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
-          description: '**string**'
+          description: |-
+            **string**
+            The maximum string length in characters is 100.
           type: string
         folderId:
-          description: '**string**'
+          description: |-
+            **string**
+            The maximum string length in characters is 50.
           type: string
       additionalProperties: false
     body: null
@@ -35,9 +41,15 @@ GET https://{{ api-host-mdb }}/managed-clickhouse/v1/extensions
 
 #|
 ||Field | Description ||
-|| pageSize | **string** (int64) ||
-|| pageToken | **string** ||
-|| folderId | **string** ||
+|| pageSize | **string** (int64)
+
+The maximum value is 1000. ||
+|| pageToken | **string**
+
+The maximum string length in characters is 100. ||
+|| folderId | **string**
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.mdb.clickhouse.v1.ListExtensionsResponse}

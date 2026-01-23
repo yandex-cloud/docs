@@ -31,7 +31,7 @@ List batch task operations with optional filtering.
 - **page\_size** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Maximum number of tasks per page (optional).
 - **status** ([*BatchTaskStatus*](../types/batch.md#yandex_cloud_ml_sdk._types.batch.status.BatchTaskStatus) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Filter tasks by status (optional).
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – The timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
-|| Return type | [*AsyncIterator*](https://docs.python.org/3/library/typing.html#typing.AsyncIterator)[[*AsyncBatchTaskOperation*](#yandex_cloud_ml_sdk._types.batch.operation.AsyncBatchTaskOperation)] ||
+|| Return type | [*AsyncIterator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.AsyncIterator)[[*AsyncBatchTaskOperation*](#yandex_cloud_ml_sdk._types.batch.operation.AsyncBatchTaskOperation)] ||
 |#
 
 *async* **list\_info**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *page\_size=Undefined*, *status=Undefined*, *timeout=60*){#yandex_cloud_ml_sdk._batch.domain.AsyncBatch.list_info}
@@ -44,7 +44,7 @@ List batch task information with optional filtering.
 - **page\_size** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Maximum number of tasks per page (optional).
 - **status** ([*BatchTaskStatus*](../types/batch.md#yandex_cloud_ml_sdk._types.batch.status.BatchTaskStatus) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Filter tasks by status (optional).
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – The timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
-|| Return type | [*AsyncIterator*](https://docs.python.org/3/library/typing.html#typing.AsyncIterator)[[*BatchTaskInfo*](../types/batch.md#yandex_cloud_ml_sdk._types.batch.task_info.BatchTaskInfo)] ||
+|| Return type | [*AsyncIterator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.AsyncIterator)[[*BatchTaskInfo*](../types/batch.md#yandex_cloud_ml_sdk._types.batch.task_info.BatchTaskInfo)] ||
 |#
 
 ## *class* yandex\_cloud\_ml\_sdk.\_types.batch.operation.**AsyncBatchTaskOperation**{#yandex_cloud_ml_sdk._types.batch.operation.AsyncBatchTaskOperation}

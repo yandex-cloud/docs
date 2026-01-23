@@ -168,14 +168,14 @@ A class with the TypedDict representing the structure of a function result messa
 
 *typeddict* yandex\_cloud\_ml\_sdk.\_tools.tool\_result.**FunctionResultDict**{#yandex_cloud_ml_sdk._tools.tool_result.FunctionResultDict}
 
-[**typing.TypedDict**](https://docs.python.org/3/library/typing.html#typing.TypedDict).
+Dictionary structure for function results.
 
 #|
 || Required Keys | 
 
-- **name** ([**str**](https://docs.python.org/3/library/stdtypes.html#str))
-- **content** ([**str**](https://docs.python.org/3/library/stdtypes.html#str))
-- **type** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) ||
+- **name** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) – Name of the function
+- **content** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) – Result content
+- **type** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) – Optional result type (default: ‘function’) ||
 |#
 
 *typeddict* yandex\_cloud\_ml\_sdk.\_types.tools.function.**FunctionDictType**{#yandex_cloud_ml_sdk._types.tools.function.FunctionDictType}
@@ -185,7 +185,7 @@ A class with the TypedDict representing the structure of a function result messa
 #|
 || Required Keys | 
 
-- **type** (**Literal**[**'function'**])
+- **type** ([**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[**'function'**])
 - **function** ([**FunctionNameType**](#yandex_cloud_ml_sdk._types.tools.function.FunctionNameType)) ||
 |#
 
@@ -254,7 +254,7 @@ Used to include text data in multimodal chat messages.
 #|
 || Required Keys | 
 
-- **type** (**Literal**[**'text'**]) – Content type identifier for text
+- **type** ([**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[**'text'**]) – Content type identifier for text
 - **text** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) – Text content ||
 |#
 
@@ -267,7 +267,7 @@ Used to include image data in multimodal chat messages.
 #|
 || Required Keys | 
 
-- **type** (**Literal**[**'image\_url'**]) – Content type identifier for text
+- **type** ([**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[**'image\_url'**]) – Content type identifier for text
 - **image\_url** ([**ImageUrlDict**](#yandex_cloud_ml_sdk._chat.completions.message.ImageUrlDict)) – Image URL information ||
 |#
 
@@ -310,16 +310,16 @@ The class with TypedDict representing the structure of an image message.
 
 The class with a protocol which defines an object with a text field. The protocol can be used to check if an object has a text attribute.
 
-**text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._models.image_generation.message.AnyMessage.text}
+*property* **text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._models.image_generation.message.AnyMessage.text}
 
 yandex\_cloud\_ml\_sdk.\_models.image\_generation.message.**ImageMessageType**{#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessageType}
 
 type alias for different types of messages that can be processed by image generation models
 
-Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**ImageMessage**](#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessage), [**ImageMessageDict**](#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessageDict), [**AnyMessage**](#yandex_cloud_ml_sdk._models.image_generation.message.AnyMessage), [**str**](https://docs.python.org/3/library/stdtypes.html#str)]
+Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**ImageMessage**](#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessage), [**ImageMessageDict**](#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessageDict), [**TextMessage**](#yandex_cloud_ml_sdk._types.message.TextMessage), [**AnyMessage**](#yandex_cloud_ml_sdk._models.image_generation.message.AnyMessage), [**str**](https://docs.python.org/3/library/stdtypes.html#str)]
 
 yandex\_cloud\_ml\_sdk.\_models.image\_generation.message.**ImageMessageInputType**{#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessageInputType}
 
 type alias for input types accepted by the *messages\_to\_proto* function
 
-Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**ImageMessage**](#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessage), [**ImageMessageDict**](#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessageDict), [**AnyMessage**](#yandex_cloud_ml_sdk._models.image_generation.message.AnyMessage), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Iterable**](https://docs.python.org/3/library/typing.html#typing.Iterable)[[**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**ImageMessage**](#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessage), [**ImageMessageDict**](#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessageDict), [**AnyMessage**](#yandex_cloud_ml_sdk._models.image_generation.message.AnyMessage), [**str**](https://docs.python.org/3/library/stdtypes.html#str)]]]
+Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**ImageMessage**](#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessage), [**ImageMessageDict**](#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessageDict), [**TextMessage**](#yandex_cloud_ml_sdk._types.message.TextMessage), [**AnyMessage**](#yandex_cloud_ml_sdk._models.image_generation.message.AnyMessage), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Iterable**](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)[[**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**ImageMessage**](#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessage), [**ImageMessageDict**](#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessageDict), [**TextMessage**](#yandex_cloud_ml_sdk._types.message.TextMessage), [**AnyMessage**](#yandex_cloud_ml_sdk._models.image_generation.message.AnyMessage), [**str**](https://docs.python.org/3/library/stdtypes.html#str)]]]

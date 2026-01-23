@@ -25,17 +25,23 @@ Returns the list of available backups for the specified Greenplum® cluster.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder to list backups in. ||
+Required field. ID of the folder to list backups in.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return.
 
 If the number of available results is larger than `page_size`, the service returns a [ListBackupsResponse.next_page_token](#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse) that can be used to get the next page of results in subsequent list requests.
 
-Default value is 100. ||
+Default value is 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
-The page token. To get the next page of results, set `page_token` to the [ListBackupsResponse.next_page_token](#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse) returned by the previous list request. ||
+The page token. To get the next page of results, set `page_token` to the [ListBackupsResponse.next_page_token](#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListBackupsResponse {#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse}
@@ -99,14 +105,12 @@ Size of the backup in bytes. ||
 
 How this backup was created (manual/automatic/etc...)
 
-- `BACKUP_CREATION_TYPE_UNSPECIFIED`
 - `AUTOMATED`: Backup created by automated daily schedule
 - `MANUAL`: Backup created by user request ||
 || method | enum **BackupMethod**
 
 Method of backup creation
 
-- `BACKUP_METHOD_UNSPECIFIED`
 - `BASE`: Base backup
 - `INCREMENTAL`: Delta (incremental) Greenplum backup ||
 || journal_size | **int64**

@@ -24,7 +24,9 @@ Deletes the specified OpenSearch cluster.
 || cluster_id | **string**
 
 Required field. ID of the OpenSearch cluster to delete.
-To get the OpenSearch cluster ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request. ||
+To get the OpenSearch cluster ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

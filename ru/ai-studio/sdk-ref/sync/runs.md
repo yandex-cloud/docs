@@ -42,7 +42,7 @@ List runs. Returns an async iterator to retrieve all runs.
 
 - **page\_size** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Number of items per page. Larger values reduce the number of network calls but increase memory consumption per request.
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – The timeout, or the maximum time to wait for each network request to complete in seconds. Defaults to 60 seconds. This affects the network behavior but not the total time for iteration. ||
-|| Return type | [*Iterator*](https://docs.python.org/3/library/typing.html#typing.Iterator)[[*Run*](#yandex_cloud_ml_sdk._runs.run.Run)] ||
+|| Return type | [*Iterator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterator)[[*Run*](#yandex_cloud_ml_sdk._runs.run.Run)] ||
 |#
 
 ## *class* yandex\_cloud\_ml\_sdk.\_runs.run.**Run**{#yandex_cloud_ml_sdk._runs.run.Run}
@@ -62,7 +62,7 @@ Listen to run events stream.
 
 - **events\_start\_idx** ([*int*](https://docs.python.org/3/library/functions.html#int)) – Starting event index
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – The timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
-|| Return type | [*Iterator*](https://docs.python.org/3/library/typing.html#typing.Iterator)[[*RunStreamEvent*](../types/runs.md#yandex_cloud_ml_sdk._runs.result.RunStreamEvent)[[*ToolCall*](tools.md#yandex_cloud_ml_sdk._tools.tool_call.ToolCall)]] ||
+|| Return type | [*Iterator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterator)[[*RunStreamEvent*](../types/runs.md#yandex_cloud_ml_sdk._runs.result.RunStreamEvent)[[*ToolCall*](tools.md#yandex_cloud_ml_sdk._tools.tool_call.ToolCall)]] ||
 |#
 
 **submit\_tool\_results**(*tool\_results*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *timeout=60*){#yandex_cloud_ml_sdk._runs.run.Run.submit_tool_results}

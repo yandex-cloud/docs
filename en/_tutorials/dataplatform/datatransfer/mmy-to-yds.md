@@ -6,7 +6,7 @@ To set up CDC using {{ data-transfer-name }}:
 
 1. [Set up your transfer](#prepare-transfer).
 1. [Activate the transfer](#activate-transfer).
-1. [Test replication](#check-replication).
+1. [Test the replication process](#check-replication).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -28,13 +28,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
-Set up the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    1. [Create a {{ mmy-name }} source cluster](../../../managed-mysql/operations/cluster-create.md) using any suitable [configuration](../../../managed-mysql/concepts/instance-types.md) with publicly accessible hosts. Specify the following settings:
+    1. [Create a {{ mmy-name }} source cluster](../../../managed-mysql/operations/cluster-create.md) in any suitable [configuration](../../../managed-mysql/concepts/instance-types.md) with publicly available hosts and the following settings:
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mmy-user`
 
@@ -46,7 +46,7 @@ Set up the infrastructure:
 
     1. [Create a {{ ydb-name }} database](../../../ydb/operations/manage-databases.md#create-db) named `ydb-example` with any suitable configuration.
 
-    1. [Create a service account](../../../iam/operations/sa/create.md#create-sa) `yds-sa` with the `yds.editor` role. The transfer will use it to access {{ yds-name }}.
+    1. [Create a service account](../../../iam/operations/sa/create.md#create-sa) named `yds-sa` with the `yds.editor` role. The transfer will use it to access {{ yds-name }}.
 
 - {{ TF }} {#tf}
 
@@ -64,19 +64,19 @@ Set up the infrastructure:
         * [Security group](../../../vpc/concepts/security-groups.md) required for cluster connection.
         * {{ mmy-name }} source cluster.
         * {{ ydb-name }} database.
-        * Service account that will be used to access {{ yds-name }}.
+        * Service account to use for {{ yds-name }} access.
         * Source endpoint.
         * Transfer.
 
-    1. In the `mysql-yds.tf` file, specify the {{ MY }} user password.
+    1. In `mysql-yds.tf`, specify the {{ MY }} user password.
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will display any configuration errors detected in your files.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -90,7 +90,7 @@ Set up the infrastructure:
 
 1. [Create a data stream in {{ yds-name }}](../../../data-streams/operations/aws-cli/create.md) named `mpg-stream`.
 
-1. [Connect to the {{ mmy-name }} cluster](../../../managed-mysql/operations/connect.md). In the `db1` database, create a table named `measurements` and populate it with data:
+1. [Connect to the {{ mmy-name }} cluster](../../../managed-mysql/operations/connect.md), create a table named `measurements` in the `db1` database, and populate it with data:
 
     ```sql
     CREATE TABLE measurements (
@@ -112,11 +112,11 @@ Set up the infrastructure:
 
 1. [Create a `{{ yds-name }}` target endpoint](../../../data-transfer/operations/endpoint/target/data-streams.md) with the following settings:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: `ydb-example`
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: `mpg-stream`
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: `yds-sa`
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: `ydb-example`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: `mpg-stream`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: `yds-sa`.
 
-1. Create a source endpoint and set up the transfer:
+1. Create a source endpoint and transfer:
 
     {% list tabs group=instructions %}
 
@@ -124,28 +124,28 @@ Set up the infrastructure:
 
         1. [Create a `{{ MY }}` source endpoint](../../../data-transfer/operations/endpoint/source/mysql.md) with these cluster connection settings:
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}**: `<source_cluster_name>` from the drop-down list.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: `db1`
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}**: `mmy-user`
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: `db1`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}**: `mmy-user`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}**: `mmy-user` password.
 
-        1. [Create](../../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type transfer configured to use the new endpoints.
+        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type that will use the endpoints you created.
 
     - {{ TF }} {#tf}
 
         1. In the `mysql-yds.tf` file, specify the following variables:
 
             * `yds_endpoint_id`: Target endpoint ID.
-            * `transfer_enabled`: `1` to create a transfer.
+            * `transfer_enabled`: Set to `1` to create a transfer.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will display any configuration errors detected in your files.
+            {{ TF }} will show any errors found in your configuration files.
 
         1. Create the required infrastructure:
 
@@ -159,7 +159,7 @@ Set up the infrastructure:
 
 {% include [get-yds-data](../../../_includes/data-transfer/get-yds-data.md) %}
 
-## Test replication {#check-replication}
+## Test the replication process {#check-replication}
 
 1. Connect to the source cluster.
 1. Add a new row to the `measurements` table:
@@ -169,13 +169,13 @@ Set up the infrastructure:
         ('ad02l5ck6sdt********', '2022-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 19, 45);
     ```
 
-1. Verify that the new row has appeared in the data stream.
+1. Make sure you can now see the new row in your data stream.
 
 ## Delete the resources you created {#clear-out}
 
 {% include [note before delete resources](../../../_includes/mdb/note-before-delete-resources.md) %}
 
-To reduce the consumption of resources you do not need, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the target endpoint](../../../data-transfer/operations/endpoint/index.md#delete).

@@ -27,11 +27,15 @@ To get the list of available ClickHouse Database resources, make a [List](/docs/
 || cluster_id | **string**
 
 Required field. ID of the ClickHouse cluster that the database belongs to.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || database_name | **string**
 
 Required field. Name of the ClickHouse Database resource to return.
-To get the name of the database, use a [DatabaseService.List](/docs/managed-clickhouse/api-ref/grpc/Database/list#List) request. ||
+To get the name of the database, use a [DatabaseService.List](/docs/managed-clickhouse/api-ref/grpc/Database/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Database {#yandex.cloud.mdb.clickhouse.v1.Database}
@@ -59,7 +63,6 @@ ID of the ClickHouse cluster that the database belongs to. ||
 
 Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
 
-- `DATABASE_ENGINE_UNSPECIFIED`
 - `DATABASE_ENGINE_ATOMIC`
 - `DATABASE_ENGINE_REPLICATED` ||
 |#

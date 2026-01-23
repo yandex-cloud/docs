@@ -22,10 +22,14 @@ sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/ClusterExtension/del
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || extension_name | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 63. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

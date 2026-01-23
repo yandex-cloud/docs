@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Required. ID of the cluster.
+            The maximum string length in characters is 50.
           type: string
         extensionId:
           description: |-
@@ -42,7 +43,9 @@ DELETE https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/ext
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the cluster. ||
+Required field. Required. ID of the cluster.
+
+The maximum string length in characters is 50. ||
 || extensionId | **string**
 
 Required field. Required. ID of the extension to delete. ||
@@ -136,7 +139,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the cluster. ||
+Required field. Required. ID of the cluster.
+
+The maximum string length in characters is 50. ||
 || extensionId | **string**
 
 Required field. Required. ID of the extension to delete. ||

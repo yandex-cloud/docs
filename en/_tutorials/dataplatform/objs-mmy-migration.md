@@ -25,20 +25,20 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
-Set up the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=resources %}
 
 - Manually {#manual}
 
-    1. [Create an {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md).
+    1. [Create a {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md).
 
     
-    1. [Create a service account](../../iam/operations/sa/create.md#create-sa) `storage-viewer` with the `storage.viewer` role. The transfer will use it to access the bucket.
+    1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `storage-viewer` with the `storage.viewer` role. The transfer will use it to access the bucket.
     1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the `storage-viewer` service account.
 
 
-    1. [Create a {{ mmy-name }} target cluster](../../managed-mysql/operations/cluster-create.md) of any suitable configuration with the following settings:
+    1. [Create a target {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-create.md) with the following settings:
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mmy-user`
@@ -59,11 +59,11 @@ Set up the infrastructure:
 
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
-        * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mmy-name }} cluster.
+        * [Security group](../../vpc/concepts/security-groups.md) and the rule permitting access to the {{ mmy-name }} cluster.
         * Service account to use for creating and accessing the bucket.
         * {{ lockbox-name }} secret for the service account static key required to configure the source endpoint.
-        * Source {{ objstorage-name }} bucket.
-        * Target {{ mmy-name }} cluster.
+        * {{ objstorage-name }} source bucket.
+        * {{ mmy-name }} target cluster.
         * Target endpoint.
         * Transfer.
 
@@ -73,13 +73,13 @@ Set up the infrastructure:
         * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
         * `mmy_password`: {{ MY }} user password.
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will display any configuration errors detected in your files.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -91,7 +91,7 @@ Set up the infrastructure:
 
 ## Prepare your test data {#prepare-data}
 
-1. On your local machine, create a `data.csv` text file and fill it with test data. In our example, we will use readings from car sensors:
+1. Create a text file named `data.csv` on the running instance and fill it with test data. In our example, we will use readings from car sensors:
 
     ```csv
     1;99101;2022-06-05 17:27:00;55.70329032;37.65472196;427.5;52.3;23.5;17.;52.
@@ -150,41 +150,41 @@ Set up the infrastructure:
 
         1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/postgresql.md):
 
-            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`
+            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.title }}**:
 
               * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}**:
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
 
                    Select your source cluster from the list and specify its connection settings.
 
-        1. [Create](../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**-type transfer configured to use the new endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**-type that will use the endpoints you created.
         1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
     - {{ TF }} {#tf}
 
         1. In the `data-transfer-objs-mmy.tf` file, specify the following variables:
 
-            * `source_endpoint_id`: ID of the source endpoint.
-            * `transfer_enabled`: `1` to create a transfer.
+            * `source_endpoint_id`: Source endpoint ID.
+            * `transfer_enabled`: Set to `1` to create a transfer.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will display any configuration errors detected in your files.
+            {{ TF }} will show any errors found in your configuration files.
 
         1. Create the required infrastructure for the transfer:
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            Once created, your transfer will be activated automatically.
+            The transfer will activate automatically upon creation.
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. [Connect to the {{ mmy-name }} target cluster database](../../managed-mysql/operations/connect.md).
@@ -227,7 +227,7 @@ Before deleting the resources, [deactivate the transfer](../../data-transfer/ope
 
 {% endnote %}
 
-To reduce the consumption of resources you do not need, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).

@@ -26,12 +26,16 @@ Deletes a database from a cluster.
 
 Required field. ID of the cluster to delete the database from.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || database_name | **string**
 
 Required field. Name of the database to delete.
 
-To get this name, make a [DatabaseService.List](/docs/managed-mysql/api-ref/grpc/Database/list#List) request. ||
+To get this name, make a [DatabaseService.List](/docs/managed-mysql/api-ref/grpc/Database/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
