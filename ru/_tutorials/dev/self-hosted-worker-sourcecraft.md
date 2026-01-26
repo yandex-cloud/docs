@@ -41,8 +41,8 @@
 
 Чтобы развернуть пользовательский воркер {{ src-name }} на ВМ {{ compute-name }}:
 1. [Подготовьтесь к работе](#prepare).
-1. [Создайте инфраструктуру](#infra).
-1. [Клонируйте репозиторий с конфигурацией CI/CD воркера](#clone-repo).
+1. [Разверните инфраструктуру](#infra).
+1. [Создайте репозиторий с конфигурацией CI/CD](#clone-repo).
 1. [Создайте секреты](#secrets).
 1. [Настройте сервисное подключение](#service-connection).
 1. [Настройте CI/CD-процесс](#configure-ci-cd).
@@ -58,10 +58,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры пользовательского воркера входят:
-* плата за диск и запущенную ВМ (см. [тарифы {{ compute-full-name }}](https://yandex.cloud/ru/docs/compute/pricing));
-* плата за использование внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](https://yandex.cloud/ru/docs/vpc/pricing)).
+* плата за диск и запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
-## Создайте инфраструктуру {#infra}
+## Разверните инфраструктуру {#infra}
 
 1. Если у вас еще нет сетевой инфраструктуры в каталоге {{ yandex-cloud }}, в котором вы хотите разместить ВМ с пользовательским воркером, создайте облачную [сеть](../../vpc/operations/network-create.md), например `default`, и [подсеть](../../vpc/operations/subnet-create.md), например `default-ru-central1-d`.
 
@@ -72,6 +72,8 @@
     {% endnote %}
 
 1. В предложенном примере для ВМ используется [группа безопасности](../../vpc/concepts/security-groups.md) по умолчанию. [Добавьте](../../vpc/operations/security-group-add-rule.md) в нее следующие правила:
+
+    <br>
 
     #|
     || **Направление**
@@ -102,7 +104,7 @@
 
     От имени этого сервисного аккаунта будут создаваться ВМ в {{ compute-name }}, и осуществляться [сервисное подключение]({{ link-src-docs }}/sourcecraft/concepts/service-connections) {{ src-name }}.
 
-## Создайте репозиторий с конфигурацией CI/CD воркера {#clone-repo}
+## Создайте репозиторий с конфигурацией CI/CD {#clone-repo}
 
 {% note tip %}
 
@@ -217,7 +219,7 @@ CI/CD-процесс [настраивается]({{ link-src-docs }}/sourcecraf
 * `CORES` — количество ядер vCPU, например `8`.
 * `CORE_FRACTION` — [гарантированная доля](../../compute/concepts/performance-levels.md) vCPU, например `100`.
 * `PREEMPTIBLE` — указание, использовать ли [прерываемую ВМ](../../compute/concepts/preemptible-vm.md), например `false`.
-* `SSH_PUB` — секрет с публичной частью SSH-ключа, [созданный ранее](#secrets) в формате `${{ secrets.<название_секрета> }}`. Задается на случай, если понадобится подключиться к ВМ с пользовательским воркером.
+* `SSH_PUB` — [созданный ранее](#secrets) секрет с публичной частью SSH-ключа в формате `${{ secrets.<название_секрета> }}`. Задается на случай, если понадобится подключиться к ВМ с пользовательским воркером.
 
 Создание пользователя ВМ с логином `builder` происходит в файле с метаданными `metadata.yaml`:
 
@@ -298,7 +300,7 @@ write_files:
 
 [Запустите вручную]({{ link-src-docs }}/sourcecraft/operations/run-workflow-manually) рабочий процесс `create-vm`.
 
-Процесс создания можно контролировать по логам [кубиков]({{ link-src-docs }}/sourcecraft/ci-cd-ref/cubes). При успешном завершении рабочего процесса, созданную ВМ можно увидеть в [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} по ссылке из лога кубика `create-vm`.
+Процесс создания можно контролировать по логам [кубиков]({{ link-src-docs }}/sourcecraft/ci-cd-ref/cubes). При успешном завершении рабочего процесса созданную ВМ можно увидеть в [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} по ссылке из лога кубика `create-vm`.
 
 ### Запустите тестовый рабочий процесс {#run-test-workflow}
 
@@ -311,10 +313,9 @@ write_files:
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за созданные ресурсы, [запустите вручную]({{ link-src-docs }}/sourcecraft/operations/run-workflow-manually) рабочий процесс `delete-vm` или [удалите](https://yandex.cloud/ru/docs/compute/operations/vm-control/vm-delete) ВМ с пользовательским воркером в интерфейсе {{ yandex-cloud }}.
+Чтобы перестать платить за созданные ресурсы, [запустите вручную]({{ link-src-docs }}/sourcecraft/operations/run-workflow-manually) рабочий процесс `delete-vm` или [удалите](../../compute/operations/vm-control/vm-delete.md) ВМ с пользовательским воркером в интерфейсе {{ yandex-cloud }}.
 
-При необходимости удалите [сеть](https://yandex.cloud/ru/docs/vpc/operations/network-delete) и [подсеть](https://yandex.cloud/ru/docs/vpc/operations/subnet-delete).
-
+При необходимости удалите [сеть](../../vpc/operations/network-delete.md) и [подсеть](../../vpc/operations/subnet-delete.md).
 
 ## См. также {#see-also}
 
