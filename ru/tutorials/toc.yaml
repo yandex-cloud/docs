@@ -401,6 +401,8 @@ items:
         href: testing/loadtesting-gitlab-ci.md
       - name: Развертывание {{ GLR }} на виртуальной машине {{ compute-name }}
         href: dev/install-gitlab-runner.md
+      - name: Развертывание воркера {{ src-full-name }} на виртуальной машине {{ compute-name }}
+        href: dev/self-hosted-worker-sourcecraft.md
       - name: Сравнение результатов нагрузочных тестов
         href: testing/loadtesting-results-compare.md
       - name: >-
