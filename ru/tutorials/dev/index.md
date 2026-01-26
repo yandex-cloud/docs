@@ -23,5 +23,6 @@ description: Различные сценарии использования по
 * [Получение количества запросов к объектам {{ objstorage-full-name }}](../testing/server-logs.md)
 * [Вызов нагрузочного тестирования из {{ GL }} CI](../testing/loadtesting-gitlab-ci.md)
 * [{#T}](install-gitlab-runner.md)
+* [{#T}](self-hosted-worker-sourcecraft.md)
 * [{#T}](../testing/loadtesting-results-compare.md)
 * [{#T}](ai-powered-github-pr-review.md)

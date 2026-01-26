@@ -50,6 +50,7 @@ description: Различные сценарии использования {{ c
 * [{#T}](usb-over-ip.md)
 * [{#T}](integrate-nextcloud/index.md)
 * [{#T}](docker-cloud-registry.md)
+* [{#T}](self-hosted-worker-sourcecraft.md)
 
 ## {{ coi }} {#coi}
 
