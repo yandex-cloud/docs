@@ -634,6 +634,8 @@ items:
             href: tutorials/integrate-nextcloud/terraform.md
       - name: Запуск Docker-образа на ВМ с помощью {{ cloud-registry-name }}
         href: tutorials/docker-cloud-registry.md
+      - name: Развертывание воркера {{ src-full-name }} на ВМ
+        href: tutorials/self-hosted-worker-sourcecraft.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов
