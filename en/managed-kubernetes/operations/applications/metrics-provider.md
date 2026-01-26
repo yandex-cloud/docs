@@ -1,8 +1,8 @@
 # Installing {{ MP }}
 
-{{ MP }} streams metrics of [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) objects to monitoring systems and [auto scaling systems](../../concepts/autoscale.md). You can also stream metrics in the opposite direction. For example, cluster objects can receive metrics from [{{ monitoring-full-name }}](../../../monitoring/concepts/index.md).
+{{ MP }} transmits metrics of [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) objects to monitoring systems and [automatic scaling systems](../../concepts/autoscale.md). You can also transmit metrics in the opposite direction. For example, cluster objects can receive metrics from [{{ monitoring-full-name }}](../../../monitoring/concepts/index.md).
 
-The provider transforms the request to collect external metrics from a {{ managed-k8s-name }} cluster object into the required {{ monitoring-name }} format, and also performs the reverse transformation: from {{ monitoring-name }} to the cluster object.
+The provider converts a request to collect external metrics from a {{ managed-k8s-name }} cluster object into the required {{ monitoring-name }} format, and also performs the reverse conversion: from {{ monitoring-name }} to the cluster object.
 
 ## Getting started {#before-you-begin}
 
@@ -23,28 +23,28 @@ The provider transforms the request to collect external metrics from a {{ manage
 
     {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-## Installation using {{ marketplace-full-name }} {#marketplace-install}
+## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Navigate to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [{{ MP }}](/marketplace/products/yc/metric-provider) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `metrics-provider-space`. If you leave the default namespace, {{ MP }} may work incorrectly.
    * **Application name**: Specify the application name.
    * **Folder ID**: Specify the [ID of the folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where {{ MP }} will run.
-   * **Time window**: Specify the time window to collect metrics for (in `DdHhMmSs` format, e.g., `5d10h30m20s`).
-   * (Optional) **Disable decimation**: Select this option not to apply a data [decimation function](../../../monitoring/concepts/decimation.md).
-   * (Optional) **Aggregation function**: Select a data [aggregation function](../../../monitoring/concepts/querying.md#combine-functions). The default value is `AVG`.
-   * (Optional) **Data filling**: Configure filling in missing data:
-     * `NULL`: Returns `null` as the metric value and `timestamp` as the timestamp value. Default.
+   * **Time window**: Specify the time window to collect metrics over (in `DdHhMmSs` format, e.g., `5d10h30m20s`).
+   * **Disable downsampling**: Select this option not to use a data [downsampling function](../../../monitoring/concepts/decimation.md). This is an optional setting.
+   * **Aggregation function**: Select the data [aggregation function](../../../monitoring/concepts/querying.md#combine-functions). This is an optional setting. The default value is `AVG`.
+   * **Data filling**: Optionally, configure filling in missing data:
+     * `NULL`: Returns `null` as the metric value, and `timestamp` as the timestamp value. This is a default value.
      * `NONE`: Returns no values.
      * `PREVIOUS`: Returns the value from the previous data point.
-   * (Optional) **Maximum number of points**: Specify the maximum number of points that will be returned in response to a request. The value of this parameter must be greater than `10`.
-   * (Optional) **Decimation time window**: Specify a time window (grid) in milliseconds. It is used for decimation: points inside the window are combined into a single one using the aggregation function. The value of the parameter must be greater than `0`.
+   * **Maximum number of points**: Specify the maximum number of points to return in a request response. This is an optional setting. The value of this parameter must be greater than `10`.
+   * **Downsampling time window**: Specify a time window (grid) in milliseconds. This is an optional setting. It is used for downsampling: points inside the window are merged into a single one using the aggregation function. The value of this parameter must be greater than `0`.
 
      {% note info %}
 
-     Select only one of the settings: either **Maximum number of points** or **Decimation time window**. Leave both the fields blank not to use either setting. For more information, see the [API documentation](../../../monitoring/api-ref/MetricsData/read.md).
+     Select either **Maximum number of points** or **Decimation time window**. Leave these fields blank not to use either setting. For more information, see [this API guide](../../../monitoring/api-ref/MetricsData/read.md).
 
      {% endnote %}
 
@@ -65,11 +65,11 @@ The provider transforms the request to collect external metrics from a {{ manage
      --untar
    ```
 
-   If you set `namespace` to the default namespace, {{ MP }} may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `metrics-provider-space`).
+   If you set `namespace` to the default namespace, {{ MP }} may work incorrectly. We recommend specifying a value different from all the existing namespaces, e.g., `metrics-provider-space`.
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-1. Set up and install {{ MP }}:
+1. Install and set up {{ MP }}:
 
    ```bash
    helm install \
@@ -81,30 +81,30 @@ The provider transforms the request to collect external metrics from a {{ manage
      --set yandexMetrics.downsampling.gridAggregation=<aggregation_function> \
      --set yandexMetrics.downsampling.gapFilling=<data_filling> \
      --set yandexMetrics.downsampling.maxPoints=<maximum_number_of_points> \
-     --set yandexMetrics.downsampling.gridInterval=<decimation_time_window> \
-     --set yandexMetrics.downsampling.disabled=<data_decimation_mode> \
+     --set yandexMetrics.downsampling.gridInterval=<downsampling_time_window> \
+     --set yandexMetrics.downsampling.disabled=<data_downsampling_mode> \
      metric-provider ./metric-provider/
    ```
 
-   Required parameters:
+   The following parameters are required:
    * `--namespace`: [Namespace](../../concepts/index.md#namespace) where the provider will be deployed.
    * `yandexMetrics.folderId`: [ID of the folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the provider will run.
-   * `window`: Specify the time window to collect metrics for (in `DdHhMmSs` format, e.g., `5d10h30m20s`).
+   * `window`: Specify the time window to collect metrics over (in `DdHhMmSs` format, e.g., `5d10h30m20s`).
    * `yandexMetrics.token.serviceAccountJson`: Path to the file with the authorized key of the service account with the `monitoring.viewer` role.
 
-   Decimation (`downsampling`) parameters. For the provider to work, you need to select at least one of the parameters below:
+   Downsampling parameters. For the provider to work, you need to select at least one of the parameters below:
    * `yandexMetrics.downsampling.gridAggregation`: Data [aggregation function](../../../monitoring/concepts/querying.md#combine-functions). The default value is `AVG`.
    * `yandexMetrics.downsampling.gapFilling`: Settings for filling in missing data:
-     * `NULL`: Returns `null` as the metric value and `timestamp` as the timestamp value.
+     * `NULL`: Returns `null` as the metric value, and `timestamp` as the timestamp value.
      * `NONE`: Returns no values.
      * `PREVIOUS`: Returns the value from the previous data point.
-   * `yandexMetrics.downsampling.maxPoints`: Maximum number of points to receive in response to a request. The value of this parameter must be greater than `10`.
-   * `yandexMetrics.downsampling.gridInterval`: Time window (grid) in milliseconds. It is used for decimation: points inside the window are combined into a single one using the aggregation function. The value of this parameter must be greater than `0`.
-   * `yandexMetrics.downsampling.disabled`: Disable data decimation. Possible values: `true` or `false`.
+   * `yandexMetrics.downsampling.maxPoints`: Maximum number of points to receive in a request response. The value of this parameter must be greater than `10`.
+   * `yandexMetrics.downsampling.gridInterval`: Time window (grid) in milliseconds. It is used for downsampling: points inside the window are merged into a single one using the aggregation function. The value of this parameter must be greater than `0`.
+   * `yandexMetrics.downsampling.disabled`: Disable data downsampling; either `true` or `false`.
 
      {% note info %}
 
-     Use only one of these parameters: `yandexMetrics.downsampling.maxPoints`, `yandexMetrics.downsampling.gridInterval`, or `yandexMetrics.downsampling.disabled`. For more information about decimation parameters, see the [API documentation](../../../monitoring/api-ref/MetricsData/read.md).
+     Use only one of these parameters: `yandexMetrics.downsampling.maxPoints`, `yandexMetrics.downsampling.gridInterval`, or `yandexMetrics.downsampling.disabled`. For more information about downsampling parameters, see [this API guide](../../../monitoring/api-ref/MetricsData/read.md).
 
      {% endnote %}
 

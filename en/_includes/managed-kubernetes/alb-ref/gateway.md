@@ -1,14 +1,14 @@
 # Gateway resource fields
 
-The `Gateway` resource defines the incoming traffic reception and routing ([HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md), [GRPCRoute](../../../application-load-balancer/k8s-ref/grpc-route.md), and [TLSRoute](../../../application-load-balancer/k8s-ref/tls-route.md)) rules. [{{ alb-name }} Gateway API](../../../application-load-balancer/tools/k8s-gateway-api/index.md) uses these rules to create:
+The `Gateway` resource defines the rules for accepting and routing ([HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md), [GRPCRoute](../../../application-load-balancer/k8s-ref/grpc-route.md), and [TLSRoute](../../../application-load-balancer/k8s-ref/tls-route.md) resources) incoming traffic. [{{ alb-name }} Gateway API](../../../application-load-balancer/tools/k8s-gateway-api/index.md) uses these rules to create:
 
 * [Load balancer](../../../application-load-balancer/concepts/application-load-balancer.md) and its listeners.
 * [Backend groups](../../../application-load-balancer/concepts/backend-group.md).
 * [HTTP routers](../../../application-load-balancer/concepts/http-router.md). They are only created if the [HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md) or [GRPCRoute](../../../application-load-balancer/k8s-ref/grpc-route.md) resources are used.
 
-The `Gateway` resource is designed for cluster operators. Application developers should use `TLSRoute`, `HTTPRoute`, or `GRPCRoute` resources.
+The `Gateway` resource is designed for cluster operators. Application developers should use the `TLSRoute`, `HTTPRoute`, or `GRPCRoute` resources.
 
-`Gateway` is a [{{ k8s }} Gateway API project](https://gateway-api.sigs.k8s.io/) resource. Below, we describe its fields and annotations used by {{ alb-name }} Gateway API. For configuration details, see the [{{ k8s }} Gateway API reference](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.Gateway).
+`Gateway` is a [{{ k8s }} Gateway API project](https://gateway-api.sigs.k8s.io/) resource. Below, we describe its fields and annotations used by the {{ alb-name }} Gateway API. For configuration details, see the [{{ k8s }} Gateway API reference](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.Gateway).
 
 ## Gateway {#gateway}
 
@@ -37,21 +37,21 @@ Where:
 
 * `apiVersion`: `gateway.networking.k8s.io/v1`
 * `kind`: `Gateway`
-* `metadata`: `ObjectMeta`. This is a required field.
+* `metadata` (`ObjectMeta`; this is a required field)
   
   Resource metadata.
 
-  * `name` (`string`, required)
+  * `name` (`string`; this is a required field)
 
-    Resource name. For more information about the group name format, see the relevant [{{ k8s }} article](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Resource name. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
     Do not mistake this name for the {{ alb-name }} load balancer name.
   
   * `namespace` (`string`)
   
-    Resource [namespace](../../../managed-kubernetes/concepts/index.md#namespace). The default value is `default`.
+    [Namespace](../../../managed-kubernetes/concepts/index.md#namespace) the resource belongs to. The default value is `default`.
 
-  * `annotations` (`map[string]string`, required)
+  * `annotations` (`map[string]string`; this is a required field)
 
     Resource annotations.
 
@@ -61,9 +61,9 @@ Where:
 
     {% endnote %}
 
-    * `gateway.alb.yc.io/security-groups` (`string`, required)
+    * `gateway.alb.yc.io/security-groups` (`string`; this is a required field)
 
-      Load balancer {{ vpc-name }} [security groups](../../../vpc/concepts/security-groups.md). This is a comma separated list of group IDs, e.g.:
+      List of {{ vpc-name }} [security groups](../../../vpc/concepts/security-groups.md) for a load balancer. This is a comma separated list of group IDs, e.g.:
 
       ```
       gateway.alb.yc.io/security-groups: b0c2kotoidcoh6haf8cu,e2lnhhdj9a0aqmr78d36,e9bud5itjnl8mkjj7td1
@@ -77,7 +77,7 @@ Where:
 
     * `gateway.alb.yc.io/autoScale.minZoneSize` (`string`)
 
-      Minimum number of [resource units](../../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling) per availability zone. The default minimum is 2. You cannot set a limit lower than 2 resource units per zone.
+      Minimum number of [resource units](../../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling) per availability zone. The default minimum is 2. You cannot set a limit lower than two resource units per zone.
 
     * `gateway.alb.yc.io/autoScale.maxSize` (`string`)
 
@@ -111,7 +111,7 @@ Where:
 
       Log discard percentage. This is a log discard rule parameter. The rule name may only contain Latin letters and numbers.
 
-* `spec` (`GatewaySpec`, required)
+* `spec` (`GatewaySpec`; this is a required field)
 
   Resource specification. For more information, see [below](#spec).
 
@@ -171,7 +171,7 @@ Where:
   
     For example, `example`, `example.com`, and `foo.example.com` are valid internal names, while `example.com/bar` and `-example.` are not.
     
-    The name can be up to 63 characters long.
+    The name may be up to 63 characters long.
     
   * `hostname` (`string`)
 
@@ -195,7 +195,7 @@ Where:
   
     * `mode` (`string`)
       
-      TLS connections termination mode.
+      Mode for terminating TLS connections.
       
       You can only use the default `Terminate` setting, where incoming traffic is decrypted using certificates from `certificateRefs` and then routed to backends. `Passthrough` mode without connection termination is not supported.
 
@@ -220,7 +220,7 @@ Where:
 
         Name of the {{ k8s }} API group associated with the certificate resource, e.g., `networking.k8s.io`.
 
-        The default value is empty, indicating the root API group.
+        The default value is an empty string that indicates the root API group.
 
       * `kind` (`string`)
 
@@ -240,7 +240,7 @@ Where:
 
     Rules for selecting listener routes, i.e., the [HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md), [GRPCRoute](../../../application-load-balancer/k8s-ref/grpc-route.md), and [TLSRoute](../../../application-load-balancer/k8s-ref/tls-route.md) resources. To ensure route selection, these resources must have `Gateway` specified in their `spec.parentRefs` fields.
 
-    The system will use these routes to create [backend groups](../../../application-load-balancer/concepts/backend-group.md) you can link to the listener. If using `HTTPRoute` or `GRPCRoute`, the system will also create [HTTP routers](../../../application-load-balancer/concepts/http-router.md).
+    The system will use these routes to create [backend groups](../../../application-load-balancer/concepts/backend-group.md) you can associate with the listener. If using `HTTPRoute` or `GRPCRoute`, the system will also create [HTTP routers](../../../application-load-balancer/concepts/http-router.md).
 
     * `namespaces` (`RouteNamespaces`)
   
@@ -256,7 +256,7 @@ Where:
 
       * `selector` (`LabelSelector`)
   
-        Namespace selection requirements. To be selected, a namespace must meet all criteria specified in `matchExpressions` and `matchLabels` fields.
+        Namespace selection requirements. To be selected, a namespace must meet all criteria specified in the `matchExpressions` and `matchLabels` fields.
   
         For more information, see the [{{ k8s }} API reference](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#labelselector-v1-meta).
   
@@ -272,6 +272,6 @@ Where:
 
   * `value` (`string`)
   
-    {{ vpc-full-name }} Load balancer public IP address.
+    {{ vpc-full-name }} public IP address assigned to the load balancer.
   
     To use a public IP address, first, you need to reserve it by following [this guide](../../../vpc/operations/get-static-ip.md).

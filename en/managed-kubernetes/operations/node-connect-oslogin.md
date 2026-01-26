@@ -118,7 +118,7 @@ Set up your cluster node for connection:
 
           {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
 
-      For more information, see this [{{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
+      For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
 
     - API {#api}
 
@@ -265,7 +265,7 @@ Set up your cluster node for connection:
     Where:
 
     * `<path_to_certificate_file>`: Path to the certificate's `Identity` file you saved earlier, e.g., `/home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername`.
-    * `<user_login>`: User login as set in their [{{ oslogin }} profile](../../organization/concepts/os-login.md#os-login-profiles). This login is also specified at the end of the name of the exported {{ oslogin }} certificate. In the example above, it is `orgusername`.
+    * `<user_login>`: User login as set in their [{{ oslogin }} profile](../../organization/concepts/os-login.md#os-login-profiles). It is also appended to the name of the exported {{ oslogin }} certificate. In the example above, it is `orgusername`.
 
         {% note info %}
 

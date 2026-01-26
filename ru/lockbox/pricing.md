@@ -43,8 +43,6 @@ editable: false
 
 ### Пример расчета стоимости {#price-example}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 Пример расчета стоимости использования {{ lockbox-name }} в месяц для следующей конфигурации:
 
 * количество секретов: 3, у каждого секрета 5 версий;

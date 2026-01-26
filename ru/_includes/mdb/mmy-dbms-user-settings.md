@@ -6,6 +6,14 @@
 
   Подробнее про плагины аутентификации см. [в документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/pluggable-authentication.html).
 
+  
+  {% note info %}
+
+  Настройка **Authentication plugin** не действует, если для пользователя выбран способ авторизации **{{ ui-key.yacloud.mysql.cluster.label_iam_dgBhy }}**.
+
+  {% endnote %}
+
+
 - **Administrative privileges**{#setting-administrative-privileges} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
   Административные привилегии — [права пользователя](../../managed-mysql/concepts/user-rights.md), которые действуют на уровне всего кластера баз данных.

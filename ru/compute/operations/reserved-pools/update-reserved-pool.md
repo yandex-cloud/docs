@@ -9,9 +9,26 @@ description: Из статьи вы узнаете, как изменить пу
 
 {% include [reserved-pools-preview-notice](../../../_includes/compute/reserved-pools-preview-notice.md) %}
 
+{% include [reserved-pools-nochange-vm](../../../_includes/compute/reserved-pools-nochange-vm.md) %}
+
 Чтобы изменить [пул резервов ВМ](../../concepts/reserved-pools.md):
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится пул резервов ВМ.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-lock.svg) **{{ ui-key.yacloud.compute.reserved-instance-pool.reserved-instance-pools_m8sWW }}**.
+  1. В строке с нужным пулом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Измените параметры ВМ:
+
+       * Тип пула.
+       * Размер пула.
+       * Если нужно расширить пул, даже когда свободных ресурсов в зоне доступности недостаточно, включите опцию **{{ ui-key.yacloud.compute.reserved-instance-pool.PendingSlotsRow.row-title_qGybc }}**. Подробнее см. [{#T}](../../concepts/reserved-pools.md#pending-slots).
+       * В блоке **{{ ui-key.yacloud.compute.reserved-instance-pool.ReservedInstancePoolFormBase.main-pool-info-section_xoPE2 }}** измените имя, описание пула, добавьте или удалите [метки](../../../resource-manager/concepts/labels.md) пула.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -59,12 +76,6 @@ description: Из статьи вы узнаете, как изменить пу
         total: "1"
       ```
   1. Измените пул резервов ВМ в каталоге по умолчанию, указав имя или идентификатор нужного пула:
-
-      {% note info %}
-
-      Изменить конфигурацию виртуальных машин пула нельзя.
-
-      {% endnote %}
 
       ```bash
       yc compute reserved-instance-pool update <имя_или_идентификатор_пула> \

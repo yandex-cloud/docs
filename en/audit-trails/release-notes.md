@@ -1,9 +1,357 @@
 ---
 title: '{{ at-full-name }} release notes'
-description: This section contains {{ at-name }} release notes.
+description: This section contains the {{ at-name }} release notes.
 ---
 
 # {{ at-full-name }} release notes
+
+## Q4 2025 {#q4-2025}
+
+* Added a setting for event flow compression when writing events to {{ yds-name }}. We recommend enabling compression for write speeds over 1 MB/s.
+
+  The compression setting is available when [creating](operations/create-trail.md) or [modifying](operations/manage-trail.md) a trail via the CLI, API, or {{ TF }} UI. You can set either `GZIP` or `ZSTD` compression method; there is no compression by default (`RAW`).
+
+* Added new events for the services:
+
+  {% cut "{{ ai-studio-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `tuning.StartTuning` | Start model tuning
+
+  {% endcut %}
+
+  {% cut "{{ api-gw-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `ResumeApiGateway` | Resuming an API gateway
+  `StopApiGateway` | Stopping an API gateway
+
+  {% endcut %}
+
+  {% cut "{{ cloud-registry-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `RevokeDelegation` | Revoking delegation
+  `SetupDelegation` | Setting up delegation
+
+  {% endcut %}
+
+  {% cut "{{ video-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `DeleteWithReplaceStylePreset` | Deleting and replacing a player preset
+
+  {% endcut %}
+
+  {% cut "{{ compute-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `instancegroup.DisableZones` | Temporarily disabling availability zones
+  `instancegroup.EnableZones` | Enabling availability zones
+
+  {% endcut %}
+
+  {% cut "{{ datalens-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SetDefaultColorPalette` | Setting the default color pallete
+
+  {% endcut %}
+
+  {% cut "{{ iam-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `credential.ApplicationLoginEvent` | OAuth app authentication
+  `credential.RevokeSsoSession` | Terminating a SSO session
+
+  {% endcut %}
+
+  {% cut "{{ org-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `ActivateMfaEnforcement` | Activating an MFA policy
+  `BindOrganizationAccessPolicy` | Binding an authorization policy in an organization
+  `CreateMfaEnforcement` | Creating an MFA policy
+  `DeactivateMfaEnforcement` | Deactivating an MFA policy
+  `DeleteMfaEnforcement` | Deleting an MFA policy
+  `idp.RemoveUserBlock` | Unblocking a user
+  `idp.UpdateSubscriptionLimit` | Updating the subscription limit
+  `saml.UploadSignatureCertificate` | Uploading a signature certificate
+  `UnbindOrganizationAccessPolicy` | Detaching an authorization policy in an organization
+  `UpdateMfaEnforcement` | Updating an MFA policy
+  `UpdateMfaEnforcementAudience` | Updating target users for an MFA policy
+  `UpdateOrganizationAccessPolicyBindingParameters` | Editing authorization policy parameters in an organization
+  
+  {% endcut %}
+
+  {% cut "{{ iot-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `broker.AddBrokerCertificate` | Adding a broker certificate
+  `broker.AddBrokerPassword` | Adding a broker password
+  `broker.CreateBroker` | Creating a broker
+  `broker.DeleteBroker` | Deleting a broker
+  `broker.DeleteBrokerCertificate` | Deleting a broker certificate
+  `broker.DeleteBrokerPassword` | Deleting a broker password
+  `broker.UpdateBroker` | Updating a broker
+  `devices.AddDeviceCertificate` | Adding a device certificate
+  `devices.AddDevicePassword` | Adding a device password
+  `devices.AddRegistryCertificate` | Adding a registry certificate
+  `devices.AddRegistryPassword` | Adding a registry password
+  `devices.DeleteDeviceCertificate` | Deleting a device certificate
+  `devices.DeleteDevicePassword` | Deleting a device password
+  `devices.DeleteRegistryCertificate` | Deleting a registry certificate
+  `devices.DeleteRegistryPassword` | Deleting a registry password
+
+  {% endcut %}
+
+
+  {% cut "{{ maf-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `RescheduleMaintenance` | Changing scheduled maintenance date and time
+
+  {% endcut %}
+
+  {% cut "{{ msp-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `RescheduleMaintenance` | Changing scheduled maintenance date and time
+
+  {% endcut %}
+
+  {% cut "{{ mch-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `GetDatabase` | Getting database info
+  `GetUser` | Getting user info
+  `ListDatabases` | Getting a list of databases
+  `ListUsers` | Getting a list of users
+
+  {% endcut %}
+
+  {% cut "{{ mgp-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateResourceGroup` | Creating a resource group
+  `CreateUser` | Creating a database user
+  `DeleteResourceGroup` | Deleting a resource group
+  `DeleteUser` | Deleting a database user
+  `UpdateResourceGroup` | Updating a resource group
+  `UpdateUser` | Editing a database user
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `CreateHBARule` | Creating an authentication rule
+  `CreatePXFDatasource` | Creating a connection to an external table
+  `DeleteHBARule` | Deleting an authentication rule
+  `DeletePXFDatasource` | Deleting an external table connection
+  `ListPXFDatasources` | Getting a list of connections to an external table
+  `ListUsers` | Getting a list of database users
+  `UpdateHBARule` | Updating an authentication rule
+  `UpdatePXFDatasource` | Updating an external table connection
+
+  {% endcut %}
+
+  {% cut "{{ mmy-short-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `GetDatabase` | Getting database info
+  `GetUser` | Getting user info
+  `ListDatabases` | Getting a list of databases
+  `ListUsers` | Getting a list of users
+
+  {% endcut %}
+
+  {% cut "{{ mpg-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `GetDatabase` | Getting database info
+  `GetUser` | Getting database user information
+  `ListDatabases` | Getting a list of databases
+  `ListUsers` | Getting a list of database users
+
+  {% endcut %}
+
+  {% cut "{{ mtr-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `RescheduleMaintenance` | Changing scheduled maintenance date and time
+
+  {% endcut %}
+
+  {% cut "{{ mrd-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `DatabaseConnectionClose` | Closing a database connection
+  `DatabaseConnectionOpen` | Opening a database connection
+  `DatabaseUserLogin` | Database user log in
+
+  {% endcut %}
+
+  {% cut "{{ message-queue-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateMessageQueue` | Creating a message queue
+  `DeleteMessageQueue` | Deleting a message queue
+  `UpdateMessageQueue` | Editing a message queue
+
+  {% endcut %}
+
+  {% cut "{{ resmgr-short-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `BindCloudAccessPolicy` | Binding an authorization policy in a cloud
+  `BindFolderAccessPolicy` | Binding an authorization policy in a folder
+  `UnbindCloudAccessPolicy` | Detaching an authorization policy in a cloud
+  `UnbindFolderAccessPolicy` | Detaching an authorization policy in a folder
+  `UpdateCloudAccessPolicyBindingParameters` | Editing authorization policy parameters in a cloud
+  `UpdateFolderAccessPolicyBindingParameters` | Editing authorization policy parameters in a folder
+
+  {% endcut %}
+
+  {% cut "{{ sd-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event name | Description
+  --- | ---
+  `CreateAlert` | Creating an alert
+  `TriggerAdmissionControl` | Triggering of [KSPM](../security-deck/concepts/kspm.md) when checking newly created and updated resources
+  `TriggerRuntimeControl` | Triggering of KSPM when monitoring workload security
+
+  [Management events](./concepts/format.md):
+
+  Event name | Description
+  --- | ---
+  `CreateConnector` | Creating a connector
+  `CreateException` | Creating an exception
+  `CreateProject` | Creating a project
+  `CreateScanJob` | Creating a scan job
+  `CreateScope` | Creating a scope
+  `CreateScopeFilter` | Creating a scope filter
+  `CreateWorkspace` | Creating a workspace
+  `DeleteConnector` | Deleting a connector
+  `DeleteException` | Deleting an exception
+  `DeleteProject` | Deleting a project
+  `DeleteScanJob` | Deleting a scan job
+  `DeleteScope` | Deleting a scope
+  `DeleteScopeFilter` | Deleting a scope filter
+  `DeleteWorkspace` | Delete the environments.
+  `EnableProject` | Enabling a project
+  `EnableSDProject` | Enabling a {{ sd-name }} project
+  `UpdateConnector` | Updating a connector
+  `UpdateException` | Updating exception parameters
+  `UpdateProject` | Updating project parameters
+  `UpdateScanJob` | Updating a scan job
+  `UpdateScope` | Updating a scope
+  `UpdateScopeFilter` | Updating a scope filter
+  `UpdateWorkspace` | Updating a workspace
+
+  {% endcut %}
+
+  {% cut "{{ mmg-short-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `GetDatabase` | Getting database info
+  `GetUser` | Getting user info
+  `ListDatabases` | Getting a list of databases
+  `ListUsers` | Getting a list of users
+
+  {% endcut %}
+
+  {% cut "{{ ytsaurus-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateCluster` | Creating a cluster
+  `DeleteCluster` | Deleting a cluster
+  `StartCluster` | Starting a cluster
+  `StopCluster` | Stopping a cluster
+  `UpdateCluster` | Updating a cluster
+  `UpdateClusterGroupMembers` | Updating cluster group members
+
+  {% endcut %}
+
+* Renamed events for:
+
+  {% cut "{{ message-queue-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateQueue` is now `CreateMessageQueue` | Creating a message queue
+  `DeleteQueue` is now `DeleteMessageQueue` | Deleting a message queue
+  `UpdateQueue` is now `UpdateMessageQueue` | Editing a message queue
+
+  {% endcut %}
+
+Starting December 1, 2025, `DisableTenantBilling` and `EnableTenantBilling` events in {{ datalens-name }} will no longer be delivered due to the discontinuation of the [Business plan](../datalens/pricing.md).
 
 ## Q3 2025 {#q3-2025}
 
@@ -476,6 +824,18 @@ Added new events for the services:
   `CreateExternalConnection` is now `CreatePrivateCloudConnection` | Creating a [private connection](../baremetal/concepts/network.md#private-connection-to-vpc) to subnets in a VPC or on-prem infrastructure
   `DeleteExternalConnection` is now `DeletePrivateCloudConnection` | Deleting a private connection to subnets in a VPC or on-prem infrastructure
   
+  {% endcut %}
+
+  {% cut "{{ message-queue-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateQueue` is now `CreateMessageQueue` | Creating a message queue
+  `DeleteQueue` is now `DeleteMessageQueue` | Deleting a message queue
+  `UpdateQueue` is now `UpdateMessageQueue` | Editing a message queue
+
   {% endcut %}
 
 ## Q1 2025 {#q1-2025}

@@ -13,15 +13,15 @@ description: Следуя данной инструкции, вы сможете
 
   1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
   1. Выберите канал.
-  1. На панели справа выберите **Настройки канала**.
-  1. В разделе **Реклама** укажите настройки для показа рекламы всех видео на канале.
-  1. В разделе **Разрешенные домены** добавьте адреса сайтов, на которых можно показывать видео с этого канала. На других сайтах видео не будут показываться.
-     1. Включите **Статус проверки**.
-     1. Нажмите кнопку ![plus-sign](../../../_assets/console-icons/plus.svg) **Добавить домен**.
+  1. На панели справа выберите **{{ ui-key.yacloud_video.channels.title_settings }}**.
+  1. В разделе **{{ ui-key.yacloud_video.channels.label_advertisement }}** укажите настройки для показа рекламы всех видео на канале.
+  1. В разделе **{{ ui-key.yacloud_video.channels.label_allowed-domains }}** добавьте адреса сайтов, на которых можно показывать видео с этого канала. На других сайтах видео не будут показываться.
+     1. Включите **{{ ui-key.yacloud_video.channels.label_domains-status }}**.
+     1. Нажмите кнопку ![plus-sign](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_video.channels.action_add-domain }}**.
      1. Введите адрес сайта или группы сайтов.
      1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_create }}**.
      1. При необходимости добавьте другие домены.
-  1. Чтобы показывать видео на всех сайтах, отключите **Статус проверки**. Добавленные домены сохранятся.
+  1. Чтобы показывать видео на всех сайтах, отключите **{{ ui-key.yacloud_video.channels.label_domains-status }}**. Добавленные домены сохранятся.
   1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
 
 - API {#api}
@@ -55,11 +55,11 @@ description: Следуя данной инструкции, вы сможете
 
 - Интерфейс {{ video-name }} {#console}
 
-  1. Откройте **Настройки канала**.
-  1. В разделе **Реклама** укажите:
-     * **Провайдер** — `Yandex Direct`.
-     * **Page ID**, полученный после создания видеоресурса.
-     * **Категория** (тематика) видео на вашем канале.
+  1. Откройте **{{ ui-key.yacloud_video.channels.title_settings }}**.
+  1. В разделе **{{ ui-key.yacloud_video.channels.label_advertisement }}** укажите:
+     * **{{ ui-key.yacloud_video.channels.label_provider-type }}** — `Yandex Direct`.
+     * **{{ ui-key.yacloud_video.channels.label_page-id }}**, полученный после создания видеоресурса.
+     * **{{ ui-key.yacloud_video.channels.label_category }}** (тематика) видео на вашем канале.
   1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
 
 - API {#api}

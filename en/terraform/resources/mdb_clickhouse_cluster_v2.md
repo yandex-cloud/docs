@@ -377,6 +377,7 @@ resource "yandex_vpc_subnet" "baz" {
 
 ### Read-Only
 
+- `cluster_id` (String) ID of the ClickHouse cluster. This ID is assigned by MDB at creation time.
 - `created_at` (String) The creation timestamp of the resource.
 - `id` (String) The resource identifier.
 
@@ -531,8 +532,8 @@ Optional:
 
 Optional:
 
-- `select_from_information_schema_requires_grant` (Boolean) Sets whether **SELECT * FROM information_schema.<table>** requires any grants and can be executed by any user. If set to true, then this query requires **GRANT SELECT ON information_schema.<table>**, just as for ordinary tables.
-- `select_from_system_db_requires_grant` (Boolean) Sets whether **SELECT * FROM system.<table>** requires any grants and can be executed by any user. If set to true then this query requires **GRANT SELECT ON system.<table>** just as for non-system tables.
+- `select_from_information_schema_requires_grant` (Boolean) Sets whether `SELECT * FROM information_schema.<table>` requires any grants and can be executed by any user. If set to true, then this query requires `GRANT SELECT ON information_schema.<table>`, just as for ordinary tables.
+- `select_from_system_db_requires_grant` (Boolean) Sets whether `SELECT * FROM system.<table>` requires any grants and can be executed by any user. If set to true then this query requires `GRANT SELECT ON system.<table>` just as for non-system tables.
 
 
 <a id="nestedatt--clickhouse--config--compression"></a>

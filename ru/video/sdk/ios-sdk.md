@@ -1,6 +1,6 @@
 ---
-title: Как добавить Cloud Video Player в приложение iOS
-description: Следуя данной инструкции, вы сможете интегрировать Cloud Video Player в ваше мобильное приложение для iOS.
+title: Как добавить {{ video-player-name }} в приложение iOS
+description: Следуя данной инструкции, вы сможете интегрировать {{ video-player-name }} в ваше мобильное приложение для iOS.
 ---
 
 # SDK видеоплеера для iOS

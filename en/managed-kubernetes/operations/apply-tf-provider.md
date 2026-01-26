@@ -6,11 +6,11 @@ For more information about the provider resources, see the relevant provider ref
 
 ## Getting started {#before-you-begin}
 
-To connect the `kubernetes` provider, [create](kubernetes-cluster/kubernetes-cluster-create.md) a {{ k8s }} cluster using {{ TF }}.
+To activate the `kubernetes` provider, [create](kubernetes-cluster/kubernetes-cluster-create.md) a {{ k8s }} cluster using {{ TF }}.
 
 {% note warning %}
 
-Do not delete {{ TF }} configuration files after creating the cluster as you will need them to activate the provider.
+Do not delete the {{ TF }} configuration files after creating the cluster as you will need them to activate the provider.
 
 {% endnote %}
 
@@ -44,7 +44,7 @@ The `kubernetes` provider is initialized only after creating and setting up a {{
     }
     ```
 
-1. In the file, specify the parameters required for the `kubernetes` provider to operate:
+1. In the file, specify the parameters required for the `kubernetes` provider:
 
     1. Under `required_providers`, add:
 
@@ -62,13 +62,13 @@ The `kubernetes` provider is initialized only after creating and setting up a {{
         data "yandex_client_config" "client" {}
 
         provider "kubernetes" {
-          host                   = yandex_kubernetes_cluster.<{{ k8s }}>_cluster_name.master[0].external_v4_endpoint
-          cluster_ca_certificate = yandex_kubernetes_cluster.<{{ k8s }}>_cluster_name.master[0].cluster_ca_certificate
+          host                   = yandex_kubernetes_cluster.<{{ k8s }}_cluster_name>.master[0].external_v4_endpoint
+          cluster_ca_certificate = yandex_kubernetes_cluster.<{{ k8s }}_cluster_name>.master[0].cluster_ca_certificate
           token                  = data.yandex_client_config.client.iam_token
         }
         ```
 
-1. Make sure the resulting file looks like this:
+1. Make sure the file you get has the following contents:
 
     ```hcl
     terraform {
@@ -93,8 +93,8 @@ The `kubernetes` provider is initialized only after creating and setting up a {{
     data "yandex_client_config" "client" {}
 
     provider "kubernetes" {
-      host                   = yandex_kubernetes_cluster.<{{ k8s }}>_cluster_name.master[0].external_v4_endpoint
-      cluster_ca_certificate = yandex_kubernetes_cluster.<{{ k8s }}>_cluster_name.master[0].cluster_ca_certificate
+      host                   = yandex_kubernetes_cluster.<{{ k8s }}_cluster_name>.master[0].external_v4_endpoint
+      cluster_ca_certificate = yandex_kubernetes_cluster.<{{ k8s }}_cluster_name>.master[0].cluster_ca_certificate
       token                  = data.yandex_client_config.client.iam_token
     }
     ```

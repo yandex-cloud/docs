@@ -1,6 +1,6 @@
 ---
-title: Installing Container Storage Interface for S3
-description: Follow this guide to install Container Storage Interface for S3.
+title: Installing the Container Storage Interface for S3
+description: Follow this guide to install the Container Storage Interface for S3.
 ---
 
 # Installing Container Storage Interface for S3
@@ -10,16 +10,16 @@ description: Follow this guide to install Container Storage Interface for S3.
 
 {% include [csi-s3-actual](../../../_includes/managed-kubernetes/csi-s3-actual.md) %}
 
-You can install container Storage Interface for S3 in the following ways:
+You can install Container Storage Interface for S3 in the following ways:
 * [Using {{ marketplace-name }} in the management console](#marketplace-install)
-* [Using a Helm chart from the remote {{ marketplace-name }} storage](#helm-install)
-* [Using a Helm chart from the remote GitHub storage](#helm-github-install)
+* [Using a Helm chart from the {{ marketplace-name }} repository](#helm-install)
+* [Using a Helm chart from the GitHub repository](#helm-github-install)
 
 ## Getting started {#before-you-begin}
 
 1. [Create](../../../iam/operations/sa/create.md) a service account with the `storage.editor` [role](../../../storage/security/index.md#storage-editor).
-1. [Create](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) a static access key for the service account. Save the key ID and secret key, you will need them when installing the application.
-1. (Optional) To make new volumes fit into a single bucket with different prefixes, [create](../../../storage/operations/buckets/create.md) a {{ objstorage-full-name }} bucket. Save the bucket name, you will need it when installing the application. Skip this step if you need to create a separate bucket for each volume.
+1. [Create](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) a static access key for the service account. Save the key ID and secret key; you will need them when installing the application.
+1. Optionally, [create](../../../storage/operations/buckets/create.md) a {{ objstorage-full-name }} bucket to place new volumes into a single bucket with different prefixes. Save the bucket name; you will need it when installing the application. Skip this step if you need to create a separate bucket for each volume.
 
 1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 
@@ -35,19 +35,19 @@ You can install container Storage Interface for S3 in the following ways:
 
       {% include [Namespace warning](../../../_includes/managed-kubernetes/kube-system-namespace-warning.md) %}
 
-   * **Application name**: Specify the app name, e.g., `csi-s3`.
+   * **Application name**: Specify the application name, e.g., `csi-s3`.
    * **Create storage class**: Select this option to create a new [storage class](../volumes/manage-storage-class.md) when deploying the application.
    * **Create secret**: Select this option to create a new secret for a storage class when installing the application.
    * **S3 key ID**: Copy the service account key ID into this field.
    * **S3 secret key**: Copy the service account secret key into this field.
-   * **General S3 bucket for volumes**: Specify the name of the general bucket where [dynamically allocated volumes](../../concepts/volume.md#dynamic-provisioning) will be created. For CSI to create a new bucket for each volume, leave this field blank.
-   * **S3 service address**: Address of the S3 service the application will use. The default address is `https://{{ s3-storage-host }}`.
-   * **GeeseFS mounting options**: Mounting options for GeeseFS. For a complete list of options, see the [GeeseFS documentation](https://github.com/yandex-cloud/geesefs).
+   * **General S3 bucket for volumes**: Specify the name of the general bucket to contain your [dynamically provisioned volumes](../../concepts/volume.md#dynamic-provisioning). For CSI to create a new bucket for each volume, leave this field blank.
+   * **S3 service address**: Address of the S3 service the application will use. The default is `https://{{ s3-storage-host }}`.
+   * **GeeseFS mounting options**: Mounting options for GeeseFS. For a complete list of options, see [our GeeseFS guide](https://github.com/yandex-cloud/geesefs).
    * **Volume cleanup policy**: Select the policy to clean up PersistentVolumes when deleting PersistentVolumeClaims:
      * **Retain**: Retain a volume.
      * **Delete**: Delete a volume.
-   * **Storage class name**: If you previously selected the **Create storage class** option, specify the name of the new storage class.
-   * **Secret name**: If you previously selected the **Create secret** option, specify the name of the new secret to be created for the storage class. Otherwise, specify the name of the existing secret to be used for the storage class.
+   * **Storage class name**: If you selected **Create storage class**, specify the name for the new storage class.
+   * **Secret name**: If you selected **Create secret**, specify the name for the new secret for the storage class. Otherwise, specify the name of the existing secret to use for the storage class.
    * **Ignore all taints**: Select this option if you want the CSI driver used to mount the file system on nodes to ignore all taints set for the {{ managed-k8s-name }} cluster nodes.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
@@ -71,15 +71,15 @@ You can install container Storage Interface for S3 in the following ways:
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-   You can also set additional Container Storage Interface [parameters](#installation-parameters) for S3.
+   You can also set additional [parameters](#installation-parameters) for Container Storage Interface for S3.
 
 ## Installation using a Helm chart from the GitHub repository {#helm-github-install}
 
-The [GitHub repository](https://github.com/yandex-cloud/k8s-csi-s3) hosts the most current version of the Container Storage Interface for S3 with {{ objstorage-name }} support.
+The [GitHub repository](https://github.com/yandex-cloud/k8s-csi-s3) contains the latest version of Container Storage Interface for S3 with {{ objstorage-name }} support.
 
 1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with CSI, run the following command:
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with CSI, run this command:
 
     ```bash
     helm repo add yandex-s3 https://yandex-cloud.github.io/k8s-csi-s3/charts && \
@@ -92,23 +92,23 @@ The [GitHub repository](https://github.com/yandex-cloud/k8s-csi-s3) hosts the mo
       csi-s3 ./csi-s3/
     ```
 
-    You can also set additional Container Storage Interface [parameters](#installation-parameters) for S3.
+    You can also set additional [parameters](#installation-parameters) for Container Storage Interface for S3.
 
 ## Parameters for installation using a Helm chart {#installation-parameters}
 
-When installing a Container Storage Interface for S3 application, the only required parameters are `secret.accessKey` and `secret.secretKey`. You can skip other parameters or redefine them in the install command using this key: `--set <parameter_name>=<new_value>`.
+When installing Container Storage Interface for S3 application, the only required parameters are `secret.accessKey` and `secret.secretKey`. You can skip other parameters or redefine them in the install command using this key: `--set <parameter_name>=<new_value>`.
 
 See the table below for a list of redefinable parameters and their default values:
 
 Parameter name | Description | Default value
 --- | --- | ---
-`storageClass.create` | Whether a new storage class needs to be created | `true`
+`storageClass.create` | Whether a new storage class should be created | `true`
 `storageClass.name` | Storage class name | `csi-s3`
 `storageClass.singleBucket` | Use a single bucket for all PersistentVolumeClaims |
 `storageClass.mountOptions` | GeeseFS mounting options | `--memory-limit 1000 --dir-mode 0777 --file-mode 0666`
 `storageClass.reclaimPolicy` | Volume cleanup policy | `Delete`
 `storageClass.annotations` | Storage class description |
-`secret.create` | Whether a new secret needs to be created | `true`
+`secret.create` | Whether a new secret should be created | `true`
 `secret.name` | Secret name | `csi-s3-secret`
 `secret.accessKey` | Key ID |
 `secret.secretKey` | Secret key |
@@ -119,5 +119,5 @@ Parameter name | Description | Default value
 * [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)
 * [Container Storage Interface for S3 with {{ objstorage-name }} support in GitHub](https://github.com/yandex-cloud/k8s-csi-s3)
 * [Integration with {{ objstorage-name }}](../volumes/s3-csi-integration.md)
-* [CSI Use cases](../volumes/s3-csi-integration.md#examples)
+* [CSI use cases](../volumes/s3-csi-integration.md#examples)
 * [Working with persistent and dynamic volumes in {{ k8s }}](../../concepts/volume.md)

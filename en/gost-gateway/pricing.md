@@ -23,10 +23,17 @@ To submit a request to use the service, fill out [this form](https://forms.yande
 
 ## Prices for the Russia region {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 
-{% include notitle [usd](../_pricing/gost-gateway/usd.md) %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|gost_gateway }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
+
+
 

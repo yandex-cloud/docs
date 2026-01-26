@@ -11,7 +11,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
   1. Выберите канал.
-  1. На вкладке ![image](../../../_assets/console-icons/bars-play.svg) **Плейлисты** выберите нужный плейлист.
+  1. На вкладке ![image](../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud_video.playlists.title_playlists }}** выберите нужный плейлист.
   1. В блоке **{{ ui-key.yacloud_video.videos.title_past-code }}**:
 
       1. Задайте необходимые параметры воспроизведения видео и трансляций:

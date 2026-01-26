@@ -33,7 +33,7 @@ Orchestrate fault scenarios on a test cluster first so that you do not compromis
    * **Application name**: Specify the application name.
 
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application status to change to `Deployed`.
+1. Wait for the application to change its status to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 
@@ -60,7 +60,7 @@ You can check the current version of the Helm chart on the [application page](/m
 
 ## Chaos Mesh web interface and authorization {#interface-and-authorization}
 
-Once you install Chaos Mesh, use its web interface to go through the authorization process. Proceed as follows:
+Once you install Chaos Mesh, use its web interface to go through the authorization process. To do this:
 
 1. [Connect to your cluster](../connect/index.md#kubectl-connect).
 1. Forward the `http://localhost:8080` URL to the Chaos Mesh web interface:

@@ -1,8 +1,8 @@
-### Errors when using the `docker-ce` and `containerd` packages on an external node {#docker-containerd}
+### Error when using the docker-ce and containerd packages on an external node {#docker-containerd}
 
-To diagnose and fix this error:
+Follow these steps for troubleshooting:
 
-1. View the list of services that are not functioning properly:
+1. View the list of services that are not running properly:
 
    ```bash
    sudo systemctl --failed
@@ -41,7 +41,7 @@ To diagnose and fix this error:
    Feb 10 09:53:37 ext-node systemd[1]: Failed to listen on Docker Socket for the API.
    ```
 
-1. Look up errors in system logs:
+1. Look up errors in the system logs:
 
    ```bash
    sudo journalctl -xe

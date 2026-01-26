@@ -18,7 +18,7 @@ description: Follow this guide to install Loki.
 
     {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-1. Prepare for Loki installation:
+1. Get ready to install Loki:
 
     1. [Create a service account](../../../iam/operations/sa/create.md) with the `storage.uploader` and `storage.viewer` [roles](../../../iam/concepts/access-control/roles.md). You need it to access [{{ objstorage-full-name }}](../../../storage/).
     1. [Create a static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) for your [service account](../../../iam/concepts/users/service-accounts.md) in JSON format:
@@ -31,7 +31,7 @@ description: Follow this guide to install Loki.
 
     1. [Create a bucket](../../../storage/operations/buckets/create.md) with restricted access in {{ objstorage-name }}.
 
-## Installation using {{ marketplace-full-name }} {#marketplace-install}
+## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
 1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
@@ -42,7 +42,7 @@ description: Follow this guide to install Loki.
    * **Application name**: Specify the application name.
    * **Bucket name**: Specify the name of the [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-name }}.
    * **Static access key**: Paste the contents of the `sa-key.json` file.
-   * **Install Promtail**: Leave the option enabled to deliver local logs to the Grafana Loki instance using the [Promtail agent](https://grafana.com/docs/loki/latest/clients/promtail/). This agent is usually used for applications that require regular monitoring.
+   * **Install Promtail**: Leave the option enabled to deliver local logs to the Grafana Loki instance using the [Promtail agent](https://grafana.com/docs/loki/latest/clients/promtail/). This agent is used for applications that require regular monitoring.
 
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
@@ -67,11 +67,11 @@ description: Follow this guide to install Loki.
       loki ./loki/
     ```
 
-    If you set `namespace` to the default namespace, Loki may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `loki-space`).
+    If you set `namespace` to the default namespace, Loki may work incorrectly. We recommend specifying a value different from all the existing namespaces, e.g., `loki-space`.
 
     {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-1. Make sure all Loki pods have entered the `Running` state:
+1. Make sure all Loki pods switched to `Running`:
 
     ```bash
     kubectl get pods -A -l "app.kubernetes.io/instance=loki"
@@ -85,7 +85,7 @@ Once deployed, Loki is available within the {{ managed-k8s-name }} cluster at th
 http://<Loki_gateway_service_name>.<namespace>.svc.cluster.local
 ```
 
-To learn the namespace and name of the Loki gateway service, run this command:
+To find out the namespace and name of the Loki gateway service, run this command:
 
 ```bash
 kubectl get service -A | grep distributed-gateway

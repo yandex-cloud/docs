@@ -14,7 +14,7 @@ reclaimPolicy: Delete
 ```
 
 Where:
-* `metadata:name`: Random storage class name.
+* `metadata:name`: Any storage class name.
 * `parameters:type`: [Disk type](../../managed-kubernetes/concepts/volume.md#disks-types) in {{ compute-name }}. The possible values are:
   * `network-ssd`: Network SSD.
   * `network-hdd`: Network HDD.

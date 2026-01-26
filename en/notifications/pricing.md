@@ -9,13 +9,6 @@ editable: false
 
 
 
-{% note warning %}
-
-The below prices for the {{ cns-name }} resources are effective as of November 20, 2025.
-
-{% endnote %}
-
-
 ## What goes into the cost of using {{ cns-name }} {#rules}
 
 When using {{ cns-name }}, you are charged for the following:
@@ -97,7 +90,6 @@ Since you do not have any registered templates, all events are deemed commercial
 
 
 ## Prices for the Russia region {#prices}
-
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 

@@ -34,7 +34,7 @@ You can build charts based on {{ prometheus-name }} metrics:
 
   {% note info %}
 
-  For {{ prometheus-name }} metrics, all features described in [{#T}](../../metric/metric-explorer.md) are available except for adding parameters. Therefore, you cannot break your charts down by parameter.
+  For {{ prometheus-name }} metrics, all features described in [{#T}](../../metric/metric-explorer.md) are available. You can add the workspace ID as a parameter for splitting charts.
 
   {% endnote %}
 

@@ -23,13 +23,13 @@ Where:
 
 > Let’s calculate the cost of 315,040,000 legitimate requests per month when using a proxy server and security profile rules:
 > 
-> {% calc [currency=USD] 0.01 × {{ sku|USD|sws.requests.v1|number }} + 0.99 × {{ sku|USD|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|USD|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|USD|sws.requests.v1|pricingRate.10|number }} + 215.04 × {{ sku|USD|sws.requests.v1|pricingRate.100|number }} %} + 6 × 720 × $0.02 + 7 × $0.009083333333 = {% calc [currency=USD] (0.01 × {{ sku|USD|sws.requests.v1|number }} + 0.99 × {{ sku|USD|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|USD|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|USD|sws.requests.v1|pricingRate.10|number }} + 215.04 × {{ sku|USD|sws.requests.v1|pricingRate.100|number }}) + 6 × 720 × 0.02 + 7 × 0.009083333333 %}, including VAT.
+> {% calc [currency=USD] 0.01 × {{ sku|USD|sws.requests.v1|number }} + 0.99 × {{ sku|USD|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|USD|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|USD|sws.requests.v1|pricingRate.10|number }} + 215.04 × {{ sku|USD|sws.requests.v1|pricingRate.100|number }} %} + 6 × 720 × {{ sku|USD|sws.proxy-server.v1|string }} + 7 × {{ sku|USD|sws.antiddos.traffic|string }} = {% calc [currency=USD] (0.01 × {{ sku|USD|sws.requests.v1|number }} + 0.99 × {{ sku|USD|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|USD|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|USD|sws.requests.v1|pricingRate.10|number }} + 215.04 × {{ sku|USD|sws.requests.v1|pricingRate.100|number }}) + 6 × 720 × {{ sku|USD|sws.proxy-server.v1|number }} + 7 × {{ sku|USD|sws.antiddos.traffic|number }} %}, including VAT.
 
 Where: 
 
 * {% calc [currency=USD] 0,01 × {{ sku|USD|sws.requests.v1|number }} + 0.99 × {{ sku|USD|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|USD|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|USD|sws.requests.v1|pricingRate.10|number }} + 215.04 × {{ sku|USD|sws.requests.v1|pricingRate.100|number }} %}: Cost of 315,040,000 legitimate requests per month processed by security profile rules.
 * 6: Minimum number of proxy server resource units. 
 * 720: Number of hours in 30 days.
-* $0.02: Price per proxy server resource unit per hour.
+* {{ sku|USD|sws.proxy-server.v1|string }}: Price per proxy server resource unit per hour.
 * 7: Amount of incoming traffic (GB).
-* $0.009083333333: Price of incoming traffic DDoS protection per GB.
+* {{ sku|USD|sws.antiddos.traffic|string }}: Price of incoming traffic DDoS protection per GB.

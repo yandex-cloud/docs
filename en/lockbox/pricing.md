@@ -26,7 +26,6 @@ There is no charge for using secrets created with {{ connection-manager-name }}.
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 

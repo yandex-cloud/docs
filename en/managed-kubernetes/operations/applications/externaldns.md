@@ -6,7 +6,7 @@ description: Follow this guide to install ExternalDNS with a {{ dns-name }} plug
 # Installing ExternalDNS with a plugin for {{ dns-full-name }}
 
 
-[ExternalDNS](https://github.com/kubernetes-sigs/external-dns) allows you to create [DNS records](../../../dns/concepts/resource-record.md) in [{{ dns-full-name }}](../../../dns/) automatically. ExternalDNS makes {{ k8s }} resources discoverable through public DNS servers.
+[ExternalDNS](https://github.com/kubernetes-sigs/external-dns) allows you to create [DNS records](../../../dns/concepts/resource-record.md) in [{{ dns-full-name }}](../../../dns/) automatically. ExternalDNS makes {{ k8s }} resources discoverable via public DNS servers.
 
 ## Getting started {#before-you-begin}
 
@@ -29,7 +29,7 @@ description: Follow this guide to install ExternalDNS with a {{ dns-name }} plug
 
     {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-## Installation using {{ marketplace-full-name }} {#marketplace-install}
+## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
 1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
@@ -48,7 +48,7 @@ description: Follow this guide to install ExternalDNS with a {{ dns-name }} plug
 
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with ExternalDNS, run the following command:
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with ExternalDNS, run this command:
 
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_externaldns.helmChart.name }} \
@@ -62,17 +62,17 @@ description: Follow this guide to install ExternalDNS with a {{ dns-name }} plug
      externaldns ./externaldns/
     ```
 
-    If you set `namespace` to the default namespace, ExternalDNS may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `externaldns-space`).
+    If you set `namespace` to the default namespace, ExternalDNS may work incorrectly. We recommend specifying a value different from all the existing namespaces, e.g., `externaldns-space`.
 
     {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-## Operation specifics {#features}
+## Features {#features}
 
 To automatically create DNS records using [ExternalDNS with a plugin for {{ dns-full-name }}](/marketplace/products/yc/externaldns):
 * If you have an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) installed, no additional setup is required.
 * For [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer) type services, use this annotation: `"external-dns.alpha.kubernetes.io/hostname=<your_domain>"`.
 
-  To set the TTL of a DNS record, use this annotation: `"external-dns.alpha.kubernetes.io/ttl=<TTL_in_seconds>"`.
+  To set the TTL for a DNS record, use this annotation: `"external-dns.alpha.kubernetes.io/ttl=<TTL_in_seconds>"`.
 
 ## Use cases {#examples}
 

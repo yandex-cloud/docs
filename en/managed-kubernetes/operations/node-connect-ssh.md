@@ -30,7 +30,7 @@ For more information, see [Connecting to a VM over SSH](../../compute/operations
 
 ## Create SSH key pairs {#creating-ssh-keys}
 
-Prepare the keys to use with your {{ managed-k8s-name }} cluster node. Proceed as follows:
+Prepare the keys to use with your {{ managed-k8s-name }} cluster node. To do this:
 
 {% list tabs group=operating_system %}
 
@@ -75,7 +75,7 @@ Prepare the keys to use with your {{ managed-k8s-name }} cluster node. Proceed a
 
   1. In **Key passphrase**, enter a strong password. Enter it again in the field below.
   1. Click **Save private key** and save the private key. Do not share its key phrase with anyone.
-  1. Save the key in a text file in a single line. To do this, copy the public key from the text field to a text file named `id_ed25519.pub`.
+  1. Save the key in a text file in a single line. To do this, copy the public key from the text field and paste it to a text file named `id_ed25519.pub`.
 
 {% endlist %}
 
@@ -124,7 +124,7 @@ Here is an example:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select your {{ managed-k8s-name }} cluster.
   1. In the left-hand panel, select **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
   1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
@@ -192,7 +192,7 @@ Here is an example:
 
       {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
 
-  For more information, see this [{{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
 
@@ -236,7 +236,7 @@ The credentials for connecting over SSH will be completely overwritten. You will
 
   {% endnote %}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select your {{ managed-k8s-name }} cluster.
   1. In the left-hand panel, select **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
   1. On the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab, select the node group in which you want to update the credentials.
@@ -294,7 +294,7 @@ The credentials for connecting over SSH will be completely overwritten. You will
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see this [{{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
 
@@ -316,20 +316,20 @@ The credentials for connecting over SSH will be completely overwritten. You will
 
           {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
-      * `nodeTemplate.metadata` listing all existing node group metadata as `key=value` pairs without any changes.
+      * `nodeTemplate.metadata` parameter listing all current node group metadata as `key=value` pairs without any changes.
 
           For `ssh-keys`, replace the current value with the line with credentials you created.
 
           {% cut "Example of listing metadata in a parameter" %}
 
-          > * Existing metadata keys in a node group:
+          > * Current metadata keys in a node group:
           >
           >     ```json
           >     "nodeTemplate": {
           >         "metadata": {
-          >             "ssh-keys": "<existing_credentials_in_single_line>",
-          >             "<existing_key_1>": "<existing_value_1>",
-          >             "<existing_key_2>": "<existing_value_2>"
+          >             "ssh-keys": "<current_credentials_in_single_line>",
+          >             "<current_key_1>": "<current_value_1>",
+          >             "<current_key_2>": "<current_value_2>"
           >         },
           >         ...
           >     }
@@ -341,8 +341,8 @@ The credentials for connecting over SSH will be completely overwritten. You will
           >     "nodeTemplate": {
           >         "metadata": {
           >             "ssh-keys": "<new_credentials_in_single_line>",
-          >             "<existing_key_1>": "<existing_value_1>",
-          >             "<existing_key_2>": "<existing_value_2>"
+          >             "<current_key_1>": "<current_value_1>",
+          >             "<current_key_2>": "<current_value_2>"
           >         }
           >     }
           >     ```
@@ -366,7 +366,7 @@ To connect to a {{ managed-k8s-name }} cluster node, specify its [public IP addr
   1. Click the VM group with the name that matches the {{ managed-k8s-name }} node group ID.
   1. In the window that opens, go to the **{{ ui-key.yacloud.compute.group.switch_instances }}** tab.
   1. Click the VM whose public address you want to get.
-  1. You will find the public IP address in **{{ ui-key.yacloud.compute.instance.overview.section_network }}** in the **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** section.
+  1. You will find the public IP address under **{{ ui-key.yacloud.compute.instance.overview.section_network }}** in **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}**.
 
 - CLI {#cli}
 
@@ -431,7 +431,7 @@ To connect to a {{ managed-k8s-name }} cluster node, specify its [public IP addr
 
 ## Connect to the node {#node-connect}
 
-You can connect to a {{ managed-k8s-name }} node over SSH when it is running (its status is `RUNNING`). To do this, use `ssh` in Linux or macOS, or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows.
+You can connect to a {{ managed-k8s-name }} node over SSH when it is running, i.e., its status is `RUNNING`. To do this, use `ssh` in Linux or macOS, or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows.
 
 {% list tabs group=operating_system %}
 
@@ -447,7 +447,7 @@ You can connect to a {{ managed-k8s-name }} node over SSH when it is running (it
 
   If you provided SSH connection credentials when you [created the node group](#node-create) using the CLI, {{ TF }}, API, or [updated the credentials](#node-add-metadata), use the username you [specified in the SSH connection credentials file](#key-format).
 
-  If this is your first time connecting to a {{ managed-k8s-name }} node, you may get an unknown host warning:
+  If this is your first time connecting to a {{ managed-k8s-name }} node, you may get the unknown host warning:
 
   ```bash
   The authenticity of host '130.193.40.101 (130.193.40.101)' can't be established.
@@ -463,7 +463,7 @@ You can connect to a {{ managed-k8s-name }} node over SSH when it is running (it
   1. Run Pageant.
      1. Right-click the Pageant icon in the task bar.
      1. In the context menu, select **Add key**.
-     1. Select a PuTTY-generated private key in `.ppk` format. Enter the password for this key, if any.
+     1. Select a PuTTY-generated private key in `.ppk` format. Enter the password for this key, if it is set.
   1. Run PuTTY.
      1. In the **Host Name (or IP address)** field, enter the [public IP address](#node-public-ip) of the VM you want to connect to. Specify port `22` and **SSH** connection type.
 

@@ -9,7 +9,7 @@ To delete a [node group](../../concepts/index.md#node-group), use its name or ID
 - Management console {#console}
 
   To delete a [node group](../../concepts/index.md#node-group):
-  1. Navigate to the [{{ k8s }}](../../concepts/index.md#kubernetes-cluster) cluster you want to delete a node group from:
+  1. Navigate to the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) you want to delete a node group from:
      1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** section in the folder.
      1. Open the {{ k8s }} cluster you need.
      1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.

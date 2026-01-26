@@ -15,12 +15,12 @@ You can only assign a [public IP address](../../../vpc/concepts/address.md#publi
 
 {% endnote %}
 
-You can change the following parameters of a [{{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) cluster:
+You can change the following parameters of a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster):
 * Name.
 * Description.
 * [Service accounts](../../../iam/operations/sa/create.md).
 * [Resource configuration](../../concepts/index.md#master-resources) for the master.
-* [{{ k8s }}](../../concepts/release-channels-and-updates.md) version.
+* [{{ k8s }} version](../../concepts/release-channels-and-updates.md).
 * [Updates](../../concepts/release-channels-and-updates.md#updates) policy.
 * List of [security groups](../connect/security-groups.md).
 * Settings for sending logs to [{{ cloud-logging-full-name }}](../../../logging/).
@@ -66,7 +66,7 @@ Learn how to change a cluster [availability zone](../../../overview/concepts/geo
      {{ yc-k8s }} cluster update --help
      ```
 
-  1. Run the following command and provide a list of settings you want to change (not all settings are listed in the example below):
+  1. Run the following command providing a list of settings you want to change (not all settings are listed in the example below):
 
      ```bash
      {{ yc-k8s }} cluster update <Managed_Service_for_Kubernetes_cluster_name> \
@@ -114,7 +114,7 @@ Learn how to change a cluster [availability zone](../../../overview/concepts/geo
      For more information about creating this file, see [{#T}](kubernetes-cluster-create.md).
   1. Edit the required parameters in the {{ managed-k8s-name }} cluster description.
 
-     To edit the settings for sending logs to {{ cloud-logging-name }}, configure the `master_logging` section parameters. If there is no such section, create one.
+     To edit the settings for sending logs to {{ cloud-logging-name }}, update the `master_logging` section parameters. If there is no such section, create one.
 
      {% include [master-logging-tf.md](../../../_includes/managed-kubernetes/master-logging-tf.md) %}
 
@@ -138,7 +138,7 @@ Learn how to change a cluster [availability zone](../../../overview/concepts/geo
 
   To update {{ managed-k8s-name }} cluster parameters, use the [Update](../../managed-kubernetes/api-ref/Cluster/update.md) method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/) resource.
 
-  To edit the settings for sending logs to {{ cloud-logging-name }}, configure their values in the `masterSpec.masterLogging` parameter.
+  To edit the settings for sending logs to {{ cloud-logging-name }}, update their values in the `masterSpec.masterLogging` parameter.
 
 {% endlist %}
 
@@ -192,12 +192,12 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
 
 - Management console {#console}
 
-  To update a cloud label, you will need to delete and re-create it:
+  To update a cloud label, you will need to remove and recreate it:
 
     1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the {{ managed-k8s-name }} cluster.
     1. Click the name of the {{ managed-k8s-name }} cluster.
     1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
-    1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click the cross next to the label to delete it.
+    1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click the cross next to the label to remove it.
     1. Click **{{ui-key.yacloud.component.label-set.button_add-label }}** and enter a key and/or value for the new label.
     1. Press **Enter** and click **{{ ui-key.yacloud.common.save }}**.
 
@@ -226,7 +226,7 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
 
 {% endlist %}
 
-### Deleting a cloud label {#remove-label}
+### Removing a cloud label {#remove-label}
 
 {% list tabs group=instructions %}
 

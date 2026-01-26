@@ -14,10 +14,10 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the secret is stored.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Click the name of the key you need.
-  1. Go to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. Navigate to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. Select the group, user, or service account you want to grant access to the key.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
   1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
@@ -30,7 +30,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
 
   To assign a role for a symmetric key:
 
-  1. See the description of the CLI role assignment command:
+  1. View the description of the CLI command for assigning roles:
 
      ```bash
      yc kms symmetric-key add-access-binding --help
@@ -104,7 +104,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
 
       * `symmetric_encryption_key_id`: ID of the symmetric encryption key.
       * `role`: [Role](../security/index.md#roles-list) being assigned.
-      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about `yandex_kms_symmetric_key_iam_member` resource properties, see this [provider guide]({{ tf-provider-resources-link }}/kms_symmetric_key_iam_member).
 
@@ -136,10 +136,10 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the secret is stored.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Click the name of the key you need.
-  1. Go to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. Navigate to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. Select the group, user, or service account you want to grant access to the key.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
   1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
@@ -161,7 +161,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
        --id <key_ID>
      ```
 
-  1. See the description of the CLI role assignment command:
+  1. View the description of the CLI command for assigning roles:
 
      ```bash
      yc kms symmetric-key set-access-bindings --help
@@ -250,7 +250,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
 
       * `symmetric_encryption_key_id`: ID of the symmetric encryption key.
       * `role`: [Role](../security/index.md#roles-list) being assigned.
-      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about `yandex_kms_symmetric_key_iam_member` resource properties, see this [provider guide]({{ tf-provider-resources-link }}/kms_symmetric_key_iam_member).
 
@@ -268,7 +268,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
 
   {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
-  Use the [SetAccessBindings](../api-ref/SymmetricKey/setAccessBindings.md) method for the [SymmetricKey](../api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/SetAccessBindings](../api-ref/grpc/SymmetricKey/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
+  Use the [SetAccessBindings](../api-ref/SymmetricKey/setAccessBindings.md) method for the [SymmetricKey](../api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/SetAccessBindings](../api-ref/grpc/SymmetricKey/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one matching a particular role and containing the following data:
 
   * Role in the `accessBindings[].roleId` parameter.
   * ID of the subject getting the roles in the `accessBindings[].subject.id` parameter.

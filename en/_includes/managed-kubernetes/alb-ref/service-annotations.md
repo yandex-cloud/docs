@@ -1,14 +1,14 @@
 # Annotations
 
-Annotations are collections of `key:value` pairs for assigning metadata to objects. Annotation values are always of the `string` data type. For more information on annotations, see the relevant [{{ k8s }} article](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
+Annotations are collections of `key:value` pairs for assigning metadata to objects. Annotation values have the `string` data type. For more information on annotations, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
 
-In {{ alb-name }}, annotations are only used in the `Service` resources to set up ingress controllers.
+In {{ alb-name }}, annotations are only used in `Service` resources to set up ingress controllers.
 
 You can add the following annotations to `ObjectMeta`:
 
 * **ingress.alb.yc.io/protocol** {#annot-protocol}
 
-   Protocol for connections between the load balancer and `Ingress`-defined backends:
+   Protocol for connections between the load balancer and backends defined in `Ingress`:
 
    * `http`: HTTP/1.1. This is a default value.
    * `http2`: HTTP/2.
@@ -16,13 +16,13 @@ You can add the following annotations to `ObjectMeta`:
 
 * **ingress.alb.yc.io/transport-security** {#annot-transport-security}
 
-   Encryption protocol for connections between the load balancer and backends specified in `Ingress` directly, as opposed to the `HttpBackendGroup`.
+   Encryption protocol for connections between the load balancer and backends specified in `Ingress` directly, without using `HttpBackendGroup`.
 
-   The acceptable annotation value is `tls`: TLS without certificate validation.
+   The acceptable value is `tls`: TLS without certificate validation.
 
-   If annotation is not specified, the load balancer will connect to the backends without encryption.
+   If this annotation is not specified, the load balancer will connect to the backends without encryption.
 
-   This annotation is ignored for grouped backends. When you encrypt a connection between a load balancer and grouped backends, you configure the encryption via the `spec.backend.tls` field of the `HttpBackendGroup` resource (see the [resource configuration](../../../application-load-balancer/k8s-ref/http-backend-group.md)).
+   This annotation is ignored for grouped backends. When encrypting a connection between a load balancer and grouped backends, configure the encryption via the `spec.backend.tls` field of the `HttpBackendGroup` resource (see the [resource configuration](../../../application-load-balancer/k8s-ref/http-backend-group.md)).
 
 * **ingress.alb.yc.io/health-checks** {#annot-health-checks}
 
@@ -40,7 +40,7 @@ You can add the following annotations to `ObjectMeta`:
 
   * `timeout`: Response timeout in seconds. The values range from `1s` to `60s`. The default value is `2s`.
 
-  * `interval`: Interval between health check requests in seconds. The values range from `1s` to `60s`. The default value is `5s`. The `interval` value must be larger than `timeout` by at least one second.
+  * `interval`: Interval between health check requests in seconds. The values range from `1s` to `60s`. The default value is `5s`. `interval` must exceed `timeout` by at least one second.
 
   `port` is a required parameter. If you omit the other parameters, they will be set to their default values.
 

@@ -88,8 +88,6 @@ editable: false
 
 ### Пример расчета стоимости анализа аудиозаписей {#price-example-speech}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 
 {% list tabs group=pricing %}
 

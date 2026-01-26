@@ -32,7 +32,6 @@ The full monthly price for an origin shielding or for raw logs will be charged o
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|cdn }}']}
-    excludeSkuIds={['{{ pc|cdn.logs.shielding }}', '{{ pc|cdn.api.network.inet.egress }}', '{{ pc|cdn.logs.raw }}']}
     installationCode="ru"
     currency="USD"
   />

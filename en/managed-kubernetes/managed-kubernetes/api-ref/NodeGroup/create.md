@@ -427,13 +427,11 @@ apiPlayground:
       FixedScale:
         type: object
         properties:
-          size:
+          resourcePresetId:
             description: |-
-              **string** (int64)
-              Number of nodes in the node group.
-              Acceptable values are 0 to 100, inclusive.
+              **string**
+              ID of computing resources preset to be used by master.
             type: string
-            format: int64
       AutoScale:
         type: object
         properties:
@@ -449,7 +447,7 @@ apiPlayground:
         properties:
           fixedScale:
             description: |-
-              **[FixedScale](#yandex.cloud.k8s.v1.ScalePolicy.FixedScale)**
+              **[FixedScale](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.MasterScalePolicy.FixedScale)**
               Fixed scale policy of the node group.
               Includes only one of the fields `fixedScale`, `autoScale`.
             $ref: '#/definitions/FixedScale'
@@ -881,7 +879,7 @@ To get the Kubernetes cluster ID, use a [ClusterService.List](/docs/managed-kube
 Name of the node group.
 The name must be unique within the folder.
 
-Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 Description of the node group.
@@ -1025,7 +1023,7 @@ The minimum value is 0. ||
 
 ID of the disk type.
 
-Value must match the regular expression ` \|network-ssd\|network-hdd\|network-ssd-nonreplicated\|network-ssd-io-m3 `. ||
+Value must match the regular expression ``` |network-ssd|network-hdd|network-ssd-nonreplicated|network-ssd-io-m3 ```. ||
 || diskSize | **string** (int64)
 
 Size of the disk, specified in bytes.
@@ -1865,7 +1863,7 @@ The minimum value is 0. ||
 
 ID of the disk type.
 
-Value must match the regular expression ` \|network-ssd\|network-hdd\|network-ssd-nonreplicated\|network-ssd-io-m3 `. ||
+Value must match the regular expression ``` |network-ssd|network-hdd|network-ssd-nonreplicated|network-ssd-io-m3 ```. ||
 || diskSize | **string** (int64)
 
 Size of the disk, specified in bytes.

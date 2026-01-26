@@ -9,11 +9,11 @@ For each channel, you need to create a set of [endpoints](../../concepts/browser
 
 To create an endpoint:
 
-1. From the user's browser, use [Service Worker](https://developer.mozilla.org/ru/docs/Web/API/Service_Worker_API/Using_Service_Workers) to call the JavaScript [subscribe](https://developer.mozilla.org/en-US/docs/Web/API/PushManager/subscribe#applications) method.
+1. From the user's browser, use a [Service Worker](https://developer.mozilla.org/ru/docs/Web/API/Service_Worker_API/Using_Service_Workers) to call the JavaScript [subscribe](https://developer.mozilla.org/en-US/docs/Web/API/PushManager/subscribe#applications) method.
 
     The [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) object will be returned in response.
 
-1. Convert the object you got into JSON by calling the [toJSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON) method.
+1. Convert the object you got to JSON by calling the [toJSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON) method.
 
 JSON response format:
 
@@ -55,7 +55,7 @@ Once you have the data you need to send to notifications to a user, create an en
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder containing the notification channel.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select the **{{ ui-key.yacloud.cns.type_web }}** tab.
   1. Select a notification channel.
   1. Select the ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
@@ -78,7 +78,7 @@ Once you have the data you need to send to notifications to a user, create an en
      Where:
 
      * `--platform-application-arn`: Notification channel ID (ARN).
-     * `--token`: [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) object, in [JSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON) format received in the user's browser.
+     * `--token`: [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) object obtained through the user's browser, in [JSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON) format.
 
      For more information about the `aws sns create-platform-endpoint` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-platform-endpoint.html).
 

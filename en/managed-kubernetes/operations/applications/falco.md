@@ -6,16 +6,16 @@ description: Follow this guide to install Falco.
 # Installing Falco
 
 
-[The Falco Project](https://falco.org/) is intended to secure the operation of Linux-based operating systems.
+[The Falco Project](https://falco.org/) provides runtime security for Linux-based operating systems.
 
-The Falco application:
-* Parses Linux kernel system calls at runtime.
-* Analyzes signals using a configurable set of rules.
-* Sends an alert if the rules are violated.
+The Falco application can:
+* Parse Linux kernel system calls at runtime.
+* Analyze signals using a configurable set of rules.
+* Send an alert if the rules are violated.
 
 {% note warning %}
 
-To use Falco, install [Kyverno](/marketplace/products/yc/kyverno) or another product that supports writing results to [wg-policy-prototypes](https://github.com/kubernetes-sigs/wg-policy-prototypes/blob/master/policy-report/README.md).
+To use Falco, install [Kyverno](/marketplace/products/yc/kyverno) or any other product that supports writing results to [wg-policy-prototypes](https://github.com/kubernetes-sigs/wg-policy-prototypes/blob/master/policy-report/README.md).
 
 {% endnote %}
 
@@ -25,7 +25,7 @@ To use Falco, install [Kyverno](/marketplace/products/yc/kyverno) or another pro
 
 {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-## Installation using {{ marketplace-full-name }} {#marketplace-install}
+## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
 1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
@@ -42,7 +42,7 @@ To use Falco, install [Kyverno](/marketplace/products/yc/kyverno) or another pro
 
 1. {% include [kubectl-install](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Falco, run the following command:
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Falco, run this command:
 
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_falco.helmChart.name }} \
@@ -54,7 +54,7 @@ To use Falco, install [Kyverno](/marketplace/products/yc/kyverno) or another pro
      falco ./falco
    ```
 
-   If you set `namespace` to the default namespace, Falco may work incorrectly. We recommend that you specify a value different from all existing namespaces (e.g., `falco-space`).
+   If you set `namespace` to the default namespace, Falco may work incorrectly. We recommend specifying a value different from all the existing namespaces, e.g., `falco-space`.
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

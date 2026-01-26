@@ -58,8 +58,6 @@ editable: false
 
 ## Примеры расчета стоимости
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 ### Симметричное шифрование {#symmetric}
 
 

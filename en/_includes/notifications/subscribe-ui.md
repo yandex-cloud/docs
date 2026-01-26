@@ -1,7 +1,7 @@
 1. Select a topic.
 1. Select **{{ ui-key.yacloud.cns.shared.CnsTopicLayout.subscriptions_cp53u }}** on the left.
 1. Click **Create subscription**.
-1. Select a notification channel type: 
+1. Select a notification channel type:
      
    * **Mobile push notifications**.
    

@@ -4,7 +4,7 @@ In {{ managed-k8s-name }}, both automatic and manual updates are available for [
 
 When updating the {{ k8s }} major version, first update the {{ managed-k8s-name }} cluster and then its node group.
 
-You can edit the update policy of [{{ managed-k8s-name }}](#cluster-auto-upgrade) clusters and [node groups](#node-group-auto-upgrade) at any time.
+You can edit the update policy of [{{ managed-k8s-name }} clusters](#cluster-auto-upgrade) and [node groups](#node-group-auto-upgrade) at any time.
 
 For more information, see [{#T}](../concepts/release-channels-and-updates.md).
 
@@ -24,7 +24,7 @@ For more information, see [{#T}](../concepts/release-channels-and-updates.md).
 
   To get a list of available versions for a {{ managed-k8s-name }} node group:
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the name of your {{ managed-k8s-name }} cluster and open the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+  1. Click the name of the {{ managed-k8s-name }} cluster you need and go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Select the {{ managed-k8s-name }} node group from the list and click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. Get a list of available versions in the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field.
 
@@ -287,7 +287,7 @@ You can upgrade the {{ managed-k8s-name }} cluster version manually. In one step
 
   1. Open the current configuration file with the {{ managed-k8s-name }} cluster description.
 
-     Learn how to create this file in [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
+     For more information about creating this file, see [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
   1. Change the version in the {{ managed-k8s-name }} cluster description:
 
      ```hcl
@@ -313,7 +313,7 @@ You can upgrade the {{ managed-k8s-name }} cluster version manually. In one step
 - API {#api}
 
   Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md) API method and provide the following in the request:
-  * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get the list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
+  * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get a list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
   * Required {{ k8s }} version in the `masterSpec.version.version` parameter.
   * List of settings to update in the `updateMask` parameter.
 
@@ -355,8 +355,8 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
   ```bash
   {{ yc-k8s }} node-group <create_or_update> <node_group_name_or_ID> \
   ...
-    --max-expansion <expanding_group_during_update> \
-    --max-unavailable <number_of_unavailable_nodes_during_update> \
+    --max-expansion <expanding_group_when_updating> \
+    --max-unavailable <number_of_unavailable_nodes_when_updating> \
     --auto-upgrade <auto_update_mode> \
     --auto-repair <recreation_mode> \
     --anytime-maintenance-window \
@@ -415,7 +415,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
   1. Open the current configuration file describing the {{ managed-k8s-name }} node group.
 
-     Learn how to create this file in [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
+     For more information about creating this file, see [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
   1. Change auto update settings in the {{ managed-k8s-name }} node group description.
 
      {% note info %}
@@ -481,7 +481,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
          name = <node_group_name>
          ...
          deploy_policy {
-           max_expansion   = <expanding_group_during_update>
+           max_expansion   = <expanding_group_when_updating>
            max_unavailable = <number_of_unavailable_nodes_when_updating>
          }
        }
@@ -592,8 +592,8 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
   ```json
   "deployPolicy": {
-    "maxUnavailable": "<number_of_unavailable_nodes_during_update>",
-    "maxExpansion": "<expanding_group_during_update>"
+    "maxUnavailable": "<number_of_unavailable_nodes_when_updating>",
+    "maxExpansion": "<expanding_group_when_updating>"
   }
   ```
 
@@ -644,7 +644,7 @@ Upgrade the {{ managed-k8s-name }} cluster version before updating the node grou
 
   1. Open the current configuration file describing the {{ managed-k8s-name }} node group.
 
-     Learn how to create this file in [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
+     For more information about creating this file, see [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
   1. Change the version in the {{ managed-k8s-name }} node group description:
 
      ```hcl
@@ -682,8 +682,8 @@ Upgrade the {{ managed-k8s-name }} cluster version before updating the node grou
 
 You can update a {{ managed-k8s-name }} cluster and node group within the same {{ k8s }} version. When installing the update, the major version of {{ k8s }} does not change.
 
-Such an update may include:
-* Installing new packages.
+Such an update enables you to:
+* Install new packages.
 * Update the {{ k8s }} image.
 * Updating the {{ k8s }} patch version.
 

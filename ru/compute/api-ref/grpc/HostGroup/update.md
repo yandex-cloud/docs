@@ -46,7 +46,7 @@ Field mask that specifies which fields of the HostGroup resource are going to be
 
 Name of the group.
 
-Value must match the regular expression ` \|[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 Description of the group.

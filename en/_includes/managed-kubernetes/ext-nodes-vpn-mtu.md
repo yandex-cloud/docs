@@ -10,6 +10,6 @@ Configure [MTU](../../vpc/concepts/mtu-mss.md) on both VMs:
 
   {% note warning %}
 
-  If you keep the default MTU value, network traffic losses may possibly occur.
+  If you keep the default MTU value, you may lose network traffic.
 
   {% endnote %}

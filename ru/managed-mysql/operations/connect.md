@@ -190,6 +190,53 @@ FQDN вида `c-<идентификатор_кластера>.ro.{{ dns-zone }}
 {% endlist %}
 
 
+## Подключение с аутентификацией через IAM {#iam}
+
+К базе данных {{ mmy-name }} можно подключиться с помощью [интерфейса командной строки {{ yandex-cloud }} (CLI)](../../cli/quickstart.md#install), используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../iam/concepts/users/accounts.md#saml-federation) и [локальных пользователей](../../iam/concepts/users/accounts.md#local). Подключение с аутентификацией через IAM не требует получения SSL-сертификата или указания FQDN хостов кластера.
+
+Перед подключением установите клиент {{ MY }}:
+
+```bash
+sudo apt update && sudo apt install --yes mysql-client
+```
+
+Подготовьте кластер {{ mmy-name }} к подключению:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Нажмите на имя нужного кластера.
+  1. Включите публичный доступ для хостов кластера:
+     1. Выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
+     1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке первого хоста и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
+     1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+     1. Повторите операцию для остальных хостов кластера.
+  1. Назначьте роль аккаунту пользователя, который будет подключаться к БД:
+     1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+     1. Введите электронную почту пользователя, к которой привязан аккаунт.
+     1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role}}** и выберите роль `managed-mysql.clusters.connector`.
+     1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+  1. Создайте пользователя {{ MY }}:
+     1. Выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
+     1. Выберите способ аутентификации **{{ ui-key.yacloud.mysql.cluster.label_iam_dgBhy }}**.
+     1. Выберите аккаунт, которому была назначена роль `managed-mysql.clusters.connector`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** и выберите нужную базу данных из выпадающего списка.
+     1. Нажмите значок ![image](../../_assets/console-icons/plus.svg) в столбце **{{ ui-key.yacloud.mdb.dialogs.popup_field_roles }}** и выберите привилегию из выпадающего списка.
+     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
+
+{% endlist %}
+
+Чтобы подключиться к БД {{ mmy-name }}, выполните команду:
+
+```bash
+{{ yc-mdb-my }} connect <имя_или_идентификатор_кластера> --db <имя_БД>
+```
+
+
+
 ## Подключение из {{ websql-full-name }} {#websql}
 
 {% include [WebSQL](../../_includes/mdb/mmy/websql.md) %}

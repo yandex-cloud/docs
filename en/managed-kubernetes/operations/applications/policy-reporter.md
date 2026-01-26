@@ -6,7 +6,7 @@ description: Follow this guide to install Policy Reporter.
 # Installing Policy Reporter
 
 
-[Policy reporter](https://kyverno.github.io/policy-reporter/) is a tool used to process Kyverno policy results called [PolicyReports](https://kyverno.io/docs/policy-reports/). It also supports such tools as Falco, jsPolicy, Kube Bench, and Trivy. Policy Reporter provides graphical visualization of results. For long-term storage or further uploading to the SIEM system, results can be exported to external storage, e.g., [{{ objstorage-full-name }} (S3)](../../../storage/) or [{{ yds-full-name }}](../../../data-streams/).
+[Policy reporter](https://kyverno.github.io/policy-reporter/) is a tool to process Kyverno policy results called [PolicyReports](https://kyverno.io/docs/policy-reports/). It also supports such tools as Falco, jsPolicy, Kube Bench, and Trivy. Policy Reporter provides graphical visualization of results. For long-term storage or further uploading to the SIEM system, results can be exported to an external storage, e.g., [{{ objstorage-full-name }} (S3)](../../../storage/) or [{{ yds-full-name }}](../../../data-streams/).
 
 {% note warning %}
 
@@ -24,7 +24,7 @@ To use Policy Reporter, install [Kyverno](/marketplace/products/yc/kyverno) or a
 
     {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-1. To export policy results, set up external storage:
+1. To export policy results, set up an external storage:
 
     * **{{ objstorage-name }}**
 
@@ -43,20 +43,20 @@ To use Policy Reporter, install [Kyverno](/marketplace/products/yc/kyverno) or a
 
       [Create a data stream](../../../data-streams/quickstart/create-stream.md).
 
-## Installation using {{ marketplace-full-name }} {#marketplace-install}
+## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
 1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
-1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Policy Reporter](/marketplace/products/yc/policy-reporter) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
+1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Policy reporter](/marketplace/products/yc/policy-reporter) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `policy-reporter-space`. If you leave the default namespace, Policy Reporter may work incorrectly.
    * **Application name**: Specify the application name.
-   * **Cluster ID**: Select the desired {{ managed-k8s-name }} cluster from the list.
-   * **Install Policy Reporter UI**: Enable to install the **Policy Reporter UI** component for displaying results in a graphical view.
-   * **Export to {{ objstorage-name }}**: Enable this option to export results to {{ objstorage-name }}. You also need to fill in the additional fields:
+   * **Cluster ID**: Select the {{ managed-k8s-name }} cluster from the list.
+   * **Install Policy Reporter UI**: Enable to install the **Policy Reporter UI** component for graphical overview of results.
+   * **Export to {{ objstorage-name }}**: Enable to export results to {{ objstorage-name }}. You also need to fill in the additional fields:
      * **{{ objstorage-name }} bucket name**: Specify the name of the [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-name }}.
      * **{{ objstorage-name }} static access key**: Copy the contents of the `sa-key.json` file or create a new access key for the service account. The service account must have the `storage.uploader` role.
-   * **Export to YDS**: Enable this option to export results to {{ yds-name }}. You also need to fill in the additional fields:
+   * **Export to YDS**: Enable to export results to {{ yds-name }}. You also need to fill in the additional fields:
      * **Endpoint YDS**: Specify the {{ yds-name }} [stream](../../../data-streams/concepts/glossary.md#stream-concepts) endpoint.
      * **YDS stream name**: Specify the {{ yds-name }} stream name.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
@@ -81,29 +81,29 @@ To use Policy Reporter, install [Kyverno](/marketplace/products/yc/kyverno) or a
      --set ui.enabled=<enable_Policy_Reporter_UI> \
      --set target.s3.enabled=<export_to_Object_Storage> \
      --set target.s3.bucket=<Object_Storage_bucket_name> \
-     --set-file serviceaccountawskeyvalue=<path_to_static_key_file_of_service_account> \
+     --set-file serviceaccountawskeyvalue=<path_to_file_with_service_account_static_key> \
      --set target.kinesis.enabled=<export_to_Data_Streams> \
      --set target.kinesis.endpoint=<Data_Streams_stream_endpoint> \
      --set target.kinesis.streamName=<Data_Streams_stream_name> \
      policy-reporter ./policy-reporter/
    ```
 
-   If you set `namespace` to the default namespace, Policy Reporter may work incorrectly. We recommend that you specify a value different from all existing namespaces (e.g., `policy-reporter-space`).
+   If you set `namespace` to the default namespace, Policy Reporter may work incorrectly. We recommend specifying a value different from all the existing namespaces, e.g., `policy-reporter-space`.
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
    Command parameters:
 
-   * `ui.enabled`: Enabling Policy Reporter UI. The possible values are `true` or `false`.
-   * `target.s3.enabled`: Exporting to {{ objstorage-name }}. The possible values are `true` or `false`.
-   * `target.kinesis.enabled`: Exporting to {{ yds-name }}. The possible values are `true` or `false`.
+   * `ui.enabled`: Enabling the Policy Reporter UI, either `true` or `false`.
+   * `target.s3.enabled`: Exporting to {{ objstorage-name }}, either `true` or `false`.
+   * `target.kinesis.enabled`: Exporting to {{ yds-name }}, either `true` or `false`.
 
    The `target.s3.bucket` and `serviceaccountawskeyvalue` parameters are only required if export to {{ objstorage-name }} is enabled (`target.s3.enabled=true`), while the `target.kinesis.endpoint` and `target.kinesis.streamName` parameters, if export to {{ yds-name }} is enabled (`target.kinesis.enabled=true`).
 
-## Testing the app {#check}
+## Testing the application {#check}
 
-1. Set up the Kyverno Application & Kyverno Policies app in the {{ managed-k8s-name }} cluster and follow this [guide](../../tutorials/marketplace/kyverno.md) to create a test policy.
-1. [Connect to the Policy Reporter UI](https://kyverno.github.io/policy-reporter/#core--policy-reporter-ui--kyverno-plugin) to analyze and visualize PolicyReports or ensure that data is received by {{ objstorage-name }} or {{ yds-name }}.
+1. Set up the Kyverno Application & Kyverno Policies application in the {{ managed-k8s-name }} cluster and follow [this guide](../../tutorials/marketplace/kyverno.md) to create a test policy.
+1. [Connect to the Policy Reporter UI](https://kyverno.github.io/policy-reporter/#core--policy-reporter-ui--kyverno-plugin) to analyze and visualize PolicyReports or ensure that data is exported to {{ objstorage-name }} or {{ yds-name }}.
 
 ## Use cases {#examples}
 

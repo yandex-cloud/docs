@@ -1,4 +1,4 @@
-To access a {{ k8s }} cluster, use its name or unique ID. You can get them by using the following command:
+To access a {{ k8s }} cluster, use its name or unique ID that you can get by using this command:
 
 ```bash
 yc managed-kubernetes cluster list

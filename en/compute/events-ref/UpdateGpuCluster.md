@@ -62,7 +62,11 @@ sourcePath: en/_events-ref/audit/compute/events-ref/UpdateGpuCluster.md
     "gpuClusterId": "string",
     "updateMask": "string",
     "name": "string",
-    "labels": "object"
+    "labels": "object",
+    "zoneId": "string",
+    "interconnectType": "string",
+    "description": "string",
+    "folderId": "string"
   },
   "requestParameters": "object",
   "response": "object"
@@ -216,4 +220,8 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string** ||
 || labels | **object** (map<**string**, **string**>) ||
+|| zoneId | **string** ||
+|| interconnectType | **string** ||
+|| description | **string** ||
+|| folderId | **string** ||
 |#

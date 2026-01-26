@@ -114,7 +114,7 @@ To get the Kubernetes cluster ID use a [ClusterService.List](/docs/managed-kuber
 Name of the Kubernetes cluster.
 The name must be unique within the folder.
 
-Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 Description of the Kubernetes cluster.

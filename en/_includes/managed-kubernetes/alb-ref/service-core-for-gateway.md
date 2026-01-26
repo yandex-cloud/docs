@@ -13,15 +13,15 @@ spec: <ServiceSpec>
 || `apiVersion`    | `v1`                   | **This is a required field**.
 
 Kubernetes API version. ||
-|| `kind`          | `Service`              | Resource type          ||
+|| `kind`          | `Service`              | Resource type.          ||
 || `metadata`      | `ObjectMeta`           | **This is a required field**.
 
-Resource metadata ||
+Resource metadata. ||
 || `metadata.name` | `string`               | **This is a required field**.
 
-[Resource name](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names)
+[Resource name](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
-Do not mistake it for the {{ alb-name }} load balancer name. ||
+Do not mistake this name for the {{ alb-name }} load balancer name. ||
 || `spec`          | `ServiceSpec`          | **This is a required field**.
 
 Resource specification. ||

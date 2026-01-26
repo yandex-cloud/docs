@@ -1,5 +1,5 @@
-1. In the [management console]({{ link-console-main }}), select your folder.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
 1. Select **{{ ui-key.yacloud.cns.local.label_topics_vhBR3 }}** on the left.
 1. Click **{{ ui-key.yacloud.cns.local.action_create-topic_qywb9 }}**.
 1. Enter a name for the topic. The name must be unique within {{ cns-name }}.

@@ -11,7 +11,7 @@ To create a key:
 - Management console {#console}
 
   1. Log in to the [management console]({{ link-console-main }}).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and set the key attributes:
 
@@ -70,7 +70,7 @@ To edit a key:
 - Management console {#console}
 
   1. Log in to the [management console]({{ link-console-main }}).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. In the line with the key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. Change the key attributes and click **{{ ui-key.yacloud.common.save }}**.
@@ -101,7 +101,7 @@ To edit a key:
   To edit a key:
   1. Open the {{ TF }} configuration file and change the required parameters of the `yandex_kms_symmetric_key` resource.
 
-     Here is a configuration file example:
+     Here is an example of the configuration file structure:
 
      ```hcl
      ...
@@ -172,7 +172,7 @@ To change key status:
 - Management console {#console}
 
   1. Log in to the [management console]({{ link-console-main }}).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. To deactivate a key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-keys.button_action-deactivate }}** next to an `Active` key.
   1. To activate a key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-keys.button_action-activate }}** next to an `Inactive` key.
@@ -196,7 +196,7 @@ To change key status:
 
   1. Open the {{ TF }} configuration file and add the `status` parameter set to `ACTIVE` or `INACTIVE` to the `yandex_kms_symmetric_key` resource's description.
 
-     Here is a configuration file example:
+     Here is an example of the configuration file structure:
 
      ```hcl
      ...
@@ -263,7 +263,7 @@ To rotate a key:
 - Management console {#console}
 
   1. Log in to the [management console]({{ link-console-main }}).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. In the line with the key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-keys.button_action-rotate }}**.
   1. Confirm the rotation (make sure that changing the default version will not affect your work).
@@ -301,7 +301,7 @@ To destroy a key:
 - Management console {#console}
 
   1. Log in to the [management console]({{ link-console-main }}).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. In the line with the key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.

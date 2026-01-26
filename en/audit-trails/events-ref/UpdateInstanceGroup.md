@@ -544,7 +544,7 @@ The maximum value is 824633720832. ||
 - `READ_WRITE` ||
 || deviceName | **string**
 
-Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `. ||
+Value must match the regular expression ``` |[a-z][-_0-9a-z]{0,19} ```. ||
 || diskSpec | **[DiskSpec](#yandex.cloud.compute.v1.instancegroup.AttachedDiskSpec.DiskSpec)** ||
 || diskId | **string**
 
@@ -670,7 +670,7 @@ Acceptable values are 0 to 86400, inclusive. ||
 - `READ_WRITE` ||
 || deviceName | **string**
 
-Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `. ||
+Value must match the regular expression ``` |[a-z][-_0-9a-z]{0,19} ```. ||
 || filesystemId | **string**
 
 The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `. ||
@@ -846,7 +846,7 @@ The string length in characters for each value must be 3-50. ||
 ||Field | Description ||
 || name | **string**
 
-Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 The maximum string length in characters is 256. ||

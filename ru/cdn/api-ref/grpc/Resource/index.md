@@ -17,4 +17,5 @@ Provider's resources management service.
 || [Update](update.md) | Updates the specified CDN resource. ||
 || [Delete](delete.md) | Deletes client's CDN resource. ||
 || [GetProviderCName](getProviderCName.md) | Deprecated: Provider-specific CNAME is now available in the `provider_cname` field of each Resource message. ||
+|| [GetAttributes](getAttributes.md) | Get resource attributes. ||
 |#

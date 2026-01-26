@@ -11,7 +11,7 @@ description: Follow this guide to edit a video in {{ video-full-name }}.
 
   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
   1. Select a channel.
-  1. On the ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** tab, click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the video and select **{{ ui-key.yacloud_video.common.action_edit }}**.
+  1. On the ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** tab, in the row with the video, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_video.common.action_edit }}**.
   1. Edit the name of your video.
   1. Optionally, under **{{ ui-key.yacloud_video.videos.label_description }}**, specify the timecodes for your video in the following format:
    

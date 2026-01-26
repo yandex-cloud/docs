@@ -63,7 +63,7 @@ description: Следуя данной инструкции, вы сможете
         {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
 
      * `--organization-id` — идентификатор организации.
-     * `--acr-id` — тип [фактора](../../concepts/mfa.md#mfa-factors) аутентификации.
+     * {% include [mfa-acr-id-cli-flag-legend](../../../_includes/organization/mfa-acr-id-cli-flag-legend.md) %}
      * `--ttl` — срок действия учетных данных в днях.
      * `--status` — статус политики: `status-active` — активна, `status-inactive` — неактивна.
      * `--apply-at` — время, по истечении которого политика станет активна. Необязательный параметр.

@@ -285,25 +285,25 @@ Where:
 
   `Gateway` resources or their listeners specified in the `spec.listeners` field associated with `HTTPRoute`. For more information, see [this reference](../../../application-load-balancer/k8s-ref/gateway.md#spec).
 
-  The route must also comply with the rules described in the `Gateway` [configuration](../../../application-load-balancer/k8s-ref/gateway.md#spec) (`spec.listeners.allowedRoutes` field).
+  Routes must also comply with the `Gateway` [configuration](../../../application-load-balancer/k8s-ref/gateway.md#spec) rules specified in the `spec.listeners.allowedRoutes` field.
   
   * `namespace` (`string`)
 
-    Namespace the `Gateway` resource belongs to (see the `metadata.namespace` field in its metadata).
+    `Gateway` resource namespace specified in its `metadata.namespace` field.
 
     By default, it matches the `HTTPRoute` resource namespace (`metadata.namespace` field).
 
   * `name` (`string`; this is a required field)
 
-    Name of the `Gateway` resource (see the `metadata.name` field in its metadata).
+    `Gateway` resource name specified in its `metadata.name` field.
 
   * `sectionName` (`string`)
 
-    Name of the listener specified in the `Gateway` resource (see the `spec.listeners.name` field in its metadata).
+    Name of the listener specified in the `Gateway` resource (specified in the `spec.listeners.name` field).
 
 * `hostnames` (`[]string`)
 
-  List of domain names (values of the `Host` header for HTTP/1.1 or the `:authority` pseudo-header for HTTP/2) for the route. The system will create virtual hosts in HTTP routers for each domain name.
+  List of domain names (values of the `Host` header for HTTP/1.1 or the `:authority` pseudo-header for HTTP/2) for the route. The system will create HTTP router virtual hosts for each specified domain name.
 
   {% include [k8s-ingress-controller-hostnames-wildcard](../../application-load-balancer/k8s-ingress-controller-hostnames-wildcard.md) %}
 

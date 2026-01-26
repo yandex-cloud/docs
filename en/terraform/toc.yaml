@@ -867,6 +867,9 @@ items:
                   - name: mdb_clickhouse_cluster
                     href: data-sources/mdb_clickhouse_cluster.md
                     title: ''
+                  - name: mdb_clickhouse_cluster_v2
+                    href: data-sources/mdb_clickhouse_cluster_v2.md
+                    title: ''
                   - name: mdb_clickhouse_database
                     href: data-sources/mdb_clickhouse_database.md
                     title: ''

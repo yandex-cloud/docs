@@ -60,8 +60,6 @@ editable: false
 
 ## Пример расчета стоимости {#price-example}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 Пример расчета стоимости {{ cloud-desktop-name }} за один месяц для группы из десяти рабочих столов следующей конфигурации:
 
 * Вычислительные ресурсы: 2 × 50% vCPU и 2 ГБ RAM.

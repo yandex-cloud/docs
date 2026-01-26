@@ -10,7 +10,7 @@ description: Follow this guide to update a push notification channel.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder containing the notification channel.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the push notification channel and select **{{ ui-key.yacloud.common.edit }}**.
   1. On the **{{ ui-key.yacloud.cns.type_mobile }}** tab, edit the authentication parameters for your platform:
 

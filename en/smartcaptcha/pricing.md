@@ -13,7 +13,7 @@ editable: false
 
 
 
-To calculate the cost of using {{ captcha-name }}, use [our calculator](https://yandex.cloud/en/prices?state=064c7fd1932b#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=064c7fd1932b#calculator) on our website or check out the pricing below.
 
 
 {% endnote %}
@@ -51,7 +51,6 @@ Examples of {{ captcha-name }} cost calculation:
 1. An intruder has passed the CAPTCHA test, got a `token`, and sent it 10 times after 10 minutes. The API will return the `failed` status to all requests. You will not be charged for any of these.
 
 ## Prices for the Russia region {#prices}
-
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
