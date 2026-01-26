@@ -903,6 +903,7 @@ default:
   vector-store-name: Vector Store
   video-full-name: Yandex Cloud Video
   video-name: Cloud Video
+  video-player-name: Cloud Video Player
   vision-full-name: Yandex Vision OCR
   vision-name: Vision OCR
   vision-short-name: Vision OCR
@@ -981,6 +982,7 @@ default:
   yds-short-name: Data Streams
   ymq-endpoint: https://message-queue.api.cloud.yandex.net/
   yq-full-name: Yandex Query
+  yq-iceberg-name: Iceberg
   yq-name: Query
   yq-short-name: YQ
   yql-full-name: Yandex Query Language
@@ -1580,14 +1582,6 @@ default:
         12_month: dn2o5qnxdn7jxgcatyif
         3_month: dn2mhzsdg7gtb4d4fckw
         6_month: dn2mj2rnkhctk4lzcz4c
-  pc|cdn:
-    api:
-      network:
-        inet:
-          egress: dn2l8n9h5mtan7l8frav
-    logs:
-      raw: dn2sskor2babvph8i55r
-      shielding: dn2icqngml7bu80mtj72
   pc|cloud_desktop:
     image:
       v1: dn2dd29vb1490vk3gd27
@@ -1891,6 +1885,28 @@ default:
       c50:
         v1|number: 4.2982
         v1|string: "4,2982\_₸"
+  sku|KZT|cns:
+    notification_events:
+      mts_marketing_event|number: 27.7054
+      mts_marketing_event|string: "27,7054\_₸"
+      push_event:
+        v2|pricingRate:
+          1|number: 512.6786
+          1|string: "512,6786\_₸"
+      vimpelcom_marketing_1|number: 40.1339
+      vimpelcom_marketing_1|string: "40,1339\_₸"
+      vimpelcom_marketing_2|number: 39.6679
+      vimpelcom_marketing_2|string: "39,6679\_₸"
+    notifications_packet_events:
+      vimpelcom_marketing_1|number: 97.875
+      vimpelcom_marketing_1|string: "97,8750\_₸"
+      vimpelcom_marketing_2|number: 72.6036
+      vimpelcom_marketing_2|string: "72,6036\_₸"
+      vimpelcom_marketing_3|number: 138.5786
+      vimpelcom_marketing_3|string: "138,5786\_₸"
+    notifications:
+      sender_name_registration_event|number: 51785.7167
+      sender_name_registration_event|string: "51\_785,7167\_₸"
   sku|KZT|compute:
     filesystem:
       hdd:
@@ -2292,6 +2308,12 @@ default:
           v1|number: 15535.715
           v1|string: "15\_535,7150\_₸"
   sku|KZT|sws:
+    antiddos:
+      traffic|number: 5.6446
+      traffic|string: "5,6446\_₸"
+    proxy-server:
+      v1|number: 12.4286
+      v1|string: "12,4286\_₸"
     requests:
       v1|number: 0
       v1|pricingRate:
@@ -2453,6 +2475,28 @@ default:
       c50:
         v1|number: 0.8438
         v1|string: "0,8438\_₽"
+  sku|RUB|cns:
+    notification_events:
+      mts_marketing_event|number: 5.4392
+      mts_marketing_event|string: "5,4392\_₽"
+      push_event:
+        v2|pricingRate:
+          1|number: 100.65
+          1|string: "100,65\_₽"
+      vimpelcom_marketing_1|number: 7.8792
+      vimpelcom_marketing_1|string: "7,8792\_₽"
+      vimpelcom_marketing_2|number: 7.7877
+      vimpelcom_marketing_2|string: "7,7877\_₽"
+    notifications_packet_events:
+      vimpelcom_marketing_1|number: 19.215
+      vimpelcom_marketing_1|string: "19,2150\_₽"
+      vimpelcom_marketing_2|number: 14.2537
+      vimpelcom_marketing_2|string: "14,2537\_₽"
+      vimpelcom_marketing_3|number: 27.206
+      vimpelcom_marketing_3|string: "27,2060\_₽"
+    notifications:
+      sender_name_registration_event|number: 10166.6667
+      sender_name_registration_event|string: "10\_166,6667\_₽"
   sku|RUB|compute:
     filesystem:
       hdd:
@@ -2880,6 +2924,12 @@ default:
           v1|number: 3050
           v1|string: "3\_050,00\_₽"
   sku|RUB|sws:
+    antiddos:
+      traffic|number: 1.1082
+      traffic|string: "1,1082\_₽"
+    proxy-server:
+      v1|number: 2.44
+      v1|string: "2,44\_₽"
     requests:
       v1|number: 0
       v1|pricingRate:
@@ -3067,6 +3117,28 @@ default:
       c50:
         v1|number: 0.006917
         v1|string: "0,006917\_$"
+  sku|USD|cns:
+    notification_events:
+      mts_marketing_event|number: 0.044583
+      mts_marketing_event|string: "0,044583\_$"
+      push_event:
+        v2|pricingRate:
+          1|number: 0.825
+          1|string: "0,825000\_$"
+      vimpelcom_marketing_1|number: 0.064583
+      vimpelcom_marketing_1|string: "0,064583\_$"
+      vimpelcom_marketing_2|number: 0.063833
+      vimpelcom_marketing_2|string: "0,063833\_$"
+    notifications_packet_events:
+      vimpelcom_marketing_1|number: 0.1575
+      vimpelcom_marketing_1|string: "0,157500\_$"
+      vimpelcom_marketing_2|number: 0.116833
+      vimpelcom_marketing_2|string: "0,116833\_$"
+      vimpelcom_marketing_3|number: 0.223
+      vimpelcom_marketing_3|string: "0,223000\_$"
+    notifications:
+      sender_name_registration_event|number: 83.33332
+      sender_name_registration_event|string: "83,333320\_$"
   sku|USD|compute:
     filesystem:
       hdd:
@@ -3153,23 +3225,6 @@ default:
         cpu|string: "0,015120\_$"
         ram|number: 0.00405
         ram|string: "0,004050\_$"
-  sku|USD|gost_gateway:
-    hw100_c:
-      subscription:
-        monthly_usage:
-          v1|string: "416,663868\_$"
-    hw1000_d:
-      subscription:
-        monthly_usage:
-          v1|string: "1\_458,327636\_$"
-    hw2000_q5:
-      subscription:
-        monthly_usage:
-          v1|string: "1\_958,327556\_$"
-    hw5000_q2:
-      subscription:
-        monthly_usage:
-          v1|string: "2\_374,999620\_$"
   sku|USD|kms:
     api:
       asymmetric:
@@ -3205,8 +3260,8 @@ default:
         get|string: "0,031104\_$"
     storage:
       v1:
-        active_secrets|month|number: 0.162
-        active_secrets|month|string: "0,162000\_$"
+        active_secrets|number: 0.000225
+        active_secrets|string: "0,000225\_$"
   sku|USD|mdb:
     cluster:
       clickhouse:
@@ -3495,6 +3550,12 @@ default:
           v1|number: 24.999996
           v1|string: "24,999996\_$"
   sku|USD|sws:
+    antiddos:
+      traffic|number: 0.009083
+      traffic|string: "0,009083\_$"
+    proxy-server:
+      v1|number: 0.02
+      v1|string: "0,020000\_$"
     requests:
       v1|number: 0
       v1|pricingRate:
@@ -4670,6 +4731,7 @@ default:
           PasswordDialog:
             action_save-password_gaB2s: Сохранить пароль
         security-settings:
+          acr_any-except-sms_6NWqb: Любые, кроме SMS
           acr_any-mfa_j6PdY: Любые методы
           acr_phr_7hMqk: Устойчивые к фишингу
           mfa-overview-action-activate: Активировать
@@ -4969,9 +5031,17 @@ default:
         support: Поддержка
     yacloud_video:
       channels:
+        action_add-domain: Добавить домен
         action_create-channel: Создать канал
+        label_advertisement: Реклама
+        label_allowed-domains: Разрешённые домены
+        label_category: Категория
         label_description: Описание
+        label_domains-status: Статус проверки
+        label_page-id: PageID
+        label_provider-type: Провайдер
         label_title: Имя
+        title_settings: Настройки канала
       common:
         action_accept: Сохранить
         action_add: Добавить
@@ -4984,9 +5054,14 @@ default:
       dashboard:
         action_add-user: Добавить участника
         action_go-to-org: Перейти в организацию
+      organization:
+        action_open-cloud-video: Открыть Cloud Video
       playlists:
         action_add-playlist-video: Добавить видео
         action_create-playlist: Создать плейлист
+        action_create-stream: Создать трансляцию
+        switch_stream-select: Трансляции
+        switch_video-select: Видео
         title_playlists: Плейлисты
         title_playlists-video-list: Порядок воспроизведения
       presets:
@@ -5800,6 +5875,7 @@ default:
         unspecified: Не задано
         update: Обновить
         updated-at: Дата изменения
+        user: Пользователь
         value: Значение
       component:
         acl-dialog:
@@ -5962,6 +6038,12 @@ default:
             value_disk-attach-type-attach-existing: Подключить существующий
             value_disk-attach-type-create-new: Создать
         components:
+          AttachInstanceToPoolDialog:
+            button_attach_pHLyg: Привязать
+          InstanceActions:
+            button_attach-to-pool_ak57z: Привязать к пулу резервов ВМ
+            button_confirm-detach-vm-from-pool_8dze2: Отвязать
+            button_detach-from-pool_wEiB2: Отвязать от пула резервов ВМ
           PlatformField:
             value_platform-tab-gpu_hGyQ8: Есть GPU
           SshViaPrivateKeyDialog:
@@ -6223,6 +6305,19 @@ default:
           button_menu-create-instance-placement-group: Группу размещения виртуальных машин
           label_tab-disks: Группы размещения нереплицируемых дисков
           label_tab-instances: Группы размещения виртуальных машин
+        reserved-instance-pool:
+          button_create-reserved-instance-pool_pZ1gY: Создать пул
+          PendingSlotsRow:
+            row-title_qGybc: При отсутствии ресурсов
+          reserved-instance-pool-size_1nhUt: Размер пула
+          reserved-instance-pool-type-standard_wqziE: Стандартный
+          reserved-instance-pool-type-with-oversubscription_6dZSq: С переподпиской
+          reserved-instance-pools_m8sWW: Пулы резервов ВМ
+          ReservedInstancePoolActions:
+            button_create-virtual-machine_pjCmE: Создать ВМ
+          ReservedInstancePoolFormBase:
+            main-pool-info-section_xoPE2: Общая информация о пуле
+            resources-section-title_wAFm8: Вычислительные ресурсы ВМ
         section_additional_7yvYG: Дополнительно
         snapshots_81jHX: Снимки дисков
         snapshots-schedules:
@@ -7680,6 +7775,8 @@ default:
         button_open-in-monitoring: Открыть в Monitoring
       mysql:
         cluster:
+          label_iam_dgBhy: IAM
+          label_password_mM9e5: Пароль
           switch_backups: Резервные копии
           switch_databases: Базы данных
           switch_datalens: DataLens
@@ -7742,6 +7839,7 @@ default:
       postgresql:
         cluster:
           additional-field-pooling_mode: Режим работы менеджера подключений
+          switch_backup-policies: Политики резервного копирования
           switch_backups: Резервные копии
           switch_databases: Базы данных
           switch_datalens: DataLens
@@ -7751,6 +7849,9 @@ default:
           switch_logs: Логи
           switch_monitoring: Мониторинг
           switch_users: Пользователи
+        common:
+          label_iam_iq9BP: IAM
+          label_password_srTqe: Пароль
         databases:
           dialog:
             button_submit: Изменить
@@ -10713,6 +10814,7 @@ default:
           button-text: Создать
         database:
           input-label: База данных
+        description_iceberg-directory: Директория
         general-parameters:
           section-title: Общие параметры
         login:
@@ -10843,7 +10945,7 @@ default:
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
-        tag: 0.43.0
+        tag: 0.43.3
     yc_external-secrets:
       helmChart:
         name: >-

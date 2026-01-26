@@ -377,7 +377,9 @@ max(0.24 × объем доступной памяти на мастере, 1638
 | 6.25 и выше | Integer | от 50 до 1000 | 200 | `postmaster` |
 
 
-Максимальное количество одновременных подключений к кластеру базы данных. При увеличении этого параметра необходимо также увеличить значение [max_prepared_transactions](#setting-max-prepared-transactions). Увеличение этого параметра может привести к тому, что база данных запросит больший объем общей памяти (см. [master_shared_buffers](#setting-master-shared-buffers) и [segment_shared_buffers](#setting-segment-shared-buffers)).
+Максимальное количество одновременных подключений к кластеру базы данных. Для подключения пользователей доступно `max_connections − 20`, так как `20` подключений резервируется для суперпользователей. Количество подключений для суперпользователей определяется параметром `superuser_reserved_connections`, значение которого не может быть изменено. Подробнее о параметре `superuser_reserved_connections` см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#superuser_reserved_connections).
+
+При увеличении `max_connections` необходимо также увеличить значение [max_prepared_transactions](#setting-max-prepared-transactions). Увеличение `max_connections` может привести к тому, что база данных запросит больший объем общей памяти (см. [master_shared_buffers](#setting-master-shared-buffers) и [segment_shared_buffers](#setting-segment-shared-buffers)).
 
 Для сегментов значение параметра `max_connections` вычисляется автоматически по формуле:
 ```

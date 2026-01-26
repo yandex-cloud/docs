@@ -197,9 +197,9 @@ To manage user view permissions for cluster lists, we recommend using different 
     
   {% endnote %} 
 
-  1. Open the current {{ TF }} configuration file that defines your infrastructure.
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
   
-      For information on how to create this file, see [Creating a cluster](kubernetes-cluster-create.md).
+      For more information about creating this file, see [this guide](kubernetes-cluster-create.md).
 
   1. Add resource descriptions:
     
@@ -300,9 +300,9 @@ To manage user view permissions for cluster lists, we recommend using different 
     
   {% endnote %} 
 
-  1. Open the current {{ TF }} configuration file that defines your infrastructure.
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
   
-      For information on how to create this file, see [Creating a cluster](kubernetes-cluster-create.md).
+      For more information about creating this file, see [this guide](kubernetes-cluster-create.md).
 
   1. Find the description of the resource with the role you want to revoke and delete this description:
     

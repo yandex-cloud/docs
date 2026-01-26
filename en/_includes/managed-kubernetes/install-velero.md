@@ -1,15 +1,15 @@
-Install the Velero application as follows:
+Install the Velero application:
 
 {% list tabs group=instructions %}
 
 
 - {{ marketplace-full-name }} {#marketplace}
 
-    Install the Velero application by following [this guide](../../managed-kubernetes/operations/applications/velero-yc-csi.md). In the **Object Storage bucket name** field, specify the bucket you [created earlier](#before-you-begin).
+    Install Velero following [this guide](../../managed-kubernetes/operations/applications/velero-yc-csi.md). In the **Object Storage bucket name** field, specify the bucket you [created earlier](#before-you-begin).
 
     {% note warning %}
 
-    If the name of the namespace where Velero is installed is not `velero`, use the additional `--namespace <Velero_application_namespace>` parameter for all the commands that follow.
+    If the name of the namespace where Velero is installed is not `velero`, use the additional `--namespace <Velero_namespace>` parameter for all the commands that follow.
 
     {% endnote %}
 
@@ -62,14 +62,14 @@ Install the Velero application as follows:
         ```
 
         Where:
-        * `--backup-location-config`: Backup storage parameters, i.e., the URL of {{ objstorage-name }} storage and region.
+        * `--backup-location-config`: Backup storage parameters, i.e., the URL of the {{ objstorage-name }} storage and region.
         * `--bucket`: Name of the [previously created](#before-you-begin) {{ objstorage-name }} bucket for backup storage.
         * `--plugins`: Plugin images for AWS API compatibility.
         * `--provider`: Name of the object storage provider.
         * `--secret-file`: Full path to the file with static access key data.
         * `--features`: List of enabled features.
         * `--snapshot-location-config`: Availability zone to host disk snapshots.
-        * `--uploader-type=restic`: Optionally, enables the `restic` plugin for creating snapshots of [nfs](https://kubernetes.io/docs/concepts/storage/volumes/#nfs), [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [local](https://kubernetes.io/docs/concepts/storage/volumes/#local), and any other volume types without native snapshot support.
+        * `--uploader-type=restic`: Enables the `restic` plugin for creating snapshots of [nfs](https://kubernetes.io/docs/concepts/storage/volumes/#nfs), [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [local](https://kubernetes.io/docs/concepts/storage/volumes/#local), and any other volume types without native snapshot support. This is an optional parameter.
 
         Result:
 

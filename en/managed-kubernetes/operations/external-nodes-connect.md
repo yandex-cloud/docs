@@ -23,7 +23,7 @@ For external nodes to connect to a {{ managed-k8s-name }} cluster, both the clus
 
 1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
 
-    To create an external node group, the {{ managed-k8s-name }} cluster must operate in [tunnel mode](../concepts/network-policy#cilium). You can only enable this mode when creating the cluster.
+    To create an external node group, the {{ managed-k8s-name }} cluster must operate in [tunnel mode](../concepts/network-policy.md#cilium). You can only enable this mode when creating the cluster.
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -37,7 +37,7 @@ For external nodes to connect to a {{ managed-k8s-name }} cluster, both the clus
   1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}** and then **{{ ui-key.yacloud.k8s.cluster.node-groups.label_type-custom }}**.
   1. Enter a name for the {{ managed-k8s-name }} node group.
   1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_ips }}** field, specify the [IP address](../../vpc/concepts/address.md) of the server you are connecting, available from the {{ managed-k8s-name }} cluster's [cloud network](../../vpc/concepts/network.md#network).
-  1. Click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-ip }}** to add more IP addresses as needed.
+  1. Click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-ip }}** to add more IP addresses if needed.
   1. Click **{{ ui-key.yacloud.common.add }}**.
 
 - CLI {#cli}
@@ -102,7 +102,7 @@ With automated installation, the {{ managed-k8s-name }} cluster connects to the 
 
 To run an automated installation:
 
-1. In your {{ managed-k8s-name }} cluster, create a secret with a private SSH key for connection to the server:
+1. In your {{ managed-k8s-name }} cluster, create a secret with a private SSH key for connection to the servers:
 
     ```bash
     kubectl -n yandex-system create secret generic <secret_name> \

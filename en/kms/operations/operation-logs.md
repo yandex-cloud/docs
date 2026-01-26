@@ -11,7 +11,7 @@ The system logs all actions with {{ kms-name }} resources as a list of operation
   Below, you can learn how to get a list of operations for a symmetric key. The same steps apply to other resources as well.
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the symmetric key.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Select the key you need.
   1. Go to the ![image](../../_assets/console-icons/list-check.svg) **Operations** panel for the selected key.
@@ -49,7 +49,7 @@ The system logs all actions with {{ kms-name }} resources as a list of operation
   +----------------------+---------------------+----------------------+---------------------+--------+----------------------+
   ```
 
-  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
+  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using `--format`:
 
   ```bash
   yc kms symmetric-key list-operations epdplu8jn7sr******** --format yaml

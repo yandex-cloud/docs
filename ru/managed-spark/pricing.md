@@ -43,8 +43,6 @@ editable: false
 
 ### Пример расчета стоимости кластера {#example}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
 * **Драйвер**: два экземпляра конфигурации `standard`, [класс хоста](concepts/instance-types.md) `c4-m16`, фиксированное количество: 4 vCPU, 16 ГБ RAM.

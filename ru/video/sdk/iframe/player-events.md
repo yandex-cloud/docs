@@ -1,11 +1,11 @@
 ---
-title: События плеера Cloud Video Player в SDK для IFrame
-description: На странице описаны возможные события видеоплеера Cloud Video Player, на которые можно подписаться в SDK для IFrame.
+title: События плеера {{ video-player-name }} в SDK для IFrame
+description: На странице описаны возможные события видеоплеера {{ video-player-name }}, на которые можно подписаться в SDK для IFrame.
 ---
 
 # События плеера
 
-С помощью механизма `postMessage` SDK для IFrame вы можете подписаться на события [видеоплеера](../../concepts/player.md) Cloud Video Player. События отправляются из iframe в родительское окно.
+С помощью механизма `postMessage` SDK для IFrame вы можете подписаться на события [видеоплеера](../../concepts/player.md) {{ video-player-name }}. События отправляются из iframe в родительское окно.
 
 ## Формат подписки на события {#event-format}
 

@@ -292,7 +292,7 @@ To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List]
 
 Name of the instance group.
 
-Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 Description of the instance group.
@@ -503,7 +503,7 @@ of a Linux operating system running within the instance.
 
 This value can be used to reference the device for mounting, resizing, and so on, from within the instance.
 
-Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `. ||
+Value must match the regular expression ``` |[a-z][-_0-9a-z]{0,19} ```. ||
 || disk_spec | **[DiskSpec](#yandex.cloud.compute.v1.instancegroup.AttachedDiskSpec.DiskSpec)**
 
 Required field. oneof disk_spec or disk_id
@@ -707,7 +707,7 @@ when it's being mounted, resized etc.
 
 If not specified, a random value will be generated.
 
-Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `. ||
+Value must match the regular expression ``` |[a-z][-_0-9a-z]{0,19} ```. ||
 || filesystem_id | **string**
 
 ID of the filesystem that should be attached.
@@ -1005,7 +1005,7 @@ Do not wait load balancer health checks. ||
 
 Name of the target group.
 
-Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 Description of the target group.
@@ -1774,7 +1774,7 @@ of a Linux operating system running within the instance.
 
 This value can be used to reference the device for mounting, resizing, and so on, from within the instance.
 
-Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `. ||
+Value must match the regular expression ``` |[a-z][-_0-9a-z]{0,19} ```. ||
 || disk_spec | **[DiskSpec](#yandex.cloud.compute.v1.instancegroup.AttachedDiskSpec.DiskSpec2)**
 
 Required field. oneof disk_spec or disk_id
@@ -1978,7 +1978,7 @@ when it's being mounted, resized etc.
 
 If not specified, a random value will be generated.
 
-Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `. ||
+Value must match the regular expression ``` |[a-z][-_0-9a-z]{0,19} ```. ||
 || filesystem_id | **string**
 
 ID of the filesystem that should be attached.
@@ -2306,7 +2306,7 @@ Do not wait load balancer health checks. ||
 
 Name of the target group.
 
-Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 Description of the target group.

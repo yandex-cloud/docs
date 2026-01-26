@@ -172,7 +172,7 @@ Learn more about {{ k8s-hpa }} in [{#T}](../concepts/autoscale.md#hpa).
 
 Learn more about {{ k8s-vpa }} in [{#T}](../concepts/autoscale.md#vpa).
 
-## Deleting Terminated pods {#delete-terminated}
+## Deleting terminated pods {#delete-terminated}
 
 Sometimes during autoscaling, {{ managed-k8s-name }} node pods are not removed and stay in the **Terminated** state. This happens because the [Pod garbage collector (PodGC)](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-garbage-collection) fails to timely clean up these pods.
 

@@ -29,7 +29,6 @@ editable: false
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|cdn }}']}
-    excludeSkuIds={['{{ pc|cdn.logs.shielding }}', '{{ pc|cdn.api.network.inet.egress }}', '{{ pc|cdn.logs.raw }}']}
     installationCode="ru"
     currency="RUB"
   />

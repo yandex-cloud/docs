@@ -1,11 +1,11 @@
 ---
-title: Параметры инициализации плеера Cloud Video Player в SDK для JavaScript
-description: На странице описаны параметры, которые можно использовать при инициализации видеоплеера Cloud Video Player в SDK для JavaScript.
+title: Параметры инициализации плеера {{ video-player-name }} в SDK для JavaScript
+description: На странице описаны параметры, которые можно использовать при инициализации видеоплеера {{ video-player-name }} в SDK для JavaScript.
 ---
 
 # Параметры инициализации плеера
 
-При [инициализации](./index.md#initialize-player) видеоплеера [Cloud Video Player](../../concepts/player.md) вы можете передать в него исходные параметры.
+При [инициализации](./index.md#initialize-player) видеоплеера [{{ video-player-name }}](../../concepts/player.md) вы можете передать в него исходные параметры.
 
 ## Параметры управления воспроизведением {#playback-controls}
 

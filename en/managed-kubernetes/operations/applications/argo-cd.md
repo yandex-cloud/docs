@@ -29,7 +29,7 @@ description: Follow this guide to install Agro CD.
    * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `argo-cd-space`. If you leave the default namespace, Argo CD may work incorrectly.
    * **Application name**: Specify the application name.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application status to change to `Deployed`.
+1. Wait for the application to change its status to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 
@@ -136,7 +136,7 @@ You will need the password for authorization in Argo CD.
 
 1. [Configure](../../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) the security groups required for an L7 {{ alb-name }}.
 
-1. [Install the {{ alb-name }}](alb-ingress-controller.md) ingress controller.
+1. [Install the {{ alb-name }} ingress controller](alb-ingress-controller.md).
 
    {% include [Gwin](../../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
 

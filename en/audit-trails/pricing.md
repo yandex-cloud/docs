@@ -23,7 +23,6 @@ Delivered [data events](./concepts/events-data-plane.md) are billed.
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
@@ -53,7 +52,7 @@ For example, delivering 17,000 data events will cost:
 {% include [usd-formula](../_pricing_examples/audit-trails/usd-formula.md) %}
 
 
-### Examples of cost calculation {#price-example}
+### Cost calculation examples {#price-example}
 
 ##### Example 1
 

@@ -6,6 +6,27 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
+  1. На странице **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}**.
+  1. Нажмите кнопку **Создать политику**.
+  1. Укажите параметры новой политики:
+
+      1. Введите имя и описание.
+      1. Выберите один из вариантов запуска резервного копирования:
+
+          * **Каждый день**.
+          * **Каждую неделю**. Для этого варианта дополнительно выберите один или несколько дней недели.
+          * **По месяцам**. Для этого варианта дополнительно выберите один или несколько месяцев и один или несколько дней месяца.
+
+          Время начала резервного копирования указывается в [настройках кластера](update.md#change-additional-settings).
+
+      1. Укажите параметры хранения резервных копий. Вы можете хранить копии постоянно или задать период хранения (не менее семи дней).
+
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -198,6 +219,13 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
+  1. На странице **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}**.
+
+
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -290,6 +318,16 @@
 ## Удалить политику резервного копирования {#delete-policy}
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
+  1. На странице **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}**.
+
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке политики, которую вы хотите удалить.
+  1. Выберите пункт **{{ ui-key.yacloud.common.delete }}**.
+  1. Подтвердите удаление и нажмите кнопку **Удалить**.
 
 - CLI {#cli}
 

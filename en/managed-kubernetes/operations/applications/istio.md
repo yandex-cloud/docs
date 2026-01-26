@@ -6,16 +6,16 @@ description: Follow this guide to install Istio.
 # Installing Istio
 
 
-[Istio](https://istio.io/latest/about/service-mesh/) implements a _service mesh_, a low-latency infrastructure layer used to process a massive volume of network communications between services in a {{ managed-k8s-name }} cluster.
+[Istio](https://istio.io/latest/about/service-mesh/) implements a _service mesh_, a low-latency infrastructure layer that manages large-scale network communications between services in a {{ managed-k8s-name }} cluster.
 
 Istio provides:
 
-* Encrypted service-to-service communication in a cluster.
+* Encrypted inter-service communication in a cluster.
 * Authentication across services.
 * Load balancing for HTTP, TCP, RPC, and WebSocket traffic.
 * Detailed traffic monitoring based on extensive routing rules.
 
-The application contains [Istio Ingress Gateway](https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-control/), a component for setting up an entry point for external traffic.
+The application contains [Istio ingress gateway](https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-control/), a component for setting up an entry point for external traffic.
 
 {% note info %}
 
@@ -35,15 +35,15 @@ To use Istio, you need a node group with at least 6 GB of RAM.
 
 1. {% include [Install kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-## Installation using {{ marketplace-full-name }} {#marketplace-install}
+## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
 1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the name of the cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. Click the cluster name and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Istio](/marketplace/products/yc/istio) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `istio-space`. If you leave the default namespace, Istio may work incorrectly.
    * **Application name**: Specify the application name.
-   * **Install add-ons**: Select this option to automatically install add-ons: the [Kiali](https://kiali.io/) management console, and such components as Grafana, Prometheus, [Jaeger](/marketplace/products/yc/jaeger-ydb-store), and [Loki](/marketplace/products/yc/loki).
+   * **Install add-ons**: Select this option to automatically install the add-ons: [Kiali](https://kiali.io/) management console, and such components as Grafana, Prometheus, [Jaeger](/marketplace/products/yc/jaeger-ydb-store), and [Loki](/marketplace/products/yc/loki).
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
 
@@ -63,7 +63,7 @@ To use Istio, you need a node group with at least 6 GB of RAM.
    istio ./istio/
    ```
 
-   If you set `namespace` to the default namespace, Istio may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `istio-space`).
+   If you set `namespace` to the default namespace, Istio may work incorrectly. We recommend specifying a value different from all the existing namespaces, e.g., `istio-space`.
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

@@ -13,6 +13,34 @@ description: Из статьи вы узнаете, как создать пул
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать пул резервов ВМ.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-lock.svg) **{{ ui-key.yacloud.compute.reserved-instance-pool.reserved-instance-pools_m8sWW }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.reserved-instance-pool.button_create-reserved-instance-pool_pZ1gY }}**.
+  1. Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой нужно зарезервировать [вычислительные ресурсы](../../concepts/vm.md#types).
+  1. Выберите тип пула:
+
+      * **{{ ui-key.yacloud.compute.reserved-instance-pool.reserved-instance-pool-type-standard_wqziE }}** — количество привязанных ВМ ограничено размером пула.
+      * **{{ ui-key.yacloud.compute.reserved-instance-pool.reserved-instance-pool-type-with-oversubscription_6dZSq }}** — можно [привязать любое количество ВМ](../../concepts/reserved-pools.md#oversubscription). Количество запущенных ВМ ограничено размером пула.
+  1. Укажите **{{ ui-key.yacloud.compute.reserved-instance-pool.reserved-instance-pool-size_1nhUt }}** — максимальное количество ВМ в пуле.
+  1. В блоке **{{ ui-key.yacloud.compute.reserved-instance-pool.ReservedInstancePoolFormBase.resources-section-title_wAFm8 }}** выберите одну из готовых конфигураций или создайте свою. Чтобы создать свою конфигурацию:
+
+      * Перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}**.
+      * Выберите [платформу](../../../compute/concepts/vm-platforms.md).
+      * Укажите [гарантированную долю](../../../compute/concepts/performance-levels.md) и необходимое количество vCPU, а также объем RAM.
+      * При необходимости включите [программно ускоренную сеть](../../../compute/concepts/software-accelerated-network.md).
+  1. В блоке **{{ ui-key.yacloud.compute.reserved-instance-pool.ReservedInstancePoolFormBase.main-pool-info-section_xoPE2 }}**:
+
+      * Введите имя пула. Требования к имени:
+
+          {% include [name-format](../../../_includes/name-format.md) %}
+
+      * (Опционально) Добавьте описание пула.
+      * (Опционально) Добавьте [метки](../../../resource-manager/concepts/labels.md) пула.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}

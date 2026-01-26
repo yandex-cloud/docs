@@ -8,11 +8,11 @@ description: Follow this guide to install Jaeger over {{ ydb-short-name }} Backe
 
 [Jaeger](https://www.jaegertracing.io/) is an open-source distributed tracing platform. Jaeger enables you to monitor request status and debug distributed microservice application systems after faults.
 
-Jaeger is able to use the following types of data storage:
+Jaeger uses the following types of data storage:
 * [{{ ydb-full-name }}](../../../ydb/) when installed from [{{ marketplace-full-name }}](/marketplace).
 * [Other data storage systems](https://github.com/jaegertracing/helm-charts/tree/main/charts/jaeger#storage) when installed via a Helm chart.
 
-## Installation using {{ marketplace-name }} {#marketplace-install}
+## Installation from {{ marketplace-name }} {#marketplace-install}
 
 ### Getting started {#before-you-begin}
 
@@ -36,11 +36,11 @@ Jaeger is able to use the following types of data storage:
 
 ### Preparing {{ ydb-name }} {#create-ydb}
 
-1. [Create a database](../../../ydb/operations/manage-databases.md#create-db-dedicated) with a suitable configuration and `Dedicated` as your [DB type](../../../ydb/concepts/serverless-and-dedicated.md).
+1. [Create a database](../../../ydb/operations/manage-databases.md#create-db-dedicated) of the `Dedicated` [type](../../../ydb/concepts/serverless-and-dedicated.md) with a suitable configuration.
 
    {% note warning %}
 
-   A `Dedicated` database is required for Jaeger to work properly.
+   Jaeger requires a `Dedicated` database to work properly.
 
    {% endnote %}
 
@@ -48,7 +48,7 @@ Jaeger is able to use the following types of data storage:
 
 ### Creating a service account {#create-sa-key}
 
-To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](../../../iam/concepts/users/service-accounts.md) and obtain a key for it.
+To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](../../../iam/concepts/users/service-accounts.md) and get a key for it.
 1. [Create a service account](../../../iam/operations/sa/create.md) with a suitable [role in the {{ k8s }} cluster](../../security/index.md#yc-api).
 1. Create a service account key and save it to your local machine:
 
@@ -76,7 +76,7 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
 
    {% note info %}
 
-   Save the service account and the service account key IDs: you will use them for subsequent installation steps.
+   Save the IDs of your service account and service account key: you will use them in subsequent installation steps.
 
    {% endnote %}
 
@@ -89,7 +89,7 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
 ### Installing Jaeger {#install-jaeger}
 
 1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the name of the cluster you need and select the ![Marketplace](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. Click the cluster name and select the ![Marketplace](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Jaeger over {{ ydb-name }} Backend](/marketplace/products/yc/jaeger-ydb-store) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `jaeger-space`. If you leave the default namespace, Jaeger may work incorrectly.
@@ -97,13 +97,13 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
    * **{{ ydb-name }} endpoint**: Specify a name for the {{ ydb-name }} endpoint, e.g., `lb.etnk1hv0jol3********.{{ ydb.host-dedicated }}:{{ ydb.port-dedicated }}`.
    * **Database**: Specify a database name, e.g., `/{{ region-id }}/b1gkgm9daf46********/etnk2hv0jol5********`.
    * **Database directory**: `jaeger`.
-   * **Use metadata to authenticate from inside a VM**: Select this option if authentication in the virtual machine is required.
+   * **Use metadata to authenticate from inside a VM**: Select this option if authentication inside the virtual machine is required.
    * **Service account key ID**: Specify the service account key ID.
    * **Service account key**: Specify the service account ID.
-   * **Service account private key**: Copy the contents of the `key.pem` file to this field.
+   * **Service account private key**: Paste the contents of the `key.pem` file to this field.
    * **Install jaeger-agent**: Select this option to install [jaeger-agent](https://hub.docker.com/r/jaegertracing/jaeger-agent/).
 
-   The endpoint and the DB names were returned when [preparing the {{ ydb-name }} DB](#create-ydb) whereas the service account settings were retrieved in the [previous subsection](#create-sa-key).
+   You got the endpoint and database names when [preparing the {{ ydb-name }} database](#create-ydb) and the service account settings, in the [previous subsection](#create-sa-key).
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
 
@@ -129,13 +129,13 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
    helm install jaeger jaegertracing/jaeger
    ```
 
-1. If required, install the [jaeger-operator](https://github.com/jaegertracing/jaeger-operator) {{ k8s }} operator:
+1. If required, install the {{ k8s }} [jaeger-operator](https://github.com/jaegertracing/jaeger-operator):
 
    ```bash
    helm install jaegertracing/jaeger-operator
    ```
 
-   For more information about this installation type, see the [Jaeger documentation](https://github.com/jaegertracing/helm-charts).
+   For more information about this installation type, see [this Jaeger guide](https://github.com/jaegertracing/helm-charts).
 
 ## Use cases {#examples}
 

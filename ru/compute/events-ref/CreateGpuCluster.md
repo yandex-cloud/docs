@@ -62,7 +62,10 @@ sourcePath: en/_events-ref/audit/compute/events-ref/CreateGpuCluster.md
     "name": "string",
     "zoneId": "string",
     "labels": "object",
-    "interconnectType": "string"
+    "interconnectType": "string",
+    "description": "string",
+    "gpuClusterId": "string",
+    "folderId": "string"
   },
   "requestParameters": "object",
   "response": "object"
@@ -207,4 +210,7 @@ A list of messages that carry the error details. ||
 || zoneId | **string** ||
 || labels | **object** (map<**string**, **string**>) ||
 || interconnectType | **string** ||
+|| description | **string** ||
+|| gpuClusterId | **string** ||
+|| folderId | **string** ||
 |#

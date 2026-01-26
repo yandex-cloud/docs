@@ -4,7 +4,7 @@ The `RoutePolicy` resource enables setting cloud-specific policies for `HTTPRout
 
 {% note info %}
 
-You can also set policy parameters using `HTTPRoute` resource annotations. `RoutePolicy` resource parameters and `HTTPRoute` annotations are equivalent.
+You can also set policy parameters using `HTTPRoute` resource annotations. The `RoutePolicy` resource parameters and `HTTPRoute` annotations are equivalent.
 
 {% endnote %}
 
@@ -135,27 +135,27 @@ Where:
 
 * `apiVersion`: `gateway.alb.yc.io/v1`
 * `kind`: `RoutePolicy`
-* `metadata` (`ObjectMeta`, required)
+* `metadata` (`ObjectMeta`; this is a required field)
 
   Resource metadata.
 
-  * `name` (`string`, required)
+  * `name` (`string`; this is a required field)
 
-    Resource name. For more information about the group name format, see the relevant [{{ k8s }} article](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Resource name. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
     Do not mistake this name for the {{ alb-name }} load balancer name.
   
   * `namespace` (`string`)
   
-    Resource [namespace](../../../managed-kubernetes/concepts/index.md#namespace). The default value is `default`.
+    [Namespace](../../../managed-kubernetes/concepts/index.md#namespace) the resource belongs to. The default value is `default`.
 
-* `spec` (`RoutePolicySpec`, required):
+* `spec` (`RoutePolicySpec`; this is a required field):
 
   * `targetRefs` (`[]LocalObjectReference`): List of references to resources targeted by the policy.
 
-  * `selector` (`LabelSelector`): Selector for selecting resources by labels.
+  * `selector` (`LabelSelector`): Selector for selecting resources by label.
 
-  * `policy` (`Route`, required): Cloud-specific route configuration. For more information, see [below](#route).
+  * `policy` (`Route`; this is a required field): Cloud-specific route configuration. For more information, see [below](#route).
 
 ## Route {#route}
 
@@ -188,7 +188,7 @@ Where:
 
   * `securityProfileId` (`string`)
   
-    Host's {{ sws-name }} [profile](../../../smartwebsecurity/concepts/profiles.md) ID.
+    {{ sws-name }} [profile](../../../smartwebsecurity/concepts/profiles.md) ID for the host.
 
   * `rbac` (`RBAC`)
   
@@ -221,7 +221,7 @@ http:
 
 * `securityProfileId` (`string`)
 
-  {{ sws-name }} security profile ID.
+  {{ sws-name }} profile ID.
 
 * `rbac` (`RBAC`)
 
@@ -338,7 +338,7 @@ Where:
 
 * `unhealthyThreshold` (`int`)
 
-  Number of unsuccessful health checks to set the status to `unhealthy`.
+  Number of failed health checks to set the status to `unhealthy`.
 
 * `port` (`int`)
   
@@ -385,7 +385,7 @@ Where:
   Trusted CA:
 
   * `id` (`string`): Certificate ID.
-  * `bytes` (`string`): PEM-encoded certificate content.
+  * `bytes` (`string`): PEM-encoded certificate contents.
 
 ## SessionAffinity {#sessionaffinity}
 
@@ -428,7 +428,7 @@ RBAC rules apply to _groups_ and _principals_:
 
 Each rule is defined by types of conditions to check, e.g., `header` and `ip`.
 
-All checks within a single group work together based on the `AND` logic. Checks in different groups use the `OR` logic.
+All checks within a single group work together using the `AND` logic. Checks in different groups use the `OR` logic.
 
 ```yaml
 action: <string>

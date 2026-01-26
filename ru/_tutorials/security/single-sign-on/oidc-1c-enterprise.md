@@ -3,9 +3,9 @@
 
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
-[1С:Предприятие](https://scloud.ru/1s-predpriyatie/) — это технологическая платформа, на которой разрабатываются программы 1С для автоматизации учета и бизнеса. Платформа поддерживает [OpenID Connect](https://{{ lang }}.wikipedia.org/wiki/OpenID) (OIDC) — аутентификацию для обеспечения безопасного единого входа пользователей организации.
+[1С:Предприятие](https://scloud.ru/1s-predpriyatie/) — это технологическая платформа, на которой разрабатываются программы 1С для автоматизации учета и бизнеса. Платформа поддерживает [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC) — аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в 1С:Предприятие с помощью технологии единого входа по стандарту [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID_Connect), создайте [OIDC-приложение](../../../organization/concepts/applications.md#oidc) в {{ org-full-name }}, настройте его на стороне {{ org-name }} и на стороне 1С:Предприятие.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в 1С:Предприятие с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications.md#oidc) в {{ org-full-name }}, настройте его на стороне {{ org-name }} и на стороне 1С:Предприятие.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -233,26 +233,32 @@
 
 - CLI {#cli}
 
-  1. Обновите OIDC-приложение, указав Redirect URI:
+  1. Обновите OAuth-клиент, указав Redirect URI:
 
      ```bash
-     yc organization-manager idp application oauth application update <идентификатор_приложения> \
+     yc iam oauth-client update \
+       --id <идентификатор_OAuth-клиента> \
        --redirect-uris "<домен_публикации_ИБ_1С>/<имя_приложения>/authform.html"
      ```
 
      Где:
      
-     * `<идентификатор_приложения>` — идентификатор OIDC-приложения, полученный при создании.
+     * `<идентификатор_OAuth-клиента>` — идентификатор OAuth-клиента, полученный при его создании.
      * `--redirect-uris` — URL информационной базы 1С, по которому будет обрабатываться ответ от OIDC-приложения. Например: `https://your.company.ru/your-app/authform.html`.
 
      Результат:
 
      ```text
-     id: ek0o663g4rs2********
-     name: grafana-cloud-oidc-app
-     organization_id: bpf2c65rqcl8********
+     id: ajeiu3otac08********
+     name: enterprise-1c-oauth-client
      redirect_uris:
        - https://your.company.ru/your-app/authform.html
+     scopes:
+       - openid
+       - email
+       - profile
+     folder_id: b1gkd6dks6i1********
+     status: ACTIVE
      ```
 
 {% endlist %}

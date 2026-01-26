@@ -16,3 +16,4 @@ description: Настройка интеграции {{ org-full-name }} с вн
 * [{{ OS }}](./saml-opensearch-self-managed.md)
 * [SonarQube](./saml-sonarqube.md)
 * [OpenVPN Access Server](./saml-ovpn.md)
+* [Настройка единого входа в приложения, не поддерживающие SSO](./oidc-nginx-oauth2-proxy.md)

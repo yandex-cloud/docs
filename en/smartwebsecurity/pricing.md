@@ -36,7 +36,6 @@ When using [domains](concepts/domain-protect.md), in addition to the cost of pro
 
 ## Prices for the Russia region {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Subscription billing {#subscription}
@@ -65,7 +64,7 @@ If the plan you select is not enough, you can switch to another with pro-rata re
 
 
 
-To calculate the cost of using the service, use our [calculator](https://yandex.cloud/en/prices?state=2e8dfeb93503#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=2e8dfeb93503#calculator) on our website or check out the pricing below.
 
 
 {% endnote %}
@@ -83,6 +82,8 @@ You pay for the actual number of legitimate requests. For each request, you pay 
 * Processing by [WAF rules](concepts/rules.md#waf-rules). If your request is processed by security profile rules and then WAF rules, you pay for both.
   
 * Processing by rules in the dry run mode if the request has reached the protected resource.
+
+To use additional protection against DDoS attacks at OSI layers 3 and 4, enable [{{ ddos-protection-full-name }}](../vpc/ddos-protection/index.md). In this case, you will be billed for using the [public IP address](../vpc/pricing.md#prices-public-ip) and [{{ ddos-protection-full-name }}](../vpc/pricing.md#prices-ddos-protection).
 
 #### Proxy server resources {#proxy-resources}
 

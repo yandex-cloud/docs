@@ -1,5 +1,5 @@
 {% note warning %}
 
-You can place autoscaling group nodes only in one [availability zone](../../overview/concepts/geo-scope.md).
+You can only place an autoscaling node group in one [availability zone](../../overview/concepts/geo-scope.md).
 
 {% endnote %}

@@ -1,9 +1,9 @@
 ---
-title: Expanding a pod volume
-description: Follow this guide to expand a pod volume.
+title: Expanding a volume for pods
+description: Follow this guide to expand a volume for pods.
 ---
 
-# Expanding a pod volume
+# Expanding a volume for pods
 
 
 To expand a [volume](../../concepts/volume.md):
@@ -17,7 +17,7 @@ To expand a [volume](../../concepts/volume.md):
 
 ## Enable volume expansion {#enabling-expansion}
 
-To enable the volume expansion feature, make sure the [storage class](manage-storage-class.md) (`StorageClass`) description contains the `allowVolumeExpansion: true` parameter. In {{ managed-k8s-name }} storage, this feature is enabled by default:
+To enable the volume expansion feature, make sure the [storage class](manage-storage-class.md) (`StorageClass`) description contains the `allowVolumeExpansion: true` parameter. In {{ managed-k8s-name }} storages, this feature is enabled by default:
 
 ```yaml
 kind: StorageClass
@@ -33,11 +33,11 @@ allowVolumeExpansion: true
 reclaimPolicy: Delete
 ```
 
-## Create a PersistentVolumeClaim object {#create-pvc}
+## Create a PersistentVolumeClaim {#create-pvc}
 
 1. Save the following [PersistentVolumeClaim creation](dynamic-create-pv.md) specification to a YAML file named `pvc-expansion.yaml`.
 
-   To learn more about the `PersistentVolumeClaim` creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
+   Learn more about the `PersistentVolumeClaim` creation specification in the [{{ k8s }} guide](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
    ```yaml
    apiVersion: v1
@@ -53,7 +53,7 @@ reclaimPolicy: Delete
          storage: 1Gi
    ```
 
-1. Create the `PersistentVolumeClaim` object:
+1. Create a `PersistentVolumeClaim`:
 
    ```bash
    kubectl create -f pvc-expansion.yaml
@@ -69,7 +69,7 @@ reclaimPolicy: Delete
 
 1. Save the following [pod](../../concepts/index.md#pod) creation specification to a YAML file named `pod.yaml`.
 
-   To learn more about the pod creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#pod-v1-core).
+   Learn more about the pod creation specification in [this {{ k8s }} guide](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#pod-v1-core).
 
    ```yaml
    apiVersion: v1
@@ -117,7 +117,7 @@ reclaimPolicy: Delete
    kubectl get pvc pvc-expansion -o yaml
    ```
 
-   The `status.capacity.storage` field shows the requested volume size:
+   The `status.capacity.storage` field now shows the expanded size:
 
    ```yaml
    apiVersion: v1

@@ -12,7 +12,7 @@ description: Follow this guide to update or delete an endpoint.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the endpoint.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select an in-browser push notification channel.
   1. Navigate to the ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the endpoint and select **{{ ui-key.yacloud.common.edit }}**.
@@ -34,7 +34,7 @@ description: Follow this guide to update or delete an endpoint.
 
       * `--endpoint-arn`: Endpoint ID (ARN).
       * `--attributes`: Comma-separated endpoint parameters you want to edit.
-        * `Token`: [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) object, in [JSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON) format received in the user's browser.
+        * `Token`: [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) object obtained through the user's browser, in [JSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON) format.
         * `CustomUserData`: Additional information.
 
       For more information about the `aws sns set-endpoint-attributes` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-endpoint-attributes.html).
@@ -56,7 +56,7 @@ description: Follow this guide to update or delete an endpoint.
 
       * `EndpointArn`: Endpoint ID (ARN).
       * `Attributes`: Comma-separated parameters you want to edit.
-        * `Token`: [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) object, in [JSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON) format received in the user's browser.
+        * `Token`: [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) object obtained through the user's browser, in [JSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON) format.
         * `CustomUserData`: Additional information.
 
 - AWS SDK for PHP {#php}
@@ -75,7 +75,7 @@ description: Follow this guide to update or delete an endpoint.
 
       * `EndpointArn`: Endpoint ID (ARN).
       * `Attributes`: Comma-separated parameters you want to edit.
-        * `Token`: [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) object, in [JSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON) format received in the user's browser.
+        * `Token`: [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) object obtained through the user's browser, in [JSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON) format.
         * `CustomUserData`: Additional information.
 
 - API {#api}
@@ -93,7 +93,7 @@ Updating an endpoint may take some time.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder containing your endpoint.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select an in-browser push notification channel.
   1. Navigate to the ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the endpoint and select **{{ ui-key.yacloud.common.delete }}**.

@@ -23,12 +23,11 @@ When using {{ video-name }}, you are charged for the following:
 
 The video content is stored in {{ objstorage-name }}. The data amount is measured in GBs per month. The size of video content per month is calculated as the average value based on granular per-second data. The minimum billing unit is 1 hour of storing 1 MB of data.
 
-The minimum billing unit for outgoing traffic is 1 GB.
+The minimum billing unit of outgoing traffic is 1 GB.
 
 {% include [free-neuro](../_includes/video/free-neuro.md) %}
 
 ## Prices for the Russia region {#prices}
-
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
@@ -56,7 +55,7 @@ Let’s assume you need to calculate the monthly cost for using {{ video-name }}
 * Overall size of the video files in streaming format (optimized, multiple versions with different bitrate and resolution): `8 GB`.
 * Outgoing traffic (total size of the transmitted content when viewed): `50 GB`.
 
-We also assume that the videos (both the original and the streaming content) are stored for the entire month — 720 hours.
+We also assume that the videos (both the original and the streaming content) are stored for the entire month, i.e., 720 hours.
 
 
 

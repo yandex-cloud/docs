@@ -45,8 +45,6 @@ editable: false
 
 ### Пример расчета стоимости {#price-example}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 Вычислим стоимость услуг сервиса в месяц по следующим данным:
 
 * Количество загруженных видео — `10 штук`.

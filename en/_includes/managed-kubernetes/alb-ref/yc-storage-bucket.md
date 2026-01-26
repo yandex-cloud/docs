@@ -17,19 +17,19 @@ Where:
 
 * `apiVersion`: `gwin.yandex.cloud/v1`
 * `kind`: `YCStorageBucket`
-* `metadata` (`ObjectMeta`, required)
+* `metadata` (`ObjectMeta`; this is a required field)
 
   Resource metadata.
 
-  * `name` (`string`, required)
+  * `name` (`string`; this is a required field)
 
-    Resource name. For more information about the group name format, see the relevant [{{ k8s }} article](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Resource name. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
   * `namespace` (`string`)
 
-    Resource [namespace](../../../managed-kubernetes/concepts/index.md#namespace). The default value is `default`.
+    [Namespace](../../../managed-kubernetes/concepts/index.md#namespace) the resource belongs to. The default value is `default`.
 
-* `spec` (`YCStorageBucketSpec`, required):
+* `spec` (`YCStorageBucketSpec`; this is a required field)
 
   Resource specification. For more information, see [below](#spec).
 
@@ -42,7 +42,7 @@ bucketRef:
 
 Where:
 
-* `bucketRef` (required)
+* `bucketRef` (this is a required field)
 
   {{ objstorage-name }} bucket parameters.
 

@@ -1576,14 +1576,6 @@ default:
         12_month: dn2o5qnxdn7jxgcatyif
         3_month: dn2mhzsdg7gtb4d4fckw
         6_month: dn2mj2rnkhctk4lzcz4c
-  pc|cdn:
-    api:
-      network:
-        inet:
-          egress: dn2l8n9h5mtan7l8frav
-    logs:
-      raw: dn2sskor2babvph8i55r
-      shielding: dn2icqngml7bu80mtj72
   pc|cloud_desktop:
     image:
       v1: dn2dd29vb1490vk3gd27
@@ -1887,6 +1879,28 @@ default:
       c50:
         v1|number: 4.2982
         v1|string: ₸4.2982
+  sku|KZT|cns:
+    notification_events:
+      mts_marketing_event|number: 27.7054
+      mts_marketing_event|string: ₸27.7054
+      push_event:
+        v2|pricingRate:
+          1|number: 512.6786
+          1|string: ₸512.6786
+      vimpelcom_marketing_1|number: 40.1339
+      vimpelcom_marketing_1|string: ₸40.1339
+      vimpelcom_marketing_2|number: 39.6679
+      vimpelcom_marketing_2|string: ₸39.6679
+    notifications_packet_events:
+      vimpelcom_marketing_1|number: 97.875
+      vimpelcom_marketing_1|string: ₸97.8750
+      vimpelcom_marketing_2|number: 72.6036
+      vimpelcom_marketing_2|string: ₸72.6036
+      vimpelcom_marketing_3|number: 138.5786
+      vimpelcom_marketing_3|string: ₸138.5786
+    notifications:
+      sender_name_registration_event|number: 51785.7167
+      sender_name_registration_event|string: ₸51785.7167
   sku|KZT|compute:
     filesystem:
       hdd:
@@ -2288,6 +2302,12 @@ default:
           v1|number: 15535.715
           v1|string: ₸15535.7150
   sku|KZT|sws:
+    antiddos:
+      traffic|number: 5.6446
+      traffic|string: ₸5.6446
+    proxy-server:
+      v1|number: 12.4286
+      v1|string: ₸12.4286
     requests:
       v1|number: 0
       v1|pricingRate:
@@ -2449,6 +2469,28 @@ default:
       c50:
         v1|number: 0.8438
         v1|string: ₽0.8438
+  sku|RUB|cns:
+    notification_events:
+      mts_marketing_event|number: 5.4392
+      mts_marketing_event|string: ₽5.4392
+      push_event:
+        v2|pricingRate:
+          1|number: 100.65
+          1|string: ₽100.65
+      vimpelcom_marketing_1|number: 7.8792
+      vimpelcom_marketing_1|string: ₽7.8792
+      vimpelcom_marketing_2|number: 7.7877
+      vimpelcom_marketing_2|string: ₽7.7877
+    notifications_packet_events:
+      vimpelcom_marketing_1|number: 19.215
+      vimpelcom_marketing_1|string: ₽19.2150
+      vimpelcom_marketing_2|number: 14.2537
+      vimpelcom_marketing_2|string: ₽14.2537
+      vimpelcom_marketing_3|number: 27.206
+      vimpelcom_marketing_3|string: ₽27.2060
+    notifications:
+      sender_name_registration_event|number: 10166.6667
+      sender_name_registration_event|string: ₽10166.6667
   sku|RUB|compute:
     filesystem:
       hdd:
@@ -2876,6 +2918,12 @@ default:
           v1|number: 3050
           v1|string: ₽3050.00
   sku|RUB|sws:
+    antiddos:
+      traffic|number: 1.1082
+      traffic|string: ₽1.1082
+    proxy-server:
+      v1|number: 2.44
+      v1|string: ₽2.44
     requests:
       v1|number: 0
       v1|pricingRate:
@@ -3063,6 +3111,28 @@ default:
       c50:
         v1|number: 0.006917
         v1|string: $0.006917
+  sku|USD|cns:
+    notification_events:
+      mts_marketing_event|number: 0.044583
+      mts_marketing_event|string: $0.044583
+      push_event:
+        v2|pricingRate:
+          1|number: 0.825
+          1|string: $0.825000
+      vimpelcom_marketing_1|number: 0.064583
+      vimpelcom_marketing_1|string: $0.064583
+      vimpelcom_marketing_2|number: 0.063833
+      vimpelcom_marketing_2|string: $0.063833
+    notifications_packet_events:
+      vimpelcom_marketing_1|number: 0.1575
+      vimpelcom_marketing_1|string: $0.157500
+      vimpelcom_marketing_2|number: 0.116833
+      vimpelcom_marketing_2|string: $0.116833
+      vimpelcom_marketing_3|number: 0.223
+      vimpelcom_marketing_3|string: $0.223000
+    notifications:
+      sender_name_registration_event|number: 83.33332
+      sender_name_registration_event|string: $83.333320
   sku|USD|compute:
     filesystem:
       hdd:
@@ -3149,23 +3219,6 @@ default:
         cpu|string: $0.015120
         ram|number: 0.00405
         ram|string: $0.004050
-  sku|USD|gost_gateway:
-    hw100_c:
-      subscription:
-        monthly_usage:
-          v1|string: $416.663868
-    hw1000_d:
-      subscription:
-        monthly_usage:
-          v1|string: $1458.327636
-    hw2000_q5:
-      subscription:
-        monthly_usage:
-          v1|string: $1958.327556
-    hw5000_q2:
-      subscription:
-        monthly_usage:
-          v1|string: $2374.999620
   sku|USD|kms:
     api:
       asymmetric:
@@ -3201,8 +3254,8 @@ default:
         get|string: $0.031104
     storage:
       v1:
-        active_secrets|month|number: 0.162
-        active_secrets|month|string: $0.162000
+        active_secrets|number: 0.000225
+        active_secrets|string: $0.000225
   sku|USD|mdb:
     cluster:
       clickhouse:
@@ -3491,6 +3544,12 @@ default:
           v1|number: 24.999996
           v1|string: $24.999996
   sku|USD|sws:
+    antiddos:
+      traffic|number: 0.009083
+      traffic|string: $0.009083
+    proxy-server:
+      v1|number: 0.02
+      v1|string: $0.020000
     requests:
       v1|number: 0
       v1|pricingRate:
@@ -4666,6 +4725,7 @@ default:
           PasswordDialog:
             action_save-password_gaB2s: Save password
         security-settings:
+          acr_any-except-sms_6NWqb: Any (except SMS)
           acr_any-mfa_j6PdY: Any
           acr_phr_7hMqk: Phishing-resistant
           mfa-overview-action-activate: Activate
@@ -4965,9 +5025,17 @@ default:
         support: Support
     yacloud_video:
       channels:
+        action_add-domain: Add domain
         action_create-channel: Create a channel
+        label_advertisement: Advertisement
+        label_allowed-domains: Permitted domains
+        label_category: Category
         label_description: Description
+        label_domains-status: Check status
+        label_page-id: PageID
+        label_provider-type: Provider
         label_title: Name
+        title_settings: Channel settings
       common:
         action_accept: Save
         action_add: Add
@@ -4980,9 +5048,14 @@ default:
       dashboard:
         action_add-user: Add a participant
         action_go-to-org: Go to organization
+      organization:
+        action_open-cloud-video: Open Cloud Video
       playlists:
         action_add-playlist-video: Add video
         action_create-playlist: Create playlist
+        action_create-stream: Create live stream
+        switch_stream-select: Live streams
+        switch_video-select: Videos
         title_playlists: Playlists
         title_playlists-video-list: Play order
       presets:
@@ -5792,6 +5865,7 @@ default:
         unspecified: Not specified
         update: Update
         updated-at: Date modified
+        user: User
         value: Value
       component:
         acl-dialog:
@@ -5954,6 +6028,12 @@ default:
             value_disk-attach-type-attach-existing: Attach existing
             value_disk-attach-type-create-new: Create
         components:
+          AttachInstanceToPoolDialog:
+            button_attach_pHLyg: Attach
+          InstanceActions:
+            button_attach-to-pool_ak57z: Attach to VM reserve pool
+            button_confirm-detach-vm-from-pool_8dze2: Detach
+            button_detach-from-pool_wEiB2: Detach from VM reserve pool
           PlatformField:
             value_platform-tab-gpu_hGyQ8: With GPU
           SshViaPrivateKeyDialog:
@@ -6213,6 +6293,19 @@ default:
           button_menu-create-instance-placement-group: Virtual machine placement group
           label_tab-disks: Non-replicated disk placement groups
           label_tab-instances: Virtual machine placement groups
+        reserved-instance-pool:
+          button_create-reserved-instance-pool_pZ1gY: Create pool
+          PendingSlotsRow:
+            row-title_qGybc: When resources are absent
+          reserved-instance-pool-size_1nhUt: Pool size
+          reserved-instance-pool-type-standard_wqziE: Standard
+          reserved-instance-pool-type-with-oversubscription_6dZSq: With oversubscription
+          reserved-instance-pools_m8sWW: VM reserve pools
+          ReservedInstancePoolActions:
+            button_create-virtual-machine_pjCmE: Create VM
+          ReservedInstancePoolFormBase:
+            main-pool-info-section_xoPE2: General information about the pool
+            resources-section-title_wAFm8: VM computing resources
         section_additional_7yvYG: Additional
         snapshots_81jHX: Snapshots
         snapshots-schedules:
@@ -7670,6 +7763,8 @@ default:
         button_open-in-monitoring: Open in Monitoring
       mysql:
         cluster:
+          label_iam_dgBhy: IAM
+          label_password_mM9e5: Password
           switch_backups: Backups
           switch_databases: Databases
           switch_datalens: DataLens
@@ -7732,6 +7827,7 @@ default:
       postgresql:
         cluster:
           additional-field-pooling_mode: Pooling mode
+          switch_backup-policies: Backup policies
           switch_backups: Backups
           switch_databases: Databases
           switch_datalens: DataLens
@@ -7741,6 +7837,9 @@ default:
           switch_logs: Logs
           switch_monitoring: Monitoring
           switch_users: Users
+        common:
+          label_iam_iq9BP: IAM
+          label_password_srTqe: Password
         databases:
           dialog:
             button_submit: Configure
@@ -10703,6 +10802,7 @@ default:
           button-text: Create
         database:
           input-label: Database
+        description_iceberg-directory: Directory
         general-parameters:
           section-title: General parameters
         login:
@@ -10833,7 +10933,7 @@ default:
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
-        tag: 0.43.0
+        tag: 0.43.3
     yc_external-secrets:
       helmChart:
         name: >-

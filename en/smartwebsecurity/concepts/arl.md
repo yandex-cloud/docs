@@ -48,7 +48,7 @@ You can group requests:
   
   You can configure flexible match/no match conditions for the parameters you specify for traffic. You can search for both case-sensitive or case-insensitive string matches. Parameters can be represented by single values, ranges, or regular expressions.
 
-You can also select a time interval from 1 second to 60 minutes and [configure actions](#over-limit-actions) to trigger for requests exceeding the limit in that interval.
+You can also select a time interval from 1 second to 24 hours and [configure actions](#over-limit-actions) for requests that exceed the limit within that interval.
 
 You can use the **Logging only (Dry run)** mode to calculate limits and test ARL rules. Requests will not be blocked in this mode. This allows you to evaluate backend capabilities and find the optimum limit values.
 
@@ -62,7 +62,7 @@ You can opt for the following actions:
 
    Use this option if you need to limit peak load while maintaining maximum application availability. This action does not require request grouping.
 
-* Temporarily block all requests: All requests will be denied for the period you specify, from 1 second to 60 minutes. The block duration is fixed, regardless of the remaining limit period. Access is automatically restored after the block expires.
+* Temporarily block all requests: All requests will be denied for the period you specify, You can block requests for the period from 1 second to 24 hours. The block duration is fixed, regardless of the remaining limit period. Access is automatically restored after the block expires.
 
    Use this action to provide enhanced protection against bots, scrapers, brute-force attacks, or spam, prioritizing reliability over availability. For example, it is a good fit for login pages or message submission forms. This action requires request grouping.
 

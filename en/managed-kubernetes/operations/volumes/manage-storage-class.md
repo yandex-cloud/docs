@@ -6,11 +6,11 @@ description: Follow this guide to manage storage classes.
 # Managing storage classes
 
 
-_Storage class_ (`StorageClass`) allows administrators to divide the storages they provision into classes with defined parameters. Classes vary by [disk type](../../../compute/concepts/disk.md#disks_types) and pricing policy.
+The _storage class_ (`StorageClass`) allows administrators to divide storages they provide into classes with defined parameters. Classes differ by the [disk type](../../../compute/concepts/disk.md#disks_types) and pricing policy.
 
 {% note alert %}
 
-The storage usage cost depends on its [disk](../../../compute/concepts/disk.md) type. See the [{{ compute-full-name }} disk prices](../../../compute/concepts/disk.md#disks_types) prior to creating a storage.
+The storage usage cost depends on its [disk](../../../compute/concepts/disk.md) type. Check out the [{{ compute-full-name }} disk prices](../../../compute/concepts/disk.md#disks_types) before creating a storage.
 
 {% endnote %}
 
@@ -22,19 +22,19 @@ The storage usage cost depends on its [disk](../../../compute/concepts/disk.md) 
 
 {% include [nrd-no-backup-note](../../../_includes/managed-kubernetes/nrd-no-backup-note.md) %}
 
-All storages are created with the following parameters:
+Each storage is created with the following parameters:
 * [Volume Binding Mode](https://kubernetes.io/docs/concepts/storage/storage-classes/#volume-binding-mode): `WaitForFirstConsumer`.
 * [Reclaim Policy](https://kubernetes.io/docs/concepts/storage/storage-classes/#reclaim-policy): `Delete`.
 
-Under these classes, you can use `PersistentVolumeClaim` and `PersistentVolume` only in `ReadWriteOnce` [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).
+For these classes, you can only use `PersistentVolumeClaim` and `PersistentVolume` in `ReadWriteOnce` [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).
 
-You can [create your own storage class](#sc-create) as well as [change the default storage class](#sc-default).
+You can [create your own storage class](#sc-create) as well as [update the default storage class](#sc-default).
 
 {% include [Install kubectl to get started](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
 
 {% note info %}
 
-`yc-network-nvme` is deprecated; use `yc-network-ssd` instead.
+The `yc-network-nvme` class is deprecated; use `yc-network-ssd` instead.
 
 {% endnote %}
 
@@ -86,11 +86,11 @@ You can [create your own storage class](#sc-create) as well as [change the defau
    yc-network-ssd            disk-csi-driver.mks.ycloud.io  16m
    ```
 
-### Create a storage class specification format {#sc-spec}
+### Format of a storage class creation specification {#sc-spec}
 
-Each `StorageClass` object contains the parameters named `parameters`, `allowVolumeExpansion`, and `reclaimPolicy` used for dynamic allocation of the `PersistentVolume` object.
+Each `StorageClass` object contains the `parameters`, `allowVolumeExpansion`, and `reclaimPolicy` properties used for dynamic allocation of `PersistentVolume`.
 
-YAML file structure:
+The structure of the YAML file is as follows:
 
 ```yaml
 kind: StorageClass
@@ -106,7 +106,7 @@ allowVolumeExpansion: <allow_volume_expansion>
 reclaimPolicy: <reclaim_policy>
 ```
 
-Acceptable parameter values include:
+The acceptable parameter values include:
 * `parameters`:
   * `type`: `network-hdd`, `network-ssd`, `network-ssd-nonreplicated`, or `network-ssd-io-m3`.
   * `csi.storage.k8s.io/fstype`: `ext2`, `ext3`, or `ext4`.
@@ -114,9 +114,9 @@ Acceptable parameter values include:
 * `allowVolumeExpansion`: `true` or `false`.
 
 
-## Change the default storage class {#sc-default}
+## Update the default storage class {#sc-default}
 
-1. Check which storage class is assigned by default: next to its name, you will see `default` in parentheses.
+1. Check which storage class is set as default: next to its name, you will see `default` in a parenthesis.
 
    ```bash
    kubectl get storageclass
@@ -160,7 +160,7 @@ Acceptable parameter values include:
      -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
    ```
 
-1. Check that `my-sc-hdd` is the default storage class:
+1. Check that `my-sc-hdd` is the default storage class now:
 
    ```bash
    kubectl get storageclass

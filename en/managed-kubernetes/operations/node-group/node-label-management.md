@@ -137,7 +137,7 @@ You can add {{ k8s }} labels to all {{ managed-k8s-name }} nodes in a [node grou
 
      1. Open the current configuration file describing the {{ managed-k8s-name }} node group.
 
-        Learn how to create this file in [{#T}](node-group-create.md).
+        For more information about creating this file, see [{#T}](node-group-create.md).
      1. Add the `node_labels` property to the {{ managed-k8s-name }} node group description:
 
         ```hcl
@@ -264,7 +264,7 @@ Adding {{ k8s }} labels does not result in recreation of a node group.
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     Learn how to create this file in [{#T}](node-group-create.md).
+     For more information about creating this file, see [{#T}](node-group-create.md).
 
   1. In the node group description, add the `node_labels` section:
 
@@ -335,7 +335,7 @@ Removing {{ k8s }} labels does not result in recreation of a node group.
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     Learn how to create this file in [{#T}](node-group-create.md).
+     For more information about creating this file, see [{#T}](node-group-create.md).
 
   1. In the node group description, remove the {{ k8s }} labels you no longer need from `node_labels`.
 

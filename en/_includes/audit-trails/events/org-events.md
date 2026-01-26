@@ -30,6 +30,7 @@ Event name | Description
 `idp.DeleteUserpool` | Deleting a user pool
 `idp.DeleteUserpoolDomain` | Deleting domain's association with a user pool
 `idp.ReactivateUser` | Activating a local user
+`idp.RemoveUserBlock` | Unblocking a user
 `idp.SetUserPassword` | Setting a password for a local user
 `idp.SetUserpoolAccessBindings` | Assigning access permissions for a user pool
 `idp.SuspendUser` | Deactivating a local user

@@ -1,6 +1,6 @@
 # Installing Crossplane with {{ yandex-cloud }} support
 
-[Crossplane](https://crossplane.io/) is a freeware add-on to {{ k8s }} that enables platform development teams to build infrastructure for multiple vendors and produce higher-level service APIs for application development teams.
+[Crossplane](https://crossplane.io/) is an open-source {{ k8s }} extension that enables platform development teams to build infrastructure for multiple vendors and create higher-level service APIs for application development teams.
 
 You can install Crossplane in any of the following ways:
 * [Using {{ marketplace-full-name }} in the management console](#marketplace-install).
@@ -44,7 +44,7 @@ You can install Crossplane in any of the following ways:
 
 1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Crossplane, run the following command:
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Crossplane, run this command:
 
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_crossplane.helmChart.name }} \
@@ -57,11 +57,11 @@ You can install Crossplane in any of the following ways:
      crossplane ./crossplane/
    ```
 
-   If you set `namespace` to the default namespace, Crossplane may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `crossplane-space`).
+   If you set `namespace` to the default namespace, Crossplane may work incorrectly. We recommend specifying a value different from all the existing namespaces, e.g., `crossplane-space`.
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-1. Make sure the state of all Crossplane pods changed to `Running`:
+1. Make sure all Crossplane pods switched to `Running`:
 
    ```bash
    kubectl get pods -A | grep -E "crossplane|provider-jet-yc"
@@ -92,7 +92,7 @@ You can install Crossplane in any of the following ways:
    helm install crossplane --namespace <namespace> crossplane-stable/crossplane
    ```
 
-1. Make sure that Crossplane is installed and running:
+1. Make sure Crossplane is installed and running:
 
    ```bash
    helm list --namespace <namespace> && \

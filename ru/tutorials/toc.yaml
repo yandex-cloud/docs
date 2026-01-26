@@ -256,6 +256,8 @@ items:
             href: security/single-sign-on/saml-sonarqube.md
           - name: OpenVPN Access Server
             href: security/single-sign-on/saml-ovpn.md
+          - name: Использование OAuth2 Proxy для приложений, не поддерживающих SSO
+            href: security/single-sign-on/oidc-nginx-oauth2-proxy.md
       - name: Загрузка аудитных логов в {{ mos-name }}
         hidden: true
         href: security/trails-logs-opensearch.md

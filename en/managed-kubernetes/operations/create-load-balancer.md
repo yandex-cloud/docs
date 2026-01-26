@@ -82,7 +82,7 @@ Set up the required infrastructure:
      * [Network](../../vpc/concepts/network.md#network).
      * [Subnet](../../vpc/concepts/network.md#subnet).
      * {{ managed-k8s-name }} cluster.
-     * [Service account](../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and [node group](../concepts/index.md#node-group).
+     * [Service account](../../iam/concepts/users/service-accounts.md) for the {{ managed-k8s-name }} cluster and [node group](../concepts/index.md#node-group).
      * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
@@ -476,7 +476,7 @@ Delete the resources you no longer need to avoid paying for them:
 
     - Manually {#manual}
 
-        [Delete the {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md) cluster.
+        [Delete the {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 
     - {{ TF }} {#tf}
 

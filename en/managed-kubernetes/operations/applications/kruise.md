@@ -6,16 +6,16 @@ description: Follow this guide to install Kruise.
 # Installing Kruise
 
 
-[Kruise](https://openkruise.io/) features [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) resources in {{ k8s }} that you can use to automate app deployment and updates. Kruise tools work in Kubernetes clusters without installing any other dependencies.
+[Kruise](https://openkruise.io/) features [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) resources in {{ k8s }} that you can use to automate application deployment and updates. The Kruise tools work in {{ k8s }} clusters without installing any other dependencies.
 
-Kruise advantages include:
+The Kruise advantages include:
 
 * Advanced sidecar container management.
-* High app availability.
-* Updating apps without deleting pods.
+* High application availability.
+* Updating applications without deleting pods.
 * Advanced configuration for distributing load across the cluster nodes.
 
-## Installation using {{ marketplace-full-name }} {#marketplace-install}
+## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
 1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
@@ -32,7 +32,7 @@ Kruise advantages include:
 
 1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Kruise, run the following command:
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Kruise, run this command:
 
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_kruise.helmChart.name }} \
@@ -44,7 +44,7 @@ Kruise advantages include:
      kruise ./kruise/
    ```
 
-   If you set `namespace` to the default namespace, Kruise may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `kruise-space`).
+   If you set `namespace` to the default namespace, Kruise may work incorrectly. We recommend specifying a value different from all the existing namespaces, e.g., `kruise-space`.
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

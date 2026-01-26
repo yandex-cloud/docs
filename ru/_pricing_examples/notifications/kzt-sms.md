@@ -1,41 +1,41 @@
 Стоимость обработки 100 событий (для абонентов МТС):
 
-> {% calc [currency=KZT] 5,35 × 5 %} × 100 = {% calc [currency=KZT] 5,35 × 5 × 100 %}
+> {{ sku|KZT|cns.notification_events.mts_marketing_event|string }} × 100 = {% calc [currency=KZT] {{ sku|KZT|cns.notification_events.mts_marketing_event|number }} × 100 %}
 
 Где:
 
-* {% calc [currency=KZT] 5,35 × 5 %} — стоимость обработки одного рекламного события для абонентов МТС, до 400 000 шт.
+* {{ sku|KZT|cns.notification_events.mts_marketing_event|string }} — стоимость обработки одного рекламного события для абонентов МТС, до 400 000 шт.
 * 100 — количество уведомлений.
 
 Стоимость обработки 70 событий (для разных абонентов Билайн):
 
-> {% calc [currency=KZT] 7,75 × 5 %} × 70 = {% calc [currency=KZT] 7,75 × 5 × 70 %}
+> {{ sku|KZT|cns.notification_events.vimpelcom_marketing_1|string }} × 70 = {% calc [currency=KZT] {{ sku|KZT|cns.notification_events.vimpelcom_marketing_1|number }} × 70 %}
 
 Где:
 
-* {% calc [currency=KZT] 7,75 × 5 %} — стоимость обработки одного рекламного события для абонентов Билайн по тарифу «до 2 событий на 1 получателя».
+* {{ sku|KZT|cns.notification_events.vimpelcom_marketing_1|string }} — стоимость обработки одного рекламного события для абонентов Билайн по тарифу «до 2 событий на 1 получателя».
 * 70 — количество уведомлений.
 
 Стоимость обработки 30 событий (для одного абонента Билайн):
 
-> * Обработка первого события — {% calc [currency=KZT] 7,75 × 5 %}.
-> * Обработка второго события — {% calc [currency=KZT] 7,75 × 5 %}.
-> * При обработке третьего события активируется пакет. Стоимость пакета «от 3 до 5 событий на получателя» — {% calc [currency=KZT] 18,90 × 5 %}. В пакет включены четвертое и пятое события.
-> * При обработке шестого события активируется пакет. Стоимость пакета «от 6 до 10 событий на получателя» — {% calc [currency=KZT] 14,02 × 5 %}.
-> * При обработке одиннадцатого события активируется пакет. Стоимость пакета «от 11 до 20 событий на получателя» — {% calc [currency=KZT] 26,76 × 5 %}.
-> * С двадцать первого события тарифицируется каждое событие по цене — {% calc [currency=KZT] 7,66 × 5 %}.
->
+> * Обработка первого события — {{ sku|KZT|cns.notification_events.vimpelcom_marketing_1|string }}.
+> * Обработка второго события — {{ sku|KZT|cns.notification_events.vimpelcom_marketing_1|string }}.
+> * При обработке третьего события активируется пакет. Стоимость пакета «от 3 до 5 событий на получателя» — {{ sku|KZT|cns.notifications_packet_events.vimpelcom_marketing_1|string }}. Четвертое и пятое события включены в пакет.
+> * При обработке шестого события активируется пакет. Стоимость пакета «от 6 до 10 событий на получателя» — {{ sku|KZT|cns.notifications_packet_events.vimpelcom_marketing_2|string }}.
+> * При обработке одиннадцатого события активируется пакет. Стоимость пакета «от 11 до 20 событий на получателя» — {{ sku|KZT|cns.notifications_packet_events.vimpelcom_marketing_3|string }}.
+> * С двадцать первого события тарифицируется каждое событие по цене — {{ sku|KZT|cns.notification_events.vimpelcom_marketing_2|string }}.
+> 
 >   Итоговая стоимость обработки 30 событий одному абоненту:
->   {% calc [currency=KZT] 7,75 × 5 %} × 2 + {% calc [currency=KZT] 18,90 × 5 %} + {% calc [currency=KZT] 14,02 × 5 %} + {% calc [currency=KZT] 26,76 × 5 %} + {% calc [currency=KZT] 7,66 × 5 %} × 10 = {% calc [currency=KZT] (7,75 × 2 + 18,90 + 14,02 + 26,76 + 7,66 × 10) × 5 %}
+>   {{ sku|KZT|cns.notification_events.vimpelcom_marketing_1|string }} × 2 + {{ sku|KZT|cns.notifications_packet_events.vimpelcom_marketing_1|string }} + {{ sku|KZT|cns.notifications_packet_events.vimpelcom_marketing_2|string }} + {{ sku|KZT|cns.notifications_packet_events.vimpelcom_marketing_3|string }} + {{ sku|KZT|cns.notification_events.vimpelcom_marketing_2|string }} × 10 = {% calc [currency=KZT] {{ sku|KZT|cns.notification_events.vimpelcom_marketing_1|number }} × 2 + {{ sku|KZT|cns.notifications_packet_events.vimpelcom_marketing_1|number }} + {{ sku|KZT|cns.notifications_packet_events.vimpelcom_marketing_2|number }} + {{ sku|KZT|cns.notifications_packet_events.vimpelcom_marketing_3|number }} + {{ sku|KZT|cns.notification_events.vimpelcom_marketing_2|number }} × 10 %}
 
 Итоговая стоимость обработки всех 200 событий отправки SMS:
 
-> {% calc [currency=KZT] 535,00 × 5 %} + {% calc [currency=KZT] 542,50 × 5 %} + {% calc [currency=KZT] 151,78 × 5 %} = {% calc [currency=KZT] (535,00 + 542,50 + 151,78) × 5 %}
+> {% calc [currency=KZT] {{ sku|KZT|cns.notification_events.mts_marketing_event|number }} × 100 %} + {% calc [currency=KZT] {{ sku|KZT|cns.notification_events.vimpelcom_marketing_1|number }} × 70 %} + {% calc [currency=KZT] {{ sku|KZT|cns.notification_events.vimpelcom_marketing_1|number }} × 2 + {{ sku|KZT|cns.notifications_packet_events.vimpelcom_marketing_1|number }} + {{ sku|KZT|cns.notifications_packet_events.vimpelcom_marketing_2|number }} + {{ sku|KZT|cns.notifications_packet_events.vimpelcom_marketing_3|number }} + {{ sku|KZT|cns.notification_events.vimpelcom_marketing_2|number }} × 10 %} = {% calc [currency=KZT] {{ sku|KZT|cns.notification_events.mts_marketing_event|number }} × 100 + {{ sku|KZT|cns.notification_events.vimpelcom_marketing_1|number }} × 70 + ({{ sku|KZT|cns.notification_events.vimpelcom_marketing_1|number }} × 2 + {{ sku|KZT|cns.notifications_packet_events.vimpelcom_marketing_1|number }} + {{ sku|KZT|cns.notifications_packet_events.vimpelcom_marketing_2|number }} + {{ sku|KZT|cns.notifications_packet_events.vimpelcom_marketing_3|number }} + {{ sku|KZT|cns.notification_events.vimpelcom_marketing_2|number }} × 10) %}
 > 
-> Итого: {% calc [currency=KZT] (535,00 + 542,50 + 151,78) × 5 %}
+> Итого: {% calc [currency=KZT] {{ sku|KZT|cns.notification_events.mts_marketing_event|number }} × 100 + {{ sku|KZT|cns.notification_events.vimpelcom_marketing_1|number }} × 70 + ({{ sku|KZT|cns.notification_events.vimpelcom_marketing_1|number }} × 2 + {{ sku|KZT|cns.notifications_packet_events.vimpelcom_marketing_1|number }} + {{ sku|KZT|cns.notifications_packet_events.vimpelcom_marketing_2|number }} + {{ sku|KZT|cns.notifications_packet_events.vimpelcom_marketing_3|number }} + {{ sku|KZT|cns.notification_events.vimpelcom_marketing_2|number }} × 10) %}
 
 Где:
 
-* {% calc [currency=KZT] 535,00 × 5 %} — стоимость 100 SMS для абонентов МТС.
-* {% calc [currency=KZT] 542,50 × 5 %} — стоимость 70 SMS для разных абонентов Билайн.
-* {% calc [currency=KZT] 151,78 × 5 %} — стоимость 30 SMS для одного абонента Билайн.
+* {% calc [currency=KZT] {{ sku|KZT|cns.notification_events.mts_marketing_event|number }} × 100 %} — стоимость 100 SMS для абонентов МТС.
+* {% calc [currency=KZT] {{ sku|KZT|cns.notification_events.vimpelcom_marketing_1|number }} × 70 %} — стоимость 70 SMS для разных абонентов Билайн.
+* {% calc [currency=KZT] {{ sku|KZT|cns.notification_events.vimpelcom_marketing_1|number }} × 2 + {{ sku|KZT|cns.notifications_packet_events.vimpelcom_marketing_1|number }} + {{ sku|KZT|cns.notifications_packet_events.vimpelcom_marketing_2|number }} + {{ sku|KZT|cns.notifications_packet_events.vimpelcom_marketing_3|number }} + {{ sku|KZT|cns.notification_events.vimpelcom_marketing_2|number }} × 10 %} — стоимость 30 SMS для одного абонента Билайн.

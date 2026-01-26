@@ -1,6 +1,6 @@
 ---
 title: Upgrading the {{ alb-name }} Ingress controller
-description: In this article, you will learn about updating the {{ alb-name }} Ingress controller for {{ managed-k8s-name }}.
+description: In this article, you will learn how to upgrade the {{ alb-name }} Ingress controller for {{ managed-k8s-name }}.
 ---
 
 # Upgrading the {{ alb-name }} Ingress controller

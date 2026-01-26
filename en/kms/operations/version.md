@@ -16,15 +16,15 @@ To make a version primary:
 
 - Management console {#console}
 
-  1. Go to the [management console]({{ link-console-main }}).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. Log in to the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Click the key you need in the list to open its attribute page.
   1. In the line of the appropriate version, click ![menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-set-primary }}**.
 
 - CLI {#cli}
 
-  1. Get a list of versions for the desired key:
+  1. Get a list of versions for the key:
 
      ```bash
      yc kms symmetric-key list-versions example-key
@@ -74,8 +74,8 @@ At the scheduled time and date, the key version is permanently destroyed: if you
 
   To destroy a version:
 
-  1. Go to the [management console]({{ link-console-main }}).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. Log in to the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Click the key you need in the list to open its attribute page.
   1. In the line of the appropriate version, click ![menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-schedule-destruction }}**.
@@ -86,7 +86,7 @@ At the scheduled time and date, the key version is permanently destroyed: if you
 
   To destroy a version:
 
-  1. Get a list of versions for the desired key:
+  1. Get a list of versions for the key:
 
      ```bash
      yc kms symmetric-key list-versions example-key
@@ -134,8 +134,8 @@ If you scheduled the destruction of a key version, you can cancel it before the 
 
 - Management console {#console}
 
-  1. Go to the [management console]({{ link-console-main }}).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. Log in to the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Click the key you need in the list to open its attribute page.
   1. In the line of the appropriate version, click ![menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-cancel-destruction }}**.
@@ -144,7 +144,7 @@ If you scheduled the destruction of a key version, you can cancel it before the 
 
 - CLI {#cli}
 
-  1. Get a list of versions for the desired key:
+  1. Get a list of versions for the key:
 
      ```bash
      yc kms symmetric-key list-versions example-key

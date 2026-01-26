@@ -6,7 +6,7 @@ description: This page provides a reference for {{ cloud-desktop-full-name }} ev
 
 # {{ at-full-name }} event reference
 
-{{ cloud-desktop-name }} supports tracking [management events](../audit-trails/concepts/format.md) (control plane). For more information, see [{#T}](../audit-trails/concepts/format.md).
+{{ at-name }} supports tracking [control plane](../audit-trails/concepts/format.md) and [data plane](../audit-trails/concepts/format-data-plane.md) events for {{ cloud-desktop-full-name }}.
 
 The general format of the `event_type` field value is as follows:
 

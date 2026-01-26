@@ -21,7 +21,7 @@
 
      {% include [master-default-config](master-default-config.md) %}
 
-   * In the **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** field, select the {{ k8s }} version to install on the [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) master.
+   * In the **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** field, select the {{ k8s }} version to install on the [{{ managed-k8s-name }} master](../../managed-kubernetes/concepts/index.md#master).
    * In the **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** field, select an [IP address](../../vpc/concepts/address.md) assignment method:
      * `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP address pool.
      * `{{ ui-key.yacloud.k8s.clusters.create.switch_none }}`: Do not assign a public IP address.

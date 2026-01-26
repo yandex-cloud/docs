@@ -1,8 +1,8 @@
 # GatewayPolicy resource fields
 
-The `GatewayPolicy` resource specifies cloud policies applied to the `Gateway` resources within a single {{ k8s }} namespace. A policy can be applied to specific resources with the help of links (`targetRefs`) or a selector (`selector`). If neither of these fields is set, the policy applies to all the resources within the namespace.
+The `GatewayPolicy` resource specifies cloud policies applied to `Gateway` resources within a single {{ k8s }} namespace. You can apply a policy to specific resources with the help of references (`targetRefs`) or a selector (`selector`). If neither of these fields is set, the policy applies to all the resources within the namespace.
 
-`GatewayPolicy` is a Gateway API extension implemented in {{ alb-name }}. Below, we describe its fields and annotations used by {{ alb-name }} Gateway API.
+`GatewayPolicy` is a Gateway API extension implemented in {{ alb-name }}. Below, we describe its fields and annotations used by the {{ alb-name }} Gateway API.
 
 {% note info %}
 
@@ -10,7 +10,7 @@ You can also set up your policies using `Gateway` resource annotations. The `Gat
 
 {% endnote %}
 
-Here is an example of the `GatewayPolicy` resource definition (intended solely to demonstrate all the parameters):
+Here is an example of the `GatewayPolicy` resource definition we provide only to demonstrate all the parameters:
 
 ```yaml
 apiVersion: gateway.alb.yc.io/v1
@@ -85,29 +85,29 @@ Where:
 
 * `apiVersion`: `gateway.alb.yc.io/v1`
 * `kind`: `GatewayPolicy`
-* `metadata` (`ObjectMeta`, required)
+* `metadata` (`ObjectMeta`; this is a required field)
 
   Resource metadata.
 
-  * `name` (`string`, required)
+  * `name` (`string`; this is a required field)
   
-    Resource name. For more information about the group name format, see the relevant [{{ k8s }} article](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Resource name. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
   * `namespace` (`string`)
   
-    Resource [namespace](../../../managed-kubernetes/concepts/index.md#namespace). The default value is `default`.
+    [Namespace](../../../managed-kubernetes/concepts/index.md#namespace) the resource belongs to. The default value is `default`.
 
-* `spec` (`GatewayPolicySpec`, required)
+* `spec` (`GatewayPolicySpec`; this is a required field)
 
   Policy specification.
 
   * `targetRefs` (`[]LocalObjectReference`)
 
-    List of links to resources covered by the policy. If specified, the policy applies only to these resources.
+    List of references to resources targeted by the policy. If specified, the policy applies only to these resources.
 
   * `selector` (`LabelSelector`)
 
-    Selector for selecting resources based on labels. If specified, the policy applies only to selected resources.
+    Selector for selecting resources by label. If specified, the policy applies only to selected resources.
 
   * `policy` (`Gateway`)
 
@@ -117,13 +117,13 @@ Where:
 
   Current status of the policy.
 
-  * `conditions`: Array of status conditions. For more information about the group name format, see the relevant [{{ k8s }} article](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#condition-v1-meta).
+  * `conditions`: Array of status conditions. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#condition-v1-meta).
 
   * `attachedGateways`: Number of attached `Gateway` resources.
 
 ## Gateway {#gatewaypolicy-gateway}
 
-Resource defining the load balancer's cloud parameters that can be set via a policy.
+Resource defining the load balancer's cloud parameters that can be set using a policy.
 
 ```yaml
 subnets: [<string>, ...]
@@ -153,7 +153,7 @@ Where:
 
 * `securityGroups` (`[]string`)
 
-  Load balancer {{ vpc-name }} [security groups](../../../vpc/concepts/security-groups.md). This is a comma separated list of group IDs.
+  List of {{ vpc-name }} [security groups](../../../vpc/concepts/security-groups.md) for a load balancer. This is a comma separated list of group IDs.
 
   For the proper load balancer and Gateway API operation, make sure to configure security groups as specified in [{#T}](../../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
 
@@ -187,7 +187,7 @@ Where:
 
     * `discardPercent` (`int`)
     
-      Percentage of logs to discard (`0` to save all, `100` to discard all).
+      Percentage of logs to discard (`0` to retain all, `100` to discard all).
 
 * `autoScale` (`AutoScalePolicy`)
 
@@ -195,7 +195,7 @@ Where:
 
   * `minZoneSize` (`int`)
   
-    Minimum number of [resource units](../../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling) per availability zone. The default minimum is 2. You cannot set a limit lower than 2 resource units per zone.
+    Minimum number of [resource units](../../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling) per availability zone. The default minimum is 2. You cannot set a limit lower than two resource units per zone.
 
   * `maxSize` (`int`)
   

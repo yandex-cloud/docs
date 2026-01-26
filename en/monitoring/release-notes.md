@@ -1,10 +1,18 @@
 ---
 title: '{{ monitoring-full-name }} release notes'
-description: This section contains {{ monitoring-name }} release notes.
+description: This section contains the {{ monitoring-name }} release notes.
 ---
 
 # {{ monitoring-full-name }} release notes
 
+
+## October – December 2025 {#oct-dec-2025}
+
+* For {{ managed-prometheus-full-name }}, added the [Alerts tab](operations/prometheus/alerting-rules.md#view-alerts) that displays all alerts and their statuses. Previously, you could view alert calculation status in a file. The alerts tab provides a fast way to assess your system’s current state and respond to incidents.
+* For {{ prometheus-name }} charts, added the ability to specify a calculation step for data aggregation in a query. This enables you to control the detail level and scope of the metrics you get.
+* In the [Alerts](operations/alert/create-alert.md) section, added labels for searching and sorting alerts. You can set labels in the alert settings in `key=value` format.
+* You can add the `Workspace ID` [parameter](concepts/visualization/dashboard.md#parameterization) to a dashboard with {{ prometheus-name }} data.
+* Added an [import script](https://github.com/yandex-cloud-examples/yc-monitoring-dashboard-importer) to transfer {{ prometheus-name }} dashboards from existing Grafana installations to {{ monitoring-name }}. It automates the workflow and prevents errors when transferring configurations manually.
 
 ## July – September 2025 {#jul-sep-2025}
 
@@ -31,7 +39,7 @@ description: This section contains {{ monitoring-name }} release notes.
  
    For {{ prometheus-name }} metrics, all features are available except for [parameters](concepts/visualization/metric-explorer.md#repeated-graphs).
 
-* Now, all users can access phone calls and escalations without contacting support. This feature is currently in [Preview](../overview/concepts/launch-stages.md) and subject to some [limitations](concepts/alerting/escalations.md).
+* Now all users can access phone calls and escalations without contacting support. This feature is currently in [Preview](../overview/concepts/launch-stages.md) and subject to some [limitations](concepts/alerting/escalations.md).
 
 * Optimized handling metric time intervals. The time interval is now taken into account when querying metadata, not when reading data. This prevents displaying empty metrics with no records for the requested interval. The change is relevant when writing data to a metric is temporarily stopped, e.g., after a feature is released or disabled.
 

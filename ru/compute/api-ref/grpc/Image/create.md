@@ -63,7 +63,7 @@ The maximum string length in characters is 50. ||
 
 Name of the image.
 
-Value must match the regular expression ` \|[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 Description of the image.
@@ -80,7 +80,7 @@ The name of the image family to which this image belongs. For more information, 
 
 To get an information about the most recent image from a family, use a [ImageService.GetLatestByFamily](/docs/compute/api-ref/grpc/Image/getLatestByFamily#GetLatestByFamily) request.
 
-Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || min_disk_size | **int64**
 
 Minimum size of the disk that will be created from this image.

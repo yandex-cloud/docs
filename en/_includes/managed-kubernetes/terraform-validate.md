@@ -4,4 +4,4 @@ Make sure the {{ TF }} configuration files are correct using this command:
 terraform validate
 ```
 
-If there are any errors in the configuration files, {{ TF }} will point them out.
+{{ TF }} will show any errors found in your configuration files.

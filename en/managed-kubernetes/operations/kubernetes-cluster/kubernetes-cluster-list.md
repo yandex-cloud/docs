@@ -10,7 +10,7 @@ Get a list of {{ k8s }} clusters in the default folder.
 
 - Management console {#console}
 
-  To get a list of {{ k8s }} clusters, go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  To get a list of {{ k8s }} clusters, go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 
 - CLI {#cli}
 
@@ -44,7 +44,7 @@ To access a {{ k8s }} cluster, use the `ID` or `NAME` parameters from the [previ
 
 - Management console {#console}
 
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ k8s }} cluster.
 
 - CLI {#cli}
@@ -69,6 +69,6 @@ To access a {{ k8s }} cluster, use the `ID` or `NAME` parameters from the [previ
 
 - API {#api}
 
-  You can get detailed information about a {{ k8s }} cluster using the [get](../../managed-kubernetes/api-ref/Cluster/get.md) method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/)resource.
+  You can get detailed information about a {{ k8s }} cluster using the [get](../../managed-kubernetes/api-ref/Cluster/get.md) method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/) resource.
 
 {% endlist %}

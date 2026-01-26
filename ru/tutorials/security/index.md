@@ -71,3 +71,25 @@ description: Различные сценарии использования по
 * [{#T}](encrypt/google-tink.md)
 * [{#T}](wlif-github-integration.md)
 * [{#T}](server-side-encryption.md)
+
+## Интеграции федераций удостоверений сервисных аккаунтов {#wlif-integration}
+
+* [{#T}](wlif-github-integration.md)
+* [{#T}](wlif-gitlab-integration.md)
+* [{#T}](wlif-k8s-integration.md)
+* [{#T}](wlif-managed-k8s-integration.md)
+
+## Настройка единого входа в приложения (SSO) {#sso}
+
+* [{#T}](single-sign-on/grafana/saml-grafana.md)
+* [{#T}](single-sign-on/grafana/oidc-grafana.md)
+* [{#T}](single-sign-on/oidc-grafana-oss.md)
+* [{#T}](single-sign-on/oidc-1c-enterprise.md)
+* [{#T}](single-sign-on/saml-zabbix.md)
+* [{#T}](single-sign-on/saml-yandex-360.md)
+* [{#T}](single-sign-on/saml-opensearch.md)
+* [{#T}](single-sign-on/saml-opensearch-self-managed.md)
+* [{#T}](single-sign-on/saml-managed-gitlab.md)
+* [{#T}](single-sign-on/saml-sonarqube.md)
+* [{#T}](single-sign-on/saml-ovpn.md)
+* [{#T}](single-sign-on/oidc-nginx-oauth2-proxy.md)

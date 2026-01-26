@@ -18,7 +18,7 @@ editable: false
 
 Currently, you are charged for writing custom metrics via the [{{ monitoring-short-name }} API](api-ref/index.md) and writing any metrics via the [{{ prometheus-name }} Remote API](operations/prometheus/index.md), as well as reading any metrics via the [{{ monitoring-short-name }} API](api-ref/index.md).
 
-Writing {{ yandex-cloud }} resource metric values and reading metrics via the {{ prometheus-name }} Remote API are not billable.
+You do not pay for writing metric values of {{ yandex-cloud }} resources and reading metrics via the Remote API.
 
 Pricing features:
 * After writing or reading the first 50,000,000 metric values via the {{ monitoring-short-name }} API, the writing fee is reduced. See  for details.
@@ -41,10 +41,9 @@ Pricing features:
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-The minimum billing unit is one metric value. The cost is rounded up to the nearest ₽0.01, ₸0.01 or $0.01.
+The minimum billing unit is one metric value. The cost is rounded to the nearest ₽0.01, ₸0.01, or $0.01.
 
 
 

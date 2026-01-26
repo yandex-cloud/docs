@@ -3,9 +3,9 @@
 
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
-[Grafana Cloud](https://grafana.com/products/cloud/) — это управляемая облачная платформа для мониторинга и наблюдаемости (observability), которая включает в себя Grafana, Prometheus, Loki и другие инструменты визуализации и анализа данных. Grafana Cloud поддерживает OpenID Connect (OIDC) аутентификацию для обеспечения безопасного единого входа пользователей организации.
+[Grafana Cloud](https://grafana.com/products/cloud/) — это управляемая облачная платформа для мониторинга и наблюдаемости (observability), которая включает в себя Grafana, Prometheus, Loki и другие инструменты визуализации и анализа данных. Grafana Cloud поддерживает [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC) аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Grafana Cloud с помощью технологии единого входа по стандарту [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID_Connect), создайте [OIDC-приложение](../../../organization/concepts/applications.md#oidc) в {{ org-name }} и настройте его на стороне {{ org-name }} и на стороне Grafana Cloud.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Grafana Cloud с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications.md#oidc) в {{ org-name }} и настройте его на стороне {{ org-name }} и на стороне Grafana Cloud.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -259,26 +259,32 @@
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Обновите OIDC-приложение, указав Redirect URI:
+  1. Обновите OAuth-клиент, указав Redirect URI:
 
      ```bash
-     yc organization-manager idp application oauth application update <идентификатор_приложения> \
+     yc iam oauth-client update \
+       --id <идентификатор_OAuth-клиента> \
        --redirect-uris "<URL_экземпляра_Grafana_Cloud>/login/generic_oauth"
      ```
 
      Где:
      
-     * `<идентификатор_приложения>` — ID OIDC-приложения, полученный при создании.
+     * `<идентификатор_OAuth-клиента>` — идентификатор OAuth-клиента, полученный при его создании.
      * `--redirect-uris` — эндпоинт аутентификации для вашего экземпляра Grafana Cloud. Например: `https://your-org.grafana.net/login/generic_oauth`.
 
      Результат:
 
      ```text
-     id: ek0o663g4rs2********
+     id: ajeiu3otac08********
      name: grafana-cloud-oidc-app
-     organization_id: bpf2c65rqcl8********
      redirect_uris:
        - https://your-org.grafana.net/login/generic_oauth
+     scopes:
+       - openid
+       - email
+       - profile
+     folder_id: b1gkd6dks6i1********
+     status: ACTIVE
      ```
 
 {% endlist %}

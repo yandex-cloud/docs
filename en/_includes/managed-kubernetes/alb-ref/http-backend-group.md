@@ -1,4 +1,4 @@
-# `HttpBackendGroup` resource fields
+# HttpBackendGroup resource fields
 
 `HttpBackendGroup` enables you to group backends, i.e., {{ k8s }} services processing traffic. The [{{ alb-name }} Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) uses these resources to create [backend groups](../../../application-load-balancer/concepts/backend-group.md).
 
@@ -101,7 +101,7 @@ Where:
         
     * `storageBucket` (`StorageBucketBackend`)
 
-      [{{ objstorage-full-name }} bucket](../../../storage/concepts/bucket.md) backend for processing requests. To learn more about using a bucket as a backend, see [{#T}](../../../application-load-balancer/concepts/backend-group.md#types).
+      [{{ objstorage-full-name }} bucket](../../../storage/concepts/bucket.md) for processing requests as a backend. To learn more about using a bucket as a backend, see [{#T}](../../../application-load-balancer/concepts/backend-group.md#types).
 
       {% include [bucket-availability-note](../../../application-load-balancer/_includes_service/bucket-availability-note.md) %}
 
@@ -139,7 +139,7 @@ Where:
 
         * `path` (`string`)
 
-          Application endpoint URI path for health check requests, e.g. `/health`.
+          Application endpoint URI path for health check requests, e.g., `/health`.
 
       * `port` (`int32`)
 
@@ -173,17 +173,17 @@ Where:
 
       * `balancerMode` (`string`)
 
-        Traffic distribution mode. It is an algorithm according to which the load balancer distributes traffic across backend endpoints. Possible values: `ROUND_ROBIN`, `RANDOM`, `LEAST_REQUEST`, and `MAGLEV_HASH`. Learn more about each mode [here](../../../application-load-balancer/concepts/backend-group.md#balancing-mode).
+        Mode of traffic distribution across backend endpoints. The possible values are `ROUND_ROBIN`, `RANDOM`, `LEAST_REQUEST`, and `MAGLEV_HASH`. Learn more about each mode [here](../../../application-load-balancer/concepts/backend-group.md#balancing-mode).
 
       * `panicThreshold` (`int64`)
 
-        Percentage of healthy endpoints. If the percentage of healthy endpoints falls below the specified value, it will trigger the [panic mode](../../../application-load-balancer/concepts/backend-group.md#panic-mode).
+        Percentage of healthy endpoints. Values below this threshold will trigger the [panic mode](../../../application-load-balancer/concepts/backend-group.md#panic-mode).
 
         The default value is `0`, which means the panic mode will never be activated.
 
       * `localityAwareRouting` (`int64`)
 
-        Share of incoming traffic the load balancer will forward to its availability zone backends. The remaining traffic will be evenly distributed across other availability zones. [More on locality-aware routing](../../../application-load-balancer/concepts/backend-group.md#locality).
+        Percentage of incoming traffic the load balancer forwards to its availability zone backends. The remaining traffic is evenly distributed across other availability zones. For more information on locality-aware routing, see [this guide](../../../application-load-balancer/concepts/backend-group.md#locality).
 
         The default value is `0`.
 

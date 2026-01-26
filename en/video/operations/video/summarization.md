@@ -7,6 +7,8 @@ description: Follow this guide to manage summarization in {{ video-full-name }}.
 
 You can [add](#enable) and [delete](#disable) summarization while uploading or editing a video.
 
+You can customize the summarization appearance using [presets](../style-presets/create.md).
+
 {% include [free-neuro](../../../_includes/video/free-neuro.md) %}
 
 ## Enabling summarization {#enable}

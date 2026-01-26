@@ -7,8 +7,10 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
-  1. В правом верхнем углу страницы нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
-  1. Выберите срок удаления облака, по истечении которого облако будет удалено. Выберите один из возможных периодов или `{{ ui-key.yacloud_billing.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`. Срок удаления облака по умолчанию — 7 дней.
+  1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) напротив облака и выберите **{{ ui-key.yacloud.common.delete }}**.
+   1. В открывшемся окне:
+      1. Выберите срок удаления облака, по истечении которого облако будет удалено. Выберите один из возможных периодов или `{{ ui-key.yacloud_billing.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`. Срок удаления облака по умолчанию — 7 дней.
+      1. Введите название облака, чтобы подтвердить удаление.
   1. Нажмите **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}

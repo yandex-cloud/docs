@@ -227,7 +227,7 @@ The minimum value is 0. ||
 
 ID of the disk type.
 
-Value must match the regular expression ` \|network-ssd\|network-hdd\|network-ssd-nonreplicated\|network-ssd-io-m3 `. ||
+Value must match the regular expression ``` |network-ssd|network-hdd|network-ssd-nonreplicated|network-ssd-io-m3 ```. ||
 || diskSize | **string** (int64)
 
 Size of the disk, specified in bytes.

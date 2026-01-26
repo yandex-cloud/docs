@@ -1,10 +1,10 @@
 # TLSRoute resource fields
 
-The `TLSRoute` resource specifes routing rules for TLS traffic to {{ k8s }} services backends, i.e. [Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md) resources. `TLSRoute` receives incoming traffic that has passed through [Gateway](../../../application-load-balancer/k8s-ref/gateway.md) resource filters.
+The `TLSRoute` resource sets traffic routing rules for {{ k8s }} services ([Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md) resources) operating as backends. `TLSRoute` receives incoming traffic from those [Gateway](../../../application-load-balancer/k8s-ref/gateway.md) resources whose requirements it meets.
 
 `TLSRoute` is designed for application developers. Cluster operators should use the `Gateway` resource.
 
-`TLSRoute` is a [{{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/) project resource. Below, we describe its fields and annotations used by {{ alb-name }} Gateway API. For configuration details, see the [{{ k8s }} Gateway API reference](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1alpha2.TLSRoute).
+`TLSRoute` is a [{{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/) project resource. Below, we describe its fields and annotations used by the {{ alb-name }} Gateway API. For configuration details, see the [{{ k8s }} Gateway API reference](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1alpha2.TLSRoute).
 
 ## TLSRoute {#tlsroute}
 
@@ -63,7 +63,7 @@ namespace: <string>
                                          [Resource name](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
 Do not mistake this name for the {{ alb-name }} route name. ||
-|| `namespace`  | `string`  | Resource [namespace](../../../managed-kubernetes/concepts/index.md#namespace).
+|| `namespace`  | `string`  | [Namespace](../../../managed-kubernetes/concepts/index.md#namespace) the resource belongs to.
 
 The default value is `default`. ||
 |#
@@ -79,9 +79,9 @@ rules: <[]TLSRouteRule>
 #|
 || **Field**     | **Value / Type**  | **Description**                         ||
 || `parentRefs` | `[]ParentReference`   | **This is a required field**.
-[`Gateway` resources or their listeners](#parentrefs) admitting traffic for the `TLSRoute`.
+[List of `Gateway` resources or their listeners](#parentrefs) associated with the `TLSRoute`.
 
-For the `TLSRoute` to receive `Gateway` traffic, it must comply with the rules specified in its [configuration](../../../application-load-balancer/k8s-ref/gateway.md#spec), i.e., `spec.listeners.allowedRoutes` field. ||
+For the `TLSRoute` to receive `Gateway` traffic, it must comply with the rules specified in its [configuration](../../../application-load-balancer/k8s-ref/gateway.md#spec), i.e., the `spec.listeners.allowedRoutes` field. ||
 || `hostnames`  | `[]Hostname`          | Domain names matching the `SNI` value in the `ClientHello` TLS handshake message.
 
 {% include [k8s-ingress-controller-hostnames-wildcard](../../application-load-balancer/k8s-ingress-controller-hostnames-wildcard.md) %} ||
@@ -101,9 +101,9 @@ sectionName: <string>
 || **Field**     | **Value / Type**  | **Description**                         ||
 || `name` | `string` | **This is a required field**.
 `Gateway` resource name. ||
-|| `namespace`       | `string`   | `Gateway` resource namespace.
+|| `namespace`       | `string`   | Namespace the `Gateway` resource belongs to.
 
-By default, it matches the `TLSRoute` resource [metadata.namespace](#metadata) value. ||
+By default, it matches the `TLSRoute` resource namespace (the [metadata.namespace](#metadata) field). ||
 || `sectionName` | `string` | Name of the listener specified in the `Gateway` resource. ||
 |#
 
@@ -120,16 +120,16 @@ backendRefs:
 #|
 || **Field**     | **Value / Type**  | **Description**                         ||
 || `backendRefs` | `[]BackendRef` | **This is a required field**.
-{{ k8s }} services acting as backends and processing requests.
+List of {{ k8s }} services acting as backends and processing requests.
 
 All services from this list will be placed in the same [backend group](../../../application-load-balancer/concepts/backend-group.md). ||
 || `backendRefs.name`   | `string`              | **This is a required field**.
-Name of the {{ k8s }} service backend.
+Name of the {{ k8s }} service acting as a backend.
 
 The referred `Service` resource must be described per the [standard configuration](../../../application-load-balancer/k8s-ref/service-for-gateway.md). ||
-|| `backendRefs.namespace` | `string`           | `Service` resource namespace.
+|| `backendRefs.namespace` | `string`           | Namespace the `Service` resource belongs to.
 
-By default, it matches the `TLSRoute` resource [metadata.namespace](#metadata) value. ||
+By default, it matches the `TLSRoute` resource namespace (the [metadata.namespace](#metadata) field). ||
 || `backendRefs.port`   | `int32`               | Service port number.
 
 The port number must match one of the `Service` resource [spec.ports.port](../../../application-load-balancer/k8s-ref/service-for-gateway.md#servicespec) values. ||

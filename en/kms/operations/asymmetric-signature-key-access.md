@@ -14,7 +14,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder containing an asymmetric encryption key pair.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
    1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
    1. On the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab, click the name of the key pair.
    1. Go to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
@@ -30,7 +30,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
    To assign a role for an asymmetric digital signature key pair:
 
-   1. See the description of the CLI role assignment command:
+   1. View the description of the CLI command for assigning roles:
 
       ```bash
       yc kms asymmetric-signature-key add-access-binding --help
@@ -103,7 +103,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
        * `asymmetric_signaturen_key_id `: ID of the digital signature key pair.
        * `role`: [Role](../security/index.md#roles-list) being assigned.
-       * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Use the following format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+       * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
        For more information about `yandex_kms_asymmetric_signature_key` resource properties, see this [provider guide]({{ tf-provider-resources-link }}/kms_asymmetric_signature_key).
 
@@ -135,7 +135,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder containing an asymmetric encryption key pair.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
    1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
    1. On the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab, click the name of the key pair.
    1. Go to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
@@ -160,7 +160,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
         --id <key_pair_ID>
       ```
 
-   1. See the description of the CLI role assignment command:
+   1. View the description of the CLI command for assigning roles:
 
       ```bash
       yc kms asymmetric-signature-key set-access-bindings --help
@@ -247,7 +247,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
        * `asymmetric_signaturen_key_id`: ID of the digital signature key pair.
        * `role`: [Role](../security/index.md#roles-list) being assigned.
-       * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Use the following format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+       * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
        For more information about `yandex_kms_asymmetric_signature_key` resource properties, see this [provider guide]({{ tf-provider-resources-link }}/kms_asymmetric_signature_key).
 
@@ -265,7 +265,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
    {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
-   Use the [SetAccessBindings](../asymmetricsignature/api-ref/AsymmetricSignatureKey/setAccessBindings.md) method for the [AsymmetricSignatureKey](../asymmetricsignature/api-ref/AsymmetricSignatureKey/index.md) resource or the [AsymmetricSignatureKeyService/SetAccessBindings](../asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
+   Use the [SetAccessBindings](../asymmetricsignature/api-ref/AsymmetricSignatureKey/setAccessBindings.md) method for the [AsymmetricSignatureKey](../asymmetricsignature/api-ref/AsymmetricSignatureKey/index.md) resource or the [AsymmetricSignatureKeyService/SetAccessBindings](../asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one matching a particular role and containing the following data:
 
    * Role in the `access_bindings[].role_id` parameter.
    * ID of the subject getting the roles in the `access_bindings[].subject.id` parameter.

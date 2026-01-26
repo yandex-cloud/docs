@@ -71,7 +71,7 @@ Actions for Advanced Rate Limiter rules:
 
 * _Block requests when exceeding the limit_: Requests above the specified limit over a period of time will be blocked until the limit period expires. The requesting client will get error `429`.
 
-* _Temporarily block all requests_: Requests above the specified limit over a period of time will be blocked for a fixed period of time, rather than until the end of the limit period. The requesting client will get error `429`. You can block requests for the period from 1 second to 60 minutes.
+* _Temporarily block all requests_: Requests above the specified limit over a period of time will be blocked for a fixed period of time, rather than until the end of the limit period. The requesting client will get error `429`. You can block requests for the period from 1 second to 24 hours.
 
 * _Send over-limit requests for CAPTCHA verification_: Requests above the specified limit over a period of time will be sent to {{ captcha-name }}. 
 
