@@ -1,11 +1,11 @@
 ---
-title: События плеера Cloud Video Player в SDK для JavaScript
-description: На странице описаны возможные события видеоплеера Cloud Video Player, на которые можно подписаться в SDK для JavaScript.
+title: События плеера {{ video-player-name }} в SDK для JavaScript
+description: На странице описаны возможные события видеоплеера {{ video-player-name }}, на которые можно подписаться в SDK для JavaScript.
 ---
 
 # События плеера
 
-С помощью методов [on и once](./player-methods.md#subscribe-methods) SDK для JavaScript вы можете подписаться на события [видеоплеера](../../concepts/player.md) Cloud Video Player:
+С помощью методов [on и once](./player-methods.md#subscribe-methods) SDK для JavaScript вы можете подписаться на события [видеоплеера](../../concepts/player.md) {{ video-player-name }}:
 
 #### SourceChange {#sourcechange}
 
@@ -123,6 +123,19 @@ player.on('MutedChange', ({ muted }) => {
 ```javascript
 player.on('VolumeChange', ({ volume }) => {
     console.log(volume);
+});
+```
+
+#### PlaybackSpeedChange {#playbackspeedchange}
+
+Изменение скорости воспроизведения видео.
+
+В объекте `{ playbackSpeed }` в обработчик поступает новое значение [скорости воспроизведения](./player-state.md#state-playbackSpeed).
+
+Пример:
+```javascript
+player.on('PlaybackSpeedChange', ({ playbackSpeed }) => {
+    console.log(playbackSpeed);
 });
 ```
 

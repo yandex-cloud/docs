@@ -1199,7 +1199,7 @@ HTTP status code of the redirect response.
 
 Default value: `"301"`.
 
-Value must match the regular expression ` 3(0[1-9]\|[1-9][0-9]) `. ||
+Value must match the regular expression ``` 3(0[1-9]|[1-9][0-9]) ```. ||
 || protocol | **enum** (Protocol)
 
 Scheme of the redirect URI.
@@ -2215,7 +2215,7 @@ HTTP status code of the redirect response.
 
 Default value: `"301"`.
 
-Value must match the regular expression ` 3(0[1-9]\|[1-9][0-9]) `. ||
+Value must match the regular expression ``` 3(0[1-9]|[1-9][0-9]) ```. ||
 || protocol | **enum** (Protocol)
 
 Scheme of the redirect URI.

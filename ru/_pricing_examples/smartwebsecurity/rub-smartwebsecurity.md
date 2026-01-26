@@ -26,13 +26,13 @@
 ##### Профиль безопасности и прокси-сервер
 
 > Рассчитаем стоимость 315,04 млн легитимных запросов в месяц при использовании прокси-сервера и правил профиля безопасности:
-> {% calc [currency=RUB] 0,01 × {{ sku|RUB|sws.requests.v1|number }} + 0,99 × {{ sku|RUB|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|RUB|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|RUB|sws.requests.v1|pricingRate.10|number }} + 215,04 × {{ sku|RUB|sws.requests.v1|pricingRate.100|number }} %} + 6 × 720 × 2,40 ₽ + 7 × 1,09 ₽ = {% calc [currency=RUB] (0,01 × {{ sku|RUB|sws.requests.v1|number }} + 0,99 × {{ sku|RUB|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|RUB|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|RUB|sws.requests.v1|pricingRate.10|number }} + 215,04 × {{ sku|RUB|sws.requests.v1|pricingRate.100|number }}) + 6 × 720 × 2,40 + 7 × 1,09 %}, вкл. НДС.
+> {% calc [currency=RUB] 0,01 × {{ sku|RUB|sws.requests.v1|number }} + 0,99 × {{ sku|RUB|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|RUB|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|RUB|sws.requests.v1|pricingRate.10|number }} + 215,04 × {{ sku|RUB|sws.requests.v1|pricingRate.100|number }} %} + 6 × 720 × {{ sku|RUB|sws.proxy-server.v1|string }} + 7 × {{ sku|RUB|sws.antiddos.traffic|string }} = {% calc [currency=RUB] (0,01 × {{ sku|RUB|sws.requests.v1|number }} + 0,99 × {{ sku|RUB|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|RUB|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|RUB|sws.requests.v1|pricingRate.10|number }} + 215,04 × {{ sku|RUB|sws.requests.v1|pricingRate.100|number }}) + 6 × 720 × {{ sku|RUB|sws.proxy-server.v1|number }} + 7 × {{ sku|RUB|sws.antiddos.traffic|number }} %}, вкл. НДС.
 
 Где: 
 
 * {% calc [currency=RUB] 0,01 × {{ sku|RUB|sws.requests.v1|number }} + 0,99 × {{ sku|RUB|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|RUB|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|RUB|sws.requests.v1|pricingRate.10|number }} + 215,04 × {{ sku|RUB|sws.requests.v1|pricingRate.100|number }} %} — стоимость 315,04 млн легитимных запросов в месяц, обработанных правилами профиля безопасности.
 * 6 — минимальное количество ресурсных единиц прокси-сервера. 
 * 720 — количество часов в 30 днях.
-* 2,40 ₽ — стоимость 1 ресурсной единицы прокси-сервера за 1 час.
+* {{ sku|RUB|sws.proxy-server.v1|string }} — стоимость 1 ресурсной единицы прокси-сервера за 1 час.
 * 7 — объем входящего трафика (в гигабайтах).
-* 1,09 ₽ — стоимость защиты 1 ГБ входящего трафика от DDoS-атак.
+* {{ sku|RUB|sws.antiddos.traffic|string }} — стоимость защиты 1 ГБ входящего трафика от DDoS-атак.

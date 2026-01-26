@@ -1,5 +1,5 @@
 {% note info %}
 
-Пулы пользователей находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+Пулы пользователей находятся на стадии [Preview](../../overview/concepts/launch-stages.md).
 
 {% endnote %}

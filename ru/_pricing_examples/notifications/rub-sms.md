@@ -1,41 +1,41 @@
 Стоимость обработки 100 событий (для абонентов МТС):
 
-> {% calc [currency=RUB] 5,35 × 1 %} × 100 = {% calc [currency=RUB] 5,35 × 1 × 100 %}
+> {{ sku|RUB|cns.notification_events.mts_marketing_event|string }} × 100 = {% calc [currency=RUB] {{ sku|RUB|cns.notification_events.mts_marketing_event|number }} × 100 %}
 
 Где:
 
-* {% calc [currency=RUB] 5,35 × 1 %} — стоимость обработки одного рекламного события для абонентов МТС, до 400 000 шт.
+* {{ sku|RUB|cns.notification_events.mts_marketing_event|string }} — стоимость обработки одного рекламного события для абонентов МТС, до 400 000 шт.
 * 100 — количество уведомлений.
 
 Стоимость обработки 70 событий (для разных абонентов Билайн):
 
-> {% calc [currency=RUB] 7,75 × 1 %} × 70 = {% calc [currency=RUB] 7,75 × 1 × 70 %}
+> {{ sku|RUB|cns.notification_events.vimpelcom_marketing_1|string }} × 70 = {% calc [currency=RUB] {{ sku|RUB|cns.notification_events.vimpelcom_marketing_1|number }} × 70 %}
 
 Где:
 
-* {% calc [currency=RUB] 7,75 × 1 %} — стоимость обработки одного рекламного события для абонентов Билайн по тарифу «до 2 событий на 1 получателя».
+* {{ sku|RUB|cns.notification_events.vimpelcom_marketing_1|string }} — стоимость обработки одного рекламного события для абонентов Билайн по тарифу «до 2 событий на 1 получателя».
 * 70 — количество уведомлений.
 
 Стоимость обработки 30 событий (для одного абонента Билайн):
 
-> * Обработка первого события — {% calc [currency=RUB] 7,75 × 1 %}.
-> * Обработка второго события — {% calc [currency=RUB] 7,75 × 1 %}.
-> * При обработке третьего события активируется пакет. Стоимость пакета «от 3 до 5 событий на получателя» — {% calc [currency=RUB] 18,90 × 1 %}. Четвертое и пятое события включены в пакет.
-> * При обработке шестого события активируется пакет. Стоимость пакета «от 6 до 10 событий на получателя» — {% calc [currency=RUB] 14,02 × 1 %}.
-> * При обработке одиннадцатого события активируется пакет. Стоимость пакета «от 11 до 20 событий на получателя» — {% calc [currency=RUB] 26,76 × 1 %}.
-> * С двадцать первого события тарифицируется каждое событие по цене — {% calc [currency=RUB] 7,66 × 1 %}.
+> * Обработка первого события — {{ sku|RUB|cns.notification_events.vimpelcom_marketing_1|string }}.
+> * Обработка второго события — {{ sku|RUB|cns.notification_events.vimpelcom_marketing_1|string }}.
+> * При обработке третьего события активируется пакет. Стоимость пакета «от 3 до 5 событий на получателя» — {{ sku|RUB|cns.notifications_packet_events.vimpelcom_marketing_1|string }}. Четвертое и пятое события включены в пакет.
+> * При обработке шестого события активируется пакет. Стоимость пакета «от 6 до 10 событий на получателя» — {{ sku|RUB|cns.notifications_packet_events.vimpelcom_marketing_2|string }}.
+> * При обработке одиннадцатого события активируется пакет. Стоимость пакета «от 11 до 20 событий на получателя» — {{ sku|RUB|cns.notifications_packet_events.vimpelcom_marketing_3|string }}.
+> * С двадцать первого события тарифицируется каждое событие по цене — {{ sku|RUB|cns.notification_events.vimpelcom_marketing_2|string }}.
 > 
 >   Итоговая стоимость обработки 30 событий одному абоненту:
->   {% calc [currency=RUB] 7,75 × 1 %} × 2 + {% calc [currency=RUB] 18,90 × 1 %} + {% calc [currency=RUB] 14,02 × 1 %} + {% calc [currency=RUB] 26,76 × 1 %} + {% calc [currency=RUB] 7,66 × 1 %} × 10 = {% calc [currency=RUB] (7,75 × 2 + 18,90 + 14,02 + 26,76 + 7,66 × 10) × 1 %}
+>   {{ sku|RUB|cns.notification_events.vimpelcom_marketing_1|string }} × 2 + {{ sku|RUB|cns.notifications_packet_events.vimpelcom_marketing_1|string }} + {{ sku|RUB|cns.notifications_packet_events.vimpelcom_marketing_2|string }} + {{ sku|RUB|cns.notifications_packet_events.vimpelcom_marketing_3|string }} + {{ sku|RUB|cns.notification_events.vimpelcom_marketing_2|string }} × 10 = {% calc [currency=RUB] {{ sku|RUB|cns.notification_events.vimpelcom_marketing_1|number }} × 2 + {{ sku|RUB|cns.notifications_packet_events.vimpelcom_marketing_1|number }} + {{ sku|RUB|cns.notifications_packet_events.vimpelcom_marketing_2|number }} + {{ sku|RUB|cns.notifications_packet_events.vimpelcom_marketing_3|number }} + {{ sku|RUB|cns.notification_events.vimpelcom_marketing_2|number }} × 10 %}
 
 Итоговая стоимость обработки всех 200 событий отправки SMS:
 
-> {% calc [currency=RUB] 535,00 × 1 %} + {% calc [currency=RUB] 542,50 × 1 %} + {% calc [currency=RUB] 151,78 × 1 %} = {% calc [currency=RUB] (535,00 + 542,50 + 151,78) × 1 %}
+> {% calc [currency=RUB] {{ sku|RUB|cns.notification_events.mts_marketing_event|number }} × 100 %} + {% calc [currency=RUB] {{ sku|RUB|cns.notification_events.vimpelcom_marketing_1|number }} × 70 %} + {% calc [currency=RUB] {{ sku|RUB|cns.notification_events.vimpelcom_marketing_1|number }} × 2 + {{ sku|RUB|cns.notifications_packet_events.vimpelcom_marketing_1|number }} + {{ sku|RUB|cns.notifications_packet_events.vimpelcom_marketing_2|number }} + {{ sku|RUB|cns.notifications_packet_events.vimpelcom_marketing_3|number }} + {{ sku|RUB|cns.notification_events.vimpelcom_marketing_2|number }} × 10 %} = {% calc [currency=RUB] {{ sku|RUB|cns.notification_events.mts_marketing_event|number }} × 100 + {{ sku|RUB|cns.notification_events.vimpelcom_marketing_1|number }} × 70 + ({{ sku|RUB|cns.notification_events.vimpelcom_marketing_1|number }} × 2 + {{ sku|RUB|cns.notifications_packet_events.vimpelcom_marketing_1|number }} + {{ sku|RUB|cns.notifications_packet_events.vimpelcom_marketing_2|number }} + {{ sku|RUB|cns.notifications_packet_events.vimpelcom_marketing_3|number }} + {{ sku|RUB|cns.notification_events.vimpelcom_marketing_2|number }} × 10) %}
 > 
-> Итого: {% calc [currency=RUB] (535,00 + 542,50 + 151,78) × 1 %}
+> Итого: {% calc [currency=RUB] {{ sku|RUB|cns.notification_events.mts_marketing_event|number }} × 100 + {{ sku|RUB|cns.notification_events.vimpelcom_marketing_1|number }} × 70 + ({{ sku|RUB|cns.notification_events.vimpelcom_marketing_1|number }} × 2 + {{ sku|RUB|cns.notifications_packet_events.vimpelcom_marketing_1|number }} + {{ sku|RUB|cns.notifications_packet_events.vimpelcom_marketing_2|number }} + {{ sku|RUB|cns.notifications_packet_events.vimpelcom_marketing_3|number }} + {{ sku|RUB|cns.notification_events.vimpelcom_marketing_2|number }} × 10) %}
 
 Где:
 
-* {% calc [currency=RUB] 535,00 × 1 %} — стоимость 100 SMS для абонентов МТС.
-* {% calc [currency=RUB] 542,50 × 1 %} — стоимость 70 SMS для разных абонентов Билайн.
-* {% calc [currency=RUB] 151,78 × 1 %} — стоимость 30 SMS для одного абонента Билайн.
+* {% calc [currency=RUB] {{ sku|RUB|cns.notification_events.mts_marketing_event|number }} × 100 %} — стоимость 100 SMS для абонентов МТС.
+* {% calc [currency=RUB] {{ sku|RUB|cns.notification_events.vimpelcom_marketing_1|number }} × 70 %} — стоимость 70 SMS для разных абонентов Билайн.
+* {% calc [currency=RUB] {{ sku|RUB|cns.notification_events.vimpelcom_marketing_1|number }} × 2 + {{ sku|RUB|cns.notifications_packet_events.vimpelcom_marketing_1|number }} + {{ sku|RUB|cns.notifications_packet_events.vimpelcom_marketing_2|number }} + {{ sku|RUB|cns.notifications_packet_events.vimpelcom_marketing_3|number }} + {{ sku|RUB|cns.notification_events.vimpelcom_marketing_2|number }} × 10 %} — стоимость 30 SMS для одного абонента Билайн.

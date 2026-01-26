@@ -42,8 +42,6 @@ editable: false
 
 ## Примеры расчета стоимости {#amount-example}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 ### Время выполнения тестов {#test-time}
 
 

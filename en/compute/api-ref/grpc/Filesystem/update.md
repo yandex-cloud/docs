@@ -40,7 +40,7 @@ Field mask that specifies which attributes of the filesystem should be updated. 
 
 New name of the filesystem. The name must be unique within the folder.
 
-Value must match the regular expression ` \|[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 New description of the filesystem.

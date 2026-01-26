@@ -12,7 +12,7 @@ spec: <ServiceSpec>
 || `apiVersion` | `v1` |                   **This is a required field**.
 
 Kubernetes API version. ||
-|| `kind`       | `Service`              | Resource type           ||
+|| `kind`       | `Service`              | Resource type.           ||
 || `metadata`   | `ObjectMeta`           | **This is a required field**.
 
 Resource metadata. ||

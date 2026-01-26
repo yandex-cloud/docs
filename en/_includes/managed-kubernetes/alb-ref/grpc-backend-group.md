@@ -4,7 +4,7 @@
 
 {% include [Gwin](../../application-load-balancer/ingress-to-gwin-tip.md) %}
 
-You need to add a reference to `GrpcBackendGroup` to the [`Ingress`](../../../application-load-balancer/k8s-ref/ingress.md) resource. This `Ingress` resource must have the `ingress.alb.yc.io/protocol: grpc` annotation.
+You need to add a reference to `GrpcBackendGroup` to the [`Ingress` resource](../../../application-load-balancer/k8s-ref/ingress.md). This `Ingress` resource must have the `ingress.alb.yc.io/protocol: grpc` annotation.
 
 {% cut "Example" %}
 
@@ -124,7 +124,7 @@ Where:
 
     * `service` (`ServiceBackend`)
 
-      Reference to the [{{ k8s }}](../../../managed-kubernetes/concepts/index.md#service) service to process requests as a backend.
+      Reference to the [{{ k8s }} service](../../../managed-kubernetes/concepts/index.md#service) to process requests as a backend.
 
       The referred `Service` resource must be described per the [standard configuration](../../../application-load-balancer/k8s-ref/service-for-ingress.md).
 

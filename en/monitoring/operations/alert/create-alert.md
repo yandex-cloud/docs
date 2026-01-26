@@ -34,6 +34,11 @@ To view [alerts](../../concepts/alerting/alert.md), you need the `viewer` role o
 
 1. Set the [no data policies](../../concepts/alerting/alert.md#no-data-policy) or leave the default values.
 1. Specify the alert [annotations](../../concepts/alerting/annotation.md).
+
+1. To sort alerts and search for alerts, add labels in `key=value` format.
+   
+     You can add multiple labels. Do it by clicking `Enter` after you enter a `key=value` pair. To use labels in another alert or the search bar, click **Copy all labels**.
+
 1. Configure [notifications](../../concepts/alerting/notification-channel.md). If you do not have a notification channel, [create one](create-channel.md).
 1. Click **{{ ui-key.yacloud_monitoring.actions.common.create }}**. The alert will appear in the list.
 

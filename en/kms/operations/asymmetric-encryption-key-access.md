@@ -14,7 +14,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder containing an asymmetric encryption key pair.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
    1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
    1. On the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}** tab, click the name of the key pair.
    1. Go to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
@@ -30,7 +30,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 
    To assign a role for an asymmetric encryption key pair:
 
-   1. See the description of the CLI role assignment command:
+   1. View the description of the CLI command for assigning roles:
 
       ```bash
       yc kms asymmetric-encryption-key add-access-binding --help
@@ -135,7 +135,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder containing an asymmetric encryption key pair.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
    1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
    1. On the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}** tab, click the name of the key pair.
    1. Go to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
@@ -160,7 +160,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
         --id <key_pair_ID>
       ```
 
-   1. See the description of the CLI role assignment command:
+   1. View the description of the CLI command for assigning roles:
 
       ```bash
       yc kms asymmetric-encryption-key set-access-bindings --help
@@ -265,7 +265,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 
    {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
-   Use the [SetAccessBindings method](../asymmetricencryption/api-ref/AsymmetricEncryptionKey/setAccessBindings.md) for the [AsymmetricEncryptionKey](../asymmetricencryption/api-ref/AsymmetricEncryptionKey/index.md) resource or the [AsymmetricEncryptionKeyService/SetAccessBindings](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
+   Use the [SetAccessBindings method](../asymmetricencryption/api-ref/AsymmetricEncryptionKey/setAccessBindings.md) for the [AsymmetricEncryptionKey](../asymmetricencryption/api-ref/AsymmetricEncryptionKey/index.md) resource or the [AsymmetricEncryptionKeyService/SetAccessBindings](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one matching a particular role and containing the following data:
 
    * Role in the `access_bindings[].role_id` parameter.
    * ID of the subject getting the roles in the `access_bindings[].subject.id` parameter.

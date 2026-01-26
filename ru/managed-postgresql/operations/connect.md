@@ -282,6 +282,53 @@ FQDN вида `c-<идентификатор_кластера>.ro.{{ dns-zone }}
 
 
 
+## Подключение с аутентификацией через IAM {#iam}
+
+К базе данных {{ PG }} можно подключиться с помощью [интерфейса командной строки {{ yandex-cloud }} (CLI)](../../cli/quickstart.md#install), используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../iam/concepts/users/accounts.md#saml-federation) и [локальных пользователей](../../iam/concepts/users/accounts.md#local). Подключение с аутентификацией через IAM не требует получения SSL-сертификата или указания FQDN хостов кластера.
+
+Перед подключением установите клиент {{ PG }}:
+
+```bash
+sudo apt update && sudo apt install --yes postgresql-client
+```
+
+Подготовьте кластер {{ PG }} к подключению:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера.
+  1. Включите публичный доступ для хостов кластера:
+     1. Выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}**.
+     1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке первого хоста и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+     1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+     1. Повторите операцию для остальных хостов кластера.
+  1. Назначьте роль аккаунту пользователя, который будет подключаться к БД:
+     1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+     1. Введите электронную почту пользователя, к которой привязан аккаунт.
+     1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role}}** и выберите роль `managed-postgresql.clusters.connector`.
+     1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+  1. Создайте пользователя {{ PG }}:
+     1. Выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
+     1. Выберите способ аутентификации **{{ ui-key.yacloud.postgresql.common.label_iam_iq9BP }}**.
+     1. Выберите аккаунт, которому была назначена роль `managed-postgresql.clusters.connector`.
+     1. В поле **{{ ui-key.yacloud.mdb.dialogs.popup_field_permissions }}** нажмите значок ![image](../../_assets/console-icons/plus.svg).
+     1. Выберите базу данных из выпадающего списка.
+     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
+
+{% endlist %}
+
+Чтобы подключиться к БД {{ PG }}, выполните команду:
+
+```bash
+{{ yc-mdb-pg }} connect <имя_или_идентификатор_кластера> --db <имя_БД>
+```
+
+
+
 ## Подключение из {{ websql-full-name }} {#websql}
 
 {% include [WebSQL](../../_includes/mdb/mpg/websql.md) %}

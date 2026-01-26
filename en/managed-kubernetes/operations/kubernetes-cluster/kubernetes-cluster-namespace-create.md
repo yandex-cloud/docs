@@ -11,11 +11,11 @@ To create a namespace in a {{ managed-k8s-name }} cluster:
 
 - Management console {#console}
 
-   1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the folder where you want to change the {{ k8s }} cluster.
-   1. Select the appropriate cluster from the list.
-   1. Go to the **{{ ui-key.yacloud.k8s.cluster.switch_namespaces }}** tab.
+   1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the folder where you want to update the {{ k8s }} cluster.
+   1. Select the cluster from the list.
+   1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_namespaces }}** tab.
    1. In the top-right corner, click **{{ ui-key.yacloud.k8s.namespaces.button_create }}**.
-   1. Specify a **{{ ui-key.yacloud.k8s.namespaces.popup-add_field_name }}** for the namespace. It must be compliant with [RFC 1123](https://datatracker.ietf.org/doc/html/rfc1123):
+   1. Specify a **{{ ui-key.yacloud.k8s.namespaces.popup-add_field_name }}** for the namespace. It must comply with [RFC 1123](https://datatracker.ietf.org/doc/html/rfc1123):
 
       {% include [namespace-name](../../../_includes/managed-kubernetes/namespace-name.md) %}
 
@@ -27,7 +27,7 @@ To create a namespace in a {{ managed-k8s-name }} cluster:
 
    {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-   Run the following command:
+   Run this command:
 
    ```bash
    kubectl create namespace <namespace_name>

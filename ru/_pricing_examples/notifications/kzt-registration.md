@@ -1,8 +1,8 @@
-> {% calc [currency=KZT] 10000 × 5 %} × 3 = {% calc [currency=KZT] 10000 × 5 × 3 %}
+> {{ sku|KZT|cns.notifications.sender_name_registration_event|string }} × 3 = {% calc [currency=KZT] {{ sku|KZT|cns.notifications.sender_name_registration_event|number }} × 3 %}
 > 
-> Итого: {% calc [currency=KZT] 10000 × 5 × 3 %}
+> Итого: {% calc [currency=KZT] {{ sku|KZT|cns.notifications.sender_name_registration_event|number }} × 3 %}
 
 Где:
 
-* {% calc [currency=KZT] 10000 × 5 %} — стоимость регистрации имени отправителя {{ cns-short-name }} на 1 месяц.
+* {{ sku|KZT|cns.notifications.sender_name_registration_event|string }} — стоимость регистрации имени отправителя {{ cns-short-name }} на 1 месяц.
 * 3 — количество месяцев.

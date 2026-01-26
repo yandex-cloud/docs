@@ -57,7 +57,7 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
 
 Name of the reserved instance pool.
 
-Value must match the regular expression ` \|[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 Description of the reserved instance pool.

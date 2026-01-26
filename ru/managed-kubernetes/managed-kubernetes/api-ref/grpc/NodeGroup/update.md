@@ -186,7 +186,7 @@ Field mask that specifies which fields of the node group are going to be updated
 Name of the node group.
 The name must be unique within the folder.
 
-Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 Description of the node group.
@@ -333,7 +333,7 @@ The minimum value is 0. ||
 
 ID of the disk type.
 
-Value must match the regular expression ` \|network-ssd\|network-hdd\|network-ssd-nonreplicated\|network-ssd-io-m3 `. ||
+Value must match the regular expression ``` |network-ssd|network-hdd|network-ssd-nonreplicated|network-ssd-io-m3 ```. ||
 || disk_size | **int64**
 
 Size of the disk, specified in bytes.
@@ -1116,7 +1116,7 @@ The minimum value is 0. ||
 
 ID of the disk type.
 
-Value must match the regular expression ` \|network-ssd\|network-hdd\|network-ssd-nonreplicated\|network-ssd-io-m3 `. ||
+Value must match the regular expression ``` |network-ssd|network-hdd|network-ssd-nonreplicated|network-ssd-io-m3 ```. ||
 || disk_size | **int64**
 
 Size of the disk, specified in bytes.

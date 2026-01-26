@@ -1,11 +1,11 @@
 # GRPCRoute resource fields
 
-The `GRPCRoute` resource sets rules for routing between {{ k8s }} services operating as backends ([Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md) resources) or for traffic redirection. `GRPCRoute` receives incoming traffic from those [`Gateway`](../../../application-load-balancer/k8s-ref/gateway.md) resources whose requirements it meets.
+The `GRPCRoute` resource sets rules for routing between {{ k8s }} services operating as backends ([Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md) resources) or for traffic redirection. `GRPCRoute` receives incoming traffic from those [`Gateway` resources](../../../application-load-balancer/k8s-ref/gateway.md) whose requirements it meets.
 
 
 `GRPCRoute` is designed for application developers. Cluster operators should use the `Gateway` resource.
 
-`GRPCRoute` is a [{{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/) project resource. Below, we describe its fields and annotations used by {{ alb-name }} Gateway API. For configuration details, see the [{{ k8s }} Gateway API reference](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.GRPCRoute).
+`GRPCRoute` is a [{{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/) project resource. Below, we describe its fields and annotations used by the {{ alb-name }} Gateway API. For configuration details, see the [{{ k8s }} Gateway API reference](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.GRPCRoute).
 
 ## GRPCRoute {#grpc-route}
 
@@ -22,21 +22,21 @@ Where:
 
 * `apiVersion: gateway.networking.k8s.io/v1`
 * `kind: GRPCRoute`
-* `metadata` (`ObjectMeta`, required)
+* `metadata` (`ObjectMeta`; this is a required field)
 
   Resource metadata.
 
-  * `name` (`string`, required)
+  * `name` (`string`; this is a required field)
 
-    Resource name. For more information about the group name format, see the relevant [{{ k8s }} article](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Resource name. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
     Do not mistake this name for the {{ alb-name }} route name.
  
   * `namespace` (`string`)
 
-    Resource [namespace](../../../managed-kubernetes/concepts/index.md#namespace). The default value is `default`.
+    [Namespace](../../../managed-kubernetes/concepts/index.md#namespace) the resource belongs to. The default value is `default`.
 
-* `spec` (`GRPCRouteSpec`, required)
+* `spec` (`GRPCRouteSpec`; this is a required field)
 
   Resource specification. For more information, see [below](#spec).
 
@@ -110,21 +110,21 @@ rules:
 
 Where:
 
-* `parentRefs` (`[]ParentReference`, required)
+* `parentRefs` (`[]ParentReference`; this is a required field)
 
   `Gateway` resources or their listeners specified in the `spec.listeners` field associated with `GRPCRoute`. For more information, see [this reference](../../../application-load-balancer/k8s-ref/gateway.md#spec).
 
-  Routes must also comply with the [`Gateway`configuration](../../../application-load-balancer/k8s-ref/gateway.md#spec) rules specified in the `spec.listeners.allowedRoutes` field.
+  Routes must also comply with the [`Gateway` configuration](../../../application-load-balancer/k8s-ref/gateway.md#spec) rules specified in the `spec.listeners.allowedRoutes` field.
   
   * `namespace` (`string`)
     
-    `Gateway` namespace specified in its `metadata.namespace` field.
+    `Gateway` resource namespace specified in its `metadata.namespace` field.
   
     By default, it matches the `GRPCRoute` resource namespace (`metadata.namespace` field).
 
-  * `name` (`string`, required)
+  * `name` (`string`; this is a required field)
     
-    `Gateway` name specified in its `metadata.name` field.
+    `Gateway` resource name specified in its `metadata.name` field.
 
   * `sectionName` (`string`)
   
@@ -132,7 +132,7 @@ Where:
 
 * `hostnames ([]string)`
 
-  List of domain names (`:authority` pseudoheader values) for the route. The system will create HTTP router virtual hosts for each specified domain.
+  List of domain names (`:authority` pseudoheader values) for the route. The system will create HTTP router virtual hosts for each specified domain name.
 
   {% include [k8s-ingress-controller-hostnames-wildcard](../../application-load-balancer/k8s-ingress-controller-hostnames-wildcard.md) %}
 
@@ -142,9 +142,9 @@ Where:
 
   * `matches` (`[]GRPCRouteMatch`)
   
-    List of conditions, where the gRPC call must meet at least one, for the rule to apply.
+    List of conditions for the rule to apply to a gRPC call if it meets at least one of them.
 
-    For example, all gRPC calls with names that include the `service.example` and the `Login` method as well as calls with names that include the `service.v2.example` and any of that service’s methods will match the following list of conditions:
+    For example, all gRPC calls with names that include `service.example` and the `Login` method as well as calls with names that include `service.v2.example` and any of that service’s methods will fulfill the following list of conditions:
 
     ```yaml
     - matches:
@@ -159,7 +159,7 @@ Where:
 
     * `method` (`GRPCMethodMatch`)
       
-        Indicate the gRPC service and gRPC method the call name must consist of. Make sure to fill in at least one of these fields.
+        Indicates the gRPC service and gRPC method the call name must consist of. Make sure to fill in at least one of these fields.
 
       * `service`
 
@@ -192,35 +192,35 @@ Where:
 
         * `set` (`[]HTTPHeader`)
         
-          Headers that will be overwritten.
+          Headers to overwrite.
 
           * `name` (`string`)
             
-            Overwritable header name.
+            Header name to overwrite.
 
           * `value` (`string`)
         
-            Header new value.
+            Value written to the header.
 
         * `add` (`[]HTTPHeader`)
         
-          Headers that will be added to requests.
+          Headers to add.
 
           * `name` (`string`)
             
-            Added header's name.
+            Name of the header to add.
 
           * `value` (`string`)
         
-            Added header's value.
+            Value of the header to add.
       
         * `remove` (`[]string`)
         
-          Headers to be removed from requests.
+          Header names to remove.
 
   * `backendRefs` (`[]GRPCBackendRef`)
 
-    [{{ k8s }} service](../../../managed-kubernetes/concepts/index.md#service) backends for processing calls.
+    [{{ k8s }} services](../../../managed-kubernetes/concepts/index.md#service) for processing calls as backends.
       
      * `name` (`string`)
 
@@ -228,7 +228,7 @@ Where:
 
      * `namespace` (`string`)
   
-       `Service` resource namespace. By default, it matches the `GRPCRoute` resource namespace (`metadata.namespace` field).
+       Namespace the `Service` resource belongs to. By default, it matches the `GRPCRoute` resource namespace (`metadata.namespace` field).
 
      * `port` (`int32`)
 

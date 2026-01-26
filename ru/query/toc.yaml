@@ -91,6 +91,8 @@ items:
         href: sources-and-sinks/postgresql.md
       - name: Работа с базами данных {{ ydb-name }}
         href: sources-and-sinks/ydb.md
+      - name: Чтение данных из таблиц {{ yq-iceberg-name }}
+        href: sources-and-sinks/iceberg.md
   - name: Практические руководства
     items:
       - name: Все руководства

@@ -1,5 +1,5 @@
 {% note info %}
 
-for compatibility of objects or configurations with the new {{ k8s }} version is automatically performed before cluster upgrade. If the check finds incompatible objects or configurations, the upgrade will return an error with a list of incompatible resources and a description.
+The system will automatically run a _preflight check_ for object or configuration compatibility with the new {{ k8s }} version. If the check identifies incompatible objects or configurations, the upgrade will return an error with a list of incompatible resources and their description.
 
 {% endnote %}

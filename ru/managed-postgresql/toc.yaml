@@ -29,6 +29,8 @@ items:
             href: operations/backup-retention-policies.md
           - name: Управление дисковым пространством
             href: operations/storage-space.md
+          - name: Управление доступом к кластеру
+            href: operations/cluster-access.md
           - name: Техническое обслуживание
             href: operations/cluster-maintenance.md
           - name: Обновление версии PostgreSQL

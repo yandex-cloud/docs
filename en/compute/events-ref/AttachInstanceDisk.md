@@ -267,7 +267,7 @@ Includes only one of the fields `diskSpec`, `diskId`. ||
 ||Field | Description ||
 || name | **string**
 
-Value must match the regular expression ` \|[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 The maximum string length in characters is 256. ||

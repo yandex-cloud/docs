@@ -11,11 +11,21 @@ description: Из статьи вы узнаете, как создавать в
 
 Вы можете привязывать к пулам резервов ВМ как вновь создаваемые, так и существующие виртуальные машины. Подробнее см. в разделе [{#T}](../../concepts/reserved-pools.md).
 
+{% include [reserved-pools-attach-rule](../../../_includes/compute/reserved-pools-attach-rule.md) %}
+
 ## Посмотреть список ВМ, привязанных к пулу {#list-pool-instances}
 
 Чтобы посмотреть список виртуальных машин, привязанных к пулу резервов ВМ:
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится пул резервов ВМ.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-lock.svg) **{{ ui-key.yacloud.compute.reserved-instance-pool.reserved-instance-pools_m8sWW }}**.
+  1. Выберите нужный пул.
+  1. На панели слева перейдите в раздел ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 
 - CLI {#cli}
 
@@ -44,6 +54,17 @@ description: Из статьи вы узнаете, как создавать в
 Чтобы создать новую виртуальную машину в пуле резервов ВМ:
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится пул резервов ВМ.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-lock.svg) **{{ ui-key.yacloud.compute.reserved-instance-pool.reserved-instance-pools_m8sWW }}**.
+  1. В строке с нужным пулом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.compute.reserved-instance-pool.ReservedInstancePoolActions.button_create-virtual-machine_pjCmE }}**.
+  1. Настройте параметры создаваемой ВМ. Подробнее см. [{#T}](../../operations/index.md#vm-create).
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  
+  ВМ появится в списке. При создании ВМ назначаются [IP-адрес](../../../vpc/concepts/address.md) и [имя хоста](../../../vpc/concepts/address.md#fqdn) (FQDN).
 
 - CLI {#cli}
 
@@ -155,6 +176,15 @@ description: Из статьи вы узнаете, как создавать в
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится пул резервов ВМ.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. В строке с нужной ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.compute.components.InstanceActions.button_attach-to-pool_ak57z }}**.
+  1. В открывшемся окне выберите нужный пул резервов ВМ из списка или создайте новый.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.components.AttachInstanceToPoolDialog.button_attach_pHLyg }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -171,13 +201,6 @@ description: Из статьи вы узнаете, как создавать в
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
   1. Привяжите нужную виртуальную машину к нужному пулу резервов ВМ:
-
-      {% note info %}
-
-      К пулу резервов ВМ нельзя привязать виртуальную машину с аппаратной конфигурацией ([платформа](../../concepts/vm-platforms.md), vCPU, RAM), отличной от конфигурации, которая задана в настройках пула.
-
-      {% endnote %}
-
 
       ```bash
       yc compute instance update \
@@ -259,6 +282,14 @@ description: Из статьи вы узнаете, как создавать в
 Чтобы отвязать ВМ от пула резервов ВМ:
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится пул резервов ВМ.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. В строке с нужной ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.compute.components.InstanceActions.button_detach-from-pool_wEiB2 }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.components.InstanceActions.button_confirm-detach-vm-from-pool_8dze2 }}**.
 
 - CLI {#cli}
 

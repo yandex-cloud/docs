@@ -12,11 +12,11 @@ description: Follow this guide to update or delete a topic.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the topic.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select **{{ ui-key.yacloud.cns.local.label_topics_vhBR3 }}** on the left.
   1. Select the topic.
   1. At the top right, click ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. Edit the topic name. The name must be unique within {{ cns-name }}.
+  1. Edit the topic name. It must be unique within {{ cns-name }}.
   1. Under **{{ ui-key.yacloud.cns.section_logging }}**, enable or disable **{{ ui-key.yacloud.cns.field_logging }}**.
   1. Update the existing log group or create a new one.
   1. Click **{{ ui-key.yacloud.common.save-changes }}**.
@@ -64,7 +64,7 @@ description: Follow this guide to update or delete a topic.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the topic.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select **{{ ui-key.yacloud.cns.local.label_topics_vhBR3 }}** on the left.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the topic of interest and select **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.

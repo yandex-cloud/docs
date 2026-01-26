@@ -2,7 +2,7 @@
 
 To find out the `ID` or `NAME` of a [node group](../../concepts/index.md#node-group), get a [list of node groups](#list) in the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) or [detailed information about the node group](#get).
 
-## Getting a list of node groups in a cluster {{ k8s }} {#list}
+## Getting a list of node groups in a {{ k8s }} cluster {#list}
 
 Get a list of [node groups](../../concepts/index.md#node-group) in a {{ k8s }} cluster:
 
@@ -12,7 +12,7 @@ Get a list of [node groups](../../concepts/index.md#node-group) in a {{ k8s }} c
 
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ k8s }} cluster.
-  1. Go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
 
 - CLI {#cli}
 
@@ -40,7 +40,7 @@ Get a list of [node groups](../../concepts/index.md#node-group) in a {{ k8s }} c
 
 ## Getting detailed information about a node group {#get}
 
-To access a node group, use the `ID` or `NAME` parameters from the [previous](node-group-list.md#list) step.
+To access a node group, use the `ID` or `NAME` parameter from the [previous](node-group-list.md#list) step.
 
 {% list tabs group=instructions %}
 
@@ -48,10 +48,10 @@ To access a node group, use the `ID` or `NAME` parameters from the [previous](no
 
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ k8s }} cluster.
-  1. Go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Click the name of the node group.
 
-  To view info about a specific node, navigate to the **{{ ui-key.yacloud.k8s.node-group.overview.label_tab-nodes }}** tab and click the node name. {#get-node}
+  To view information about a specific node, navigate to the **{{ ui-key.yacloud.k8s.node-group.overview.label_tab-nodes }}** tab and click the node name. {#get-node}
 
 - CLI {#cli}
 
@@ -75,6 +75,6 @@ To access a node group, use the `ID` or `NAME` parameters from the [previous](no
 
 - API {#api}
 
-  You can get detailed information about a node group using the [get](../../managed-kubernetes/api-ref/NodeGroup/get.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) resource.
+  You can get node group details using the [get](../../managed-kubernetes/api-ref/NodeGroup/get.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) resource.
 
 {% endlist %}

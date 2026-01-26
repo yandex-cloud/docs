@@ -14,7 +14,7 @@ After practicing on test phone numbers, you can apply to exit the sandbox mode:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to create a notification channel in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select an SMS notification channel you need with an [individual sender](../../concepts/sms.md#individual-sender).
   1. Click **{{ ui-key.yacloud.cns.action_sms-leave-sandbox }}**.
 

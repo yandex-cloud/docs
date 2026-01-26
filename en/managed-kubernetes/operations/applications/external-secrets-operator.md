@@ -38,7 +38,7 @@ The External Secrets Operator with {{ lockbox-name }} support enables you to con
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [External Secrets Operator with {{ lockbox-name }} support](/marketplace/products/yc/external-secrets) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
-   * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `external-secrets-operator-space`. If you leave the default namespace, External Secrets Operator may work incorrectly.
+   * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `external-secrets-operator-space`. If you leave the default namespace, the External Secrets Operator may work incorrectly.
    * **Application name**: Specify the application name.
    * **Service account key**: Paste the contents of `sa-key.json`.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
@@ -48,7 +48,7 @@ The External Secrets Operator with {{ lockbox-name }} support enables you to con
 
 1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the External Secrets Operator, run the following command:
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the External Secrets Operator, run this command:
 
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_external-secrets.helmChart.name }} \
@@ -61,9 +61,9 @@ The External Secrets Operator with {{ lockbox-name }} support enables you to con
      external-secrets ./external-secrets/
    ```
 
-   This command creates a new namespace required for using the External Secrets Operator.
+   This command creates a new namespace required for the External Secrets Operator.
 
-   If you set `namespace` to the default namespace, External Secrets Operator may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `external-secrets-operator-space`).
+   If you set `namespace` to the default namespace, the External Secrets Operator may work incorrectly. We recommend specifying a value different from all the existing namespaces, e.g., `external-secrets-operator-space`.
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

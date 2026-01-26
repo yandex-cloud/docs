@@ -1,11 +1,11 @@
 ---
-title: Методы плеера Cloud Video Player в SDK для IFrame
-description: На странице описаны методы, которые можно использовать для управления видеоплеером Cloud Video Player в SDK для IFrame.
+title: Методы плеера {{ video-player-name }} в SDK для IFrame
+description: На странице описаны методы, которые можно использовать для управления видеоплеером {{ video-player-name }} в SDK для IFrame.
 ---
 
 # Методы плеера
 
-Вы можете управлять [видеоплеером](../../concepts/player.md) Cloud Video Player с использованием методов SDK для IFrame. Методы вызываются через механизм `postMessage` для взаимодействия с iframe.
+Вы можете управлять [видеоплеером](../../concepts/player.md) {{ video-player-name }} с использованием методов SDK для IFrame. Методы вызываются через механизм `postMessage` для взаимодействия с iframe.
 
 ## Формат вызова методов {#method-format}
 

@@ -32,8 +32,6 @@ editable: false
 ### Формула расчета стоимости {#price-formula}
 
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 {% list tabs group=pricing %}
 
 - Стоимость в рублях {#prices-rub}

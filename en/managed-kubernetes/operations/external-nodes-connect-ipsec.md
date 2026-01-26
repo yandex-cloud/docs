@@ -33,7 +33,7 @@ You can see the solution architecture in the diagram below:
 
 ## Configuring security groups {#sg}
 
-1. In the main network, [create](../../vpc/operations/security-group-create.md) a security group and assign it to `VM-1`. [Add](../../vpc/operations/security-group-add-rule.md) the following rules to the group:
+1. In the main network, [create](../../vpc/operations/security-group-create.md) a security group and associate it with `VM-1`. [Add](../../vpc/operations/security-group-add-rule.md) the following rules to the group:
 
     {% list tabs group=traffic %}
 
@@ -55,7 +55,7 @@ You can see the solution architecture in the diagram below:
 
     {% endlist %}
 
-1. In the additional network, [create](../../vpc/operations/security-group-create.md) a security group and assign it to `VM-2`. [Add](../../vpc/operations/security-group-add-rule.md) the following rules to the group:
+1. In the additional network, [create](../../vpc/operations/security-group-create.md) a security group and associate it with `VM-2`. [Add](../../vpc/operations/security-group-add-rule.md) the following rules to the group:
 
     {% list tabs group=traffic %}
 
@@ -259,7 +259,7 @@ You can see the solution architecture in the diagram below:
    ...
    ```
 
-   If the connection was not established, try establishing it manually. On `VM-1`, run this command:
+   If the connection was not established, try doing it manually. On `VM-1`, run this command:
 
     ```bash
     sudo ipsec up VM-1

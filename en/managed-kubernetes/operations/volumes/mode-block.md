@@ -1,6 +1,6 @@
 ---
 title: Mounting a volume in block mode
-description: Follow this tutorial to mount a volume in block mode.
+description: Follow this guide to mount a volume in block mode.
 ---
 
 # Mounting a volume in block mode
@@ -12,7 +12,7 @@ To mount a [volume](../../concepts/volume.md#block) in `volumeMode: Block` mode:
 
 {% include [Install kubectl to get started](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
 
-## Create a PersistentVolumeClaim object {#create-pvc}
+## Create a PersistentVolumeClaim {#create-pvc}
 
 1. To create a volume in block mode, set the `spec.volumeMode` field to `Block`.
 
@@ -20,11 +20,11 @@ To mount a [volume](../../concepts/volume.md#block) in `volumeMode: Block` mode:
 
    {% note info %}
 
-   If the `storageClassName` parameter is not specified, the default storage class (`yc-network-hdd`) is used. To change the default class, see [{#T}](manage-storage-class.md#sc-default).
+   If the `storageClassName` parameter is not specified, the default storage class, `yc-network-hdd`, will be used. Learn how to change the default class in [{#T}](manage-storage-class.md#sc-default).
 
    {% endnote %}
 
-   To learn more about the `PersistentVolumeClaim` creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
+   Learn more about the `PersistentVolumeClaim` creation specification in the [{{ k8s }} guide](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
    ```yaml
    apiVersion: v1
@@ -41,7 +41,7 @@ To mount a [volume](../../concepts/volume.md#block) in `volumeMode: Block` mode:
          storage: 1Gi
    ```
 
-1. Create the `PersistentVolumeClaim` object:
+1. Create a `PersistentVolumeClaim`:
 
    ```bash
    kubectl create -f pvc-block.yaml
@@ -59,7 +59,7 @@ To mount a [volume](../../concepts/volume.md#block) in `volumeMode: Block` mode:
 
    Save the following pod creation specification to a YAML file named `pod.yaml`.
 
-   To learn more about the pod creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#pod-v1-core).
+   Learn more about the pod creation specification in [this {{ k8s }} guide](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#pod-v1-core).
 
    ```yaml
    apiVersion: v1

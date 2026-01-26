@@ -18,7 +18,7 @@ The solution is powered by [Pinniped](https://pinniped.dev).
 
 1. Register a new OAuth client in your organization's OIDC server and obtain the client's ID and secret key.
 
-    For information on how to obtain the ID and secret key, see [these official guides on configuring IdPs](https://pinniped.dev/docs/howto/supervisor/).
+    You can learn how to obtain the ID and secret key in [these official guides on configuring IdPs](https://pinniped.dev/docs/howto/supervisor/).
 
 1. [Reserve](../../../vpc/operations/get-static-ip.md) a public IP address for Supervisor using {{ vpc-full-name }}.
 1. [Register](../../../dns/operations/resource-record-create.md) a DNS record for Supervisor (usually a `supervisor.<your_domain>` subdomain) using {{ dns-full-name }} and associate it with the reserved IP address.
@@ -36,7 +36,7 @@ The solution is powered by [Pinniped](https://pinniped.dev).
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [OIDC Authentication]({{ link-cloud-marketplace }}/products/yc/oidc-authenticator) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
-    * **Namespace**: Create a [namespace](../../concepts/index.md#namespace) named `pinniped-concierge`. The application uses it by default. If you leave the `default` namespace, OIDC Authentication may work incorrectly.
+    * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace) named `pinniped-concierge`. The application uses it by default. If you leave the `default` namespace, OIDC Authentication may work incorrectly.
     * **Application name**: Specify the application name.
     * **Company OIDC domain**: Specify the URL of your organization's main domain.
     * **Client ID**: Specify the OAuth client ID.
@@ -49,7 +49,7 @@ The solution is powered by [Pinniped](https://pinniped.dev).
     * **Supervisor domain certificate**: Paste the `cert.json` file contents.
 
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application status to change to `Deployed`.
+1. Wait for the application to change its status to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 

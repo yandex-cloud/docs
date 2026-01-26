@@ -27,8 +27,6 @@ editable: false
 
 ### Пример расчета стоимости {#example}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 
 {% list tabs group=pricing %}
 

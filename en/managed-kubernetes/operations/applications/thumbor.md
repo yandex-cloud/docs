@@ -12,7 +12,7 @@ Thumbor features:
 * Support for all popular image formats.
 * Smart cropping and resizing.
 * Accelerated image processing using caching.
-* Supporting various storage types (local disk, {{ objstorage-full-name }}, and others).
+* Supporting various storage types (local disks, {{ objstorage-full-name }}, and others).
 * Face and object recognition (glasses, facial features) based on [computer vision technology](https://github.com/opencv/opencv).
 * Integration with various programming languages.
 
@@ -35,7 +35,7 @@ Thumbor features:
 
     {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-## Installation using {{ marketplace-full-name }} {#marketplace-install}
+## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
 1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ k8s }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
@@ -45,12 +45,12 @@ Thumbor features:
    * **Application name**: Specify the application name.
    * **Bucket name**: Specify the [name of the bucket](#before-you-begin) you created previously.
    * **{{ objstorage-name }} static access key**: Paste the contents of the `sa-key.json` file.
-   * (Optional) **Security key**: Specify the security key for URL signing.
+   * **Security key**: Specify the security key for URL signing. This is an optional setting.
    * **Allow unsigned URLs (unsafe)**: Select this option if you did not specify a security key at the previous step.
-   * **Subfolder in the bucket**: Specify the name of the bucket folder (without the ending `/` symbol) where images are located.
+   * **Subfolder in the bucket**: Specify the name of the bucket folder (without the ending `/` character) where images are located.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 
-    For Thumbor to operate, a {{ k8s }} service of the `LoadBalancer` type and the appropriate [{{ network-load-balancer-full-name }} load balancer](../../../network-load-balancer) will be created automatically.
+    For Thumbor to run, a {{ k8s }} service of the `LoadBalancer` type and the appropriate [{{ network-load-balancer-full-name }} load balancer](../../../network-load-balancer) will be created automatically.
 
 1. Wait for the application to change its status to `Deployed`.
 
@@ -80,7 +80,7 @@ Thumbor features:
       thumbor ./thumbor
      ```
 
-     If you set `namespace` to the default namespace, Thumbor may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `thumbor-space`).
+     If you set `namespace` to the default namespace, Thumbor may work incorrectly. We recommend specifying a value different from all the existing namespaces, e.g., `thumbor-space`.
 
      {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
@@ -95,19 +95,19 @@ Thumbor features:
        --create-namespace \
        --set bucket_name='<bucket_name>' \
        --set allow_unsafe_url='false' \
-       --set security_key='<security_key_for_signing_URL>' \
+       --set security_key='<security_key_for_URL_signing>' \
        --set root_path='<bucket_subfolder_name>' \
        --set-file saAccessKeyFile='sa-key.json' \
       thumbor ./thumbor/
      ```
 
-     If you set `namespace` to the default namespace, Thumbor may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `thumbor-space`).
+     If you set `namespace` to the default namespace, Thumbor may work incorrectly. We recommend specifying a value different from all the existing namespaces, e.g., `thumbor-space`.
 
      {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
    {% endlist %}
 
-    For Thumbor to operate, a {{ k8s }} service of the `LoadBalancer` type and the appropriate [{{ network-load-balancer-full-name }} load balancer](../../../network-load-balancer) will be created automatically.
+    For Thumbor to run, a {{ k8s }} service of the `LoadBalancer` type and the appropriate [{{ network-load-balancer-full-name }} load balancer](../../../network-load-balancer) will be created automatically.
 
 ## Accessing the application {#app-access}
 
@@ -117,11 +117,11 @@ Thumbor features:
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Get the IP address of the load balancer with the following description: `cluster <your_cluster_name>, service <namespace>/thumbor`.
-  1. In the browser address bar, open this link: `http://<load_balancer_IP_address>/unsafe/<image_name_in_bucket>`.
+  1. In the browser address bar, open `http://<load_balancer_IP_address>/unsafe/<image_name_in_bucket>`.
 
 - CLI {#cli}
 
-  1. Run the command below to get the load balancer's IP address:
+  1. Run the command below to get the load balancer IP address:
 
      ```bash
      kubectl get svc \
@@ -129,17 +129,17 @@ Thumbor features:
        --output jsonpath='{.status.loadBalancer.ingress[0].ip}' thumbor
      ```
 
-  1. In the browser address bar, open this link: `http://<load_balancer_IP_address>/unsafe/<image_name_in_bucket>`.
+  1. In the browser address bar, open `http://<load_balancer_IP_address>/unsafe/<image_name_in_bucket>`.
 
 {% endlist %}
 
 {% include [Configuring security groups if resource is unavailable](../../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
-Learn more about working with images, in the [Thumbor documentation](https://thumbor.readthedocs.io/en/latest/imaging.html).
+Learn more about working with images in [this Thumbor guide](https://thumbor.readthedocs.io/en/latest/imaging.html).
 
 ## What's next {#what-is-next}
 
-Learn how to use Thumbor for editing images on your website. The [Thumbor use case](../../tutorials/marketplace/thumbor.md) described in the documentation involves configuring [{{ cdn-full-name }}](../../../cdn/concepts/index.md). The service allows to achieve faster loading of website images.
+Learn how to use Thumbor for editing images on your website. The [Thumbor use case](../../tutorials/marketplace/thumbor.md) described in our guide involves configuring [{{ cdn-full-name }}](../../../cdn/concepts/index.md). The service helps with faster loading of website images.
 
 ## See also {#see-also}
 

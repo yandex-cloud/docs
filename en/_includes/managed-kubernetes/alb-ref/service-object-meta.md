@@ -9,13 +9,13 @@ annotations:
 ```
 
 #|
-|| **Field**     | **Value or type**    | **Description** ||
-|| `name`        | `string`             | **Required**.
+|| **Field**     | **Value / Type**    | **Description** ||
+|| `name`        | `string`             | **This is a required field**.
 
 [Resource name](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
 This name is not the balancer name in {{ alb-name }}. ||
-|| `annotations` | `map[string]string`  | **Required**.
+|| `annotations` | `map[string]string`  | **This is a required field**.
 
 Resource annotations. ||
 |#

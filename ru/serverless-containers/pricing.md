@@ -34,8 +34,6 @@ editable: false
 
 ### Формула расчета стоимости {#formula}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 
 {% list tabs group=pricing %}
 

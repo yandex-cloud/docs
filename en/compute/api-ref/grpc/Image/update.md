@@ -39,7 +39,7 @@ Field mask that specifies which fields of the Image resource are going to be upd
 
 Name of the image.
 
-Value must match the regular expression ` \|[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 Description of the image.

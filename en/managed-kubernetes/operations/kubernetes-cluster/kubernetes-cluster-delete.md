@@ -17,7 +17,7 @@ description: Follow this guide to delete a {{ k8s }} cluster.
 
 - Management console {#console}
 
-  1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to delete a [{{ k8s }}](../../concepts/index.md#kubernetes-cluster) cluster.
+  1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to delete a [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the row of the {{ k8s }} cluster you need to delete.
   1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.k8s.clusters.popup-confirm_button_delete }}**.

@@ -2,6 +2,6 @@
 
 {% note info %}
 
-To use encrypted disks, the [cloud service account](../../managed-kubernetes/concepts/index.md#service-accounts) assigned to your {{ managed-k8s-name }} cluster must have the `kms.keys.encrypterDecrypter` [role](../../kms/security/index.md#kms-keys-encrypterDecrypter) for the key or folder.
+To use encrypted disks, the [cloud service account](../../managed-kubernetes/concepts/index.md#service-accounts) attached to your {{ managed-k8s-name }} cluster must have the `kms.keys.encrypterDecrypter` [role](../../kms/security/index.md#kms-keys-encrypterDecrypter) for the key or folder.
 
 {% endnote %}

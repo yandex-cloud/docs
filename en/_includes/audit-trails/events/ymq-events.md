@@ -1,5 +1,5 @@
 Event name | Description
 --- | ---
-`CreateQueue` | Creating a message queue
-`DeleteQueue` | Deleting a message queue
-`UpdateQueue` | Editing a message queue
+`CreateMessageQueue` | Creating a message queue
+`DeleteMessageQueue` | Deleting a message queue
+`UpdateMessageQueue` | Editing a message queue

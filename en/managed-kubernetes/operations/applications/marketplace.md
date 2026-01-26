@@ -14,7 +14,7 @@ description: Follow this guide to learn how to use {{ marketplace-name }}.
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 
 {% endlist %}
 
@@ -25,7 +25,7 @@ description: Follow this guide to learn how to use {{ marketplace-name }}.
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
   1. Under **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}**, click the name of the application in question.
 
 {% endlist %}
@@ -49,10 +49,10 @@ Create a new [namespace](../../concepts/index.md#namespace) for installing the a
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
   1. Under **Applications available for installation**, click the name of the application you need.
   1. In the window that opens, click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
-  1. Specify application settings and click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+  1. Configure the application and click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 
 {% endlist %}
 
@@ -69,7 +69,7 @@ You can also install applications from {{ marketplace-name }} [using {{ TF }} ma
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
   1. Under **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) next to the application to edit.
   1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the application as needed and click **{{ ui-key.yacloud.common.save }}**.
@@ -83,7 +83,7 @@ You can also install applications from {{ marketplace-name }} [using {{ TF }} ma
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
   1. Under **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) next to the application to delete.
   1. In the menu that opens, click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_release-uninstall }}**.
 
@@ -100,7 +100,7 @@ If you want to disable statistics collection for your {{ k8s }} cluster:
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
   1. In the top-right corner, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/ban.svg) **{{ ui-key.yacloud.marketplace-v2.button_disallow-analytics-scanning }}**.
 
 {% endlist %}

@@ -4,7 +4,9 @@ With {{ video-name }}, you can upload _videos_ to your [channel](index.md#channe
 
 {% include [video-characteristic](../../_includes/video/video-characteristic-multiple.md) %}
 
-{{ video-name }} [limits](limits.md) the resolution of the videos you are publishing.
+{% include [video-multi-soundtracks](../../_includes/video/video-multi-soundtracks.md) %}
+
+{% include [video-resolution-limits](../../_includes/video/video-resolution-limits.md) %}
 
 You can upload custom covers for your videos. The cover will appear in the {{ video-name }} interface and the [player](./player.md) on the website hosting the video.
 
@@ -44,7 +46,7 @@ You can change the following basic video playback settings when [generating](../
 
 {% include [iframe-settings](../../_includes/video/iframe-settings.md) %}
 
-You can also configure some player settings, e.g., widget color palette and layout, using [presets](presets.md).
+Also, you can use [presets](presets.md) to configure some of the player settings, e.g., widget color palette and layout.
 
 ## Video viewing statistics {#video-statistics}
 
@@ -75,7 +77,7 @@ To provide users with more options and expand your video audience, enable AI fea
 
 ### Summarization {#summarization}
 
-Summarization automatically creates a short summary of your video conveying its main points and key message. With summarization enabled, the system automatically adds timecodes to videos. You can adjust the suggested timecodes or manually add your own ones if required.
+Summarization automatically creates a short summary of your video conveying its main points and key message. With summarization enabled, the system automatically adds timecodes to videos. You can adjust the suggested timecodes or [add your own timecodes manually](#timecodes).
 
 ### Neural translation {#stranslation}
 

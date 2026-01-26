@@ -33,7 +33,7 @@ You can see the solution architecture in the diagram below:
 
 ## Configuring security groups {#sg}
 
-1. In the main network, [create](../../vpc/operations/security-group-create.md) a security group and assign it to `VM-1`. [Add](../../vpc/operations/security-group-add-rule.md) the following rules to the group:
+1. In the main network, [create](../../vpc/operations/security-group-create.md) a security group and associate it with `VM-1`. [Add](../../vpc/operations/security-group-add-rule.md) the following rules to the group:
 
     {% list tabs group=traffic %}
 
@@ -54,7 +54,7 @@ You can see the solution architecture in the diagram below:
       
     {% endlist %}
 
-1. In the additional network, [create](../../vpc/operations/security-group-create.md) a security group and assign it to `VM-2`. [Add](../../vpc/operations/security-group-add-rule.md) the following rules to the group:
+1. In the additional network, [create](../../vpc/operations/security-group-create.md) a security group and associate it with `VM-2`. [Add](../../vpc/operations/security-group-add-rule.md) the following rules to the group:
 
     {% list tabs group=traffic %}
 
@@ -70,7 +70,7 @@ You can see the solution architecture in the diagram below:
       --- | --- | --- | --- | ---
       `icmp` | `{{ port-any }}` | `ICMP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
       `ssh` | `22` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-      `wireguard` | `51822` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<VM_1_public_address>/32`
+      `wireguard` | `51822` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<VM-1_public_address>/32`
       `k8s-VM-1-subnets` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<main_subnet1_CIDR>`, `<main_subnet2_CIDR>`, `<<main_subnet3_CIDR>`
       `cluster&services` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<cluster_CIDR>`, `<CIDRs_of_services>`
 
@@ -110,7 +110,7 @@ You can see the solution architecture in the diagram below:
 
       Repeat this step for each subnet in your main network.
 
-   1. Associate the route table to the `VM-2`'s subnet.
+   1. Associate the route table with the `VM-2` subnet.
 
 ## Setting up WireGuard gateways {#gw}
 

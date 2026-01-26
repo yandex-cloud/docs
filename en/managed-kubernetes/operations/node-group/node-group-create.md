@@ -8,7 +8,7 @@ description: Follow this guide to create node groups.
 
 A [node group](../../concepts/index.md#node-group) is a group of VMs in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) that have the same configuration and run user containers.
 
-Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-create.md) a {{ managed-k8s-name }} cluster first and make sure your [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) has enough [resources](../../concepts/limits.md).
+Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-create.md) a {{ managed-k8s-name }} cluster and make sure your [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) has enough [resources](../../concepts/limits.md).
 
 {% include [os-new-version](../../../_includes/managed-kubernetes/note-os-new-version.md) %}
 
@@ -65,7 +65,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
      * `--allowed-unsafe-sysctls`: Permission for {{ managed-k8s-name }} group nodes to use [unsafe kernel parameters](../../concepts/index.md#node-group), comma-separated.
      * `--cluster-name`: Name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) to create the node group in.
      * `--cores`: Number of vCPUs for {{ managed-k8s-name }} nodes.
-     * `--core-fraction`: [Guaranteed share of vCPUs](../../../compute/concepts/performance-levels.md) for {{ managed-k8s-name }} nodes.
+     * `--core-fraction`: [Guaranteed vCPU share](../../../compute/concepts/performance-levels.md) for {{ managed-k8s-name }} nodes.
      * `--daily-maintenance-window`: [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings.
      * `--disk-size`: [Disk size](../../../compute/concepts/disk.md#maximum-disk-size) of the {{ managed-k8s-name }} node.
      * `--disk-type`: [Disk type](../../../compute/concepts/disk.md#disks_types) of the {{ managed-k8s-name }} node, `network-nvme` or `network-hdd`.
@@ -80,7 +80,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
        You cannot change the scaling type after creating a node group.
 
-     * `--max-expansion`: Maximum number of nodes by which you can increase the size of the group when updating it.
+     * `--max-expansion`: Maximum number of nodes by which you can expand the group when updating it.
 
        {% include [note-expansion-group-vm](../../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
 
@@ -117,7 +117,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
        {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
      * `--node-taints`: {{ k8s }} [taints](../../concepts/index.md#taints-tolerations). You can specify multiple values.
-     * `--container-network-settings`: [MTU](https://en.wikipedia.org/wiki/Maximum_transmission_unit) value for network connections to group pods. This setting is not applicable for clusters with Calico or Cilium network policy controllers.
+     * `--container-network-settings`: [MTU](https://en.wikipedia.org/wiki/Maximum_transmission_unit) value for network connections to group pods. This setting is not applicable for clusters with the Calico or Cilium network policy controllers.
 
      Result:
 
@@ -201,7 +201,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
          <node_group_scaling_settings>
        }
        deploy_policy {
-         max_expansion   = <expanding_group_size_when_updating>
+         max_expansion   = <expanding_group_when_updating>
          max_unavailable = <number_of_unavailable_nodes_when_updating>
        }
        ...
@@ -240,13 +240,13 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
          You cannot change the scaling type after creating a node group.
 
        * `deploy_policy`: Group deployment settings:
-         * `max_expansion`: Maximum number of nodes by which you can increase the size of the group when updating it.
+         * `max_expansion`: Maximum number of nodes by which you can expand the group when updating it.
 
            {% include [note-expansion-group-vm](../../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
 
          * `max_unavailable`: Maximum number of unavailable nodes in the group when updating it.
 
-       * `allocation_policy`: Placement settings. These contain the `location` section with the `zone` parameter, i.e., the [availability zone](../../../overview/concepts/geo-scope.md) where you want to place the group nodes. You can place nodes of a group with the fixed scaling type in multiple availability zones. To do this, specify each availability zone you need in a separate `location` section.
+       * `allocation_policy`: Placement settings. These contain the `location` section with the `zone` parameter, i.e., the [availability zone](../../../overview/concepts/geo-scope.md) where you want to place the group nodes. You can place nodes of a group with the fixed scaling type across multiple availability zones. To do this, specify each availability zone you need in a separate `location` section.
 
          {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
 
@@ -347,7 +347,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
     You cannot change the scaling type after creating a node group.
 
   * Node group deployment settings in the `deployPolicy` parameter:
-    * `maxExpansion`: Maximum number of nodes by which you can increase the size of the group when updating it.
+    * `maxExpansion`: Maximum number of nodes by which you can expand the group when updating it.
 
       {% include [note-expansion-group-vm](../../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
 

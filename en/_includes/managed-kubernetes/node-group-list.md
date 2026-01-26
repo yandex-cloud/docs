@@ -1,4 +1,4 @@
-To access a node group, use its name or unique ID obtained using the command:
+To access a node group, use its name or unique ID obtained using this command:
 
 ```bash
 yc managed-kubernetes node-group list

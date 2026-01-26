@@ -12,7 +12,7 @@ resource_id | [Transfer](../../../data-transfer/concepts/index.md#transfer) or [
 resource_type | Type of resource the operation was started or completed on. The possible values are `endpoint` and `transfer`.
 dst_id | Target ID
 source_type | Source type, e.g., `mongo`
-operation_type (except for the `replication.*` and `operations.*` metrics) | Type of operation either started or completed. The values correspond to possible operations on `resource_type`.<br/>For a transfer: `Activate`, `Upload`, `ReUpload`, `Start`, `Restart`, `Stop`, `Verify`, `AddTables`, `RemoveTables`, `Deactivate`, `Checksum`, `Replication`, `Termination`, `TestEndpoint`.<br/>For an endpoint: `Create`, `Update`, `Delete`.
+operation_type | Type of operation either started or completed. The values correspond to possible operations on `resource_type`.<br/>For a transfer: `Activate`, `Upload`, `ReUpload`, `Start`, `Restart`, `Stop`, `Verify`, `AddTables`, `RemoveTables`, `Deactivate`, `Checksum`, `Replication`, `Termination`, `TestEndpoint`.<br/>For an endpoint: `Create`, `Update`, `Delete`.
 
 
 ## CPU metrics {#data-transfer-cpu-metrics}
@@ -108,7 +108,7 @@ Name</br>Type, units | Description</br>Labels
 `sinker.transactions.total`</br>`COUNTER`, count | Total completed transactions
 `storage.diff_perc`</br>`DGAUGE`, % | Percentage difference between the number of source and target records.</br>This metric features the `table` label containing a DB table or collection.
 `storage.source_rows`</br>`DGAUGE`, count | Number of data source rows.</br>This metric features the `table` label containing a DB table or collection.
-`storage.target_rows`</br>`DGAUGE`, count |  Number of data target rows.</br>This metric features the `table` label containing a DB table or collection.
+`storage.target_rows`</br>`DGAUGE`, count | Number of data target rows.</br>This metric features the `table` label containing a DB table or collection.
 `task.snapshot.remainder.table`</br>`DGAUGE`, count | Number of rows awaiting transfer.</br>This metric features the `table` label containing a DB table or collection.
 `task.snapshot.reminder.total`</br>`DGAUGE`, count | Total remaining rows to transfer.</br>This metric features the `table` label containing a DB table or collection.
 `task.status`</br>`DGAUGE`, 0/1 | Status of the operation in progress.</br>The possible values include:<ul><li>`1`: Active issue.</li><li>`0`: Inactive issue.</li></ul>

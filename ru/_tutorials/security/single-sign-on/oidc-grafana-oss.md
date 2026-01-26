@@ -2,9 +2,9 @@
 
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
-[Grafana Open Source Software (OSS)](https://grafana.com/oss/) — это бесплатная платформа с открытым исходным кодом для мониторинга и визуализации данных, которую можно развернуть на собственной инфраструктуре. Grafana OSS поддерживает OpenID Connect (OIDC) аутентификацию для обеспечения безопасного единого входа пользователей организации.
+[Grafana Open Source Software (OSS)](https://grafana.com/oss/) — это бесплатная платформа с открытым исходным кодом для мониторинга и визуализации данных, которую можно развернуть на собственной инфраструктуре. Grafana OSS поддерживает [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC) аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Grafana OSS с помощью технологии единого входа по стандарту [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID_Connect), создайте [OIDC-приложение](../../../organization/concepts/applications.md#oidc) в {{ org-name }} и настройте его на стороне {{ org-name }} и на стороне Grafana OSS.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Grafana OSS с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications.md#oidc) в {{ org-name }} и настройте его на стороне {{ org-name }} и на стороне Grafana OSS.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -236,26 +236,33 @@
 
 - CLI {#cli}
 
-  Обновите OIDC-приложение, указав Redirect URI:
+  Обновите OAuth-клиент, указав Redirect URI:
 
   ```bash
-  yc organization-manager idp application oauth application update <идентификатор_приложения> \
+  yc iam oauth-client update \
+    --id <идентификатор_OAuth-клиента> \
     --redirect-uris "<URL_экземпляра_Grafana_OSS>/login/generic_oauth"
   ```
 
   Где:
   
-  * `<идентификатор_приложения>` — ID OIDC-приложения, полученный при создании.
+  * `<идентификатор_OAuth-клиента>` — идентификатор OAuth-клиента, полученный при его создании.
   * `--redirect-uris` — эндпоинт аутентификации для вашего экземпляра Grafana OSS. Например: `https://your-domain/login/generic_oauth`.
 
   Результат:
 
   ```text
-  id: ek0o663g4rs2********
+  id: ajeiu3otac08********
   name: grafana-oss-oidc-app
-  organization_id: bpf2c65rqcl8********
   redirect_uris:
     - https://your-domain/login/generic_oauth
+  scopes:
+    - openid
+    - email
+    - profile
+    - groups
+  folder_id: b1gkd6dks6i1********
+  status: ACTIVE
   ```
 
 {% endlist %}

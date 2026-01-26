@@ -2,7 +2,7 @@
 
 [Kyverno](https://kyverno.io) is an application to manage {{ k8s }} security policies. Security policies appear in Kyverno as {{ k8s }} resources. Kyverno supports `kubectl`, `git`, and `kustomize`. You can use the Kyverno command line interface to test policies and validate resources as part of the CI/CD pipeline.
 
-[Kyverno policies](https://github.com/kyverno/kyverno/tree/main/charts/kyverno-policies) is a Kyverno extension. Kyverno policies includes an implementation of {{ k8s }} [Pod Security Standards (PSS)](https://kubernetes.io/docs/concepts/security/pod-security-standards/). The original policies are stored in a separate [Kyverno-policies](https://github.com/kyverno/policies/tree/main/pod-security) repository.
+[Kyverno policies](https://github.com/kyverno/kyverno/tree/main/charts/kyverno-policies) is a Kyverno extension. Kyverno policies includes an implementation of the {{ k8s }} [Pod Security Standards (PSS)](https://kubernetes.io/docs/concepts/security/pod-security-standards/). The original policies are stored in a separate [Kyverno-policies](https://github.com/kyverno/policies/tree/main/pod-security) repository.
 
 You can send notifications from Kyverno to other systems using [Policy Reporter](/marketplace/products/yc/policy-reporter).
 
@@ -18,7 +18,7 @@ To find vulnerabilities in {{ k8s }} clusters, use [Chaos Mesh](chaos-mesh.md). 
 
 {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-## Installation using {{ marketplace-full-name }} {#marketplace-install}
+## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
 1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
@@ -27,8 +27,8 @@ To find vulnerabilities in {{ k8s }} clusters, use [Chaos Mesh](chaos-mesh.md). 
    * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `kyverno-space`. If you leave the default namespace, Kyverno may work incorrectly.
    * **Application name**: Specify the application name.
    * **Activating Kyverno Policies**: Select to install the Kyverno Policies extension.
-   * **Pod Security Standard profile**: Select a [Pod Security Standard profile](https://kubernetes.io/docs/concepts/security/pod-security-standards/):
-     * `baseline`: Policy with minimum restrictions which prevents known risks of privilege abuse.
+   * **Pod Security Standard profile**: Select the [Pod Security Standard profile](https://kubernetes.io/docs/concepts/security/pod-security-standards/):
+     * `baseline`: Policy with minimum restrictions that prevents known risks of privilege abuse.
      * `restricted`: Policy with severe restrictions aligned with the latest pod security practices.
      * `privileged`: Unrestricted policy granting maximum privileges.
    * **Validation failure action**: Select a response to Kyverno triggering:
@@ -43,7 +43,7 @@ To find vulnerabilities in {{ k8s }} clusters, use [Chaos Mesh](chaos-mesh.md). 
 
 1. {% include [kubectl installation](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Kyverno, run the following command:
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Kyverno, run this command:
 
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_kyverno.helmChart.name }} \
@@ -55,13 +55,13 @@ To find vulnerabilities in {{ k8s }} clusters, use [Chaos Mesh](chaos-mesh.md). 
      multi-kyverno ./multi-kyverno/
    ```
 
-   If you set `namespace` to the default namespace, Kyverno may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `kyverno-space`).
+   If you set `namespace` to the default namespace, Kyverno may work incorrectly. We recommend specifying a value different from all the existing namespaces, e.g., `kyverno-space`.
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 ## Application versions {#versions}
 
-For each Kubernetes version, a certain Kyverno version is supported. The required Kyverno version is installed by default depending on your Kubernetes version.
+Each Kubernetes version supports a certain Kyverno version. The required Kyverno version is installed by default depending on your Kubernetes version.
 
 |   Kubernetes version  | Kyverno version |       Documentation       |
 | -------------------- | -------------- | ------------------------ |
@@ -72,7 +72,7 @@ For each Kubernetes version, a certain Kyverno version is supported. The require
 
 ## Uninstalling the application {#uninstall}
 
-If you no longer need the Kyverno application, uninstall it:
+If you no longer need Kyverno, uninstall it:
 
 {% list tabs group=instructions %}
 
@@ -82,7 +82,7 @@ If you no longer need the Kyverno application, uninstall it:
    1. Click the name of the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
    1. Under **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}**, in the row of the [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) application, first click ![image](../../../_assets/marketplace/three_dots.png =22x13) and then **{{ ui-key.yacloud.k8s.cluster.marketplace.button_release-uninstall }}**.
    1. [Connect to the cluster](../connect/index.md#kubectl-connect) using kubectl.
-   1. [Clear the application's webhook configurations](https://release-1-8-0.kyverno.io/docs/installation/#clean-up-webhook-configurations), or else the cluster will not run properly.
+   1. [Clean up the application's webhook configurations](https://release-1-8-0.kyverno.io/docs/installation/#clean-up-webhook-configurations); otherwise, the cluster will not run properly.
 
 - Helm {#helm}
 
@@ -93,7 +93,7 @@ If you no longer need the Kyverno application, uninstall it:
       helm uninstall --namespace <namespace> multi-kyverno ./multi-kyverno/
       ```
 
-   1. [Clear the application's webhook configurations](https://release-1-8-0.kyverno.io/docs/installation/#clean-up-webhook-configurations), or else the cluster will not run properly.
+   1. [Clean up the application's webhook configurations](https://release-1-8-0.kyverno.io/docs/installation/#clean-up-webhook-configurations); otherwise, the cluster will not run properly.
 
 {% endlist %}
 

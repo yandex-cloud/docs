@@ -1,11 +1,11 @@
 ---
-title: Начало работы с IFrame SDK для Cloud Video Player
-description: На странице приведены основные элементы управления видеоплеером Cloud Video Player с помощью SDK для IFrame.
+title: Начало работы с IFrame SDK для {{ video-player-name }}
+description: На странице приведены основные элементы управления видеоплеером {{ video-player-name }} с помощью SDK для IFrame.
 ---
 
 # Начало работы с SDK видеоплеера для IFrame
 
-Вы можете интегрировать [видеоплеер](../../concepts/player.md) с контентом из Cloud Video в ваш проект с помощью Cloud Video Player SDK для IFrame. SDK позволяет управлять плеером через JavaScript API, используя механизм `postMessage` для взаимодействия с iframe.
+Вы можете интегрировать [видеоплеер](../../concepts/player.md) с контентом из {{ video-name }} в ваш проект с помощью {{ video-player-name }} SDK для IFrame. SDK позволяет управлять плеером через JavaScript API, используя механизм `postMessage` для взаимодействия с iframe.
 
 ## Подключение плеера на странице {#add-player}
 

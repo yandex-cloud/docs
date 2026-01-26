@@ -59,7 +59,13 @@ sourcePath: en/_events-ref/audit/compute/events-ref/DeleteGpuCluster.md
     ]
   },
   "details": {
-    "gpuClusterId": "string"
+    "gpuClusterId": "string",
+    "name": "string",
+    "zoneId": "string",
+    "labels": "object",
+    "interconnectType": "string",
+    "description": "string",
+    "folderId": "string"
   },
   "requestParameters": "object",
   "response": "object"
@@ -201,4 +207,10 @@ A list of messages that carry the error details. ||
 #|
 ||Field | Description ||
 || gpuClusterId | **string** ||
+|| name | **string** ||
+|| zoneId | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
+|| interconnectType | **string** ||
+|| description | **string** ||
+|| folderId | **string** ||
 |#

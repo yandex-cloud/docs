@@ -1,11 +1,11 @@
 ---
-title: Начало работы с JavaScript SDK для Cloud Video Player
-description: На странице приведены основные элементы управления видеоплеером Cloud Video Player с помощью SDK для JavaScript.
+title: Начало работы с JavaScript SDK для {{ video-player-name }}
+description: На странице приведены основные элементы управления видеоплеером {{ video-player-name }} с помощью SDK для JavaScript.
 ---
 
 # Начало работы с SDK видеоплеера для JavaScript
 
-Вы можете интегрировать [видеоплеер](../../concepts/player.md) с контентом из Cloud Video в ваш проект на языке [JavaScript](https://ru.wikipedia.org/wiki/JavaScript) с помощью Cloud Video Player SDK для JavaScript.
+Вы можете интегрировать [видеоплеер](../../concepts/player.md) с контентом из {{ video-name }} в ваш проект на языке [JavaScript](https://ru.wikipedia.org/wiki/JavaScript) с помощью {{ video-player-name }} SDK для JavaScript.
 
 ## Подключение плеера на странице {#add-player}
 

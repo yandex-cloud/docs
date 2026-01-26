@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
   1. Введите название и описание плейлиста.
   1. Чтобы добавить видео или завершенную трансляцию в плейлист, в блоке **{{ ui-key.yacloud_video.playlists.title_playlists-video-list }}** нажмите **{{ ui-key.yacloud_video.playlists.action_add-playlist-video }}**. В открывшемся окне:
 
-      1. На вкладке `Видео` или `Трансляции` выберите нужные видео или трансляции.
+      1. На вкладке **{{ ui-key.yacloud_video.playlists.switch_video-select }}** или **{{ ui-key.yacloud_video.playlists.switch_stream-select }}** выберите нужные видео или трансляции.
 
           В плейлистах будут доступны к просмотру только видео с [постоянными ссылками](../../concepts/videos.md#permanent-link).
 

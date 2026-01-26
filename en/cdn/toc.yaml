@@ -316,6 +316,8 @@ items:
                 href: api-ref/grpc/Resource/delete.md
               - name: GetProviderCName
                 href: api-ref/grpc/Resource/getProviderCName.md
+              - name: GetAttributes
+                href: api-ref/grpc/Resource/getAttributes.md
           - name: Shielding
             items:
               - name: Overview

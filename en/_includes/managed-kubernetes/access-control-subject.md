@@ -1,4 +1,4 @@
-Possible subject types: 
+The possible subject types include: 
   
   * `userAccount`: [Yandex account](../../iam/concepts/users/accounts.md#passport) added to {{ yandex-cloud }} or an account from a [user pool](../../organization/concepts/user-pools.md).
   * `serviceAccount`: [Service account](../../iam/concepts/users/service-accounts.md) created in {{ yandex-cloud }}.
@@ -11,4 +11,4 @@ Possible subject types:
     * `allAuthenticatedUsers`: [All authenticated users](../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers).
     * `allUsers`: [Any user](../../iam/concepts/access-control/public-group.md#allUsers). No authentication is required.
 
-To learn more about subject types, see the [Subject a role is assigned to](../../iam/concepts/access-control/index.md#subject) section.
+Learn more about subject types in [Subject a role is assigned to](../../iam/concepts/access-control/index.md#subject).

@@ -25,7 +25,6 @@ The monthly prices are based on 720 hours per month.
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 

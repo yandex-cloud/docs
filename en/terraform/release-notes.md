@@ -5,6 +5,16 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/release-notes.md
 
 
 
+## 0.181.0 (January 26, 2026)
+##### FEATURES:
+* mdb_kafka: add `message_timestamp_type` support for Kafka topic configuration
+* mdb_clickhouse: add `mdb_clickhouse_cluster_v2` data source
+##### BUG FIXES:
+* clickhouse: fix deprecated version in `yandex_mdb_clickhouse_cluster_v2`
+##### ENHANCEMENTS:
+* general: add yc tools initialization service call
+* mdb_clickhouse: fix table reference format in `select_from_information_schema_requires_grant` and `select_from_system_db_requires_grant` descriptions
+
 ## 0.180.0 (January 22, 2026)
 ##### FEATURES:
 * trino: add `private_access` field to trino_cluster resource

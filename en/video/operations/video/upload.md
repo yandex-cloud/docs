@@ -5,6 +5,12 @@ description: Follow this guide to upload a video to {{ video-full-name }}.
 
 # Uploading a video
 
+{% include [video-characteristic](../../../_includes/video/video-characteristic-multiple.md) %}
+
+{% include [video-multi-soundtracks](../../../_includes/video/video-multi-soundtracks.md) %}
+
+{% include [video-resolution-limits](../../../_includes/video/video-resolution-limits.md) %}
+
 ## Uploading one video {#single}
 
 {% list tabs group=instructions %}

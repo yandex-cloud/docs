@@ -1,9 +1,30 @@
 ---
 title: '{{ sws-full-name }} release notes'
-description: This section contains {{ sws-name }} release notes.
+description: This section contains the {{ sws-name }} release notes.
 ---
 
 # {{ sws-full-name }} release notes
+
+## Q4 2025 {#q4-2025}
+
+* For an ARL profile, added new [available actions](concepts/arl.md#over-limit-actions) when exceeding the request limit:
+  
+  * Block requests for a fixed period of time, from one second to 24 hours. Use this action for enhanced protection against bots, scrapers, brute-force attacks, or spam, when you need to prioritize reliability over availability. For example, it is a good fit for login pages or message submission forms. This action requires request grouping.
+  
+  * Send requests exceeding the limit to [{{ captcha-name }}](../smartcaptcha/). You can configure CAPTCHA through the security profile associated with the ARL profile. This action helps differentiate legitimate users from bots.
+
+* Added tools for [bot traffic management](concepts/botes.md) and malicious bot detection:
+
+  * List of verified bot categories by intended use or type of activity (AcademicResearchBot, AISearchBot).
+  * Up-to-date lists of legitimate bots used by various services and companies (e.g., Yandex, Googlebot, or Bing).
+  * Specific attribute to distinguish a verified bot.
+  * Configurable bot score thresholds from 0 to 100 for rule customization.
+
+  For bot management, use traffic [conditions](concepts/conditions.md) in [security profile](concepts/profiles.md) (basic, Smart Protection, or WAF) and [ARL profile](concepts/arl.md) rules.
+
+  Check [SWS logs](concepts/logging.md) for traffic filtering results and bot scores.
+
+* Supported filtering by [ASN](https://wikipedia.org/wiki/Autonomous_system_(Internet)) in traffic [conditions](concepts/conditions.md). This feature will help you restrict or allow traffic from specific internet providers.
 
 ## Q3 2025 {#q3-2025}
 
