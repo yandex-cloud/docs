@@ -217,7 +217,7 @@ CI/CD-процесс [настраивается]({{ link-src-docs }}/sourcecraf
 * `CORES` — количество ядер vCPU, например `8`.
 * `CORE_FRACTION` — [гарантированная доля](../../compute/concepts/performance-levels.md) vCPU, например `100`.
 * `PREEMPTIBLE` — указание, использовать ли [прерываемую ВМ](../../compute/concepts/preemptible-vm.md), например `false`.
-* `SSH_PUB` — секрет с публичной частью SSH-ключа, [созданный ранее](#secrets) в формате `${{ secrets.<название_секрета> }}`. Задается на случай, если понадобиться подключиться к ВМ с пользовательским воркером.
+* `SSH_PUB` — секрет с публичной частью SSH-ключа, [созданный ранее](#secrets) в формате `${{ secrets.<название_секрета> }}`. Задается на случай, если понадобится подключиться к ВМ с пользовательским воркером.
 
 Создание пользователя ВМ с логином `builder` происходит в файле с метаданными `metadata.yaml`:
 
@@ -271,7 +271,7 @@ users:
 
 ### Сконфигурируйте пользовательский воркер {#worker-config}
 
-[Конфигурационный файл воркера]({{ link-src-docs }}/sourcecraft/operations/self-hosted-worker#config-file) `config.yaml` так же настраивается в файле с метаданными `metadata.yaml`:
+[Конфигурационный файл воркера]({{ link-src-docs }}/sourcecraft/operations/self-hosted-worker#config-file) `config.yaml` также настраивается в файле с метаданными `metadata.yaml`:
 
 ```yaml
 write_files:
