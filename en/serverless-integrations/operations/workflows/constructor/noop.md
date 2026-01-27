@@ -12,7 +12,7 @@ The No op control step does not involve any actions. You may need to use this st
 - Management console {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. From the **Control steps** section on the left side of the screen, drag the ![no-op-icon](../../../../_assets/serverless-integrations/no-op-icon.svg) **No op** element to the appropriate workflow location in the constructor window.
+  1. From the **Control steps** section on the left side of the screen, drag the ![no-op-icon](../../../../_assets/serverless-integrations/no-op-icon.svg) **No op** element to the relevant workflow location in the constructor window.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
   1. In the workflow schema window, click the added **No op** section to select it.

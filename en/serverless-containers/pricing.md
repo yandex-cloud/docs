@@ -72,7 +72,6 @@ Example of calculating the cost of a container with the following properties:
 
 ## Prices for the Russia region {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
@@ -89,4 +88,3 @@ Example of calculating the cost of a container with the following properties:
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
-

@@ -1,10 +1,6 @@
 # Migrating data from {{ objstorage-name }} to a {{ mmy-full-name }} cluster using {{ data-transfer-full-name }}
 
 
-
-{% include [storage-preview-disclaimer](../../_includes/data-transfer/storage-preview-disclaimer.md) %}
-
-
 {{ data-transfer-name }} enables you to transfer data from {{ objstorage-name }} to a {{ mmy-name }} target cluster.
 
 To transfer data:
@@ -18,7 +14,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ objstorage-name }} bucket: Use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * {{ mmy-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
@@ -40,9 +36,9 @@ Set up your infrastructure:
 
     1. [Create a target {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-create.md) with the following settings:
 
-        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mmy-user`
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mmy-user`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`.
 
     1. [Assign](../../managed-mysql/operations/grant.md#grant-role) the `ALL_PRIVILEGES` role for the target database to the {{ MY }} user.
 
@@ -59,7 +55,7 @@ Set up your infrastructure:
 
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
-        * [Security group](../../vpc/concepts/security-groups.md) and the rule permitting access to the {{ mmy-name }} cluster.
+        * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mmy-name }} cluster.
         * Service account to use for creating and accessing the bucket.
         * {{ lockbox-name }} secret for the service account static key required to configure the source endpoint.
         * {{ objstorage-name }} source bucket.
@@ -73,13 +69,13 @@ Set up your infrastructure:
         * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
         * `mmy_password`: {{ MY }} user password.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -91,7 +87,7 @@ Set up your infrastructure:
 
 ## Prepare your test data {#prepare-data}
 
-1. Create a text file named `data.csv` on the running instance and fill it with test data. In our example, we will use readings from car sensors:
+1. On your local machine, create a `data.csv` text file and fill it with test data. In our example, we will use readings from car sensors:
 
     ```csv
     1;99101;2022-06-05 17:27:00;55.70329032;37.65472196;427.5;52.3;23.5;17.;52.
@@ -110,8 +106,8 @@ Set up your infrastructure:
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: {{ objstorage-name }} bucket name.
 
     
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public part of the service account static key. If you created your infrastructure using {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Private part of the service account’s static key. If you created your infrastructure using {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public component of the service account’s static key. If you created your infrastructure using {{ TF }}, [copy the key’s value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Service account’s secret access key. If you created your infrastructure using {{ TF }}, [copy the key’s value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
 
 
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}**: `https://{{ s3-storage-host }}`.
@@ -168,23 +164,23 @@ Set up your infrastructure:
             * `source_endpoint_id`: Source endpoint ID.
             * `transfer_enabled`: Set to `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will show any errors found in your configuration files.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure for the transfer:
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            The transfer will activate automatically upon creation.
+            The transfer will be activated automatically upon creation.
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. [Connect to the {{ mmy-name }} target cluster database](../../managed-mysql/operations/connect.md).
@@ -227,11 +223,11 @@ Before deleting the resources, [deactivate the transfer](../../data-transfer/ope
 
 {% endnote %}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete other resources using the same method used for their creation:
+1. Delete the other resources depending on how you created them:
 
    {% list tabs group=resources %}
 

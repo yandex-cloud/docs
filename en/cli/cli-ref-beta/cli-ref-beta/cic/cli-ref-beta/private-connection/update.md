@@ -6,44 +6,164 @@ sourcePath: en/_cli-ref-beta/cli-ref-beta/cic/cli-ref-beta/private-connection/up
 
 # yc beta cic private-connection update
 
-Updates a PrivateConnection resource using the data specified in the request.  Method starts an asynchronous operation that can be cancelled while it is in progress.
+Updates a PrivateConnection resource using the data specified in the request.
+Method starts an asynchronous operation that can be cancelled while it is in progress.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta cic private-connection update <PRIVATE-CONNECTION-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`--description`|<b>`string`</b><br/>Optional description of the privateConnection. 0-256 characters long.|
-|`--ipv4-peering`|<b>`shorthand/json`</b><br/>IPv4 peering config of connection<br/>Shorthand Syntax:<br/>{<br/>cloud-bgp-asn = int,<br/>cloud-ip = str,<br/>peer-bgp-asn = int,<br/>peer-bgp-md5-key = str,<br/>peer-ip = str,<br/>peering-subnet = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"cloud-bgp-asn": "int",<br/>"cloud-ip": "str",<br/>"peer-bgp-asn": "int",<br/>"peer-bgp-md5-key": "str",<br/>"peer-ip": "str",<br/>"peering-subnet": "str"<br/>}"<br/>Fields:<br/>cloud-bgp-asn -> (int)<br/>CloudBgpAsn.<br/>cloud-ip -> (string)<br/>CloudIp. It's an ip with just an ipAddress format without mask.<br/>peer-bgp-asn -> (int)<br/>PeerBgpAsn. PeerAsn excluding rfc5398 (excluding 64496 - 64511 and 65536 - 65551).<br/>peer-bgp-md5-key -> (string)<br/>PeerBgpMd5Key. Optional.<br/>peer-ip -> (string)<br/>PeerIp. It's an ip with just an ipAddress format without mask.<br/>peering-subnet -> (string)<br/>PeeringSubnet. It's an ip with format ipPrefix/length where address part of ipPrefix is 0.|
-|`--ipv4-static-routes`|<b>`shorthand/json`</b><br/>IPv4 StaticRoute config of connection<br/>Shorthand Syntax:<br/>[<br/>{<br/>prefix = str<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"prefix": "str"<br/>}, ...<br/>]"<br/>Fields:<br/>prefix -> (string)<br/>Prefix. It's an ip with format ipPrefix/length where address part of ipPrefix is 0.|
-|`--labels`|<b>`stringToString`</b><br/>Resource labels, 'key:value' pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression '[-_0-9a-z]*'. The string length in characters for each key must be 1-63. Each key must match the regular expression '[a-z][-_0-9a-z]*'.|
-|`--name`|<b>`string`</b><br/>Name of the privateConnection. The name must be unique within the folder. Value must match the regular expression ''\\|a-zA-Z?''.|
-|`--private-connection-id`|<b>`string`</b><br/>ID of the PrivateConnection resource.|
-|`--region-id`|<b>`string`</b><br/>ID of the region that the privateConnection belongs to.|
-|`--trunk-connection-id`|<b>`string`</b><br/>ID of the trunk_connection that the privateConnection belongs to.|
-|`--vlan-id`|<b>`int`</b><br/>VLAN_ID that the privateConnection uses in multiplexing. Not used in connections over partners-II Value range: [1, 4095]|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `--description` | `string`
+
+Optional description of the privateConnection. 0-256 characters long. ||
+|| `--ipv4-peering` | `shorthand/json`
+
+IPv4 peering config of connection
+
+Shorthand Syntax:
+
+```hcl
+{
+  cloud-bgp-asn = int,
+  cloud-ip = str,
+  peer-bgp-asn = int,
+  peer-bgp-md5-key = str,
+  peer-ip = str,
+  peering-subnet = str
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "cloud-bgp-asn": "int",
+  "cloud-ip": "str",
+  "peer-bgp-asn": "int",
+  "peer-bgp-md5-key": "str",
+  "peer-ip": "str",
+  "peering-subnet": "str"
+}
+```
+
+Fields:
+
+```
+cloud-bgp-asn -> (int)
+  CloudBgpAsn.
+cloud-ip -> (string)
+  CloudIp. It's an ip with just an ipAddress format without mask.
+peer-bgp-asn -> (int)
+  PeerBgpAsn. PeerAsn excluding rfc5398 (excluding 64496 - 64511 and 65536 - 65551).
+peer-bgp-md5-key -> (string)
+  PeerBgpMd5Key. Optional.
+peer-ip -> (string)
+  PeerIp. It's an ip with just an ipAddress format without mask.
+peering-subnet -> (string)
+  PeeringSubnet. It's an ip with format ipPrefix/length where address part of ipPrefix is 0.
+``` ||
+|| `--ipv4-static-routes` | `shorthand/json`
+
+IPv4 StaticRoute config of connection
+
+Shorthand Syntax:
+
+```hcl
+[
+  {
+    prefix = str
+  }, ...
+]
+```
+
+JSON Syntax:
+
+```json
+[
+  {
+    "prefix": "str"
+  }, ...
+]
+```
+
+Fields:
+
+```
+prefix -> (string)
+  Prefix. It's an ip with format ipPrefix/length where address part of ipPrefix is 0.
+``` ||
+|| `--labels` | `stringToString`
+
+Resource labels, 'key:value' pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression '[-_0-9a-z]*'. The string length in characters for each key must be 1-63. Each key must match the regular expression '[a-z][-_0-9a-z]*'. ||
+|| `--name` | `string`
+
+Name of the privateConnection. The name must be unique within the folder. Value must match the regular expression ''\\|a-zA-Z?''. ||
+|| `--private-connection-id` | `string`
+
+ID of the PrivateConnection resource. ||
+|| `--region-id` | `string`
+
+ID of the region that the privateConnection belongs to. ||
+|| `--trunk-connection-id` | `string`
+
+ID of the trunk_connection that the privateConnection belongs to. ||
+|| `--vlan-id` | `int`
+
+VLAN_ID that the privateConnection uses in multiplexing. Not used in connections over partners-II Value range: [1, 4095] ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

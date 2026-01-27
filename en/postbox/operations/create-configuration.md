@@ -7,7 +7,7 @@ Create a [configuration](../concepts/glossary.md#configuration) to receive [emai
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the address.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/list-ul.svg) **{{ ui-key.yacloud.postbox.label_configuration-sets }}**.
     1. Click **{{ ui-key.yacloud.postbox.button_create-configuration-set }}**.
     1. Enter a name and (optionally) a description of the configuration.

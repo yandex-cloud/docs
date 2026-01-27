@@ -59,8 +59,6 @@ editable: false
 
 ## Примеры расчета стоимости {#price-example}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 При расчете стоимости учитывайте, что один [воркер](concepts/index.md#worker) может использовать следующие вычислительные ресурсы:
 
 {% include [vm-computing-resources](../_includes/data-transfer/vm-computing-resources.md) %}

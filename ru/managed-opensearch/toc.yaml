@@ -37,6 +37,8 @@ items:
             href: operations/cluster-stop.md
           - name: Управление резервными копиями
             href: operations/cluster-backups.md
+          - name: Управление доступом к кластеру
+            href: operations/cluster-access.md
           - name: Настройка доступа к Object Storage
             href: operations/s3-access.md
           - name: Удаление кластера

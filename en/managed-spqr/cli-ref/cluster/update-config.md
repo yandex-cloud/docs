@@ -1,26 +1,26 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/cluster/update-config.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/cluster/update-config.md
 ---
 
-# yc managed-postgresql cluster update-config
+# yc managed-sharded-postgresql cluster update-config
 
-Update the specified PostgreSQL cluster config
+Update the specified Sharded PostgreSQL cluster config
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-postgresql cluster update-config <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
+`yc managed-sharded-postgresql cluster update-config <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>PostgreSQL cluster id.|
-|`--name`|<b>`string`</b><br/>PostgreSQL cluster name.|
+|`--id`|<b>`string`</b><br/>Sharded PostgreSQL cluster id.|
+|`--name`|<b>`string`</b><br/>Sharded PostgreSQL cluster name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--set`|<b>`key1=value1[,key2=value2][,"key3=val3a,val3b"]`</b><br/>Set PostgreSQL cluster parameters. Can be used multiple times.|
+|`--set`|<b>`key1=value1[,key2=value2][,"key3=val3a,val3b"]`</b><br/>Set a parameter for the Sharded PostgreSQL cluster. Can be specified multiple times. Option may be prefixed by service name: router, coordinator, infra, postgresql, balancer. Router is assumed when no prefix is provided|
 
 #### Global Flags
 

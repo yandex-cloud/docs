@@ -1,41 +1,30 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/user/create.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/user/create.md
 ---
 
-# yc managed-postgresql user create
+# yc managed-sharded-postgresql user create
 
-Create a PostgreSQL user
+Create a Sharded PostgreSQL user
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-postgresql user create <USER-NAME> [Flags...] [Global Flags...]`
+`yc managed-sharded-postgresql user create <USER-NAME> [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>PostgreSQL cluster id.|
-|`--cluster-name`|<b>`string`</b><br/>PostgreSQL cluster name.|
+|`--cluster-id`|<b>`string`</b><br/>Sharded PostgreSQL cluster id.|
+|`--cluster-name`|<b>`string`</b><br/>Sharded PostgreSQL cluster name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--password`|<b>`string`</b><br/>Password of the PostgreSQL user.|
-|`--conn-limit`|<b>`int`</b><br/>Number of connections available to the user.|
+|`--password`|<b>`string`</b><br/>Password of the Sharded PostgreSQL user.|
 |`--permissions`|<b>`value[,value]`</b><br/>Names of the databases that the permission grants access to.|
-|`--login`|Indicates whether the user can login. Defaults to true.|
 |`--grants`|<b>`value[,value]`</b><br/>Roles granted to the user.|
-|`--generate-password`|Generate password using Connection Manager.|
-|`--auth-method`|<b>`string`</b><br/>Authentication method for the user. Values: 'auth-method-password', 'auth-method-iam'|
-|`--lock-timeout`|<b>`int`</b><br/>Lock timeout in milliseconds.|
-|`--log-min-duration-statement`|<b>`int`</b><br/>Log minimal duration statement in milliseconds.|
-|`--temp-file-limit`|<b>`int`</b><br/>Temporary file limit in bytes.|
-|`--default-transaction-isolation`|<b>`string`</b><br/>Default transaction isolation. Values: 'transaction-isolation-read-uncommitted', 'transaction-isolation-read-committed', 'transaction-isolation-repeatable-read', 'transaction-isolation-serializable'|
-|`--synchronous-commit`|<b>`string`</b><br/>Synchronous commit. Values: 'synchronous-commit-on', 'synchronous-commit-off', 'synchronous-commit-local', 'synchronous-commit-remote-write', 'synchronous-commit-remote-apply'|
-|`--log-statement`|<b>`string`</b><br/>Log statement. Values: 'log-statement-none', 'log-statement-ddl', 'log-statement-mod', 'log-statement-all'|
-|`--statement-timeout`|<b>`int`</b><br/>Statement timeout in milliseconds.|
-|`--idle-in-transaction-session-timeout`|<b>`int`</b><br/>Idle in transaction session timeout in milliseconds.|
-|`--wal-sender-timeout`|<b>`int`</b><br/>WAL sender timeout in milliseconds.<br/>--pgaudit.log<br/>Enable audit events for user|
+|`--connection-limit`|<b>`int`</b><br/>TODO|
+|`--connection-retries`|<b>`int`</b><br/>TODO|
 
 #### Global Flags
 

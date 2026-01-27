@@ -1,17 +1,17 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/hosts/index.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/hosts/index.md
 ---
 
-# yc managed-postgresql hosts
+# yc managed-sharded-postgresql hosts
 
-Manage PostgreSQL cluster hosts
+Manage Sharded PostgreSQL cluster hosts
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-postgresql hosts <command>`
+`yc managed-sharded-postgresql hosts <command>`
 
 Aliases: 
 
@@ -19,11 +19,10 @@ Aliases:
 
 #### Command Tree
 
-- [yc managed-postgresql hosts add](add.md) — Create new hosts for the cluster in the specified availability zones
-- [yc managed-postgresql hosts delete](delete.md) — Delete the specified hosts
-- [yc managed-postgresql hosts list](list.md) — List hosts for the specified PostgreSQL cluster
-- [yc managed-postgresql hosts update](update.md) — Update the specified hosts
-- [yc managed-postgresql hosts update-config](update-config.md) — Updates PostgreSQL config for the specified hosts
+- [yc managed-sharded-postgresql hosts add](add.md) — Create new hosts for the cluster in the specified availability zones
+- [yc managed-sharded-postgresql hosts delete](delete.md) — Delete the specified hosts
+- [yc managed-sharded-postgresql hosts list](list.md) — List hosts for the specified Sharded PostgreSQL cluster
+- [yc managed-sharded-postgresql hosts update](update.md) — Update the specified hosts
 
 #### Global Flags
 

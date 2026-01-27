@@ -10,39 +10,170 @@ Updates a user in a cluster.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta managed-mysql user update <CLUSTER-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`--authentication-plugin`|<b>`enum`</b><br/>New user authentication plugin. Possible Values: 'mysql-native-password', 'caching-sha2-password', 'sha256-password', 'mysql-no-login', 'mdb-iamproxy-auth'|
-|`--cluster-id`|<b>`string`</b><br/>ID of the cluster to update the user in. To get this ID, make a [ClusterService.List] request.|
-|`--connection-limits`|<b>`shorthand/json`</b><br/>Set of changed user connection limits.<br/>Shorthand Syntax:<br/>{<br/>max-connections-per-hour = int,<br/>max-questions-per-hour = int,<br/>max-updates-per-hour = int,<br/>max-user-connections = int<br/>}<br/>JSON Syntax:<br/>"{<br/>"max-connections-per-hour": "int",<br/>"max-questions-per-hour": "int",<br/>"max-updates-per-hour": "int",<br/>"max-user-connections": "int"<br/>}"<br/>Fields:<br/>max-connections-per-hour -> (int)<br/>The maximum permitted number of simultaneous client connections per hour.<br/>max-questions-per-hour -> (int)<br/>The maximum permitted number of user questions per hour.<br/>max-updates-per-hour -> (int)<br/>The maximum permitted number of user updates per hour.<br/>max-user-connections -> (int)<br/>The maximum number of simultaneous connections permitted to any given MySQL user account.|
-|`--generate-password`|Generate password using Connection Manager.|
-|`--global-permissions`|<b>`int32Slice`</b><br/>New set of global permissions to grant to the user.|
-|`--password`|<b>`string`</b><br/>New password for the user.|
-|`--permissions`|<b>`shorthand/json`</b><br/>A new set of permissions that should be granted to the user.<br/>Shorthand Syntax:<br/>[<br/>{<br/>database-name = str,<br/>roles = ALL_PRIVILEGES\|ALTER\|ALTER_ROUTINE\|CREATE\|CREATE_ROUTINE\|CREATE_TEMPORARY_TABLES\|CREATE_VIEW\|DELETE\|DROP\|EVENT\|EXECUTE\|INDEX\|INSERT\|LOCK_TABLES\|SELECT\|SHOW_VIEW\|TRIGGER\|UPDATE\|REFERENCES,...<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"database-name": "str",<br/>"roles": [<br/>"ALL_PRIVILEGES\|ALTER\|ALTER_ROUTINE\|CREATE\|CREATE_ROUTINE\|CREATE_TEMPORARY_TABLES\|CREATE_VIEW\|DELETE\|DROP\|EVENT\|EXECUTE\|INDEX\|INSERT\|LOCK_TABLES\|SELECT\|SHOW_VIEW\|TRIGGER\|UPDATE\|REFERENCES", ...<br/>]<br/>}, ...<br/>]"<br/>Fields:<br/>database-name -> (string)<br/>Name of the database that the permission grants access to.<br/>roles -> ([]int)<br/>Roles granted to the user within the database. See documentation for details.|
-|`--user-name`|<b>`string`</b><br/>Name of the user to update. To get this name, make a [UserService.List] request.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `--authentication-plugin` | `enum`
+
+New user authentication plugin. Possible Values: 'mysql-native-password', 'caching-sha2-password', 'sha256-password', 'mysql-no-login', 'mdb-iamproxy-auth' ||
+|| `--cluster-id` | `string`
+
+ID of the cluster to update the user in. To get this ID, make a [ClusterService.List] request. ||
+|| `--connection-limits` | `shorthand/json`
+
+Set of changed user connection limits.
+
+Shorthand Syntax:
+
+```hcl
+{
+  max-connections-per-hour = int,
+  max-questions-per-hour = int,
+  max-updates-per-hour = int,
+  max-user-connections = int
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "max-connections-per-hour": "int",
+  "max-questions-per-hour": "int",
+  "max-updates-per-hour": "int",
+  "max-user-connections": "int"
+}
+```
+
+Fields:
+
+```
+max-connections-per-hour -> (int)
+  The maximum permitted number of simultaneous client connections per hour.
+max-questions-per-hour -> (int)
+  The maximum permitted number of user questions per hour.
+max-updates-per-hour -> (int)
+  The maximum permitted number of user updates per hour.
+max-user-connections -> (int)
+  The maximum number of simultaneous connections permitted to any given MySQL user account.
+``` ||
+|| `--generate-password` | Generate password using Connection Manager. ||
+|| `--global-permissions` | `shorthand/json`
+
+New set of global permissions to grant to the user.
+
+Shorthand Syntax:
+
+```hcl
+[
+  REPLICATION_CLIENT|REPLICATION_SLAVE|PROCESS|FLUSH_OPTIMIZER_COSTS|SHOW_ROUTINE|MDB_ADMIN, ...
+]
+```
+
+JSON Syntax:
+
+```json
+[
+  "REPLICATION_CLIENT|REPLICATION_SLAVE|PROCESS|FLUSH_OPTIMIZER_COSTS|SHOW_ROUTINE|MDB_ADMIN", ...
+]
+``` ||
+|| `--password` | `string`
+
+New password for the user. ||
+|| `--permissions` | `shorthand/json`
+
+A new set of permissions that should be granted to the user.
+
+Shorthand Syntax:
+
+```hcl
+[
+  {
+    database-name = str,
+    roles = [
+      ALL_PRIVILEGES|ALTER|ALTER_ROUTINE|CREATE|CREATE_ROUTINE|CREATE_TEMPORARY_TABLES|CREATE_VIEW|DELETE|DROP|EVENT|EXECUTE|INDEX|INSERT|LOCK_TABLES|SELECT|SHOW_VIEW|TRIGGER|UPDATE|REFERENCES, ...
+    ]
+  }, ...
+]
+```
+
+JSON Syntax:
+
+```json
+[
+  {
+    "database-name": "str",
+    "roles": [
+      "ALL_PRIVILEGES|ALTER|ALTER_ROUTINE|CREATE|CREATE_ROUTINE|CREATE_TEMPORARY_TABLES|CREATE_VIEW|DELETE|DROP|EVENT|EXECUTE|INDEX|INSERT|LOCK_TABLES|SELECT|SHOW_VIEW|TRIGGER|UPDATE|REFERENCES", ...
+    ]
+  }, ...
+]
+```
+
+Fields:
+
+```
+database-name -> (string)
+  Name of the database that the permission grants access to.
+roles -> ([]struct)
+  Roles granted to the user within the database. See documentation for details.
+``` ||
+|| `--user-name` | `string`
+
+Name of the user to update. To get this name, make a [UserService.List] request. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

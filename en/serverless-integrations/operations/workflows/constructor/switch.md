@@ -14,7 +14,7 @@ If all conditions return `false`, the workflow will be executed for the path spe
 - Management console {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. From the **Control steps** section on the left side of the screen, drag the ![switch-icon](../../../../_assets/serverless-integrations/switch-icon.svg) **Switch** element to desired workflow location in the constructor window.
+  1. From the **Control steps** section on the left side of the screen, drag the ![switch-icon](../../../../_assets/serverless-integrations/switch-icon.svg) **Switch** element to the relevant workflow location in the constructor window.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
   1. In the workflow schema window, click the added **Switch** section to select it.
@@ -23,11 +23,11 @@ If all conditions return `false`, the workflow will be executed for the path spe
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
   1. {% include [integrations-step-input-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-input-tab.md) %}
   1. To add a new execution branch:
-
+  
       1. In the bottom-right corner of the **Switch** section, click ![circle-plus-fill](../../../../_assets/console-icons/circle-plus-fill.svg).
 
       1. In the window that opens, add a condition for selecting the execution branch. To specify the condition, use the jq format. To add the default condition, enable **{{ ui-key.yacloud.serverless-workflows.edit-switch-choice_default-field }}**. The default condition is created automatically if Switch is not the first step in the workflow. Once the condition is added, click **{{ ui-key.yacloud.common.create }}**. 
-
+  
       To delete an execution branch, add any integration step to it and delete that step using ![circle-xmark-fill](../../../../_assets/console-icons/circle-xmark-fill.svg).
 
 {% endlist %}

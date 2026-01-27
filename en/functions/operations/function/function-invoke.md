@@ -9,15 +9,15 @@ To allow any user to invoke a function without passing an authorization header, 
 
 ## Invoking a function {#invoking-function}
 
-As an example, we use the function described in [{#T}](../function/version-manage.md).
+As an example, we'll use the function described in [{#T}](../function/version-manage.md).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
-
+    
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
 
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. Select a function.
 
@@ -25,7 +25,7 @@ As an example, we use the function described in [{#T}](../function/version-manag
 
     1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_tag }}** field, specify which function version to invoke.
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload-template }}**, choose one of the options:
+    1. Under **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload-template }}**, select one of these options:
 
         * **{{ ui-key.yacloud.serverless-functions.item.testing.value_empty }}**: Custom data format.
         * **{{ ui-key.yacloud.serverless-functions.item.testing.value_http-request }}**: Data format for a function acting as an HTTPS request handler. For more information, see [Concepts](../../concepts/function-invoke.md).
@@ -43,7 +43,7 @@ As an example, we use the function described in [{#T}](../function/version-manag
 - HTTPS {#https}
 
     You can find the function invocation link in:
-    * **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field. Do it by selecting **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** in the [management console]({{ link-console-main }}) and clicking the row with the function.
+    * **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field. Do it by [navigating](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** in the [management console]({{ link-console-main }}) and clicking the row with the function.
     * `http_invoke_url` parameter. Do it by running this command:
         ```
         yc serverless function get <function_name>
@@ -56,7 +56,7 @@ As an example, we use the function described in [{#T}](../function/version-manag
     ```
     https://{{ sf-url }}/<function_ID>
     ```
-
+    
     You can invoke a specific function version using the `tag` parameter. The function with the `$latest` tag is invoked by default.
 
     * Example of function invocation with no additional parameters:
@@ -83,11 +83,11 @@ As an example, we use the function described in [{#T}](../function/version-manag
         Hello, Username!
         ```
     * Example of invoking a specific function version by adding the `tag` parameter to the URL:
-
+      
         ```
         https://{{ sf-url }}/<function_ID>?tag=<version_tag>
         ```
-
+            
 - CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -106,11 +106,11 @@ As an example, we use the function described in [{#T}](../function/version-manag
 
         Result:
 
-        ```
+        ```    
         {"statusCode": 200, "headers": {"Content-Type": "text/plain"}, "isBase64Encoded": false, "body": "Hello, Username!"}
         ```
     * Invoke a specific function version using the `--tag` parameter:
-
+    
         ```
         yc serverless function invoke <function_ID> --tag <version_tag>
         ```

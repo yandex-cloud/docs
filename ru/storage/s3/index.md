@@ -16,25 +16,15 @@ keywords:
 
 ## Подготовка к работе {#before-you-start}
 
+{% include [s3-api-auth-intro](../../_includes/storage/s3-api-auth-intro.md) %}
+
 Чтобы воспользоваться API:
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
-Авторизация статическими ключами необходима для обращения напрямую к HTTP API и поддерживается инструментами, перечисленными в разделе [{#T}](../tools/index.md).
-
-
-{% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
-
-
 Перечень поддерживаемых методов Amazon S3 HTTP API смотрите в [Справочнике API](api-ref/index.md).
 
 ## Общий вид запроса к API {#common-request-form}
-
-{% note info %}
-
-Для работы с S3 API в {{ objstorage-name }} лучше использовать [AWS CLI](../tools/aws-cli.md) или [AWS SDK](../tools/sdk/index.md), подходящий для вашей среды разработки.
-
-{% endnote %}
 
 Общий вид запроса к {{ objstorage-name }} API:
 
@@ -43,7 +33,7 @@ keywords:
 Host: {{ s3-storage-host }}
 Content-Length: length
 Date: date
-Authorization: authorization string (AWS Signature Version 4)
+Authorization: authorization string
 
 Request_body
 ```
@@ -60,9 +50,25 @@ Host: <имя_бакета>.{{ s3-storage-host }}
 
 Набор заголовков зависит от конкретного запроса и описан в документации на соответствующий запрос.
 
-Если вы используете [API](../../glossary/rest-api.md) напрямую (без SDK и приложений), то для подписи запросов вам придется самостоятельно генерировать заголовок `Authorization`. О том, как это сделать, читайте в разделе [Authenticating Requests (AWS Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html) документации Amazon S3.
+### Подписывание запросов {#signing-requests}
 
-{% include [s3api-debug-and-curl](../../_includes/storage/s3api-debug-and-curl.md) %}
+{% list tabs group=auth_keys %}
+
+- Аутентификация с помощью IAM-токена {#iam-token}
+
+  Если для аутентификации в [API](../../glossary/rest-api.md) вы используете IAM-токен, то дополнительно подписывать HTTP-запросы не требуется.
+
+  [Инструменты](../tools/index.md) для работы с Amazon S3, такие как [AWS CLI](../tools/aws-cli.md) и [AWS SDK](../tools/sdk/index.md), поддерживают только аутентификацию с помощью статического ключа доступа, и использовать их одновременно с аутентификацией по IAM-токену нельзя.
+
+- Аутентификация с помощью статического ключа {#static-key}
+
+  Если для аутентификации в [API](../../glossary/rest-api.md) вы используете статический ключ доступа и обращаетесь к API напрямую (без SDK и приложений), то для подписи запросов вам придется самостоятельно генерировать заголовок `Authorization`. О том, как это сделать, читайте в разделе [Authenticating Requests (AWS Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html) документации Amazon S3.
+
+  При использовании аутентификации с помощью статического ключа доступа для работы с S3 API в {{ objstorage-name }} лучше использовать [AWS CLI](../tools/aws-cli.md) или [AWS SDK](../tools/sdk/index.md), подходящий для вашей среды разработки.
+
+  {% include [s3api-debug-and-curl](../../_includes/storage/s3api-debug-and-curl.md) %}
+
+{% endlist %}
 
 ### URL для запроса {#request-url}
 

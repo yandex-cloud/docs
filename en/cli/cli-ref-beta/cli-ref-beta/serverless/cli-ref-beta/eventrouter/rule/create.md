@@ -10,41 +10,384 @@ Creates a rule in the specified folder.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta serverless eventrouter rule create <BUS-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--bus-id`|<b>`string`</b><br/>ID of the bus to create a rule for.|
-|`--deletion-protection`|Flag that disallow deletion of the rule.|
-|`--description`|<b>`string`</b><br/>Description of the rule.|
-|`--filter`|<b>`shorthand/json`</b><br/>Filter for the rule.<br/>Shorthand Syntax:<br/>{<br/>condition = jq-filter=str<br/>}<br/>JSON Syntax:<br/>"{<br/>"condition": {<br/>"jq-filter": "str"<br/>}<br/>}"<br/>Fields:<br/>condition -> (oneof\<jq-filter\>)<br/>Oneof condition field<br/>jq-filter -> (string)<br/>JQ filter for matching events.|
-|`--labels`|<b>`stringToString`</b><br/>Labels for the rule.|
-|`--name`|<b>`string`</b><br/>Name of the rule.|
-|`--targets`|<b>`shorthand/json`</b><br/>Targets for the rule.<br/>Shorthand Syntax:<br/>[<br/>{<br/>dead-letter = dead-letter-queue={<br/>queue-arn = str,<br/>service-account-id = str<br/>},<br/>retry-settings = {<br/>maximum-age = duration,<br/>retry-attempts = int<br/>},<br/>status = ENABLED\|DISABLED\|RESOURCE_NOT_FOUND\|PERMISSION_DENIED\|SUBJECT_NOT_FOUND,<br/>target = container={<br/>batch-settings = {<br/>cutoff = duration,<br/>max-bytes = int,<br/>max-count = int<br/>},<br/>container-id = str,<br/>container-revision-id = str,<br/>path = str,<br/>service-account-id = str<br/>} \| function={<br/>batch-settings = {<br/>cutoff = duration,<br/>max-bytes = int,<br/>max-count = int<br/>},<br/>function-id = str,<br/>function-tag = str,<br/>service-account-id = str<br/>} \| gateway-ws-broadcast={<br/>batch-settings = {<br/>cutoff = duration,<br/>max-bytes = int,<br/>max-count = int<br/>},<br/>gateway-id = str,<br/>path = str,<br/>service-account-id = str<br/>} \| logging={<br/>destination = folder-id=str \| log-group-id=str,<br/>service-account-id = str<br/>} \| workflow={<br/>batch-settings = {<br/>cutoff = duration,<br/>max-bytes = int,<br/>max-count = int<br/>},<br/>service-account-id = str,<br/>workflow-id = str<br/>} \| yds={<br/>database = str,<br/>service-account-id = str,<br/>stream-name = str<br/>} \| ymq={<br/>queue-arn = str,<br/>service-account-id = str<br/>},<br/>transformer = {<br/>transformer = jq-transformer=str<br/>}<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"dead-letter": {<br/>"dead-letter-queue": {<br/>"queue-arn": "str",<br/>"service-account-id": "str"<br/>}<br/>},<br/>"retry-settings": {<br/>"maximum-age": "duration",<br/>"retry-attempts": "int"<br/>},<br/>"status": "ENABLED\|DISABLED\|RESOURCE_NOT_FOUND\|PERMISSION_DENIED\|SUBJECT_NOT_FOUND",<br/>"target": {<br/>"container": {<br/>"batch-settings": {<br/>"cutoff": "duration",<br/>"max-bytes": "int",<br/>"max-count": "int"<br/>},<br/>"container-id": "str",<br/>"container-revision-id": "str",<br/>"path": "str",<br/>"service-account-id": "str"<br/>},<br/>"function": {<br/>"batch-settings": {<br/>"cutoff": "duration",<br/>"max-bytes": "int",<br/>"max-count": "int"<br/>},<br/>"function-id": "str",<br/>"function-tag": "str",<br/>"service-account-id": "str"<br/>},<br/>"gateway-ws-broadcast": {<br/>"batch-settings": {<br/>"cutoff": "duration",<br/>"max-bytes": "int",<br/>"max-count": "int"<br/>},<br/>"gateway-id": "str",<br/>"path": "str",<br/>"service-account-id": "str"<br/>},<br/>"logging": {<br/>"destination": {<br/>"folder-id": "str",<br/>"log-group-id": "str"<br/>},<br/>"service-account-id": "str"<br/>},<br/>"workflow": {<br/>"batch-settings": {<br/>"cutoff": "duration",<br/>"max-bytes": "int",<br/>"max-count": "int"<br/>},<br/>"service-account-id": "str",<br/>"workflow-id": "str"<br/>},<br/>"yds": {<br/>"database": "str",<br/>"service-account-id": "str",<br/>"stream-name": "str"<br/>},<br/>"ymq": {<br/>"queue-arn": "str",<br/>"service-account-id": "str"<br/>}<br/>},<br/>"transformer": {<br/>"transformer": {<br/>"jq-transformer": "str"<br/>}<br/>}<br/>}, ...<br/>]"<br/>Fields:<br/>retry-settings -> (struct)<br/>Retry settings of the target.<br/>maximum-age -> (duration)<br/>Event goes to dlq when its age exceeds this value. Default is 24h.<br/>retry-attempts -> (int)<br/>Maximum number of retries (extra calls) before an action fails.<br/>status -> (enum<DISABLED\|ENABLED\|PERMISSION_DENIED\|RESOURCE_NOT_FOUND\|SUBJECT_NOT_FOUND>)<br/>Status of the target.<br/>transformer -> (struct)<br/>Transformer of the target.<br/>transformer -> (oneof\<jq-transformer\>)<br/>Oneof transformer field<br/>jq-transformer -> (string)<br/>JQ string inrerpolation expression for changing event format.<br/>dead-letter -> (oneof\<dead-letter-queue\>)<br/>Oneof dead-letter field<br/>dead-letter-queue -> (struct)<br/>Dead letter queue.<br/>queue-arn -> (string)<br/>ID of the queue.<br/>service-account-id -> (string)<br/>Service account which has write permission on the queue.<br/>target -> (oneof<container\|function\|gateway-ws-broadcast\|logging\|workflow\|yds\|ymq>)<br/>Oneof target field<br/>yds -> (struct)<br/>database -> (string)<br/>Stream database.<br/>service-account-id -> (string)<br/>Service account, which has write permission on the stream.<br/>stream-name -> (string)<br/>Full stream name, like /ru-central1/aoegtvhtp8ob********/cc8004q4lbo6********/test.<br/>ymq -> (struct)<br/>queue-arn -> (string)<br/>Queue ARN. Example: yrn:yc:ymq:ru-central1:aoe***:test<br/>service-account-id -> (string)<br/>Service account which has write access to the queue.<br/>function -> (struct)<br/>batch-settings -> (struct)<br/>Batch settings.<br/>cutoff -> (duration)<br/>Maximum batch size: trigger will send a batch if its lifetime exceeds this value.<br/>max-bytes -> (int)<br/>Maximum batch size: trigger will send a batch if total size of events exceeds this value.<br/>max-count -> (int)<br/>Maximum batch size: trigger will send a batch if number of events exceeds this value.<br/>function-id -> (string)<br/>Function ID.<br/>function-tag -> (string)<br/>Function tag, optional.<br/>service-account-id -> (string)<br/>Service account which has call permission on the function, optional.<br/>container -> (struct)<br/>batch-settings -> (struct)<br/>Batch settings.<br/>cutoff -> (duration)<br/>Maximum batch size: trigger will send a batch if its lifetime exceeds this value.<br/>max-bytes -> (int)<br/>Maximum batch size: trigger will send a batch if total size of events exceeds this value.<br/>max-count -> (int)<br/>Maximum batch size: trigger will send a batch if number of events exceeds this value.<br/>container-id -> (string)<br/>Container ID.<br/>container-revision-id -> (string)<br/>Container revision ID.<br/>path -> (string)<br/>Endpoint HTTP path to invoke.<br/>service-account-id -> (string)<br/>Service account which should be used to call a container, optional.<br/>gateway-ws-broadcast -> (struct)<br/>batch-settings -> (struct)<br/>Batch settings.<br/>cutoff -> (duration)<br/>Maximum batch size: trigger will send a batch if its lifetime exceeds this value.<br/>max-bytes -> (int)<br/>Maximum batch size: trigger will send a batch if total size of events exceeds this value.<br/>max-count -> (int)<br/>Maximum batch size: trigger will send a batch if number of events exceeds this value.<br/>gateway-id -> (string)<br/>Gateway ID.<br/>path -> (string)<br/>Path.<br/>service-account-id -> (string)<br/>Service account which has permission for writing to websockets.<br/>logging -> (struct)<br/>service-account-id -> (string)<br/>Service account which has permission for writing logs.<br/>destination -> (oneof<folder-id\|log-group-id>)<br/>Oneof destination field<br/>log-group-id -> (string)<br/>folder-id -> (string)<br/>workflow -> (struct)<br/>batch-settings -> (struct)<br/>Batch settings.<br/>cutoff -> (duration)<br/>Maximum batch size: trigger will send a batch if its lifetime exceeds this value.<br/>max-bytes -> (int)<br/>Maximum batch size: trigger will send a batch if total size of events exceeds this value.<br/>max-count -> (int)<br/>Maximum batch size: trigger will send a batch if number of events exceeds this value.<br/>service-account-id -> (string)<br/>SA which should be used to start workflow.<br/>workflow-id -> (string)<br/>Workflow ID.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-json > request.json
+2. Edit the template: vim request.json
+3. Run with template: yc beta compute instance create -r request.json ||
+|| `--example-yaml` | Generates a YAML template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-yaml > request.yaml
+2. Edit the template: vim request.yaml
+3. Run with template: yc beta compute instance create -r request.yaml ||
+|| `--bus-id` | `string`
+
+ID of the bus to create a rule for. ||
+|| `--deletion-protection` | Flag that disallow deletion of the rule. ||
+|| `--description` | `string`
+
+Description of the rule. ||
+|| `--filter` | `shorthand/json`
+
+Filter for the rule.
+
+Shorthand Syntax:
+
+```hcl
+{
+  condition = jq-filter=str
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "condition": {
+    "jq-filter": "str"
+  }
+}
+```
+
+Fields:
+
+```
+condition -> (oneof<jq-filter>)
+  Oneof condition field
+  jq-filter -> (string)
+    JQ filter for matching events.
+``` ||
+|| `--labels` | `stringToString`
+
+Labels for the rule. ||
+|| `--name` | `string`
+
+Name of the rule. ||
+|| `--targets` | `shorthand/json`
+
+Targets for the rule.
+
+Shorthand Syntax:
+
+```hcl
+[
+  {
+    dead-letter = dead-letter-queue={
+      queue-arn = str,
+      service-account-id = str
+    },
+    retry-settings = {
+      maximum-age = duration,
+      retry-attempts = int
+    },
+    status = ENABLED|DISABLED|RESOURCE_NOT_FOUND|PERMISSION_DENIED|SUBJECT_NOT_FOUND,
+    target = container={
+      batch-settings = {
+        cutoff = duration,
+        max-bytes = int,
+        max-count = int
+      },
+      container-id = str,
+      container-revision-id = str,
+      path = str,
+      service-account-id = str
+    } | function={
+      batch-settings = {
+        cutoff = duration,
+        max-bytes = int,
+        max-count = int
+      },
+      function-id = str,
+      function-tag = str,
+      service-account-id = str
+    } | gateway-ws-broadcast={
+      batch-settings = {
+        cutoff = duration,
+        max-bytes = int,
+        max-count = int
+      },
+      gateway-id = str,
+      path = str,
+      service-account-id = str
+    } | logging={
+      destination = folder-id=str | log-group-id=str,
+      service-account-id = str
+    } | workflow={
+      batch-settings = {
+        cutoff = duration,
+        max-bytes = int,
+        max-count = int
+      },
+      service-account-id = str,
+      workflow-id = str
+    } | yds={
+      database = str,
+      service-account-id = str,
+      stream-name = str
+    } | ymq={
+      queue-arn = str,
+      service-account-id = str
+    },
+    transformer = {
+      transformer = jq-transformer=str
+    }
+  }, ...
+]
+```
+
+JSON Syntax:
+
+```json
+[
+  {
+    "dead-letter": {
+      "dead-letter-queue": {
+        "queue-arn": "str",
+        "service-account-id": "str"
+      }
+    },
+    "retry-settings": {
+      "maximum-age": "duration",
+      "retry-attempts": "int"
+    },
+    "status": "ENABLED|DISABLED|RESOURCE_NOT_FOUND|PERMISSION_DENIED|SUBJECT_NOT_FOUND",
+    "target": {
+      "container": {
+        "batch-settings": {
+          "cutoff": "duration",
+          "max-bytes": "int",
+          "max-count": "int"
+        },
+        "container-id": "str",
+        "container-revision-id": "str",
+        "path": "str",
+        "service-account-id": "str"
+      },
+      "function": {
+        "batch-settings": {
+          "cutoff": "duration",
+          "max-bytes": "int",
+          "max-count": "int"
+        },
+        "function-id": "str",
+        "function-tag": "str",
+        "service-account-id": "str"
+      },
+      "gateway-ws-broadcast": {
+        "batch-settings": {
+          "cutoff": "duration",
+          "max-bytes": "int",
+          "max-count": "int"
+        },
+        "gateway-id": "str",
+        "path": "str",
+        "service-account-id": "str"
+      },
+      "logging": {
+        "destination": {
+          "folder-id": "str",
+          "log-group-id": "str"
+        },
+        "service-account-id": "str"
+      },
+      "workflow": {
+        "batch-settings": {
+          "cutoff": "duration",
+          "max-bytes": "int",
+          "max-count": "int"
+        },
+        "service-account-id": "str",
+        "workflow-id": "str"
+      },
+      "yds": {
+        "database": "str",
+        "service-account-id": "str",
+        "stream-name": "str"
+      },
+      "ymq": {
+        "queue-arn": "str",
+        "service-account-id": "str"
+      }
+    },
+    "transformer": {
+      "transformer": {
+        "jq-transformer": "str"
+      }
+    }
+  }, ...
+]
+```
+
+Fields:
+
+```
+retry-settings -> (struct)
+  Retry settings of the target.
+  maximum-age -> (duration)
+    Event goes to dlq when its age exceeds this value. Default is 24h.
+  retry-attempts -> (int)
+    Maximum number of retries (extra calls) before an action fails.
+status -> (struct)
+  Status of the target.
+transformer -> (struct)
+  Transformer of the target.
+  transformer -> (oneof<jq-transformer>)
+    Oneof transformer field
+    jq-transformer -> (string)
+      JQ string inrerpolation expression for changing event format.
+dead-letter -> (oneof<dead-letter-queue>)
+  Oneof dead-letter field
+  dead-letter-queue -> (struct)
+    Dead letter queue.
+    queue-arn -> (string)
+      ID of the queue.
+    service-account-id -> (string)
+      Service account which has write permission on the queue.
+target -> (oneof<container|function|gateway-ws-broadcast|logging|workflow|yds|ymq>)
+  Oneof target field
+  yds -> (struct)
+    database -> (string)
+      Stream database.
+    service-account-id -> (string)
+      Service account, which has write permission on the stream.
+    stream-name -> (string)
+      Full stream name, like /ru-central1/aoegtvhtp8ob********/cc8004q4lbo6********/test.
+  ymq -> (struct)
+    queue-arn -> (string)
+      Queue ARN. Example: yrn:yc:ymq:ru-central1:aoe***:test
+    service-account-id -> (string)
+      Service account which has write access to the queue.
+  function -> (struct)
+    batch-settings -> (struct)
+      Batch settings.
+      cutoff -> (duration)
+        Maximum batch size: trigger will send a batch if its lifetime exceeds this value.
+      max-bytes -> (int)
+        Maximum batch size: trigger will send a batch if total size of events exceeds this value.
+      max-count -> (int)
+        Maximum batch size: trigger will send a batch if number of events exceeds this value.
+    function-id -> (string)
+      Function ID.
+    function-tag -> (string)
+      Function tag, optional.
+    service-account-id -> (string)
+      Service account which has call permission on the function, optional.
+  container -> (struct)
+    batch-settings -> (struct)
+      Batch settings.
+      cutoff -> (duration)
+        Maximum batch size: trigger will send a batch if its lifetime exceeds this value.
+      max-bytes -> (int)
+        Maximum batch size: trigger will send a batch if total size of events exceeds this value.
+      max-count -> (int)
+        Maximum batch size: trigger will send a batch if number of events exceeds this value.
+    container-id -> (string)
+      Container ID.
+    container-revision-id -> (string)
+      Container revision ID.
+    path -> (string)
+      Endpoint HTTP path to invoke.
+    service-account-id -> (string)
+      Service account which should be used to call a container, optional.
+  gateway-ws-broadcast -> (struct)
+    batch-settings -> (struct)
+      Batch settings.
+      cutoff -> (duration)
+        Maximum batch size: trigger will send a batch if its lifetime exceeds this value.
+      max-bytes -> (int)
+        Maximum batch size: trigger will send a batch if total size of events exceeds this value.
+      max-count -> (int)
+        Maximum batch size: trigger will send a batch if number of events exceeds this value.
+    gateway-id -> (string)
+      Gateway ID.
+    path -> (string)
+      Path.
+    service-account-id -> (string)
+      Service account which has permission for writing to websockets.
+  logging -> (struct)
+    service-account-id -> (string)
+      Service account which has permission for writing logs.
+    destination -> (oneof<folder-id|log-group-id>)
+      Oneof destination field
+      log-group-id -> (string)
+      folder-id -> (string)
+  workflow -> (struct)
+    batch-settings -> (struct)
+      Batch settings.
+      cutoff -> (duration)
+        Maximum batch size: trigger will send a batch if its lifetime exceeds this value.
+      max-bytes -> (int)
+        Maximum batch size: trigger will send a batch if total size of events exceeds this value.
+      max-count -> (int)
+        Maximum batch size: trigger will send a batch if number of events exceeds this value.
+    service-account-id -> (string)
+      SA which should be used to start workflow.
+    workflow-id -> (string)
+      Workflow ID.
+``` ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

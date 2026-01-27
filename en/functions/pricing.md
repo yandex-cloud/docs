@@ -59,7 +59,6 @@ However, if the function uses other {{ yandex-cloud }} resources, those are bill
 
 ## Prices for the Russia region {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 

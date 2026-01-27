@@ -10,39 +10,528 @@ Updates the specified transfer.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta datatransfer transfer update <TRANSFER-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`--data-objects`|<b>`shorthand/json`</b><br/><br/>Shorthand Syntax:<br/>{<br/>include-objects = str,...<br/>}<br/>JSON Syntax:<br/>"{<br/>"include-objects": [<br/>"str", ...<br/>]<br/>}"<br/>Fields:<br/>include-objects -> ([]string)|
-|`--description`|<b>`string`</b><br/>The new description for the transfer.|
-|`--labels`|<b>`stringToString`</b><br/>Transfer labels as 'key:value' pairs. For details about the concept, see [documentation]({{ api-url-prefix }}/resource-manager/concepts/labels).|
-|`--name`|<b>`string`</b><br/>The new transfer name. Must be unique within the folder.|
-|`--replication-runtime`|<b>`shorthand/json`</b><br/><br/>Shorthand Syntax:<br/>{<br/>runtime = yc-runtime={<br/>job-count = int,<br/>upload-shard-params = {<br/>job-count = int,<br/>process-count = int<br/>}<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"runtime": {<br/>"yc-runtime": {<br/>"job-count": "int",<br/>"upload-shard-params": {<br/>"job-count": "int",<br/>"process-count": "int"<br/>}<br/>}<br/>}<br/>}"<br/>Fields:<br/>runtime -> (oneof\<yc-runtime\>)<br/>Oneof runtime field<br/>yc-runtime -> (struct)<br/>job-count -> (int)<br/>upload-shard-params -> (struct)<br/>job-count -> (int)<br/>process-count -> (int)|
-|`--runtime`|<b>`shorthand/json`</b><br/><br/>Shorthand Syntax:<br/>{<br/>runtime = yc-runtime={<br/>job-count = int,<br/>upload-shard-params = {<br/>job-count = int,<br/>process-count = int<br/>}<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"runtime": {<br/>"yc-runtime": {<br/>"job-count": "int",<br/>"upload-shard-params": {<br/>"job-count": "int",<br/>"process-count": "int"<br/>}<br/>}<br/>}<br/>}"<br/>Fields:<br/>runtime -> (oneof\<yc-runtime\>)<br/>Oneof runtime field<br/>yc-runtime -> (struct)<br/>job-count -> (int)<br/>upload-shard-params -> (struct)<br/>job-count -> (int)<br/>process-count -> (int)|
-|`--transfer-id`|<b>`string`</b><br/>Identifier of the transfer to be updated.|
-|`--transformation`|<b>`shorthand/json`</b><br/><br/>Shorthand Syntax:<br/>{<br/>transformers = [<br/>{<br/>transformer = convert-to-string={<br/>columns = {<br/>exclude-columns = str,...,<br/>include-columns = str,...<br/>},<br/>tables = {<br/>exclude-tables = str,...,<br/>include-tables = str,...<br/>}<br/>} \| filter-columns={<br/>columns = {<br/>exclude-columns = str,...,<br/>include-columns = str,...<br/>},<br/>tables = {<br/>exclude-tables = str,...,<br/>include-tables = str,...<br/>}<br/>} \| filter-rows={<br/>filter = str,<br/>filters = str,...,<br/>tables = {<br/>exclude-tables = str,...,<br/>include-tables = str,...<br/>}<br/>} \| mask-field={<br/>columns = str,...,<br/>function = {<br/>mask-function = mask-function-hash={<br/>user-defined-salt = str<br/>}<br/>},<br/>tables = {<br/>exclude-tables = str,...,<br/>include-tables = str,...<br/>}<br/>} \| rename-tables={<br/>rename-tables = [<br/>{<br/>new-name = {<br/>name = str,<br/>name-space = str<br/>},<br/>original-name = {<br/>name = str,<br/>name-space = str<br/>}<br/>}, ...<br/>]<br/>} \| replace-primary-key={<br/>keys = str,...,<br/>tables = {<br/>exclude-tables = str,...,<br/>include-tables = str,...<br/>}<br/>} \| sharder-transformer={<br/>sharder-transformer-type = columns={<br/>exclude-columns = str,...,<br/>include-columns = str,...<br/>} \| random={},<br/>shards-count = int,<br/>tables = {<br/>exclude-tables = str,...,<br/>include-tables = str,...<br/>}<br/>} \| table-splitter-transformer={<br/>columns = str,...,<br/>splitter = str,<br/>tables = {<br/>exclude-tables = str,...,<br/>include-tables = str,...<br/>}<br/>}<br/>}, ...<br/>]<br/>}<br/>JSON Syntax:<br/>"{<br/>"transformers": [<br/>{<br/>"transformer": {<br/>"convert-to-string": {<br/>"columns": {<br/>"exclude-columns": [<br/>"str", ...<br/>],<br/>"include-columns": [<br/>"str", ...<br/>]<br/>},<br/>"tables": {<br/>"exclude-tables": [<br/>"str", ...<br/>],<br/>"include-tables": [<br/>"str", ...<br/>]<br/>}<br/>},<br/>"filter-columns": {<br/>"columns": {<br/>"exclude-columns": [<br/>"str", ...<br/>],<br/>"include-columns": [<br/>"str", ...<br/>]<br/>},<br/>"tables": {<br/>"exclude-tables": [<br/>"str", ...<br/>],<br/>"include-tables": [<br/>"str", ...<br/>]<br/>}<br/>},<br/>"filter-rows": {<br/>"filter": "str",<br/>"filters": [<br/>"str", ...<br/>],<br/>"tables": {<br/>"exclude-tables": [<br/>"str", ...<br/>],<br/>"include-tables": [<br/>"str", ...<br/>]<br/>}<br/>},<br/>"mask-field": {<br/>"columns": [<br/>"str", ...<br/>],<br/>"function": {<br/>"mask-function": {<br/>"mask-function-hash": {<br/>"user-defined-salt": "str"<br/>}<br/>}<br/>},<br/>"tables": {<br/>"exclude-tables": [<br/>"str", ...<br/>],<br/>"include-tables": [<br/>"str", ...<br/>]<br/>}<br/>},<br/>"rename-tables": {<br/>"rename-tables": [<br/>{<br/>"new-name": {<br/>"name": "str",<br/>"name-space": "str"<br/>},<br/>"original-name": {<br/>"name": "str",<br/>"name-space": "str"<br/>}<br/>}, ...<br/>]<br/>},<br/>"replace-primary-key": {<br/>"keys": [<br/>"str", ...<br/>],<br/>"tables": {<br/>"exclude-tables": [<br/>"str", ...<br/>],<br/>"include-tables": [<br/>"str", ...<br/>]<br/>}<br/>},<br/>"sharder-transformer": {<br/>"sharder-transformer-type": {<br/>"columns": {<br/>"exclude-columns": [<br/>"str", ...<br/>],<br/>"include-columns": [<br/>"str", ...<br/>]<br/>},<br/>"random": {}<br/>},<br/>"shards-count": "int",<br/>"tables": {<br/>"exclude-tables": [<br/>"str", ...<br/>],<br/>"include-tables": [<br/>"str", ...<br/>]<br/>}<br/>},<br/>"table-splitter-transformer": {<br/>"columns": [<br/>"str", ...<br/>],<br/>"splitter": "str",<br/>"tables": {<br/>"exclude-tables": [<br/>"str", ...<br/>],<br/>"include-tables": [<br/>"str", ...<br/>]<br/>}<br/>}<br/>}<br/>}, ...<br/>]<br/>}"<br/>Fields:<br/>transformers -> ([]struct)<br/>Transformers are set as a list. When activating a transfer, a transformation plan is made for the tables that match the specified criteria. Transformers are applied to the tables in the sequence specified in the list.<br/>transformer -> (oneof<convert-to-string\|filter-columns\|filter-rows\|mask-field\|rename-tables\|replace-primary-key\|sharder-transformer\|table-splitter-transformer>)<br/>Oneof transformer field<br/>mask-field -> (struct)<br/>columns -> ([]string)<br/>Specify the name of the column for data masking (a regular expression).<br/>function -> (struct)<br/>Mask function<br/>mask-function -> (oneof\<mask-function-hash\>)<br/>Oneof mask-function field<br/>mask-function-hash -> (struct)<br/>Hash mask function<br/>user-defined-salt -> (string)<br/>This string will be used in the HMAC(sha256, salt) function applied to the column data.<br/>tables -> (struct)<br/>List of included and excluded tables<br/>exclude-tables -> ([]string)<br/>List of tables that will be excluded to transfer<br/>include-tables -> ([]string)<br/>List of tables that will be included to transfer<br/>filter-columns -> (struct)<br/>columns -> (struct)<br/>List of the columns to transfer to the target tables using lists of included and excluded columns.<br/>exclude-columns -> ([]string)<br/>List of columns that will be excluded to transfer<br/>include-columns -> ([]string)<br/>List of columns that will be included to transfer<br/>tables -> (struct)<br/>List of the tables to filter using lists of included and excluded tables.<br/>exclude-tables -> ([]string)<br/>List of tables that will be excluded to transfer<br/>include-tables -> ([]string)<br/>List of tables that will be included to transfer<br/>rename-tables -> (struct)<br/>rename-tables -> ([]struct)<br/>List of renaming rules<br/>new-name -> (struct)<br/>Specify the new names for this table in the target<br/>name -> (string)<br/>name-space -> (string)<br/>original-name -> (struct)<br/>Specify the current names of the table in the source<br/>name -> (string)<br/>name-space -> (string)<br/>replace-primary-key -> (struct)<br/>keys -> ([]string)<br/>List of columns to be used as primary keys<br/>tables -> (struct)<br/>List of included and excluded tables<br/>exclude-tables -> ([]string)<br/>List of tables that will be excluded to transfer<br/>include-tables -> ([]string)<br/>List of tables that will be included to transfer<br/>convert-to-string -> (struct)<br/>columns -> (struct)<br/>List of included and excluded columns<br/>exclude-columns -> ([]string)<br/>List of columns that will be excluded to transfer<br/>include-columns -> ([]string)<br/>List of columns that will be included to transfer<br/>tables -> (struct)<br/>List of included and excluded tables<br/>exclude-tables -> ([]string)<br/>List of tables that will be excluded to transfer<br/>include-tables -> ([]string)<br/>List of tables that will be included to transfer<br/>sharder-transformer -> (struct)<br/>shards-count -> (int)<br/>Number of shards<br/>tables -> (struct)<br/>List of included and excluded tables<br/>exclude-tables -> ([]string)<br/>List of tables that will be excluded to transfer<br/>include-tables -> ([]string)<br/>List of tables that will be included to transfer<br/>sharder-transformer-type -> (oneof<columns\|random>)<br/>Oneof sharder-transformer-type field<br/>columns -> (struct)<br/>List of included and excluded columns<br/>exclude-columns -> ([]string)<br/>List of columns that will be excluded to transfer<br/>include-columns -> ([]string)<br/>List of columns that will be included to transfer<br/>random -> (struct)<br/>table-splitter-transformer -> (struct)<br/>columns -> ([]string)<br/>Specify the columns in the tables to be partitioned.<br/>splitter -> (string)<br/>Specify the split string to be used for merging components in a new table name.<br/>tables -> (struct)<br/>List of included and excluded tables<br/>exclude-tables -> ([]string)<br/>List of tables that will be excluded to transfer<br/>include-tables -> ([]string)<br/>List of tables that will be included to transfer<br/>filter-rows -> (struct)<br/>filter -> (string)<br/>Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details here: https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources. Deprecated: Use filters instead.<br/>filters -> ([]string)<br/>Data is transported if it satisfies at least one of filters. Consider that there is OR statement between filters. Each filter can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details in docs: https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources.<br/>tables -> (struct)<br/>List of included and excluded tables.<br/>exclude-tables -> ([]string)<br/>List of tables that will be excluded to transfer<br/>include-tables -> ([]string)<br/>List of tables that will be included to transfer|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `--data-objects` | `shorthand/json`
+
+Shorthand Syntax:
+
+```hcl
+{
+  include-objects = str,...
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "include-objects": [
+    "str", ...
+  ]
+}
+```
+
+Fields:
+
+```
+include-objects -> ([]string)
+``` ||
+|| `--description` | `string`
+
+The new description for the transfer. ||
+|| `--labels` | `stringToString`
+
+Transfer labels as 'key:value' pairs. For details about the concept, see [documentation]({{ api-url-prefix }}/resource-manager/concepts/labels). ||
+|| `--name` | `string`
+
+The new transfer name. Must be unique within the folder. ||
+|| `--replication-runtime` | `shorthand/json`
+
+Shorthand Syntax:
+
+```hcl
+{
+  runtime = yc-runtime={
+    job-count = int,
+    upload-shard-params = {
+      job-count = int,
+      process-count = int
+    }
+  }
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "runtime": {
+    "yc-runtime": {
+      "job-count": "int",
+      "upload-shard-params": {
+        "job-count": "int",
+        "process-count": "int"
+      }
+    }
+  }
+}
+```
+
+Fields:
+
+```
+runtime -> (oneof<yc-runtime>)
+  Oneof runtime field
+  yc-runtime -> (struct)
+    job-count -> (int)
+    upload-shard-params -> (struct)
+      job-count -> (int)
+      process-count -> (int)
+``` ||
+|| `--runtime` | `shorthand/json`
+
+Shorthand Syntax:
+
+```hcl
+{
+  runtime = yc-runtime={
+    job-count = int,
+    upload-shard-params = {
+      job-count = int,
+      process-count = int
+    }
+  }
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "runtime": {
+    "yc-runtime": {
+      "job-count": "int",
+      "upload-shard-params": {
+        "job-count": "int",
+        "process-count": "int"
+      }
+    }
+  }
+}
+```
+
+Fields:
+
+```
+runtime -> (oneof<yc-runtime>)
+  Oneof runtime field
+  yc-runtime -> (struct)
+    job-count -> (int)
+    upload-shard-params -> (struct)
+      job-count -> (int)
+      process-count -> (int)
+``` ||
+|| `--transfer-id` | `string`
+
+Identifier of the transfer to be updated. ||
+|| `--transformation` | `shorthand/json`
+
+Shorthand Syntax:
+
+```hcl
+{
+  transformers = [
+    {
+      transformer = convert-to-string={
+        columns = {
+          exclude-columns = str,...,
+          include-columns = str,...
+        },
+        tables = {
+          exclude-tables = str,...,
+          include-tables = str,...
+        }
+      } | filter-columns={
+        columns = {
+          exclude-columns = str,...,
+          include-columns = str,...
+        },
+        tables = {
+          exclude-tables = str,...,
+          include-tables = str,...
+        }
+      } | filter-rows={
+        filter = str,
+        filters = str,...,
+        tables = {
+          exclude-tables = str,...,
+          include-tables = str,...
+        }
+      } | mask-field={
+        columns = str,...,
+        function = {
+          mask-function = mask-function-hash={
+            user-defined-salt = str
+          }
+        },
+        tables = {
+          exclude-tables = str,...,
+          include-tables = str,...
+        }
+      } | rename-tables={
+        rename-tables = [
+          {
+            new-name = {
+              name = str,
+              name-space = str
+            },
+            original-name = {
+              name = str,
+              name-space = str
+            }
+          }, ...
+        ]
+      } | replace-primary-key={
+        keys = str,...,
+        tables = {
+          exclude-tables = str,...,
+          include-tables = str,...
+        }
+      } | sharder-transformer={
+        sharder-transformer-type = columns={
+          exclude-columns = str,...,
+          include-columns = str,...
+        } | random={},
+        shards-count = int,
+        tables = {
+          exclude-tables = str,...,
+          include-tables = str,...
+        }
+      } | table-splitter-transformer={
+        columns = str,...,
+        splitter = str,
+        tables = {
+          exclude-tables = str,...,
+          include-tables = str,...
+        }
+      }
+    }, ...
+  ]
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "transformers": [
+    {
+      "transformer": {
+        "convert-to-string": {
+          "columns": {
+            "exclude-columns": [
+              "str", ...
+            ],
+            "include-columns": [
+              "str", ...
+            ]
+          },
+          "tables": {
+            "exclude-tables": [
+              "str", ...
+            ],
+            "include-tables": [
+              "str", ...
+            ]
+          }
+        },
+        "filter-columns": {
+          "columns": {
+            "exclude-columns": [
+              "str", ...
+            ],
+            "include-columns": [
+              "str", ...
+            ]
+          },
+          "tables": {
+            "exclude-tables": [
+              "str", ...
+            ],
+            "include-tables": [
+              "str", ...
+            ]
+          }
+        },
+        "filter-rows": {
+          "filter": "str",
+          "filters": [
+            "str", ...
+          ],
+          "tables": {
+            "exclude-tables": [
+              "str", ...
+            ],
+            "include-tables": [
+              "str", ...
+            ]
+          }
+        },
+        "mask-field": {
+          "columns": [
+            "str", ...
+          ],
+          "function": {
+            "mask-function": {
+              "mask-function-hash": {
+                "user-defined-salt": "str"
+              }
+            }
+          },
+          "tables": {
+            "exclude-tables": [
+              "str", ...
+            ],
+            "include-tables": [
+              "str", ...
+            ]
+          }
+        },
+        "rename-tables": {
+          "rename-tables": [
+            {
+              "new-name": {
+                "name": "str",
+                "name-space": "str"
+              },
+              "original-name": {
+                "name": "str",
+                "name-space": "str"
+              }
+            }, ...
+          ]
+        },
+        "replace-primary-key": {
+          "keys": [
+            "str", ...
+          ],
+          "tables": {
+            "exclude-tables": [
+              "str", ...
+            ],
+            "include-tables": [
+              "str", ...
+            ]
+          }
+        },
+        "sharder-transformer": {
+          "sharder-transformer-type": {
+            "columns": {
+              "exclude-columns": [
+                "str", ...
+              ],
+              "include-columns": [
+                "str", ...
+              ]
+            },
+            "random": {}
+          },
+          "shards-count": "int",
+          "tables": {
+            "exclude-tables": [
+              "str", ...
+            ],
+            "include-tables": [
+              "str", ...
+            ]
+          }
+        },
+        "table-splitter-transformer": {
+          "columns": [
+            "str", ...
+          ],
+          "splitter": "str",
+          "tables": {
+            "exclude-tables": [
+              "str", ...
+            ],
+            "include-tables": [
+              "str", ...
+            ]
+          }
+        }
+      }
+    }, ...
+  ]
+}
+```
+
+Fields:
+
+```
+transformers -> ([]struct)
+  Transformers are set as a list. When activating a transfer, a transformation plan is made for the tables that match the specified criteria. Transformers are applied to the tables in the sequence specified in the list.
+  transformer -> (oneof<convert-to-string|filter-columns|filter-rows|mask-field|rename-tables|replace-primary-key|sharder-transformer|table-splitter-transformer>)
+    Oneof transformer field
+    mask-field -> (struct)
+      columns -> ([]string)
+        Specify the name of the column for data masking (a regular expression).
+      function -> (struct)
+        Mask function
+        mask-function -> (oneof<mask-function-hash>)
+          Oneof mask-function field
+          mask-function-hash -> (struct)
+            Hash mask function
+            user-defined-salt -> (string)
+              This string will be used in the HMAC(sha256, salt) function applied to the column data.
+      tables -> (struct)
+        List of included and excluded tables
+        exclude-tables -> ([]string)
+          List of tables that will be excluded to transfer
+        include-tables -> ([]string)
+          List of tables that will be included to transfer
+    filter-columns -> (struct)
+      columns -> (struct)
+        List of the columns to transfer to the target tables using lists of included and excluded columns.
+        exclude-columns -> ([]string)
+          List of columns that will be excluded to transfer
+        include-columns -> ([]string)
+          List of columns that will be included to transfer
+      tables -> (struct)
+        List of the tables to filter using lists of included and excluded tables.
+        exclude-tables -> ([]string)
+          List of tables that will be excluded to transfer
+        include-tables -> ([]string)
+          List of tables that will be included to transfer
+    rename-tables -> (struct)
+      rename-tables -> ([]struct)
+        List of renaming rules
+        new-name -> (struct)
+          Specify the new names for this table in the target
+          name -> (string)
+          name-space -> (string)
+        original-name -> (struct)
+          Specify the current names of the table in the source
+          name -> (string)
+          name-space -> (string)
+    replace-primary-key -> (struct)
+      keys -> ([]string)
+        List of columns to be used as primary keys
+      tables -> (struct)
+        List of included and excluded tables
+        exclude-tables -> ([]string)
+          List of tables that will be excluded to transfer
+        include-tables -> ([]string)
+          List of tables that will be included to transfer
+    convert-to-string -> (struct)
+      columns -> (struct)
+        List of included and excluded columns
+        exclude-columns -> ([]string)
+          List of columns that will be excluded to transfer
+        include-columns -> ([]string)
+          List of columns that will be included to transfer
+      tables -> (struct)
+        List of included and excluded tables
+        exclude-tables -> ([]string)
+          List of tables that will be excluded to transfer
+        include-tables -> ([]string)
+          List of tables that will be included to transfer
+    sharder-transformer -> (struct)
+      shards-count -> (int)
+        Number of shards
+      tables -> (struct)
+        List of included and excluded tables
+        exclude-tables -> ([]string)
+          List of tables that will be excluded to transfer
+        include-tables -> ([]string)
+          List of tables that will be included to transfer
+      sharder-transformer-type -> (oneof<columns|random>)
+        Oneof sharder-transformer-type field
+        columns -> (struct)
+          List of included and excluded columns
+          exclude-columns -> ([]string)
+            List of columns that will be excluded to transfer
+          include-columns -> ([]string)
+            List of columns that will be included to transfer
+        random -> (struct)
+    table-splitter-transformer -> (struct)
+      columns -> ([]string)
+        Specify the columns in the tables to be partitioned.
+      splitter -> (string)
+        Specify the split string to be used for merging components in a new table name.
+      tables -> (struct)
+        List of included and excluded tables
+        exclude-tables -> ([]string)
+          List of tables that will be excluded to transfer
+        include-tables -> ([]string)
+          List of tables that will be included to transfer
+    filter-rows -> (struct)
+      filter -> (string)
+        Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details here: https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources. Deprecated: Use filters instead.
+      filters -> ([]string)
+        Data is transported if it satisfies at least one of filters. Consider that there is OR statement between filters. Each filter can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. Details in docs: https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources.
+      tables -> (struct)
+        List of included and excluded tables.
+        exclude-tables -> ([]string)
+          List of tables that will be excluded to transfer
+        include-tables -> ([]string)
+          List of tables that will be included to transfer
+``` ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

@@ -1,11 +1,11 @@
 ---
 title: Information about clusters in {{ mpg-short-name }}
-description: You can get detailed information about each {{ mpg-short-name }} cluster you created. To get a list of database clusters in a folder, navigate to the folder dashboard and go to {{ mpg-name }}.
+description: You can request detailed information for each {{ mpg-short-name }} cluster you have created. To get a list of database clusters in a folder, navigate to the folder dashboard and go to {{ mpg-name }}.
 ---
 
 # Getting information about existing {{ PG }} clusters
 
-You can get detailed information about each {{ mpg-short-name }} cluster you created.
+You can request detailed information for each {{ mpg-short-name }} cluster you have created.
 
 ## Getting a list of database clusters in a folder {#list-clusters}
 
@@ -38,11 +38,11 @@ You can get detailed information about each {{ mpg-short-name }} cluster you cre
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Call the [Cluster.list](../api-ref/Cluster/list.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
+  1. Call the [Cluster.List](../api-ref/Cluster/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -53,19 +53,19 @@ You can get detailed information about each {{ mpg-short-name }} cluster you cre
      ```
 
      
-     You can get the folder ID from the [cloud’s folder list](../../resource-manager/operations/folder/get-id.md).
+     You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
   1. Check the [server response](../api-ref/Cluster/list.md#yandex.cloud.mdb.postgresql.v1.ListClustersResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Call the [ClusterService.List](../api-ref/grpc/Cluster/list.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
+  1. Call the [ClusterService.List](../api-ref/grpc/Cluster/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
      ```bash
      grpcurl \
@@ -82,21 +82,21 @@ You can get detailed information about each {{ mpg-short-name }} cluster you cre
      ```
 
      
-     You can get the folder ID from the [cloud’s folder list](../../resource-manager/operations/folder/get-id.md).
+     You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
   1. Check the [server response](../api-ref/grpc/Cluster/list.md#yandex.cloud.mdb.postgresql.v1.ListClustersResponse) to make sure your request was successful.
 
 {% endlist %}
 
-## Getting detailed cluster information {#get-cluster}
+## Getting detailed information about a cluster {#get-cluster}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Click the cluster name.
+  1. Click the name of your cluster.
 
 - CLI {#cli}
 
@@ -110,15 +110,15 @@ You can get detailed information about each {{ mpg-short-name }} cluster you cre
   {{ yc-mdb-pg }} cluster get <cluster_name_or_ID>
   ```
 
-  You can get the cluster name and ID from the [folder’s cluster list](#list-clusters).
+  You can get the cluster ID and name with the [list of clusters in the folder](#list-clusters).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Call the [Cluster.Get](../api-ref/Cluster/get.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
+  1. Call the [Cluster.Get](../api-ref/Cluster/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -127,18 +127,18 @@ You can get detailed information about each {{ mpg-short-name }} cluster you cre
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>'
      ```
 
-     You can get the cluster ID from the [folder’s cluster list](#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Call the [ClusterService.Get](../api-ref/grpc/Cluster/get.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
+  1. Call the [ClusterService.Get](../api-ref/grpc/Cluster/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
      ```bash
      grpcurl \
@@ -154,15 +154,15 @@ You can get detailed information about each {{ mpg-short-name }} cluster you cre
        yandex.cloud.mdb.postgresql.v1.ClusterService.Get
      ```
 
-     You can get the cluster ID from the [folder’s cluster list](#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure your request was successful.
 
 {% endlist %}
 
-## Viewing cluster operations {#list-operations}
+## Viewing operations with clusters {#list-operations}
 
-All actions with {{ mpg-name }} clusters are logged as a list of operations. Each operation gets its unique ID.
+All actions with {{ mpg-name }} clusters are logged as a list of operations. Each operation gets its own unique ID.
 
 ### Getting a list of operations {#get-operations}
 
@@ -170,17 +170,17 @@ All actions with {{ mpg-name }} clusters are logged as a list of operations. Eac
 
 - Management console {#console}
 
-  To view all {{ mpg-name }} cluster operations, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.postgresql.switch_operations }}** in the left-hand panel. The list that opens will include operations for the deleted resources.
+  To view operations with all {{ mpg-name }} clusters, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.postgresql.switch_operations }}** in the left-hand panel. In the list that opens, you will also see operations for the deleted resources.
 
-  You can get the cluster’s operation list as follows:
+  You can get a list of cluster operations as follows:
 
   1. In the [management console]({{ link-console-main }}), open the folder containing your cluster.
   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.postgresql.switch_list }}**.
   1. Select your cluster.
-  1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.postgresql.switch_operations }}** panel for the selected cluster.
+  1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.postgresql.switch_operations }}** panel for the cluster you selected.
 
-     You will see a list of cluster operations.
+     You will see a list of operations with the cluster.
 
 - CLI {#cli}
 
@@ -188,7 +188,7 @@ All actions with {{ mpg-name }} clusters are logged as a list of operations. Eac
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get the {{ mpg-name }} cluster’s operation list, run this command:
+  To get a list of operations for a {{ mpg-name }} cluster, run this command:
 
   ```bash
   yc managed-postgresql cluster list-operations <cluster_name_or_ID>
@@ -206,9 +206,9 @@ All actions with {{ mpg-name }} clusters are logged as a list of operations. Eac
   +----------------------+---------------------+----------------------+---------------------+---- ---+--------------------------------+
   ```
 
-  You can get the cluster ID from the [folder’s cluster list](#list-clusters).
+  You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-  By default, operation information is displayed as text. For more detailed information, specify the `yaml` or `json` output format using the `--format` option:
+  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using `--format`:
 
   ```bash
   yc managed-postgresql cluster list-operations c9qk2926qqu9******** --format yaml
@@ -231,11 +231,11 @@ All actions with {{ mpg-name }} clusters are logged as a list of operations. Eac
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Call the [Cluster.ListOperations](../api-ref/Cluster/listOperations.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
+  1. Call the [Cluster.ListOperations](../api-ref/Cluster/listOperations.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -244,18 +244,18 @@ All actions with {{ mpg-name }} clusters are logged as a list of operations. Eac
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/operations'
      ```
 
-     You can get the cluster ID from the [folder’s cluster list](#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.mdb.postgresql.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Call the [ClusterService.ListOperations](../api-ref/grpc/Cluster/listOperations.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
+  1. Call the [ClusterService.ListOperations](../api-ref/grpc/Cluster/listOperations.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
      ```bash
      grpcurl \
@@ -271,7 +271,7 @@ All actions with {{ mpg-name }} clusters are logged as a list of operations. Eac
        yandex.cloud.mdb.postgresql.v1.ClusterService.ListOperations
      ```
 
-     You can get the cluster ID from the [folder’s cluster list](#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.mdb.postgresql.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
@@ -279,48 +279,114 @@ All actions with {{ mpg-name }} clusters are logged as a list of operations. Eac
 
 ### Getting operation details {#get-operations-info}
 
-1. [Get the cluster operation list](#get-operations).
-1. Copy the ID of the required operation.
-1. Get the operation details:
+{% list tabs group=instructions %}
 
-   {% list tabs group=instructions %}
+- Management console {#console}
 
-   - CLI {#cli}
+    1. [Navigate to the list of all cluster operations or operations for your specific cluster](#get-operations).
+    1. Click the ID of the operation you need.
 
-     {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [operation-details](../../_includes/mdb/console/operation-details.md) %}
 
-     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+- CLI {#cli}
 
-     Run this command:
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-     ```bash
-     yc operation get <operation_ID>
-     ```
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-     Result:
+    To get detailed information about an operation, run this command:
 
-     ```text
-     id: c9q2m9jrootm********
-     description: Create PostgreSQL cluster
-     created_at: "2024-08-06T06:38:13.724389Z"
-     created_by: ajej2i98kcjd********
-     modified_at: "2024-08-06T06:46:33.101402Z"
-     done: true
-     metadata:
-       '@type': type.googleapis.com/yandex.cloud.mdb.postgresql.v1.CreateClusterMetadata
-       cluster_id: c9qk2926qqu9********
-     response:
-       '@type': type.googleapis.com/yandex.cloud.mdb.postgresql.v1.Cluster
-     ...
-     ```
+    ```bash
+    yc operation get <operation_ID>
+    ```
 
-   - REST API {#api}
+    You can get the operation ID with the [list of operations](#get-operations) for the cluster.
 
-     1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    Here is an example of an output for the completed cluster creation operation:
+
+    ```text
+    id: c9qvtaeael629vooobjn
+    description: Create PostgreSQL cluster
+    created_at: "2025-12-29T01:00:10.342661Z"
+    created_by: ajefhe0o8uas********
+    modified_at: "2025-12-29T01:10:42.927393Z"
+    done: true
+    metadata:
+      '@type': type.googleapis.com/yandex.cloud.mdb.postgresql.v1.CreateClusterMetadata
+      cluster_id: c9qheabu83os********
+      operation_log:
+        entities:
+          - cluster_id: c9qheabu83os********
+            action: Preparing metadata
+            started_at: "2025-12-29T01:00:12.962815Z"
+            hosts:
+              - fqdn: rc1b-3mrj18nj********.mdb.yandexcloud.net
+                action: Preparing host
+                started_at: "2025-12-29T01:00:14.133616Z"
+              - fqdn: rc1d-qsor0ftm********.mdb.yandexcloud.net
+                action: Preparing host
+                started_at: "2025-12-29T01:00:14.355756Z"
+          - cluster_id: c9qheabu83os********
+            action: Preparing backup storage
+            started_at: "2025-12-29T01:00:16.219396Z"
+          - cluster_id: c9qheabu83os********
+            action: Creating cluster
+            started_at: "2025-12-29T01:00:29.106594Z"
+            hosts:
+              - fqdn: rc1b-3mrj18nj********.mdb.yandexcloud.net
+                action: Reserving resources
+                started_at: "2025-12-29T01:00:31.926872Z"
+              - fqdn: rc1d-qsor0ftm********.mdb.yandexcloud.net
+                action: Reserving resources
+                started_at: "2025-12-29T01:00:40.139058Z"
+              - fqdn: rc1b-3mrj18nj********.mdb.yandexcloud.net
+                action: Creating host
+                started_at: "2025-12-29T01:00:46.710067Z"
+              - fqdn: rc1d-qsor0ftm********.mdb.yandexcloud.net
+                action: Creating host
+                started_at: "2025-12-29T01:00:48.757701Z"
+          - cluster_id: c9qheabu83os********
+            action: Installing software
+            started_at: "2025-12-29T01:01:48.454943Z"
+            hosts:
+              - fqdn: rc1b-3mrj18nj********.mdb.yandexcloud.net
+                action: Launching host
+                started_at: "2025-12-29T01:02:08.738499Z"
+              - fqdn: rc1d-qsor0ftm********.mdb.yandexcloud.net
+                action: Launching host
+                started_at: "2025-12-29T01:02:18.973229Z"
+              - fqdn: rc1b-3mrj18nj********.mdb.yandexcloud.net
+                action: Updating database software
+                started_at: "2025-12-29T01:02:19.329133Z"
+              - fqdn: rc1d-qsor0ftm********.mdb.yandexcloud.net
+                action: Updating database software
+                started_at: "2025-12-29T01:02:19.557436Z"
+          - cluster_id: c9qheabu83os********
+            action: Initializing database
+            started_at: "2025-12-29T01:05:20.261791Z"
+          - cluster_id: c9qheabu83os********
+            action: Infrastructure integration
+            started_at: "2025-12-29T01:10:33.044048Z"
+            hosts:
+              - fqdn: rc1b-3mrj18nj********.mdb.yandexcloud.net
+                action: Creating DNS records
+                started_at: "2025-12-29T01:10:33.306624Z"
+              - fqdn: rc1d-qsor0ftm********.mdb.yandexcloud.net
+                action: Creating DNS records
+                started_at: "2025-12-29T01:10:33.595051Z"
+    response:
+      '@type': type.googleapis.com/yandex.cloud.mdb.postgresql.v1.Cluster
+      id: c9qheabu83os********
+      ...
+    ```
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-     1. Call the [Operation.Get](../api-ref/Operation/get.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
+    1. Call the [Operation.Get](../api-ref/Operation/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -329,16 +395,18 @@ All actions with {{ mpg-name }} clusters are logged as a list of operations. Eac
             --url 'https://{{ api-host-operation }}/operations/<operation_ID>'
         ```
 
-     1. Check the [server response](../api-ref/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+        You can get the operation ID with the [list of operations](#get-operations) for the cluster.
 
-   - gRPC API {#grpc-api}
+    1. Check the [server response](../api-ref/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
-     1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-     1. Call the [OperationService.Get](../api-ref/grpc/Operation/get.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Call the [OperationService.Get](../api-ref/grpc/Operation/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -354,9 +422,11 @@ All actions with {{ mpg-name }} clusters are logged as a list of operations. Eac
             yandex.cloud.operation.OperationService.Get
         ```
 
-     1. Check the [server response](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+        You can get the operation ID with the [list of operations](#get-operations) for the cluster.
 
-   {% endlist %}
+    1. Check the [server response](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+{% endlist %}
 
 ### See also {#see-also}
 

@@ -74,7 +74,7 @@ editable: false
 
 12 мая приобрели 5 рабочих мест, а 20 мая — еще 3 рабочих места.
 
-Общая стоимость за май составит (10 + 5 + 3) × 990,00 ₽ = 17 820,00 ₽
+Общая стоимость за май составит (10 + 5 + 3) × {{ sku|RUB|datalens.users.v1|string }} = {% calc [currency=RUB] (10 + 5 + 3) × {{ sku|RUB|datalens.users.v1|number }} %}
 
 {% endcut %}
 

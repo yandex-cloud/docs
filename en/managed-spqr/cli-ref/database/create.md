@@ -1,30 +1,25 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/database/create.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/database/create.md
 ---
 
-# yc managed-postgresql database create
+# yc managed-sharded-postgresql database create
 
-Create PostgreSQL database
+Create Sharded PostgreSQL database
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-postgresql database create <DATABASE_NAME> [Flags...] [Global Flags...]`
+`yc managed-sharded-postgresql database create <DATABASE_NAME> [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>PostgreSQL cluster id.|
-|`--cluster-name`|<b>`string`</b><br/>PostgreSQL cluster name.|
+|`--cluster-id`|<b>`string`</b><br/>Sharded PostgreSQL cluster id.|
+|`--cluster-name`|<b>`string`</b><br/>Sharded PostgreSQL cluster name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--owner`|<b>`string`</b><br/>Name of the user assigned as the owner of the database.|
-|`--lc-collate`|<b>`string`</b><br/>Locale property for database to be created.|
-|`--lc-type`|<b>`string`</b><br/>Locale property for database to be created.|
-|`--extensions`|<b>`value[,value]`</b><br/>A list of extension names to add.|
-|`--template-db`|<b>`string`</b><br/>Name of the PostgreSQL database template.|
 
 #### Global Flags
 

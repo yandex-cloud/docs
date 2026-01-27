@@ -86,8 +86,6 @@ editable: false
 
 #### Пример расчета стоимости для организации, ресурсы которой оплачиваются одним платежным аккаунтом {#business-example-one-ba}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 
 {% list tabs group=pricing %}
 
@@ -108,8 +106,6 @@ editable: false
 
 Если в одной организации с включенным тарифом поддержки есть ресурсы, оплачивающиеся разными платежными аккаунтами, то процентная часть тарифа будет взиматься с каждого платежного аккаунта в зависимости от стоимости потребления ресурсов, а фиксированную часть платит только один аккаунт, который был указан для этого при выборе тарифа Бизнес.
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 
 {% list tabs group=pricing %}
 
@@ -128,8 +124,6 @@ editable: false
 
 
 #### Пример расчета стоимости для организации, ресурсы которой оплачиваются одним платежным аккаунтом с учетом зарезервированного потребления ресурсов {#business-example-one-ba-cvos}
-
-{% include [prices-difference](../_includes/prices-difference.md) %}
 
 
 {% list tabs group=pricing %}

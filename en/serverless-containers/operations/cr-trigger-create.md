@@ -18,7 +18,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -34,8 +34,8 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_container-registry }}** field, select the registry where you want to create a trigger for image events.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select the [events](../concepts/trigger/cr-trigger.md#event) that will fire the trigger.
-        * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_image-name }}** field, enter an image name for [filtering](../concepts/trigger/cr-trigger.md#filter). To find out the Docker image name, [get a list of Docker images in the registry](../../container-registry/operations/docker-image/docker-image-list.md).
-        * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_tag }}** field, enter the image tag for filtering.
+        * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_image-name }}** field, enter the image name for [filtering](../concepts/trigger/cr-trigger.md#filter). To find out the Docker image name, [get a list of Docker images in the registry](../../container-registry/operations/docker-image/docker-image-list.md).
+        * Optionaly, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_tag }}** field, enter the image tag for filtering.
     
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
@@ -80,7 +80,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
     * `--name`: Trigger name.
     * `--registry-id`: [Registry ID](../../container-registry/operations/registry/registry-list.md).
-    * `--events`: [Events](../concepts/trigger/cr-trigger.md#event) activating the trigger.
+    * `--events`: [Events](../concepts/trigger/cr-trigger.md#event) that set off the trigger.
 
     {% include [batch-settings-events](../../_includes/serverless-containers/batch-settings-events.md) %}
 
@@ -124,7 +124,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
   To create a trigger for {{ container-registry-name }}:
 
-  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_function_trigger" "my_trigger" {
@@ -143,7 +143,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
           delete_image     = true
           create_image_tag = true
           delete_image_tag = true
-          batch_cutoff     = "<maximum_timeout>"
+          batch_cutoff     = "<maximum_wait_time>"
           batch_size       = "<event_group_size>"
         }
         dlq {
@@ -170,7 +170,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
         * `registry_id`: [Registry ID](../../container-registry/operations/registry/registry-list.md).
         * `image_name`: Name of the image for [filtering](../concepts/trigger/cr-trigger.md#filter). To find out the Docker image name, [get a list of Docker images in the registry](../../container-registry/operations/docker-image/docker-image-list.md).
         * `tag`: Tag of the image for filtering.
-        * [Events](../concepts/trigger/cr-trigger.md#event) activating the trigger:
+        * [Events](../concepts/trigger/cr-trigger.md#event) that set off the trigger:
 
           * `create_image`: Trigger will invoke the container when a new Docker image is created in the registry. The possible values are `true` or `false`.
           * `delete_image`: Trigger will invoke the container when a Docker image is deleted from the registry. It can either be `true` or `false`.
@@ -183,7 +183,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
       For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

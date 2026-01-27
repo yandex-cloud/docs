@@ -63,8 +63,6 @@ editable: false
 
 ### Пример расчета стоимости кластера {#example}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
 * **Хосты {{ VLK }}**: 3 хоста класса `hm3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM.

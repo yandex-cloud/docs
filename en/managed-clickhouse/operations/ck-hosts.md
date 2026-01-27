@@ -35,7 +35,9 @@ For more information about {{ CK }} hosts, see [{#T}](../concepts/replication.md
 
 {% endlist %}  
 
-## Changing {{ CK }} settings {#update-keeper-settings}
+## Updating {{ CK }} settings {#update-keeper-settings}
+
+{% include [note-change-disk-type-data-loss](../../_includes/mdb/mch/note-change-disk-type-data-loss.md) %}
 
 {% list tabs group=instructions %}
 
@@ -157,7 +159,7 @@ You can delete only one {{ CK }} host at a time. However, there must be at least
 
       You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
   
-  1. View the [server response](../api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

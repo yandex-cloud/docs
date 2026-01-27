@@ -424,9 +424,10 @@ description: Следуя данной инструкции, вы сможете
           }
 
           pooler_config {
-            pooling_mode             = <режим_работы>
-            pool_size                = <размер>
-            pool_client_idle_timeout = <время_ожидания_клиента>
+            pooling_mode                     = <режим_работы>
+            pool_size                        = <размер>
+            pool_client_idle_timeout         = <время_ожидания_клиента>
+            pool_idle_in_transaction_timeout = <время_ожидания_клиента_в_транзакции>
           }
         }
         ```
@@ -472,6 +473,7 @@ description: Следуя данной инструкции, вы сможете
             * `pooling_mode` — режим работы: `SESSION` или `TRANSACTION`.
             * `pool_size` — количество клиентских соединений.
             * `pool_client_idle_timeout` — время неактивности клиентского соединения в секундах, после которого соединение разрывается.
+            * `pool_idle_in_transaction_timeout` — время неактивности клиентского соединения с открытой транзакцией в секундах, после которого соединение разрывается.
 
     1. Проверьте корректность настроек.
 
@@ -496,7 +498,7 @@ description: Следуя данной инструкции, вы сможете
         
         ```json
         {
-          "updateMask": "config.backupWindowStart,config.access.dataLens,config.access.yandexQuery,maintenanceWindow,deletionProtection,configSpec.pool.mode,configSpec.pool.size,configSpec.pool.clientIdleTimeout,cloudStorage",
+          "updateMask": "config.backupWindowStart,config.access.dataLens,config.access.yandexQuery,maintenanceWindow,deletionProtection,configSpec.pool.mode,configSpec.pool.size,configSpec.pool.clientIdleTimeout,configSpec.pool.idleInTransactionTimeout,cloudStorage",
           "config": {
             "backupWindowStart": {
               "hours": "<часы>",
@@ -520,7 +522,8 @@ description: Следуя данной инструкции, вы сможете
             "pool": {
               "mode": "<режим_работы>",
               "size": "<количество_клиентских_соединений>",
-              "clientIdleTimeout": "<время_ожидания_клиента>"
+              "clientIdleTimeout": "<время_ожидания_клиента>",
+              "idleInTransactionTimeout": "<время_ожидания_клиента_в_транзакции>"
             }
           },
           "cloudStorage": {
@@ -572,6 +575,7 @@ description: Следуя данной инструкции, вы сможете
             * `mode` — режим работы: `SESSION` или `TRANSACTION`.
             * `size` — количество клиентских соединений.
             * `clientIdleTimeout` — время неактивности клиентского соединения в секундах, после которого соединение разрывается.
+            * `idleInTransactionTimeout` — время неактивности клиентского соединения с открытой транзакцией в секундах, после которого соединение разрывается.
 
         * `cloudStorage.enable` — использование гибридного хранилища в кластерах с версией {{ GP }} 6.25 и выше. Установите значение `true`, чтобы включить в кластере [расширение {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }}. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера {{ GP }} в холодное хранилище {{ objstorage-full-name }}. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
 
@@ -622,6 +626,7 @@ description: Следуя данной инструкции, вы сможете
               "config_spec.pool.mode",
               "config_spec.pool.size",
               "config_spec.pool.client_idle_timeout",
+              "config_spec.pool.idle_in_transaction_timeout",
               "cloud_storage"
             ]
           },
@@ -648,7 +653,8 @@ description: Следуя данной инструкции, вы сможете
             "pool": {
               "mode": "<режим_работы>",
               "size": "<количество_клиентских_соединений>",
-              "client_idle_timeout": "<время_ожидания_клиента>"
+              "client_idle_timeout": "<время_ожидания_клиента>",
+              "idle_in_transaction_timeout": "<время_ожидания_клиента_в_транзакции>"
             }
           },
           "cloud_storage": {
@@ -700,6 +706,7 @@ description: Следуя данной инструкции, вы сможете
             * `mode` — режим работы: `SESSION` или `TRANSACTION`.
             * `size` — количество клиентских соединений.
             * `client_idle_timeout` — время неактивности клиентского соединения в секундах, после которого соединение разрывается.
+            * `pool_idle_in_transaction_timeout` — время неактивности клиентского соединения с открытой транзакцией в секундах, после которого соединение разрывается.
 
         * `cloud_storage.enable` — использование гибридного хранилища в кластерах с версией {{ GP }} 6.25 и выше. Установите значение `true`, чтобы включить в кластере [расширение {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }}. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера {{ GP }} в холодное хранилище {{ objstorage-full-name }}. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
 

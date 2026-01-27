@@ -10,36 +10,3978 @@ Updates the specified hosts.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta managed-postgresql cluster update-hosts <CLUSTER-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--cluster-id`|<b>`string`</b><br/>ID of the PostgreSQL cluster to update hosts in. To get the PostgreSQL cluster ID, use a [ClusterService.List] request.|
-|`--update-host-specs`|<b>`shorthand/json`</b><br/>New configurations to apply to hosts.<br/>Shorthand Syntax:<br/>[<br/>{<br/>assign-public-ip = bool,<br/>config-spec = {<br/>postgresql-config = postgresql-config-10={<br/>array-nulls = bool,<br/>backend-flush-after = int,<br/>backslash-quote = BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING,<br/>bytea-output = BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED,<br/>client-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>constraint-exclusion = CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION,<br/>cursor-tuple-fraction = double,<br/>deadlock-timeout = int,<br/>default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE,<br/>default-with-oids = bool,<br/>effective-cache-size = int,<br/>effective-io-concurrency = int,<br/>enable-bitmapscan = bool,<br/>enable-hashagg = bool,<br/>enable-hashjoin = bool,<br/>enable-indexonlyscan = bool,<br/>enable-indexscan = bool,<br/>enable-material = bool,<br/>enable-mergejoin = bool,<br/>enable-nestloop = bool,<br/>enable-seqscan = bool,<br/>enable-sort = bool,<br/>enable-tidscan = bool,<br/>escape-string-warning = bool,<br/>exit-on-error = bool,<br/>force-parallel-mode = FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS,<br/>from-collapse-limit = int,<br/>gin-pending-list-limit = int,<br/>idle-in-transaction-session-timeout = int,<br/>join-collapse-limit = int,<br/>lo-compat-privileges = bool,<br/>lock-timeout = int,<br/>log-checkpoints = bool,<br/>log-connections = bool,<br/>log-disconnections = bool,<br/>log-duration = bool,<br/>log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE,<br/>log-lock-waits = bool,<br/>log-min-duration-statement = int,<br/>log-min-error-statement = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-statement = LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL,<br/>log-temp-files = int,<br/>max-locks-per-transaction = int,<br/>max-parallel-workers = int,<br/>max-parallel-workers-per-gather = int,<br/>max-pred-locks-per-transaction = int,<br/>max-standby-streaming-delay = int,<br/>old-snapshot-threshold = int,<br/>operator-precedence-warning = bool,<br/>quote-all-identifiers = bool,<br/>random-page-cost = double,<br/>recovery-min-apply-delay = int,<br/>replacement-sort-tuples = int,<br/>row-security = bool,<br/>search-path = str,<br/>seq-page-cost = double,<br/>shared-buffers = int,<br/>standard-conforming-strings = bool,<br/>statement-timeout = int,<br/>synchronize-seqscans = bool,<br/>temp-buffers = int,<br/>temp-file-limit = int,<br/>timezone = str,<br/>transform-null-equals = bool,<br/>work-mem = int,<br/>xmlbinary = XML_BINARY_BASE64\|XML_BINARY_HEX,<br/>xmloption = XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT<br/>} \| postgresql-config-10-1c={<br/>array-nulls = bool,<br/>backend-flush-after = int,<br/>backslash-quote = BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING,<br/>bytea-output = BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED,<br/>client-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>constraint-exclusion = CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION,<br/>cursor-tuple-fraction = double,<br/>deadlock-timeout = int,<br/>default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE,<br/>default-with-oids = bool,<br/>effective-cache-size = int,<br/>effective-io-concurrency = int,<br/>enable-bitmapscan = bool,<br/>enable-hashagg = bool,<br/>enable-hashjoin = bool,<br/>enable-indexonlyscan = bool,<br/>enable-indexscan = bool,<br/>enable-material = bool,<br/>enable-mergejoin = bool,<br/>enable-nestloop = bool,<br/>enable-seqscan = bool,<br/>enable-sort = bool,<br/>enable-tidscan = bool,<br/>escape-string-warning = bool,<br/>exit-on-error = bool,<br/>force-parallel-mode = FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS,<br/>from-collapse-limit = int,<br/>gin-pending-list-limit = int,<br/>idle-in-transaction-session-timeout = int,<br/>join-collapse-limit = int,<br/>lo-compat-privileges = bool,<br/>lock-timeout = int,<br/>log-checkpoints = bool,<br/>log-connections = bool,<br/>log-disconnections = bool,<br/>log-duration = bool,<br/>log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE,<br/>log-lock-waits = bool,<br/>log-min-duration-statement = int,<br/>log-min-error-statement = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-statement = LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL,<br/>log-temp-files = int,<br/>max-locks-per-transaction = int,<br/>max-parallel-workers = int,<br/>max-parallel-workers-per-gather = int,<br/>max-pred-locks-per-transaction = int,<br/>max-standby-streaming-delay = int,<br/>old-snapshot-threshold = int,<br/>operator-precedence-warning = bool,<br/>quote-all-identifiers = bool,<br/>random-page-cost = double,<br/>recovery-min-apply-delay = int,<br/>replacement-sort-tuples = int,<br/>row-security = bool,<br/>search-path = str,<br/>seq-page-cost = double,<br/>shared-buffers = int,<br/>standard-conforming-strings = bool,<br/>statement-timeout = int,<br/>synchronize-seqscans = bool,<br/>temp-buffers = int,<br/>temp-file-limit = int,<br/>timezone = str,<br/>transform-null-equals = bool,<br/>work-mem = int,<br/>xmlbinary = XML_BINARY_BASE64\|XML_BINARY_HEX,<br/>xmloption = XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT<br/>} \| postgresql-config-11={<br/>array-nulls = bool,<br/>backend-flush-after = int,<br/>backslash-quote = BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING,<br/>bytea-output = BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED,<br/>client-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>constraint-exclusion = CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION,<br/>cursor-tuple-fraction = double,<br/>deadlock-timeout = int,<br/>default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE,<br/>default-with-oids = bool,<br/>effective-cache-size = int,<br/>effective-io-concurrency = int,<br/>enable-bitmapscan = bool,<br/>enable-hashagg = bool,<br/>enable-hashjoin = bool,<br/>enable-indexonlyscan = bool,<br/>enable-indexscan = bool,<br/>enable-material = bool,<br/>enable-mergejoin = bool,<br/>enable-nestloop = bool,<br/>enable-seqscan = bool,<br/>enable-sort = bool,<br/>enable-tidscan = bool,<br/>escape-string-warning = bool,<br/>exit-on-error = bool,<br/>force-parallel-mode = FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS,<br/>from-collapse-limit = int,<br/>gin-pending-list-limit = int,<br/>idle-in-transaction-session-timeout = int,<br/>join-collapse-limit = int,<br/>lo-compat-privileges = bool,<br/>lock-timeout = int,<br/>log-checkpoints = bool,<br/>log-connections = bool,<br/>log-disconnections = bool,<br/>log-duration = bool,<br/>log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE,<br/>log-lock-waits = bool,<br/>log-min-duration-statement = int,<br/>log-min-error-statement = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-statement = LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL,<br/>log-temp-files = int,<br/>max-locks-per-transaction = int,<br/>max-parallel-workers = int,<br/>max-parallel-workers-per-gather = int,<br/>max-pred-locks-per-transaction = int,<br/>max-standby-streaming-delay = int,<br/>old-snapshot-threshold = int,<br/>operator-precedence-warning = bool,<br/>quote-all-identifiers = bool,<br/>random-page-cost = double,<br/>recovery-min-apply-delay = int,<br/>row-security = bool,<br/>search-path = str,<br/>seq-page-cost = double,<br/>shared-buffers = int,<br/>standard-conforming-strings = bool,<br/>statement-timeout = int,<br/>synchronize-seqscans = bool,<br/>temp-buffers = int,<br/>temp-file-limit = int,<br/>timezone = str,<br/>transform-null-equals = bool,<br/>work-mem = int,<br/>xmlbinary = XML_BINARY_BASE64\|XML_BINARY_HEX,<br/>xmloption = XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT<br/>} \| postgresql-config-11-1c={<br/>array-nulls = bool,<br/>backend-flush-after = int,<br/>backslash-quote = BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING,<br/>bytea-output = BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED,<br/>client-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>constraint-exclusion = CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION,<br/>cursor-tuple-fraction = double,<br/>deadlock-timeout = int,<br/>default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE,<br/>default-with-oids = bool,<br/>effective-cache-size = int,<br/>effective-io-concurrency = int,<br/>enable-bitmapscan = bool,<br/>enable-hashagg = bool,<br/>enable-hashjoin = bool,<br/>enable-indexonlyscan = bool,<br/>enable-indexscan = bool,<br/>enable-material = bool,<br/>enable-mergejoin = bool,<br/>enable-nestloop = bool,<br/>enable-seqscan = bool,<br/>enable-sort = bool,<br/>enable-tidscan = bool,<br/>escape-string-warning = bool,<br/>exit-on-error = bool,<br/>force-parallel-mode = FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS,<br/>from-collapse-limit = int,<br/>gin-pending-list-limit = int,<br/>idle-in-transaction-session-timeout = int,<br/>join-collapse-limit = int,<br/>lo-compat-privileges = bool,<br/>lock-timeout = int,<br/>log-checkpoints = bool,<br/>log-connections = bool,<br/>log-disconnections = bool,<br/>log-duration = bool,<br/>log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE,<br/>log-lock-waits = bool,<br/>log-min-duration-statement = int,<br/>log-min-error-statement = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-statement = LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL,<br/>log-temp-files = int,<br/>max-locks-per-transaction = int,<br/>max-parallel-workers = int,<br/>max-parallel-workers-per-gather = int,<br/>max-pred-locks-per-transaction = int,<br/>max-standby-streaming-delay = int,<br/>old-snapshot-threshold = int,<br/>operator-precedence-warning = bool,<br/>quote-all-identifiers = bool,<br/>random-page-cost = double,<br/>recovery-min-apply-delay = int,<br/>row-security = bool,<br/>search-path = str,<br/>seq-page-cost = double,<br/>shared-buffers = int,<br/>standard-conforming-strings = bool,<br/>statement-timeout = int,<br/>synchronize-seqscans = bool,<br/>temp-buffers = int,<br/>temp-file-limit = int,<br/>timezone = str,<br/>transform-null-equals = bool,<br/>work-mem = int,<br/>xmlbinary = XML_BINARY_BASE64\|XML_BINARY_HEX,<br/>xmloption = XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT<br/>} \| postgresql-config-12={<br/>array-nulls = bool,<br/>backend-flush-after = int,<br/>backslash-quote = BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING,<br/>bytea-output = BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED,<br/>client-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>constraint-exclusion = CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION,<br/>cursor-tuple-fraction = double,<br/>deadlock-timeout = int,<br/>default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE,<br/>default-with-oids = bool,<br/>effective-cache-size = int,<br/>effective-io-concurrency = int,<br/>enable-bitmapscan = bool,<br/>enable-hashagg = bool,<br/>enable-hashjoin = bool,<br/>enable-indexonlyscan = bool,<br/>enable-indexscan = bool,<br/>enable-material = bool,<br/>enable-mergejoin = bool,<br/>enable-nestloop = bool,<br/>enable-seqscan = bool,<br/>enable-sort = bool,<br/>enable-tidscan = bool,<br/>escape-string-warning = bool,<br/>exit-on-error = bool,<br/>force-parallel-mode = FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS,<br/>from-collapse-limit = int,<br/>gin-pending-list-limit = int,<br/>idle-in-transaction-session-timeout = int,<br/>join-collapse-limit = int,<br/>lo-compat-privileges = bool,<br/>lock-timeout = int,<br/>log-checkpoints = bool,<br/>log-connections = bool,<br/>log-disconnections = bool,<br/>log-duration = bool,<br/>log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE,<br/>log-lock-waits = bool,<br/>log-min-duration-statement = int,<br/>log-min-error-statement = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-statement = LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL,<br/>log-temp-files = int,<br/>max-locks-per-transaction = int,<br/>max-parallel-workers = int,<br/>max-parallel-workers-per-gather = int,<br/>max-pred-locks-per-transaction = int,<br/>max-standby-streaming-delay = int,<br/>old-snapshot-threshold = int,<br/>operator-precedence-warning = bool,<br/>quote-all-identifiers = bool,<br/>random-page-cost = double,<br/>recovery-min-apply-delay = int,<br/>row-security = bool,<br/>search-path = str,<br/>seq-page-cost = double,<br/>shared-buffers = int,<br/>standard-conforming-strings = bool,<br/>statement-timeout = int,<br/>synchronize-seqscans = bool,<br/>temp-buffers = int,<br/>temp-file-limit = int,<br/>timezone = str,<br/>transform-null-equals = bool,<br/>work-mem = int,<br/>xmlbinary = XML_BINARY_BASE64\|XML_BINARY_HEX,<br/>xmloption = XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT<br/>} \| postgresql-config-12-1c={<br/>array-nulls = bool,<br/>backend-flush-after = int,<br/>backslash-quote = BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING,<br/>bytea-output = BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED,<br/>client-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>constraint-exclusion = CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION,<br/>cursor-tuple-fraction = double,<br/>deadlock-timeout = int,<br/>default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE,<br/>default-with-oids = bool,<br/>effective-cache-size = int,<br/>effective-io-concurrency = int,<br/>enable-bitmapscan = bool,<br/>enable-hashagg = bool,<br/>enable-hashjoin = bool,<br/>enable-indexonlyscan = bool,<br/>enable-indexscan = bool,<br/>enable-material = bool,<br/>enable-mergejoin = bool,<br/>enable-nestloop = bool,<br/>enable-seqscan = bool,<br/>enable-sort = bool,<br/>enable-tidscan = bool,<br/>escape-string-warning = bool,<br/>exit-on-error = bool,<br/>force-parallel-mode = FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS,<br/>from-collapse-limit = int,<br/>gin-pending-list-limit = int,<br/>idle-in-transaction-session-timeout = int,<br/>join-collapse-limit = int,<br/>lo-compat-privileges = bool,<br/>lock-timeout = int,<br/>log-checkpoints = bool,<br/>log-connections = bool,<br/>log-disconnections = bool,<br/>log-duration = bool,<br/>log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE,<br/>log-lock-waits = bool,<br/>log-min-duration-statement = int,<br/>log-min-error-statement = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-statement = LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL,<br/>log-temp-files = int,<br/>max-locks-per-transaction = int,<br/>max-parallel-workers = int,<br/>max-parallel-workers-per-gather = int,<br/>max-pred-locks-per-transaction = int,<br/>max-standby-streaming-delay = int,<br/>old-snapshot-threshold = int,<br/>operator-precedence-warning = bool,<br/>quote-all-identifiers = bool,<br/>random-page-cost = double,<br/>recovery-min-apply-delay = int,<br/>row-security = bool,<br/>search-path = str,<br/>seq-page-cost = double,<br/>shared-buffers = int,<br/>standard-conforming-strings = bool,<br/>statement-timeout = int,<br/>synchronize-seqscans = bool,<br/>temp-buffers = int,<br/>temp-file-limit = int,<br/>timezone = str,<br/>transform-null-equals = bool,<br/>work-mem = int,<br/>xmlbinary = XML_BINARY_BASE64\|XML_BINARY_HEX,<br/>xmloption = XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT<br/>} \| postgresql-config-13={<br/>array-nulls = bool,<br/>backend-flush-after = int,<br/>backslash-quote = BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING,<br/>bytea-output = BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED,<br/>client-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>constraint-exclusion = CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION,<br/>cursor-tuple-fraction = double,<br/>deadlock-timeout = int,<br/>default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE,<br/>default-with-oids = bool,<br/>effective-cache-size = int,<br/>effective-io-concurrency = int,<br/>enable-bitmapscan = bool,<br/>enable-hashagg = bool,<br/>enable-hashjoin = bool,<br/>enable-indexonlyscan = bool,<br/>enable-indexscan = bool,<br/>enable-material = bool,<br/>enable-mergejoin = bool,<br/>enable-nestloop = bool,<br/>enable-seqscan = bool,<br/>enable-sort = bool,<br/>enable-tidscan = bool,<br/>escape-string-warning = bool,<br/>exit-on-error = bool,<br/>force-parallel-mode = FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS,<br/>from-collapse-limit = int,<br/>gin-pending-list-limit = int,<br/>idle-in-transaction-session-timeout = int,<br/>join-collapse-limit = int,<br/>lo-compat-privileges = bool,<br/>lock-timeout = int,<br/>log-checkpoints = bool,<br/>log-connections = bool,<br/>log-disconnections = bool,<br/>log-duration = bool,<br/>log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE,<br/>log-lock-waits = bool,<br/>log-min-duration-statement = int,<br/>log-min-error-statement = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-statement = LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL,<br/>log-temp-files = int,<br/>max-locks-per-transaction = int,<br/>max-parallel-workers = int,<br/>max-parallel-workers-per-gather = int,<br/>max-pred-locks-per-transaction = int,<br/>max-standby-streaming-delay = int,<br/>old-snapshot-threshold = int,<br/>operator-precedence-warning = bool,<br/>quote-all-identifiers = bool,<br/>random-page-cost = double,<br/>recovery-min-apply-delay = int,<br/>row-security = bool,<br/>search-path = str,<br/>seq-page-cost = double,<br/>shared-buffers = int,<br/>standard-conforming-strings = bool,<br/>statement-timeout = int,<br/>synchronize-seqscans = bool,<br/>temp-buffers = int,<br/>temp-file-limit = int,<br/>timezone = str,<br/>transform-null-equals = bool,<br/>work-mem = int,<br/>xmlbinary = XML_BINARY_BASE64\|XML_BINARY_HEX,<br/>xmloption = XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT<br/>} \| postgresql-config-13-1c={<br/>array-nulls = bool,<br/>backend-flush-after = int,<br/>backslash-quote = BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING,<br/>bytea-output = BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED,<br/>client-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>constraint-exclusion = CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION,<br/>cursor-tuple-fraction = double,<br/>deadlock-timeout = int,<br/>default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE,<br/>default-with-oids = bool,<br/>effective-cache-size = int,<br/>effective-io-concurrency = int,<br/>enable-bitmapscan = bool,<br/>enable-hashagg = bool,<br/>enable-hashjoin = bool,<br/>enable-indexonlyscan = bool,<br/>enable-indexscan = bool,<br/>enable-material = bool,<br/>enable-mergejoin = bool,<br/>enable-nestloop = bool,<br/>enable-seqscan = bool,<br/>enable-sort = bool,<br/>enable-tidscan = bool,<br/>escape-string-warning = bool,<br/>exit-on-error = bool,<br/>force-parallel-mode = FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS,<br/>from-collapse-limit = int,<br/>gin-pending-list-limit = int,<br/>idle-in-transaction-session-timeout = int,<br/>join-collapse-limit = int,<br/>lo-compat-privileges = bool,<br/>lock-timeout = int,<br/>log-checkpoints = bool,<br/>log-connections = bool,<br/>log-disconnections = bool,<br/>log-duration = bool,<br/>log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE,<br/>log-lock-waits = bool,<br/>log-min-duration-statement = int,<br/>log-min-error-statement = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-statement = LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL,<br/>log-temp-files = int,<br/>max-locks-per-transaction = int,<br/>max-parallel-workers = int,<br/>max-parallel-workers-per-gather = int,<br/>max-pred-locks-per-transaction = int,<br/>max-standby-streaming-delay = int,<br/>old-snapshot-threshold = int,<br/>operator-precedence-warning = bool,<br/>quote-all-identifiers = bool,<br/>random-page-cost = double,<br/>recovery-min-apply-delay = int,<br/>row-security = bool,<br/>search-path = str,<br/>seq-page-cost = double,<br/>shared-buffers = int,<br/>standard-conforming-strings = bool,<br/>statement-timeout = int,<br/>synchronize-seqscans = bool,<br/>temp-buffers = int,<br/>temp-file-limit = int,<br/>timezone = str,<br/>transform-null-equals = bool,<br/>work-mem = int,<br/>xmlbinary = XML_BINARY_BASE64\|XML_BINARY_HEX,<br/>xmloption = XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT<br/>} \| postgresql-config-14={<br/>array-nulls = bool,<br/>backend-flush-after = int,<br/>backslash-quote = BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING,<br/>bytea-output = BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED,<br/>client-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>constraint-exclusion = CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION,<br/>cursor-tuple-fraction = double,<br/>deadlock-timeout = int,<br/>default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE,<br/>default-with-oids = bool,<br/>effective-cache-size = int,<br/>effective-io-concurrency = int,<br/>enable-bitmapscan = bool,<br/>enable-hashagg = bool,<br/>enable-hashjoin = bool,<br/>enable-indexonlyscan = bool,<br/>enable-indexscan = bool,<br/>enable-material = bool,<br/>enable-mergejoin = bool,<br/>enable-nestloop = bool,<br/>enable-seqscan = bool,<br/>enable-sort = bool,<br/>enable-tidscan = bool,<br/>escape-string-warning = bool,<br/>exit-on-error = bool,<br/>force-parallel-mode = FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS,<br/>from-collapse-limit = int,<br/>gin-pending-list-limit = int,<br/>idle-in-transaction-session-timeout = int,<br/>join-collapse-limit = int,<br/>lo-compat-privileges = bool,<br/>lock-timeout = int,<br/>log-checkpoints = bool,<br/>log-connections = bool,<br/>log-disconnections = bool,<br/>log-duration = bool,<br/>log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE,<br/>log-lock-waits = bool,<br/>log-min-duration-statement = int,<br/>log-min-error-statement = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-statement = LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL,<br/>log-temp-files = int,<br/>max-locks-per-transaction = int,<br/>max-parallel-workers = int,<br/>max-parallel-workers-per-gather = int,<br/>max-pred-locks-per-transaction = int,<br/>max-standby-streaming-delay = int,<br/>old-snapshot-threshold = int,<br/>quote-all-identifiers = bool,<br/>random-page-cost = double,<br/>recovery-min-apply-delay = int,<br/>row-security = bool,<br/>search-path = str,<br/>seq-page-cost = double,<br/>shared-buffers = int,<br/>standard-conforming-strings = bool,<br/>statement-timeout = int,<br/>synchronize-seqscans = bool,<br/>temp-buffers = int,<br/>temp-file-limit = int,<br/>timezone = str,<br/>transform-null-equals = bool,<br/>work-mem = int,<br/>xmlbinary = XML_BINARY_BASE64\|XML_BINARY_HEX,<br/>xmloption = XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT<br/>} \| postgresql-config-14-1c={<br/>array-nulls = bool,<br/>backend-flush-after = int,<br/>backslash-quote = BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING,<br/>bytea-output = BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED,<br/>client-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>constraint-exclusion = CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION,<br/>cursor-tuple-fraction = double,<br/>deadlock-timeout = int,<br/>default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE,<br/>default-with-oids = bool,<br/>effective-cache-size = int,<br/>effective-io-concurrency = int,<br/>enable-bitmapscan = bool,<br/>enable-hashagg = bool,<br/>enable-hashjoin = bool,<br/>enable-indexonlyscan = bool,<br/>enable-indexscan = bool,<br/>enable-material = bool,<br/>enable-mergejoin = bool,<br/>enable-nestloop = bool,<br/>enable-seqscan = bool,<br/>enable-sort = bool,<br/>enable-tidscan = bool,<br/>escape-string-warning = bool,<br/>exit-on-error = bool,<br/>force-parallel-mode = FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS,<br/>from-collapse-limit = int,<br/>gin-pending-list-limit = int,<br/>idle-in-transaction-session-timeout = int,<br/>join-collapse-limit = int,<br/>lo-compat-privileges = bool,<br/>lock-timeout = int,<br/>log-checkpoints = bool,<br/>log-connections = bool,<br/>log-disconnections = bool,<br/>log-duration = bool,<br/>log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE,<br/>log-lock-waits = bool,<br/>log-min-duration-statement = int,<br/>log-min-error-statement = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-statement = LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL,<br/>log-temp-files = int,<br/>max-locks-per-transaction = int,<br/>max-parallel-workers = int,<br/>max-parallel-workers-per-gather = int,<br/>max-pred-locks-per-transaction = int,<br/>max-standby-streaming-delay = int,<br/>old-snapshot-threshold = int,<br/>quote-all-identifiers = bool,<br/>random-page-cost = double,<br/>recovery-min-apply-delay = int,<br/>row-security = bool,<br/>search-path = str,<br/>seq-page-cost = double,<br/>shared-buffers = int,<br/>standard-conforming-strings = bool,<br/>statement-timeout = int,<br/>synchronize-seqscans = bool,<br/>temp-buffers = int,<br/>temp-file-limit = int,<br/>timezone = str,<br/>transform-null-equals = bool,<br/>work-mem = int,<br/>xmlbinary = XML_BINARY_BASE64\|XML_BINARY_HEX,<br/>xmloption = XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT<br/>} \| postgresql-config-15={<br/>array-nulls = bool,<br/>backend-flush-after = int,<br/>backslash-quote = BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING,<br/>bytea-output = BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED,<br/>client-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>constraint-exclusion = CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION,<br/>cursor-tuple-fraction = double,<br/>deadlock-timeout = int,<br/>default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE,<br/>default-with-oids = bool,<br/>effective-cache-size = int,<br/>effective-io-concurrency = int,<br/>enable-bitmapscan = bool,<br/>enable-hashagg = bool,<br/>enable-hashjoin = bool,<br/>enable-indexonlyscan = bool,<br/>enable-indexscan = bool,<br/>enable-material = bool,<br/>enable-mergejoin = bool,<br/>enable-nestloop = bool,<br/>enable-seqscan = bool,<br/>enable-sort = bool,<br/>enable-tidscan = bool,<br/>escape-string-warning = bool,<br/>exit-on-error = bool,<br/>force-parallel-mode = FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS,<br/>from-collapse-limit = int,<br/>gin-pending-list-limit = int,<br/>idle-in-transaction-session-timeout = int,<br/>join-collapse-limit = int,<br/>lo-compat-privileges = bool,<br/>lock-timeout = int,<br/>log-checkpoints = bool,<br/>log-connections = bool,<br/>log-disconnections = bool,<br/>log-duration = bool,<br/>log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE,<br/>log-lock-waits = bool,<br/>log-min-duration-statement = int,<br/>log-min-error-statement = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-statement = LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL,<br/>log-temp-files = int,<br/>max-locks-per-transaction = int,<br/>max-parallel-workers = int,<br/>max-parallel-workers-per-gather = int,<br/>max-pred-locks-per-transaction = int,<br/>max-standby-streaming-delay = int,<br/>old-snapshot-threshold = int,<br/>quote-all-identifiers = bool,<br/>random-page-cost = double,<br/>recovery-min-apply-delay = int,<br/>row-security = bool,<br/>search-path = str,<br/>seq-page-cost = double,<br/>shared-buffers = int,<br/>standard-conforming-strings = bool,<br/>statement-timeout = int,<br/>synchronize-seqscans = bool,<br/>temp-buffers = int,<br/>temp-file-limit = int,<br/>timezone = str,<br/>transform-null-equals = bool,<br/>work-mem = int,<br/>xmlbinary = XML_BINARY_BASE64\|XML_BINARY_HEX,<br/>xmloption = XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT<br/>} \| postgresql-config-15-1c={<br/>array-nulls = bool,<br/>backend-flush-after = int,<br/>backslash-quote = BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING,<br/>bytea-output = BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED,<br/>client-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>constraint-exclusion = CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION,<br/>cursor-tuple-fraction = double,<br/>deadlock-timeout = int,<br/>default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE,<br/>default-with-oids = bool,<br/>effective-cache-size = int,<br/>effective-io-concurrency = int,<br/>enable-bitmapscan = bool,<br/>enable-hashagg = bool,<br/>enable-hashjoin = bool,<br/>enable-indexonlyscan = bool,<br/>enable-indexscan = bool,<br/>enable-material = bool,<br/>enable-mergejoin = bool,<br/>enable-nestloop = bool,<br/>enable-seqscan = bool,<br/>enable-sort = bool,<br/>enable-tidscan = bool,<br/>escape-string-warning = bool,<br/>exit-on-error = bool,<br/>force-parallel-mode = FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS,<br/>from-collapse-limit = int,<br/>gin-pending-list-limit = int,<br/>idle-in-transaction-session-timeout = int,<br/>join-collapse-limit = int,<br/>lo-compat-privileges = bool,<br/>lock-timeout = int,<br/>log-checkpoints = bool,<br/>log-connections = bool,<br/>log-disconnections = bool,<br/>log-duration = bool,<br/>log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE,<br/>log-lock-waits = bool,<br/>log-min-duration-statement = int,<br/>log-min-error-statement = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-statement = LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL,<br/>log-temp-files = int,<br/>max-locks-per-transaction = int,<br/>max-parallel-workers = int,<br/>max-parallel-workers-per-gather = int,<br/>max-pred-locks-per-transaction = int,<br/>max-standby-streaming-delay = int,<br/>old-snapshot-threshold = int,<br/>quote-all-identifiers = bool,<br/>random-page-cost = double,<br/>recovery-min-apply-delay = int,<br/>row-security = bool,<br/>search-path = str,<br/>seq-page-cost = double,<br/>shared-buffers = int,<br/>standard-conforming-strings = bool,<br/>statement-timeout = int,<br/>synchronize-seqscans = bool,<br/>temp-buffers = int,<br/>temp-file-limit = int,<br/>timezone = str,<br/>transform-null-equals = bool,<br/>work-mem = int,<br/>xmlbinary = XML_BINARY_BASE64\|XML_BINARY_HEX,<br/>xmloption = XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT<br/>} \| postgresql-config-16={<br/>array-nulls = bool,<br/>backend-flush-after = int,<br/>backslash-quote = BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING,<br/>bytea-output = BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED,<br/>client-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>constraint-exclusion = CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION,<br/>cursor-tuple-fraction = double,<br/>deadlock-timeout = int,<br/>debug-parallel-query = DEBUG_PARALLEL_QUERY_ON\|DEBUG_PARALLEL_QUERY_OFF\|DEBUG_PARALLEL_QUERY_REGRESS,<br/>default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE,<br/>default-with-oids = bool,<br/>effective-cache-size = int,<br/>effective-io-concurrency = int,<br/>enable-bitmapscan = bool,<br/>enable-hashagg = bool,<br/>enable-hashjoin = bool,<br/>enable-indexonlyscan = bool,<br/>enable-indexscan = bool,<br/>enable-material = bool,<br/>enable-mergejoin = bool,<br/>enable-nestloop = bool,<br/>enable-seqscan = bool,<br/>enable-sort = bool,<br/>enable-tidscan = bool,<br/>escape-string-warning = bool,<br/>exit-on-error = bool,<br/>from-collapse-limit = int,<br/>gin-pending-list-limit = int,<br/>idle-in-transaction-session-timeout = int,<br/>join-collapse-limit = int,<br/>lo-compat-privileges = bool,<br/>lock-timeout = int,<br/>log-checkpoints = bool,<br/>log-connections = bool,<br/>log-disconnections = bool,<br/>log-duration = bool,<br/>log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE,<br/>log-lock-waits = bool,<br/>log-min-duration-statement = int,<br/>log-min-error-statement = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-statement = LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL,<br/>log-temp-files = int,<br/>max-locks-per-transaction = int,<br/>max-parallel-workers = int,<br/>max-parallel-workers-per-gather = int,<br/>max-pred-locks-per-transaction = int,<br/>max-standby-streaming-delay = int,<br/>old-snapshot-threshold = int,<br/>quote-all-identifiers = bool,<br/>random-page-cost = double,<br/>recovery-min-apply-delay = int,<br/>row-security = bool,<br/>search-path = str,<br/>seq-page-cost = double,<br/>shared-buffers = int,<br/>standard-conforming-strings = bool,<br/>statement-timeout = int,<br/>synchronize-seqscans = bool,<br/>temp-buffers = int,<br/>temp-file-limit = int,<br/>timezone = str,<br/>transform-null-equals = bool,<br/>work-mem = int,<br/>xmlbinary = XML_BINARY_BASE64\|XML_BINARY_HEX,<br/>xmloption = XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT<br/>} \| postgresql-config-16-1c={<br/>array-nulls = bool,<br/>backend-flush-after = int,<br/>backslash-quote = BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING,<br/>bytea-output = BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED,<br/>client-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>constraint-exclusion = CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION,<br/>cursor-tuple-fraction = double,<br/>deadlock-timeout = int,<br/>debug-parallel-query = DEBUG_PARALLEL_QUERY_ON\|DEBUG_PARALLEL_QUERY_OFF\|DEBUG_PARALLEL_QUERY_REGRESS,<br/>default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE,<br/>default-with-oids = bool,<br/>effective-cache-size = int,<br/>effective-io-concurrency = int,<br/>enable-bitmapscan = bool,<br/>enable-hashagg = bool,<br/>enable-hashjoin = bool,<br/>enable-indexonlyscan = bool,<br/>enable-indexscan = bool,<br/>enable-material = bool,<br/>enable-mergejoin = bool,<br/>enable-nestloop = bool,<br/>enable-seqscan = bool,<br/>enable-sort = bool,<br/>enable-tidscan = bool,<br/>escape-string-warning = bool,<br/>exit-on-error = bool,<br/>from-collapse-limit = int,<br/>gin-pending-list-limit = int,<br/>idle-in-transaction-session-timeout = int,<br/>join-collapse-limit = int,<br/>lo-compat-privileges = bool,<br/>lock-timeout = int,<br/>log-checkpoints = bool,<br/>log-connections = bool,<br/>log-disconnections = bool,<br/>log-duration = bool,<br/>log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE,<br/>log-lock-waits = bool,<br/>log-min-duration-statement = int,<br/>log-min-error-statement = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-statement = LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL,<br/>log-temp-files = int,<br/>max-locks-per-transaction = int,<br/>max-parallel-workers = int,<br/>max-parallel-workers-per-gather = int,<br/>max-pred-locks-per-transaction = int,<br/>max-standby-streaming-delay = int,<br/>old-snapshot-threshold = int,<br/>quote-all-identifiers = bool,<br/>random-page-cost = double,<br/>recovery-min-apply-delay = int,<br/>row-security = bool,<br/>search-path = str,<br/>seq-page-cost = double,<br/>shared-buffers = int,<br/>standard-conforming-strings = bool,<br/>statement-timeout = int,<br/>synchronize-seqscans = bool,<br/>temp-buffers = int,<br/>temp-file-limit = int,<br/>timezone = str,<br/>transform-null-equals = bool,<br/>work-mem = int,<br/>xmlbinary = XML_BINARY_BASE64\|XML_BINARY_HEX,<br/>xmloption = XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT<br/>} \| postgresql-config-17={<br/>array-nulls = bool,<br/>backend-flush-after = int,<br/>backslash-quote = BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING,<br/>bytea-output = BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED,<br/>client-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>constraint-exclusion = CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION,<br/>cursor-tuple-fraction = double,<br/>deadlock-timeout = int,<br/>debug-parallel-query = DEBUG_PARALLEL_QUERY_ON\|DEBUG_PARALLEL_QUERY_OFF\|DEBUG_PARALLEL_QUERY_REGRESS,<br/>default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE,<br/>default-with-oids = bool,<br/>effective-cache-size = int,<br/>effective-io-concurrency = int,<br/>enable-bitmapscan = bool,<br/>enable-hashagg = bool,<br/>enable-hashjoin = bool,<br/>enable-indexonlyscan = bool,<br/>enable-indexscan = bool,<br/>enable-material = bool,<br/>enable-mergejoin = bool,<br/>enable-nestloop = bool,<br/>enable-seqscan = bool,<br/>enable-sort = bool,<br/>enable-tidscan = bool,<br/>escape-string-warning = bool,<br/>exit-on-error = bool,<br/>from-collapse-limit = int,<br/>gin-pending-list-limit = int,<br/>idle-in-transaction-session-timeout = int,<br/>join-collapse-limit = int,<br/>lo-compat-privileges = bool,<br/>lock-timeout = int,<br/>log-checkpoints = bool,<br/>log-connections = bool,<br/>log-disconnections = bool,<br/>log-duration = bool,<br/>log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE,<br/>log-lock-waits = bool,<br/>log-min-duration-statement = int,<br/>log-min-error-statement = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-statement = LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL,<br/>log-temp-files = int,<br/>max-locks-per-transaction = int,<br/>max-parallel-workers = int,<br/>max-parallel-workers-per-gather = int,<br/>max-pred-locks-per-transaction = int,<br/>max-standby-streaming-delay = int,<br/>quote-all-identifiers = bool,<br/>random-page-cost = double,<br/>recovery-min-apply-delay = int,<br/>row-security = bool,<br/>search-path = str,<br/>seq-page-cost = double,<br/>shared-buffers = int,<br/>standard-conforming-strings = bool,<br/>statement-timeout = int,<br/>synchronize-seqscans = bool,<br/>temp-buffers = int,<br/>temp-file-limit = int,<br/>timezone = str,<br/>transform-null-equals = bool,<br/>work-mem = int,<br/>xmlbinary = XML_BINARY_BASE64\|XML_BINARY_HEX,<br/>xmloption = XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT<br/>} \| postgresql-config-17-1c={<br/>array-nulls = bool,<br/>backend-flush-after = int,<br/>backslash-quote = BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING,<br/>bytea-output = BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED,<br/>client-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>constraint-exclusion = CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION,<br/>cursor-tuple-fraction = double,<br/>deadlock-timeout = int,<br/>debug-parallel-query = DEBUG_PARALLEL_QUERY_ON\|DEBUG_PARALLEL_QUERY_OFF\|DEBUG_PARALLEL_QUERY_REGRESS,<br/>default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE,<br/>default-with-oids = bool,<br/>effective-cache-size = int,<br/>effective-io-concurrency = int,<br/>enable-bitmapscan = bool,<br/>enable-hashagg = bool,<br/>enable-hashjoin = bool,<br/>enable-indexonlyscan = bool,<br/>enable-indexscan = bool,<br/>enable-material = bool,<br/>enable-mergejoin = bool,<br/>enable-nestloop = bool,<br/>enable-seqscan = bool,<br/>enable-sort = bool,<br/>enable-tidscan = bool,<br/>escape-string-warning = bool,<br/>exit-on-error = bool,<br/>from-collapse-limit = int,<br/>gin-pending-list-limit = int,<br/>idle-in-transaction-session-timeout = int,<br/>join-collapse-limit = int,<br/>lo-compat-privileges = bool,<br/>lock-timeout = int,<br/>log-checkpoints = bool,<br/>log-connections = bool,<br/>log-disconnections = bool,<br/>log-duration = bool,<br/>log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE,<br/>log-lock-waits = bool,<br/>log-min-duration-statement = int,<br/>log-min-error-statement = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-statement = LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL,<br/>log-temp-files = int,<br/>max-locks-per-transaction = int,<br/>max-parallel-workers = int,<br/>max-parallel-workers-per-gather = int,<br/>max-pred-locks-per-transaction = int,<br/>max-standby-streaming-delay = int,<br/>quote-all-identifiers = bool,<br/>random-page-cost = double,<br/>recovery-min-apply-delay = int,<br/>row-security = bool,<br/>search-path = str,<br/>seq-page-cost = double,<br/>shared-buffers = int,<br/>standard-conforming-strings = bool,<br/>statement-timeout = int,<br/>synchronize-seqscans = bool,<br/>temp-buffers = int,<br/>temp-file-limit = int,<br/>timezone = str,<br/>transform-null-equals = bool,<br/>work-mem = int,<br/>xmlbinary = XML_BINARY_BASE64\|XML_BINARY_HEX,<br/>xmloption = XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT<br/>} \| postgresql-config-18={<br/>array-nulls = bool,<br/>backend-flush-after = int,<br/>backslash-quote = BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING,<br/>bytea-output = BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED,<br/>client-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>constraint-exclusion = CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION,<br/>cursor-tuple-fraction = double,<br/>deadlock-timeout = int,<br/>debug-parallel-query = DEBUG_PARALLEL_QUERY_ON\|DEBUG_PARALLEL_QUERY_OFF\|DEBUG_PARALLEL_QUERY_REGRESS,<br/>default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE,<br/>default-with-oids = bool,<br/>effective-cache-size = int,<br/>effective-io-concurrency = int,<br/>enable-bitmapscan = bool,<br/>enable-hashagg = bool,<br/>enable-hashjoin = bool,<br/>enable-indexonlyscan = bool,<br/>enable-indexscan = bool,<br/>enable-material = bool,<br/>enable-mergejoin = bool,<br/>enable-nestloop = bool,<br/>enable-seqscan = bool,<br/>enable-sort = bool,<br/>enable-tidscan = bool,<br/>escape-string-warning = bool,<br/>exit-on-error = bool,<br/>from-collapse-limit = int,<br/>gin-pending-list-limit = int,<br/>idle-in-transaction-session-timeout = int,<br/>join-collapse-limit = int,<br/>lo-compat-privileges = bool,<br/>lock-timeout = int,<br/>log-checkpoints = bool,<br/>log-connections = bool,<br/>log-disconnections = bool,<br/>log-duration = bool,<br/>log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE,<br/>log-lock-waits = bool,<br/>log-min-duration-statement = int,<br/>log-min-error-statement = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-statement = LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL,<br/>log-temp-files = int,<br/>max-locks-per-transaction = int,<br/>max-parallel-workers = int,<br/>max-parallel-workers-per-gather = int,<br/>max-pred-locks-per-transaction = int,<br/>max-standby-streaming-delay = int,<br/>quote-all-identifiers = bool,<br/>random-page-cost = double,<br/>recovery-min-apply-delay = int,<br/>row-security = bool,<br/>search-path = str,<br/>seq-page-cost = double,<br/>shared-buffers = int,<br/>standard-conforming-strings = bool,<br/>statement-timeout = int,<br/>synchronize-seqscans = bool,<br/>temp-buffers = int,<br/>temp-file-limit = int,<br/>timezone = str,<br/>transform-null-equals = bool,<br/>work-mem = int,<br/>xmlbinary = XML_BINARY_BASE64\|XML_BINARY_HEX,<br/>xmloption = XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT<br/>} \| postgresql-config-18-1c={<br/>array-nulls = bool,<br/>backend-flush-after = int,<br/>backslash-quote = BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING,<br/>bytea-output = BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED,<br/>client-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>constraint-exclusion = CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION,<br/>cursor-tuple-fraction = double,<br/>deadlock-timeout = int,<br/>debug-parallel-query = DEBUG_PARALLEL_QUERY_ON\|DEBUG_PARALLEL_QUERY_OFF\|DEBUG_PARALLEL_QUERY_REGRESS,<br/>default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE,<br/>default-with-oids = bool,<br/>effective-cache-size = int,<br/>effective-io-concurrency = int,<br/>enable-bitmapscan = bool,<br/>enable-hashagg = bool,<br/>enable-hashjoin = bool,<br/>enable-indexonlyscan = bool,<br/>enable-indexscan = bool,<br/>enable-material = bool,<br/>enable-mergejoin = bool,<br/>enable-nestloop = bool,<br/>enable-seqscan = bool,<br/>enable-sort = bool,<br/>enable-tidscan = bool,<br/>escape-string-warning = bool,<br/>exit-on-error = bool,<br/>from-collapse-limit = int,<br/>gin-pending-list-limit = int,<br/>idle-in-transaction-session-timeout = int,<br/>join-collapse-limit = int,<br/>lo-compat-privileges = bool,<br/>lock-timeout = int,<br/>log-checkpoints = bool,<br/>log-connections = bool,<br/>log-disconnections = bool,<br/>log-duration = bool,<br/>log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE,<br/>log-lock-waits = bool,<br/>log-min-duration-statement = int,<br/>log-min-error-statement = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-statement = LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL,<br/>log-temp-files = int,<br/>max-locks-per-transaction = int,<br/>max-parallel-workers = int,<br/>max-parallel-workers-per-gather = int,<br/>max-pred-locks-per-transaction = int,<br/>max-standby-streaming-delay = int,<br/>quote-all-identifiers = bool,<br/>random-page-cost = double,<br/>recovery-min-apply-delay = int,<br/>row-security = bool,<br/>search-path = str,<br/>seq-page-cost = double,<br/>shared-buffers = int,<br/>standard-conforming-strings = bool,<br/>statement-timeout = int,<br/>synchronize-seqscans = bool,<br/>temp-buffers = int,<br/>temp-file-limit = int,<br/>timezone = str,<br/>transform-null-equals = bool,<br/>work-mem = int,<br/>xmlbinary = XML_BINARY_BASE64\|XML_BINARY_HEX,<br/>xmloption = XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT<br/>} \| postgresql-config-9-6={<br/>array-nulls = bool,<br/>backend-flush-after = int,<br/>backslash-quote = BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING,<br/>bytea-output = BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED,<br/>client-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>constraint-exclusion = CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION,<br/>cursor-tuple-fraction = double,<br/>deadlock-timeout = int,<br/>default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE,<br/>default-with-oids = bool,<br/>effective-cache-size = int,<br/>effective-io-concurrency = int,<br/>escape-string-warning = bool,<br/>exit-on-error = bool,<br/>force-parallel-mode = FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS,<br/>from-collapse-limit = int,<br/>gin-pending-list-limit = int,<br/>idle-in-transaction-session-timeout = int,<br/>join-collapse-limit = int,<br/>lo-compat-privileges = bool,<br/>lock-timeout = int,<br/>log-checkpoints = bool,<br/>log-connections = bool,<br/>log-disconnections = bool,<br/>log-duration = bool,<br/>log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE,<br/>log-lock-waits = bool,<br/>log-min-duration-statement = int,<br/>log-min-error-statement = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-min-messages = LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC,<br/>log-statement = LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL,<br/>log-temp-files = int,<br/>max-locks-per-transaction = int,<br/>max-pred-locks-per-transaction = int,<br/>max-standby-streaming-delay = int,<br/>old-snapshot-threshold = int,<br/>operator-precedence-warning = bool,<br/>quote-all-identifiers = bool,<br/>random-page-cost = double,<br/>recovery-min-apply-delay = int,<br/>replacement-sort-tuples = int,<br/>row-security = bool,<br/>search-path = str,<br/>seq-page-cost = double,<br/>shared-buffers = int,<br/>sql-inheritance = bool,<br/>standard-conforming-strings = bool,<br/>statement-timeout = int,<br/>synchronize-seqscans = bool,<br/>temp-buffers = int,<br/>temp-file-limit = int,<br/>transform-null-equals = bool,<br/>work-mem = int,<br/>xmlbinary = XML_BINARY_BASE64\|XML_BINARY_HEX,<br/>xmloption = XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT<br/>}<br/>},<br/>host-name = str,<br/>priority = int,<br/>replication-source = str<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"assign-public-ip": "bool",<br/>"config-spec": {<br/>"postgresql-config": {<br/>"postgresql-config-10": {<br/>"array-nulls": "bool",<br/>"backend-flush-after": "int",<br/>"backslash-quote": "BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING",<br/>"bytea-output": "BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED",<br/>"client-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"constraint-exclusion": "CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION",<br/>"cursor-tuple-fraction": "double",<br/>"deadlock-timeout": "int",<br/>"default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE",<br/>"default-with-oids": "bool",<br/>"effective-cache-size": "int",<br/>"effective-io-concurrency": "int",<br/>"enable-bitmapscan": "bool",<br/>"enable-hashagg": "bool",<br/>"enable-hashjoin": "bool",<br/>"enable-indexonlyscan": "bool",<br/>"enable-indexscan": "bool",<br/>"enable-material": "bool",<br/>"enable-mergejoin": "bool",<br/>"enable-nestloop": "bool",<br/>"enable-seqscan": "bool",<br/>"enable-sort": "bool",<br/>"enable-tidscan": "bool",<br/>"escape-string-warning": "bool",<br/>"exit-on-error": "bool",<br/>"force-parallel-mode": "FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS",<br/>"from-collapse-limit": "int",<br/>"gin-pending-list-limit": "int",<br/>"idle-in-transaction-session-timeout": "int",<br/>"join-collapse-limit": "int",<br/>"lo-compat-privileges": "bool",<br/>"lock-timeout": "int",<br/>"log-checkpoints": "bool",<br/>"log-connections": "bool",<br/>"log-disconnections": "bool",<br/>"log-duration": "bool",<br/>"log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE",<br/>"log-lock-waits": "bool",<br/>"log-min-duration-statement": "int",<br/>"log-min-error-statement": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-statement": "LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL",<br/>"log-temp-files": "int",<br/>"max-locks-per-transaction": "int",<br/>"max-parallel-workers": "int",<br/>"max-parallel-workers-per-gather": "int",<br/>"max-pred-locks-per-transaction": "int",<br/>"max-standby-streaming-delay": "int",<br/>"old-snapshot-threshold": "int",<br/>"operator-precedence-warning": "bool",<br/>"quote-all-identifiers": "bool",<br/>"random-page-cost": "double",<br/>"recovery-min-apply-delay": "int",<br/>"replacement-sort-tuples": "int",<br/>"row-security": "bool",<br/>"search-path": "str",<br/>"seq-page-cost": "double",<br/>"shared-buffers": "int",<br/>"standard-conforming-strings": "bool",<br/>"statement-timeout": "int",<br/>"synchronize-seqscans": "bool",<br/>"temp-buffers": "int",<br/>"temp-file-limit": "int",<br/>"timezone": "str",<br/>"transform-null-equals": "bool",<br/>"work-mem": "int",<br/>"xmlbinary": "XML_BINARY_BASE64\|XML_BINARY_HEX",<br/>"xmloption": "XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT"<br/>},<br/>"postgresql-config-10-1c": {<br/>"array-nulls": "bool",<br/>"backend-flush-after": "int",<br/>"backslash-quote": "BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING",<br/>"bytea-output": "BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED",<br/>"client-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"constraint-exclusion": "CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION",<br/>"cursor-tuple-fraction": "double",<br/>"deadlock-timeout": "int",<br/>"default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE",<br/>"default-with-oids": "bool",<br/>"effective-cache-size": "int",<br/>"effective-io-concurrency": "int",<br/>"enable-bitmapscan": "bool",<br/>"enable-hashagg": "bool",<br/>"enable-hashjoin": "bool",<br/>"enable-indexonlyscan": "bool",<br/>"enable-indexscan": "bool",<br/>"enable-material": "bool",<br/>"enable-mergejoin": "bool",<br/>"enable-nestloop": "bool",<br/>"enable-seqscan": "bool",<br/>"enable-sort": "bool",<br/>"enable-tidscan": "bool",<br/>"escape-string-warning": "bool",<br/>"exit-on-error": "bool",<br/>"force-parallel-mode": "FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS",<br/>"from-collapse-limit": "int",<br/>"gin-pending-list-limit": "int",<br/>"idle-in-transaction-session-timeout": "int",<br/>"join-collapse-limit": "int",<br/>"lo-compat-privileges": "bool",<br/>"lock-timeout": "int",<br/>"log-checkpoints": "bool",<br/>"log-connections": "bool",<br/>"log-disconnections": "bool",<br/>"log-duration": "bool",<br/>"log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE",<br/>"log-lock-waits": "bool",<br/>"log-min-duration-statement": "int",<br/>"log-min-error-statement": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-statement": "LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL",<br/>"log-temp-files": "int",<br/>"max-locks-per-transaction": "int",<br/>"max-parallel-workers": "int",<br/>"max-parallel-workers-per-gather": "int",<br/>"max-pred-locks-per-transaction": "int",<br/>"max-standby-streaming-delay": "int",<br/>"old-snapshot-threshold": "int",<br/>"operator-precedence-warning": "bool",<br/>"quote-all-identifiers": "bool",<br/>"random-page-cost": "double",<br/>"recovery-min-apply-delay": "int",<br/>"replacement-sort-tuples": "int",<br/>"row-security": "bool",<br/>"search-path": "str",<br/>"seq-page-cost": "double",<br/>"shared-buffers": "int",<br/>"standard-conforming-strings": "bool",<br/>"statement-timeout": "int",<br/>"synchronize-seqscans": "bool",<br/>"temp-buffers": "int",<br/>"temp-file-limit": "int",<br/>"timezone": "str",<br/>"transform-null-equals": "bool",<br/>"work-mem": "int",<br/>"xmlbinary": "XML_BINARY_BASE64\|XML_BINARY_HEX",<br/>"xmloption": "XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT"<br/>},<br/>"postgresql-config-11": {<br/>"array-nulls": "bool",<br/>"backend-flush-after": "int",<br/>"backslash-quote": "BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING",<br/>"bytea-output": "BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED",<br/>"client-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"constraint-exclusion": "CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION",<br/>"cursor-tuple-fraction": "double",<br/>"deadlock-timeout": "int",<br/>"default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE",<br/>"default-with-oids": "bool",<br/>"effective-cache-size": "int",<br/>"effective-io-concurrency": "int",<br/>"enable-bitmapscan": "bool",<br/>"enable-hashagg": "bool",<br/>"enable-hashjoin": "bool",<br/>"enable-indexonlyscan": "bool",<br/>"enable-indexscan": "bool",<br/>"enable-material": "bool",<br/>"enable-mergejoin": "bool",<br/>"enable-nestloop": "bool",<br/>"enable-seqscan": "bool",<br/>"enable-sort": "bool",<br/>"enable-tidscan": "bool",<br/>"escape-string-warning": "bool",<br/>"exit-on-error": "bool",<br/>"force-parallel-mode": "FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS",<br/>"from-collapse-limit": "int",<br/>"gin-pending-list-limit": "int",<br/>"idle-in-transaction-session-timeout": "int",<br/>"join-collapse-limit": "int",<br/>"lo-compat-privileges": "bool",<br/>"lock-timeout": "int",<br/>"log-checkpoints": "bool",<br/>"log-connections": "bool",<br/>"log-disconnections": "bool",<br/>"log-duration": "bool",<br/>"log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE",<br/>"log-lock-waits": "bool",<br/>"log-min-duration-statement": "int",<br/>"log-min-error-statement": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-statement": "LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL",<br/>"log-temp-files": "int",<br/>"max-locks-per-transaction": "int",<br/>"max-parallel-workers": "int",<br/>"max-parallel-workers-per-gather": "int",<br/>"max-pred-locks-per-transaction": "int",<br/>"max-standby-streaming-delay": "int",<br/>"old-snapshot-threshold": "int",<br/>"operator-precedence-warning": "bool",<br/>"quote-all-identifiers": "bool",<br/>"random-page-cost": "double",<br/>"recovery-min-apply-delay": "int",<br/>"row-security": "bool",<br/>"search-path": "str",<br/>"seq-page-cost": "double",<br/>"shared-buffers": "int",<br/>"standard-conforming-strings": "bool",<br/>"statement-timeout": "int",<br/>"synchronize-seqscans": "bool",<br/>"temp-buffers": "int",<br/>"temp-file-limit": "int",<br/>"timezone": "str",<br/>"transform-null-equals": "bool",<br/>"work-mem": "int",<br/>"xmlbinary": "XML_BINARY_BASE64\|XML_BINARY_HEX",<br/>"xmloption": "XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT"<br/>},<br/>"postgresql-config-11-1c": {<br/>"array-nulls": "bool",<br/>"backend-flush-after": "int",<br/>"backslash-quote": "BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING",<br/>"bytea-output": "BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED",<br/>"client-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"constraint-exclusion": "CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION",<br/>"cursor-tuple-fraction": "double",<br/>"deadlock-timeout": "int",<br/>"default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE",<br/>"default-with-oids": "bool",<br/>"effective-cache-size": "int",<br/>"effective-io-concurrency": "int",<br/>"enable-bitmapscan": "bool",<br/>"enable-hashagg": "bool",<br/>"enable-hashjoin": "bool",<br/>"enable-indexonlyscan": "bool",<br/>"enable-indexscan": "bool",<br/>"enable-material": "bool",<br/>"enable-mergejoin": "bool",<br/>"enable-nestloop": "bool",<br/>"enable-seqscan": "bool",<br/>"enable-sort": "bool",<br/>"enable-tidscan": "bool",<br/>"escape-string-warning": "bool",<br/>"exit-on-error": "bool",<br/>"force-parallel-mode": "FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS",<br/>"from-collapse-limit": "int",<br/>"gin-pending-list-limit": "int",<br/>"idle-in-transaction-session-timeout": "int",<br/>"join-collapse-limit": "int",<br/>"lo-compat-privileges": "bool",<br/>"lock-timeout": "int",<br/>"log-checkpoints": "bool",<br/>"log-connections": "bool",<br/>"log-disconnections": "bool",<br/>"log-duration": "bool",<br/>"log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE",<br/>"log-lock-waits": "bool",<br/>"log-min-duration-statement": "int",<br/>"log-min-error-statement": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-statement": "LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL",<br/>"log-temp-files": "int",<br/>"max-locks-per-transaction": "int",<br/>"max-parallel-workers": "int",<br/>"max-parallel-workers-per-gather": "int",<br/>"max-pred-locks-per-transaction": "int",<br/>"max-standby-streaming-delay": "int",<br/>"old-snapshot-threshold": "int",<br/>"operator-precedence-warning": "bool",<br/>"quote-all-identifiers": "bool",<br/>"random-page-cost": "double",<br/>"recovery-min-apply-delay": "int",<br/>"row-security": "bool",<br/>"search-path": "str",<br/>"seq-page-cost": "double",<br/>"shared-buffers": "int",<br/>"standard-conforming-strings": "bool",<br/>"statement-timeout": "int",<br/>"synchronize-seqscans": "bool",<br/>"temp-buffers": "int",<br/>"temp-file-limit": "int",<br/>"timezone": "str",<br/>"transform-null-equals": "bool",<br/>"work-mem": "int",<br/>"xmlbinary": "XML_BINARY_BASE64\|XML_BINARY_HEX",<br/>"xmloption": "XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT"<br/>},<br/>"postgresql-config-12": {<br/>"array-nulls": "bool",<br/>"backend-flush-after": "int",<br/>"backslash-quote": "BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING",<br/>"bytea-output": "BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED",<br/>"client-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"constraint-exclusion": "CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION",<br/>"cursor-tuple-fraction": "double",<br/>"deadlock-timeout": "int",<br/>"default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE",<br/>"default-with-oids": "bool",<br/>"effective-cache-size": "int",<br/>"effective-io-concurrency": "int",<br/>"enable-bitmapscan": "bool",<br/>"enable-hashagg": "bool",<br/>"enable-hashjoin": "bool",<br/>"enable-indexonlyscan": "bool",<br/>"enable-indexscan": "bool",<br/>"enable-material": "bool",<br/>"enable-mergejoin": "bool",<br/>"enable-nestloop": "bool",<br/>"enable-seqscan": "bool",<br/>"enable-sort": "bool",<br/>"enable-tidscan": "bool",<br/>"escape-string-warning": "bool",<br/>"exit-on-error": "bool",<br/>"force-parallel-mode": "FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS",<br/>"from-collapse-limit": "int",<br/>"gin-pending-list-limit": "int",<br/>"idle-in-transaction-session-timeout": "int",<br/>"join-collapse-limit": "int",<br/>"lo-compat-privileges": "bool",<br/>"lock-timeout": "int",<br/>"log-checkpoints": "bool",<br/>"log-connections": "bool",<br/>"log-disconnections": "bool",<br/>"log-duration": "bool",<br/>"log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE",<br/>"log-lock-waits": "bool",<br/>"log-min-duration-statement": "int",<br/>"log-min-error-statement": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-statement": "LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL",<br/>"log-temp-files": "int",<br/>"max-locks-per-transaction": "int",<br/>"max-parallel-workers": "int",<br/>"max-parallel-workers-per-gather": "int",<br/>"max-pred-locks-per-transaction": "int",<br/>"max-standby-streaming-delay": "int",<br/>"old-snapshot-threshold": "int",<br/>"operator-precedence-warning": "bool",<br/>"quote-all-identifiers": "bool",<br/>"random-page-cost": "double",<br/>"recovery-min-apply-delay": "int",<br/>"row-security": "bool",<br/>"search-path": "str",<br/>"seq-page-cost": "double",<br/>"shared-buffers": "int",<br/>"standard-conforming-strings": "bool",<br/>"statement-timeout": "int",<br/>"synchronize-seqscans": "bool",<br/>"temp-buffers": "int",<br/>"temp-file-limit": "int",<br/>"timezone": "str",<br/>"transform-null-equals": "bool",<br/>"work-mem": "int",<br/>"xmlbinary": "XML_BINARY_BASE64\|XML_BINARY_HEX",<br/>"xmloption": "XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT"<br/>},<br/>"postgresql-config-12-1c": {<br/>"array-nulls": "bool",<br/>"backend-flush-after": "int",<br/>"backslash-quote": "BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING",<br/>"bytea-output": "BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED",<br/>"client-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"constraint-exclusion": "CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION",<br/>"cursor-tuple-fraction": "double",<br/>"deadlock-timeout": "int",<br/>"default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE",<br/>"default-with-oids": "bool",<br/>"effective-cache-size": "int",<br/>"effective-io-concurrency": "int",<br/>"enable-bitmapscan": "bool",<br/>"enable-hashagg": "bool",<br/>"enable-hashjoin": "bool",<br/>"enable-indexonlyscan": "bool",<br/>"enable-indexscan": "bool",<br/>"enable-material": "bool",<br/>"enable-mergejoin": "bool",<br/>"enable-nestloop": "bool",<br/>"enable-seqscan": "bool",<br/>"enable-sort": "bool",<br/>"enable-tidscan": "bool",<br/>"escape-string-warning": "bool",<br/>"exit-on-error": "bool",<br/>"force-parallel-mode": "FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS",<br/>"from-collapse-limit": "int",<br/>"gin-pending-list-limit": "int",<br/>"idle-in-transaction-session-timeout": "int",<br/>"join-collapse-limit": "int",<br/>"lo-compat-privileges": "bool",<br/>"lock-timeout": "int",<br/>"log-checkpoints": "bool",<br/>"log-connections": "bool",<br/>"log-disconnections": "bool",<br/>"log-duration": "bool",<br/>"log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE",<br/>"log-lock-waits": "bool",<br/>"log-min-duration-statement": "int",<br/>"log-min-error-statement": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-statement": "LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL",<br/>"log-temp-files": "int",<br/>"max-locks-per-transaction": "int",<br/>"max-parallel-workers": "int",<br/>"max-parallel-workers-per-gather": "int",<br/>"max-pred-locks-per-transaction": "int",<br/>"max-standby-streaming-delay": "int",<br/>"old-snapshot-threshold": "int",<br/>"operator-precedence-warning": "bool",<br/>"quote-all-identifiers": "bool",<br/>"random-page-cost": "double",<br/>"recovery-min-apply-delay": "int",<br/>"row-security": "bool",<br/>"search-path": "str",<br/>"seq-page-cost": "double",<br/>"shared-buffers": "int",<br/>"standard-conforming-strings": "bool",<br/>"statement-timeout": "int",<br/>"synchronize-seqscans": "bool",<br/>"temp-buffers": "int",<br/>"temp-file-limit": "int",<br/>"timezone": "str",<br/>"transform-null-equals": "bool",<br/>"work-mem": "int",<br/>"xmlbinary": "XML_BINARY_BASE64\|XML_BINARY_HEX",<br/>"xmloption": "XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT"<br/>},<br/>"postgresql-config-13": {<br/>"array-nulls": "bool",<br/>"backend-flush-after": "int",<br/>"backslash-quote": "BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING",<br/>"bytea-output": "BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED",<br/>"client-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"constraint-exclusion": "CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION",<br/>"cursor-tuple-fraction": "double",<br/>"deadlock-timeout": "int",<br/>"default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE",<br/>"default-with-oids": "bool",<br/>"effective-cache-size": "int",<br/>"effective-io-concurrency": "int",<br/>"enable-bitmapscan": "bool",<br/>"enable-hashagg": "bool",<br/>"enable-hashjoin": "bool",<br/>"enable-indexonlyscan": "bool",<br/>"enable-indexscan": "bool",<br/>"enable-material": "bool",<br/>"enable-mergejoin": "bool",<br/>"enable-nestloop": "bool",<br/>"enable-seqscan": "bool",<br/>"enable-sort": "bool",<br/>"enable-tidscan": "bool",<br/>"escape-string-warning": "bool",<br/>"exit-on-error": "bool",<br/>"force-parallel-mode": "FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS",<br/>"from-collapse-limit": "int",<br/>"gin-pending-list-limit": "int",<br/>"idle-in-transaction-session-timeout": "int",<br/>"join-collapse-limit": "int",<br/>"lo-compat-privileges": "bool",<br/>"lock-timeout": "int",<br/>"log-checkpoints": "bool",<br/>"log-connections": "bool",<br/>"log-disconnections": "bool",<br/>"log-duration": "bool",<br/>"log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE",<br/>"log-lock-waits": "bool",<br/>"log-min-duration-statement": "int",<br/>"log-min-error-statement": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-statement": "LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL",<br/>"log-temp-files": "int",<br/>"max-locks-per-transaction": "int",<br/>"max-parallel-workers": "int",<br/>"max-parallel-workers-per-gather": "int",<br/>"max-pred-locks-per-transaction": "int",<br/>"max-standby-streaming-delay": "int",<br/>"old-snapshot-threshold": "int",<br/>"operator-precedence-warning": "bool",<br/>"quote-all-identifiers": "bool",<br/>"random-page-cost": "double",<br/>"recovery-min-apply-delay": "int",<br/>"row-security": "bool",<br/>"search-path": "str",<br/>"seq-page-cost": "double",<br/>"shared-buffers": "int",<br/>"standard-conforming-strings": "bool",<br/>"statement-timeout": "int",<br/>"synchronize-seqscans": "bool",<br/>"temp-buffers": "int",<br/>"temp-file-limit": "int",<br/>"timezone": "str",<br/>"transform-null-equals": "bool",<br/>"work-mem": "int",<br/>"xmlbinary": "XML_BINARY_BASE64\|XML_BINARY_HEX",<br/>"xmloption": "XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT"<br/>},<br/>"postgresql-config-13-1c": {<br/>"array-nulls": "bool",<br/>"backend-flush-after": "int",<br/>"backslash-quote": "BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING",<br/>"bytea-output": "BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED",<br/>"client-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"constraint-exclusion": "CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION",<br/>"cursor-tuple-fraction": "double",<br/>"deadlock-timeout": "int",<br/>"default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE",<br/>"default-with-oids": "bool",<br/>"effective-cache-size": "int",<br/>"effective-io-concurrency": "int",<br/>"enable-bitmapscan": "bool",<br/>"enable-hashagg": "bool",<br/>"enable-hashjoin": "bool",<br/>"enable-indexonlyscan": "bool",<br/>"enable-indexscan": "bool",<br/>"enable-material": "bool",<br/>"enable-mergejoin": "bool",<br/>"enable-nestloop": "bool",<br/>"enable-seqscan": "bool",<br/>"enable-sort": "bool",<br/>"enable-tidscan": "bool",<br/>"escape-string-warning": "bool",<br/>"exit-on-error": "bool",<br/>"force-parallel-mode": "FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS",<br/>"from-collapse-limit": "int",<br/>"gin-pending-list-limit": "int",<br/>"idle-in-transaction-session-timeout": "int",<br/>"join-collapse-limit": "int",<br/>"lo-compat-privileges": "bool",<br/>"lock-timeout": "int",<br/>"log-checkpoints": "bool",<br/>"log-connections": "bool",<br/>"log-disconnections": "bool",<br/>"log-duration": "bool",<br/>"log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE",<br/>"log-lock-waits": "bool",<br/>"log-min-duration-statement": "int",<br/>"log-min-error-statement": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-statement": "LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL",<br/>"log-temp-files": "int",<br/>"max-locks-per-transaction": "int",<br/>"max-parallel-workers": "int",<br/>"max-parallel-workers-per-gather": "int",<br/>"max-pred-locks-per-transaction": "int",<br/>"max-standby-streaming-delay": "int",<br/>"old-snapshot-threshold": "int",<br/>"operator-precedence-warning": "bool",<br/>"quote-all-identifiers": "bool",<br/>"random-page-cost": "double",<br/>"recovery-min-apply-delay": "int",<br/>"row-security": "bool",<br/>"search-path": "str",<br/>"seq-page-cost": "double",<br/>"shared-buffers": "int",<br/>"standard-conforming-strings": "bool",<br/>"statement-timeout": "int",<br/>"synchronize-seqscans": "bool",<br/>"temp-buffers": "int",<br/>"temp-file-limit": "int",<br/>"timezone": "str",<br/>"transform-null-equals": "bool",<br/>"work-mem": "int",<br/>"xmlbinary": "XML_BINARY_BASE64\|XML_BINARY_HEX",<br/>"xmloption": "XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT"<br/>},<br/>"postgresql-config-14": {<br/>"array-nulls": "bool",<br/>"backend-flush-after": "int",<br/>"backslash-quote": "BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING",<br/>"bytea-output": "BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED",<br/>"client-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"constraint-exclusion": "CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION",<br/>"cursor-tuple-fraction": "double",<br/>"deadlock-timeout": "int",<br/>"default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE",<br/>"default-with-oids": "bool",<br/>"effective-cache-size": "int",<br/>"effective-io-concurrency": "int",<br/>"enable-bitmapscan": "bool",<br/>"enable-hashagg": "bool",<br/>"enable-hashjoin": "bool",<br/>"enable-indexonlyscan": "bool",<br/>"enable-indexscan": "bool",<br/>"enable-material": "bool",<br/>"enable-mergejoin": "bool",<br/>"enable-nestloop": "bool",<br/>"enable-seqscan": "bool",<br/>"enable-sort": "bool",<br/>"enable-tidscan": "bool",<br/>"escape-string-warning": "bool",<br/>"exit-on-error": "bool",<br/>"force-parallel-mode": "FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS",<br/>"from-collapse-limit": "int",<br/>"gin-pending-list-limit": "int",<br/>"idle-in-transaction-session-timeout": "int",<br/>"join-collapse-limit": "int",<br/>"lo-compat-privileges": "bool",<br/>"lock-timeout": "int",<br/>"log-checkpoints": "bool",<br/>"log-connections": "bool",<br/>"log-disconnections": "bool",<br/>"log-duration": "bool",<br/>"log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE",<br/>"log-lock-waits": "bool",<br/>"log-min-duration-statement": "int",<br/>"log-min-error-statement": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-statement": "LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL",<br/>"log-temp-files": "int",<br/>"max-locks-per-transaction": "int",<br/>"max-parallel-workers": "int",<br/>"max-parallel-workers-per-gather": "int",<br/>"max-pred-locks-per-transaction": "int",<br/>"max-standby-streaming-delay": "int",<br/>"old-snapshot-threshold": "int",<br/>"quote-all-identifiers": "bool",<br/>"random-page-cost": "double",<br/>"recovery-min-apply-delay": "int",<br/>"row-security": "bool",<br/>"search-path": "str",<br/>"seq-page-cost": "double",<br/>"shared-buffers": "int",<br/>"standard-conforming-strings": "bool",<br/>"statement-timeout": "int",<br/>"synchronize-seqscans": "bool",<br/>"temp-buffers": "int",<br/>"temp-file-limit": "int",<br/>"timezone": "str",<br/>"transform-null-equals": "bool",<br/>"work-mem": "int",<br/>"xmlbinary": "XML_BINARY_BASE64\|XML_BINARY_HEX",<br/>"xmloption": "XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT"<br/>},<br/>"postgresql-config-14-1c": {<br/>"array-nulls": "bool",<br/>"backend-flush-after": "int",<br/>"backslash-quote": "BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING",<br/>"bytea-output": "BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED",<br/>"client-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"constraint-exclusion": "CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION",<br/>"cursor-tuple-fraction": "double",<br/>"deadlock-timeout": "int",<br/>"default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE",<br/>"default-with-oids": "bool",<br/>"effective-cache-size": "int",<br/>"effective-io-concurrency": "int",<br/>"enable-bitmapscan": "bool",<br/>"enable-hashagg": "bool",<br/>"enable-hashjoin": "bool",<br/>"enable-indexonlyscan": "bool",<br/>"enable-indexscan": "bool",<br/>"enable-material": "bool",<br/>"enable-mergejoin": "bool",<br/>"enable-nestloop": "bool",<br/>"enable-seqscan": "bool",<br/>"enable-sort": "bool",<br/>"enable-tidscan": "bool",<br/>"escape-string-warning": "bool",<br/>"exit-on-error": "bool",<br/>"force-parallel-mode": "FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS",<br/>"from-collapse-limit": "int",<br/>"gin-pending-list-limit": "int",<br/>"idle-in-transaction-session-timeout": "int",<br/>"join-collapse-limit": "int",<br/>"lo-compat-privileges": "bool",<br/>"lock-timeout": "int",<br/>"log-checkpoints": "bool",<br/>"log-connections": "bool",<br/>"log-disconnections": "bool",<br/>"log-duration": "bool",<br/>"log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE",<br/>"log-lock-waits": "bool",<br/>"log-min-duration-statement": "int",<br/>"log-min-error-statement": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-statement": "LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL",<br/>"log-temp-files": "int",<br/>"max-locks-per-transaction": "int",<br/>"max-parallel-workers": "int",<br/>"max-parallel-workers-per-gather": "int",<br/>"max-pred-locks-per-transaction": "int",<br/>"max-standby-streaming-delay": "int",<br/>"old-snapshot-threshold": "int",<br/>"quote-all-identifiers": "bool",<br/>"random-page-cost": "double",<br/>"recovery-min-apply-delay": "int",<br/>"row-security": "bool",<br/>"search-path": "str",<br/>"seq-page-cost": "double",<br/>"shared-buffers": "int",<br/>"standard-conforming-strings": "bool",<br/>"statement-timeout": "int",<br/>"synchronize-seqscans": "bool",<br/>"temp-buffers": "int",<br/>"temp-file-limit": "int",<br/>"timezone": "str",<br/>"transform-null-equals": "bool",<br/>"work-mem": "int",<br/>"xmlbinary": "XML_BINARY_BASE64\|XML_BINARY_HEX",<br/>"xmloption": "XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT"<br/>},<br/>"postgresql-config-15": {<br/>"array-nulls": "bool",<br/>"backend-flush-after": "int",<br/>"backslash-quote": "BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING",<br/>"bytea-output": "BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED",<br/>"client-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"constraint-exclusion": "CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION",<br/>"cursor-tuple-fraction": "double",<br/>"deadlock-timeout": "int",<br/>"default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE",<br/>"default-with-oids": "bool",<br/>"effective-cache-size": "int",<br/>"effective-io-concurrency": "int",<br/>"enable-bitmapscan": "bool",<br/>"enable-hashagg": "bool",<br/>"enable-hashjoin": "bool",<br/>"enable-indexonlyscan": "bool",<br/>"enable-indexscan": "bool",<br/>"enable-material": "bool",<br/>"enable-mergejoin": "bool",<br/>"enable-nestloop": "bool",<br/>"enable-seqscan": "bool",<br/>"enable-sort": "bool",<br/>"enable-tidscan": "bool",<br/>"escape-string-warning": "bool",<br/>"exit-on-error": "bool",<br/>"force-parallel-mode": "FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS",<br/>"from-collapse-limit": "int",<br/>"gin-pending-list-limit": "int",<br/>"idle-in-transaction-session-timeout": "int",<br/>"join-collapse-limit": "int",<br/>"lo-compat-privileges": "bool",<br/>"lock-timeout": "int",<br/>"log-checkpoints": "bool",<br/>"log-connections": "bool",<br/>"log-disconnections": "bool",<br/>"log-duration": "bool",<br/>"log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE",<br/>"log-lock-waits": "bool",<br/>"log-min-duration-statement": "int",<br/>"log-min-error-statement": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-statement": "LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL",<br/>"log-temp-files": "int",<br/>"max-locks-per-transaction": "int",<br/>"max-parallel-workers": "int",<br/>"max-parallel-workers-per-gather": "int",<br/>"max-pred-locks-per-transaction": "int",<br/>"max-standby-streaming-delay": "int",<br/>"old-snapshot-threshold": "int",<br/>"quote-all-identifiers": "bool",<br/>"random-page-cost": "double",<br/>"recovery-min-apply-delay": "int",<br/>"row-security": "bool",<br/>"search-path": "str",<br/>"seq-page-cost": "double",<br/>"shared-buffers": "int",<br/>"standard-conforming-strings": "bool",<br/>"statement-timeout": "int",<br/>"synchronize-seqscans": "bool",<br/>"temp-buffers": "int",<br/>"temp-file-limit": "int",<br/>"timezone": "str",<br/>"transform-null-equals": "bool",<br/>"work-mem": "int",<br/>"xmlbinary": "XML_BINARY_BASE64\|XML_BINARY_HEX",<br/>"xmloption": "XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT"<br/>},<br/>"postgresql-config-15-1c": {<br/>"array-nulls": "bool",<br/>"backend-flush-after": "int",<br/>"backslash-quote": "BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING",<br/>"bytea-output": "BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED",<br/>"client-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"constraint-exclusion": "CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION",<br/>"cursor-tuple-fraction": "double",<br/>"deadlock-timeout": "int",<br/>"default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE",<br/>"default-with-oids": "bool",<br/>"effective-cache-size": "int",<br/>"effective-io-concurrency": "int",<br/>"enable-bitmapscan": "bool",<br/>"enable-hashagg": "bool",<br/>"enable-hashjoin": "bool",<br/>"enable-indexonlyscan": "bool",<br/>"enable-indexscan": "bool",<br/>"enable-material": "bool",<br/>"enable-mergejoin": "bool",<br/>"enable-nestloop": "bool",<br/>"enable-seqscan": "bool",<br/>"enable-sort": "bool",<br/>"enable-tidscan": "bool",<br/>"escape-string-warning": "bool",<br/>"exit-on-error": "bool",<br/>"force-parallel-mode": "FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS",<br/>"from-collapse-limit": "int",<br/>"gin-pending-list-limit": "int",<br/>"idle-in-transaction-session-timeout": "int",<br/>"join-collapse-limit": "int",<br/>"lo-compat-privileges": "bool",<br/>"lock-timeout": "int",<br/>"log-checkpoints": "bool",<br/>"log-connections": "bool",<br/>"log-disconnections": "bool",<br/>"log-duration": "bool",<br/>"log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE",<br/>"log-lock-waits": "bool",<br/>"log-min-duration-statement": "int",<br/>"log-min-error-statement": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-statement": "LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL",<br/>"log-temp-files": "int",<br/>"max-locks-per-transaction": "int",<br/>"max-parallel-workers": "int",<br/>"max-parallel-workers-per-gather": "int",<br/>"max-pred-locks-per-transaction": "int",<br/>"max-standby-streaming-delay": "int",<br/>"old-snapshot-threshold": "int",<br/>"quote-all-identifiers": "bool",<br/>"random-page-cost": "double",<br/>"recovery-min-apply-delay": "int",<br/>"row-security": "bool",<br/>"search-path": "str",<br/>"seq-page-cost": "double",<br/>"shared-buffers": "int",<br/>"standard-conforming-strings": "bool",<br/>"statement-timeout": "int",<br/>"synchronize-seqscans": "bool",<br/>"temp-buffers": "int",<br/>"temp-file-limit": "int",<br/>"timezone": "str",<br/>"transform-null-equals": "bool",<br/>"work-mem": "int",<br/>"xmlbinary": "XML_BINARY_BASE64\|XML_BINARY_HEX",<br/>"xmloption": "XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT"<br/>},<br/>"postgresql-config-16": {<br/>"array-nulls": "bool",<br/>"backend-flush-after": "int",<br/>"backslash-quote": "BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING",<br/>"bytea-output": "BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED",<br/>"client-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"constraint-exclusion": "CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION",<br/>"cursor-tuple-fraction": "double",<br/>"deadlock-timeout": "int",<br/>"debug-parallel-query": "DEBUG_PARALLEL_QUERY_ON\|DEBUG_PARALLEL_QUERY_OFF\|DEBUG_PARALLEL_QUERY_REGRESS",<br/>"default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE",<br/>"default-with-oids": "bool",<br/>"effective-cache-size": "int",<br/>"effective-io-concurrency": "int",<br/>"enable-bitmapscan": "bool",<br/>"enable-hashagg": "bool",<br/>"enable-hashjoin": "bool",<br/>"enable-indexonlyscan": "bool",<br/>"enable-indexscan": "bool",<br/>"enable-material": "bool",<br/>"enable-mergejoin": "bool",<br/>"enable-nestloop": "bool",<br/>"enable-seqscan": "bool",<br/>"enable-sort": "bool",<br/>"enable-tidscan": "bool",<br/>"escape-string-warning": "bool",<br/>"exit-on-error": "bool",<br/>"from-collapse-limit": "int",<br/>"gin-pending-list-limit": "int",<br/>"idle-in-transaction-session-timeout": "int",<br/>"join-collapse-limit": "int",<br/>"lo-compat-privileges": "bool",<br/>"lock-timeout": "int",<br/>"log-checkpoints": "bool",<br/>"log-connections": "bool",<br/>"log-disconnections": "bool",<br/>"log-duration": "bool",<br/>"log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE",<br/>"log-lock-waits": "bool",<br/>"log-min-duration-statement": "int",<br/>"log-min-error-statement": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-statement": "LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL",<br/>"log-temp-files": "int",<br/>"max-locks-per-transaction": "int",<br/>"max-parallel-workers": "int",<br/>"max-parallel-workers-per-gather": "int",<br/>"max-pred-locks-per-transaction": "int",<br/>"max-standby-streaming-delay": "int",<br/>"old-snapshot-threshold": "int",<br/>"quote-all-identifiers": "bool",<br/>"random-page-cost": "double",<br/>"recovery-min-apply-delay": "int",<br/>"row-security": "bool",<br/>"search-path": "str",<br/>"seq-page-cost": "double",<br/>"shared-buffers": "int",<br/>"standard-conforming-strings": "bool",<br/>"statement-timeout": "int",<br/>"synchronize-seqscans": "bool",<br/>"temp-buffers": "int",<br/>"temp-file-limit": "int",<br/>"timezone": "str",<br/>"transform-null-equals": "bool",<br/>"work-mem": "int",<br/>"xmlbinary": "XML_BINARY_BASE64\|XML_BINARY_HEX",<br/>"xmloption": "XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT"<br/>},<br/>"postgresql-config-16-1c": {<br/>"array-nulls": "bool",<br/>"backend-flush-after": "int",<br/>"backslash-quote": "BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING",<br/>"bytea-output": "BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED",<br/>"client-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"constraint-exclusion": "CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION",<br/>"cursor-tuple-fraction": "double",<br/>"deadlock-timeout": "int",<br/>"debug-parallel-query": "DEBUG_PARALLEL_QUERY_ON\|DEBUG_PARALLEL_QUERY_OFF\|DEBUG_PARALLEL_QUERY_REGRESS",<br/>"default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE",<br/>"default-with-oids": "bool",<br/>"effective-cache-size": "int",<br/>"effective-io-concurrency": "int",<br/>"enable-bitmapscan": "bool",<br/>"enable-hashagg": "bool",<br/>"enable-hashjoin": "bool",<br/>"enable-indexonlyscan": "bool",<br/>"enable-indexscan": "bool",<br/>"enable-material": "bool",<br/>"enable-mergejoin": "bool",<br/>"enable-nestloop": "bool",<br/>"enable-seqscan": "bool",<br/>"enable-sort": "bool",<br/>"enable-tidscan": "bool",<br/>"escape-string-warning": "bool",<br/>"exit-on-error": "bool",<br/>"from-collapse-limit": "int",<br/>"gin-pending-list-limit": "int",<br/>"idle-in-transaction-session-timeout": "int",<br/>"join-collapse-limit": "int",<br/>"lo-compat-privileges": "bool",<br/>"lock-timeout": "int",<br/>"log-checkpoints": "bool",<br/>"log-connections": "bool",<br/>"log-disconnections": "bool",<br/>"log-duration": "bool",<br/>"log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE",<br/>"log-lock-waits": "bool",<br/>"log-min-duration-statement": "int",<br/>"log-min-error-statement": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-statement": "LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL",<br/>"log-temp-files": "int",<br/>"max-locks-per-transaction": "int",<br/>"max-parallel-workers": "int",<br/>"max-parallel-workers-per-gather": "int",<br/>"max-pred-locks-per-transaction": "int",<br/>"max-standby-streaming-delay": "int",<br/>"old-snapshot-threshold": "int",<br/>"quote-all-identifiers": "bool",<br/>"random-page-cost": "double",<br/>"recovery-min-apply-delay": "int",<br/>"row-security": "bool",<br/>"search-path": "str",<br/>"seq-page-cost": "double",<br/>"shared-buffers": "int",<br/>"standard-conforming-strings": "bool",<br/>"statement-timeout": "int",<br/>"synchronize-seqscans": "bool",<br/>"temp-buffers": "int",<br/>"temp-file-limit": "int",<br/>"timezone": "str",<br/>"transform-null-equals": "bool",<br/>"work-mem": "int",<br/>"xmlbinary": "XML_BINARY_BASE64\|XML_BINARY_HEX",<br/>"xmloption": "XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT"<br/>},<br/>"postgresql-config-17": {<br/>"array-nulls": "bool",<br/>"backend-flush-after": "int",<br/>"backslash-quote": "BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING",<br/>"bytea-output": "BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED",<br/>"client-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"constraint-exclusion": "CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION",<br/>"cursor-tuple-fraction": "double",<br/>"deadlock-timeout": "int",<br/>"debug-parallel-query": "DEBUG_PARALLEL_QUERY_ON\|DEBUG_PARALLEL_QUERY_OFF\|DEBUG_PARALLEL_QUERY_REGRESS",<br/>"default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE",<br/>"default-with-oids": "bool",<br/>"effective-cache-size": "int",<br/>"effective-io-concurrency": "int",<br/>"enable-bitmapscan": "bool",<br/>"enable-hashagg": "bool",<br/>"enable-hashjoin": "bool",<br/>"enable-indexonlyscan": "bool",<br/>"enable-indexscan": "bool",<br/>"enable-material": "bool",<br/>"enable-mergejoin": "bool",<br/>"enable-nestloop": "bool",<br/>"enable-seqscan": "bool",<br/>"enable-sort": "bool",<br/>"enable-tidscan": "bool",<br/>"escape-string-warning": "bool",<br/>"exit-on-error": "bool",<br/>"from-collapse-limit": "int",<br/>"gin-pending-list-limit": "int",<br/>"idle-in-transaction-session-timeout": "int",<br/>"join-collapse-limit": "int",<br/>"lo-compat-privileges": "bool",<br/>"lock-timeout": "int",<br/>"log-checkpoints": "bool",<br/>"log-connections": "bool",<br/>"log-disconnections": "bool",<br/>"log-duration": "bool",<br/>"log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE",<br/>"log-lock-waits": "bool",<br/>"log-min-duration-statement": "int",<br/>"log-min-error-statement": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-statement": "LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL",<br/>"log-temp-files": "int",<br/>"max-locks-per-transaction": "int",<br/>"max-parallel-workers": "int",<br/>"max-parallel-workers-per-gather": "int",<br/>"max-pred-locks-per-transaction": "int",<br/>"max-standby-streaming-delay": "int",<br/>"quote-all-identifiers": "bool",<br/>"random-page-cost": "double",<br/>"recovery-min-apply-delay": "int",<br/>"row-security": "bool",<br/>"search-path": "str",<br/>"seq-page-cost": "double",<br/>"shared-buffers": "int",<br/>"standard-conforming-strings": "bool",<br/>"statement-timeout": "int",<br/>"synchronize-seqscans": "bool",<br/>"temp-buffers": "int",<br/>"temp-file-limit": "int",<br/>"timezone": "str",<br/>"transform-null-equals": "bool",<br/>"work-mem": "int",<br/>"xmlbinary": "XML_BINARY_BASE64\|XML_BINARY_HEX",<br/>"xmloption": "XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT"<br/>},<br/>"postgresql-config-17-1c": {<br/>"array-nulls": "bool",<br/>"backend-flush-after": "int",<br/>"backslash-quote": "BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING",<br/>"bytea-output": "BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED",<br/>"client-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"constraint-exclusion": "CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION",<br/>"cursor-tuple-fraction": "double",<br/>"deadlock-timeout": "int",<br/>"debug-parallel-query": "DEBUG_PARALLEL_QUERY_ON\|DEBUG_PARALLEL_QUERY_OFF\|DEBUG_PARALLEL_QUERY_REGRESS",<br/>"default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE",<br/>"default-with-oids": "bool",<br/>"effective-cache-size": "int",<br/>"effective-io-concurrency": "int",<br/>"enable-bitmapscan": "bool",<br/>"enable-hashagg": "bool",<br/>"enable-hashjoin": "bool",<br/>"enable-indexonlyscan": "bool",<br/>"enable-indexscan": "bool",<br/>"enable-material": "bool",<br/>"enable-mergejoin": "bool",<br/>"enable-nestloop": "bool",<br/>"enable-seqscan": "bool",<br/>"enable-sort": "bool",<br/>"enable-tidscan": "bool",<br/>"escape-string-warning": "bool",<br/>"exit-on-error": "bool",<br/>"from-collapse-limit": "int",<br/>"gin-pending-list-limit": "int",<br/>"idle-in-transaction-session-timeout": "int",<br/>"join-collapse-limit": "int",<br/>"lo-compat-privileges": "bool",<br/>"lock-timeout": "int",<br/>"log-checkpoints": "bool",<br/>"log-connections": "bool",<br/>"log-disconnections": "bool",<br/>"log-duration": "bool",<br/>"log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE",<br/>"log-lock-waits": "bool",<br/>"log-min-duration-statement": "int",<br/>"log-min-error-statement": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-statement": "LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL",<br/>"log-temp-files": "int",<br/>"max-locks-per-transaction": "int",<br/>"max-parallel-workers": "int",<br/>"max-parallel-workers-per-gather": "int",<br/>"max-pred-locks-per-transaction": "int",<br/>"max-standby-streaming-delay": "int",<br/>"quote-all-identifiers": "bool",<br/>"random-page-cost": "double",<br/>"recovery-min-apply-delay": "int",<br/>"row-security": "bool",<br/>"search-path": "str",<br/>"seq-page-cost": "double",<br/>"shared-buffers": "int",<br/>"standard-conforming-strings": "bool",<br/>"statement-timeout": "int",<br/>"synchronize-seqscans": "bool",<br/>"temp-buffers": "int",<br/>"temp-file-limit": "int",<br/>"timezone": "str",<br/>"transform-null-equals": "bool",<br/>"work-mem": "int",<br/>"xmlbinary": "XML_BINARY_BASE64\|XML_BINARY_HEX",<br/>"xmloption": "XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT"<br/>},<br/>"postgresql-config-18": {<br/>"array-nulls": "bool",<br/>"backend-flush-after": "int",<br/>"backslash-quote": "BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING",<br/>"bytea-output": "BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED",<br/>"client-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"constraint-exclusion": "CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION",<br/>"cursor-tuple-fraction": "double",<br/>"deadlock-timeout": "int",<br/>"debug-parallel-query": "DEBUG_PARALLEL_QUERY_ON\|DEBUG_PARALLEL_QUERY_OFF\|DEBUG_PARALLEL_QUERY_REGRESS",<br/>"default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE",<br/>"default-with-oids": "bool",<br/>"effective-cache-size": "int",<br/>"effective-io-concurrency": "int",<br/>"enable-bitmapscan": "bool",<br/>"enable-hashagg": "bool",<br/>"enable-hashjoin": "bool",<br/>"enable-indexonlyscan": "bool",<br/>"enable-indexscan": "bool",<br/>"enable-material": "bool",<br/>"enable-mergejoin": "bool",<br/>"enable-nestloop": "bool",<br/>"enable-seqscan": "bool",<br/>"enable-sort": "bool",<br/>"enable-tidscan": "bool",<br/>"escape-string-warning": "bool",<br/>"exit-on-error": "bool",<br/>"from-collapse-limit": "int",<br/>"gin-pending-list-limit": "int",<br/>"idle-in-transaction-session-timeout": "int",<br/>"join-collapse-limit": "int",<br/>"lo-compat-privileges": "bool",<br/>"lock-timeout": "int",<br/>"log-checkpoints": "bool",<br/>"log-connections": "bool",<br/>"log-disconnections": "bool",<br/>"log-duration": "bool",<br/>"log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE",<br/>"log-lock-waits": "bool",<br/>"log-min-duration-statement": "int",<br/>"log-min-error-statement": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-statement": "LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL",<br/>"log-temp-files": "int",<br/>"max-locks-per-transaction": "int",<br/>"max-parallel-workers": "int",<br/>"max-parallel-workers-per-gather": "int",<br/>"max-pred-locks-per-transaction": "int",<br/>"max-standby-streaming-delay": "int",<br/>"quote-all-identifiers": "bool",<br/>"random-page-cost": "double",<br/>"recovery-min-apply-delay": "int",<br/>"row-security": "bool",<br/>"search-path": "str",<br/>"seq-page-cost": "double",<br/>"shared-buffers": "int",<br/>"standard-conforming-strings": "bool",<br/>"statement-timeout": "int",<br/>"synchronize-seqscans": "bool",<br/>"temp-buffers": "int",<br/>"temp-file-limit": "int",<br/>"timezone": "str",<br/>"transform-null-equals": "bool",<br/>"work-mem": "int",<br/>"xmlbinary": "XML_BINARY_BASE64\|XML_BINARY_HEX",<br/>"xmloption": "XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT"<br/>},<br/>"postgresql-config-18-1c": {<br/>"array-nulls": "bool",<br/>"backend-flush-after": "int",<br/>"backslash-quote": "BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING",<br/>"bytea-output": "BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED",<br/>"client-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"constraint-exclusion": "CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION",<br/>"cursor-tuple-fraction": "double",<br/>"deadlock-timeout": "int",<br/>"debug-parallel-query": "DEBUG_PARALLEL_QUERY_ON\|DEBUG_PARALLEL_QUERY_OFF\|DEBUG_PARALLEL_QUERY_REGRESS",<br/>"default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE",<br/>"default-with-oids": "bool",<br/>"effective-cache-size": "int",<br/>"effective-io-concurrency": "int",<br/>"enable-bitmapscan": "bool",<br/>"enable-hashagg": "bool",<br/>"enable-hashjoin": "bool",<br/>"enable-indexonlyscan": "bool",<br/>"enable-indexscan": "bool",<br/>"enable-material": "bool",<br/>"enable-mergejoin": "bool",<br/>"enable-nestloop": "bool",<br/>"enable-seqscan": "bool",<br/>"enable-sort": "bool",<br/>"enable-tidscan": "bool",<br/>"escape-string-warning": "bool",<br/>"exit-on-error": "bool",<br/>"from-collapse-limit": "int",<br/>"gin-pending-list-limit": "int",<br/>"idle-in-transaction-session-timeout": "int",<br/>"join-collapse-limit": "int",<br/>"lo-compat-privileges": "bool",<br/>"lock-timeout": "int",<br/>"log-checkpoints": "bool",<br/>"log-connections": "bool",<br/>"log-disconnections": "bool",<br/>"log-duration": "bool",<br/>"log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE",<br/>"log-lock-waits": "bool",<br/>"log-min-duration-statement": "int",<br/>"log-min-error-statement": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-statement": "LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL",<br/>"log-temp-files": "int",<br/>"max-locks-per-transaction": "int",<br/>"max-parallel-workers": "int",<br/>"max-parallel-workers-per-gather": "int",<br/>"max-pred-locks-per-transaction": "int",<br/>"max-standby-streaming-delay": "int",<br/>"quote-all-identifiers": "bool",<br/>"random-page-cost": "double",<br/>"recovery-min-apply-delay": "int",<br/>"row-security": "bool",<br/>"search-path": "str",<br/>"seq-page-cost": "double",<br/>"shared-buffers": "int",<br/>"standard-conforming-strings": "bool",<br/>"statement-timeout": "int",<br/>"synchronize-seqscans": "bool",<br/>"temp-buffers": "int",<br/>"temp-file-limit": "int",<br/>"timezone": "str",<br/>"transform-null-equals": "bool",<br/>"work-mem": "int",<br/>"xmlbinary": "XML_BINARY_BASE64\|XML_BINARY_HEX",<br/>"xmloption": "XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT"<br/>},<br/>"postgresql-config-9-6": {<br/>"array-nulls": "bool",<br/>"backend-flush-after": "int",<br/>"backslash-quote": "BACKSLASH_QUOTE\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_SAFE_ENCODING",<br/>"bytea-output": "BYTEA_OUTPUT_HEX\|BYTEA_OUTPUT_ESCAPED",<br/>"client-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"constraint-exclusion": "CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_PARTITION",<br/>"cursor-tuple-fraction": "double",<br/>"deadlock-timeout": "int",<br/>"default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE",<br/>"default-with-oids": "bool",<br/>"effective-cache-size": "int",<br/>"effective-io-concurrency": "int",<br/>"escape-string-warning": "bool",<br/>"exit-on-error": "bool",<br/>"force-parallel-mode": "FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_REGRESS",<br/>"from-collapse-limit": "int",<br/>"gin-pending-list-limit": "int",<br/>"idle-in-transaction-session-timeout": "int",<br/>"join-collapse-limit": "int",<br/>"lo-compat-privileges": "bool",<br/>"lock-timeout": "int",<br/>"log-checkpoints": "bool",<br/>"log-connections": "bool",<br/>"log-disconnections": "bool",<br/>"log-duration": "bool",<br/>"log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_VERBOSE",<br/>"log-lock-waits": "bool",<br/>"log-min-duration-statement": "int",<br/>"log-min-error-statement": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-min-messages": "LOG_LEVEL_DEBUG5\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG1\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_WARNING\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_PANIC",<br/>"log-statement": "LOG_STATEMENT_NONE\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_ALL",<br/>"log-temp-files": "int",<br/>"max-locks-per-transaction": "int",<br/>"max-pred-locks-per-transaction": "int",<br/>"max-standby-streaming-delay": "int",<br/>"old-snapshot-threshold": "int",<br/>"operator-precedence-warning": "bool",<br/>"quote-all-identifiers": "bool",<br/>"random-page-cost": "double",<br/>"recovery-min-apply-delay": "int",<br/>"replacement-sort-tuples": "int",<br/>"row-security": "bool",<br/>"search-path": "str",<br/>"seq-page-cost": "double",<br/>"shared-buffers": "int",<br/>"sql-inheritance": "bool",<br/>"standard-conforming-strings": "bool",<br/>"statement-timeout": "int",<br/>"synchronize-seqscans": "bool",<br/>"temp-buffers": "int",<br/>"temp-file-limit": "int",<br/>"transform-null-equals": "bool",<br/>"work-mem": "int",<br/>"xmlbinary": "XML_BINARY_BASE64\|XML_BINARY_HEX",<br/>"xmloption": "XML_OPTION_DOCUMENT\|XML_OPTION_CONTENT"<br/>}<br/>}<br/>},<br/>"host-name": "str",<br/>"priority": "int",<br/>"replication-source": "str"<br/>}, ...<br/>]"<br/>Fields:<br/>assign-public-ip -> (bool)<br/>Whether the host should get a public IP address on creation.<br/>config-spec -> (struct)<br/>Configuration of a PostgreSQL server for the host.<br/>postgresql-config -> (oneof<postgresql-config-10\|postgresql-config-10-1c\|postgresql-config-11\|postgresql-config-11-1c\|postgresql-config-12\|postgresql-config-12-1c\|postgresql-config-13\|postgresql-config-13-1c\|postgresql-config-14\|postgresql-config-14-1c\|postgresql-config-15\|postgresql-config-15-1c\|postgresql-config-16\|postgresql-config-16-1c\|postgresql-config-17\|postgresql-config-17-1c\|postgresql-config-18\|postgresql-config-18-1c\|postgresql-config-9-6>)<br/>Oneof postgresql-config field<br/>postgresql-config-9-6 -> (struct)<br/>Configuration for a host with PostgreSQL 9.6 server deployed.<br/>array-nulls -> (bool)<br/>backend-flush-after -> (int)<br/>backslash-quote -> (enum<BACKSLASH_QUOTE\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_SAFE_ENCODING>)<br/>bytea-output -> (enum<BYTEA_OUTPUT_ESCAPED\|BYTEA_OUTPUT_HEX>)<br/>client-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>constraint-exclusion -> (enum<CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_PARTITION>)<br/>cursor-tuple-fraction -> (double)<br/>deadlock-timeout -> (int)<br/>default-transaction-isolation -> (enum<TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE>)<br/>default-with-oids -> (bool)<br/>effective-cache-size -> (int)<br/>effective-io-concurrency -> (int)<br/>escape-string-warning -> (bool)<br/>exit-on-error -> (bool)<br/>force-parallel-mode -> (enum<FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_REGRESS>)<br/>from-collapse-limit -> (int)<br/>gin-pending-list-limit -> (int)<br/>idle-in-transaction-session-timeout -> (int)<br/>join-collapse-limit -> (int)<br/>lo-compat-privileges -> (bool)<br/>lock-timeout -> (int)<br/>log-checkpoints -> (bool)<br/>log-connections -> (bool)<br/>log-disconnections -> (bool)<br/>log-duration -> (bool)<br/>log-error-verbosity -> (enum<LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_VERBOSE>)<br/>log-lock-waits -> (bool)<br/>log-min-duration-statement -> (int)<br/>log-min-error-statement -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-statement -> (enum<LOG_STATEMENT_ALL\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_NONE>)<br/>log-temp-files -> (int)<br/>max-locks-per-transaction -> (int)<br/>max-pred-locks-per-transaction -> (int)<br/>max-standby-streaming-delay -> (int)<br/>old-snapshot-threshold -> (int)<br/>operator-precedence-warning -> (bool)<br/>quote-all-identifiers -> (bool)<br/>random-page-cost -> (double)<br/>recovery-min-apply-delay -> (int)<br/>replacement-sort-tuples -> (int)<br/>row-security -> (bool)<br/>search-path -> (string)<br/>seq-page-cost -> (double)<br/>shared-buffers -> (int)<br/>sql-inheritance -> (bool)<br/>This option has been removed in PostgreSQL 10.<br/>standard-conforming-strings -> (bool)<br/>statement-timeout -> (int)<br/>synchronize-seqscans -> (bool)<br/>temp-buffers -> (int)<br/>temp-file-limit -> (int)<br/>transform-null-equals -> (bool)<br/>work-mem -> (int)<br/>xmlbinary -> (enum<XML_BINARY_BASE64\|XML_BINARY_HEX>)<br/>xmloption -> (enum<XML_OPTION_CONTENT\|XML_OPTION_DOCUMENT>)<br/>postgresql-config-10-1c -> (struct)<br/>Configuration for a host with PostgreSQL 10 1C server deployed.<br/>array-nulls -> (bool)<br/>backend-flush-after -> (int)<br/>backslash-quote -> (enum<BACKSLASH_QUOTE\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_SAFE_ENCODING>)<br/>bytea-output -> (enum<BYTEA_OUTPUT_ESCAPED\|BYTEA_OUTPUT_HEX>)<br/>client-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>constraint-exclusion -> (enum<CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_PARTITION>)<br/>cursor-tuple-fraction -> (double)<br/>deadlock-timeout -> (int)<br/>default-transaction-isolation -> (enum<TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE>)<br/>default-with-oids -> (bool)<br/>effective-cache-size -> (int)<br/>effective-io-concurrency -> (int)<br/>enable-bitmapscan -> (bool)<br/>enable-hashagg -> (bool)<br/>enable-hashjoin -> (bool)<br/>enable-indexonlyscan -> (bool)<br/>enable-indexscan -> (bool)<br/>enable-material -> (bool)<br/>enable-mergejoin -> (bool)<br/>enable-nestloop -> (bool)<br/>enable-seqscan -> (bool)<br/>enable-sort -> (bool)<br/>enable-tidscan -> (bool)<br/>escape-string-warning -> (bool)<br/>exit-on-error -> (bool)<br/>force-parallel-mode -> (enum<FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_REGRESS>)<br/>from-collapse-limit -> (int)<br/>gin-pending-list-limit -> (int)<br/>idle-in-transaction-session-timeout -> (int)<br/>join-collapse-limit -> (int)<br/>lo-compat-privileges -> (bool)<br/>lock-timeout -> (int)<br/>log-checkpoints -> (bool)<br/>log-connections -> (bool)<br/>log-disconnections -> (bool)<br/>log-duration -> (bool)<br/>log-error-verbosity -> (enum<LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_VERBOSE>)<br/>log-lock-waits -> (bool)<br/>log-min-duration-statement -> (int)<br/>log-min-error-statement -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-statement -> (enum<LOG_STATEMENT_ALL\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_NONE>)<br/>log-temp-files -> (int)<br/>max-locks-per-transaction -> (int)<br/>max-parallel-workers -> (int)<br/>max-parallel-workers-per-gather -> (int)<br/>max-pred-locks-per-transaction -> (int)<br/>max-standby-streaming-delay -> (int)<br/>old-snapshot-threshold -> (int)<br/>operator-precedence-warning -> (bool)<br/>quote-all-identifiers -> (bool)<br/>random-page-cost -> (double)<br/>recovery-min-apply-delay -> (int)<br/>replacement-sort-tuples -> (int)<br/>row-security -> (bool)<br/>search-path -> (string)<br/>seq-page-cost -> (double)<br/>shared-buffers -> (int)<br/>standard-conforming-strings -> (bool)<br/>statement-timeout -> (int)<br/>synchronize-seqscans -> (bool)<br/>temp-buffers -> (int)<br/>temp-file-limit -> (int)<br/>timezone -> (string)<br/>transform-null-equals -> (bool)<br/>work-mem -> (int)<br/>xmlbinary -> (enum<XML_BINARY_BASE64\|XML_BINARY_HEX>)<br/>xmloption -> (enum<XML_OPTION_CONTENT\|XML_OPTION_DOCUMENT>)<br/>postgresql-config-10 -> (struct)<br/>Configuration for a host with PostgreSQL 10 server deployed.<br/>array-nulls -> (bool)<br/>backend-flush-after -> (int)<br/>backslash-quote -> (enum<BACKSLASH_QUOTE\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_SAFE_ENCODING>)<br/>bytea-output -> (enum<BYTEA_OUTPUT_ESCAPED\|BYTEA_OUTPUT_HEX>)<br/>client-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>constraint-exclusion -> (enum<CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_PARTITION>)<br/>cursor-tuple-fraction -> (double)<br/>deadlock-timeout -> (int)<br/>default-transaction-isolation -> (enum<TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE>)<br/>default-with-oids -> (bool)<br/>effective-cache-size -> (int)<br/>effective-io-concurrency -> (int)<br/>enable-bitmapscan -> (bool)<br/>enable-hashagg -> (bool)<br/>enable-hashjoin -> (bool)<br/>enable-indexonlyscan -> (bool)<br/>enable-indexscan -> (bool)<br/>enable-material -> (bool)<br/>enable-mergejoin -> (bool)<br/>enable-nestloop -> (bool)<br/>enable-seqscan -> (bool)<br/>enable-sort -> (bool)<br/>enable-tidscan -> (bool)<br/>escape-string-warning -> (bool)<br/>exit-on-error -> (bool)<br/>force-parallel-mode -> (enum<FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_REGRESS>)<br/>from-collapse-limit -> (int)<br/>gin-pending-list-limit -> (int)<br/>idle-in-transaction-session-timeout -> (int)<br/>join-collapse-limit -> (int)<br/>lo-compat-privileges -> (bool)<br/>lock-timeout -> (int)<br/>log-checkpoints -> (bool)<br/>log-connections -> (bool)<br/>log-disconnections -> (bool)<br/>log-duration -> (bool)<br/>log-error-verbosity -> (enum<LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_VERBOSE>)<br/>log-lock-waits -> (bool)<br/>log-min-duration-statement -> (int)<br/>log-min-error-statement -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-statement -> (enum<LOG_STATEMENT_ALL\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_NONE>)<br/>log-temp-files -> (int)<br/>max-locks-per-transaction -> (int)<br/>max-parallel-workers -> (int)<br/>max-parallel-workers-per-gather -> (int)<br/>max-pred-locks-per-transaction -> (int)<br/>max-standby-streaming-delay -> (int)<br/>old-snapshot-threshold -> (int)<br/>operator-precedence-warning -> (bool)<br/>quote-all-identifiers -> (bool)<br/>random-page-cost -> (double)<br/>recovery-min-apply-delay -> (int)<br/>replacement-sort-tuples -> (int)<br/>row-security -> (bool)<br/>search-path -> (string)<br/>seq-page-cost -> (double)<br/>shared-buffers -> (int)<br/>standard-conforming-strings -> (bool)<br/>statement-timeout -> (int)<br/>synchronize-seqscans -> (bool)<br/>temp-buffers -> (int)<br/>temp-file-limit -> (int)<br/>timezone -> (string)<br/>transform-null-equals -> (bool)<br/>work-mem -> (int)<br/>xmlbinary -> (enum<XML_BINARY_BASE64\|XML_BINARY_HEX>)<br/>xmloption -> (enum<XML_OPTION_CONTENT\|XML_OPTION_DOCUMENT>)<br/>postgresql-config-11 -> (struct)<br/>Configuration for a host with PostgreSQL 11 server deployed.<br/>array-nulls -> (bool)<br/>backend-flush-after -> (int)<br/>backslash-quote -> (enum<BACKSLASH_QUOTE\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_SAFE_ENCODING>)<br/>bytea-output -> (enum<BYTEA_OUTPUT_ESCAPED\|BYTEA_OUTPUT_HEX>)<br/>client-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>constraint-exclusion -> (enum<CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_PARTITION>)<br/>cursor-tuple-fraction -> (double)<br/>deadlock-timeout -> (int)<br/>default-transaction-isolation -> (enum<TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE>)<br/>default-with-oids -> (bool)<br/>effective-cache-size -> (int)<br/>effective-io-concurrency -> (int)<br/>enable-bitmapscan -> (bool)<br/>enable-hashagg -> (bool)<br/>enable-hashjoin -> (bool)<br/>enable-indexonlyscan -> (bool)<br/>enable-indexscan -> (bool)<br/>enable-material -> (bool)<br/>enable-mergejoin -> (bool)<br/>enable-nestloop -> (bool)<br/>enable-seqscan -> (bool)<br/>enable-sort -> (bool)<br/>enable-tidscan -> (bool)<br/>escape-string-warning -> (bool)<br/>exit-on-error -> (bool)<br/>force-parallel-mode -> (enum<FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_REGRESS>)<br/>from-collapse-limit -> (int)<br/>gin-pending-list-limit -> (int)<br/>idle-in-transaction-session-timeout -> (int)<br/>join-collapse-limit -> (int)<br/>lo-compat-privileges -> (bool)<br/>lock-timeout -> (int)<br/>log-checkpoints -> (bool)<br/>log-connections -> (bool)<br/>log-disconnections -> (bool)<br/>log-duration -> (bool)<br/>log-error-verbosity -> (enum<LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_VERBOSE>)<br/>log-lock-waits -> (bool)<br/>log-min-duration-statement -> (int)<br/>log-min-error-statement -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-statement -> (enum<LOG_STATEMENT_ALL\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_NONE>)<br/>log-temp-files -> (int)<br/>max-locks-per-transaction -> (int)<br/>max-parallel-workers -> (int)<br/>max-parallel-workers-per-gather -> (int)<br/>max-pred-locks-per-transaction -> (int)<br/>max-standby-streaming-delay -> (int)<br/>old-snapshot-threshold -> (int)<br/>operator-precedence-warning -> (bool)<br/>quote-all-identifiers -> (bool)<br/>random-page-cost -> (double)<br/>recovery-min-apply-delay -> (int)<br/>row-security -> (bool)<br/>search-path -> (string)<br/>seq-page-cost -> (double)<br/>shared-buffers -> (int)<br/>standard-conforming-strings -> (bool)<br/>statement-timeout -> (int)<br/>synchronize-seqscans -> (bool)<br/>temp-buffers -> (int)<br/>temp-file-limit -> (int)<br/>timezone -> (string)<br/>transform-null-equals -> (bool)<br/>work-mem -> (int)<br/>xmlbinary -> (enum<XML_BINARY_BASE64\|XML_BINARY_HEX>)<br/>xmloption -> (enum<XML_OPTION_CONTENT\|XML_OPTION_DOCUMENT>)<br/>postgresql-config-11-1c -> (struct)<br/>Configuration for a host with PostgreSQL 11 1C server deployed.<br/>array-nulls -> (bool)<br/>backend-flush-after -> (int)<br/>backslash-quote -> (enum<BACKSLASH_QUOTE\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_SAFE_ENCODING>)<br/>bytea-output -> (enum<BYTEA_OUTPUT_ESCAPED\|BYTEA_OUTPUT_HEX>)<br/>client-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>constraint-exclusion -> (enum<CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_PARTITION>)<br/>cursor-tuple-fraction -> (double)<br/>deadlock-timeout -> (int)<br/>default-transaction-isolation -> (enum<TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE>)<br/>default-with-oids -> (bool)<br/>effective-cache-size -> (int)<br/>effective-io-concurrency -> (int)<br/>enable-bitmapscan -> (bool)<br/>enable-hashagg -> (bool)<br/>enable-hashjoin -> (bool)<br/>enable-indexonlyscan -> (bool)<br/>enable-indexscan -> (bool)<br/>enable-material -> (bool)<br/>enable-mergejoin -> (bool)<br/>enable-nestloop -> (bool)<br/>enable-seqscan -> (bool)<br/>enable-sort -> (bool)<br/>enable-tidscan -> (bool)<br/>escape-string-warning -> (bool)<br/>exit-on-error -> (bool)<br/>force-parallel-mode -> (enum<FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_REGRESS>)<br/>from-collapse-limit -> (int)<br/>gin-pending-list-limit -> (int)<br/>idle-in-transaction-session-timeout -> (int)<br/>join-collapse-limit -> (int)<br/>lo-compat-privileges -> (bool)<br/>lock-timeout -> (int)<br/>log-checkpoints -> (bool)<br/>log-connections -> (bool)<br/>log-disconnections -> (bool)<br/>log-duration -> (bool)<br/>log-error-verbosity -> (enum<LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_VERBOSE>)<br/>log-lock-waits -> (bool)<br/>log-min-duration-statement -> (int)<br/>log-min-error-statement -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-statement -> (enum<LOG_STATEMENT_ALL\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_NONE>)<br/>log-temp-files -> (int)<br/>max-locks-per-transaction -> (int)<br/>max-parallel-workers -> (int)<br/>max-parallel-workers-per-gather -> (int)<br/>max-pred-locks-per-transaction -> (int)<br/>max-standby-streaming-delay -> (int)<br/>old-snapshot-threshold -> (int)<br/>operator-precedence-warning -> (bool)<br/>quote-all-identifiers -> (bool)<br/>random-page-cost -> (double)<br/>recovery-min-apply-delay -> (int)<br/>row-security -> (bool)<br/>search-path -> (string)<br/>seq-page-cost -> (double)<br/>shared-buffers -> (int)<br/>standard-conforming-strings -> (bool)<br/>statement-timeout -> (int)<br/>synchronize-seqscans -> (bool)<br/>temp-buffers -> (int)<br/>temp-file-limit -> (int)<br/>timezone -> (string)<br/>transform-null-equals -> (bool)<br/>work-mem -> (int)<br/>xmlbinary -> (enum<XML_BINARY_BASE64\|XML_BINARY_HEX>)<br/>xmloption -> (enum<XML_OPTION_CONTENT\|XML_OPTION_DOCUMENT>)<br/>postgresql-config-12 -> (struct)<br/>Configuration for a host with PostgreSQL 12 server deployed.<br/>array-nulls -> (bool)<br/>backend-flush-after -> (int)<br/>backslash-quote -> (enum<BACKSLASH_QUOTE\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_SAFE_ENCODING>)<br/>bytea-output -> (enum<BYTEA_OUTPUT_ESCAPED\|BYTEA_OUTPUT_HEX>)<br/>client-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>constraint-exclusion -> (enum<CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_PARTITION>)<br/>cursor-tuple-fraction -> (double)<br/>deadlock-timeout -> (int)<br/>default-transaction-isolation -> (enum<TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE>)<br/>default-with-oids -> (bool)<br/>effective-cache-size -> (int)<br/>effective-io-concurrency -> (int)<br/>enable-bitmapscan -> (bool)<br/>enable-hashagg -> (bool)<br/>enable-hashjoin -> (bool)<br/>enable-indexonlyscan -> (bool)<br/>enable-indexscan -> (bool)<br/>enable-material -> (bool)<br/>enable-mergejoin -> (bool)<br/>enable-nestloop -> (bool)<br/>enable-seqscan -> (bool)<br/>enable-sort -> (bool)<br/>enable-tidscan -> (bool)<br/>escape-string-warning -> (bool)<br/>exit-on-error -> (bool)<br/>force-parallel-mode -> (enum<FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_REGRESS>)<br/>from-collapse-limit -> (int)<br/>gin-pending-list-limit -> (int)<br/>idle-in-transaction-session-timeout -> (int)<br/>join-collapse-limit -> (int)<br/>lo-compat-privileges -> (bool)<br/>lock-timeout -> (int)<br/>log-checkpoints -> (bool)<br/>log-connections -> (bool)<br/>log-disconnections -> (bool)<br/>log-duration -> (bool)<br/>log-error-verbosity -> (enum<LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_VERBOSE>)<br/>log-lock-waits -> (bool)<br/>log-min-duration-statement -> (int)<br/>log-min-error-statement -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-statement -> (enum<LOG_STATEMENT_ALL\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_NONE>)<br/>log-temp-files -> (int)<br/>max-locks-per-transaction -> (int)<br/>max-parallel-workers -> (int)<br/>max-parallel-workers-per-gather -> (int)<br/>max-pred-locks-per-transaction -> (int)<br/>max-standby-streaming-delay -> (int)<br/>old-snapshot-threshold -> (int)<br/>operator-precedence-warning -> (bool)<br/>quote-all-identifiers -> (bool)<br/>random-page-cost -> (double)<br/>recovery-min-apply-delay -> (int)<br/>row-security -> (bool)<br/>search-path -> (string)<br/>seq-page-cost -> (double)<br/>shared-buffers -> (int)<br/>standard-conforming-strings -> (bool)<br/>statement-timeout -> (int)<br/>synchronize-seqscans -> (bool)<br/>temp-buffers -> (int)<br/>temp-file-limit -> (int)<br/>timezone -> (string)<br/>transform-null-equals -> (bool)<br/>work-mem -> (int)<br/>xmlbinary -> (enum<XML_BINARY_BASE64\|XML_BINARY_HEX>)<br/>xmloption -> (enum<XML_OPTION_CONTENT\|XML_OPTION_DOCUMENT>)<br/>postgresql-config-12-1c -> (struct)<br/>Configuration for a host with PostgreSQL 12 1C server deployed.<br/>array-nulls -> (bool)<br/>backend-flush-after -> (int)<br/>backslash-quote -> (enum<BACKSLASH_QUOTE\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_SAFE_ENCODING>)<br/>bytea-output -> (enum<BYTEA_OUTPUT_ESCAPED\|BYTEA_OUTPUT_HEX>)<br/>client-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>constraint-exclusion -> (enum<CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_PARTITION>)<br/>cursor-tuple-fraction -> (double)<br/>deadlock-timeout -> (int)<br/>default-transaction-isolation -> (enum<TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE>)<br/>default-with-oids -> (bool)<br/>effective-cache-size -> (int)<br/>effective-io-concurrency -> (int)<br/>enable-bitmapscan -> (bool)<br/>enable-hashagg -> (bool)<br/>enable-hashjoin -> (bool)<br/>enable-indexonlyscan -> (bool)<br/>enable-indexscan -> (bool)<br/>enable-material -> (bool)<br/>enable-mergejoin -> (bool)<br/>enable-nestloop -> (bool)<br/>enable-seqscan -> (bool)<br/>enable-sort -> (bool)<br/>enable-tidscan -> (bool)<br/>escape-string-warning -> (bool)<br/>exit-on-error -> (bool)<br/>force-parallel-mode -> (enum<FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_REGRESS>)<br/>from-collapse-limit -> (int)<br/>gin-pending-list-limit -> (int)<br/>idle-in-transaction-session-timeout -> (int)<br/>join-collapse-limit -> (int)<br/>lo-compat-privileges -> (bool)<br/>lock-timeout -> (int)<br/>log-checkpoints -> (bool)<br/>log-connections -> (bool)<br/>log-disconnections -> (bool)<br/>log-duration -> (bool)<br/>log-error-verbosity -> (enum<LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_VERBOSE>)<br/>log-lock-waits -> (bool)<br/>log-min-duration-statement -> (int)<br/>log-min-error-statement -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-statement -> (enum<LOG_STATEMENT_ALL\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_NONE>)<br/>log-temp-files -> (int)<br/>max-locks-per-transaction -> (int)<br/>max-parallel-workers -> (int)<br/>max-parallel-workers-per-gather -> (int)<br/>max-pred-locks-per-transaction -> (int)<br/>max-standby-streaming-delay -> (int)<br/>old-snapshot-threshold -> (int)<br/>operator-precedence-warning -> (bool)<br/>quote-all-identifiers -> (bool)<br/>random-page-cost -> (double)<br/>recovery-min-apply-delay -> (int)<br/>row-security -> (bool)<br/>search-path -> (string)<br/>seq-page-cost -> (double)<br/>shared-buffers -> (int)<br/>standard-conforming-strings -> (bool)<br/>statement-timeout -> (int)<br/>synchronize-seqscans -> (bool)<br/>temp-buffers -> (int)<br/>temp-file-limit -> (int)<br/>timezone -> (string)<br/>transform-null-equals -> (bool)<br/>work-mem -> (int)<br/>xmlbinary -> (enum<XML_BINARY_BASE64\|XML_BINARY_HEX>)<br/>xmloption -> (enum<XML_OPTION_CONTENT\|XML_OPTION_DOCUMENT>)<br/>postgresql-config-13 -> (struct)<br/>Configuration for a host with PostgreSQL 13 server deployed.<br/>array-nulls -> (bool)<br/>backend-flush-after -> (int)<br/>backslash-quote -> (enum<BACKSLASH_QUOTE\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_SAFE_ENCODING>)<br/>bytea-output -> (enum<BYTEA_OUTPUT_ESCAPED\|BYTEA_OUTPUT_HEX>)<br/>client-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>constraint-exclusion -> (enum<CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_PARTITION>)<br/>cursor-tuple-fraction -> (double)<br/>deadlock-timeout -> (int)<br/>default-transaction-isolation -> (enum<TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE>)<br/>default-with-oids -> (bool)<br/>effective-cache-size -> (int)<br/>effective-io-concurrency -> (int)<br/>enable-bitmapscan -> (bool)<br/>enable-hashagg -> (bool)<br/>enable-hashjoin -> (bool)<br/>enable-indexonlyscan -> (bool)<br/>enable-indexscan -> (bool)<br/>enable-material -> (bool)<br/>enable-mergejoin -> (bool)<br/>enable-nestloop -> (bool)<br/>enable-seqscan -> (bool)<br/>enable-sort -> (bool)<br/>enable-tidscan -> (bool)<br/>escape-string-warning -> (bool)<br/>exit-on-error -> (bool)<br/>force-parallel-mode -> (enum<FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_REGRESS>)<br/>from-collapse-limit -> (int)<br/>gin-pending-list-limit -> (int)<br/>idle-in-transaction-session-timeout -> (int)<br/>join-collapse-limit -> (int)<br/>lo-compat-privileges -> (bool)<br/>lock-timeout -> (int)<br/>log-checkpoints -> (bool)<br/>log-connections -> (bool)<br/>log-disconnections -> (bool)<br/>log-duration -> (bool)<br/>log-error-verbosity -> (enum<LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_VERBOSE>)<br/>log-lock-waits -> (bool)<br/>log-min-duration-statement -> (int)<br/>log-min-error-statement -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-statement -> (enum<LOG_STATEMENT_ALL\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_NONE>)<br/>log-temp-files -> (int)<br/>max-locks-per-transaction -> (int)<br/>max-parallel-workers -> (int)<br/>max-parallel-workers-per-gather -> (int)<br/>max-pred-locks-per-transaction -> (int)<br/>max-standby-streaming-delay -> (int)<br/>old-snapshot-threshold -> (int)<br/>operator-precedence-warning -> (bool)<br/>quote-all-identifiers -> (bool)<br/>random-page-cost -> (double)<br/>recovery-min-apply-delay -> (int)<br/>row-security -> (bool)<br/>search-path -> (string)<br/>seq-page-cost -> (double)<br/>shared-buffers -> (int)<br/>standard-conforming-strings -> (bool)<br/>statement-timeout -> (int)<br/>synchronize-seqscans -> (bool)<br/>temp-buffers -> (int)<br/>temp-file-limit -> (int)<br/>timezone -> (string)<br/>transform-null-equals -> (bool)<br/>work-mem -> (int)<br/>xmlbinary -> (enum<XML_BINARY_BASE64\|XML_BINARY_HEX>)<br/>xmloption -> (enum<XML_OPTION_CONTENT\|XML_OPTION_DOCUMENT>)<br/>postgresql-config-13-1c -> (struct)<br/>Configuration for a host with PostgreSQL 13 1C server deployed.<br/>array-nulls -> (bool)<br/>backend-flush-after -> (int)<br/>backslash-quote -> (enum<BACKSLASH_QUOTE\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_SAFE_ENCODING>)<br/>bytea-output -> (enum<BYTEA_OUTPUT_ESCAPED\|BYTEA_OUTPUT_HEX>)<br/>client-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>constraint-exclusion -> (enum<CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_PARTITION>)<br/>cursor-tuple-fraction -> (double)<br/>deadlock-timeout -> (int)<br/>default-transaction-isolation -> (enum<TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE>)<br/>default-with-oids -> (bool)<br/>effective-cache-size -> (int)<br/>effective-io-concurrency -> (int)<br/>enable-bitmapscan -> (bool)<br/>enable-hashagg -> (bool)<br/>enable-hashjoin -> (bool)<br/>enable-indexonlyscan -> (bool)<br/>enable-indexscan -> (bool)<br/>enable-material -> (bool)<br/>enable-mergejoin -> (bool)<br/>enable-nestloop -> (bool)<br/>enable-seqscan -> (bool)<br/>enable-sort -> (bool)<br/>enable-tidscan -> (bool)<br/>escape-string-warning -> (bool)<br/>exit-on-error -> (bool)<br/>force-parallel-mode -> (enum<FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_REGRESS>)<br/>from-collapse-limit -> (int)<br/>gin-pending-list-limit -> (int)<br/>idle-in-transaction-session-timeout -> (int)<br/>join-collapse-limit -> (int)<br/>lo-compat-privileges -> (bool)<br/>lock-timeout -> (int)<br/>log-checkpoints -> (bool)<br/>log-connections -> (bool)<br/>log-disconnections -> (bool)<br/>log-duration -> (bool)<br/>log-error-verbosity -> (enum<LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_VERBOSE>)<br/>log-lock-waits -> (bool)<br/>log-min-duration-statement -> (int)<br/>log-min-error-statement -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-statement -> (enum<LOG_STATEMENT_ALL\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_NONE>)<br/>log-temp-files -> (int)<br/>max-locks-per-transaction -> (int)<br/>max-parallel-workers -> (int)<br/>max-parallel-workers-per-gather -> (int)<br/>max-pred-locks-per-transaction -> (int)<br/>max-standby-streaming-delay -> (int)<br/>old-snapshot-threshold -> (int)<br/>operator-precedence-warning -> (bool)<br/>quote-all-identifiers -> (bool)<br/>random-page-cost -> (double)<br/>recovery-min-apply-delay -> (int)<br/>row-security -> (bool)<br/>search-path -> (string)<br/>seq-page-cost -> (double)<br/>shared-buffers -> (int)<br/>standard-conforming-strings -> (bool)<br/>statement-timeout -> (int)<br/>synchronize-seqscans -> (bool)<br/>temp-buffers -> (int)<br/>temp-file-limit -> (int)<br/>timezone -> (string)<br/>transform-null-equals -> (bool)<br/>work-mem -> (int)<br/>xmlbinary -> (enum<XML_BINARY_BASE64\|XML_BINARY_HEX>)<br/>xmloption -> (enum<XML_OPTION_CONTENT\|XML_OPTION_DOCUMENT>)<br/>postgresql-config-14 -> (struct)<br/>Configuration for a host with PostgreSQL 14 server deployed.<br/>array-nulls -> (bool)<br/>backend-flush-after -> (int)<br/>backslash-quote -> (enum<BACKSLASH_QUOTE\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_SAFE_ENCODING>)<br/>bytea-output -> (enum<BYTEA_OUTPUT_ESCAPED\|BYTEA_OUTPUT_HEX>)<br/>client-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>constraint-exclusion -> (enum<CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_PARTITION>)<br/>cursor-tuple-fraction -> (double)<br/>deadlock-timeout -> (int)<br/>default-transaction-isolation -> (enum<TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE>)<br/>default-with-oids -> (bool)<br/>effective-cache-size -> (int)<br/>effective-io-concurrency -> (int)<br/>enable-bitmapscan -> (bool)<br/>enable-hashagg -> (bool)<br/>enable-hashjoin -> (bool)<br/>enable-indexonlyscan -> (bool)<br/>enable-indexscan -> (bool)<br/>enable-material -> (bool)<br/>enable-mergejoin -> (bool)<br/>enable-nestloop -> (bool)<br/>enable-seqscan -> (bool)<br/>enable-sort -> (bool)<br/>enable-tidscan -> (bool)<br/>escape-string-warning -> (bool)<br/>exit-on-error -> (bool)<br/>force-parallel-mode -> (enum<FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_REGRESS>)<br/>from-collapse-limit -> (int)<br/>gin-pending-list-limit -> (int)<br/>idle-in-transaction-session-timeout -> (int)<br/>join-collapse-limit -> (int)<br/>lo-compat-privileges -> (bool)<br/>lock-timeout -> (int)<br/>log-checkpoints -> (bool)<br/>log-connections -> (bool)<br/>log-disconnections -> (bool)<br/>log-duration -> (bool)<br/>log-error-verbosity -> (enum<LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_VERBOSE>)<br/>log-lock-waits -> (bool)<br/>log-min-duration-statement -> (int)<br/>log-min-error-statement -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-statement -> (enum<LOG_STATEMENT_ALL\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_NONE>)<br/>log-temp-files -> (int)<br/>max-locks-per-transaction -> (int)<br/>max-parallel-workers -> (int)<br/>max-parallel-workers-per-gather -> (int)<br/>max-pred-locks-per-transaction -> (int)<br/>max-standby-streaming-delay -> (int)<br/>old-snapshot-threshold -> (int)<br/>quote-all-identifiers -> (bool)<br/>random-page-cost -> (double)<br/>recovery-min-apply-delay -> (int)<br/>row-security -> (bool)<br/>search-path -> (string)<br/>seq-page-cost -> (double)<br/>shared-buffers -> (int)<br/>standard-conforming-strings -> (bool)<br/>statement-timeout -> (int)<br/>synchronize-seqscans -> (bool)<br/>temp-buffers -> (int)<br/>temp-file-limit -> (int)<br/>timezone -> (string)<br/>transform-null-equals -> (bool)<br/>work-mem -> (int)<br/>xmlbinary -> (enum<XML_BINARY_BASE64\|XML_BINARY_HEX>)<br/>xmloption -> (enum<XML_OPTION_CONTENT\|XML_OPTION_DOCUMENT>)<br/>postgresql-config-14-1c -> (struct)<br/>Configuration for a host with PostgreSQL 14 1C server deployed.<br/>array-nulls -> (bool)<br/>backend-flush-after -> (int)<br/>backslash-quote -> (enum<BACKSLASH_QUOTE\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_SAFE_ENCODING>)<br/>bytea-output -> (enum<BYTEA_OUTPUT_ESCAPED\|BYTEA_OUTPUT_HEX>)<br/>client-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>constraint-exclusion -> (enum<CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_PARTITION>)<br/>cursor-tuple-fraction -> (double)<br/>deadlock-timeout -> (int)<br/>default-transaction-isolation -> (enum<TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE>)<br/>default-with-oids -> (bool)<br/>effective-cache-size -> (int)<br/>effective-io-concurrency -> (int)<br/>enable-bitmapscan -> (bool)<br/>enable-hashagg -> (bool)<br/>enable-hashjoin -> (bool)<br/>enable-indexonlyscan -> (bool)<br/>enable-indexscan -> (bool)<br/>enable-material -> (bool)<br/>enable-mergejoin -> (bool)<br/>enable-nestloop -> (bool)<br/>enable-seqscan -> (bool)<br/>enable-sort -> (bool)<br/>enable-tidscan -> (bool)<br/>escape-string-warning -> (bool)<br/>exit-on-error -> (bool)<br/>force-parallel-mode -> (enum<FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_REGRESS>)<br/>from-collapse-limit -> (int)<br/>gin-pending-list-limit -> (int)<br/>idle-in-transaction-session-timeout -> (int)<br/>join-collapse-limit -> (int)<br/>lo-compat-privileges -> (bool)<br/>lock-timeout -> (int)<br/>log-checkpoints -> (bool)<br/>log-connections -> (bool)<br/>log-disconnections -> (bool)<br/>log-duration -> (bool)<br/>log-error-verbosity -> (enum<LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_VERBOSE>)<br/>log-lock-waits -> (bool)<br/>log-min-duration-statement -> (int)<br/>log-min-error-statement -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-statement -> (enum<LOG_STATEMENT_ALL\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_NONE>)<br/>log-temp-files -> (int)<br/>max-locks-per-transaction -> (int)<br/>max-parallel-workers -> (int)<br/>max-parallel-workers-per-gather -> (int)<br/>max-pred-locks-per-transaction -> (int)<br/>max-standby-streaming-delay -> (int)<br/>old-snapshot-threshold -> (int)<br/>quote-all-identifiers -> (bool)<br/>random-page-cost -> (double)<br/>recovery-min-apply-delay -> (int)<br/>row-security -> (bool)<br/>search-path -> (string)<br/>seq-page-cost -> (double)<br/>shared-buffers -> (int)<br/>standard-conforming-strings -> (bool)<br/>statement-timeout -> (int)<br/>synchronize-seqscans -> (bool)<br/>temp-buffers -> (int)<br/>temp-file-limit -> (int)<br/>timezone -> (string)<br/>transform-null-equals -> (bool)<br/>work-mem -> (int)<br/>xmlbinary -> (enum<XML_BINARY_BASE64\|XML_BINARY_HEX>)<br/>xmloption -> (enum<XML_OPTION_CONTENT\|XML_OPTION_DOCUMENT>)<br/>postgresql-config-15 -> (struct)<br/>Configuration for a host with PostgreSQL 15 server deployed.<br/>array-nulls -> (bool)<br/>backend-flush-after -> (int)<br/>backslash-quote -> (enum<BACKSLASH_QUOTE\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_SAFE_ENCODING>)<br/>bytea-output -> (enum<BYTEA_OUTPUT_ESCAPED\|BYTEA_OUTPUT_HEX>)<br/>client-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>constraint-exclusion -> (enum<CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_PARTITION>)<br/>cursor-tuple-fraction -> (double)<br/>deadlock-timeout -> (int)<br/>default-transaction-isolation -> (enum<TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE>)<br/>default-with-oids -> (bool)<br/>effective-cache-size -> (int)<br/>effective-io-concurrency -> (int)<br/>enable-bitmapscan -> (bool)<br/>enable-hashagg -> (bool)<br/>enable-hashjoin -> (bool)<br/>enable-indexonlyscan -> (bool)<br/>enable-indexscan -> (bool)<br/>enable-material -> (bool)<br/>enable-mergejoin -> (bool)<br/>enable-nestloop -> (bool)<br/>enable-seqscan -> (bool)<br/>enable-sort -> (bool)<br/>enable-tidscan -> (bool)<br/>escape-string-warning -> (bool)<br/>exit-on-error -> (bool)<br/>force-parallel-mode -> (enum<FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_REGRESS>)<br/>from-collapse-limit -> (int)<br/>gin-pending-list-limit -> (int)<br/>idle-in-transaction-session-timeout -> (int)<br/>join-collapse-limit -> (int)<br/>lo-compat-privileges -> (bool)<br/>lock-timeout -> (int)<br/>log-checkpoints -> (bool)<br/>log-connections -> (bool)<br/>log-disconnections -> (bool)<br/>log-duration -> (bool)<br/>log-error-verbosity -> (enum<LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_VERBOSE>)<br/>log-lock-waits -> (bool)<br/>log-min-duration-statement -> (int)<br/>log-min-error-statement -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-statement -> (enum<LOG_STATEMENT_ALL\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_NONE>)<br/>log-temp-files -> (int)<br/>max-locks-per-transaction -> (int)<br/>max-parallel-workers -> (int)<br/>max-parallel-workers-per-gather -> (int)<br/>max-pred-locks-per-transaction -> (int)<br/>max-standby-streaming-delay -> (int)<br/>old-snapshot-threshold -> (int)<br/>quote-all-identifiers -> (bool)<br/>random-page-cost -> (double)<br/>recovery-min-apply-delay -> (int)<br/>row-security -> (bool)<br/>search-path -> (string)<br/>seq-page-cost -> (double)<br/>shared-buffers -> (int)<br/>standard-conforming-strings -> (bool)<br/>statement-timeout -> (int)<br/>synchronize-seqscans -> (bool)<br/>temp-buffers -> (int)<br/>temp-file-limit -> (int)<br/>timezone -> (string)<br/>transform-null-equals -> (bool)<br/>work-mem -> (int)<br/>xmlbinary -> (enum<XML_BINARY_BASE64\|XML_BINARY_HEX>)<br/>xmloption -> (enum<XML_OPTION_CONTENT\|XML_OPTION_DOCUMENT>)<br/>postgresql-config-15-1c -> (struct)<br/>Configuration for a host with PostgreSQL 15 1C server deployed.<br/>array-nulls -> (bool)<br/>backend-flush-after -> (int)<br/>backslash-quote -> (enum<BACKSLASH_QUOTE\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_SAFE_ENCODING>)<br/>bytea-output -> (enum<BYTEA_OUTPUT_ESCAPED\|BYTEA_OUTPUT_HEX>)<br/>client-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>constraint-exclusion -> (enum<CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_PARTITION>)<br/>cursor-tuple-fraction -> (double)<br/>deadlock-timeout -> (int)<br/>default-transaction-isolation -> (enum<TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE>)<br/>default-with-oids -> (bool)<br/>effective-cache-size -> (int)<br/>effective-io-concurrency -> (int)<br/>enable-bitmapscan -> (bool)<br/>enable-hashagg -> (bool)<br/>enable-hashjoin -> (bool)<br/>enable-indexonlyscan -> (bool)<br/>enable-indexscan -> (bool)<br/>enable-material -> (bool)<br/>enable-mergejoin -> (bool)<br/>enable-nestloop -> (bool)<br/>enable-seqscan -> (bool)<br/>enable-sort -> (bool)<br/>enable-tidscan -> (bool)<br/>escape-string-warning -> (bool)<br/>exit-on-error -> (bool)<br/>force-parallel-mode -> (enum<FORCE_PARALLEL_MODE_OFF\|FORCE_PARALLEL_MODE_ON\|FORCE_PARALLEL_MODE_REGRESS>)<br/>from-collapse-limit -> (int)<br/>gin-pending-list-limit -> (int)<br/>idle-in-transaction-session-timeout -> (int)<br/>join-collapse-limit -> (int)<br/>lo-compat-privileges -> (bool)<br/>lock-timeout -> (int)<br/>log-checkpoints -> (bool)<br/>log-connections -> (bool)<br/>log-disconnections -> (bool)<br/>log-duration -> (bool)<br/>log-error-verbosity -> (enum<LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_VERBOSE>)<br/>log-lock-waits -> (bool)<br/>log-min-duration-statement -> (int)<br/>log-min-error-statement -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-statement -> (enum<LOG_STATEMENT_ALL\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_NONE>)<br/>log-temp-files -> (int)<br/>max-locks-per-transaction -> (int)<br/>max-parallel-workers -> (int)<br/>max-parallel-workers-per-gather -> (int)<br/>max-pred-locks-per-transaction -> (int)<br/>max-standby-streaming-delay -> (int)<br/>old-snapshot-threshold -> (int)<br/>quote-all-identifiers -> (bool)<br/>random-page-cost -> (double)<br/>recovery-min-apply-delay -> (int)<br/>row-security -> (bool)<br/>search-path -> (string)<br/>seq-page-cost -> (double)<br/>shared-buffers -> (int)<br/>standard-conforming-strings -> (bool)<br/>statement-timeout -> (int)<br/>synchronize-seqscans -> (bool)<br/>temp-buffers -> (int)<br/>temp-file-limit -> (int)<br/>timezone -> (string)<br/>transform-null-equals -> (bool)<br/>work-mem -> (int)<br/>xmlbinary -> (enum<XML_BINARY_BASE64\|XML_BINARY_HEX>)<br/>xmloption -> (enum<XML_OPTION_CONTENT\|XML_OPTION_DOCUMENT>)<br/>postgresql-config-16 -> (struct)<br/>Configuration for a host with PostgreSQL 16 server deployed.<br/>array-nulls -> (bool)<br/>backend-flush-after -> (int)<br/>backslash-quote -> (enum<BACKSLASH_QUOTE\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_SAFE_ENCODING>)<br/>bytea-output -> (enum<BYTEA_OUTPUT_ESCAPED\|BYTEA_OUTPUT_HEX>)<br/>client-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>constraint-exclusion -> (enum<CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_PARTITION>)<br/>cursor-tuple-fraction -> (double)<br/>deadlock-timeout -> (int)<br/>debug-parallel-query -> (enum<DEBUG_PARALLEL_QUERY_OFF\|DEBUG_PARALLEL_QUERY_ON\|DEBUG_PARALLEL_QUERY_REGRESS>)<br/>default-transaction-isolation -> (enum<TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE>)<br/>default-with-oids -> (bool)<br/>effective-cache-size -> (int)<br/>effective-io-concurrency -> (int)<br/>enable-bitmapscan -> (bool)<br/>enable-hashagg -> (bool)<br/>enable-hashjoin -> (bool)<br/>enable-indexonlyscan -> (bool)<br/>enable-indexscan -> (bool)<br/>enable-material -> (bool)<br/>enable-mergejoin -> (bool)<br/>enable-nestloop -> (bool)<br/>enable-seqscan -> (bool)<br/>enable-sort -> (bool)<br/>enable-tidscan -> (bool)<br/>escape-string-warning -> (bool)<br/>exit-on-error -> (bool)<br/>from-collapse-limit -> (int)<br/>gin-pending-list-limit -> (int)<br/>idle-in-transaction-session-timeout -> (int)<br/>join-collapse-limit -> (int)<br/>lo-compat-privileges -> (bool)<br/>lock-timeout -> (int)<br/>log-checkpoints -> (bool)<br/>log-connections -> (bool)<br/>log-disconnections -> (bool)<br/>log-duration -> (bool)<br/>log-error-verbosity -> (enum<LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_VERBOSE>)<br/>log-lock-waits -> (bool)<br/>log-min-duration-statement -> (int)<br/>log-min-error-statement -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-statement -> (enum<LOG_STATEMENT_ALL\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_NONE>)<br/>log-temp-files -> (int)<br/>max-locks-per-transaction -> (int)<br/>max-parallel-workers -> (int)<br/>max-parallel-workers-per-gather -> (int)<br/>max-pred-locks-per-transaction -> (int)<br/>max-standby-streaming-delay -> (int)<br/>old-snapshot-threshold -> (int)<br/>quote-all-identifiers -> (bool)<br/>random-page-cost -> (double)<br/>recovery-min-apply-delay -> (int)<br/>row-security -> (bool)<br/>search-path -> (string)<br/>seq-page-cost -> (double)<br/>shared-buffers -> (int)<br/>standard-conforming-strings -> (bool)<br/>statement-timeout -> (int)<br/>synchronize-seqscans -> (bool)<br/>temp-buffers -> (int)<br/>temp-file-limit -> (int)<br/>timezone -> (string)<br/>transform-null-equals -> (bool)<br/>work-mem -> (int)<br/>xmlbinary -> (enum<XML_BINARY_BASE64\|XML_BINARY_HEX>)<br/>xmloption -> (enum<XML_OPTION_CONTENT\|XML_OPTION_DOCUMENT>)<br/>postgresql-config-16-1c -> (struct)<br/>Configuration for a host with PostgreSQL 16 1C server deployed.<br/>array-nulls -> (bool)<br/>backend-flush-after -> (int)<br/>backslash-quote -> (enum<BACKSLASH_QUOTE\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_SAFE_ENCODING>)<br/>bytea-output -> (enum<BYTEA_OUTPUT_ESCAPED\|BYTEA_OUTPUT_HEX>)<br/>client-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>constraint-exclusion -> (enum<CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_PARTITION>)<br/>cursor-tuple-fraction -> (double)<br/>deadlock-timeout -> (int)<br/>debug-parallel-query -> (enum<DEBUG_PARALLEL_QUERY_OFF\|DEBUG_PARALLEL_QUERY_ON\|DEBUG_PARALLEL_QUERY_REGRESS>)<br/>default-transaction-isolation -> (enum<TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE>)<br/>default-with-oids -> (bool)<br/>effective-cache-size -> (int)<br/>effective-io-concurrency -> (int)<br/>enable-bitmapscan -> (bool)<br/>enable-hashagg -> (bool)<br/>enable-hashjoin -> (bool)<br/>enable-indexonlyscan -> (bool)<br/>enable-indexscan -> (bool)<br/>enable-material -> (bool)<br/>enable-mergejoin -> (bool)<br/>enable-nestloop -> (bool)<br/>enable-seqscan -> (bool)<br/>enable-sort -> (bool)<br/>enable-tidscan -> (bool)<br/>escape-string-warning -> (bool)<br/>exit-on-error -> (bool)<br/>from-collapse-limit -> (int)<br/>gin-pending-list-limit -> (int)<br/>idle-in-transaction-session-timeout -> (int)<br/>join-collapse-limit -> (int)<br/>lo-compat-privileges -> (bool)<br/>lock-timeout -> (int)<br/>log-checkpoints -> (bool)<br/>log-connections -> (bool)<br/>log-disconnections -> (bool)<br/>log-duration -> (bool)<br/>log-error-verbosity -> (enum<LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_VERBOSE>)<br/>log-lock-waits -> (bool)<br/>log-min-duration-statement -> (int)<br/>log-min-error-statement -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-statement -> (enum<LOG_STATEMENT_ALL\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_NONE>)<br/>log-temp-files -> (int)<br/>max-locks-per-transaction -> (int)<br/>max-parallel-workers -> (int)<br/>max-parallel-workers-per-gather -> (int)<br/>max-pred-locks-per-transaction -> (int)<br/>max-standby-streaming-delay -> (int)<br/>old-snapshot-threshold -> (int)<br/>quote-all-identifiers -> (bool)<br/>random-page-cost -> (double)<br/>recovery-min-apply-delay -> (int)<br/>row-security -> (bool)<br/>search-path -> (string)<br/>seq-page-cost -> (double)<br/>shared-buffers -> (int)<br/>standard-conforming-strings -> (bool)<br/>statement-timeout -> (int)<br/>synchronize-seqscans -> (bool)<br/>temp-buffers -> (int)<br/>temp-file-limit -> (int)<br/>timezone -> (string)<br/>transform-null-equals -> (bool)<br/>work-mem -> (int)<br/>xmlbinary -> (enum<XML_BINARY_BASE64\|XML_BINARY_HEX>)<br/>xmloption -> (enum<XML_OPTION_CONTENT\|XML_OPTION_DOCUMENT>)<br/>postgresql-config-17 -> (struct)<br/>Configuration for a host with PostgreSQL 17 1C server deployed.<br/>array-nulls -> (bool)<br/>backend-flush-after -> (int)<br/>backslash-quote -> (enum<BACKSLASH_QUOTE\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_SAFE_ENCODING>)<br/>bytea-output -> (enum<BYTEA_OUTPUT_ESCAPED\|BYTEA_OUTPUT_HEX>)<br/>client-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>constraint-exclusion -> (enum<CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_PARTITION>)<br/>cursor-tuple-fraction -> (double)<br/>deadlock-timeout -> (int)<br/>debug-parallel-query -> (enum<DEBUG_PARALLEL_QUERY_OFF\|DEBUG_PARALLEL_QUERY_ON\|DEBUG_PARALLEL_QUERY_REGRESS>)<br/>default-transaction-isolation -> (enum<TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE>)<br/>default-with-oids -> (bool)<br/>effective-cache-size -> (int)<br/>effective-io-concurrency -> (int)<br/>enable-bitmapscan -> (bool)<br/>enable-hashagg -> (bool)<br/>enable-hashjoin -> (bool)<br/>enable-indexonlyscan -> (bool)<br/>enable-indexscan -> (bool)<br/>enable-material -> (bool)<br/>enable-mergejoin -> (bool)<br/>enable-nestloop -> (bool)<br/>enable-seqscan -> (bool)<br/>enable-sort -> (bool)<br/>enable-tidscan -> (bool)<br/>escape-string-warning -> (bool)<br/>exit-on-error -> (bool)<br/>from-collapse-limit -> (int)<br/>gin-pending-list-limit -> (int)<br/>idle-in-transaction-session-timeout -> (int)<br/>join-collapse-limit -> (int)<br/>lo-compat-privileges -> (bool)<br/>lock-timeout -> (int)<br/>log-checkpoints -> (bool)<br/>log-connections -> (bool)<br/>log-disconnections -> (bool)<br/>log-duration -> (bool)<br/>log-error-verbosity -> (enum<LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_VERBOSE>)<br/>log-lock-waits -> (bool)<br/>log-min-duration-statement -> (int)<br/>log-min-error-statement -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-statement -> (enum<LOG_STATEMENT_ALL\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_NONE>)<br/>log-temp-files -> (int)<br/>max-locks-per-transaction -> (int)<br/>max-parallel-workers -> (int)<br/>max-parallel-workers-per-gather -> (int)<br/>max-pred-locks-per-transaction -> (int)<br/>max-standby-streaming-delay -> (int)<br/>quote-all-identifiers -> (bool)<br/>random-page-cost -> (double)<br/>recovery-min-apply-delay -> (int)<br/>row-security -> (bool)<br/>search-path -> (string)<br/>seq-page-cost -> (double)<br/>shared-buffers -> (int)<br/>standard-conforming-strings -> (bool)<br/>statement-timeout -> (int)<br/>synchronize-seqscans -> (bool)<br/>temp-buffers -> (int)<br/>temp-file-limit -> (int)<br/>timezone -> (string)<br/>transform-null-equals -> (bool)<br/>work-mem -> (int)<br/>xmlbinary -> (enum<XML_BINARY_BASE64\|XML_BINARY_HEX>)<br/>xmloption -> (enum<XML_OPTION_CONTENT\|XML_OPTION_DOCUMENT>)<br/>postgresql-config-17-1c -> (struct)<br/>Configuration for a host with PostgreSQL 17 1C server deployed.<br/>array-nulls -> (bool)<br/>backend-flush-after -> (int)<br/>backslash-quote -> (enum<BACKSLASH_QUOTE\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_SAFE_ENCODING>)<br/>bytea-output -> (enum<BYTEA_OUTPUT_ESCAPED\|BYTEA_OUTPUT_HEX>)<br/>client-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>constraint-exclusion -> (enum<CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_PARTITION>)<br/>cursor-tuple-fraction -> (double)<br/>deadlock-timeout -> (int)<br/>debug-parallel-query -> (enum<DEBUG_PARALLEL_QUERY_OFF\|DEBUG_PARALLEL_QUERY_ON\|DEBUG_PARALLEL_QUERY_REGRESS>)<br/>default-transaction-isolation -> (enum<TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE>)<br/>default-with-oids -> (bool)<br/>effective-cache-size -> (int)<br/>effective-io-concurrency -> (int)<br/>enable-bitmapscan -> (bool)<br/>enable-hashagg -> (bool)<br/>enable-hashjoin -> (bool)<br/>enable-indexonlyscan -> (bool)<br/>enable-indexscan -> (bool)<br/>enable-material -> (bool)<br/>enable-mergejoin -> (bool)<br/>enable-nestloop -> (bool)<br/>enable-seqscan -> (bool)<br/>enable-sort -> (bool)<br/>enable-tidscan -> (bool)<br/>escape-string-warning -> (bool)<br/>exit-on-error -> (bool)<br/>from-collapse-limit -> (int)<br/>gin-pending-list-limit -> (int)<br/>idle-in-transaction-session-timeout -> (int)<br/>join-collapse-limit -> (int)<br/>lo-compat-privileges -> (bool)<br/>lock-timeout -> (int)<br/>log-checkpoints -> (bool)<br/>log-connections -> (bool)<br/>log-disconnections -> (bool)<br/>log-duration -> (bool)<br/>log-error-verbosity -> (enum<LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_VERBOSE>)<br/>log-lock-waits -> (bool)<br/>log-min-duration-statement -> (int)<br/>log-min-error-statement -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-statement -> (enum<LOG_STATEMENT_ALL\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_NONE>)<br/>log-temp-files -> (int)<br/>max-locks-per-transaction -> (int)<br/>max-parallel-workers -> (int)<br/>max-parallel-workers-per-gather -> (int)<br/>max-pred-locks-per-transaction -> (int)<br/>max-standby-streaming-delay -> (int)<br/>quote-all-identifiers -> (bool)<br/>random-page-cost -> (double)<br/>recovery-min-apply-delay -> (int)<br/>row-security -> (bool)<br/>search-path -> (string)<br/>seq-page-cost -> (double)<br/>shared-buffers -> (int)<br/>standard-conforming-strings -> (bool)<br/>statement-timeout -> (int)<br/>synchronize-seqscans -> (bool)<br/>temp-buffers -> (int)<br/>temp-file-limit -> (int)<br/>timezone -> (string)<br/>transform-null-equals -> (bool)<br/>work-mem -> (int)<br/>xmlbinary -> (enum<XML_BINARY_BASE64\|XML_BINARY_HEX>)<br/>xmloption -> (enum<XML_OPTION_CONTENT\|XML_OPTION_DOCUMENT>)<br/>postgresql-config-18 -> (struct)<br/>Configuration for a host with PostgreSQL 18 1C server deployed.<br/>array-nulls -> (bool)<br/>backend-flush-after -> (int)<br/>backslash-quote -> (enum<BACKSLASH_QUOTE\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_SAFE_ENCODING>)<br/>bytea-output -> (enum<BYTEA_OUTPUT_ESCAPED\|BYTEA_OUTPUT_HEX>)<br/>client-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>constraint-exclusion -> (enum<CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_PARTITION>)<br/>cursor-tuple-fraction -> (double)<br/>deadlock-timeout -> (int)<br/>debug-parallel-query -> (enum<DEBUG_PARALLEL_QUERY_OFF\|DEBUG_PARALLEL_QUERY_ON\|DEBUG_PARALLEL_QUERY_REGRESS>)<br/>default-transaction-isolation -> (enum<TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE>)<br/>default-with-oids -> (bool)<br/>effective-cache-size -> (int)<br/>effective-io-concurrency -> (int)<br/>enable-bitmapscan -> (bool)<br/>enable-hashagg -> (bool)<br/>enable-hashjoin -> (bool)<br/>enable-indexonlyscan -> (bool)<br/>enable-indexscan -> (bool)<br/>enable-material -> (bool)<br/>enable-mergejoin -> (bool)<br/>enable-nestloop -> (bool)<br/>enable-seqscan -> (bool)<br/>enable-sort -> (bool)<br/>enable-tidscan -> (bool)<br/>escape-string-warning -> (bool)<br/>exit-on-error -> (bool)<br/>from-collapse-limit -> (int)<br/>gin-pending-list-limit -> (int)<br/>idle-in-transaction-session-timeout -> (int)<br/>join-collapse-limit -> (int)<br/>lo-compat-privileges -> (bool)<br/>lock-timeout -> (int)<br/>log-checkpoints -> (bool)<br/>log-connections -> (bool)<br/>log-disconnections -> (bool)<br/>log-duration -> (bool)<br/>log-error-verbosity -> (enum<LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_VERBOSE>)<br/>log-lock-waits -> (bool)<br/>log-min-duration-statement -> (int)<br/>log-min-error-statement -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-statement -> (enum<LOG_STATEMENT_ALL\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_NONE>)<br/>log-temp-files -> (int)<br/>max-locks-per-transaction -> (int)<br/>max-parallel-workers -> (int)<br/>max-parallel-workers-per-gather -> (int)<br/>max-pred-locks-per-transaction -> (int)<br/>max-standby-streaming-delay -> (int)<br/>quote-all-identifiers -> (bool)<br/>random-page-cost -> (double)<br/>recovery-min-apply-delay -> (int)<br/>row-security -> (bool)<br/>search-path -> (string)<br/>seq-page-cost -> (double)<br/>shared-buffers -> (int)<br/>standard-conforming-strings -> (bool)<br/>statement-timeout -> (int)<br/>synchronize-seqscans -> (bool)<br/>temp-buffers -> (int)<br/>temp-file-limit -> (int)<br/>timezone -> (string)<br/>transform-null-equals -> (bool)<br/>work-mem -> (int)<br/>xmlbinary -> (enum<XML_BINARY_BASE64\|XML_BINARY_HEX>)<br/>xmloption -> (enum<XML_OPTION_CONTENT\|XML_OPTION_DOCUMENT>)<br/>postgresql-config-18-1c -> (struct)<br/>Configuration for a host with PostgreSQL 18 1C server deployed.<br/>array-nulls -> (bool)<br/>backend-flush-after -> (int)<br/>backslash-quote -> (enum<BACKSLASH_QUOTE\|BACKSLASH_QUOTE_OFF\|BACKSLASH_QUOTE_ON\|BACKSLASH_QUOTE_SAFE_ENCODING>)<br/>bytea-output -> (enum<BYTEA_OUTPUT_ESCAPED\|BYTEA_OUTPUT_HEX>)<br/>client-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>constraint-exclusion -> (enum<CONSTRAINT_EXCLUSION_OFF\|CONSTRAINT_EXCLUSION_ON\|CONSTRAINT_EXCLUSION_PARTITION>)<br/>cursor-tuple-fraction -> (double)<br/>deadlock-timeout -> (int)<br/>debug-parallel-query -> (enum<DEBUG_PARALLEL_QUERY_OFF\|DEBUG_PARALLEL_QUERY_ON\|DEBUG_PARALLEL_QUERY_REGRESS>)<br/>default-transaction-isolation -> (enum<TRANSACTION_ISOLATION_READ_COMMITTED\|TRANSACTION_ISOLATION_READ_UNCOMMITTED\|TRANSACTION_ISOLATION_REPEATABLE_READ\|TRANSACTION_ISOLATION_SERIALIZABLE>)<br/>default-with-oids -> (bool)<br/>effective-cache-size -> (int)<br/>effective-io-concurrency -> (int)<br/>enable-bitmapscan -> (bool)<br/>enable-hashagg -> (bool)<br/>enable-hashjoin -> (bool)<br/>enable-indexonlyscan -> (bool)<br/>enable-indexscan -> (bool)<br/>enable-material -> (bool)<br/>enable-mergejoin -> (bool)<br/>enable-nestloop -> (bool)<br/>enable-seqscan -> (bool)<br/>enable-sort -> (bool)<br/>enable-tidscan -> (bool)<br/>escape-string-warning -> (bool)<br/>exit-on-error -> (bool)<br/>from-collapse-limit -> (int)<br/>gin-pending-list-limit -> (int)<br/>idle-in-transaction-session-timeout -> (int)<br/>join-collapse-limit -> (int)<br/>lo-compat-privileges -> (bool)<br/>lock-timeout -> (int)<br/>log-checkpoints -> (bool)<br/>log-connections -> (bool)<br/>log-disconnections -> (bool)<br/>log-duration -> (bool)<br/>log-error-verbosity -> (enum<LOG_ERROR_VERBOSITY_DEFAULT\|LOG_ERROR_VERBOSITY_TERSE\|LOG_ERROR_VERBOSITY_VERBOSE>)<br/>log-lock-waits -> (bool)<br/>log-min-duration-statement -> (int)<br/>log-min-error-statement -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-min-messages -> (enum<LOG_LEVEL_DEBUG1\|LOG_LEVEL_DEBUG2\|LOG_LEVEL_DEBUG3\|LOG_LEVEL_DEBUG4\|LOG_LEVEL_DEBUG5\|LOG_LEVEL_ERROR\|LOG_LEVEL_FATAL\|LOG_LEVEL_INFO\|LOG_LEVEL_LOG\|LOG_LEVEL_NOTICE\|LOG_LEVEL_PANIC\|LOG_LEVEL_WARNING>)<br/>log-statement -> (enum<LOG_STATEMENT_ALL\|LOG_STATEMENT_DDL\|LOG_STATEMENT_MOD\|LOG_STATEMENT_NONE>)<br/>log-temp-files -> (int)<br/>max-locks-per-transaction -> (int)<br/>max-parallel-workers -> (int)<br/>max-parallel-workers-per-gather -> (int)<br/>max-pred-locks-per-transaction -> (int)<br/>max-standby-streaming-delay -> (int)<br/>quote-all-identifiers -> (bool)<br/>random-page-cost -> (double)<br/>recovery-min-apply-delay -> (int)<br/>row-security -> (bool)<br/>search-path -> (string)<br/>seq-page-cost -> (double)<br/>shared-buffers -> (int)<br/>standard-conforming-strings -> (bool)<br/>statement-timeout -> (int)<br/>synchronize-seqscans -> (bool)<br/>temp-buffers -> (int)<br/>temp-file-limit -> (int)<br/>timezone -> (string)<br/>transform-null-equals -> (bool)<br/>work-mem -> (int)<br/>xmlbinary -> (enum<XML_BINARY_BASE64\|XML_BINARY_HEX>)<br/>xmloption -> (enum<XML_OPTION_CONTENT\|XML_OPTION_DOCUMENT>)<br/>host-name -> (string)<br/>Name of the host to update. To get the PostgreSQL host name, use a [ClusterService.ListHosts] request.<br/>priority -> (int)<br/>The host with the highest priority is the synchronous replica. All others are asynchronous. The synchronous replica replaces the master when needed. When a replica becomes the master, its priority is ignored.<br/>replication-source -> (string)<br/>[Host.name] of the host to be used as the replication source (for cascading replication). To get the PostgreSQL host name, use a [ClusterService.ListHosts] request.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-json > request.json
+2. Edit the template: vim request.json
+3. Run with template: yc beta compute instance create -r request.json ||
+|| `--example-yaml` | Generates a YAML template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-yaml > request.yaml
+2. Edit the template: vim request.yaml
+3. Run with template: yc beta compute instance create -r request.yaml ||
+|| `--cluster-id` | `string`
+
+ID of the PostgreSQL cluster to update hosts in. To get the PostgreSQL cluster ID, use a [ClusterService.List] request. ||
+|| `--update-host-specs` | `shorthand/json`
+
+New configurations to apply to hosts.
+
+Shorthand Syntax:
+
+```hcl
+[
+  {
+    assign-public-ip = bool,
+    config-spec = {
+      postgresql-config = postgresql-config-10={
+        array-nulls = bool,
+        backend-flush-after = int,
+        backslash-quote = BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING,
+        bytea-output = BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED,
+        client-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        constraint-exclusion = CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION,
+        cursor-tuple-fraction = double,
+        deadlock-timeout = int,
+        default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE,
+        default-with-oids = bool,
+        effective-cache-size = int,
+        effective-io-concurrency = int,
+        enable-bitmapscan = bool,
+        enable-hashagg = bool,
+        enable-hashjoin = bool,
+        enable-indexonlyscan = bool,
+        enable-indexscan = bool,
+        enable-material = bool,
+        enable-mergejoin = bool,
+        enable-nestloop = bool,
+        enable-seqscan = bool,
+        enable-sort = bool,
+        enable-tidscan = bool,
+        escape-string-warning = bool,
+        exit-on-error = bool,
+        force-parallel-mode = FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS,
+        from-collapse-limit = int,
+        gin-pending-list-limit = int,
+        idle-in-transaction-session-timeout = int,
+        join-collapse-limit = int,
+        lo-compat-privileges = bool,
+        lock-timeout = int,
+        log-checkpoints = bool,
+        log-connections = bool,
+        log-disconnections = bool,
+        log-duration = bool,
+        log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE,
+        log-lock-waits = bool,
+        log-min-duration-statement = int,
+        log-min-error-statement = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-statement = LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL,
+        log-temp-files = int,
+        max-locks-per-transaction = int,
+        max-parallel-workers = int,
+        max-parallel-workers-per-gather = int,
+        max-pred-locks-per-transaction = int,
+        max-standby-streaming-delay = int,
+        old-snapshot-threshold = int,
+        operator-precedence-warning = bool,
+        quote-all-identifiers = bool,
+        random-page-cost = double,
+        recovery-min-apply-delay = int,
+        replacement-sort-tuples = int,
+        row-security = bool,
+        search-path = str,
+        seq-page-cost = double,
+        shared-buffers = int,
+        standard-conforming-strings = bool,
+        statement-timeout = int,
+        synchronize-seqscans = bool,
+        temp-buffers = int,
+        temp-file-limit = int,
+        timezone = str,
+        transform-null-equals = bool,
+        work-mem = int,
+        xmlbinary = XML_BINARY_BASE64|XML_BINARY_HEX,
+        xmloption = XML_OPTION_DOCUMENT|XML_OPTION_CONTENT
+      } | postgresql-config-10-1c={
+        array-nulls = bool,
+        backend-flush-after = int,
+        backslash-quote = BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING,
+        bytea-output = BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED,
+        client-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        constraint-exclusion = CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION,
+        cursor-tuple-fraction = double,
+        deadlock-timeout = int,
+        default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE,
+        default-with-oids = bool,
+        effective-cache-size = int,
+        effective-io-concurrency = int,
+        enable-bitmapscan = bool,
+        enable-hashagg = bool,
+        enable-hashjoin = bool,
+        enable-indexonlyscan = bool,
+        enable-indexscan = bool,
+        enable-material = bool,
+        enable-mergejoin = bool,
+        enable-nestloop = bool,
+        enable-seqscan = bool,
+        enable-sort = bool,
+        enable-tidscan = bool,
+        escape-string-warning = bool,
+        exit-on-error = bool,
+        force-parallel-mode = FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS,
+        from-collapse-limit = int,
+        gin-pending-list-limit = int,
+        idle-in-transaction-session-timeout = int,
+        join-collapse-limit = int,
+        lo-compat-privileges = bool,
+        lock-timeout = int,
+        log-checkpoints = bool,
+        log-connections = bool,
+        log-disconnections = bool,
+        log-duration = bool,
+        log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE,
+        log-lock-waits = bool,
+        log-min-duration-statement = int,
+        log-min-error-statement = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-statement = LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL,
+        log-temp-files = int,
+        max-locks-per-transaction = int,
+        max-parallel-workers = int,
+        max-parallel-workers-per-gather = int,
+        max-pred-locks-per-transaction = int,
+        max-standby-streaming-delay = int,
+        old-snapshot-threshold = int,
+        operator-precedence-warning = bool,
+        quote-all-identifiers = bool,
+        random-page-cost = double,
+        recovery-min-apply-delay = int,
+        replacement-sort-tuples = int,
+        row-security = bool,
+        search-path = str,
+        seq-page-cost = double,
+        shared-buffers = int,
+        standard-conforming-strings = bool,
+        statement-timeout = int,
+        synchronize-seqscans = bool,
+        temp-buffers = int,
+        temp-file-limit = int,
+        timezone = str,
+        transform-null-equals = bool,
+        work-mem = int,
+        xmlbinary = XML_BINARY_BASE64|XML_BINARY_HEX,
+        xmloption = XML_OPTION_DOCUMENT|XML_OPTION_CONTENT
+      } | postgresql-config-11={
+        array-nulls = bool,
+        backend-flush-after = int,
+        backslash-quote = BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING,
+        bytea-output = BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED,
+        client-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        constraint-exclusion = CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION,
+        cursor-tuple-fraction = double,
+        deadlock-timeout = int,
+        default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE,
+        default-with-oids = bool,
+        effective-cache-size = int,
+        effective-io-concurrency = int,
+        enable-bitmapscan = bool,
+        enable-hashagg = bool,
+        enable-hashjoin = bool,
+        enable-indexonlyscan = bool,
+        enable-indexscan = bool,
+        enable-material = bool,
+        enable-mergejoin = bool,
+        enable-nestloop = bool,
+        enable-seqscan = bool,
+        enable-sort = bool,
+        enable-tidscan = bool,
+        escape-string-warning = bool,
+        exit-on-error = bool,
+        force-parallel-mode = FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS,
+        from-collapse-limit = int,
+        gin-pending-list-limit = int,
+        idle-in-transaction-session-timeout = int,
+        join-collapse-limit = int,
+        lo-compat-privileges = bool,
+        lock-timeout = int,
+        log-checkpoints = bool,
+        log-connections = bool,
+        log-disconnections = bool,
+        log-duration = bool,
+        log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE,
+        log-lock-waits = bool,
+        log-min-duration-statement = int,
+        log-min-error-statement = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-statement = LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL,
+        log-temp-files = int,
+        max-locks-per-transaction = int,
+        max-parallel-workers = int,
+        max-parallel-workers-per-gather = int,
+        max-pred-locks-per-transaction = int,
+        max-standby-streaming-delay = int,
+        old-snapshot-threshold = int,
+        operator-precedence-warning = bool,
+        quote-all-identifiers = bool,
+        random-page-cost = double,
+        recovery-min-apply-delay = int,
+        row-security = bool,
+        search-path = str,
+        seq-page-cost = double,
+        shared-buffers = int,
+        standard-conforming-strings = bool,
+        statement-timeout = int,
+        synchronize-seqscans = bool,
+        temp-buffers = int,
+        temp-file-limit = int,
+        timezone = str,
+        transform-null-equals = bool,
+        work-mem = int,
+        xmlbinary = XML_BINARY_BASE64|XML_BINARY_HEX,
+        xmloption = XML_OPTION_DOCUMENT|XML_OPTION_CONTENT
+      } | postgresql-config-11-1c={
+        array-nulls = bool,
+        backend-flush-after = int,
+        backslash-quote = BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING,
+        bytea-output = BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED,
+        client-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        constraint-exclusion = CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION,
+        cursor-tuple-fraction = double,
+        deadlock-timeout = int,
+        default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE,
+        default-with-oids = bool,
+        effective-cache-size = int,
+        effective-io-concurrency = int,
+        enable-bitmapscan = bool,
+        enable-hashagg = bool,
+        enable-hashjoin = bool,
+        enable-indexonlyscan = bool,
+        enable-indexscan = bool,
+        enable-material = bool,
+        enable-mergejoin = bool,
+        enable-nestloop = bool,
+        enable-seqscan = bool,
+        enable-sort = bool,
+        enable-tidscan = bool,
+        escape-string-warning = bool,
+        exit-on-error = bool,
+        force-parallel-mode = FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS,
+        from-collapse-limit = int,
+        gin-pending-list-limit = int,
+        idle-in-transaction-session-timeout = int,
+        join-collapse-limit = int,
+        lo-compat-privileges = bool,
+        lock-timeout = int,
+        log-checkpoints = bool,
+        log-connections = bool,
+        log-disconnections = bool,
+        log-duration = bool,
+        log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE,
+        log-lock-waits = bool,
+        log-min-duration-statement = int,
+        log-min-error-statement = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-statement = LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL,
+        log-temp-files = int,
+        max-locks-per-transaction = int,
+        max-parallel-workers = int,
+        max-parallel-workers-per-gather = int,
+        max-pred-locks-per-transaction = int,
+        max-standby-streaming-delay = int,
+        old-snapshot-threshold = int,
+        operator-precedence-warning = bool,
+        quote-all-identifiers = bool,
+        random-page-cost = double,
+        recovery-min-apply-delay = int,
+        row-security = bool,
+        search-path = str,
+        seq-page-cost = double,
+        shared-buffers = int,
+        standard-conforming-strings = bool,
+        statement-timeout = int,
+        synchronize-seqscans = bool,
+        temp-buffers = int,
+        temp-file-limit = int,
+        timezone = str,
+        transform-null-equals = bool,
+        work-mem = int,
+        xmlbinary = XML_BINARY_BASE64|XML_BINARY_HEX,
+        xmloption = XML_OPTION_DOCUMENT|XML_OPTION_CONTENT
+      } | postgresql-config-12={
+        array-nulls = bool,
+        backend-flush-after = int,
+        backslash-quote = BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING,
+        bytea-output = BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED,
+        client-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        constraint-exclusion = CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION,
+        cursor-tuple-fraction = double,
+        deadlock-timeout = int,
+        default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE,
+        default-with-oids = bool,
+        effective-cache-size = int,
+        effective-io-concurrency = int,
+        enable-bitmapscan = bool,
+        enable-hashagg = bool,
+        enable-hashjoin = bool,
+        enable-indexonlyscan = bool,
+        enable-indexscan = bool,
+        enable-material = bool,
+        enable-mergejoin = bool,
+        enable-nestloop = bool,
+        enable-seqscan = bool,
+        enable-sort = bool,
+        enable-tidscan = bool,
+        escape-string-warning = bool,
+        exit-on-error = bool,
+        force-parallel-mode = FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS,
+        from-collapse-limit = int,
+        gin-pending-list-limit = int,
+        idle-in-transaction-session-timeout = int,
+        join-collapse-limit = int,
+        lo-compat-privileges = bool,
+        lock-timeout = int,
+        log-checkpoints = bool,
+        log-connections = bool,
+        log-disconnections = bool,
+        log-duration = bool,
+        log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE,
+        log-lock-waits = bool,
+        log-min-duration-statement = int,
+        log-min-error-statement = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-statement = LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL,
+        log-temp-files = int,
+        max-locks-per-transaction = int,
+        max-parallel-workers = int,
+        max-parallel-workers-per-gather = int,
+        max-pred-locks-per-transaction = int,
+        max-standby-streaming-delay = int,
+        old-snapshot-threshold = int,
+        operator-precedence-warning = bool,
+        quote-all-identifiers = bool,
+        random-page-cost = double,
+        recovery-min-apply-delay = int,
+        row-security = bool,
+        search-path = str,
+        seq-page-cost = double,
+        shared-buffers = int,
+        standard-conforming-strings = bool,
+        statement-timeout = int,
+        synchronize-seqscans = bool,
+        temp-buffers = int,
+        temp-file-limit = int,
+        timezone = str,
+        transform-null-equals = bool,
+        work-mem = int,
+        xmlbinary = XML_BINARY_BASE64|XML_BINARY_HEX,
+        xmloption = XML_OPTION_DOCUMENT|XML_OPTION_CONTENT
+      } | postgresql-config-12-1c={
+        array-nulls = bool,
+        backend-flush-after = int,
+        backslash-quote = BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING,
+        bytea-output = BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED,
+        client-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        constraint-exclusion = CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION,
+        cursor-tuple-fraction = double,
+        deadlock-timeout = int,
+        default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE,
+        default-with-oids = bool,
+        effective-cache-size = int,
+        effective-io-concurrency = int,
+        enable-bitmapscan = bool,
+        enable-hashagg = bool,
+        enable-hashjoin = bool,
+        enable-indexonlyscan = bool,
+        enable-indexscan = bool,
+        enable-material = bool,
+        enable-mergejoin = bool,
+        enable-nestloop = bool,
+        enable-seqscan = bool,
+        enable-sort = bool,
+        enable-tidscan = bool,
+        escape-string-warning = bool,
+        exit-on-error = bool,
+        force-parallel-mode = FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS,
+        from-collapse-limit = int,
+        gin-pending-list-limit = int,
+        idle-in-transaction-session-timeout = int,
+        join-collapse-limit = int,
+        lo-compat-privileges = bool,
+        lock-timeout = int,
+        log-checkpoints = bool,
+        log-connections = bool,
+        log-disconnections = bool,
+        log-duration = bool,
+        log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE,
+        log-lock-waits = bool,
+        log-min-duration-statement = int,
+        log-min-error-statement = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-statement = LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL,
+        log-temp-files = int,
+        max-locks-per-transaction = int,
+        max-parallel-workers = int,
+        max-parallel-workers-per-gather = int,
+        max-pred-locks-per-transaction = int,
+        max-standby-streaming-delay = int,
+        old-snapshot-threshold = int,
+        operator-precedence-warning = bool,
+        quote-all-identifiers = bool,
+        random-page-cost = double,
+        recovery-min-apply-delay = int,
+        row-security = bool,
+        search-path = str,
+        seq-page-cost = double,
+        shared-buffers = int,
+        standard-conforming-strings = bool,
+        statement-timeout = int,
+        synchronize-seqscans = bool,
+        temp-buffers = int,
+        temp-file-limit = int,
+        timezone = str,
+        transform-null-equals = bool,
+        work-mem = int,
+        xmlbinary = XML_BINARY_BASE64|XML_BINARY_HEX,
+        xmloption = XML_OPTION_DOCUMENT|XML_OPTION_CONTENT
+      } | postgresql-config-13={
+        array-nulls = bool,
+        backend-flush-after = int,
+        backslash-quote = BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING,
+        bytea-output = BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED,
+        client-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        constraint-exclusion = CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION,
+        cursor-tuple-fraction = double,
+        deadlock-timeout = int,
+        default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE,
+        default-with-oids = bool,
+        effective-cache-size = int,
+        effective-io-concurrency = int,
+        enable-bitmapscan = bool,
+        enable-hashagg = bool,
+        enable-hashjoin = bool,
+        enable-indexonlyscan = bool,
+        enable-indexscan = bool,
+        enable-material = bool,
+        enable-mergejoin = bool,
+        enable-nestloop = bool,
+        enable-seqscan = bool,
+        enable-sort = bool,
+        enable-tidscan = bool,
+        escape-string-warning = bool,
+        exit-on-error = bool,
+        force-parallel-mode = FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS,
+        from-collapse-limit = int,
+        gin-pending-list-limit = int,
+        idle-in-transaction-session-timeout = int,
+        join-collapse-limit = int,
+        lo-compat-privileges = bool,
+        lock-timeout = int,
+        log-checkpoints = bool,
+        log-connections = bool,
+        log-disconnections = bool,
+        log-duration = bool,
+        log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE,
+        log-lock-waits = bool,
+        log-min-duration-statement = int,
+        log-min-error-statement = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-statement = LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL,
+        log-temp-files = int,
+        max-locks-per-transaction = int,
+        max-parallel-workers = int,
+        max-parallel-workers-per-gather = int,
+        max-pred-locks-per-transaction = int,
+        max-standby-streaming-delay = int,
+        old-snapshot-threshold = int,
+        operator-precedence-warning = bool,
+        quote-all-identifiers = bool,
+        random-page-cost = double,
+        recovery-min-apply-delay = int,
+        row-security = bool,
+        search-path = str,
+        seq-page-cost = double,
+        shared-buffers = int,
+        standard-conforming-strings = bool,
+        statement-timeout = int,
+        synchronize-seqscans = bool,
+        temp-buffers = int,
+        temp-file-limit = int,
+        timezone = str,
+        transform-null-equals = bool,
+        work-mem = int,
+        xmlbinary = XML_BINARY_BASE64|XML_BINARY_HEX,
+        xmloption = XML_OPTION_DOCUMENT|XML_OPTION_CONTENT
+      } | postgresql-config-13-1c={
+        array-nulls = bool,
+        backend-flush-after = int,
+        backslash-quote = BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING,
+        bytea-output = BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED,
+        client-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        constraint-exclusion = CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION,
+        cursor-tuple-fraction = double,
+        deadlock-timeout = int,
+        default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE,
+        default-with-oids = bool,
+        effective-cache-size = int,
+        effective-io-concurrency = int,
+        enable-bitmapscan = bool,
+        enable-hashagg = bool,
+        enable-hashjoin = bool,
+        enable-indexonlyscan = bool,
+        enable-indexscan = bool,
+        enable-material = bool,
+        enable-mergejoin = bool,
+        enable-nestloop = bool,
+        enable-seqscan = bool,
+        enable-sort = bool,
+        enable-tidscan = bool,
+        escape-string-warning = bool,
+        exit-on-error = bool,
+        force-parallel-mode = FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS,
+        from-collapse-limit = int,
+        gin-pending-list-limit = int,
+        idle-in-transaction-session-timeout = int,
+        join-collapse-limit = int,
+        lo-compat-privileges = bool,
+        lock-timeout = int,
+        log-checkpoints = bool,
+        log-connections = bool,
+        log-disconnections = bool,
+        log-duration = bool,
+        log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE,
+        log-lock-waits = bool,
+        log-min-duration-statement = int,
+        log-min-error-statement = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-statement = LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL,
+        log-temp-files = int,
+        max-locks-per-transaction = int,
+        max-parallel-workers = int,
+        max-parallel-workers-per-gather = int,
+        max-pred-locks-per-transaction = int,
+        max-standby-streaming-delay = int,
+        old-snapshot-threshold = int,
+        operator-precedence-warning = bool,
+        quote-all-identifiers = bool,
+        random-page-cost = double,
+        recovery-min-apply-delay = int,
+        row-security = bool,
+        search-path = str,
+        seq-page-cost = double,
+        shared-buffers = int,
+        standard-conforming-strings = bool,
+        statement-timeout = int,
+        synchronize-seqscans = bool,
+        temp-buffers = int,
+        temp-file-limit = int,
+        timezone = str,
+        transform-null-equals = bool,
+        work-mem = int,
+        xmlbinary = XML_BINARY_BASE64|XML_BINARY_HEX,
+        xmloption = XML_OPTION_DOCUMENT|XML_OPTION_CONTENT
+      } | postgresql-config-14={
+        array-nulls = bool,
+        backend-flush-after = int,
+        backslash-quote = BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING,
+        bytea-output = BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED,
+        client-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        constraint-exclusion = CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION,
+        cursor-tuple-fraction = double,
+        deadlock-timeout = int,
+        default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE,
+        default-with-oids = bool,
+        effective-cache-size = int,
+        effective-io-concurrency = int,
+        enable-bitmapscan = bool,
+        enable-hashagg = bool,
+        enable-hashjoin = bool,
+        enable-indexonlyscan = bool,
+        enable-indexscan = bool,
+        enable-material = bool,
+        enable-mergejoin = bool,
+        enable-nestloop = bool,
+        enable-seqscan = bool,
+        enable-sort = bool,
+        enable-tidscan = bool,
+        escape-string-warning = bool,
+        exit-on-error = bool,
+        force-parallel-mode = FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS,
+        from-collapse-limit = int,
+        gin-pending-list-limit = int,
+        idle-in-transaction-session-timeout = int,
+        join-collapse-limit = int,
+        lo-compat-privileges = bool,
+        lock-timeout = int,
+        log-checkpoints = bool,
+        log-connections = bool,
+        log-disconnections = bool,
+        log-duration = bool,
+        log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE,
+        log-lock-waits = bool,
+        log-min-duration-statement = int,
+        log-min-error-statement = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-statement = LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL,
+        log-temp-files = int,
+        max-locks-per-transaction = int,
+        max-parallel-workers = int,
+        max-parallel-workers-per-gather = int,
+        max-pred-locks-per-transaction = int,
+        max-standby-streaming-delay = int,
+        old-snapshot-threshold = int,
+        quote-all-identifiers = bool,
+        random-page-cost = double,
+        recovery-min-apply-delay = int,
+        row-security = bool,
+        search-path = str,
+        seq-page-cost = double,
+        shared-buffers = int,
+        standard-conforming-strings = bool,
+        statement-timeout = int,
+        synchronize-seqscans = bool,
+        temp-buffers = int,
+        temp-file-limit = int,
+        timezone = str,
+        transform-null-equals = bool,
+        work-mem = int,
+        xmlbinary = XML_BINARY_BASE64|XML_BINARY_HEX,
+        xmloption = XML_OPTION_DOCUMENT|XML_OPTION_CONTENT
+      } | postgresql-config-14-1c={
+        array-nulls = bool,
+        backend-flush-after = int,
+        backslash-quote = BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING,
+        bytea-output = BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED,
+        client-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        constraint-exclusion = CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION,
+        cursor-tuple-fraction = double,
+        deadlock-timeout = int,
+        default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE,
+        default-with-oids = bool,
+        effective-cache-size = int,
+        effective-io-concurrency = int,
+        enable-bitmapscan = bool,
+        enable-hashagg = bool,
+        enable-hashjoin = bool,
+        enable-indexonlyscan = bool,
+        enable-indexscan = bool,
+        enable-material = bool,
+        enable-mergejoin = bool,
+        enable-nestloop = bool,
+        enable-seqscan = bool,
+        enable-sort = bool,
+        enable-tidscan = bool,
+        escape-string-warning = bool,
+        exit-on-error = bool,
+        force-parallel-mode = FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS,
+        from-collapse-limit = int,
+        gin-pending-list-limit = int,
+        idle-in-transaction-session-timeout = int,
+        join-collapse-limit = int,
+        lo-compat-privileges = bool,
+        lock-timeout = int,
+        log-checkpoints = bool,
+        log-connections = bool,
+        log-disconnections = bool,
+        log-duration = bool,
+        log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE,
+        log-lock-waits = bool,
+        log-min-duration-statement = int,
+        log-min-error-statement = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-statement = LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL,
+        log-temp-files = int,
+        max-locks-per-transaction = int,
+        max-parallel-workers = int,
+        max-parallel-workers-per-gather = int,
+        max-pred-locks-per-transaction = int,
+        max-standby-streaming-delay = int,
+        old-snapshot-threshold = int,
+        quote-all-identifiers = bool,
+        random-page-cost = double,
+        recovery-min-apply-delay = int,
+        row-security = bool,
+        search-path = str,
+        seq-page-cost = double,
+        shared-buffers = int,
+        standard-conforming-strings = bool,
+        statement-timeout = int,
+        synchronize-seqscans = bool,
+        temp-buffers = int,
+        temp-file-limit = int,
+        timezone = str,
+        transform-null-equals = bool,
+        work-mem = int,
+        xmlbinary = XML_BINARY_BASE64|XML_BINARY_HEX,
+        xmloption = XML_OPTION_DOCUMENT|XML_OPTION_CONTENT
+      } | postgresql-config-15={
+        array-nulls = bool,
+        backend-flush-after = int,
+        backslash-quote = BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING,
+        bytea-output = BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED,
+        client-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        constraint-exclusion = CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION,
+        cursor-tuple-fraction = double,
+        deadlock-timeout = int,
+        default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE,
+        default-with-oids = bool,
+        effective-cache-size = int,
+        effective-io-concurrency = int,
+        enable-bitmapscan = bool,
+        enable-hashagg = bool,
+        enable-hashjoin = bool,
+        enable-indexonlyscan = bool,
+        enable-indexscan = bool,
+        enable-material = bool,
+        enable-mergejoin = bool,
+        enable-nestloop = bool,
+        enable-seqscan = bool,
+        enable-sort = bool,
+        enable-tidscan = bool,
+        escape-string-warning = bool,
+        exit-on-error = bool,
+        force-parallel-mode = FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS,
+        from-collapse-limit = int,
+        gin-pending-list-limit = int,
+        idle-in-transaction-session-timeout = int,
+        join-collapse-limit = int,
+        lo-compat-privileges = bool,
+        lock-timeout = int,
+        log-checkpoints = bool,
+        log-connections = bool,
+        log-disconnections = bool,
+        log-duration = bool,
+        log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE,
+        log-lock-waits = bool,
+        log-min-duration-statement = int,
+        log-min-error-statement = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-statement = LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL,
+        log-temp-files = int,
+        max-locks-per-transaction = int,
+        max-parallel-workers = int,
+        max-parallel-workers-per-gather = int,
+        max-pred-locks-per-transaction = int,
+        max-standby-streaming-delay = int,
+        old-snapshot-threshold = int,
+        quote-all-identifiers = bool,
+        random-page-cost = double,
+        recovery-min-apply-delay = int,
+        row-security = bool,
+        search-path = str,
+        seq-page-cost = double,
+        shared-buffers = int,
+        standard-conforming-strings = bool,
+        statement-timeout = int,
+        synchronize-seqscans = bool,
+        temp-buffers = int,
+        temp-file-limit = int,
+        timezone = str,
+        transform-null-equals = bool,
+        work-mem = int,
+        xmlbinary = XML_BINARY_BASE64|XML_BINARY_HEX,
+        xmloption = XML_OPTION_DOCUMENT|XML_OPTION_CONTENT
+      } | postgresql-config-15-1c={
+        array-nulls = bool,
+        backend-flush-after = int,
+        backslash-quote = BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING,
+        bytea-output = BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED,
+        client-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        constraint-exclusion = CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION,
+        cursor-tuple-fraction = double,
+        deadlock-timeout = int,
+        default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE,
+        default-with-oids = bool,
+        effective-cache-size = int,
+        effective-io-concurrency = int,
+        enable-bitmapscan = bool,
+        enable-hashagg = bool,
+        enable-hashjoin = bool,
+        enable-indexonlyscan = bool,
+        enable-indexscan = bool,
+        enable-material = bool,
+        enable-mergejoin = bool,
+        enable-nestloop = bool,
+        enable-seqscan = bool,
+        enable-sort = bool,
+        enable-tidscan = bool,
+        escape-string-warning = bool,
+        exit-on-error = bool,
+        force-parallel-mode = FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS,
+        from-collapse-limit = int,
+        gin-pending-list-limit = int,
+        idle-in-transaction-session-timeout = int,
+        join-collapse-limit = int,
+        lo-compat-privileges = bool,
+        lock-timeout = int,
+        log-checkpoints = bool,
+        log-connections = bool,
+        log-disconnections = bool,
+        log-duration = bool,
+        log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE,
+        log-lock-waits = bool,
+        log-min-duration-statement = int,
+        log-min-error-statement = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-statement = LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL,
+        log-temp-files = int,
+        max-locks-per-transaction = int,
+        max-parallel-workers = int,
+        max-parallel-workers-per-gather = int,
+        max-pred-locks-per-transaction = int,
+        max-standby-streaming-delay = int,
+        old-snapshot-threshold = int,
+        quote-all-identifiers = bool,
+        random-page-cost = double,
+        recovery-min-apply-delay = int,
+        row-security = bool,
+        search-path = str,
+        seq-page-cost = double,
+        shared-buffers = int,
+        standard-conforming-strings = bool,
+        statement-timeout = int,
+        synchronize-seqscans = bool,
+        temp-buffers = int,
+        temp-file-limit = int,
+        timezone = str,
+        transform-null-equals = bool,
+        work-mem = int,
+        xmlbinary = XML_BINARY_BASE64|XML_BINARY_HEX,
+        xmloption = XML_OPTION_DOCUMENT|XML_OPTION_CONTENT
+      } | postgresql-config-16={
+        array-nulls = bool,
+        backend-flush-after = int,
+        backslash-quote = BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING,
+        bytea-output = BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED,
+        client-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        constraint-exclusion = CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION,
+        cursor-tuple-fraction = double,
+        deadlock-timeout = int,
+        debug-parallel-query = DEBUG_PARALLEL_QUERY_ON|DEBUG_PARALLEL_QUERY_OFF|DEBUG_PARALLEL_QUERY_REGRESS,
+        default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE,
+        default-with-oids = bool,
+        effective-cache-size = int,
+        effective-io-concurrency = int,
+        enable-bitmapscan = bool,
+        enable-hashagg = bool,
+        enable-hashjoin = bool,
+        enable-indexonlyscan = bool,
+        enable-indexscan = bool,
+        enable-material = bool,
+        enable-mergejoin = bool,
+        enable-nestloop = bool,
+        enable-seqscan = bool,
+        enable-sort = bool,
+        enable-tidscan = bool,
+        escape-string-warning = bool,
+        exit-on-error = bool,
+        from-collapse-limit = int,
+        gin-pending-list-limit = int,
+        idle-in-transaction-session-timeout = int,
+        join-collapse-limit = int,
+        lo-compat-privileges = bool,
+        lock-timeout = int,
+        log-checkpoints = bool,
+        log-connections = bool,
+        log-disconnections = bool,
+        log-duration = bool,
+        log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE,
+        log-lock-waits = bool,
+        log-min-duration-statement = int,
+        log-min-error-statement = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-statement = LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL,
+        log-temp-files = int,
+        max-locks-per-transaction = int,
+        max-parallel-workers = int,
+        max-parallel-workers-per-gather = int,
+        max-pred-locks-per-transaction = int,
+        max-standby-streaming-delay = int,
+        old-snapshot-threshold = int,
+        quote-all-identifiers = bool,
+        random-page-cost = double,
+        recovery-min-apply-delay = int,
+        row-security = bool,
+        search-path = str,
+        seq-page-cost = double,
+        shared-buffers = int,
+        standard-conforming-strings = bool,
+        statement-timeout = int,
+        synchronize-seqscans = bool,
+        temp-buffers = int,
+        temp-file-limit = int,
+        timezone = str,
+        transform-null-equals = bool,
+        work-mem = int,
+        xmlbinary = XML_BINARY_BASE64|XML_BINARY_HEX,
+        xmloption = XML_OPTION_DOCUMENT|XML_OPTION_CONTENT
+      } | postgresql-config-16-1c={
+        array-nulls = bool,
+        backend-flush-after = int,
+        backslash-quote = BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING,
+        bytea-output = BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED,
+        client-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        constraint-exclusion = CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION,
+        cursor-tuple-fraction = double,
+        deadlock-timeout = int,
+        debug-parallel-query = DEBUG_PARALLEL_QUERY_ON|DEBUG_PARALLEL_QUERY_OFF|DEBUG_PARALLEL_QUERY_REGRESS,
+        default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE,
+        default-with-oids = bool,
+        effective-cache-size = int,
+        effective-io-concurrency = int,
+        enable-bitmapscan = bool,
+        enable-hashagg = bool,
+        enable-hashjoin = bool,
+        enable-indexonlyscan = bool,
+        enable-indexscan = bool,
+        enable-material = bool,
+        enable-mergejoin = bool,
+        enable-nestloop = bool,
+        enable-seqscan = bool,
+        enable-sort = bool,
+        enable-tidscan = bool,
+        escape-string-warning = bool,
+        exit-on-error = bool,
+        from-collapse-limit = int,
+        gin-pending-list-limit = int,
+        idle-in-transaction-session-timeout = int,
+        join-collapse-limit = int,
+        lo-compat-privileges = bool,
+        lock-timeout = int,
+        log-checkpoints = bool,
+        log-connections = bool,
+        log-disconnections = bool,
+        log-duration = bool,
+        log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE,
+        log-lock-waits = bool,
+        log-min-duration-statement = int,
+        log-min-error-statement = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-statement = LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL,
+        log-temp-files = int,
+        max-locks-per-transaction = int,
+        max-parallel-workers = int,
+        max-parallel-workers-per-gather = int,
+        max-pred-locks-per-transaction = int,
+        max-standby-streaming-delay = int,
+        old-snapshot-threshold = int,
+        quote-all-identifiers = bool,
+        random-page-cost = double,
+        recovery-min-apply-delay = int,
+        row-security = bool,
+        search-path = str,
+        seq-page-cost = double,
+        shared-buffers = int,
+        standard-conforming-strings = bool,
+        statement-timeout = int,
+        synchronize-seqscans = bool,
+        temp-buffers = int,
+        temp-file-limit = int,
+        timezone = str,
+        transform-null-equals = bool,
+        work-mem = int,
+        xmlbinary = XML_BINARY_BASE64|XML_BINARY_HEX,
+        xmloption = XML_OPTION_DOCUMENT|XML_OPTION_CONTENT
+      } | postgresql-config-17={
+        array-nulls = bool,
+        backend-flush-after = int,
+        backslash-quote = BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING,
+        bytea-output = BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED,
+        client-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        constraint-exclusion = CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION,
+        cursor-tuple-fraction = double,
+        deadlock-timeout = int,
+        debug-parallel-query = DEBUG_PARALLEL_QUERY_ON|DEBUG_PARALLEL_QUERY_OFF|DEBUG_PARALLEL_QUERY_REGRESS,
+        default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE,
+        default-with-oids = bool,
+        effective-cache-size = int,
+        effective-io-concurrency = int,
+        enable-bitmapscan = bool,
+        enable-hashagg = bool,
+        enable-hashjoin = bool,
+        enable-indexonlyscan = bool,
+        enable-indexscan = bool,
+        enable-material = bool,
+        enable-mergejoin = bool,
+        enable-nestloop = bool,
+        enable-seqscan = bool,
+        enable-sort = bool,
+        enable-tidscan = bool,
+        escape-string-warning = bool,
+        exit-on-error = bool,
+        from-collapse-limit = int,
+        gin-pending-list-limit = int,
+        idle-in-transaction-session-timeout = int,
+        join-collapse-limit = int,
+        lo-compat-privileges = bool,
+        lock-timeout = int,
+        log-checkpoints = bool,
+        log-connections = bool,
+        log-disconnections = bool,
+        log-duration = bool,
+        log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE,
+        log-lock-waits = bool,
+        log-min-duration-statement = int,
+        log-min-error-statement = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-statement = LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL,
+        log-temp-files = int,
+        max-locks-per-transaction = int,
+        max-parallel-workers = int,
+        max-parallel-workers-per-gather = int,
+        max-pred-locks-per-transaction = int,
+        max-standby-streaming-delay = int,
+        quote-all-identifiers = bool,
+        random-page-cost = double,
+        recovery-min-apply-delay = int,
+        row-security = bool,
+        search-path = str,
+        seq-page-cost = double,
+        shared-buffers = int,
+        standard-conforming-strings = bool,
+        statement-timeout = int,
+        synchronize-seqscans = bool,
+        temp-buffers = int,
+        temp-file-limit = int,
+        timezone = str,
+        transform-null-equals = bool,
+        work-mem = int,
+        xmlbinary = XML_BINARY_BASE64|XML_BINARY_HEX,
+        xmloption = XML_OPTION_DOCUMENT|XML_OPTION_CONTENT
+      } | postgresql-config-17-1c={
+        array-nulls = bool,
+        backend-flush-after = int,
+        backslash-quote = BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING,
+        bytea-output = BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED,
+        client-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        constraint-exclusion = CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION,
+        cursor-tuple-fraction = double,
+        deadlock-timeout = int,
+        debug-parallel-query = DEBUG_PARALLEL_QUERY_ON|DEBUG_PARALLEL_QUERY_OFF|DEBUG_PARALLEL_QUERY_REGRESS,
+        default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE,
+        default-with-oids = bool,
+        effective-cache-size = int,
+        effective-io-concurrency = int,
+        enable-bitmapscan = bool,
+        enable-hashagg = bool,
+        enable-hashjoin = bool,
+        enable-indexonlyscan = bool,
+        enable-indexscan = bool,
+        enable-material = bool,
+        enable-mergejoin = bool,
+        enable-nestloop = bool,
+        enable-seqscan = bool,
+        enable-sort = bool,
+        enable-tidscan = bool,
+        escape-string-warning = bool,
+        exit-on-error = bool,
+        from-collapse-limit = int,
+        gin-pending-list-limit = int,
+        idle-in-transaction-session-timeout = int,
+        join-collapse-limit = int,
+        lo-compat-privileges = bool,
+        lock-timeout = int,
+        log-checkpoints = bool,
+        log-connections = bool,
+        log-disconnections = bool,
+        log-duration = bool,
+        log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE,
+        log-lock-waits = bool,
+        log-min-duration-statement = int,
+        log-min-error-statement = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-statement = LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL,
+        log-temp-files = int,
+        max-locks-per-transaction = int,
+        max-parallel-workers = int,
+        max-parallel-workers-per-gather = int,
+        max-pred-locks-per-transaction = int,
+        max-standby-streaming-delay = int,
+        quote-all-identifiers = bool,
+        random-page-cost = double,
+        recovery-min-apply-delay = int,
+        row-security = bool,
+        search-path = str,
+        seq-page-cost = double,
+        shared-buffers = int,
+        standard-conforming-strings = bool,
+        statement-timeout = int,
+        synchronize-seqscans = bool,
+        temp-buffers = int,
+        temp-file-limit = int,
+        timezone = str,
+        transform-null-equals = bool,
+        work-mem = int,
+        xmlbinary = XML_BINARY_BASE64|XML_BINARY_HEX,
+        xmloption = XML_OPTION_DOCUMENT|XML_OPTION_CONTENT
+      } | postgresql-config-18={
+        array-nulls = bool,
+        backend-flush-after = int,
+        backslash-quote = BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING,
+        bytea-output = BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED,
+        client-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        constraint-exclusion = CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION,
+        cursor-tuple-fraction = double,
+        deadlock-timeout = int,
+        debug-parallel-query = DEBUG_PARALLEL_QUERY_ON|DEBUG_PARALLEL_QUERY_OFF|DEBUG_PARALLEL_QUERY_REGRESS,
+        default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE,
+        default-with-oids = bool,
+        effective-cache-size = int,
+        effective-io-concurrency = int,
+        enable-bitmapscan = bool,
+        enable-hashagg = bool,
+        enable-hashjoin = bool,
+        enable-indexonlyscan = bool,
+        enable-indexscan = bool,
+        enable-material = bool,
+        enable-mergejoin = bool,
+        enable-nestloop = bool,
+        enable-seqscan = bool,
+        enable-sort = bool,
+        enable-tidscan = bool,
+        escape-string-warning = bool,
+        exit-on-error = bool,
+        from-collapse-limit = int,
+        gin-pending-list-limit = int,
+        idle-in-transaction-session-timeout = int,
+        join-collapse-limit = int,
+        lo-compat-privileges = bool,
+        lock-timeout = int,
+        log-checkpoints = bool,
+        log-connections = bool,
+        log-disconnections = bool,
+        log-duration = bool,
+        log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE,
+        log-lock-waits = bool,
+        log-min-duration-statement = int,
+        log-min-error-statement = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-statement = LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL,
+        log-temp-files = int,
+        max-locks-per-transaction = int,
+        max-parallel-workers = int,
+        max-parallel-workers-per-gather = int,
+        max-pred-locks-per-transaction = int,
+        max-standby-streaming-delay = int,
+        quote-all-identifiers = bool,
+        random-page-cost = double,
+        recovery-min-apply-delay = int,
+        row-security = bool,
+        search-path = str,
+        seq-page-cost = double,
+        shared-buffers = int,
+        standard-conforming-strings = bool,
+        statement-timeout = int,
+        synchronize-seqscans = bool,
+        temp-buffers = int,
+        temp-file-limit = int,
+        timezone = str,
+        transform-null-equals = bool,
+        work-mem = int,
+        xmlbinary = XML_BINARY_BASE64|XML_BINARY_HEX,
+        xmloption = XML_OPTION_DOCUMENT|XML_OPTION_CONTENT
+      } | postgresql-config-18-1c={
+        array-nulls = bool,
+        backend-flush-after = int,
+        backslash-quote = BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING,
+        bytea-output = BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED,
+        client-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        constraint-exclusion = CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION,
+        cursor-tuple-fraction = double,
+        deadlock-timeout = int,
+        debug-parallel-query = DEBUG_PARALLEL_QUERY_ON|DEBUG_PARALLEL_QUERY_OFF|DEBUG_PARALLEL_QUERY_REGRESS,
+        default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE,
+        default-with-oids = bool,
+        effective-cache-size = int,
+        effective-io-concurrency = int,
+        enable-bitmapscan = bool,
+        enable-hashagg = bool,
+        enable-hashjoin = bool,
+        enable-indexonlyscan = bool,
+        enable-indexscan = bool,
+        enable-material = bool,
+        enable-mergejoin = bool,
+        enable-nestloop = bool,
+        enable-seqscan = bool,
+        enable-sort = bool,
+        enable-tidscan = bool,
+        escape-string-warning = bool,
+        exit-on-error = bool,
+        from-collapse-limit = int,
+        gin-pending-list-limit = int,
+        idle-in-transaction-session-timeout = int,
+        join-collapse-limit = int,
+        lo-compat-privileges = bool,
+        lock-timeout = int,
+        log-checkpoints = bool,
+        log-connections = bool,
+        log-disconnections = bool,
+        log-duration = bool,
+        log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE,
+        log-lock-waits = bool,
+        log-min-duration-statement = int,
+        log-min-error-statement = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-statement = LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL,
+        log-temp-files = int,
+        max-locks-per-transaction = int,
+        max-parallel-workers = int,
+        max-parallel-workers-per-gather = int,
+        max-pred-locks-per-transaction = int,
+        max-standby-streaming-delay = int,
+        quote-all-identifiers = bool,
+        random-page-cost = double,
+        recovery-min-apply-delay = int,
+        row-security = bool,
+        search-path = str,
+        seq-page-cost = double,
+        shared-buffers = int,
+        standard-conforming-strings = bool,
+        statement-timeout = int,
+        synchronize-seqscans = bool,
+        temp-buffers = int,
+        temp-file-limit = int,
+        timezone = str,
+        transform-null-equals = bool,
+        work-mem = int,
+        xmlbinary = XML_BINARY_BASE64|XML_BINARY_HEX,
+        xmloption = XML_OPTION_DOCUMENT|XML_OPTION_CONTENT
+      } | postgresql-config-9-6={
+        array-nulls = bool,
+        backend-flush-after = int,
+        backslash-quote = BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING,
+        bytea-output = BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED,
+        client-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        constraint-exclusion = CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION,
+        cursor-tuple-fraction = double,
+        deadlock-timeout = int,
+        default-transaction-isolation = TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE,
+        default-with-oids = bool,
+        effective-cache-size = int,
+        effective-io-concurrency = int,
+        escape-string-warning = bool,
+        exit-on-error = bool,
+        force-parallel-mode = FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS,
+        from-collapse-limit = int,
+        gin-pending-list-limit = int,
+        idle-in-transaction-session-timeout = int,
+        join-collapse-limit = int,
+        lo-compat-privileges = bool,
+        lock-timeout = int,
+        log-checkpoints = bool,
+        log-connections = bool,
+        log-disconnections = bool,
+        log-duration = bool,
+        log-error-verbosity = LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE,
+        log-lock-waits = bool,
+        log-min-duration-statement = int,
+        log-min-error-statement = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-min-messages = LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC,
+        log-statement = LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL,
+        log-temp-files = int,
+        max-locks-per-transaction = int,
+        max-pred-locks-per-transaction = int,
+        max-standby-streaming-delay = int,
+        old-snapshot-threshold = int,
+        operator-precedence-warning = bool,
+        quote-all-identifiers = bool,
+        random-page-cost = double,
+        recovery-min-apply-delay = int,
+        replacement-sort-tuples = int,
+        row-security = bool,
+        search-path = str,
+        seq-page-cost = double,
+        shared-buffers = int,
+        sql-inheritance = bool,
+        standard-conforming-strings = bool,
+        statement-timeout = int,
+        synchronize-seqscans = bool,
+        temp-buffers = int,
+        temp-file-limit = int,
+        transform-null-equals = bool,
+        work-mem = int,
+        xmlbinary = XML_BINARY_BASE64|XML_BINARY_HEX,
+        xmloption = XML_OPTION_DOCUMENT|XML_OPTION_CONTENT
+      }
+    },
+    host-name = str,
+    priority = int,
+    replication-source = str
+  }, ...
+]
+```
+
+JSON Syntax:
+
+```json
+[
+  {
+    "assign-public-ip": "bool",
+    "config-spec": {
+      "postgresql-config": {
+        "postgresql-config-10": {
+          "array-nulls": "bool",
+          "backend-flush-after": "int",
+          "backslash-quote": "BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING",
+          "bytea-output": "BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED",
+          "client-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "constraint-exclusion": "CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION",
+          "cursor-tuple-fraction": "double",
+          "deadlock-timeout": "int",
+          "default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE",
+          "default-with-oids": "bool",
+          "effective-cache-size": "int",
+          "effective-io-concurrency": "int",
+          "enable-bitmapscan": "bool",
+          "enable-hashagg": "bool",
+          "enable-hashjoin": "bool",
+          "enable-indexonlyscan": "bool",
+          "enable-indexscan": "bool",
+          "enable-material": "bool",
+          "enable-mergejoin": "bool",
+          "enable-nestloop": "bool",
+          "enable-seqscan": "bool",
+          "enable-sort": "bool",
+          "enable-tidscan": "bool",
+          "escape-string-warning": "bool",
+          "exit-on-error": "bool",
+          "force-parallel-mode": "FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS",
+          "from-collapse-limit": "int",
+          "gin-pending-list-limit": "int",
+          "idle-in-transaction-session-timeout": "int",
+          "join-collapse-limit": "int",
+          "lo-compat-privileges": "bool",
+          "lock-timeout": "int",
+          "log-checkpoints": "bool",
+          "log-connections": "bool",
+          "log-disconnections": "bool",
+          "log-duration": "bool",
+          "log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE",
+          "log-lock-waits": "bool",
+          "log-min-duration-statement": "int",
+          "log-min-error-statement": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-statement": "LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL",
+          "log-temp-files": "int",
+          "max-locks-per-transaction": "int",
+          "max-parallel-workers": "int",
+          "max-parallel-workers-per-gather": "int",
+          "max-pred-locks-per-transaction": "int",
+          "max-standby-streaming-delay": "int",
+          "old-snapshot-threshold": "int",
+          "operator-precedence-warning": "bool",
+          "quote-all-identifiers": "bool",
+          "random-page-cost": "double",
+          "recovery-min-apply-delay": "int",
+          "replacement-sort-tuples": "int",
+          "row-security": "bool",
+          "search-path": "str",
+          "seq-page-cost": "double",
+          "shared-buffers": "int",
+          "standard-conforming-strings": "bool",
+          "statement-timeout": "int",
+          "synchronize-seqscans": "bool",
+          "temp-buffers": "int",
+          "temp-file-limit": "int",
+          "timezone": "str",
+          "transform-null-equals": "bool",
+          "work-mem": "int",
+          "xmlbinary": "XML_BINARY_BASE64|XML_BINARY_HEX",
+          "xmloption": "XML_OPTION_DOCUMENT|XML_OPTION_CONTENT"
+        },
+        "postgresql-config-10-1c": {
+          "array-nulls": "bool",
+          "backend-flush-after": "int",
+          "backslash-quote": "BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING",
+          "bytea-output": "BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED",
+          "client-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "constraint-exclusion": "CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION",
+          "cursor-tuple-fraction": "double",
+          "deadlock-timeout": "int",
+          "default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE",
+          "default-with-oids": "bool",
+          "effective-cache-size": "int",
+          "effective-io-concurrency": "int",
+          "enable-bitmapscan": "bool",
+          "enable-hashagg": "bool",
+          "enable-hashjoin": "bool",
+          "enable-indexonlyscan": "bool",
+          "enable-indexscan": "bool",
+          "enable-material": "bool",
+          "enable-mergejoin": "bool",
+          "enable-nestloop": "bool",
+          "enable-seqscan": "bool",
+          "enable-sort": "bool",
+          "enable-tidscan": "bool",
+          "escape-string-warning": "bool",
+          "exit-on-error": "bool",
+          "force-parallel-mode": "FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS",
+          "from-collapse-limit": "int",
+          "gin-pending-list-limit": "int",
+          "idle-in-transaction-session-timeout": "int",
+          "join-collapse-limit": "int",
+          "lo-compat-privileges": "bool",
+          "lock-timeout": "int",
+          "log-checkpoints": "bool",
+          "log-connections": "bool",
+          "log-disconnections": "bool",
+          "log-duration": "bool",
+          "log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE",
+          "log-lock-waits": "bool",
+          "log-min-duration-statement": "int",
+          "log-min-error-statement": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-statement": "LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL",
+          "log-temp-files": "int",
+          "max-locks-per-transaction": "int",
+          "max-parallel-workers": "int",
+          "max-parallel-workers-per-gather": "int",
+          "max-pred-locks-per-transaction": "int",
+          "max-standby-streaming-delay": "int",
+          "old-snapshot-threshold": "int",
+          "operator-precedence-warning": "bool",
+          "quote-all-identifiers": "bool",
+          "random-page-cost": "double",
+          "recovery-min-apply-delay": "int",
+          "replacement-sort-tuples": "int",
+          "row-security": "bool",
+          "search-path": "str",
+          "seq-page-cost": "double",
+          "shared-buffers": "int",
+          "standard-conforming-strings": "bool",
+          "statement-timeout": "int",
+          "synchronize-seqscans": "bool",
+          "temp-buffers": "int",
+          "temp-file-limit": "int",
+          "timezone": "str",
+          "transform-null-equals": "bool",
+          "work-mem": "int",
+          "xmlbinary": "XML_BINARY_BASE64|XML_BINARY_HEX",
+          "xmloption": "XML_OPTION_DOCUMENT|XML_OPTION_CONTENT"
+        },
+        "postgresql-config-11": {
+          "array-nulls": "bool",
+          "backend-flush-after": "int",
+          "backslash-quote": "BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING",
+          "bytea-output": "BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED",
+          "client-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "constraint-exclusion": "CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION",
+          "cursor-tuple-fraction": "double",
+          "deadlock-timeout": "int",
+          "default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE",
+          "default-with-oids": "bool",
+          "effective-cache-size": "int",
+          "effective-io-concurrency": "int",
+          "enable-bitmapscan": "bool",
+          "enable-hashagg": "bool",
+          "enable-hashjoin": "bool",
+          "enable-indexonlyscan": "bool",
+          "enable-indexscan": "bool",
+          "enable-material": "bool",
+          "enable-mergejoin": "bool",
+          "enable-nestloop": "bool",
+          "enable-seqscan": "bool",
+          "enable-sort": "bool",
+          "enable-tidscan": "bool",
+          "escape-string-warning": "bool",
+          "exit-on-error": "bool",
+          "force-parallel-mode": "FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS",
+          "from-collapse-limit": "int",
+          "gin-pending-list-limit": "int",
+          "idle-in-transaction-session-timeout": "int",
+          "join-collapse-limit": "int",
+          "lo-compat-privileges": "bool",
+          "lock-timeout": "int",
+          "log-checkpoints": "bool",
+          "log-connections": "bool",
+          "log-disconnections": "bool",
+          "log-duration": "bool",
+          "log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE",
+          "log-lock-waits": "bool",
+          "log-min-duration-statement": "int",
+          "log-min-error-statement": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-statement": "LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL",
+          "log-temp-files": "int",
+          "max-locks-per-transaction": "int",
+          "max-parallel-workers": "int",
+          "max-parallel-workers-per-gather": "int",
+          "max-pred-locks-per-transaction": "int",
+          "max-standby-streaming-delay": "int",
+          "old-snapshot-threshold": "int",
+          "operator-precedence-warning": "bool",
+          "quote-all-identifiers": "bool",
+          "random-page-cost": "double",
+          "recovery-min-apply-delay": "int",
+          "row-security": "bool",
+          "search-path": "str",
+          "seq-page-cost": "double",
+          "shared-buffers": "int",
+          "standard-conforming-strings": "bool",
+          "statement-timeout": "int",
+          "synchronize-seqscans": "bool",
+          "temp-buffers": "int",
+          "temp-file-limit": "int",
+          "timezone": "str",
+          "transform-null-equals": "bool",
+          "work-mem": "int",
+          "xmlbinary": "XML_BINARY_BASE64|XML_BINARY_HEX",
+          "xmloption": "XML_OPTION_DOCUMENT|XML_OPTION_CONTENT"
+        },
+        "postgresql-config-11-1c": {
+          "array-nulls": "bool",
+          "backend-flush-after": "int",
+          "backslash-quote": "BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING",
+          "bytea-output": "BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED",
+          "client-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "constraint-exclusion": "CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION",
+          "cursor-tuple-fraction": "double",
+          "deadlock-timeout": "int",
+          "default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE",
+          "default-with-oids": "bool",
+          "effective-cache-size": "int",
+          "effective-io-concurrency": "int",
+          "enable-bitmapscan": "bool",
+          "enable-hashagg": "bool",
+          "enable-hashjoin": "bool",
+          "enable-indexonlyscan": "bool",
+          "enable-indexscan": "bool",
+          "enable-material": "bool",
+          "enable-mergejoin": "bool",
+          "enable-nestloop": "bool",
+          "enable-seqscan": "bool",
+          "enable-sort": "bool",
+          "enable-tidscan": "bool",
+          "escape-string-warning": "bool",
+          "exit-on-error": "bool",
+          "force-parallel-mode": "FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS",
+          "from-collapse-limit": "int",
+          "gin-pending-list-limit": "int",
+          "idle-in-transaction-session-timeout": "int",
+          "join-collapse-limit": "int",
+          "lo-compat-privileges": "bool",
+          "lock-timeout": "int",
+          "log-checkpoints": "bool",
+          "log-connections": "bool",
+          "log-disconnections": "bool",
+          "log-duration": "bool",
+          "log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE",
+          "log-lock-waits": "bool",
+          "log-min-duration-statement": "int",
+          "log-min-error-statement": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-statement": "LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL",
+          "log-temp-files": "int",
+          "max-locks-per-transaction": "int",
+          "max-parallel-workers": "int",
+          "max-parallel-workers-per-gather": "int",
+          "max-pred-locks-per-transaction": "int",
+          "max-standby-streaming-delay": "int",
+          "old-snapshot-threshold": "int",
+          "operator-precedence-warning": "bool",
+          "quote-all-identifiers": "bool",
+          "random-page-cost": "double",
+          "recovery-min-apply-delay": "int",
+          "row-security": "bool",
+          "search-path": "str",
+          "seq-page-cost": "double",
+          "shared-buffers": "int",
+          "standard-conforming-strings": "bool",
+          "statement-timeout": "int",
+          "synchronize-seqscans": "bool",
+          "temp-buffers": "int",
+          "temp-file-limit": "int",
+          "timezone": "str",
+          "transform-null-equals": "bool",
+          "work-mem": "int",
+          "xmlbinary": "XML_BINARY_BASE64|XML_BINARY_HEX",
+          "xmloption": "XML_OPTION_DOCUMENT|XML_OPTION_CONTENT"
+        },
+        "postgresql-config-12": {
+          "array-nulls": "bool",
+          "backend-flush-after": "int",
+          "backslash-quote": "BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING",
+          "bytea-output": "BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED",
+          "client-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "constraint-exclusion": "CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION",
+          "cursor-tuple-fraction": "double",
+          "deadlock-timeout": "int",
+          "default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE",
+          "default-with-oids": "bool",
+          "effective-cache-size": "int",
+          "effective-io-concurrency": "int",
+          "enable-bitmapscan": "bool",
+          "enable-hashagg": "bool",
+          "enable-hashjoin": "bool",
+          "enable-indexonlyscan": "bool",
+          "enable-indexscan": "bool",
+          "enable-material": "bool",
+          "enable-mergejoin": "bool",
+          "enable-nestloop": "bool",
+          "enable-seqscan": "bool",
+          "enable-sort": "bool",
+          "enable-tidscan": "bool",
+          "escape-string-warning": "bool",
+          "exit-on-error": "bool",
+          "force-parallel-mode": "FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS",
+          "from-collapse-limit": "int",
+          "gin-pending-list-limit": "int",
+          "idle-in-transaction-session-timeout": "int",
+          "join-collapse-limit": "int",
+          "lo-compat-privileges": "bool",
+          "lock-timeout": "int",
+          "log-checkpoints": "bool",
+          "log-connections": "bool",
+          "log-disconnections": "bool",
+          "log-duration": "bool",
+          "log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE",
+          "log-lock-waits": "bool",
+          "log-min-duration-statement": "int",
+          "log-min-error-statement": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-statement": "LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL",
+          "log-temp-files": "int",
+          "max-locks-per-transaction": "int",
+          "max-parallel-workers": "int",
+          "max-parallel-workers-per-gather": "int",
+          "max-pred-locks-per-transaction": "int",
+          "max-standby-streaming-delay": "int",
+          "old-snapshot-threshold": "int",
+          "operator-precedence-warning": "bool",
+          "quote-all-identifiers": "bool",
+          "random-page-cost": "double",
+          "recovery-min-apply-delay": "int",
+          "row-security": "bool",
+          "search-path": "str",
+          "seq-page-cost": "double",
+          "shared-buffers": "int",
+          "standard-conforming-strings": "bool",
+          "statement-timeout": "int",
+          "synchronize-seqscans": "bool",
+          "temp-buffers": "int",
+          "temp-file-limit": "int",
+          "timezone": "str",
+          "transform-null-equals": "bool",
+          "work-mem": "int",
+          "xmlbinary": "XML_BINARY_BASE64|XML_BINARY_HEX",
+          "xmloption": "XML_OPTION_DOCUMENT|XML_OPTION_CONTENT"
+        },
+        "postgresql-config-12-1c": {
+          "array-nulls": "bool",
+          "backend-flush-after": "int",
+          "backslash-quote": "BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING",
+          "bytea-output": "BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED",
+          "client-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "constraint-exclusion": "CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION",
+          "cursor-tuple-fraction": "double",
+          "deadlock-timeout": "int",
+          "default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE",
+          "default-with-oids": "bool",
+          "effective-cache-size": "int",
+          "effective-io-concurrency": "int",
+          "enable-bitmapscan": "bool",
+          "enable-hashagg": "bool",
+          "enable-hashjoin": "bool",
+          "enable-indexonlyscan": "bool",
+          "enable-indexscan": "bool",
+          "enable-material": "bool",
+          "enable-mergejoin": "bool",
+          "enable-nestloop": "bool",
+          "enable-seqscan": "bool",
+          "enable-sort": "bool",
+          "enable-tidscan": "bool",
+          "escape-string-warning": "bool",
+          "exit-on-error": "bool",
+          "force-parallel-mode": "FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS",
+          "from-collapse-limit": "int",
+          "gin-pending-list-limit": "int",
+          "idle-in-transaction-session-timeout": "int",
+          "join-collapse-limit": "int",
+          "lo-compat-privileges": "bool",
+          "lock-timeout": "int",
+          "log-checkpoints": "bool",
+          "log-connections": "bool",
+          "log-disconnections": "bool",
+          "log-duration": "bool",
+          "log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE",
+          "log-lock-waits": "bool",
+          "log-min-duration-statement": "int",
+          "log-min-error-statement": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-statement": "LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL",
+          "log-temp-files": "int",
+          "max-locks-per-transaction": "int",
+          "max-parallel-workers": "int",
+          "max-parallel-workers-per-gather": "int",
+          "max-pred-locks-per-transaction": "int",
+          "max-standby-streaming-delay": "int",
+          "old-snapshot-threshold": "int",
+          "operator-precedence-warning": "bool",
+          "quote-all-identifiers": "bool",
+          "random-page-cost": "double",
+          "recovery-min-apply-delay": "int",
+          "row-security": "bool",
+          "search-path": "str",
+          "seq-page-cost": "double",
+          "shared-buffers": "int",
+          "standard-conforming-strings": "bool",
+          "statement-timeout": "int",
+          "synchronize-seqscans": "bool",
+          "temp-buffers": "int",
+          "temp-file-limit": "int",
+          "timezone": "str",
+          "transform-null-equals": "bool",
+          "work-mem": "int",
+          "xmlbinary": "XML_BINARY_BASE64|XML_BINARY_HEX",
+          "xmloption": "XML_OPTION_DOCUMENT|XML_OPTION_CONTENT"
+        },
+        "postgresql-config-13": {
+          "array-nulls": "bool",
+          "backend-flush-after": "int",
+          "backslash-quote": "BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING",
+          "bytea-output": "BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED",
+          "client-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "constraint-exclusion": "CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION",
+          "cursor-tuple-fraction": "double",
+          "deadlock-timeout": "int",
+          "default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE",
+          "default-with-oids": "bool",
+          "effective-cache-size": "int",
+          "effective-io-concurrency": "int",
+          "enable-bitmapscan": "bool",
+          "enable-hashagg": "bool",
+          "enable-hashjoin": "bool",
+          "enable-indexonlyscan": "bool",
+          "enable-indexscan": "bool",
+          "enable-material": "bool",
+          "enable-mergejoin": "bool",
+          "enable-nestloop": "bool",
+          "enable-seqscan": "bool",
+          "enable-sort": "bool",
+          "enable-tidscan": "bool",
+          "escape-string-warning": "bool",
+          "exit-on-error": "bool",
+          "force-parallel-mode": "FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS",
+          "from-collapse-limit": "int",
+          "gin-pending-list-limit": "int",
+          "idle-in-transaction-session-timeout": "int",
+          "join-collapse-limit": "int",
+          "lo-compat-privileges": "bool",
+          "lock-timeout": "int",
+          "log-checkpoints": "bool",
+          "log-connections": "bool",
+          "log-disconnections": "bool",
+          "log-duration": "bool",
+          "log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE",
+          "log-lock-waits": "bool",
+          "log-min-duration-statement": "int",
+          "log-min-error-statement": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-statement": "LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL",
+          "log-temp-files": "int",
+          "max-locks-per-transaction": "int",
+          "max-parallel-workers": "int",
+          "max-parallel-workers-per-gather": "int",
+          "max-pred-locks-per-transaction": "int",
+          "max-standby-streaming-delay": "int",
+          "old-snapshot-threshold": "int",
+          "operator-precedence-warning": "bool",
+          "quote-all-identifiers": "bool",
+          "random-page-cost": "double",
+          "recovery-min-apply-delay": "int",
+          "row-security": "bool",
+          "search-path": "str",
+          "seq-page-cost": "double",
+          "shared-buffers": "int",
+          "standard-conforming-strings": "bool",
+          "statement-timeout": "int",
+          "synchronize-seqscans": "bool",
+          "temp-buffers": "int",
+          "temp-file-limit": "int",
+          "timezone": "str",
+          "transform-null-equals": "bool",
+          "work-mem": "int",
+          "xmlbinary": "XML_BINARY_BASE64|XML_BINARY_HEX",
+          "xmloption": "XML_OPTION_DOCUMENT|XML_OPTION_CONTENT"
+        },
+        "postgresql-config-13-1c": {
+          "array-nulls": "bool",
+          "backend-flush-after": "int",
+          "backslash-quote": "BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING",
+          "bytea-output": "BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED",
+          "client-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "constraint-exclusion": "CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION",
+          "cursor-tuple-fraction": "double",
+          "deadlock-timeout": "int",
+          "default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE",
+          "default-with-oids": "bool",
+          "effective-cache-size": "int",
+          "effective-io-concurrency": "int",
+          "enable-bitmapscan": "bool",
+          "enable-hashagg": "bool",
+          "enable-hashjoin": "bool",
+          "enable-indexonlyscan": "bool",
+          "enable-indexscan": "bool",
+          "enable-material": "bool",
+          "enable-mergejoin": "bool",
+          "enable-nestloop": "bool",
+          "enable-seqscan": "bool",
+          "enable-sort": "bool",
+          "enable-tidscan": "bool",
+          "escape-string-warning": "bool",
+          "exit-on-error": "bool",
+          "force-parallel-mode": "FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS",
+          "from-collapse-limit": "int",
+          "gin-pending-list-limit": "int",
+          "idle-in-transaction-session-timeout": "int",
+          "join-collapse-limit": "int",
+          "lo-compat-privileges": "bool",
+          "lock-timeout": "int",
+          "log-checkpoints": "bool",
+          "log-connections": "bool",
+          "log-disconnections": "bool",
+          "log-duration": "bool",
+          "log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE",
+          "log-lock-waits": "bool",
+          "log-min-duration-statement": "int",
+          "log-min-error-statement": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-statement": "LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL",
+          "log-temp-files": "int",
+          "max-locks-per-transaction": "int",
+          "max-parallel-workers": "int",
+          "max-parallel-workers-per-gather": "int",
+          "max-pred-locks-per-transaction": "int",
+          "max-standby-streaming-delay": "int",
+          "old-snapshot-threshold": "int",
+          "operator-precedence-warning": "bool",
+          "quote-all-identifiers": "bool",
+          "random-page-cost": "double",
+          "recovery-min-apply-delay": "int",
+          "row-security": "bool",
+          "search-path": "str",
+          "seq-page-cost": "double",
+          "shared-buffers": "int",
+          "standard-conforming-strings": "bool",
+          "statement-timeout": "int",
+          "synchronize-seqscans": "bool",
+          "temp-buffers": "int",
+          "temp-file-limit": "int",
+          "timezone": "str",
+          "transform-null-equals": "bool",
+          "work-mem": "int",
+          "xmlbinary": "XML_BINARY_BASE64|XML_BINARY_HEX",
+          "xmloption": "XML_OPTION_DOCUMENT|XML_OPTION_CONTENT"
+        },
+        "postgresql-config-14": {
+          "array-nulls": "bool",
+          "backend-flush-after": "int",
+          "backslash-quote": "BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING",
+          "bytea-output": "BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED",
+          "client-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "constraint-exclusion": "CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION",
+          "cursor-tuple-fraction": "double",
+          "deadlock-timeout": "int",
+          "default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE",
+          "default-with-oids": "bool",
+          "effective-cache-size": "int",
+          "effective-io-concurrency": "int",
+          "enable-bitmapscan": "bool",
+          "enable-hashagg": "bool",
+          "enable-hashjoin": "bool",
+          "enable-indexonlyscan": "bool",
+          "enable-indexscan": "bool",
+          "enable-material": "bool",
+          "enable-mergejoin": "bool",
+          "enable-nestloop": "bool",
+          "enable-seqscan": "bool",
+          "enable-sort": "bool",
+          "enable-tidscan": "bool",
+          "escape-string-warning": "bool",
+          "exit-on-error": "bool",
+          "force-parallel-mode": "FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS",
+          "from-collapse-limit": "int",
+          "gin-pending-list-limit": "int",
+          "idle-in-transaction-session-timeout": "int",
+          "join-collapse-limit": "int",
+          "lo-compat-privileges": "bool",
+          "lock-timeout": "int",
+          "log-checkpoints": "bool",
+          "log-connections": "bool",
+          "log-disconnections": "bool",
+          "log-duration": "bool",
+          "log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE",
+          "log-lock-waits": "bool",
+          "log-min-duration-statement": "int",
+          "log-min-error-statement": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-statement": "LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL",
+          "log-temp-files": "int",
+          "max-locks-per-transaction": "int",
+          "max-parallel-workers": "int",
+          "max-parallel-workers-per-gather": "int",
+          "max-pred-locks-per-transaction": "int",
+          "max-standby-streaming-delay": "int",
+          "old-snapshot-threshold": "int",
+          "quote-all-identifiers": "bool",
+          "random-page-cost": "double",
+          "recovery-min-apply-delay": "int",
+          "row-security": "bool",
+          "search-path": "str",
+          "seq-page-cost": "double",
+          "shared-buffers": "int",
+          "standard-conforming-strings": "bool",
+          "statement-timeout": "int",
+          "synchronize-seqscans": "bool",
+          "temp-buffers": "int",
+          "temp-file-limit": "int",
+          "timezone": "str",
+          "transform-null-equals": "bool",
+          "work-mem": "int",
+          "xmlbinary": "XML_BINARY_BASE64|XML_BINARY_HEX",
+          "xmloption": "XML_OPTION_DOCUMENT|XML_OPTION_CONTENT"
+        },
+        "postgresql-config-14-1c": {
+          "array-nulls": "bool",
+          "backend-flush-after": "int",
+          "backslash-quote": "BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING",
+          "bytea-output": "BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED",
+          "client-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "constraint-exclusion": "CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION",
+          "cursor-tuple-fraction": "double",
+          "deadlock-timeout": "int",
+          "default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE",
+          "default-with-oids": "bool",
+          "effective-cache-size": "int",
+          "effective-io-concurrency": "int",
+          "enable-bitmapscan": "bool",
+          "enable-hashagg": "bool",
+          "enable-hashjoin": "bool",
+          "enable-indexonlyscan": "bool",
+          "enable-indexscan": "bool",
+          "enable-material": "bool",
+          "enable-mergejoin": "bool",
+          "enable-nestloop": "bool",
+          "enable-seqscan": "bool",
+          "enable-sort": "bool",
+          "enable-tidscan": "bool",
+          "escape-string-warning": "bool",
+          "exit-on-error": "bool",
+          "force-parallel-mode": "FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS",
+          "from-collapse-limit": "int",
+          "gin-pending-list-limit": "int",
+          "idle-in-transaction-session-timeout": "int",
+          "join-collapse-limit": "int",
+          "lo-compat-privileges": "bool",
+          "lock-timeout": "int",
+          "log-checkpoints": "bool",
+          "log-connections": "bool",
+          "log-disconnections": "bool",
+          "log-duration": "bool",
+          "log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE",
+          "log-lock-waits": "bool",
+          "log-min-duration-statement": "int",
+          "log-min-error-statement": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-statement": "LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL",
+          "log-temp-files": "int",
+          "max-locks-per-transaction": "int",
+          "max-parallel-workers": "int",
+          "max-parallel-workers-per-gather": "int",
+          "max-pred-locks-per-transaction": "int",
+          "max-standby-streaming-delay": "int",
+          "old-snapshot-threshold": "int",
+          "quote-all-identifiers": "bool",
+          "random-page-cost": "double",
+          "recovery-min-apply-delay": "int",
+          "row-security": "bool",
+          "search-path": "str",
+          "seq-page-cost": "double",
+          "shared-buffers": "int",
+          "standard-conforming-strings": "bool",
+          "statement-timeout": "int",
+          "synchronize-seqscans": "bool",
+          "temp-buffers": "int",
+          "temp-file-limit": "int",
+          "timezone": "str",
+          "transform-null-equals": "bool",
+          "work-mem": "int",
+          "xmlbinary": "XML_BINARY_BASE64|XML_BINARY_HEX",
+          "xmloption": "XML_OPTION_DOCUMENT|XML_OPTION_CONTENT"
+        },
+        "postgresql-config-15": {
+          "array-nulls": "bool",
+          "backend-flush-after": "int",
+          "backslash-quote": "BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING",
+          "bytea-output": "BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED",
+          "client-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "constraint-exclusion": "CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION",
+          "cursor-tuple-fraction": "double",
+          "deadlock-timeout": "int",
+          "default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE",
+          "default-with-oids": "bool",
+          "effective-cache-size": "int",
+          "effective-io-concurrency": "int",
+          "enable-bitmapscan": "bool",
+          "enable-hashagg": "bool",
+          "enable-hashjoin": "bool",
+          "enable-indexonlyscan": "bool",
+          "enable-indexscan": "bool",
+          "enable-material": "bool",
+          "enable-mergejoin": "bool",
+          "enable-nestloop": "bool",
+          "enable-seqscan": "bool",
+          "enable-sort": "bool",
+          "enable-tidscan": "bool",
+          "escape-string-warning": "bool",
+          "exit-on-error": "bool",
+          "force-parallel-mode": "FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS",
+          "from-collapse-limit": "int",
+          "gin-pending-list-limit": "int",
+          "idle-in-transaction-session-timeout": "int",
+          "join-collapse-limit": "int",
+          "lo-compat-privileges": "bool",
+          "lock-timeout": "int",
+          "log-checkpoints": "bool",
+          "log-connections": "bool",
+          "log-disconnections": "bool",
+          "log-duration": "bool",
+          "log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE",
+          "log-lock-waits": "bool",
+          "log-min-duration-statement": "int",
+          "log-min-error-statement": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-statement": "LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL",
+          "log-temp-files": "int",
+          "max-locks-per-transaction": "int",
+          "max-parallel-workers": "int",
+          "max-parallel-workers-per-gather": "int",
+          "max-pred-locks-per-transaction": "int",
+          "max-standby-streaming-delay": "int",
+          "old-snapshot-threshold": "int",
+          "quote-all-identifiers": "bool",
+          "random-page-cost": "double",
+          "recovery-min-apply-delay": "int",
+          "row-security": "bool",
+          "search-path": "str",
+          "seq-page-cost": "double",
+          "shared-buffers": "int",
+          "standard-conforming-strings": "bool",
+          "statement-timeout": "int",
+          "synchronize-seqscans": "bool",
+          "temp-buffers": "int",
+          "temp-file-limit": "int",
+          "timezone": "str",
+          "transform-null-equals": "bool",
+          "work-mem": "int",
+          "xmlbinary": "XML_BINARY_BASE64|XML_BINARY_HEX",
+          "xmloption": "XML_OPTION_DOCUMENT|XML_OPTION_CONTENT"
+        },
+        "postgresql-config-15-1c": {
+          "array-nulls": "bool",
+          "backend-flush-after": "int",
+          "backslash-quote": "BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING",
+          "bytea-output": "BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED",
+          "client-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "constraint-exclusion": "CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION",
+          "cursor-tuple-fraction": "double",
+          "deadlock-timeout": "int",
+          "default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE",
+          "default-with-oids": "bool",
+          "effective-cache-size": "int",
+          "effective-io-concurrency": "int",
+          "enable-bitmapscan": "bool",
+          "enable-hashagg": "bool",
+          "enable-hashjoin": "bool",
+          "enable-indexonlyscan": "bool",
+          "enable-indexscan": "bool",
+          "enable-material": "bool",
+          "enable-mergejoin": "bool",
+          "enable-nestloop": "bool",
+          "enable-seqscan": "bool",
+          "enable-sort": "bool",
+          "enable-tidscan": "bool",
+          "escape-string-warning": "bool",
+          "exit-on-error": "bool",
+          "force-parallel-mode": "FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS",
+          "from-collapse-limit": "int",
+          "gin-pending-list-limit": "int",
+          "idle-in-transaction-session-timeout": "int",
+          "join-collapse-limit": "int",
+          "lo-compat-privileges": "bool",
+          "lock-timeout": "int",
+          "log-checkpoints": "bool",
+          "log-connections": "bool",
+          "log-disconnections": "bool",
+          "log-duration": "bool",
+          "log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE",
+          "log-lock-waits": "bool",
+          "log-min-duration-statement": "int",
+          "log-min-error-statement": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-statement": "LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL",
+          "log-temp-files": "int",
+          "max-locks-per-transaction": "int",
+          "max-parallel-workers": "int",
+          "max-parallel-workers-per-gather": "int",
+          "max-pred-locks-per-transaction": "int",
+          "max-standby-streaming-delay": "int",
+          "old-snapshot-threshold": "int",
+          "quote-all-identifiers": "bool",
+          "random-page-cost": "double",
+          "recovery-min-apply-delay": "int",
+          "row-security": "bool",
+          "search-path": "str",
+          "seq-page-cost": "double",
+          "shared-buffers": "int",
+          "standard-conforming-strings": "bool",
+          "statement-timeout": "int",
+          "synchronize-seqscans": "bool",
+          "temp-buffers": "int",
+          "temp-file-limit": "int",
+          "timezone": "str",
+          "transform-null-equals": "bool",
+          "work-mem": "int",
+          "xmlbinary": "XML_BINARY_BASE64|XML_BINARY_HEX",
+          "xmloption": "XML_OPTION_DOCUMENT|XML_OPTION_CONTENT"
+        },
+        "postgresql-config-16": {
+          "array-nulls": "bool",
+          "backend-flush-after": "int",
+          "backslash-quote": "BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING",
+          "bytea-output": "BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED",
+          "client-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "constraint-exclusion": "CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION",
+          "cursor-tuple-fraction": "double",
+          "deadlock-timeout": "int",
+          "debug-parallel-query": "DEBUG_PARALLEL_QUERY_ON|DEBUG_PARALLEL_QUERY_OFF|DEBUG_PARALLEL_QUERY_REGRESS",
+          "default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE",
+          "default-with-oids": "bool",
+          "effective-cache-size": "int",
+          "effective-io-concurrency": "int",
+          "enable-bitmapscan": "bool",
+          "enable-hashagg": "bool",
+          "enable-hashjoin": "bool",
+          "enable-indexonlyscan": "bool",
+          "enable-indexscan": "bool",
+          "enable-material": "bool",
+          "enable-mergejoin": "bool",
+          "enable-nestloop": "bool",
+          "enable-seqscan": "bool",
+          "enable-sort": "bool",
+          "enable-tidscan": "bool",
+          "escape-string-warning": "bool",
+          "exit-on-error": "bool",
+          "from-collapse-limit": "int",
+          "gin-pending-list-limit": "int",
+          "idle-in-transaction-session-timeout": "int",
+          "join-collapse-limit": "int",
+          "lo-compat-privileges": "bool",
+          "lock-timeout": "int",
+          "log-checkpoints": "bool",
+          "log-connections": "bool",
+          "log-disconnections": "bool",
+          "log-duration": "bool",
+          "log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE",
+          "log-lock-waits": "bool",
+          "log-min-duration-statement": "int",
+          "log-min-error-statement": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-statement": "LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL",
+          "log-temp-files": "int",
+          "max-locks-per-transaction": "int",
+          "max-parallel-workers": "int",
+          "max-parallel-workers-per-gather": "int",
+          "max-pred-locks-per-transaction": "int",
+          "max-standby-streaming-delay": "int",
+          "old-snapshot-threshold": "int",
+          "quote-all-identifiers": "bool",
+          "random-page-cost": "double",
+          "recovery-min-apply-delay": "int",
+          "row-security": "bool",
+          "search-path": "str",
+          "seq-page-cost": "double",
+          "shared-buffers": "int",
+          "standard-conforming-strings": "bool",
+          "statement-timeout": "int",
+          "synchronize-seqscans": "bool",
+          "temp-buffers": "int",
+          "temp-file-limit": "int",
+          "timezone": "str",
+          "transform-null-equals": "bool",
+          "work-mem": "int",
+          "xmlbinary": "XML_BINARY_BASE64|XML_BINARY_HEX",
+          "xmloption": "XML_OPTION_DOCUMENT|XML_OPTION_CONTENT"
+        },
+        "postgresql-config-16-1c": {
+          "array-nulls": "bool",
+          "backend-flush-after": "int",
+          "backslash-quote": "BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING",
+          "bytea-output": "BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED",
+          "client-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "constraint-exclusion": "CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION",
+          "cursor-tuple-fraction": "double",
+          "deadlock-timeout": "int",
+          "debug-parallel-query": "DEBUG_PARALLEL_QUERY_ON|DEBUG_PARALLEL_QUERY_OFF|DEBUG_PARALLEL_QUERY_REGRESS",
+          "default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE",
+          "default-with-oids": "bool",
+          "effective-cache-size": "int",
+          "effective-io-concurrency": "int",
+          "enable-bitmapscan": "bool",
+          "enable-hashagg": "bool",
+          "enable-hashjoin": "bool",
+          "enable-indexonlyscan": "bool",
+          "enable-indexscan": "bool",
+          "enable-material": "bool",
+          "enable-mergejoin": "bool",
+          "enable-nestloop": "bool",
+          "enable-seqscan": "bool",
+          "enable-sort": "bool",
+          "enable-tidscan": "bool",
+          "escape-string-warning": "bool",
+          "exit-on-error": "bool",
+          "from-collapse-limit": "int",
+          "gin-pending-list-limit": "int",
+          "idle-in-transaction-session-timeout": "int",
+          "join-collapse-limit": "int",
+          "lo-compat-privileges": "bool",
+          "lock-timeout": "int",
+          "log-checkpoints": "bool",
+          "log-connections": "bool",
+          "log-disconnections": "bool",
+          "log-duration": "bool",
+          "log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE",
+          "log-lock-waits": "bool",
+          "log-min-duration-statement": "int",
+          "log-min-error-statement": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-statement": "LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL",
+          "log-temp-files": "int",
+          "max-locks-per-transaction": "int",
+          "max-parallel-workers": "int",
+          "max-parallel-workers-per-gather": "int",
+          "max-pred-locks-per-transaction": "int",
+          "max-standby-streaming-delay": "int",
+          "old-snapshot-threshold": "int",
+          "quote-all-identifiers": "bool",
+          "random-page-cost": "double",
+          "recovery-min-apply-delay": "int",
+          "row-security": "bool",
+          "search-path": "str",
+          "seq-page-cost": "double",
+          "shared-buffers": "int",
+          "standard-conforming-strings": "bool",
+          "statement-timeout": "int",
+          "synchronize-seqscans": "bool",
+          "temp-buffers": "int",
+          "temp-file-limit": "int",
+          "timezone": "str",
+          "transform-null-equals": "bool",
+          "work-mem": "int",
+          "xmlbinary": "XML_BINARY_BASE64|XML_BINARY_HEX",
+          "xmloption": "XML_OPTION_DOCUMENT|XML_OPTION_CONTENT"
+        },
+        "postgresql-config-17": {
+          "array-nulls": "bool",
+          "backend-flush-after": "int",
+          "backslash-quote": "BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING",
+          "bytea-output": "BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED",
+          "client-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "constraint-exclusion": "CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION",
+          "cursor-tuple-fraction": "double",
+          "deadlock-timeout": "int",
+          "debug-parallel-query": "DEBUG_PARALLEL_QUERY_ON|DEBUG_PARALLEL_QUERY_OFF|DEBUG_PARALLEL_QUERY_REGRESS",
+          "default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE",
+          "default-with-oids": "bool",
+          "effective-cache-size": "int",
+          "effective-io-concurrency": "int",
+          "enable-bitmapscan": "bool",
+          "enable-hashagg": "bool",
+          "enable-hashjoin": "bool",
+          "enable-indexonlyscan": "bool",
+          "enable-indexscan": "bool",
+          "enable-material": "bool",
+          "enable-mergejoin": "bool",
+          "enable-nestloop": "bool",
+          "enable-seqscan": "bool",
+          "enable-sort": "bool",
+          "enable-tidscan": "bool",
+          "escape-string-warning": "bool",
+          "exit-on-error": "bool",
+          "from-collapse-limit": "int",
+          "gin-pending-list-limit": "int",
+          "idle-in-transaction-session-timeout": "int",
+          "join-collapse-limit": "int",
+          "lo-compat-privileges": "bool",
+          "lock-timeout": "int",
+          "log-checkpoints": "bool",
+          "log-connections": "bool",
+          "log-disconnections": "bool",
+          "log-duration": "bool",
+          "log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE",
+          "log-lock-waits": "bool",
+          "log-min-duration-statement": "int",
+          "log-min-error-statement": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-statement": "LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL",
+          "log-temp-files": "int",
+          "max-locks-per-transaction": "int",
+          "max-parallel-workers": "int",
+          "max-parallel-workers-per-gather": "int",
+          "max-pred-locks-per-transaction": "int",
+          "max-standby-streaming-delay": "int",
+          "quote-all-identifiers": "bool",
+          "random-page-cost": "double",
+          "recovery-min-apply-delay": "int",
+          "row-security": "bool",
+          "search-path": "str",
+          "seq-page-cost": "double",
+          "shared-buffers": "int",
+          "standard-conforming-strings": "bool",
+          "statement-timeout": "int",
+          "synchronize-seqscans": "bool",
+          "temp-buffers": "int",
+          "temp-file-limit": "int",
+          "timezone": "str",
+          "transform-null-equals": "bool",
+          "work-mem": "int",
+          "xmlbinary": "XML_BINARY_BASE64|XML_BINARY_HEX",
+          "xmloption": "XML_OPTION_DOCUMENT|XML_OPTION_CONTENT"
+        },
+        "postgresql-config-17-1c": {
+          "array-nulls": "bool",
+          "backend-flush-after": "int",
+          "backslash-quote": "BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING",
+          "bytea-output": "BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED",
+          "client-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "constraint-exclusion": "CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION",
+          "cursor-tuple-fraction": "double",
+          "deadlock-timeout": "int",
+          "debug-parallel-query": "DEBUG_PARALLEL_QUERY_ON|DEBUG_PARALLEL_QUERY_OFF|DEBUG_PARALLEL_QUERY_REGRESS",
+          "default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE",
+          "default-with-oids": "bool",
+          "effective-cache-size": "int",
+          "effective-io-concurrency": "int",
+          "enable-bitmapscan": "bool",
+          "enable-hashagg": "bool",
+          "enable-hashjoin": "bool",
+          "enable-indexonlyscan": "bool",
+          "enable-indexscan": "bool",
+          "enable-material": "bool",
+          "enable-mergejoin": "bool",
+          "enable-nestloop": "bool",
+          "enable-seqscan": "bool",
+          "enable-sort": "bool",
+          "enable-tidscan": "bool",
+          "escape-string-warning": "bool",
+          "exit-on-error": "bool",
+          "from-collapse-limit": "int",
+          "gin-pending-list-limit": "int",
+          "idle-in-transaction-session-timeout": "int",
+          "join-collapse-limit": "int",
+          "lo-compat-privileges": "bool",
+          "lock-timeout": "int",
+          "log-checkpoints": "bool",
+          "log-connections": "bool",
+          "log-disconnections": "bool",
+          "log-duration": "bool",
+          "log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE",
+          "log-lock-waits": "bool",
+          "log-min-duration-statement": "int",
+          "log-min-error-statement": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-statement": "LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL",
+          "log-temp-files": "int",
+          "max-locks-per-transaction": "int",
+          "max-parallel-workers": "int",
+          "max-parallel-workers-per-gather": "int",
+          "max-pred-locks-per-transaction": "int",
+          "max-standby-streaming-delay": "int",
+          "quote-all-identifiers": "bool",
+          "random-page-cost": "double",
+          "recovery-min-apply-delay": "int",
+          "row-security": "bool",
+          "search-path": "str",
+          "seq-page-cost": "double",
+          "shared-buffers": "int",
+          "standard-conforming-strings": "bool",
+          "statement-timeout": "int",
+          "synchronize-seqscans": "bool",
+          "temp-buffers": "int",
+          "temp-file-limit": "int",
+          "timezone": "str",
+          "transform-null-equals": "bool",
+          "work-mem": "int",
+          "xmlbinary": "XML_BINARY_BASE64|XML_BINARY_HEX",
+          "xmloption": "XML_OPTION_DOCUMENT|XML_OPTION_CONTENT"
+        },
+        "postgresql-config-18": {
+          "array-nulls": "bool",
+          "backend-flush-after": "int",
+          "backslash-quote": "BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING",
+          "bytea-output": "BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED",
+          "client-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "constraint-exclusion": "CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION",
+          "cursor-tuple-fraction": "double",
+          "deadlock-timeout": "int",
+          "debug-parallel-query": "DEBUG_PARALLEL_QUERY_ON|DEBUG_PARALLEL_QUERY_OFF|DEBUG_PARALLEL_QUERY_REGRESS",
+          "default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE",
+          "default-with-oids": "bool",
+          "effective-cache-size": "int",
+          "effective-io-concurrency": "int",
+          "enable-bitmapscan": "bool",
+          "enable-hashagg": "bool",
+          "enable-hashjoin": "bool",
+          "enable-indexonlyscan": "bool",
+          "enable-indexscan": "bool",
+          "enable-material": "bool",
+          "enable-mergejoin": "bool",
+          "enable-nestloop": "bool",
+          "enable-seqscan": "bool",
+          "enable-sort": "bool",
+          "enable-tidscan": "bool",
+          "escape-string-warning": "bool",
+          "exit-on-error": "bool",
+          "from-collapse-limit": "int",
+          "gin-pending-list-limit": "int",
+          "idle-in-transaction-session-timeout": "int",
+          "join-collapse-limit": "int",
+          "lo-compat-privileges": "bool",
+          "lock-timeout": "int",
+          "log-checkpoints": "bool",
+          "log-connections": "bool",
+          "log-disconnections": "bool",
+          "log-duration": "bool",
+          "log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE",
+          "log-lock-waits": "bool",
+          "log-min-duration-statement": "int",
+          "log-min-error-statement": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-statement": "LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL",
+          "log-temp-files": "int",
+          "max-locks-per-transaction": "int",
+          "max-parallel-workers": "int",
+          "max-parallel-workers-per-gather": "int",
+          "max-pred-locks-per-transaction": "int",
+          "max-standby-streaming-delay": "int",
+          "quote-all-identifiers": "bool",
+          "random-page-cost": "double",
+          "recovery-min-apply-delay": "int",
+          "row-security": "bool",
+          "search-path": "str",
+          "seq-page-cost": "double",
+          "shared-buffers": "int",
+          "standard-conforming-strings": "bool",
+          "statement-timeout": "int",
+          "synchronize-seqscans": "bool",
+          "temp-buffers": "int",
+          "temp-file-limit": "int",
+          "timezone": "str",
+          "transform-null-equals": "bool",
+          "work-mem": "int",
+          "xmlbinary": "XML_BINARY_BASE64|XML_BINARY_HEX",
+          "xmloption": "XML_OPTION_DOCUMENT|XML_OPTION_CONTENT"
+        },
+        "postgresql-config-18-1c": {
+          "array-nulls": "bool",
+          "backend-flush-after": "int",
+          "backslash-quote": "BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING",
+          "bytea-output": "BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED",
+          "client-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "constraint-exclusion": "CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION",
+          "cursor-tuple-fraction": "double",
+          "deadlock-timeout": "int",
+          "debug-parallel-query": "DEBUG_PARALLEL_QUERY_ON|DEBUG_PARALLEL_QUERY_OFF|DEBUG_PARALLEL_QUERY_REGRESS",
+          "default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE",
+          "default-with-oids": "bool",
+          "effective-cache-size": "int",
+          "effective-io-concurrency": "int",
+          "enable-bitmapscan": "bool",
+          "enable-hashagg": "bool",
+          "enable-hashjoin": "bool",
+          "enable-indexonlyscan": "bool",
+          "enable-indexscan": "bool",
+          "enable-material": "bool",
+          "enable-mergejoin": "bool",
+          "enable-nestloop": "bool",
+          "enable-seqscan": "bool",
+          "enable-sort": "bool",
+          "enable-tidscan": "bool",
+          "escape-string-warning": "bool",
+          "exit-on-error": "bool",
+          "from-collapse-limit": "int",
+          "gin-pending-list-limit": "int",
+          "idle-in-transaction-session-timeout": "int",
+          "join-collapse-limit": "int",
+          "lo-compat-privileges": "bool",
+          "lock-timeout": "int",
+          "log-checkpoints": "bool",
+          "log-connections": "bool",
+          "log-disconnections": "bool",
+          "log-duration": "bool",
+          "log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE",
+          "log-lock-waits": "bool",
+          "log-min-duration-statement": "int",
+          "log-min-error-statement": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_INFO|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-statement": "LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL",
+          "log-temp-files": "int",
+          "max-locks-per-transaction": "int",
+          "max-parallel-workers": "int",
+          "max-parallel-workers-per-gather": "int",
+          "max-pred-locks-per-transaction": "int",
+          "max-standby-streaming-delay": "int",
+          "quote-all-identifiers": "bool",
+          "random-page-cost": "double",
+          "recovery-min-apply-delay": "int",
+          "row-security": "bool",
+          "search-path": "str",
+          "seq-page-cost": "double",
+          "shared-buffers": "int",
+          "standard-conforming-strings": "bool",
+          "statement-timeout": "int",
+          "synchronize-seqscans": "bool",
+          "temp-buffers": "int",
+          "temp-file-limit": "int",
+          "timezone": "str",
+          "transform-null-equals": "bool",
+          "work-mem": "int",
+          "xmlbinary": "XML_BINARY_BASE64|XML_BINARY_HEX",
+          "xmloption": "XML_OPTION_DOCUMENT|XML_OPTION_CONTENT"
+        },
+        "postgresql-config-9-6": {
+          "array-nulls": "bool",
+          "backend-flush-after": "int",
+          "backslash-quote": "BACKSLASH_QUOTE|BACKSLASH_QUOTE_ON|BACKSLASH_QUOTE_OFF|BACKSLASH_QUOTE_SAFE_ENCODING",
+          "bytea-output": "BYTEA_OUTPUT_HEX|BYTEA_OUTPUT_ESCAPED",
+          "client-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "constraint-exclusion": "CONSTRAINT_EXCLUSION_ON|CONSTRAINT_EXCLUSION_OFF|CONSTRAINT_EXCLUSION_PARTITION",
+          "cursor-tuple-fraction": "double",
+          "deadlock-timeout": "int",
+          "default-transaction-isolation": "TRANSACTION_ISOLATION_READ_UNCOMMITTED|TRANSACTION_ISOLATION_READ_COMMITTED|TRANSACTION_ISOLATION_REPEATABLE_READ|TRANSACTION_ISOLATION_SERIALIZABLE",
+          "default-with-oids": "bool",
+          "effective-cache-size": "int",
+          "effective-io-concurrency": "int",
+          "escape-string-warning": "bool",
+          "exit-on-error": "bool",
+          "force-parallel-mode": "FORCE_PARALLEL_MODE_ON|FORCE_PARALLEL_MODE_OFF|FORCE_PARALLEL_MODE_REGRESS",
+          "from-collapse-limit": "int",
+          "gin-pending-list-limit": "int",
+          "idle-in-transaction-session-timeout": "int",
+          "join-collapse-limit": "int",
+          "lo-compat-privileges": "bool",
+          "lock-timeout": "int",
+          "log-checkpoints": "bool",
+          "log-connections": "bool",
+          "log-disconnections": "bool",
+          "log-duration": "bool",
+          "log-error-verbosity": "LOG_ERROR_VERBOSITY_TERSE|LOG_ERROR_VERBOSITY_DEFAULT|LOG_ERROR_VERBOSITY_VERBOSE",
+          "log-lock-waits": "bool",
+          "log-min-duration-statement": "int",
+          "log-min-error-statement": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-min-messages": "LOG_LEVEL_DEBUG5|LOG_LEVEL_DEBUG4|LOG_LEVEL_DEBUG3|LOG_LEVEL_DEBUG2|LOG_LEVEL_DEBUG1|LOG_LEVEL_LOG|LOG_LEVEL_NOTICE|LOG_LEVEL_WARNING|LOG_LEVEL_ERROR|LOG_LEVEL_FATAL|LOG_LEVEL_PANIC",
+          "log-statement": "LOG_STATEMENT_NONE|LOG_STATEMENT_DDL|LOG_STATEMENT_MOD|LOG_STATEMENT_ALL",
+          "log-temp-files": "int",
+          "max-locks-per-transaction": "int",
+          "max-pred-locks-per-transaction": "int",
+          "max-standby-streaming-delay": "int",
+          "old-snapshot-threshold": "int",
+          "operator-precedence-warning": "bool",
+          "quote-all-identifiers": "bool",
+          "random-page-cost": "double",
+          "recovery-min-apply-delay": "int",
+          "replacement-sort-tuples": "int",
+          "row-security": "bool",
+          "search-path": "str",
+          "seq-page-cost": "double",
+          "shared-buffers": "int",
+          "sql-inheritance": "bool",
+          "standard-conforming-strings": "bool",
+          "statement-timeout": "int",
+          "synchronize-seqscans": "bool",
+          "temp-buffers": "int",
+          "temp-file-limit": "int",
+          "transform-null-equals": "bool",
+          "work-mem": "int",
+          "xmlbinary": "XML_BINARY_BASE64|XML_BINARY_HEX",
+          "xmloption": "XML_OPTION_DOCUMENT|XML_OPTION_CONTENT"
+        }
+      }
+    },
+    "host-name": "str",
+    "priority": "int",
+    "replication-source": "str"
+  }, ...
+]
+```
+
+Fields:
+
+```
+assign-public-ip -> (bool)
+  Whether the host should get a public IP address on creation.
+config-spec -> (struct)
+  Configuration of a PostgreSQL server for the host.
+  postgresql-config -> (oneof<postgresql-config-10|postgresql-config-10-1c|postgresql-config-11|postgresql-config-11-1c|postgresql-config-12|postgresql-config-12-1c|postgresql-config-13|postgresql-config-13-1c|postgresql-config-14|postgresql-config-14-1c|postgresql-config-15|postgresql-config-15-1c|postgresql-config-16|postgresql-config-16-1c|postgresql-config-17|postgresql-config-17-1c|postgresql-config-18|postgresql-config-18-1c|postgresql-config-9-6>)
+    Oneof postgresql-config field
+    postgresql-config-9-6 -> (struct)
+      Configuration for a host with PostgreSQL 9.6 server deployed.
+      array-nulls -> (bool)
+      backend-flush-after -> (int)
+      backslash-quote -> (struct)
+      bytea-output -> (struct)
+      client-min-messages -> (struct)
+      constraint-exclusion -> (struct)
+      cursor-tuple-fraction -> (double)
+      deadlock-timeout -> (int)
+      default-transaction-isolation -> (struct)
+      default-with-oids -> (bool)
+      effective-cache-size -> (int)
+      effective-io-concurrency -> (int)
+      escape-string-warning -> (bool)
+      exit-on-error -> (bool)
+      force-parallel-mode -> (struct)
+      from-collapse-limit -> (int)
+      gin-pending-list-limit -> (int)
+      idle-in-transaction-session-timeout -> (int)
+      join-collapse-limit -> (int)
+      lo-compat-privileges -> (bool)
+      lock-timeout -> (int)
+      log-checkpoints -> (bool)
+      log-connections -> (bool)
+      log-disconnections -> (bool)
+      log-duration -> (bool)
+      log-error-verbosity -> (struct)
+      log-lock-waits -> (bool)
+      log-min-duration-statement -> (int)
+      log-min-error-statement -> (struct)
+      log-min-messages -> (struct)
+      log-statement -> (struct)
+      log-temp-files -> (int)
+      max-locks-per-transaction -> (int)
+      max-pred-locks-per-transaction -> (int)
+      max-standby-streaming-delay -> (int)
+      old-snapshot-threshold -> (int)
+      operator-precedence-warning -> (bool)
+      quote-all-identifiers -> (bool)
+      random-page-cost -> (double)
+      recovery-min-apply-delay -> (int)
+      replacement-sort-tuples -> (int)
+      row-security -> (bool)
+      search-path -> (string)
+      seq-page-cost -> (double)
+      shared-buffers -> (int)
+      sql-inheritance -> (bool)
+        This option has been removed in PostgreSQL 10.
+      standard-conforming-strings -> (bool)
+      statement-timeout -> (int)
+      synchronize-seqscans -> (bool)
+      temp-buffers -> (int)
+      temp-file-limit -> (int)
+      transform-null-equals -> (bool)
+      work-mem -> (int)
+      xmlbinary -> (struct)
+      xmloption -> (struct)
+    postgresql-config-10-1c -> (struct)
+      Configuration for a host with PostgreSQL 10 1C server deployed.
+      array-nulls -> (bool)
+      backend-flush-after -> (int)
+      backslash-quote -> (struct)
+      bytea-output -> (struct)
+      client-min-messages -> (struct)
+      constraint-exclusion -> (struct)
+      cursor-tuple-fraction -> (double)
+      deadlock-timeout -> (int)
+      default-transaction-isolation -> (struct)
+      default-with-oids -> (bool)
+      effective-cache-size -> (int)
+      effective-io-concurrency -> (int)
+      enable-bitmapscan -> (bool)
+      enable-hashagg -> (bool)
+      enable-hashjoin -> (bool)
+      enable-indexonlyscan -> (bool)
+      enable-indexscan -> (bool)
+      enable-material -> (bool)
+      enable-mergejoin -> (bool)
+      enable-nestloop -> (bool)
+      enable-seqscan -> (bool)
+      enable-sort -> (bool)
+      enable-tidscan -> (bool)
+      escape-string-warning -> (bool)
+      exit-on-error -> (bool)
+      force-parallel-mode -> (struct)
+      from-collapse-limit -> (int)
+      gin-pending-list-limit -> (int)
+      idle-in-transaction-session-timeout -> (int)
+      join-collapse-limit -> (int)
+      lo-compat-privileges -> (bool)
+      lock-timeout -> (int)
+      log-checkpoints -> (bool)
+      log-connections -> (bool)
+      log-disconnections -> (bool)
+      log-duration -> (bool)
+      log-error-verbosity -> (struct)
+      log-lock-waits -> (bool)
+      log-min-duration-statement -> (int)
+      log-min-error-statement -> (struct)
+      log-min-messages -> (struct)
+      log-statement -> (struct)
+      log-temp-files -> (int)
+      max-locks-per-transaction -> (int)
+      max-parallel-workers -> (int)
+      max-parallel-workers-per-gather -> (int)
+      max-pred-locks-per-transaction -> (int)
+      max-standby-streaming-delay -> (int)
+      old-snapshot-threshold -> (int)
+      operator-precedence-warning -> (bool)
+      quote-all-identifiers -> (bool)
+      random-page-cost -> (double)
+      recovery-min-apply-delay -> (int)
+      replacement-sort-tuples -> (int)
+      row-security -> (bool)
+      search-path -> (string)
+      seq-page-cost -> (double)
+      shared-buffers -> (int)
+      standard-conforming-strings -> (bool)
+      statement-timeout -> (int)
+      synchronize-seqscans -> (bool)
+      temp-buffers -> (int)
+      temp-file-limit -> (int)
+      timezone -> (string)
+      transform-null-equals -> (bool)
+      work-mem -> (int)
+      xmlbinary -> (struct)
+      xmloption -> (struct)
+    postgresql-config-10 -> (struct)
+      Configuration for a host with PostgreSQL 10 server deployed.
+      array-nulls -> (bool)
+      backend-flush-after -> (int)
+      backslash-quote -> (struct)
+      bytea-output -> (struct)
+      client-min-messages -> (struct)
+      constraint-exclusion -> (struct)
+      cursor-tuple-fraction -> (double)
+      deadlock-timeout -> (int)
+      default-transaction-isolation -> (struct)
+      default-with-oids -> (bool)
+      effective-cache-size -> (int)
+      effective-io-concurrency -> (int)
+      enable-bitmapscan -> (bool)
+      enable-hashagg -> (bool)
+      enable-hashjoin -> (bool)
+      enable-indexonlyscan -> (bool)
+      enable-indexscan -> (bool)
+      enable-material -> (bool)
+      enable-mergejoin -> (bool)
+      enable-nestloop -> (bool)
+      enable-seqscan -> (bool)
+      enable-sort -> (bool)
+      enable-tidscan -> (bool)
+      escape-string-warning -> (bool)
+      exit-on-error -> (bool)
+      force-parallel-mode -> (struct)
+      from-collapse-limit -> (int)
+      gin-pending-list-limit -> (int)
+      idle-in-transaction-session-timeout -> (int)
+      join-collapse-limit -> (int)
+      lo-compat-privileges -> (bool)
+      lock-timeout -> (int)
+      log-checkpoints -> (bool)
+      log-connections -> (bool)
+      log-disconnections -> (bool)
+      log-duration -> (bool)
+      log-error-verbosity -> (struct)
+      log-lock-waits -> (bool)
+      log-min-duration-statement -> (int)
+      log-min-error-statement -> (struct)
+      log-min-messages -> (struct)
+      log-statement -> (struct)
+      log-temp-files -> (int)
+      max-locks-per-transaction -> (int)
+      max-parallel-workers -> (int)
+      max-parallel-workers-per-gather -> (int)
+      max-pred-locks-per-transaction -> (int)
+      max-standby-streaming-delay -> (int)
+      old-snapshot-threshold -> (int)
+      operator-precedence-warning -> (bool)
+      quote-all-identifiers -> (bool)
+      random-page-cost -> (double)
+      recovery-min-apply-delay -> (int)
+      replacement-sort-tuples -> (int)
+      row-security -> (bool)
+      search-path -> (string)
+      seq-page-cost -> (double)
+      shared-buffers -> (int)
+      standard-conforming-strings -> (bool)
+      statement-timeout -> (int)
+      synchronize-seqscans -> (bool)
+      temp-buffers -> (int)
+      temp-file-limit -> (int)
+      timezone -> (string)
+      transform-null-equals -> (bool)
+      work-mem -> (int)
+      xmlbinary -> (struct)
+      xmloption -> (struct)
+    postgresql-config-11 -> (struct)
+      Configuration for a host with PostgreSQL 11 server deployed.
+      array-nulls -> (bool)
+      backend-flush-after -> (int)
+      backslash-quote -> (struct)
+      bytea-output -> (struct)
+      client-min-messages -> (struct)
+      constraint-exclusion -> (struct)
+      cursor-tuple-fraction -> (double)
+      deadlock-timeout -> (int)
+      default-transaction-isolation -> (struct)
+      default-with-oids -> (bool)
+      effective-cache-size -> (int)
+      effective-io-concurrency -> (int)
+      enable-bitmapscan -> (bool)
+      enable-hashagg -> (bool)
+      enable-hashjoin -> (bool)
+      enable-indexonlyscan -> (bool)
+      enable-indexscan -> (bool)
+      enable-material -> (bool)
+      enable-mergejoin -> (bool)
+      enable-nestloop -> (bool)
+      enable-seqscan -> (bool)
+      enable-sort -> (bool)
+      enable-tidscan -> (bool)
+      escape-string-warning -> (bool)
+      exit-on-error -> (bool)
+      force-parallel-mode -> (struct)
+      from-collapse-limit -> (int)
+      gin-pending-list-limit -> (int)
+      idle-in-transaction-session-timeout -> (int)
+      join-collapse-limit -> (int)
+      lo-compat-privileges -> (bool)
+      lock-timeout -> (int)
+      log-checkpoints -> (bool)
+      log-connections -> (bool)
+      log-disconnections -> (bool)
+      log-duration -> (bool)
+      log-error-verbosity -> (struct)
+      log-lock-waits -> (bool)
+      log-min-duration-statement -> (int)
+      log-min-error-statement -> (struct)
+      log-min-messages -> (struct)
+      log-statement -> (struct)
+      log-temp-files -> (int)
+      max-locks-per-transaction -> (int)
+      max-parallel-workers -> (int)
+      max-parallel-workers-per-gather -> (int)
+      max-pred-locks-per-transaction -> (int)
+      max-standby-streaming-delay -> (int)
+      old-snapshot-threshold -> (int)
+      operator-precedence-warning -> (bool)
+      quote-all-identifiers -> (bool)
+      random-page-cost -> (double)
+      recovery-min-apply-delay -> (int)
+      row-security -> (bool)
+      search-path -> (string)
+      seq-page-cost -> (double)
+      shared-buffers -> (int)
+      standard-conforming-strings -> (bool)
+      statement-timeout -> (int)
+      synchronize-seqscans -> (bool)
+      temp-buffers -> (int)
+      temp-file-limit -> (int)
+      timezone -> (string)
+      transform-null-equals -> (bool)
+      work-mem -> (int)
+      xmlbinary -> (struct)
+      xmloption -> (struct)
+    postgresql-config-11-1c -> (struct)
+      Configuration for a host with PostgreSQL 11 1C server deployed.
+      array-nulls -> (bool)
+      backend-flush-after -> (int)
+      backslash-quote -> (struct)
+      bytea-output -> (struct)
+      client-min-messages -> (struct)
+      constraint-exclusion -> (struct)
+      cursor-tuple-fraction -> (double)
+      deadlock-timeout -> (int)
+      default-transaction-isolation -> (struct)
+      default-with-oids -> (bool)
+      effective-cache-size -> (int)
+      effective-io-concurrency -> (int)
+      enable-bitmapscan -> (bool)
+      enable-hashagg -> (bool)
+      enable-hashjoin -> (bool)
+      enable-indexonlyscan -> (bool)
+      enable-indexscan -> (bool)
+      enable-material -> (bool)
+      enable-mergejoin -> (bool)
+      enable-nestloop -> (bool)
+      enable-seqscan -> (bool)
+      enable-sort -> (bool)
+      enable-tidscan -> (bool)
+      escape-string-warning -> (bool)
+      exit-on-error -> (bool)
+      force-parallel-mode -> (struct)
+      from-collapse-limit -> (int)
+      gin-pending-list-limit -> (int)
+      idle-in-transaction-session-timeout -> (int)
+      join-collapse-limit -> (int)
+      lo-compat-privileges -> (bool)
+      lock-timeout -> (int)
+      log-checkpoints -> (bool)
+      log-connections -> (bool)
+      log-disconnections -> (bool)
+      log-duration -> (bool)
+      log-error-verbosity -> (struct)
+      log-lock-waits -> (bool)
+      log-min-duration-statement -> (int)
+      log-min-error-statement -> (struct)
+      log-min-messages -> (struct)
+      log-statement -> (struct)
+      log-temp-files -> (int)
+      max-locks-per-transaction -> (int)
+      max-parallel-workers -> (int)
+      max-parallel-workers-per-gather -> (int)
+      max-pred-locks-per-transaction -> (int)
+      max-standby-streaming-delay -> (int)
+      old-snapshot-threshold -> (int)
+      operator-precedence-warning -> (bool)
+      quote-all-identifiers -> (bool)
+      random-page-cost -> (double)
+      recovery-min-apply-delay -> (int)
+      row-security -> (bool)
+      search-path -> (string)
+      seq-page-cost -> (double)
+      shared-buffers -> (int)
+      standard-conforming-strings -> (bool)
+      statement-timeout -> (int)
+      synchronize-seqscans -> (bool)
+      temp-buffers -> (int)
+      temp-file-limit -> (int)
+      timezone -> (string)
+      transform-null-equals -> (bool)
+      work-mem -> (int)
+      xmlbinary -> (struct)
+      xmloption -> (struct)
+    postgresql-config-12 -> (struct)
+      Configuration for a host with PostgreSQL 12 server deployed.
+      array-nulls -> (bool)
+      backend-flush-after -> (int)
+      backslash-quote -> (struct)
+      bytea-output -> (struct)
+      client-min-messages -> (struct)
+      constraint-exclusion -> (struct)
+      cursor-tuple-fraction -> (double)
+      deadlock-timeout -> (int)
+      default-transaction-isolation -> (struct)
+      default-with-oids -> (bool)
+      effective-cache-size -> (int)
+      effective-io-concurrency -> (int)
+      enable-bitmapscan -> (bool)
+      enable-hashagg -> (bool)
+      enable-hashjoin -> (bool)
+      enable-indexonlyscan -> (bool)
+      enable-indexscan -> (bool)
+      enable-material -> (bool)
+      enable-mergejoin -> (bool)
+      enable-nestloop -> (bool)
+      enable-seqscan -> (bool)
+      enable-sort -> (bool)
+      enable-tidscan -> (bool)
+      escape-string-warning -> (bool)
+      exit-on-error -> (bool)
+      force-parallel-mode -> (struct)
+      from-collapse-limit -> (int)
+      gin-pending-list-limit -> (int)
+      idle-in-transaction-session-timeout -> (int)
+      join-collapse-limit -> (int)
+      lo-compat-privileges -> (bool)
+      lock-timeout -> (int)
+      log-checkpoints -> (bool)
+      log-connections -> (bool)
+      log-disconnections -> (bool)
+      log-duration -> (bool)
+      log-error-verbosity -> (struct)
+      log-lock-waits -> (bool)
+      log-min-duration-statement -> (int)
+      log-min-error-statement -> (struct)
+      log-min-messages -> (struct)
+      log-statement -> (struct)
+      log-temp-files -> (int)
+      max-locks-per-transaction -> (int)
+      max-parallel-workers -> (int)
+      max-parallel-workers-per-gather -> (int)
+      max-pred-locks-per-transaction -> (int)
+      max-standby-streaming-delay -> (int)
+      old-snapshot-threshold -> (int)
+      operator-precedence-warning -> (bool)
+      quote-all-identifiers -> (bool)
+      random-page-cost -> (double)
+      recovery-min-apply-delay -> (int)
+      row-security -> (bool)
+      search-path -> (string)
+      seq-page-cost -> (double)
+      shared-buffers -> (int)
+      standard-conforming-strings -> (bool)
+      statement-timeout -> (int)
+      synchronize-seqscans -> (bool)
+      temp-buffers -> (int)
+      temp-file-limit -> (int)
+      timezone -> (string)
+      transform-null-equals -> (bool)
+      work-mem -> (int)
+      xmlbinary -> (struct)
+      xmloption -> (struct)
+    postgresql-config-12-1c -> (struct)
+      Configuration for a host with PostgreSQL 12 1C server deployed.
+      array-nulls -> (bool)
+      backend-flush-after -> (int)
+      backslash-quote -> (struct)
+      bytea-output -> (struct)
+      client-min-messages -> (struct)
+      constraint-exclusion -> (struct)
+      cursor-tuple-fraction -> (double)
+      deadlock-timeout -> (int)
+      default-transaction-isolation -> (struct)
+      default-with-oids -> (bool)
+      effective-cache-size -> (int)
+      effective-io-concurrency -> (int)
+      enable-bitmapscan -> (bool)
+      enable-hashagg -> (bool)
+      enable-hashjoin -> (bool)
+      enable-indexonlyscan -> (bool)
+      enable-indexscan -> (bool)
+      enable-material -> (bool)
+      enable-mergejoin -> (bool)
+      enable-nestloop -> (bool)
+      enable-seqscan -> (bool)
+      enable-sort -> (bool)
+      enable-tidscan -> (bool)
+      escape-string-warning -> (bool)
+      exit-on-error -> (bool)
+      force-parallel-mode -> (struct)
+      from-collapse-limit -> (int)
+      gin-pending-list-limit -> (int)
+      idle-in-transaction-session-timeout -> (int)
+      join-collapse-limit -> (int)
+      lo-compat-privileges -> (bool)
+      lock-timeout -> (int)
+      log-checkpoints -> (bool)
+      log-connections -> (bool)
+      log-disconnections -> (bool)
+      log-duration -> (bool)
+      log-error-verbosity -> (struct)
+      log-lock-waits -> (bool)
+      log-min-duration-statement -> (int)
+      log-min-error-statement -> (struct)
+      log-min-messages -> (struct)
+      log-statement -> (struct)
+      log-temp-files -> (int)
+      max-locks-per-transaction -> (int)
+      max-parallel-workers -> (int)
+      max-parallel-workers-per-gather -> (int)
+      max-pred-locks-per-transaction -> (int)
+      max-standby-streaming-delay -> (int)
+      old-snapshot-threshold -> (int)
+      operator-precedence-warning -> (bool)
+      quote-all-identifiers -> (bool)
+      random-page-cost -> (double)
+      recovery-min-apply-delay -> (int)
+      row-security -> (bool)
+      search-path -> (string)
+      seq-page-cost -> (double)
+      shared-buffers -> (int)
+      standard-conforming-strings -> (bool)
+      statement-timeout -> (int)
+      synchronize-seqscans -> (bool)
+      temp-buffers -> (int)
+      temp-file-limit -> (int)
+      timezone -> (string)
+      transform-null-equals -> (bool)
+      work-mem -> (int)
+      xmlbinary -> (struct)
+      xmloption -> (struct)
+    postgresql-config-13 -> (struct)
+      Configuration for a host with PostgreSQL 13 server deployed.
+      array-nulls -> (bool)
+      backend-flush-after -> (int)
+      backslash-quote -> (struct)
+      bytea-output -> (struct)
+      client-min-messages -> (struct)
+      constraint-exclusion -> (struct)
+      cursor-tuple-fraction -> (double)
+      deadlock-timeout -> (int)
+      default-transaction-isolation -> (struct)
+      default-with-oids -> (bool)
+      effective-cache-size -> (int)
+      effective-io-concurrency -> (int)
+      enable-bitmapscan -> (bool)
+      enable-hashagg -> (bool)
+      enable-hashjoin -> (bool)
+      enable-indexonlyscan -> (bool)
+      enable-indexscan -> (bool)
+      enable-material -> (bool)
+      enable-mergejoin -> (bool)
+      enable-nestloop -> (bool)
+      enable-seqscan -> (bool)
+      enable-sort -> (bool)
+      enable-tidscan -> (bool)
+      escape-string-warning -> (bool)
+      exit-on-error -> (bool)
+      force-parallel-mode -> (struct)
+      from-collapse-limit -> (int)
+      gin-pending-list-limit -> (int)
+      idle-in-transaction-session-timeout -> (int)
+      join-collapse-limit -> (int)
+      lo-compat-privileges -> (bool)
+      lock-timeout -> (int)
+      log-checkpoints -> (bool)
+      log-connections -> (bool)
+      log-disconnections -> (bool)
+      log-duration -> (bool)
+      log-error-verbosity -> (struct)
+      log-lock-waits -> (bool)
+      log-min-duration-statement -> (int)
+      log-min-error-statement -> (struct)
+      log-min-messages -> (struct)
+      log-statement -> (struct)
+      log-temp-files -> (int)
+      max-locks-per-transaction -> (int)
+      max-parallel-workers -> (int)
+      max-parallel-workers-per-gather -> (int)
+      max-pred-locks-per-transaction -> (int)
+      max-standby-streaming-delay -> (int)
+      old-snapshot-threshold -> (int)
+      operator-precedence-warning -> (bool)
+      quote-all-identifiers -> (bool)
+      random-page-cost -> (double)
+      recovery-min-apply-delay -> (int)
+      row-security -> (bool)
+      search-path -> (string)
+      seq-page-cost -> (double)
+      shared-buffers -> (int)
+      standard-conforming-strings -> (bool)
+      statement-timeout -> (int)
+      synchronize-seqscans -> (bool)
+      temp-buffers -> (int)
+      temp-file-limit -> (int)
+      timezone -> (string)
+      transform-null-equals -> (bool)
+      work-mem -> (int)
+      xmlbinary -> (struct)
+      xmloption -> (struct)
+    postgresql-config-13-1c -> (struct)
+      Configuration for a host with PostgreSQL 13 1C server deployed.
+      array-nulls -> (bool)
+      backend-flush-after -> (int)
+      backslash-quote -> (struct)
+      bytea-output -> (struct)
+      client-min-messages -> (struct)
+      constraint-exclusion -> (struct)
+      cursor-tuple-fraction -> (double)
+      deadlock-timeout -> (int)
+      default-transaction-isolation -> (struct)
+      default-with-oids -> (bool)
+      effective-cache-size -> (int)
+      effective-io-concurrency -> (int)
+      enable-bitmapscan -> (bool)
+      enable-hashagg -> (bool)
+      enable-hashjoin -> (bool)
+      enable-indexonlyscan -> (bool)
+      enable-indexscan -> (bool)
+      enable-material -> (bool)
+      enable-mergejoin -> (bool)
+      enable-nestloop -> (bool)
+      enable-seqscan -> (bool)
+      enable-sort -> (bool)
+      enable-tidscan -> (bool)
+      escape-string-warning -> (bool)
+      exit-on-error -> (bool)
+      force-parallel-mode -> (struct)
+      from-collapse-limit -> (int)
+      gin-pending-list-limit -> (int)
+      idle-in-transaction-session-timeout -> (int)
+      join-collapse-limit -> (int)
+      lo-compat-privileges -> (bool)
+      lock-timeout -> (int)
+      log-checkpoints -> (bool)
+      log-connections -> (bool)
+      log-disconnections -> (bool)
+      log-duration -> (bool)
+      log-error-verbosity -> (struct)
+      log-lock-waits -> (bool)
+      log-min-duration-statement -> (int)
+      log-min-error-statement -> (struct)
+      log-min-messages -> (struct)
+      log-statement -> (struct)
+      log-temp-files -> (int)
+      max-locks-per-transaction -> (int)
+      max-parallel-workers -> (int)
+      max-parallel-workers-per-gather -> (int)
+      max-pred-locks-per-transaction -> (int)
+      max-standby-streaming-delay -> (int)
+      old-snapshot-threshold -> (int)
+      operator-precedence-warning -> (bool)
+      quote-all-identifiers -> (bool)
+      random-page-cost -> (double)
+      recovery-min-apply-delay -> (int)
+      row-security -> (bool)
+      search-path -> (string)
+      seq-page-cost -> (double)
+      shared-buffers -> (int)
+      standard-conforming-strings -> (bool)
+      statement-timeout -> (int)
+      synchronize-seqscans -> (bool)
+      temp-buffers -> (int)
+      temp-file-limit -> (int)
+      timezone -> (string)
+      transform-null-equals -> (bool)
+      work-mem -> (int)
+      xmlbinary -> (struct)
+      xmloption -> (struct)
+    postgresql-config-14 -> (struct)
+      Configuration for a host with PostgreSQL 14 server deployed.
+      array-nulls -> (bool)
+      backend-flush-after -> (int)
+      backslash-quote -> (struct)
+      bytea-output -> (struct)
+      client-min-messages -> (struct)
+      constraint-exclusion -> (struct)
+      cursor-tuple-fraction -> (double)
+      deadlock-timeout -> (int)
+      default-transaction-isolation -> (struct)
+      default-with-oids -> (bool)
+      effective-cache-size -> (int)
+      effective-io-concurrency -> (int)
+      enable-bitmapscan -> (bool)
+      enable-hashagg -> (bool)
+      enable-hashjoin -> (bool)
+      enable-indexonlyscan -> (bool)
+      enable-indexscan -> (bool)
+      enable-material -> (bool)
+      enable-mergejoin -> (bool)
+      enable-nestloop -> (bool)
+      enable-seqscan -> (bool)
+      enable-sort -> (bool)
+      enable-tidscan -> (bool)
+      escape-string-warning -> (bool)
+      exit-on-error -> (bool)
+      force-parallel-mode -> (struct)
+      from-collapse-limit -> (int)
+      gin-pending-list-limit -> (int)
+      idle-in-transaction-session-timeout -> (int)
+      join-collapse-limit -> (int)
+      lo-compat-privileges -> (bool)
+      lock-timeout -> (int)
+      log-checkpoints -> (bool)
+      log-connections -> (bool)
+      log-disconnections -> (bool)
+      log-duration -> (bool)
+      log-error-verbosity -> (struct)
+      log-lock-waits -> (bool)
+      log-min-duration-statement -> (int)
+      log-min-error-statement -> (struct)
+      log-min-messages -> (struct)
+      log-statement -> (struct)
+      log-temp-files -> (int)
+      max-locks-per-transaction -> (int)
+      max-parallel-workers -> (int)
+      max-parallel-workers-per-gather -> (int)
+      max-pred-locks-per-transaction -> (int)
+      max-standby-streaming-delay -> (int)
+      old-snapshot-threshold -> (int)
+      quote-all-identifiers -> (bool)
+      random-page-cost -> (double)
+      recovery-min-apply-delay -> (int)
+      row-security -> (bool)
+      search-path -> (string)
+      seq-page-cost -> (double)
+      shared-buffers -> (int)
+      standard-conforming-strings -> (bool)
+      statement-timeout -> (int)
+      synchronize-seqscans -> (bool)
+      temp-buffers -> (int)
+      temp-file-limit -> (int)
+      timezone -> (string)
+      transform-null-equals -> (bool)
+      work-mem -> (int)
+      xmlbinary -> (struct)
+      xmloption -> (struct)
+    postgresql-config-14-1c -> (struct)
+      Configuration for a host with PostgreSQL 14 1C server deployed.
+      array-nulls -> (bool)
+      backend-flush-after -> (int)
+      backslash-quote -> (struct)
+      bytea-output -> (struct)
+      client-min-messages -> (struct)
+      constraint-exclusion -> (struct)
+      cursor-tuple-fraction -> (double)
+      deadlock-timeout -> (int)
+      default-transaction-isolation -> (struct)
+      default-with-oids -> (bool)
+      effective-cache-size -> (int)
+      effective-io-concurrency -> (int)
+      enable-bitmapscan -> (bool)
+      enable-hashagg -> (bool)
+      enable-hashjoin -> (bool)
+      enable-indexonlyscan -> (bool)
+      enable-indexscan -> (bool)
+      enable-material -> (bool)
+      enable-mergejoin -> (bool)
+      enable-nestloop -> (bool)
+      enable-seqscan -> (bool)
+      enable-sort -> (bool)
+      enable-tidscan -> (bool)
+      escape-string-warning -> (bool)
+      exit-on-error -> (bool)
+      force-parallel-mode -> (struct)
+      from-collapse-limit -> (int)
+      gin-pending-list-limit -> (int)
+      idle-in-transaction-session-timeout -> (int)
+      join-collapse-limit -> (int)
+      lo-compat-privileges -> (bool)
+      lock-timeout -> (int)
+      log-checkpoints -> (bool)
+      log-connections -> (bool)
+      log-disconnections -> (bool)
+      log-duration -> (bool)
+      log-error-verbosity -> (struct)
+      log-lock-waits -> (bool)
+      log-min-duration-statement -> (int)
+      log-min-error-statement -> (struct)
+      log-min-messages -> (struct)
+      log-statement -> (struct)
+      log-temp-files -> (int)
+      max-locks-per-transaction -> (int)
+      max-parallel-workers -> (int)
+      max-parallel-workers-per-gather -> (int)
+      max-pred-locks-per-transaction -> (int)
+      max-standby-streaming-delay -> (int)
+      old-snapshot-threshold -> (int)
+      quote-all-identifiers -> (bool)
+      random-page-cost -> (double)
+      recovery-min-apply-delay -> (int)
+      row-security -> (bool)
+      search-path -> (string)
+      seq-page-cost -> (double)
+      shared-buffers -> (int)
+      standard-conforming-strings -> (bool)
+      statement-timeout -> (int)
+      synchronize-seqscans -> (bool)
+      temp-buffers -> (int)
+      temp-file-limit -> (int)
+      timezone -> (string)
+      transform-null-equals -> (bool)
+      work-mem -> (int)
+      xmlbinary -> (struct)
+      xmloption -> (struct)
+    postgresql-config-15 -> (struct)
+      Configuration for a host with PostgreSQL 15 server deployed.
+      array-nulls -> (bool)
+      backend-flush-after -> (int)
+      backslash-quote -> (struct)
+      bytea-output -> (struct)
+      client-min-messages -> (struct)
+      constraint-exclusion -> (struct)
+      cursor-tuple-fraction -> (double)
+      deadlock-timeout -> (int)
+      default-transaction-isolation -> (struct)
+      default-with-oids -> (bool)
+      effective-cache-size -> (int)
+      effective-io-concurrency -> (int)
+      enable-bitmapscan -> (bool)
+      enable-hashagg -> (bool)
+      enable-hashjoin -> (bool)
+      enable-indexonlyscan -> (bool)
+      enable-indexscan -> (bool)
+      enable-material -> (bool)
+      enable-mergejoin -> (bool)
+      enable-nestloop -> (bool)
+      enable-seqscan -> (bool)
+      enable-sort -> (bool)
+      enable-tidscan -> (bool)
+      escape-string-warning -> (bool)
+      exit-on-error -> (bool)
+      force-parallel-mode -> (struct)
+      from-collapse-limit -> (int)
+      gin-pending-list-limit -> (int)
+      idle-in-transaction-session-timeout -> (int)
+      join-collapse-limit -> (int)
+      lo-compat-privileges -> (bool)
+      lock-timeout -> (int)
+      log-checkpoints -> (bool)
+      log-connections -> (bool)
+      log-disconnections -> (bool)
+      log-duration -> (bool)
+      log-error-verbosity -> (struct)
+      log-lock-waits -> (bool)
+      log-min-duration-statement -> (int)
+      log-min-error-statement -> (struct)
+      log-min-messages -> (struct)
+      log-statement -> (struct)
+      log-temp-files -> (int)
+      max-locks-per-transaction -> (int)
+      max-parallel-workers -> (int)
+      max-parallel-workers-per-gather -> (int)
+      max-pred-locks-per-transaction -> (int)
+      max-standby-streaming-delay -> (int)
+      old-snapshot-threshold -> (int)
+      quote-all-identifiers -> (bool)
+      random-page-cost -> (double)
+      recovery-min-apply-delay -> (int)
+      row-security -> (bool)
+      search-path -> (string)
+      seq-page-cost -> (double)
+      shared-buffers -> (int)
+      standard-conforming-strings -> (bool)
+      statement-timeout -> (int)
+      synchronize-seqscans -> (bool)
+      temp-buffers -> (int)
+      temp-file-limit -> (int)
+      timezone -> (string)
+      transform-null-equals -> (bool)
+      work-mem -> (int)
+      xmlbinary -> (struct)
+      xmloption -> (struct)
+    postgresql-config-15-1c -> (struct)
+      Configuration for a host with PostgreSQL 15 1C server deployed.
+      array-nulls -> (bool)
+      backend-flush-after -> (int)
+      backslash-quote -> (struct)
+      bytea-output -> (struct)
+      client-min-messages -> (struct)
+      constraint-exclusion -> (struct)
+      cursor-tuple-fraction -> (double)
+      deadlock-timeout -> (int)
+      default-transaction-isolation -> (struct)
+      default-with-oids -> (bool)
+      effective-cache-size -> (int)
+      effective-io-concurrency -> (int)
+      enable-bitmapscan -> (bool)
+      enable-hashagg -> (bool)
+      enable-hashjoin -> (bool)
+      enable-indexonlyscan -> (bool)
+      enable-indexscan -> (bool)
+      enable-material -> (bool)
+      enable-mergejoin -> (bool)
+      enable-nestloop -> (bool)
+      enable-seqscan -> (bool)
+      enable-sort -> (bool)
+      enable-tidscan -> (bool)
+      escape-string-warning -> (bool)
+      exit-on-error -> (bool)
+      force-parallel-mode -> (struct)
+      from-collapse-limit -> (int)
+      gin-pending-list-limit -> (int)
+      idle-in-transaction-session-timeout -> (int)
+      join-collapse-limit -> (int)
+      lo-compat-privileges -> (bool)
+      lock-timeout -> (int)
+      log-checkpoints -> (bool)
+      log-connections -> (bool)
+      log-disconnections -> (bool)
+      log-duration -> (bool)
+      log-error-verbosity -> (struct)
+      log-lock-waits -> (bool)
+      log-min-duration-statement -> (int)
+      log-min-error-statement -> (struct)
+      log-min-messages -> (struct)
+      log-statement -> (struct)
+      log-temp-files -> (int)
+      max-locks-per-transaction -> (int)
+      max-parallel-workers -> (int)
+      max-parallel-workers-per-gather -> (int)
+      max-pred-locks-per-transaction -> (int)
+      max-standby-streaming-delay -> (int)
+      old-snapshot-threshold -> (int)
+      quote-all-identifiers -> (bool)
+      random-page-cost -> (double)
+      recovery-min-apply-delay -> (int)
+      row-security -> (bool)
+      search-path -> (string)
+      seq-page-cost -> (double)
+      shared-buffers -> (int)
+      standard-conforming-strings -> (bool)
+      statement-timeout -> (int)
+      synchronize-seqscans -> (bool)
+      temp-buffers -> (int)
+      temp-file-limit -> (int)
+      timezone -> (string)
+      transform-null-equals -> (bool)
+      work-mem -> (int)
+      xmlbinary -> (struct)
+      xmloption -> (struct)
+    postgresql-config-16 -> (struct)
+      Configuration for a host with PostgreSQL 16 server deployed.
+      array-nulls -> (bool)
+      backend-flush-after -> (int)
+      backslash-quote -> (struct)
+      bytea-output -> (struct)
+      client-min-messages -> (struct)
+      constraint-exclusion -> (struct)
+      cursor-tuple-fraction -> (double)
+      deadlock-timeout -> (int)
+      debug-parallel-query -> (struct)
+      default-transaction-isolation -> (struct)
+      default-with-oids -> (bool)
+      effective-cache-size -> (int)
+      effective-io-concurrency -> (int)
+      enable-bitmapscan -> (bool)
+      enable-hashagg -> (bool)
+      enable-hashjoin -> (bool)
+      enable-indexonlyscan -> (bool)
+      enable-indexscan -> (bool)
+      enable-material -> (bool)
+      enable-mergejoin -> (bool)
+      enable-nestloop -> (bool)
+      enable-seqscan -> (bool)
+      enable-sort -> (bool)
+      enable-tidscan -> (bool)
+      escape-string-warning -> (bool)
+      exit-on-error -> (bool)
+      from-collapse-limit -> (int)
+      gin-pending-list-limit -> (int)
+      idle-in-transaction-session-timeout -> (int)
+      join-collapse-limit -> (int)
+      lo-compat-privileges -> (bool)
+      lock-timeout -> (int)
+      log-checkpoints -> (bool)
+      log-connections -> (bool)
+      log-disconnections -> (bool)
+      log-duration -> (bool)
+      log-error-verbosity -> (struct)
+      log-lock-waits -> (bool)
+      log-min-duration-statement -> (int)
+      log-min-error-statement -> (struct)
+      log-min-messages -> (struct)
+      log-statement -> (struct)
+      log-temp-files -> (int)
+      max-locks-per-transaction -> (int)
+      max-parallel-workers -> (int)
+      max-parallel-workers-per-gather -> (int)
+      max-pred-locks-per-transaction -> (int)
+      max-standby-streaming-delay -> (int)
+      old-snapshot-threshold -> (int)
+      quote-all-identifiers -> (bool)
+      random-page-cost -> (double)
+      recovery-min-apply-delay -> (int)
+      row-security -> (bool)
+      search-path -> (string)
+      seq-page-cost -> (double)
+      shared-buffers -> (int)
+      standard-conforming-strings -> (bool)
+      statement-timeout -> (int)
+      synchronize-seqscans -> (bool)
+      temp-buffers -> (int)
+      temp-file-limit -> (int)
+      timezone -> (string)
+      transform-null-equals -> (bool)
+      work-mem -> (int)
+      xmlbinary -> (struct)
+      xmloption -> (struct)
+    postgresql-config-16-1c -> (struct)
+      Configuration for a host with PostgreSQL 16 1C server deployed.
+      array-nulls -> (bool)
+      backend-flush-after -> (int)
+      backslash-quote -> (struct)
+      bytea-output -> (struct)
+      client-min-messages -> (struct)
+      constraint-exclusion -> (struct)
+      cursor-tuple-fraction -> (double)
+      deadlock-timeout -> (int)
+      debug-parallel-query -> (struct)
+      default-transaction-isolation -> (struct)
+      default-with-oids -> (bool)
+      effective-cache-size -> (int)
+      effective-io-concurrency -> (int)
+      enable-bitmapscan -> (bool)
+      enable-hashagg -> (bool)
+      enable-hashjoin -> (bool)
+      enable-indexonlyscan -> (bool)
+      enable-indexscan -> (bool)
+      enable-material -> (bool)
+      enable-mergejoin -> (bool)
+      enable-nestloop -> (bool)
+      enable-seqscan -> (bool)
+      enable-sort -> (bool)
+      enable-tidscan -> (bool)
+      escape-string-warning -> (bool)
+      exit-on-error -> (bool)
+      from-collapse-limit -> (int)
+      gin-pending-list-limit -> (int)
+      idle-in-transaction-session-timeout -> (int)
+      join-collapse-limit -> (int)
+      lo-compat-privileges -> (bool)
+      lock-timeout -> (int)
+      log-checkpoints -> (bool)
+      log-connections -> (bool)
+      log-disconnections -> (bool)
+      log-duration -> (bool)
+      log-error-verbosity -> (struct)
+      log-lock-waits -> (bool)
+      log-min-duration-statement -> (int)
+      log-min-error-statement -> (struct)
+      log-min-messages -> (struct)
+      log-statement -> (struct)
+      log-temp-files -> (int)
+      max-locks-per-transaction -> (int)
+      max-parallel-workers -> (int)
+      max-parallel-workers-per-gather -> (int)
+      max-pred-locks-per-transaction -> (int)
+      max-standby-streaming-delay -> (int)
+      old-snapshot-threshold -> (int)
+      quote-all-identifiers -> (bool)
+      random-page-cost -> (double)
+      recovery-min-apply-delay -> (int)
+      row-security -> (bool)
+      search-path -> (string)
+      seq-page-cost -> (double)
+      shared-buffers -> (int)
+      standard-conforming-strings -> (bool)
+      statement-timeout -> (int)
+      synchronize-seqscans -> (bool)
+      temp-buffers -> (int)
+      temp-file-limit -> (int)
+      timezone -> (string)
+      transform-null-equals -> (bool)
+      work-mem -> (int)
+      xmlbinary -> (struct)
+      xmloption -> (struct)
+    postgresql-config-17 -> (struct)
+      Configuration for a host with PostgreSQL 17 1C server deployed.
+      array-nulls -> (bool)
+      backend-flush-after -> (int)
+      backslash-quote -> (struct)
+      bytea-output -> (struct)
+      client-min-messages -> (struct)
+      constraint-exclusion -> (struct)
+      cursor-tuple-fraction -> (double)
+      deadlock-timeout -> (int)
+      debug-parallel-query -> (struct)
+      default-transaction-isolation -> (struct)
+      default-with-oids -> (bool)
+      effective-cache-size -> (int)
+      effective-io-concurrency -> (int)
+      enable-bitmapscan -> (bool)
+      enable-hashagg -> (bool)
+      enable-hashjoin -> (bool)
+      enable-indexonlyscan -> (bool)
+      enable-indexscan -> (bool)
+      enable-material -> (bool)
+      enable-mergejoin -> (bool)
+      enable-nestloop -> (bool)
+      enable-seqscan -> (bool)
+      enable-sort -> (bool)
+      enable-tidscan -> (bool)
+      escape-string-warning -> (bool)
+      exit-on-error -> (bool)
+      from-collapse-limit -> (int)
+      gin-pending-list-limit -> (int)
+      idle-in-transaction-session-timeout -> (int)
+      join-collapse-limit -> (int)
+      lo-compat-privileges -> (bool)
+      lock-timeout -> (int)
+      log-checkpoints -> (bool)
+      log-connections -> (bool)
+      log-disconnections -> (bool)
+      log-duration -> (bool)
+      log-error-verbosity -> (struct)
+      log-lock-waits -> (bool)
+      log-min-duration-statement -> (int)
+      log-min-error-statement -> (struct)
+      log-min-messages -> (struct)
+      log-statement -> (struct)
+      log-temp-files -> (int)
+      max-locks-per-transaction -> (int)
+      max-parallel-workers -> (int)
+      max-parallel-workers-per-gather -> (int)
+      max-pred-locks-per-transaction -> (int)
+      max-standby-streaming-delay -> (int)
+      quote-all-identifiers -> (bool)
+      random-page-cost -> (double)
+      recovery-min-apply-delay -> (int)
+      row-security -> (bool)
+      search-path -> (string)
+      seq-page-cost -> (double)
+      shared-buffers -> (int)
+      standard-conforming-strings -> (bool)
+      statement-timeout -> (int)
+      synchronize-seqscans -> (bool)
+      temp-buffers -> (int)
+      temp-file-limit -> (int)
+      timezone -> (string)
+      transform-null-equals -> (bool)
+      work-mem -> (int)
+      xmlbinary -> (struct)
+      xmloption -> (struct)
+    postgresql-config-17-1c -> (struct)
+      Configuration for a host with PostgreSQL 17 1C server deployed.
+      array-nulls -> (bool)
+      backend-flush-after -> (int)
+      backslash-quote -> (struct)
+      bytea-output -> (struct)
+      client-min-messages -> (struct)
+      constraint-exclusion -> (struct)
+      cursor-tuple-fraction -> (double)
+      deadlock-timeout -> (int)
+      debug-parallel-query -> (struct)
+      default-transaction-isolation -> (struct)
+      default-with-oids -> (bool)
+      effective-cache-size -> (int)
+      effective-io-concurrency -> (int)
+      enable-bitmapscan -> (bool)
+      enable-hashagg -> (bool)
+      enable-hashjoin -> (bool)
+      enable-indexonlyscan -> (bool)
+      enable-indexscan -> (bool)
+      enable-material -> (bool)
+      enable-mergejoin -> (bool)
+      enable-nestloop -> (bool)
+      enable-seqscan -> (bool)
+      enable-sort -> (bool)
+      enable-tidscan -> (bool)
+      escape-string-warning -> (bool)
+      exit-on-error -> (bool)
+      from-collapse-limit -> (int)
+      gin-pending-list-limit -> (int)
+      idle-in-transaction-session-timeout -> (int)
+      join-collapse-limit -> (int)
+      lo-compat-privileges -> (bool)
+      lock-timeout -> (int)
+      log-checkpoints -> (bool)
+      log-connections -> (bool)
+      log-disconnections -> (bool)
+      log-duration -> (bool)
+      log-error-verbosity -> (struct)
+      log-lock-waits -> (bool)
+      log-min-duration-statement -> (int)
+      log-min-error-statement -> (struct)
+      log-min-messages -> (struct)
+      log-statement -> (struct)
+      log-temp-files -> (int)
+      max-locks-per-transaction -> (int)
+      max-parallel-workers -> (int)
+      max-parallel-workers-per-gather -> (int)
+      max-pred-locks-per-transaction -> (int)
+      max-standby-streaming-delay -> (int)
+      quote-all-identifiers -> (bool)
+      random-page-cost -> (double)
+      recovery-min-apply-delay -> (int)
+      row-security -> (bool)
+      search-path -> (string)
+      seq-page-cost -> (double)
+      shared-buffers -> (int)
+      standard-conforming-strings -> (bool)
+      statement-timeout -> (int)
+      synchronize-seqscans -> (bool)
+      temp-buffers -> (int)
+      temp-file-limit -> (int)
+      timezone -> (string)
+      transform-null-equals -> (bool)
+      work-mem -> (int)
+      xmlbinary -> (struct)
+      xmloption -> (struct)
+    postgresql-config-18 -> (struct)
+      Configuration for a host with PostgreSQL 18 1C server deployed.
+      array-nulls -> (bool)
+      backend-flush-after -> (int)
+      backslash-quote -> (struct)
+      bytea-output -> (struct)
+      client-min-messages -> (struct)
+      constraint-exclusion -> (struct)
+      cursor-tuple-fraction -> (double)
+      deadlock-timeout -> (int)
+      debug-parallel-query -> (struct)
+      default-transaction-isolation -> (struct)
+      default-with-oids -> (bool)
+      effective-cache-size -> (int)
+      effective-io-concurrency -> (int)
+      enable-bitmapscan -> (bool)
+      enable-hashagg -> (bool)
+      enable-hashjoin -> (bool)
+      enable-indexonlyscan -> (bool)
+      enable-indexscan -> (bool)
+      enable-material -> (bool)
+      enable-mergejoin -> (bool)
+      enable-nestloop -> (bool)
+      enable-seqscan -> (bool)
+      enable-sort -> (bool)
+      enable-tidscan -> (bool)
+      escape-string-warning -> (bool)
+      exit-on-error -> (bool)
+      from-collapse-limit -> (int)
+      gin-pending-list-limit -> (int)
+      idle-in-transaction-session-timeout -> (int)
+      join-collapse-limit -> (int)
+      lo-compat-privileges -> (bool)
+      lock-timeout -> (int)
+      log-checkpoints -> (bool)
+      log-connections -> (bool)
+      log-disconnections -> (bool)
+      log-duration -> (bool)
+      log-error-verbosity -> (struct)
+      log-lock-waits -> (bool)
+      log-min-duration-statement -> (int)
+      log-min-error-statement -> (struct)
+      log-min-messages -> (struct)
+      log-statement -> (struct)
+      log-temp-files -> (int)
+      max-locks-per-transaction -> (int)
+      max-parallel-workers -> (int)
+      max-parallel-workers-per-gather -> (int)
+      max-pred-locks-per-transaction -> (int)
+      max-standby-streaming-delay -> (int)
+      quote-all-identifiers -> (bool)
+      random-page-cost -> (double)
+      recovery-min-apply-delay -> (int)
+      row-security -> (bool)
+      search-path -> (string)
+      seq-page-cost -> (double)
+      shared-buffers -> (int)
+      standard-conforming-strings -> (bool)
+      statement-timeout -> (int)
+      synchronize-seqscans -> (bool)
+      temp-buffers -> (int)
+      temp-file-limit -> (int)
+      timezone -> (string)
+      transform-null-equals -> (bool)
+      work-mem -> (int)
+      xmlbinary -> (struct)
+      xmloption -> (struct)
+    postgresql-config-18-1c -> (struct)
+      Configuration for a host with PostgreSQL 18 1C server deployed.
+      array-nulls -> (bool)
+      backend-flush-after -> (int)
+      backslash-quote -> (struct)
+      bytea-output -> (struct)
+      client-min-messages -> (struct)
+      constraint-exclusion -> (struct)
+      cursor-tuple-fraction -> (double)
+      deadlock-timeout -> (int)
+      debug-parallel-query -> (struct)
+      default-transaction-isolation -> (struct)
+      default-with-oids -> (bool)
+      effective-cache-size -> (int)
+      effective-io-concurrency -> (int)
+      enable-bitmapscan -> (bool)
+      enable-hashagg -> (bool)
+      enable-hashjoin -> (bool)
+      enable-indexonlyscan -> (bool)
+      enable-indexscan -> (bool)
+      enable-material -> (bool)
+      enable-mergejoin -> (bool)
+      enable-nestloop -> (bool)
+      enable-seqscan -> (bool)
+      enable-sort -> (bool)
+      enable-tidscan -> (bool)
+      escape-string-warning -> (bool)
+      exit-on-error -> (bool)
+      from-collapse-limit -> (int)
+      gin-pending-list-limit -> (int)
+      idle-in-transaction-session-timeout -> (int)
+      join-collapse-limit -> (int)
+      lo-compat-privileges -> (bool)
+      lock-timeout -> (int)
+      log-checkpoints -> (bool)
+      log-connections -> (bool)
+      log-disconnections -> (bool)
+      log-duration -> (bool)
+      log-error-verbosity -> (struct)
+      log-lock-waits -> (bool)
+      log-min-duration-statement -> (int)
+      log-min-error-statement -> (struct)
+      log-min-messages -> (struct)
+      log-statement -> (struct)
+      log-temp-files -> (int)
+      max-locks-per-transaction -> (int)
+      max-parallel-workers -> (int)
+      max-parallel-workers-per-gather -> (int)
+      max-pred-locks-per-transaction -> (int)
+      max-standby-streaming-delay -> (int)
+      quote-all-identifiers -> (bool)
+      random-page-cost -> (double)
+      recovery-min-apply-delay -> (int)
+      row-security -> (bool)
+      search-path -> (string)
+      seq-page-cost -> (double)
+      shared-buffers -> (int)
+      standard-conforming-strings -> (bool)
+      statement-timeout -> (int)
+      synchronize-seqscans -> (bool)
+      temp-buffers -> (int)
+      temp-file-limit -> (int)
+      timezone -> (string)
+      transform-null-equals -> (bool)
+      work-mem -> (int)
+      xmlbinary -> (struct)
+      xmloption -> (struct)
+host-name -> (string)
+  Name of the host to update. To get the PostgreSQL host name, use a [ClusterService.ListHosts] request.
+priority -> (int)
+  The host with the highest priority is the synchronous replica. All others are asynchronous. The synchronous replica replaces the master when needed. When a replica becomes the master, its priority is ignored.
+replication-source -> (string)
+  [Host.name] of the host to be used as the replication source (for cascading replication). To get the PostgreSQL host name, use a [ClusterService.ListHosts] request.
+``` ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

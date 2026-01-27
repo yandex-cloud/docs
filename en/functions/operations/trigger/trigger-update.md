@@ -18,7 +18,7 @@ Your changes will apply within five minutes.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the trigger.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
     1. Select the trigger whose parameters you want to update.
     1. In the top-right corner of the page, click **{{ ui-key.yacloud.common.edit }}**.

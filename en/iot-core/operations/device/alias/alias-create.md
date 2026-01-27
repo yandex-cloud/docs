@@ -11,14 +11,14 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
    To create an alias:
 
    1. In the [management console]({{ link-console-main }}), select a folder where you wish to create an alias.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
-   1. Click ![image](../../../../_assets/console-icons/ellipsis.svg) to the right of the appropriate device name and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. Click ![image](../../../../_assets/console-icons/ellipsis.svg) to the right of the device name and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Add an alias:
       1. Click **{{ ui-key.yacloud.iot.button_add-alias }}**.
-      1. Fill in the fields: enter an alias, e.g., `events`, and the topic type after `$devices/<device_ID>`, e.g., `events`.<br/>You will be able to use the `events` alias instead of the `$devices/<device_ID>/events` topic.
-      1. Repeat the steps for each alias you add.
+      1. Fill out the fields: enter an alias, e.g., `events`, and the topic type after `$devices/<device_ID>`, e.g., `events`.<br/>You will be able to use the `events` alias instead of the `$devices/<device_ID>/events` topic.
+      1. Repeat these steps for each alias you add.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -62,9 +62,9 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
 
   To add an alias to a device created using{{ TF }}:
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
-     * `yandex_iot_core_registry`: Device properties:
+     * `yandex_iot_core_device`: Device properties:
        * `registry_id`: [ID of the registry](../../registry/registry-list.md#registry-list) where the device was created.
        * `name`: [Device name](../device-list.md#device-list).
        * `description`: Device description.
@@ -106,8 +106,8 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
       ```bash
       terraform apply

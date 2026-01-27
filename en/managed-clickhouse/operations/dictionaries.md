@@ -8,9 +8,9 @@ You can connect [external dictionaries](../concepts/dictionaries.md#external-dic
 * HTTP(s)
 * {{ SD }}
 * {{ MY }}
-* {{ PG }}
+* {{ PG }}.
 
-You can manage dictionaries either via SQL (recommended) or via {{ yandex-cloud }} cloud interfaces.
+You can manage dictionaries either via SQL (recommended) or via the {{ yandex-cloud }} cloud interfaces.
 
 {% note info %}
 
@@ -25,8 +25,8 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
 
 - CLI {#cli}
 
@@ -52,7 +52,7 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -65,13 +65,13 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/externalDictionaries'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/listExternalDictionaries.md#yandex.cloud.mdb.clickhouse.v1.ListClusterExternalDictionariesResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -93,14 +93,14 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
             yandex.cloud.mdb.clickhouse.v1.ClusterService.ListExternalDictionaries
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID from the [list of clusters in your folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/listExternalDictionaries.md#yandex.cloud.mdb.clickhouse.v1.ListClusterExternalDictionariesResponse) to make sure your request was successful.
 
 - SQL {#sql}
 
     1. [Connect](connect/clients.md) to the required database of the {{ mch-name }} cluster using `clickhouse-client`.
-    1. Run the `SHOW DICTIONARIES` [query]({{ ch.docs }}/sql-reference/statements/show/#show-dictionaries).
+    1. Run the `SHOW DICTIONARIES` [statement]({{ ch.docs }}/sql-reference/statements/show/#show-dictionaries).
 
 {% endlist %}
 
@@ -124,8 +124,8 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
     {% endnote %}
 
     1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
     1. In the top-right corner, click **{{ ui-key.yacloud.mdb.cluster.dictionaries.button-action_add-dictionary }}**.
     1. [Configure your dictionary](#settings).
     1. Click **{{ ui-key.yacloud.mdb.cluster.dictionaries.button_submit }}**.
@@ -169,7 +169,7 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 
     To create an external dictionary in a {{ CH }} cluster:
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -235,7 +235,7 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 
             For a detailed description of the dictionary attributes and other settings, see [below](#settings).
 
-        1. Run this query:
+        1. Run this request:
 
             ```bash
             curl \
@@ -246,7 +246,7 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
               --data '@body.json'
             ```
 
-            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can get the cluster ID from the [list of clusters in your folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/createExternalDictionary.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -260,7 +260,7 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 
     To create an external dictionary in a {{ CH }} cluster:
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -325,7 +325,7 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 
             For a detailed description of the dictionary attributes and other settings, see [below](#settings).
 
-            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can get the cluster ID from the [list of clusters in your folder](./cluster-list.md#list-clusters).
 
         1. Run this query:
 
@@ -391,8 +391,8 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the dictionary and select **{{ ui-key.yacloud.common.edit }}**.
     1. Change the [dictionary settings](#settings) as needed.
 
@@ -421,7 +421,7 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -463,7 +463,7 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 
             Where:
 
-            * `updateMask`: Comma-separated list of settings you want to update.
+            * `updateMask`: Comma-separated string of settings you want to update.
 
               In this case, list all the dictionary settings to update.
 
@@ -492,7 +492,7 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 
             For a detailed description of the dictionary attributes and other settings, see [below](#settings).
 
-        1. Run this query:
+        1. Run this request:
 
             ```bash
             curl \
@@ -503,13 +503,13 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
               --data '@body.json'
             ```
 
-            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can get the cluster ID from the [list of clusters in your folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/updateExternalDictionary.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -579,7 +579,7 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 
             For a detailed description of the dictionary attributes and other settings, see [below](#settings).
 
-            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can get the cluster ID from the [list of clusters in your folder](./cluster-list.md#list-clusters).
 
         1. Run this query:
 
@@ -607,8 +607,8 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the dictionary and select **{{ ui-key.yacloud.mdb.cluster.dictionaries.button_action-delete }}**.
 
 - CLI {#cli}
@@ -635,7 +635,7 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -654,13 +654,13 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 
         Where `externalDictionaryName` is the name of the dictionary you need to delete. You can get the dictionary name with the [list of external dictionaries in the cluster](#get-dicts-list).
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/deleteExternalDictionary.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -685,14 +685,14 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 
         Where `external_dictionary_name` is the name of the dictionary you need to delete. You can get the dictionary name with the [list of external dictionaries in the cluster](#get-dicts-list).
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID from the [list of clusters in your folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/deleteExternalDictionary.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - SQL {#sql}
 
     1. [Connect](connect/clients.md) to the required database of the {{ mch-name }} cluster using `clickhouse-client`.
-    1. Run the `DROP DICTIONARY<DB_name>.<dictionary_name>` [query]({{ ch.docs }}/sql-reference/statements/drop/#drop-dictionary).
+    1. Run the `DROP DICTIONARY<DB_name>.<dictionary_name>` [statement]({{ ch.docs }}/sql-reference/statements/drop/#drop-dictionary).
 
 {% endlist %}
 
@@ -712,7 +712,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_source }}**: Dictionary source settings. Select one of the listed sources and specify its settings:
 
-    {% cut "{{ CH }}" %}
+    {% cut "{{ ui-key.yacloud.mdb.cluster.dictionaries.label_source-clickhouse }}" %}
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}**: {{ CH }} host name. This is an optional setting.
 
@@ -728,7 +728,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     {% endcut %}
 
-    {% cut "{{ SD }}" %}
+    {% cut "{{ ui-key.yacloud.mdb.cluster.dictionaries.label_source-mongodb }}" %}
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}**: {{ SD }} host name. The host must be in the same network as the {{ CH }} cluster.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}**: Port for connecting to the source.
@@ -739,10 +739,10 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     {% endcut %}
 
-    {% cut "{{ MY }}" %}
+    {% cut "{{ ui-key.yacloud.mdb.cluster.dictionaries.label_source-mysql }}" %}
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_replicas }}**: List of {{ MY }} replicas to use as the dictionary source.
-        For replicas, you can set general connection settings or set up a port, username, and password.
+        For replicas, you can specify general connection settings or set up a port, username, and password.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}**: Port for connecting to the source.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_user }}**: Name of the source database user.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_password }}**: Password to access the source database.
@@ -753,7 +753,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     {% endcut %}
 
-    {% cut "{{ PG }}" %}
+    {% cut "{{ ui-key.yacloud.mdb.cluster.dictionaries.label_source-postgresql }}" %}
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_hosts }}**: Names of the {{ PG }} master host and its [replicas](../../managed-postgresql/concepts/replication.md) to use as dictionary sources. The hosts must be in the same network as the {{ CH }} cluster.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}**: Port for connecting to the source.
@@ -766,12 +766,13 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     {% endcut %}
 
-    {% cut "HTTP(s)" %}
+    {% cut "{{ ui-key.yacloud.mdb.cluster.dictionaries.label_source-http }} " %}
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_http-url }}**: HTTP(s) source URL.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_http-format }}**: File [format]({{ ch.docs }}/interfaces/formats/#formats) for the HTTP(s) source. Read more about formats in [this {{ CH }} article]({{ ch.docs }}/interfaces/formats/#formats).
 
     {% endcut %}
+
 
     For more information about dictionary sources and their connection parameters, see [this {{ CH }} guide]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-source/).
 
@@ -790,7 +791,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
   * Flat array size settings. They are used for the `flat` layout.
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_initial-array-size }}**: Initial dictionary key size. The default value is `1024`.
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_max-array-size }}**: Maximum dictionary key size. It determines the memory size used by the dictionary, this size being proportional to the largest key value. The default value is `500000`.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_max-array-size }}**: Maximum dictionary key size. It sets the memory size used by the dictionary, this size being proportional to the largest key value. The default value is `500000`.
 
     For more information, see [this {{ CH }} guide]({{ ch.docs }}/sql-reference/dictionaries#flat).
 
@@ -893,7 +894,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
   * `--mysql-invalidate-query`: Query to check for {{ MY }} dictionary changes. {{ CH }} will only update the dictionary if the results of this query change.
 
-  * `--postgresql-source-hosts`: Names of the {{ PG }} master host and its [replicas](../../managed-postgresql/concepts/replication.md) to used as a {{ PG }} source. The hosts must be in the same network as the {{ CH }} cluster.
+  * `--postgresql-source-hosts`: Names of the {{ PG }} master host and its [replicas](../../managed-postgresql/concepts/replication.md) to use as a {{ PG }} source. The hosts must be in the same network as the {{ CH }} cluster.
 
   * `--postgresql-invalidate-query`: Query to check for {{ PG }} dictionary changes. {{ CH }} will only update the dictionary if the results of this query change.
 
@@ -912,7 +913,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
   * Flat array size settings. They are used for the `flat` layout.
 
     * `--layout-initial-array-size`: Initial dictionary key size. The default value is `1024`.
-    * `--layout-max-array-size`: Maximum dictionary key size. It determines the memory size used by the dictionary, this size being proportional to the largest key value. The default value is `500000`.
+    * `--layout-max-array-size`: Maximum dictionary key size. It sets the memory size used by the dictionary, this size being proportional to the largest key value. The default value is `500000`.
 
     For more information, see [this {{ CH }} guide]({{ ch.docs }}/sql-reference/dictionaries#flat).
 
@@ -1047,12 +1048,12 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
     * Flat array size settings. They are used for the `FLAT` layout.
 
       * `layout.initialArraySize`: Initial dictionary key size. The default value is `1024`.
-      * `layout.maxArraySize`: Maximum dictionary key size. It determines the memory size used by the dictionary, this size being proportional to the largest key value. The default value is `500000`.
+      * `layout.maxArraySize`: Maximum dictionary key size. It sets the memory size used by the dictionary, this size being proportional to the largest key value. The default value is `500000`.
 
       For more information, see [this {{ CH }} guide]({{ ch.docs }}/sql-reference/dictionaries#flat).
 
     * `layout.accessToKeyFromAttributes`: Gets the name of the composite key using the `dictGetString` function. This setting is used for the `IP_TRIE` layout. Enabling this setting increases RAM usage.
-    * `structure.id.name`: Dictionary key column name. The key column must have the `UInt64` data type. This setting is used for the `FLAT`, `HASHED`, `RANGE_HASHED`, `CACHE`, `SPARSE_HASHED`, and `DIRECT` layouts. For more information about keys, see [this {{ CH }} article]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+    * `structure.id.name`: Dictionary key column name. The key column must have the `UInt64` data type. This setting is used for the `FLAT`, `HASHED`, `RANGE_HASHED`, `CACHE`, `SPARSE_HASHED`, and `DIRECT` layouts. For more information about keys, see [this {{ CH }} guide]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
     * `structure.key.attributes`: Description of the dictionary's composite key. The key may consist of one or more elements. This setting is used for the `COMPLEX_KEY_*` and `IP_TRIE` layouts.
 
       * `name`: Column name.
@@ -1174,12 +1175,12 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
     * Flat array size settings. They are used for the `FLAT` layout.
 
       * `layout.initial_array_size`: Initial dictionary key size. The default value is `1024`.
-      * `layout.max_array_size`: Maximum dictionary key size. It determines the memory size used by the dictionary, this size being proportional to the largest key value. The default value is `500000`.
+      * `layout.max_array_size`: Maximum dictionary key size. It sets the memory size used by the dictionary, this size being proportional to the largest key value. The default value is `500000`.
 
       For more information, see [this {{ CH }} guide]({{ ch.docs }}/sql-reference/dictionaries#flat).
 
     * `layout.access_to_key_from_attributes`: Gets the name of the composite key using the `dictGetString` function. This setting is used for the `IP_TRIE` layout. Enabling this setting increases RAM usage.
-    * `structure.id.name`: Dictionary key column name. The key column must have the `UInt64` data type. This setting is used for the `FLAT`, `HASHED`, `RANGE_HASHED`, `CACHE`, `SPARSE_HASHED`, and `DIRECT` layouts. For more information about keys, see [this {{ CH }} article]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+    * `structure.id.name`: Dictionary key column name. The key column must have the `UInt64` data type. This setting is used for the `FLAT`, `HASHED`, `RANGE_HASHED`, `CACHE`, `SPARSE_HASHED`, and `DIRECT` layouts. For more information about keys, see [this {{ CH }} guide]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
     * `structure.key.attributes`: Description of the dictionary's composite key. The key may consist of one or more elements. This setting is used for the `COMPLEX_KEY_*` and `IP_TRIE` layouts.
 
       * `name`: Column name.
@@ -1261,7 +1262,7 @@ Let's assume there is a {{ CH }} cluster named `mych` with the `{{ cluster-id }}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1317,7 +1318,7 @@ Let's assume there is a {{ CH }} cluster named `mych` with the `{{ cluster-id }}
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

@@ -1,6 +1,6 @@
 ---
 title: Getting started with {{ iot-full-name }} brokers
-description: To start working with {{ iot-name }}, create an X.509 certificate and a broker. Then, set up message exchange.
+description: To get started with {{ iot-name }}, create an X.509 certificate and a broker. Then, set up message exchange.
 ---
 
 # Getting started with {{ iot-name }} brokers
@@ -21,25 +21,25 @@ To get started with {{ iot-name }}:
 
 If you have a certificate, add it to the broker after [creation](#create-broker). If you do not have a certificate, create it using the [OpenSSL](https://www.openssl.org) program:
 
-```bash
-openssl req -x509 \
--newkey rsa:4096 \
-   -keyout private-key.pem \
-   -out cert.pem \
-   -nodes \
-   -days 365 \
-   -subj '/CN=localhost'
-```
+   ```bash
+   openssl req -x509 \
+   -newkey rsa:4096 \
+      -keyout private-key.pem \
+      -out cert.pem \
+      -nodes \
+      -days 365 \
+      -subj '/CN=localhost'
+   ```
 
-Where:
+   Where:
 
-* `-x509`: Certificate type, X.509.
-* `-newkey`: Encryption algorithm.
-* `-keyout`: File with the private key of the certificate.
-* `-out`: File with the public key of the certificate.
-* `-nodes`: This flag is set when no public key encryption is required.
-* `-days`: Certificate validity period in days.
-* `-subj`: Request object.
+   * `-x509`: Certificate type: X.509.
+   * `-newkey`: Encryption algorithm.
+   * `-keyout`: File with the certificate's private key.
+   * `-out`: File with the certificate's public key.
+   * `-nodes`: This flag is set when no public key encryption is required.
+   * `-days`: Certificate validity period in days.
+   * `-subj`: Request object.
 
 ## Create a broker {#create-broker}
 
@@ -48,7 +48,7 @@ Where:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a broker.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Click **{{ ui-key.yacloud.iot.button_create-broker }}**.
    1. Under **{{ ui-key.yacloud.common.section-base }}**, specify the broker name: `my-broker`.
@@ -64,7 +64,7 @@ Where:
       * To add text:
 
          1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
-         1. Paste the public key of the certificate to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
+         1. Paste the certificate's public key to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -101,8 +101,8 @@ Where:
 
       Where:
 
-      * `--broker-name`: Broker name
-      * `--certificate-file`: Path to the public key of the certificate.
+      * `--broker-name`: Broker name.
+      * `--certificate-file`: Path to the certificate's public key.
 
       Result:
 

@@ -1,16 +1,16 @@
 ---
-title: Getting information about a container
+title: Getting container info
 description: Follow this guide to get information about a container.
 ---
 
-# Getting information about a container
+# Getting container info
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder with your container.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. In the [management console]({{ link-console-main }}), go to the folder with your container.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. In the left-hand panel, select **{{ ui-key.yacloud.serverless-containers.label_containers }}**.
     1. Select the container.
     1. The **{{ ui-key.yacloud.common.overview }}** page will show the container details.

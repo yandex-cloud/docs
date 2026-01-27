@@ -10,9 +10,9 @@ description: In this tutorial, you will learn how to allocate some RAM within a 
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select a function.
-    1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
+    1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
     1. In the **Memory** section under **Additional settings**, enable **Allocate memory for the /tmp directory**.
     1. In the **Allocated memory** field, specify the amount of memory to allocate.
     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
@@ -54,7 +54,7 @@ description: In this tutorial, you will learn how to allocate some RAM within a 
 
     1. In the configuration file, add the `tmpfs_size` argument for the `yandex_function` resource and specify the amount of RAM to allocate.
 
-       Example function description in the {{ TF }} configuration:
+       Example of a function description in the {{ TF }} configuration:
 
         ```hcl
         resource "yandex_function" "test-function" {
@@ -71,7 +71,7 @@ description: In this tutorial, you will learn how to allocate some RAM within a 
         }
         ```
 
-        For more information about the `yandex_function` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
 
     1. Check the configuration using this command:
 
@@ -91,15 +91,15 @@ description: In this tutorial, you will learn how to allocate some RAM within a 
        terraform plan
        ```
 
-       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
-    1. Apply the configuration changes:
+    1. Apply the changes:
 
        ```bash
        terraform apply
        ```
 
-    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+    1. Type `yes` and press **Enter** to confirm the changes.
 
     You can use the [management console]({{ link-console-main }}) to check memory allocation for the `/tmp` directory.
 

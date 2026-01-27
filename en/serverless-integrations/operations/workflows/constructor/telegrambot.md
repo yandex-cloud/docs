@@ -10,7 +10,7 @@ description: Follow this guide to add the step of accessing the Telegram Bot API
 - Management console {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. From the **Integration steps** section on the left side of the screen, drag the ![foundation-models-icon](../../../../_assets/console-icons/logo-telegram.svg) **Telegram bot** element to relevant workflow location in the constructor window.
+  1. From the **Integration steps** section on the left side of the screen, drag the ![foundation-models-icon](../../../../_assets/console-icons/logo-telegram.svg) **Telegram bot** element to the relevant workflow location in the constructor window.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
   1. In the workflow schema window, click the new **Telegram bot** block to select it.

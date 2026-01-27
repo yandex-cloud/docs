@@ -10,47 +10,639 @@ Creates a node group in the specified Kubernetes cluster.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta managed-kubernetes node-group create <CLUSTER-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--allocation-policy`|<b>`shorthand/json`</b><br/>Allocation policy of the node group by the zones and regions.<br/>Shorthand Syntax:<br/>{<br/>locations = [<br/>{<br/>subnet-id = str,<br/>zone-id = str<br/>}, ...<br/>]<br/>}<br/>JSON Syntax:<br/>"{<br/>"locations": [<br/>{<br/>"subnet-id": "str",<br/>"zone-id": "str"<br/>}, ...<br/>]<br/>}"<br/>Fields:<br/>locations -> ([]struct)<br/>List of locations where resources for the node group will be allocated.<br/>subnet-id -> (string)<br/>ID of the subnet. If a network chosen for the Kubernetes cluster has only one subnet in the specified zone, subnet ID may be omitted.<br/>zone-id -> (string)<br/>ID of the availability zone where the nodes may reside.|
-|`--allowed-unsafe-sysctls`|<b>`strings`</b><br/>Support for unsafe sysctl parameters. For more details see documentation.|
-|`--cluster-id`|<b>`string`</b><br/>ID of the Kubernetes cluster to create a node group in. To get the Kubernetes cluster ID, use a [ClusterService.List] request.|
-|`--deploy-policy`|<b>`shorthand/json`</b><br/>Deploy policy according to which the updates are rolled out. If not specified, the default is used.<br/>Shorthand Syntax:<br/>{<br/>max-expansion = int,<br/>max-unavailable = int<br/>}<br/>JSON Syntax:<br/>"{<br/>"max-expansion": "int",<br/>"max-unavailable": "int"<br/>}"<br/>Fields:<br/>max-expansion -> (int)<br/>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If [max_unavailable] is not specified or set to zero, [max_expansion] must be set to a non-zero value.<br/>max-unavailable -> (int)<br/>The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If [max_expansion] is not specified or set to zero, [max_unavailable] must be set to a non-zero value.|
-|`--description`|<b>`string`</b><br/>Description of the node group.|
-|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs.|
-|`--maintenance-policy`|<b>`shorthand/json`</b><br/>Maintenance policy of the node group.<br/>Shorthand Syntax:<br/>{<br/>auto-repair = bool,<br/>auto-upgrade = bool,<br/>maintenance-window = {<br/>policy = anytime={} \| daily-maintenance-window={<br/>duration = duration,<br/>start-time = timeofday<br/>} \| weekly-maintenance-window={<br/>days-of-week = [<br/>{<br/>days = MONDAY\|TUESDAY\|WEDNESDAY\|THURSDAY\|FRIDAY\|SATURDAY\|SUNDAY,...,<br/>duration = duration,<br/>start-time = timeofday<br/>}, ...<br/>]<br/>}<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"auto-repair": "bool",<br/>"auto-upgrade": "bool",<br/>"maintenance-window": {<br/>"policy": {<br/>"anytime": {},<br/>"daily-maintenance-window": {<br/>"duration": "duration",<br/>"start-time": "timeofday"<br/>},<br/>"weekly-maintenance-window": {<br/>"days-of-week": [<br/>{<br/>"days": [<br/>"MONDAY\|TUESDAY\|WEDNESDAY\|THURSDAY\|FRIDAY\|SATURDAY\|SUNDAY", ...<br/>],<br/>"duration": "duration",<br/>"start-time": "timeofday"<br/>}, ...<br/>]<br/>}<br/>}<br/>}<br/>}"<br/>Fields:<br/>auto-repair -> (bool)<br/>If set to true, automatic repairs are enabled. Default value is false.<br/>auto-upgrade -> (bool)<br/>If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled.<br/>maintenance-window -> (struct)<br/>Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC.<br/>policy -> (oneof<anytime\|daily-maintenance-window\|weekly-maintenance-window>)<br/>Oneof policy field<br/>anytime -> (struct)<br/>Updating the master at any time.<br/>daily-maintenance-window -> (struct)<br/>Updating the master on any day during the specified time window.<br/>duration -> (duration)<br/>Window duration.<br/>start-time -> (timeofday)<br/>Window start time, in the UTC timezone.<br/>weekly-maintenance-window -> (struct)<br/>Updating the master on selected days during the specified time window.<br/>days-of-week -> ([]struct)<br/>Days of the week and the maintenance window for these days when automatic updates are allowed.<br/>days -> ([]int)<br/>Days of the week when automatic updates are allowed.<br/>duration -> (duration)<br/>Window duration.<br/>start-time -> (timeofday)<br/>Window start time, in the UTC timezone.|
-|`--name`|<b>`string`</b><br/>Name of the node group. The name must be unique within the folder.|
-|`--node-labels`|<b>`stringToString`</b><br/>Labels that are assigned to the nodes of the node group at creation time.|
-|`--node-taints`|<b>`shorthand/json`</b><br/>Taints that are applied to the nodes of the node group at creation time.<br/>Shorthand Syntax:<br/>[<br/>{<br/>effect = NO_SCHEDULE\|PREFER_NO_SCHEDULE\|NO_EXECUTE,<br/>key = str,<br/>value = str<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"effect": "NO_SCHEDULE\|PREFER_NO_SCHEDULE\|NO_EXECUTE",<br/>"key": "str",<br/>"value": "str"<br/>}, ...<br/>]"<br/>Fields:<br/>effect -> (enum<NO_EXECUTE\|NO_SCHEDULE\|PREFER_NO_SCHEDULE>)<br/>The effect of the taint on pods that do not tolerate the taint.<br/>key -> (string)<br/>The taint key to be applied to a node.<br/>value -> (string)<br/>The taint value corresponding to the taint key.|
-|`--node-template`|<b>`shorthand/json`</b><br/>Node template for creating the node group.<br/>Shorthand Syntax:<br/>{<br/>boot-disk-spec = {<br/>disk-size = int,<br/>disk-type-id = str<br/>},<br/>container-network-settings = {<br/>pod-mtu = int<br/>},<br/>container-runtime-settings = {<br/>type = DOCKER\|CONTAINERD<br/>},<br/>gpu-settings = {<br/>gpu-cluster-id = str,<br/>gpu-environment = RUNC_DRIVERS_CUDA\|RUNC<br/>},<br/>labels = {key=str, key=...},<br/>metadata = {key=str, key=...},<br/>name = str,<br/>network-interface-specs = [<br/>{<br/>primary-v4-address-spec = {<br/>dns-record-specs = [<br/>{<br/>dns-zone-id = str,<br/>fqdn = str,<br/>ptr = bool,<br/>ttl = int<br/>}, ...<br/>],<br/>one-to-one-nat-spec = {<br/>ip-version = IPV4\|IPV6<br/>}<br/>},<br/>primary-v6-address-spec = {<br/>dns-record-specs = [<br/>{<br/>dns-zone-id = str,<br/>fqdn = str,<br/>ptr = bool,<br/>ttl = int<br/>}, ...<br/>],<br/>one-to-one-nat-spec = {<br/>ip-version = IPV4\|IPV6<br/>}<br/>},<br/>security-group-ids = str,...,<br/>subnet-ids = str,...<br/>}, ...<br/>],<br/>network-settings = {<br/>type = STANDARD\|SOFTWARE_ACCELERATED<br/>},<br/>placement-policy = {<br/>placement-group-id = str<br/>},<br/>platform-id = str,<br/>resources-spec = {<br/>core-fraction = int,<br/>cores = int,<br/>gpus = int,<br/>memory = int<br/>},<br/>scheduling-policy = {<br/>preemptible = bool<br/>},<br/>v4-address-spec = {<br/>dns-record-specs = [<br/>{<br/>dns-zone-id = str,<br/>fqdn = str,<br/>ptr = bool,<br/>ttl = int<br/>}, ...<br/>],<br/>one-to-one-nat-spec = {<br/>ip-version = IPV4\|IPV6<br/>}<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"boot-disk-spec": {<br/>"disk-size": "int",<br/>"disk-type-id": "str"<br/>},<br/>"container-network-settings": {<br/>"pod-mtu": "int"<br/>},<br/>"container-runtime-settings": {<br/>"type": "DOCKER\|CONTAINERD"<br/>},<br/>"gpu-settings": {<br/>"gpu-cluster-id": "str",<br/>"gpu-environment": "RUNC_DRIVERS_CUDA\|RUNC"<br/>},<br/>"labels": {<br/>"\<key\>": "str", ...<br/>},<br/>"metadata": {<br/>"\<key\>": "str", ...<br/>},<br/>"name": "str",<br/>"network-interface-specs": [<br/>{<br/>"primary-v4-address-spec": {<br/>"dns-record-specs": [<br/>{<br/>"dns-zone-id": "str",<br/>"fqdn": "str",<br/>"ptr": "bool",<br/>"ttl": "int"<br/>}, ...<br/>],<br/>"one-to-one-nat-spec": {<br/>"ip-version": "IPV4\|IPV6"<br/>}<br/>},<br/>"primary-v6-address-spec": {<br/>"dns-record-specs": [<br/>{<br/>"dns-zone-id": "str",<br/>"fqdn": "str",<br/>"ptr": "bool",<br/>"ttl": "int"<br/>}, ...<br/>],<br/>"one-to-one-nat-spec": {<br/>"ip-version": "IPV4\|IPV6"<br/>}<br/>},<br/>"security-group-ids": [<br/>"str", ...<br/>],<br/>"subnet-ids": [<br/>"str", ...<br/>]<br/>}, ...<br/>],<br/>"network-settings": {<br/>"type": "STANDARD\|SOFTWARE_ACCELERATED"<br/>},<br/>"placement-policy": {<br/>"placement-group-id": "str"<br/>},<br/>"platform-id": "str",<br/>"resources-spec": {<br/>"core-fraction": "int",<br/>"cores": "int",<br/>"gpus": "int",<br/>"memory": "int"<br/>},<br/>"scheduling-policy": {<br/>"preemptible": "bool"<br/>},<br/>"v4-address-spec": {<br/>"dns-record-specs": [<br/>{<br/>"dns-zone-id": "str",<br/>"fqdn": "str",<br/>"ptr": "bool",<br/>"ttl": "int"<br/>}, ...<br/>],<br/>"one-to-one-nat-spec": {<br/>"ip-version": "IPV4\|IPV6"<br/>}<br/>}<br/>}"<br/>Fields:<br/>boot-disk-spec -> (struct)<br/>Specification for the boot disk that will be attached to the node.<br/>disk-size -> (int)<br/>Size of the disk, specified in bytes.<br/>disk-type-id -> (string)<br/>ID of the disk type.<br/>container-network-settings -> (struct)<br/>pod-mtu -> (int)<br/>container-runtime-settings -> (struct)<br/>type -> (enum<CONTAINERD\|DOCKER>)<br/>gpu-settings -> (struct)<br/>GPU settings<br/>gpu-cluster-id -> (string)<br/>GPU cluster id, that mk8s node will join.<br/>gpu-environment -> (enum<RUNC\|RUNC_DRIVERS_CUDA>)<br/>GPU environment configured on node.<br/>labels -> (map[string,string])<br/>these labels will be assigned to compute nodes (instances), created by the nodegroup<br/>metadata -> (map[string,string])<br/>The metadata as 'key:value' pairs assigned to this instance template. Only SSH keys are supported as metadata. For more information, see documentation.<br/>name -> (string)<br/>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list.<br/>network-interface-specs -> ([]struct)<br/>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec'<br/>primary-v4-address-spec -> (struct)<br/>Primary IPv4 address that is assigned to the instance for this network interface.<br/>dns-record-specs -> ([]struct)<br/>Internal DNS configuration.<br/>dns-zone-id -> (string)<br/>DNS zone id (optional, if not set, private zone is used).<br/>fqdn -> (string)<br/>FQDN (required).<br/>ptr -> (bool)<br/>When set to true, also create PTR DNS record (optional).<br/>ttl -> (int)<br/>DNS record ttl, values in 0-86400 (optional).<br/>one-to-one-nat-spec -> (struct)<br/>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up.<br/>ip-version -> (enum<IPV4\|IPV6>)<br/>IP version for the public IP address.<br/>primary-v6-address-spec -> (struct)<br/>Primary IPv6 address that is assigned to the instance for this network interface.<br/>dns-record-specs -> ([]struct)<br/>Internal DNS configuration.<br/>dns-zone-id -> (string)<br/>DNS zone id (optional, if not set, private zone is used).<br/>fqdn -> (string)<br/>FQDN (required).<br/>ptr -> (bool)<br/>When set to true, also create PTR DNS record (optional).<br/>ttl -> (int)<br/>DNS record ttl, values in 0-86400 (optional).<br/>one-to-one-nat-spec -> (struct)<br/>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up.<br/>ip-version -> (enum<IPV4\|IPV6>)<br/>IP version for the public IP address.<br/>security-group-ids -> ([]string)<br/>IDs of security groups.<br/>subnet-ids -> ([]string)<br/>IDs of the subnets.<br/>network-settings -> (struct)<br/>this parameter allows to specify type of network acceleration used on nodes (instances)<br/>type -> (enum<SOFTWARE_ACCELERATED\|STANDARD>)<br/>placement-policy -> (struct)<br/>placement-group-id -> (string)<br/>Identifier of placement group<br/>platform-id -> (string)<br/>ID of the hardware platform configuration for the node.<br/>resources-spec -> (struct)<br/>Computing resources of the node such as the amount of memory and number of cores.<br/>core-fraction -> (int)<br/>Baseline level of CPU performance with the possibility to burst performance above that baseline level. This field sets baseline performance for each core.<br/>cores -> (int)<br/>Number of cores available to the node.<br/>gpus -> (int)<br/>Number of GPUs available to the node.<br/>memory -> (int)<br/>Amount of memory available to the node, specified in bytes.<br/>scheduling-policy -> (struct)<br/>Scheduling policy configuration.<br/>preemptible -> (bool)<br/>True for preemptible compute instances. Default value is false. Preemptible compute instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see documentation.<br/>v4-address-spec -> (struct)<br/>Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs.<br/>dns-record-specs -> ([]struct)<br/>Internal DNS configuration.<br/>dns-zone-id -> (string)<br/>DNS zone id (optional, if not set, private zone is used).<br/>fqdn -> (string)<br/>FQDN (required).<br/>ptr -> (bool)<br/>When set to true, also create PTR DNS record (optional).<br/>ttl -> (int)<br/>DNS record ttl, values in 0-86400 (optional).<br/>one-to-one-nat-spec -> (struct)<br/>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up.<br/>ip-version -> (enum<IPV4\|IPV6>)<br/>IP version for the public IP address.|
-|`--scale-policy`|<b>`shorthand/json`</b><br/>Scale policy of the node group.<br/>Shorthand Syntax:<br/>{<br/>scale-type = auto-scale={<br/>initial-size = int,<br/>max-size = int,<br/>min-size = int<br/>} \| fixed-scale={<br/>size = int<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"scale-type": {<br/>"auto-scale": {<br/>"initial-size": "int",<br/>"max-size": "int",<br/>"min-size": "int"<br/>},<br/>"fixed-scale": {<br/>"size": "int"<br/>}<br/>}<br/>}"<br/>Fields:<br/>scale-type -> (oneof<auto-scale\|fixed-scale>)<br/>Oneof scale-type field<br/>fixed-scale -> (struct)<br/>Fixed scale policy of the node group.<br/>size -> (int)<br/>Number of nodes in the node group.<br/>auto-scale -> (struct)<br/>Auto scale policy of the node group.<br/>initial-size -> (int)<br/>Initial number of nodes in the node group.<br/>max-size -> (int)<br/>Maximum number of nodes in the node group.<br/>min-size -> (int)<br/>Minimum number of nodes in the node group.|
-|`--version`|<b>`string`</b><br/>Version of Kubernetes components that runs on the nodes.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-json > request.json
+2. Edit the template: vim request.json
+3. Run with template: yc beta compute instance create -r request.json ||
+|| `--example-yaml` | Generates a YAML template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-yaml > request.yaml
+2. Edit the template: vim request.yaml
+3. Run with template: yc beta compute instance create -r request.yaml ||
+|| `--allocation-policy` | `shorthand/json`
+
+Allocation policy of the node group by the zones and regions.
+
+Shorthand Syntax:
+
+```hcl
+{
+  locations = [
+    {
+      subnet-id = str,
+      zone-id = str
+    }, ...
+  ]
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "locations": [
+    {
+      "subnet-id": "str",
+      "zone-id": "str"
+    }, ...
+  ]
+}
+```
+
+Fields:
+
+```
+locations -> ([]struct)
+  List of locations where resources for the node group will be allocated.
+  subnet-id -> (string)
+    ID of the subnet. If a network chosen for the Kubernetes cluster has only one subnet in the specified zone, subnet ID may be omitted.
+  zone-id -> (string)
+    ID of the availability zone where the nodes may reside.
+``` ||
+|| `--allowed-unsafe-sysctls` | `strings`
+
+Support for unsafe sysctl parameters. For more details see documentation. ||
+|| `--cluster-id` | `string`
+
+ID of the Kubernetes cluster to create a node group in. To get the Kubernetes cluster ID, use a [ClusterService.List] request. ||
+|| `--deploy-policy` | `shorthand/json`
+
+Deploy policy according to which the updates are rolled out. If not specified, the default is used.
+
+Shorthand Syntax:
+
+```hcl
+{
+  max-expansion = int,
+  max-unavailable = int
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "max-expansion": "int",
+  "max-unavailable": "int"
+}
+```
+
+Fields:
+
+```
+max-expansion -> (int)
+  The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If [max_unavailable] is not specified or set to zero, [max_expansion] must be set to a non-zero value.
+max-unavailable -> (int)
+  The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If [max_expansion] is not specified or set to zero, [max_unavailable] must be set to a non-zero value.
+``` ||
+|| `--description` | `string`
+
+Description of the node group. ||
+|| `--labels` | `stringToString`
+
+Resource labels as 'key:value' pairs. ||
+|| `--maintenance-policy` | `shorthand/json`
+
+Maintenance policy of the node group.
+
+Shorthand Syntax:
+
+```hcl
+{
+  auto-repair = bool,
+  auto-upgrade = bool,
+  maintenance-window = {
+    policy = anytime={} | daily-maintenance-window={
+      duration = duration,
+      start-time = timeofday
+    } | weekly-maintenance-window={
+      days-of-week = [
+        {
+          days = [
+            MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY, ...
+          ],
+          duration = duration,
+          start-time = timeofday
+        }, ...
+      ]
+    }
+  }
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "auto-repair": "bool",
+  "auto-upgrade": "bool",
+  "maintenance-window": {
+    "policy": {
+      "anytime": {},
+      "daily-maintenance-window": {
+        "duration": "duration",
+        "start-time": "timeofday"
+      },
+      "weekly-maintenance-window": {
+        "days-of-week": [
+          {
+            "days": [
+              "MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY", ...
+            ],
+            "duration": "duration",
+            "start-time": "timeofday"
+          }, ...
+        ]
+      }
+    }
+  }
+}
+```
+
+Fields:
+
+```
+auto-repair -> (bool)
+  If set to true, automatic repairs are enabled. Default value is false.
+auto-upgrade -> (bool)
+  If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled.
+maintenance-window -> (struct)
+  Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC.
+  policy -> (oneof<anytime|daily-maintenance-window|weekly-maintenance-window>)
+    Oneof policy field
+    anytime -> (struct)
+      Updating the master at any time.
+    daily-maintenance-window -> (struct)
+      Updating the master on any day during the specified time window.
+      duration -> (duration)
+        Window duration.
+      start-time -> (timeofday)
+        Window start time, in the UTC timezone.
+    weekly-maintenance-window -> (struct)
+      Updating the master on selected days during the specified time window.
+      days-of-week -> ([]struct)
+        Days of the week and the maintenance window for these days when automatic updates are allowed.
+        days -> ([]struct)
+          Days of the week when automatic updates are allowed.
+        duration -> (duration)
+          Window duration.
+        start-time -> (timeofday)
+          Window start time, in the UTC timezone.
+``` ||
+|| `--name` | `string`
+
+Name of the node group. The name must be unique within the folder. ||
+|| `--node-labels` | `stringToString`
+
+Labels that are assigned to the nodes of the node group at creation time. ||
+|| `--node-taints` | `shorthand/json`
+
+Taints that are applied to the nodes of the node group at creation time.
+
+Shorthand Syntax:
+
+```hcl
+[
+  {
+    effect = NO_SCHEDULE|PREFER_NO_SCHEDULE|NO_EXECUTE,
+    key = str,
+    value = str
+  }, ...
+]
+```
+
+JSON Syntax:
+
+```json
+[
+  {
+    "effect": "NO_SCHEDULE|PREFER_NO_SCHEDULE|NO_EXECUTE",
+    "key": "str",
+    "value": "str"
+  }, ...
+]
+```
+
+Fields:
+
+```
+effect -> (struct)
+  The effect of the taint on pods that do not tolerate the taint.
+key -> (string)
+  The taint key to be applied to a node.
+value -> (string)
+  The taint value corresponding to the taint key.
+``` ||
+|| `--node-template` | `shorthand/json`
+
+Node template for creating the node group.
+
+Shorthand Syntax:
+
+```hcl
+{
+  boot-disk-spec = {
+    disk-size = int,
+    disk-type-id = str
+  },
+  container-network-settings = {
+    pod-mtu = int
+  },
+  container-runtime-settings = {
+    type = DOCKER|CONTAINERD
+  },
+  gpu-settings = {
+    gpu-cluster-id = str,
+    gpu-environment = RUNC_DRIVERS_CUDA|RUNC
+  },
+  labels = {key=str, key=...},
+  metadata = {key=str, key=...},
+  name = str,
+  network-interface-specs = [
+    {
+      primary-v4-address-spec = {
+        dns-record-specs = [
+          {
+            dns-zone-id = str,
+            fqdn = str,
+            ptr = bool,
+            ttl = int
+          }, ...
+        ],
+        one-to-one-nat-spec = {
+          ip-version = IPV4|IPV6
+        }
+      },
+      primary-v6-address-spec = {
+        dns-record-specs = [
+          {
+            dns-zone-id = str,
+            fqdn = str,
+            ptr = bool,
+            ttl = int
+          }, ...
+        ],
+        one-to-one-nat-spec = {
+          ip-version = IPV4|IPV6
+        }
+      },
+      security-group-ids = str,...,
+      subnet-ids = str,...
+    }, ...
+  ],
+  network-settings = {
+    type = STANDARD|SOFTWARE_ACCELERATED
+  },
+  placement-policy = {
+    placement-group-id = str
+  },
+  platform-id = str,
+  resources-spec = {
+    core-fraction = int,
+    cores = int,
+    gpus = int,
+    memory = int
+  },
+  scheduling-policy = {
+    preemptible = bool
+  },
+  v4-address-spec = {
+    dns-record-specs = [
+      {
+        dns-zone-id = str,
+        fqdn = str,
+        ptr = bool,
+        ttl = int
+      }, ...
+    ],
+    one-to-one-nat-spec = {
+      ip-version = IPV4|IPV6
+    }
+  }
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "boot-disk-spec": {
+    "disk-size": "int",
+    "disk-type-id": "str"
+  },
+  "container-network-settings": {
+    "pod-mtu": "int"
+  },
+  "container-runtime-settings": {
+    "type": "DOCKER|CONTAINERD"
+  },
+  "gpu-settings": {
+    "gpu-cluster-id": "str",
+    "gpu-environment": "RUNC_DRIVERS_CUDA|RUNC"
+  },
+  "labels": {
+    "<key>": "str", ...
+  },
+  "metadata": {
+    "<key>": "str", ...
+  },
+  "name": "str",
+  "network-interface-specs": [
+    {
+      "primary-v4-address-spec": {
+        "dns-record-specs": [
+          {
+            "dns-zone-id": "str",
+            "fqdn": "str",
+            "ptr": "bool",
+            "ttl": "int"
+          }, ...
+        ],
+        "one-to-one-nat-spec": {
+          "ip-version": "IPV4|IPV6"
+        }
+      },
+      "primary-v6-address-spec": {
+        "dns-record-specs": [
+          {
+            "dns-zone-id": "str",
+            "fqdn": "str",
+            "ptr": "bool",
+            "ttl": "int"
+          }, ...
+        ],
+        "one-to-one-nat-spec": {
+          "ip-version": "IPV4|IPV6"
+        }
+      },
+      "security-group-ids": [
+        "str", ...
+      ],
+      "subnet-ids": [
+        "str", ...
+      ]
+    }, ...
+  ],
+  "network-settings": {
+    "type": "STANDARD|SOFTWARE_ACCELERATED"
+  },
+  "placement-policy": {
+    "placement-group-id": "str"
+  },
+  "platform-id": "str",
+  "resources-spec": {
+    "core-fraction": "int",
+    "cores": "int",
+    "gpus": "int",
+    "memory": "int"
+  },
+  "scheduling-policy": {
+    "preemptible": "bool"
+  },
+  "v4-address-spec": {
+    "dns-record-specs": [
+      {
+        "dns-zone-id": "str",
+        "fqdn": "str",
+        "ptr": "bool",
+        "ttl": "int"
+      }, ...
+    ],
+    "one-to-one-nat-spec": {
+      "ip-version": "IPV4|IPV6"
+    }
+  }
+}
+```
+
+Fields:
+
+```
+boot-disk-spec -> (struct)
+  Specification for the boot disk that will be attached to the node.
+  disk-size -> (int)
+    Size of the disk, specified in bytes.
+  disk-type-id -> (string)
+    ID of the disk type.
+container-network-settings -> (struct)
+  Container network settings for the node template.
+  pod-mtu -> (int)
+    MTU (Maximum Transmission Unit) size for pod network interfaces.
+container-runtime-settings -> (struct)
+  Container runtime settings for the node template.
+  type -> (struct)
+    Type of container runtime.
+gpu-settings -> (struct)
+  GPU settings
+  gpu-cluster-id -> (string)
+    GPU cluster id, that mk8s node will join.
+  gpu-environment -> (struct)
+    GPU environment configured on node.
+labels -> (map[string,string])
+  these labels will be assigned to compute nodes (instances), created by the nodegroup
+metadata -> (map[string,string])
+  The metadata as 'key:value' pairs assigned to this instance template. Only SSH keys are supported as metadata. For more information, see documentation.
+name -> (string)
+  Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list.
+network-interface-specs -> ([]struct)
+  New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec'
+  primary-v4-address-spec -> (struct)
+    Primary IPv4 address that is assigned to the instance for this network interface.
+    dns-record-specs -> ([]struct)
+      Internal DNS configuration.
+      dns-zone-id -> (string)
+        DNS zone id (optional, if not set, private zone is used).
+      fqdn -> (string)
+        FQDN (required).
+      ptr -> (bool)
+        When set to true, also create PTR DNS record (optional).
+      ttl -> (int)
+        DNS record ttl, values in 0-86400 (optional).
+    one-to-one-nat-spec -> (struct)
+      One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up.
+      ip-version -> (struct)
+        IP version for the public IP address.
+  primary-v6-address-spec -> (struct)
+    Primary IPv6 address that is assigned to the instance for this network interface.
+    dns-record-specs -> ([]struct)
+      Internal DNS configuration.
+      dns-zone-id -> (string)
+        DNS zone id (optional, if not set, private zone is used).
+      fqdn -> (string)
+        FQDN (required).
+      ptr -> (bool)
+        When set to true, also create PTR DNS record (optional).
+      ttl -> (int)
+        DNS record ttl, values in 0-86400 (optional).
+    one-to-one-nat-spec -> (struct)
+      One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up.
+      ip-version -> (struct)
+        IP version for the public IP address.
+  security-group-ids -> ([]string)
+    IDs of security groups.
+  subnet-ids -> ([]string)
+    IDs of the subnets.
+network-settings -> (struct)
+  this parameter allows to specify type of network acceleration used on nodes (instances)
+  type -> (struct)
+    Network type that specifies the network configuration for the node group instances.
+placement-policy -> (struct)
+  Placement policy configuration that controls physical placement of node group instances in the cloud infrastructure for optimizing performance and reliability.
+  placement-group-id -> (string)
+    Identifier of placement group
+platform-id -> (string)
+  ID of the hardware platform configuration for the node.
+resources-spec -> (struct)
+  Computing resources of the node such as the amount of memory and number of cores.
+  core-fraction -> (int)
+    Baseline level of CPU performance with the possibility to burst performance above that baseline level. This field sets baseline performance for each core.
+  cores -> (int)
+    Number of cores available to the node.
+  gpus -> (int)
+    Number of GPUs available to the node.
+  memory -> (int)
+    Amount of memory available to the node, specified in bytes.
+scheduling-policy -> (struct)
+  Scheduling policy configuration.
+  preemptible -> (bool)
+    True for preemptible compute instances. Default value is false. Preemptible compute instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see documentation.
+v4-address-spec -> (struct)
+  Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs.
+  dns-record-specs -> ([]struct)
+    Internal DNS configuration.
+    dns-zone-id -> (string)
+      DNS zone id (optional, if not set, private zone is used).
+    fqdn -> (string)
+      FQDN (required).
+    ptr -> (bool)
+      When set to true, also create PTR DNS record (optional).
+    ttl -> (int)
+      DNS record ttl, values in 0-86400 (optional).
+  one-to-one-nat-spec -> (struct)
+    One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up.
+    ip-version -> (struct)
+      IP version for the public IP address.
+``` ||
+|| `--scale-policy` | `shorthand/json`
+
+Scale policy of the node group.
+
+Shorthand Syntax:
+
+```hcl
+{
+  scale-type = auto-scale={
+    initial-size = int,
+    max-size = int,
+    min-size = int
+  } | fixed-scale={
+    size = int
+  }
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "scale-type": {
+    "auto-scale": {
+      "initial-size": "int",
+      "max-size": "int",
+      "min-size": "int"
+    },
+    "fixed-scale": {
+      "size": "int"
+    }
+  }
+}
+```
+
+Fields:
+
+```
+scale-type -> (oneof<auto-scale|fixed-scale>)
+  Oneof scale-type field
+  fixed-scale -> (struct)
+    Fixed scale policy of the node group.
+    size -> (int)
+      Number of nodes in the node group.
+  auto-scale -> (struct)
+    Auto scale policy of the node group.
+    initial-size -> (int)
+      Initial number of nodes in the node group.
+    max-size -> (int)
+      Maximum number of nodes in the node group.
+    min-size -> (int)
+      Minimum number of nodes in the node group.
+``` ||
+|| `--version` | `string`
+
+Version of Kubernetes components that runs on the nodes. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

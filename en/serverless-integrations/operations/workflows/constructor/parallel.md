@@ -26,7 +26,7 @@ The Parallel control step executes multiple branches (sequences of steps) concur
 
       1. In the bottom-right corner of the **Parallel** section, click ![circle-plus-fill](../../../../_assets/console-icons/circle-plus-fill.svg).
       1. In the dialog box that opens, enter the name of the branch to add. Click **{{ ui-key.yacloud.common.create }}**.
-  1. To add a new step to an execution branch, drag the step to the area marked by the dotted line under **Integration steps** or **Control steps**.
+  1. To add a new step to an execution branch, drag the step to the area marked by the dotted line from **Integration steps** or **Control steps**.
 
 {% endlist %}
 

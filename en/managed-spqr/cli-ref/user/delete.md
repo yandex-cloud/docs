@@ -1,24 +1,24 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/user/delete.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/user/delete.md
 ---
 
-# yc managed-postgresql user delete
+# yc managed-sharded-postgresql user delete
 
-Delete the specified PostgreSQL user
+Delete the specified Sharded PostgreSQL user
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-postgresql user delete <USER-NAME> [<USER-NAME>...] [Flags...] [Global Flags...]`
+`yc managed-sharded-postgresql user delete <USER-NAME> [<USER-NAME>...] [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>PostgreSQL cluster id.|
-|`--cluster-name`|<b>`string`</b><br/>PostgreSQL cluster name.|
+|`--cluster-id`|<b>`string`</b><br/>Sharded PostgreSQL cluster id.|
+|`--cluster-name`|<b>`string`</b><br/>Sharded PostgreSQL cluster name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

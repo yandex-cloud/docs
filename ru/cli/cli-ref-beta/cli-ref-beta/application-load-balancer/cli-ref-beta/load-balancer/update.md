@@ -10,41 +10,533 @@ Updates the specified application load balancer.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta application-load-balancer load-balancer update <LOAD-BALANCER-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`--allocation-policy`|<b>`shorthand/json`</b><br/>New locality settings of the application load balancer. For details about the concept, see documentation. Existing locality settings are completely replaced by the specified settings, so if you just want to add or remove an allocation policy: 1. Get the current settings with a [LoadBalancerService.Get] request. 2. Add or remove a policy in this set. 3. Send the new set in this field.<br/>Shorthand Syntax:<br/>{<br/>locations = [<br/>{<br/>disable-traffic = bool,<br/>subnet-id = str,<br/>zonal-shift-active = bool,<br/>zonal-traffic-disabled = bool,<br/>zone-id = str<br/>}, ...<br/>]<br/>}<br/>JSON Syntax:<br/>"{<br/>"locations": [<br/>{<br/>"disable-traffic": "bool",<br/>"subnet-id": "str",<br/>"zonal-shift-active": "bool",<br/>"zonal-traffic-disabled": "bool",<br/>"zone-id": "str"<br/>}, ...<br/>]<br/>}"<br/>Fields:<br/>locations -> ([]struct)<br/>Availability zones and subnets that the application load balancer resides.<br/>disable-traffic -> (bool)<br/>Disables the load balancer node in the specified availability zone. Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent] and [LoadBalancingConfig.strict_locality] settings.<br/>subnet-id -> (string)<br/>ID of the subnet that the application load balancer belongs to.<br/>zonal-shift-active -> (bool)<br/>Show zonal shift status for the location. Deprecated: use [zonal_traffic_disabled] below to track traffic status.<br/>zonal-traffic-disabled -> (bool)<br/>Computed field: will be set to true if all traffic in zone is disabled either manually by user or automatically by Cloud infrastructure.<br/>zone-id -> (string)<br/>ID of the availability zone where the application load balancer resides. Each availability zone can only be specified once.|
-|`--allow-zonal-shift`|Specifies whether application load balancer is available to zonal shift.|
-|`--auto-scale-policy`|<b>`shorthand/json`</b><br/>New scaling settings of the application load balancer. The scaling settings relate to a special internal instance group which facilitates the balancer's work. Instances in this group are called _resource units_. The group is scaled automatically based on incoming load and within limitations specified in these settings. For details about the concept, see documentation.<br/>Shorthand Syntax:<br/>{<br/>max-size = int,<br/>min-zone-size = int<br/>}<br/>JSON Syntax:<br/>"{<br/>"max-size": "int",<br/>"min-zone-size": "int"<br/>}"<br/>Fields:<br/>max-size -> (int)<br/>Upper limit for the total number of resource units across all availability zones. If a positive value is specified, it must be at least [min_zone_size] multiplied by the size of [AllocationPolicy.locations]. If the value is 0, there is no upper limit.<br/>min-zone-size -> (int)<br/>Lower limit for the number of resource units in each availability zone. If not specified previously (using other instruments such as management console), the default value is 2. To revert to it, specify it explicitly. The minimum value is 2.|
-|`--description`|<b>`string`</b><br/>New description of the application load balancer.|
-|`--labels`|<b>`stringToString`</b><br/>New application load balancer labels as 'key:value' pairs. For details about the concept, see documentation. Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: 1. Get the current set of labels with a [LoadBalancerService.Get] request. 2. Add or remove a label in this set. 3. Send the new set in this field.|
-|`--listener-specs`|<b>`shorthand/json`</b><br/>New listeners for the application load balancer. For details about the concept, see documentation. Existing list of listeners is completely replaced by the specified list, so if you just want to add, update, or remove a listener, make a [LoadBalancerService.AddListener] request, a [LoadBalancerService.UpdateListener] request, or a [LoadBalancerService.RemoveListener] request.<br/>Shorthand Syntax:<br/>[<br/>{<br/>endpoint-specs = [<br/>{<br/>address-specs = [<br/>{<br/>address-spec = external-ipv4-address-spec={<br/>address = str<br/>} \| external-ipv6-address-spec={<br/>address = str<br/>} \| internal-ipv4-address-spec={<br/>address = str,<br/>subnet-id = str<br/>}<br/>}, ...<br/>],<br/>ports = int,...<br/>}, ...<br/>],<br/>listener = http={<br/>handler = {<br/>http-router-id = str,<br/>protocol-settings = allow-http10=bool \| http2-options={<br/>max-concurrent-streams = int<br/>},<br/>rewrite-request-id = bool<br/>},<br/>redirects = {<br/>http-to-https = bool<br/>}<br/>} \| stream={<br/>handler = {<br/>backend-group-id = str,<br/>idle-timeout = duration<br/>}<br/>} \| tls={<br/>default-handler = {<br/>certificate-ids = str,...,<br/>handler = http-handler={<br/>http-router-id = str,<br/>protocol-settings = allow-http10=bool \| http2-options={<br/>max-concurrent-streams = int<br/>},<br/>rewrite-request-id = bool<br/>} \| stream-handler={<br/>backend-group-id = str,<br/>idle-timeout = duration<br/>}<br/>},<br/>sni-handlers = [<br/>{<br/>handler = {<br/>certificate-ids = str,...,<br/>handler = http-handler={<br/>http-router-id = str,<br/>protocol-settings = allow-http10=bool \| http2-options={<br/>max-concurrent-streams = int<br/>},<br/>rewrite-request-id = bool<br/>} \| stream-handler={<br/>backend-group-id = str,<br/>idle-timeout = duration<br/>}<br/>},<br/>name = str,<br/>server-names = str,...<br/>}, ...<br/>]<br/>},<br/>name = str<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"endpoint-specs": [<br/>{<br/>"address-specs": [<br/>{<br/>"address-spec": {<br/>"external-ipv4-address-spec": {<br/>"address": "str"<br/>},<br/>"external-ipv6-address-spec": {<br/>"address": "str"<br/>},<br/>"internal-ipv4-address-spec": {<br/>"address": "str",<br/>"subnet-id": "str"<br/>}<br/>}<br/>}, ...<br/>],<br/>"ports": [<br/>"int", ...<br/>]<br/>}, ...<br/>],<br/>"listener": {<br/>"http": {<br/>"handler": {<br/>"http-router-id": "str",<br/>"protocol-settings": {<br/>"allow-http10": "bool",<br/>"http2-options": {<br/>"max-concurrent-streams": "int"<br/>}<br/>},<br/>"rewrite-request-id": "bool"<br/>},<br/>"redirects": {<br/>"http-to-https": "bool"<br/>}<br/>},<br/>"stream": {<br/>"handler": {<br/>"backend-group-id": "str",<br/>"idle-timeout": "duration"<br/>}<br/>},<br/>"tls": {<br/>"default-handler": {<br/>"certificate-ids": [<br/>"str", ...<br/>],<br/>"handler": {<br/>"http-handler": {<br/>"http-router-id": "str",<br/>"protocol-settings": {<br/>"allow-http10": "bool",<br/>"http2-options": {<br/>"max-concurrent-streams": "int"<br/>}<br/>},<br/>"rewrite-request-id": "bool"<br/>},<br/>"stream-handler": {<br/>"backend-group-id": "str",<br/>"idle-timeout": "duration"<br/>}<br/>}<br/>},<br/>"sni-handlers": [<br/>{<br/>"handler": {<br/>"certificate-ids": [<br/>"str", ...<br/>],<br/>"handler": {<br/>"http-handler": {<br/>"http-router-id": "str",<br/>"protocol-settings": {<br/>"allow-http10": "bool",<br/>"http2-options": {<br/>"max-concurrent-streams": "int"<br/>}<br/>},<br/>"rewrite-request-id": "bool"<br/>},<br/>"stream-handler": {<br/>"backend-group-id": "str",<br/>"idle-timeout": "duration"<br/>}<br/>}<br/>},<br/>"name": "str",<br/>"server-names": [<br/>"str", ...<br/>]<br/>}, ...<br/>]<br/>}<br/>},<br/>"name": "str"<br/>}, ...<br/>]"<br/>Fields:<br/>endpoint-specs -> ([]struct)<br/>Endpoints of the listener. Endpoints are defined by their IP addresses and ports.<br/>address-specs -> ([]struct)<br/>Endpoint public (external) and internal addresses.<br/>address-spec -> (oneof<external-ipv4-address-spec\|external-ipv6-address-spec\|internal-ipv4-address-spec>)<br/>Oneof address-spec field<br/>external-ipv4-address-spec -> (struct)<br/>Public IPv4 endpoint address.<br/>address -> (string)<br/>IPv4 address.<br/>internal-ipv4-address-spec -> (struct)<br/>Internal IPv4 endpoint address. To enable the use of listeners with internal addresses, documentation.<br/>address -> (string)<br/>IPv4 address.<br/>subnet-id -> (string)<br/>ID of the subnet that the address belongs to.<br/>external-ipv6-address-spec -> (struct)<br/>Public IPv6 endpoint address.<br/>address -> (string)<br/>IPv6 address.<br/>ports -> ([]int)<br/>Endpoint ports.<br/>name -> (string)<br/>Name of the listener. The name is unique within the application load balancer.<br/>listener -> (oneof<http\|stream\|tls>)<br/>Oneof listener field<br/>http -> (struct)<br/>Unencrypted HTTP listener settings.<br/>handler -> (struct)<br/>Settings for handling HTTP requests. Only one of 'handler' and [redirects] can be specified.<br/>http-router-id -> (string)<br/>ID of the HTTP router processing requests. For details about the concept, see documentation. To get the list of all available HTTP routers, make a [HttpRouterService.List] request.<br/>rewrite-request-id -> (bool)<br/>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value.<br/>protocol-settings -> (oneof<allow-http10\|http2-options>)<br/>Oneof protocol-settings field<br/>http2-options -> (struct)<br/>HTTP/2 settings. If specified, incoming HTTP/2 requests are supported by the listener.<br/>max-concurrent-streams -> (int)<br/>Maximum number of concurrent HTTP/2 streams in a connection.<br/>allow-http10 -> (bool)<br/>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.<br/>redirects -> (struct)<br/>Redirects settings. Only one of 'redirects' and [handler] can be specified.<br/>http-to-https -> (bool)<br/>Redirects all unencrypted HTTP requests to the same URI with scheme changed to 'https'. The setting has the same effect as a single, catch-all [HttpRoute] with [RedirectAction.replace_scheme] set to 'https'.<br/>tls -> (struct)<br/>TLS-encrypted HTTP or TCP stream listener settings. All handlers within a listener ([TlsListener.default_handler] and [TlsListener.sni_handlers]) must be of one type, [HttpHandler] or [StreamHandler]. Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported.<br/>default-handler -> (struct)<br/>Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the [sni_handlers].<br/>certificate-ids -> ([]string)<br/>ID's of the TLS server certificates from documentation. RSA and ECDSA certificates are supported, and only the first certificate of each type is used.<br/>handler -> (oneof<http-handler\|stream-handler>)<br/>Oneof handler field<br/>http-handler -> (struct)<br/>HTTP handler.<br/>http-router-id -> (string)<br/>ID of the HTTP router processing requests. For details about the concept, see documentation. To get the list of all available HTTP routers, make a [HttpRouterService.List] request.<br/>rewrite-request-id -> (bool)<br/>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value.<br/>protocol-settings -> (oneof<allow-http10\|http2-options>)<br/>Oneof protocol-settings field<br/>http2-options -> (struct)<br/>HTTP/2 settings. If specified, incoming HTTP/2 requests are supported by the listener.<br/>max-concurrent-streams -> (int)<br/>Maximum number of concurrent HTTP/2 streams in a connection.<br/>allow-http10 -> (bool)<br/>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.<br/>stream-handler -> (struct)<br/>Stream (TCP) handler.<br/>backend-group-id -> (string)<br/>ID of the backend group processing requests. For details about the concept, see documentation. The backend group type, specified via [BackendGroup.backend], must be 'stream'. To get the list of all available backend groups, make a [BackendGroupService.List] request.<br/>idle-timeout -> (duration)<br/>The idle timeout is duration during which no data is transmitted or received on either the upstream or downstream connection. If not configured, the default idle timeout is 1 hour. Setting it to 0 disables the timeout.<br/>sni-handlers -> ([]struct)<br/>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names] values.<br/>handler -> (struct)<br/>Settings for handling requests with Server Name Indication (SNI) matching one of [server_names] values.<br/>certificate-ids -> ([]string)<br/>ID's of the TLS server certificates from documentation. RSA and ECDSA certificates are supported, and only the first certificate of each type is used.<br/>handler -> (oneof<http-handler\|stream-handler>)<br/>Oneof handler field<br/>http-handler -> (struct)<br/>HTTP handler.<br/>http-router-id -> (string)<br/>ID of the HTTP router processing requests. For details about the concept, see documentation. To get the list of all available HTTP routers, make a [HttpRouterService.List] request.<br/>rewrite-request-id -> (bool)<br/>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value.<br/>protocol-settings -> (oneof<allow-http10\|http2-options>)<br/>Oneof protocol-settings field<br/>http2-options -> (struct)<br/>HTTP/2 settings. If specified, incoming HTTP/2 requests are supported by the listener.<br/>max-concurrent-streams -> (int)<br/>Maximum number of concurrent HTTP/2 streams in a connection.<br/>allow-http10 -> (bool)<br/>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.<br/>stream-handler -> (struct)<br/>Stream (TCP) handler.<br/>backend-group-id -> (string)<br/>ID of the backend group processing requests. For details about the concept, see documentation. The backend group type, specified via [BackendGroup.backend], must be 'stream'. To get the list of all available backend groups, make a [BackendGroupService.List] request.<br/>idle-timeout -> (duration)<br/>The idle timeout is duration during which no data is transmitted or received on either the upstream or downstream connection. If not configured, the default idle timeout is 1 hour. Setting it to 0 disables the timeout.<br/>name -> (string)<br/>Name of the SNI handler.<br/>server-names -> ([]string)<br/>Server names that are matched by the SNI handler.<br/>stream -> (struct)<br/>Unencrypted stream (TCP) listener settings.<br/>handler -> (struct)<br/>Settings for handling stream (TCP) requests.<br/>backend-group-id -> (string)<br/>ID of the backend group processing requests. For details about the concept, see documentation. The backend group type, specified via [BackendGroup.backend], must be 'stream'. To get the list of all available backend groups, make a [BackendGroupService.List] request.<br/>idle-timeout -> (duration)<br/>The idle timeout is duration during which no data is transmitted or received on either the upstream or downstream connection. If not configured, the default idle timeout is 1 hour. Setting it to 0 disables the timeout.|
-|`--load-balancer-id`|<b>`string`</b><br/>ID of the application load balancer to update. To get the application load balancer ID, make a [LoadBalancerService.List] request.|
-|`--log-options`|<b>`shorthand/json`</b><br/>Cloud logging settings of the application load balancer.<br/>Shorthand Syntax:<br/>{<br/>disable = bool,<br/>discard-rules = [<br/>{<br/>discard-percent = int,<br/>grpc-codes = OK\|CANCELLED\|UNKNOWN\|INVALID_ARGUMENT\|DEADLINE_EXCEEDED\|NOT_FOUND\|ALREADY_EXISTS\|PERMISSION_DENIED\|UNAUTHENTICATED\|RESOURCE_EXHAUSTED\|FAILED_PRECONDITION\|ABORTED\|OUT_OF_RANGE\|UNIMPLEMENTED\|INTERNAL\|UNAVAILABLE\|DATA_LOSS,...,<br/>http-code-intervals = HTTP_1XX\|HTTP_2XX\|HTTP_3XX\|HTTP_4XX\|HTTP_5XX\|HTTP_ALL,...,<br/>http-codes = int,...<br/>}, ...<br/>],<br/>log-group-id = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"disable": "bool",<br/>"discard-rules": [<br/>{<br/>"discard-percent": "int",<br/>"grpc-codes": [<br/>"OK\|CANCELLED\|UNKNOWN\|INVALID_ARGUMENT\|DEADLINE_EXCEEDED\|NOT_FOUND\|ALREADY_EXISTS\|PERMISSION_DENIED\|UNAUTHENTICATED\|RESOURCE_EXHAUSTED\|FAILED_PRECONDITION\|ABORTED\|OUT_OF_RANGE\|UNIMPLEMENTED\|INTERNAL\|UNAVAILABLE\|DATA_LOSS", ...<br/>],<br/>"http-code-intervals": [<br/>"HTTP_1XX\|HTTP_2XX\|HTTP_3XX\|HTTP_4XX\|HTTP_5XX\|HTTP_ALL", ...<br/>],<br/>"http-codes": [<br/>"int", ...<br/>]<br/>}, ...<br/>],<br/>"log-group-id": "str"<br/>}"<br/>Fields:<br/>disable -> (bool)<br/>Do not send logs to Cloud Logging log group.<br/>discard-rules -> ([]struct)<br/>ordered list of rules, first matching rule applies<br/>discard-percent -> (int)<br/>Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all<br/>grpc-codes -> ([]int)<br/>GRPC codes that should be discarded<br/>http-code-intervals -> ([]int)<br/>Groups of HTTP codes like 4xx that should be discarded.<br/>http-codes -> ([]int)<br/>HTTP codes that should be discarded.<br/>log-group-id -> (string)<br/>Cloud Logging log group ID to store access logs. If not set then logs will be stored in default log group for the folder where load balancer located.|
-|`--name`|<b>`string`</b><br/>New name for the application load balancer. The name must be unique within the folder.|
-|`--security-group-ids`|<b>`strings`</b><br/>ID's of new security groups attributed to the application load balancer. For details about the concept, see documentation. Existing list of security groups is completely replaced by the specified list, so if you just want to add or remove an allocation policy: 1. Get the current set of security groups with a [LoadBalancerService.Get] request. 2. Add or remove a group in this set. 3. Send the new set in this field.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `--allocation-policy` | `shorthand/json`
+
+New locality settings of the application load balancer. For details about the concept, see documentation. Existing locality settings are completely replaced by the specified settings, so if you just want to add or remove an allocation policy: 1. Get the current settings with a [LoadBalancerService.Get] request. 2. Add or remove a policy in this set. 3. Send the new set in this field.
+
+Shorthand Syntax:
+
+```hcl
+{
+  locations = [
+    {
+      disable-traffic = bool,
+      subnet-id = str,
+      zonal-shift-active = bool,
+      zonal-traffic-disabled = bool,
+      zone-id = str
+    }, ...
+  ]
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "locations": [
+    {
+      "disable-traffic": "bool",
+      "subnet-id": "str",
+      "zonal-shift-active": "bool",
+      "zonal-traffic-disabled": "bool",
+      "zone-id": "str"
+    }, ...
+  ]
+}
+```
+
+Fields:
+
+```
+locations -> ([]struct)
+  Availability zones and subnets that the application load balancer resides.
+  disable-traffic -> (bool)
+    Disables the load balancer node in the specified availability zone. Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent] and [LoadBalancingConfig.strict_locality] settings.
+  subnet-id -> (string)
+    ID of the subnet that the application load balancer belongs to.
+  zonal-shift-active -> (bool)
+    Show zonal shift status for the location. Deprecated: use [zonal_traffic_disabled] below to track traffic status.
+  zonal-traffic-disabled -> (bool)
+    Computed field: will be set to true if all traffic in zone is disabled either manually by user or automatically by Cloud infrastructure.
+  zone-id -> (string)
+    ID of the availability zone where the application load balancer resides. Each availability zone can only be specified once.
+``` ||
+|| `--allow-zonal-shift` | Specifies whether application load balancer is available to zonal shift. ||
+|| `--auto-scale-policy` | `shorthand/json`
+
+New scaling settings of the application load balancer. The scaling settings relate to a special internal instance group which facilitates the balancer's work. Instances in this group are called _resource units_. The group is scaled automatically based on incoming load and within limitations specified in these settings. For details about the concept, see documentation.
+
+Shorthand Syntax:
+
+```hcl
+{
+  max-size = int,
+  min-zone-size = int
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "max-size": "int",
+  "min-zone-size": "int"
+}
+```
+
+Fields:
+
+```
+max-size -> (int)
+  Upper limit for the total number of resource units across all availability zones. If a positive value is specified, it must be at least [min_zone_size] multiplied by the size of [AllocationPolicy.locations]. If the value is 0, there is no upper limit.
+min-zone-size -> (int)
+  Lower limit for the number of resource units in each availability zone. If not specified previously (using other instruments such as management console), the default value is 2. To revert to it, specify it explicitly. The minimum value is 2.
+``` ||
+|| `--description` | `string`
+
+New description of the application load balancer. ||
+|| `--labels` | `stringToString`
+
+New application load balancer labels as 'key:value' pairs. For details about the concept, see documentation. Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: 1. Get the current set of labels with a [LoadBalancerService.Get] request. 2. Add or remove a label in this set. 3. Send the new set in this field. ||
+|| `--listener-specs` | `shorthand/json`
+
+New listeners for the application load balancer. For details about the concept, see documentation. Existing list of listeners is completely replaced by the specified list, so if you just want to add, update, or remove a listener, make a [LoadBalancerService.AddListener] request, a [LoadBalancerService.UpdateListener] request, or a [LoadBalancerService.RemoveListener] request.
+
+Shorthand Syntax:
+
+```hcl
+[
+  {
+    endpoint-specs = [
+      {
+        address-specs = [
+          {
+            address-spec = external-ipv4-address-spec={
+              address = str
+            } | external-ipv6-address-spec={
+              address = str
+            } | internal-ipv4-address-spec={
+              address = str,
+              subnet-id = str
+            }
+          }, ...
+        ],
+        ports = int,...
+      }, ...
+    ],
+    listener = http={
+      handler = {
+        http-router-id = str,
+        protocol-settings = allow-http10=bool | http2-options={
+          max-concurrent-streams = int
+        },
+        rewrite-request-id = bool
+      },
+      redirects = {
+        http-to-https = bool
+      }
+    } | stream={
+      handler = {
+        backend-group-id = str,
+        idle-timeout = duration
+      }
+    } | tls={
+      default-handler = {
+        certificate-ids = str,...,
+        handler = http-handler={
+          http-router-id = str,
+          protocol-settings = allow-http10=bool | http2-options={
+            max-concurrent-streams = int
+          },
+          rewrite-request-id = bool
+        } | stream-handler={
+          backend-group-id = str,
+          idle-timeout = duration
+        }
+      },
+      sni-handlers = [
+        {
+          handler = {
+            certificate-ids = str,...,
+            handler = http-handler={
+              http-router-id = str,
+              protocol-settings = allow-http10=bool | http2-options={
+                max-concurrent-streams = int
+              },
+              rewrite-request-id = bool
+            } | stream-handler={
+              backend-group-id = str,
+              idle-timeout = duration
+            }
+          },
+          name = str,
+          server-names = str,...
+        }, ...
+      ]
+    },
+    name = str
+  }, ...
+]
+```
+
+JSON Syntax:
+
+```json
+[
+  {
+    "endpoint-specs": [
+      {
+        "address-specs": [
+          {
+            "address-spec": {
+              "external-ipv4-address-spec": {
+                "address": "str"
+              },
+              "external-ipv6-address-spec": {
+                "address": "str"
+              },
+              "internal-ipv4-address-spec": {
+                "address": "str",
+                "subnet-id": "str"
+              }
+            }
+          }, ...
+        ],
+        "ports": [
+          "int", ...
+        ]
+      }, ...
+    ],
+    "listener": {
+      "http": {
+        "handler": {
+          "http-router-id": "str",
+          "protocol-settings": {
+            "allow-http10": "bool",
+            "http2-options": {
+              "max-concurrent-streams": "int"
+            }
+          },
+          "rewrite-request-id": "bool"
+        },
+        "redirects": {
+          "http-to-https": "bool"
+        }
+      },
+      "stream": {
+        "handler": {
+          "backend-group-id": "str",
+          "idle-timeout": "duration"
+        }
+      },
+      "tls": {
+        "default-handler": {
+          "certificate-ids": [
+            "str", ...
+          ],
+          "handler": {
+            "http-handler": {
+              "http-router-id": "str",
+              "protocol-settings": {
+                "allow-http10": "bool",
+                "http2-options": {
+                  "max-concurrent-streams": "int"
+                }
+              },
+              "rewrite-request-id": "bool"
+            },
+            "stream-handler": {
+              "backend-group-id": "str",
+              "idle-timeout": "duration"
+            }
+          }
+        },
+        "sni-handlers": [
+          {
+            "handler": {
+              "certificate-ids": [
+                "str", ...
+              ],
+              "handler": {
+                "http-handler": {
+                  "http-router-id": "str",
+                  "protocol-settings": {
+                    "allow-http10": "bool",
+                    "http2-options": {
+                      "max-concurrent-streams": "int"
+                    }
+                  },
+                  "rewrite-request-id": "bool"
+                },
+                "stream-handler": {
+                  "backend-group-id": "str",
+                  "idle-timeout": "duration"
+                }
+              }
+            },
+            "name": "str",
+            "server-names": [
+              "str", ...
+            ]
+          }, ...
+        ]
+      }
+    },
+    "name": "str"
+  }, ...
+]
+```
+
+Fields:
+
+```
+endpoint-specs -> ([]struct)
+  Endpoints of the listener. Endpoints are defined by their IP addresses and ports.
+  address-specs -> ([]struct)
+    Endpoint public (external) and internal addresses.
+    address-spec -> (oneof<external-ipv4-address-spec|external-ipv6-address-spec|internal-ipv4-address-spec>)
+      Oneof address-spec field
+      external-ipv4-address-spec -> (struct)
+        Public IPv4 endpoint address.
+        address -> (string)
+          IPv4 address.
+      internal-ipv4-address-spec -> (struct)
+        Internal IPv4 endpoint address. To enable the use of listeners with internal addresses, documentation.
+        address -> (string)
+          IPv4 address.
+        subnet-id -> (string)
+          ID of the subnet that the address belongs to.
+      external-ipv6-address-spec -> (struct)
+        Public IPv6 endpoint address.
+        address -> (string)
+          IPv6 address.
+  ports -> ([]int)
+    Endpoint ports.
+name -> (string)
+  Name of the listener. The name is unique within the application load balancer.
+listener -> (oneof<http|stream|tls>)
+  Oneof listener field
+  http -> (struct)
+    Unencrypted HTTP listener settings.
+    handler -> (struct)
+      Settings for handling HTTP requests. Only one of 'handler' and [redirects] can be specified.
+      http-router-id -> (string)
+        ID of the HTTP router processing requests. For details about the concept, see documentation. To get the list of all available HTTP routers, make a [HttpRouterService.List] request.
+      rewrite-request-id -> (bool)
+        When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value.
+      protocol-settings -> (oneof<allow-http10|http2-options>)
+        Oneof protocol-settings field
+        http2-options -> (struct)
+          HTTP/2 settings. If specified, incoming HTTP/2 requests are supported by the listener.
+          max-concurrent-streams -> (int)
+            Maximum number of concurrent HTTP/2 streams in a connection.
+        allow-http10 -> (bool)
+          Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.
+    redirects -> (struct)
+      Redirects settings. Only one of 'redirects' and [handler] can be specified.
+      http-to-https -> (bool)
+        Redirects all unencrypted HTTP requests to the same URI with scheme changed to 'https'. The setting has the same effect as a single, catch-all [HttpRoute] with [RedirectAction.replace_scheme] set to 'https'.
+  tls -> (struct)
+    TLS-encrypted HTTP or TCP stream listener settings. All handlers within a listener ([TlsListener.default_handler] and [TlsListener.sni_handlers]) must be of one type, [HttpHandler] or [StreamHandler]. Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported.
+    default-handler -> (struct)
+      Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the [sni_handlers].
+      certificate-ids -> ([]string)
+        ID's of the TLS server certificates from documentation. RSA and ECDSA certificates are supported, and only the first certificate of each type is used.
+      handler -> (oneof<http-handler|stream-handler>)
+        Oneof handler field
+        http-handler -> (struct)
+          HTTP handler.
+          http-router-id -> (string)
+            ID of the HTTP router processing requests. For details about the concept, see documentation. To get the list of all available HTTP routers, make a [HttpRouterService.List] request.
+          rewrite-request-id -> (bool)
+            When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value.
+          protocol-settings -> (oneof<allow-http10|http2-options>)
+            Oneof protocol-settings field
+            http2-options -> (struct)
+              HTTP/2 settings. If specified, incoming HTTP/2 requests are supported by the listener.
+              max-concurrent-streams -> (int)
+                Maximum number of concurrent HTTP/2 streams in a connection.
+            allow-http10 -> (bool)
+              Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.
+        stream-handler -> (struct)
+          Stream (TCP) handler.
+          backend-group-id -> (string)
+            ID of the backend group processing requests. For details about the concept, see documentation. The backend group type, specified via [BackendGroup.backend], must be 'stream'. To get the list of all available backend groups, make a [BackendGroupService.List] request.
+          idle-timeout -> (duration)
+            The idle timeout is duration during which no data is transmitted or received on either the upstream or downstream connection. If not configured, the default idle timeout is 1 hour. Setting it to 0 disables the timeout.
+    sni-handlers -> ([]struct)
+      Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names] values.
+      handler -> (struct)
+        Settings for handling requests with Server Name Indication (SNI) matching one of [server_names] values.
+        certificate-ids -> ([]string)
+          ID's of the TLS server certificates from documentation. RSA and ECDSA certificates are supported, and only the first certificate of each type is used.
+        handler -> (oneof<http-handler|stream-handler>)
+          Oneof handler field
+          http-handler -> (struct)
+            HTTP handler.
+            http-router-id -> (string)
+              ID of the HTTP router processing requests. For details about the concept, see documentation. To get the list of all available HTTP routers, make a [HttpRouterService.List] request.
+            rewrite-request-id -> (bool)
+              When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value.
+            protocol-settings -> (oneof<allow-http10|http2-options>)
+              Oneof protocol-settings field
+              http2-options -> (struct)
+                HTTP/2 settings. If specified, incoming HTTP/2 requests are supported by the listener.
+                max-concurrent-streams -> (int)
+                  Maximum number of concurrent HTTP/2 streams in a connection.
+              allow-http10 -> (bool)
+                Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.
+          stream-handler -> (struct)
+            Stream (TCP) handler.
+            backend-group-id -> (string)
+              ID of the backend group processing requests. For details about the concept, see documentation. The backend group type, specified via [BackendGroup.backend], must be 'stream'. To get the list of all available backend groups, make a [BackendGroupService.List] request.
+            idle-timeout -> (duration)
+              The idle timeout is duration during which no data is transmitted or received on either the upstream or downstream connection. If not configured, the default idle timeout is 1 hour. Setting it to 0 disables the timeout.
+      name -> (string)
+        Name of the SNI handler.
+      server-names -> ([]string)
+        Server names that are matched by the SNI handler.
+  stream -> (struct)
+    Unencrypted stream (TCP) listener settings.
+    handler -> (struct)
+      Settings for handling stream (TCP) requests.
+      backend-group-id -> (string)
+        ID of the backend group processing requests. For details about the concept, see documentation. The backend group type, specified via [BackendGroup.backend], must be 'stream'. To get the list of all available backend groups, make a [BackendGroupService.List] request.
+      idle-timeout -> (duration)
+        The idle timeout is duration during which no data is transmitted or received on either the upstream or downstream connection. If not configured, the default idle timeout is 1 hour. Setting it to 0 disables the timeout.
+``` ||
+|| `--load-balancer-id` | `string`
+
+ID of the application load balancer to update. To get the application load balancer ID, make a [LoadBalancerService.List] request. ||
+|| `--log-options` | `shorthand/json`
+
+Cloud logging settings of the application load balancer.
+
+Shorthand Syntax:
+
+```hcl
+{
+  disable = bool,
+  discard-rules = [
+    {
+      discard-percent = int,
+      grpc-codes = [
+        OK|CANCELLED|UNKNOWN|INVALID_ARGUMENT|DEADLINE_EXCEEDED|NOT_FOUND|ALREADY_EXISTS|PERMISSION_DENIED|UNAUTHENTICATED|RESOURCE_EXHAUSTED|FAILED_PRECONDITION|ABORTED|OUT_OF_RANGE|UNIMPLEMENTED|INTERNAL|UNAVAILABLE|DATA_LOSS, ...
+      ],
+      http-code-intervals = [
+        HTTP_1XX|HTTP_2XX|HTTP_3XX|HTTP_4XX|HTTP_5XX|HTTP_ALL, ...
+      ],
+      http-codes = int,...
+    }, ...
+  ],
+  log-group-id = str
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "disable": "bool",
+  "discard-rules": [
+    {
+      "discard-percent": "int",
+      "grpc-codes": [
+        "OK|CANCELLED|UNKNOWN|INVALID_ARGUMENT|DEADLINE_EXCEEDED|NOT_FOUND|ALREADY_EXISTS|PERMISSION_DENIED|UNAUTHENTICATED|RESOURCE_EXHAUSTED|FAILED_PRECONDITION|ABORTED|OUT_OF_RANGE|UNIMPLEMENTED|INTERNAL|UNAVAILABLE|DATA_LOSS", ...
+      ],
+      "http-code-intervals": [
+        "HTTP_1XX|HTTP_2XX|HTTP_3XX|HTTP_4XX|HTTP_5XX|HTTP_ALL", ...
+      ],
+      "http-codes": [
+        "int", ...
+      ]
+    }, ...
+  ],
+  "log-group-id": "str"
+}
+```
+
+Fields:
+
+```
+disable -> (bool)
+  Do not send logs to Cloud Logging log group.
+discard-rules -> ([]struct)
+  ordered list of rules, first matching rule applies
+  discard-percent -> (int)
+    Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all
+  grpc-codes -> ([]struct)
+    GRPC codes that should be discarded
+  http-code-intervals -> ([]struct)
+    Groups of HTTP codes like 4xx that should be discarded.
+  http-codes -> ([]int)
+    HTTP codes that should be discarded.
+log-group-id -> (string)
+  Cloud Logging log group ID to store access logs. If not set then logs will be stored in default log group for the folder where load balancer located.
+``` ||
+|| `--name` | `string`
+
+New name for the application load balancer. The name must be unique within the folder. ||
+|| `--security-group-ids` | `strings`
+
+ID's of new security groups attributed to the application load balancer. For details about the concept, see documentation. Existing list of security groups is completely replaced by the specified list, so if you just want to add or remove an allocation policy: 1. Get the current set of security groups with a [LoadBalancerService.Get] request. 2. Add or remove a group in this set. 3. Send the new set in this field. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

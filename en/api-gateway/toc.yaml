@@ -155,6 +155,8 @@ items:
         href: tutorials/data-ingestion.md
       - name: '{{ api-gw-name }} protection with {{ sws-name }}'
         href: tutorials/api-gw-sws-integration.md
+      - name: Creating an AI agent with response streaming via web sockets
+        href: tutorials/streaming-openai-agent.md
   - name: Concepts
     items:
       - name: Resource relationships

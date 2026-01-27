@@ -2,7 +2,7 @@
 
 [User authentication](../concepts/user-authentication.md) rules determine which users and from which addresses are allowed to connect to a cluster, as well as which databases they can access.
 
-You have the following options:
+You can:
 
 * [Get a list of rules](#list-rules)
 * [Add a rule](#add-rules)
@@ -22,7 +22,8 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
     1. Click the name of your cluster and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
 
 - CLI {#cli}
@@ -57,7 +58,7 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
 - REST API {#api}   
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -77,7 +78,7 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -111,7 +112,8 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
     1. Click the name of your cluster and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_edit-rules }}**.
     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_add-rule }}** and specify its parameters:
@@ -163,7 +165,7 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
 - REST API {#api}   
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -201,7 +203,7 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -249,7 +251,8 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
     1. Click the name of your cluster and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_edit-rules }}** and update the rule parameters:
 
@@ -295,7 +298,7 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
 - REST API {#api}   
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -335,7 +338,7 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -385,7 +388,8 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
     1. Click the name of your cluster and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_edit-rules }}**.
     1. Click ![image](../../_assets/console-icons/grip.svg) for the rule and move it up or down.
@@ -399,7 +403,8 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
     1. Click the name of your cluster and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_edit-rules }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the rule and select **{{ ui-key.yacloud.common.delete }}**.
@@ -430,7 +435,7 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
 - REST API {#api}   
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -452,7 +457,7 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

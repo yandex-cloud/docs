@@ -55,7 +55,7 @@ By March 1, 2026, tools will be released for automatic revocation of inactive se
 
 Within one instance, {{ datalens-name }} will be priced as follows:
 * One seat: Free of charge.
-* Two or more seats: $8.249997 per seat per month.
+* Two or more seats: {{ sku|USD|datalens.users.v1|string }} per seat per month.
 
 Seats are counted towards the month's total. If the instance contains more than one seat, the total charge is calculated as follows:
 

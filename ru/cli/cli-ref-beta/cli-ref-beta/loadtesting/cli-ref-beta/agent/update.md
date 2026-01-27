@@ -10,36 +10,395 @@ Updates the specified agent.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta loadtesting agent update <AGENT-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`--agent-id`|<b>`string`</b><br/>ID of the agent to update.|
-|`--compute-instance-params`|<b>`shorthand/json`</b><br/>New parameters of compute instance managed by the agent.<br/>Shorthand Syntax:<br/>{<br/>boot-disk-spec = {<br/>auto-delete = bool,<br/>device-name = str,<br/>disk = disk-id=str \| disk-spec={<br/>block-size = int,<br/>description = str,<br/>disk-placement-policy = {<br/>placement-group-id = str,<br/>placement-group-partition = int<br/>},<br/>kms-key-id = str,<br/>name = str,<br/>size = int,<br/>source = image-id=str \| snapshot-id=str,<br/>type-id = str<br/>},<br/>mode = READ_ONLY\|READ_WRITE<br/>},<br/>labels = {key=str, key=...},<br/>metadata = {key=str, key=...},<br/>network-interface-specs = [<br/>{<br/>index = str,<br/>primary-v4-address-spec = {<br/>address = str,<br/>dns-record-specs = [<br/>{<br/>dns-zone-id = str,<br/>fqdn = str,<br/>ptr = bool,<br/>ttl = int<br/>}, ...<br/>],<br/>one-to-one-nat-spec = {<br/>address = str,<br/>dns-record-specs = [<br/>{<br/>dns-zone-id = str,<br/>fqdn = str,<br/>ptr = bool,<br/>ttl = int<br/>}, ...<br/>],<br/>ip-version = IPV4\|IPV6<br/>}<br/>},<br/>primary-v6-address-spec = {<br/>address = str,<br/>dns-record-specs = [<br/>{<br/>dns-zone-id = str,<br/>fqdn = str,<br/>ptr = bool,<br/>ttl = int<br/>}, ...<br/>],<br/>one-to-one-nat-spec = {<br/>address = str,<br/>dns-record-specs = [<br/>{<br/>dns-zone-id = str,<br/>fqdn = str,<br/>ptr = bool,<br/>ttl = int<br/>}, ...<br/>],<br/>ip-version = IPV4\|IPV6<br/>}<br/>},<br/>security-group-ids = str,...,<br/>subnet-id = str<br/>}, ...<br/>],<br/>platform-id = str,<br/>resources-spec = {<br/>core-fraction = int,<br/>cores = int,<br/>gpus = int,<br/>memory = int<br/>},<br/>service-account-id = str,<br/>zone-id = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"boot-disk-spec": {<br/>"auto-delete": "bool",<br/>"device-name": "str",<br/>"disk": {<br/>"disk-id": "str",<br/>"disk-spec": {<br/>"block-size": "int",<br/>"description": "str",<br/>"disk-placement-policy": {<br/>"placement-group-id": "str",<br/>"placement-group-partition": "int"<br/>},<br/>"kms-key-id": "str",<br/>"name": "str",<br/>"size": "int",<br/>"source": {<br/>"image-id": "str",<br/>"snapshot-id": "str"<br/>},<br/>"type-id": "str"<br/>}<br/>},<br/>"mode": "READ_ONLY\|READ_WRITE"<br/>},<br/>"labels": {<br/>"\<key\>": "str", ...<br/>},<br/>"metadata": {<br/>"\<key\>": "str", ...<br/>},<br/>"network-interface-specs": [<br/>{<br/>"index": "str",<br/>"primary-v4-address-spec": {<br/>"address": "str",<br/>"dns-record-specs": [<br/>{<br/>"dns-zone-id": "str",<br/>"fqdn": "str",<br/>"ptr": "bool",<br/>"ttl": "int"<br/>}, ...<br/>],<br/>"one-to-one-nat-spec": {<br/>"address": "str",<br/>"dns-record-specs": [<br/>{<br/>"dns-zone-id": "str",<br/>"fqdn": "str",<br/>"ptr": "bool",<br/>"ttl": "int"<br/>}, ...<br/>],<br/>"ip-version": "IPV4\|IPV6"<br/>}<br/>},<br/>"primary-v6-address-spec": {<br/>"address": "str",<br/>"dns-record-specs": [<br/>{<br/>"dns-zone-id": "str",<br/>"fqdn": "str",<br/>"ptr": "bool",<br/>"ttl": "int"<br/>}, ...<br/>],<br/>"one-to-one-nat-spec": {<br/>"address": "str",<br/>"dns-record-specs": [<br/>{<br/>"dns-zone-id": "str",<br/>"fqdn": "str",<br/>"ptr": "bool",<br/>"ttl": "int"<br/>}, ...<br/>],<br/>"ip-version": "IPV4\|IPV6"<br/>}<br/>},<br/>"security-group-ids": [<br/>"str", ...<br/>],<br/>"subnet-id": "str"<br/>}, ...<br/>],<br/>"platform-id": "str",<br/>"resources-spec": {<br/>"core-fraction": "int",<br/>"cores": "int",<br/>"gpus": "int",<br/>"memory": "int"<br/>},<br/>"service-account-id": "str",<br/>"zone-id": "str"<br/>}"<br/>Fields:<br/>boot-disk-spec -> (struct)<br/>Boot disk to attach to the instance.<br/>auto-delete -> (bool)<br/>Specifies whether the disk will be auto-deleted when the instance is deleted.<br/>device-name -> (string)<br/>Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. This value can be used to reference the device for mounting, resizing, and so on, from within the instance. If not specified, a random value will be generated.<br/>mode -> (enum<READ_ONLY\|READ_WRITE>)<br/>The mode in which to attach this disk.<br/>disk -> (oneof<disk-id\|disk-spec>)<br/>Oneof disk field<br/>disk-spec -> (struct)<br/>Disk specification.<br/>block-size -> (int)<br/>Block size of the disk, specified in bytes. The default is 4096.<br/>description -> (string)<br/>Description of the disk.<br/>disk-placement-policy -> (struct)<br/>Placement policy configuration.<br/>placement-group-id -> (string)<br/>Placement group ID.<br/>placement-group-partition -> (int)<br/>kms-key-id -> (string)<br/>ID of KMS key for disk encryption<br/>name -> (string)<br/>Name of the disk.<br/>size -> (int)<br/>Size of the disk, specified in bytes.<br/>type-id -> (string)<br/>ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List] request.<br/>source -> (oneof<image-id\|snapshot-id>)<br/>Oneof source field<br/>image-id -> (string)<br/>ID of the image to create the disk from.<br/>snapshot-id -> (string)<br/>ID of the snapshot to restore the disk from.<br/>disk-id -> (string)<br/>ID of the disk that should be attached.<br/>labels -> (map[string,string])<br/>Resource labels as 'key:value' pairs.<br/>metadata -> (map[string,string])<br/>The metadata 'key:value' pairs that will be assigned to this instance. This includes custom metadata and predefined keys. The total size of all keys and values must be less than 512 KB. Values are free-form strings, and only have meaning as interpreted by the programs which configure the instance. The values must be 256 KB or less. For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see documentation.<br/>network-interface-specs -> ([]struct)<br/>Network configuration for the instance. Specifies how the network interface is configured to interact with other services on the internal network and on the internet. Currently only one network interface is supported per instance.<br/>index -> (string)<br/>The index of the network interface, will be generated by the server, 0,1,2... etc if not specified.<br/>primary-v4-address-spec -> (struct)<br/>Primary IPv4 address that will be assigned to the instance for this network interface.<br/>address -> (string)<br/>An IPv4 internal network address that is assigned to the instance for this network interface. If not specified by the user, an unused internal IP is assigned by the system.<br/>dns-record-specs -> ([]struct)<br/>Internal DNS configuration<br/>dns-zone-id -> (string)<br/>DNS zone id (optional, if not set, private zone used)<br/>fqdn -> (string)<br/>FQDN (required)<br/>ptr -> (bool)<br/>When set to true, also create PTR DNS record (optional)<br/>ttl -> (int)<br/>DNS record ttl, values in 0-86400 (optional)<br/>one-to-one-nat-spec -> (struct)<br/>An external IP address configuration. If not specified, then this instance will have no external internet access.<br/>address -> (string)<br/>dns-record-specs -> ([]struct)<br/>External DNS configuration<br/>dns-zone-id -> (string)<br/>DNS zone id (optional, if not set, private zone used)<br/>fqdn -> (string)<br/>FQDN (required)<br/>ptr -> (bool)<br/>When set to true, also create PTR DNS record (optional)<br/>ttl -> (int)<br/>DNS record ttl, values in 0-86400 (optional)<br/>ip-version -> (enum<IPV4\|IPV6>)<br/>External IP address version.<br/>primary-v6-address-spec -> (struct)<br/>Primary IPv6 address that will be assigned to the instance for this network interface. IPv6 not available yet.<br/>address -> (string)<br/>An IPv4 internal network address that is assigned to the instance for this network interface. If not specified by the user, an unused internal IP is assigned by the system.<br/>dns-record-specs -> ([]struct)<br/>Internal DNS configuration<br/>dns-zone-id -> (string)<br/>DNS zone id (optional, if not set, private zone used)<br/>fqdn -> (string)<br/>FQDN (required)<br/>ptr -> (bool)<br/>When set to true, also create PTR DNS record (optional)<br/>ttl -> (int)<br/>DNS record ttl, values in 0-86400 (optional)<br/>one-to-one-nat-spec -> (struct)<br/>An external IP address configuration. If not specified, then this instance will have no external internet access.<br/>address -> (string)<br/>dns-record-specs -> ([]struct)<br/>External DNS configuration<br/>dns-zone-id -> (string)<br/>DNS zone id (optional, if not set, private zone used)<br/>fqdn -> (string)<br/>FQDN (required)<br/>ptr -> (bool)<br/>When set to true, also create PTR DNS record (optional)<br/>ttl -> (int)<br/>DNS record ttl, values in 0-86400 (optional)<br/>ip-version -> (enum<IPV4\|IPV6>)<br/>External IP address version.<br/>security-group-ids -> ([]string)<br/>ID's of security groups attached to the interface<br/>subnet-id -> (string)<br/>ID of the subnet.<br/>platform-id -> (string)<br/>ID of the documentation on which the agent will be created. Default value: "standard-v2"<br/>resources-spec -> (struct)<br/>Computing resources of the instance, such as the amount of memory and number of cores. To get a list of available values, see documentation.<br/>core-fraction -> (int)<br/>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. For example, if you need only 5% of the CPU performance, you can set core_fraction=5. For more information, see documentation.<br/>cores -> (int)<br/>The number of cores available to the instance.<br/>gpus -> (int)<br/>The number of GPUs available to the instance.<br/>memory -> (int)<br/>The amount of memory available to the instance, specified in bytes.<br/>service-account-id -> (string)<br/>ID of the service account to use for documentation. To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List] request.<br/>zone-id -> (string)<br/>ID of the availability zone where the instance resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List] request|
-|`--description`|<b>`string`</b><br/>New description of the agent.|
-|`--labels`|<b>`stringToString`</b><br/>New labels of the agent.|
-|`--name`|<b>`string`</b><br/>New name of the agent.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `--agent-id` | `string`
+
+ID of the agent to update. ||
+|| `--compute-instance-params` | `shorthand/json`
+
+New parameters of compute instance managed by the agent.
+
+Shorthand Syntax:
+
+```hcl
+{
+  boot-disk-spec = {
+    auto-delete = bool,
+    device-name = str,
+    disk = disk-id=str | disk-spec={
+      block-size = int,
+      description = str,
+      disk-placement-policy = {
+        placement-group-id = str,
+        placement-group-partition = int
+      },
+      kms-key-id = str,
+      name = str,
+      size = int,
+      source = image-id=str | snapshot-id=str,
+      type-id = str
+    },
+    mode = READ_ONLY|READ_WRITE
+  },
+  labels = {key=str, key=...},
+  metadata = {key=str, key=...},
+  network-interface-specs = [
+    {
+      index = str,
+      primary-v4-address-spec = {
+        address = str,
+        dns-record-specs = [
+          {
+            dns-zone-id = str,
+            fqdn = str,
+            ptr = bool,
+            ttl = int
+          }, ...
+        ],
+        one-to-one-nat-spec = {
+          address = str,
+          dns-record-specs = [
+            {
+              dns-zone-id = str,
+              fqdn = str,
+              ptr = bool,
+              ttl = int
+            }, ...
+          ],
+          ip-version = IPV4|IPV6
+        }
+      },
+      primary-v6-address-spec = {
+        address = str,
+        dns-record-specs = [
+          {
+            dns-zone-id = str,
+            fqdn = str,
+            ptr = bool,
+            ttl = int
+          }, ...
+        ],
+        one-to-one-nat-spec = {
+          address = str,
+          dns-record-specs = [
+            {
+              dns-zone-id = str,
+              fqdn = str,
+              ptr = bool,
+              ttl = int
+            }, ...
+          ],
+          ip-version = IPV4|IPV6
+        }
+      },
+      security-group-ids = str,...,
+      subnet-id = str
+    }, ...
+  ],
+  platform-id = str,
+  resources-spec = {
+    core-fraction = int,
+    cores = int,
+    gpus = int,
+    memory = int
+  },
+  service-account-id = str,
+  zone-id = str
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "boot-disk-spec": {
+    "auto-delete": "bool",
+    "device-name": "str",
+    "disk": {
+      "disk-id": "str",
+      "disk-spec": {
+        "block-size": "int",
+        "description": "str",
+        "disk-placement-policy": {
+          "placement-group-id": "str",
+          "placement-group-partition": "int"
+        },
+        "kms-key-id": "str",
+        "name": "str",
+        "size": "int",
+        "source": {
+          "image-id": "str",
+          "snapshot-id": "str"
+        },
+        "type-id": "str"
+      }
+    },
+    "mode": "READ_ONLY|READ_WRITE"
+  },
+  "labels": {
+    "<key>": "str", ...
+  },
+  "metadata": {
+    "<key>": "str", ...
+  },
+  "network-interface-specs": [
+    {
+      "index": "str",
+      "primary-v4-address-spec": {
+        "address": "str",
+        "dns-record-specs": [
+          {
+            "dns-zone-id": "str",
+            "fqdn": "str",
+            "ptr": "bool",
+            "ttl": "int"
+          }, ...
+        ],
+        "one-to-one-nat-spec": {
+          "address": "str",
+          "dns-record-specs": [
+            {
+              "dns-zone-id": "str",
+              "fqdn": "str",
+              "ptr": "bool",
+              "ttl": "int"
+            }, ...
+          ],
+          "ip-version": "IPV4|IPV6"
+        }
+      },
+      "primary-v6-address-spec": {
+        "address": "str",
+        "dns-record-specs": [
+          {
+            "dns-zone-id": "str",
+            "fqdn": "str",
+            "ptr": "bool",
+            "ttl": "int"
+          }, ...
+        ],
+        "one-to-one-nat-spec": {
+          "address": "str",
+          "dns-record-specs": [
+            {
+              "dns-zone-id": "str",
+              "fqdn": "str",
+              "ptr": "bool",
+              "ttl": "int"
+            }, ...
+          ],
+          "ip-version": "IPV4|IPV6"
+        }
+      },
+      "security-group-ids": [
+        "str", ...
+      ],
+      "subnet-id": "str"
+    }, ...
+  ],
+  "platform-id": "str",
+  "resources-spec": {
+    "core-fraction": "int",
+    "cores": "int",
+    "gpus": "int",
+    "memory": "int"
+  },
+  "service-account-id": "str",
+  "zone-id": "str"
+}
+```
+
+Fields:
+
+```
+boot-disk-spec -> (struct)
+  Boot disk to attach to the instance.
+  auto-delete -> (bool)
+    Specifies whether the disk will be auto-deleted when the instance is deleted.
+  device-name -> (string)
+    Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. This value can be used to reference the device for mounting, resizing, and so on, from within the instance. If not specified, a random value will be generated.
+  mode -> (struct)
+    The mode in which to attach this disk.
+  disk -> (oneof<disk-id|disk-spec>)
+    Oneof disk field
+    disk-spec -> (struct)
+      Disk specification.
+      block-size -> (int)
+        Block size of the disk, specified in bytes. The default is 4096.
+      description -> (string)
+        Description of the disk.
+      disk-placement-policy -> (struct)
+        Placement policy configuration.
+        placement-group-id -> (string)
+          Placement group ID.
+        placement-group-partition -> (int)
+      kms-key-id -> (string)
+        ID of KMS key for disk encryption
+      name -> (string)
+        Name of the disk.
+      size -> (int)
+        Size of the disk, specified in bytes.
+      type-id -> (string)
+        ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List] request.
+      source -> (oneof<image-id|snapshot-id>)
+        Oneof source field
+        image-id -> (string)
+          ID of the image to create the disk from.
+        snapshot-id -> (string)
+          ID of the snapshot to restore the disk from.
+    disk-id -> (string)
+      ID of the disk that should be attached.
+labels -> (map[string,string])
+  Resource labels as 'key:value' pairs.
+metadata -> (map[string,string])
+  The metadata 'key:value' pairs that will be assigned to this instance. This includes custom metadata and predefined keys. The total size of all keys and values must be less than 512 KB. Values are free-form strings, and only have meaning as interpreted by the programs which configure the instance. The values must be 256 KB or less. For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see documentation.
+network-interface-specs -> ([]struct)
+  Network configuration for the instance. Specifies how the network interface is configured to interact with other services on the internal network and on the internet. Currently only one network interface is supported per instance.
+  index -> (string)
+    The index of the network interface, will be generated by the server, 0,1,2... etc if not specified.
+  primary-v4-address-spec -> (struct)
+    Primary IPv4 address that will be assigned to the instance for this network interface.
+    address -> (string)
+      An IPv4 internal network address that is assigned to the instance for this network interface. If not specified by the user, an unused internal IP is assigned by the system.
+    dns-record-specs -> ([]struct)
+      Internal DNS configuration
+      dns-zone-id -> (string)
+        DNS zone id (optional, if not set, private zone used)
+      fqdn -> (string)
+        FQDN (required)
+      ptr -> (bool)
+        When set to true, also create PTR DNS record (optional)
+      ttl -> (int)
+        DNS record ttl, values in 0-86400 (optional)
+    one-to-one-nat-spec -> (struct)
+      An external IP address configuration. If not specified, then this instance will have no external internet access.
+      address -> (string)
+      dns-record-specs -> ([]struct)
+        External DNS configuration
+        dns-zone-id -> (string)
+          DNS zone id (optional, if not set, private zone used)
+        fqdn -> (string)
+          FQDN (required)
+        ptr -> (bool)
+          When set to true, also create PTR DNS record (optional)
+        ttl -> (int)
+          DNS record ttl, values in 0-86400 (optional)
+      ip-version -> (struct)
+        External IP address version.
+  primary-v6-address-spec -> (struct)
+    Primary IPv6 address that will be assigned to the instance for this network interface. IPv6 not available yet.
+    address -> (string)
+      An IPv4 internal network address that is assigned to the instance for this network interface. If not specified by the user, an unused internal IP is assigned by the system.
+    dns-record-specs -> ([]struct)
+      Internal DNS configuration
+      dns-zone-id -> (string)
+        DNS zone id (optional, if not set, private zone used)
+      fqdn -> (string)
+        FQDN (required)
+      ptr -> (bool)
+        When set to true, also create PTR DNS record (optional)
+      ttl -> (int)
+        DNS record ttl, values in 0-86400 (optional)
+    one-to-one-nat-spec -> (struct)
+      An external IP address configuration. If not specified, then this instance will have no external internet access.
+      address -> (string)
+      dns-record-specs -> ([]struct)
+        External DNS configuration
+        dns-zone-id -> (string)
+          DNS zone id (optional, if not set, private zone used)
+        fqdn -> (string)
+          FQDN (required)
+        ptr -> (bool)
+          When set to true, also create PTR DNS record (optional)
+        ttl -> (int)
+          DNS record ttl, values in 0-86400 (optional)
+      ip-version -> (struct)
+        External IP address version.
+  security-group-ids -> ([]string)
+    ID's of security groups attached to the interface
+  subnet-id -> (string)
+    ID of the subnet.
+platform-id -> (string)
+  ID of the documentation on which the agent will be created. Default value: "standard-v2"
+resources-spec -> (struct)
+  Computing resources of the instance, such as the amount of memory and number of cores. To get a list of available values, see documentation.
+  core-fraction -> (int)
+    Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. For example, if you need only 5% of the CPU performance, you can set core_fraction=5. For more information, see documentation.
+  cores -> (int)
+    The number of cores available to the instance.
+  gpus -> (int)
+    The number of GPUs available to the instance.
+  memory -> (int)
+    The amount of memory available to the instance, specified in bytes.
+service-account-id -> (string)
+  ID of the service account to use for documentation. To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List] request.
+zone-id -> (string)
+  ID of the availability zone where the instance resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List] request
+``` ||
+|| `--description` | `string`
+
+New description of the agent. ||
+|| `--labels` | `stringToString`
+
+New labels of the agent. ||
+|| `--name` | `string`
+
+New name of the agent. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

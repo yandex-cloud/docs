@@ -24,21 +24,21 @@ When creating a version, set the following parameters:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function whose version you want to create.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
     1. Select the [runtime environment](../../concepts/runtime/index.md). Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Prepare the function code:
-       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `nodejs18`
-       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
-       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: `hello-js.zip`
-       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `nodejs18`.
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: `hello-js.zip`.
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
     1. Set the version parameters:
-       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`
-       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
-       * [**{{ ui-key.yacloud.forms.label_service-account-select }}**](../../../iam/concepts/users/service-accounts.md): `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`
-       * [**{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**](../../concepts/runtime/environment-variables.md): `{{ ui-key.yacloud.common.not-selected }}`
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`.
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+       * [**{{ ui-key.yacloud.forms.label_service-account-select }}**](../../../iam/concepts/users/service-accounts.md): `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`.
+       * [**{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**](../../concepts/runtime/environment-variables.md): `{{ ui-key.yacloud.common.not-selected }}`.
     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}

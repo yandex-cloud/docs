@@ -23,10 +23,10 @@ You can add a password to an already created registry or set it when creating a 
    To add a password to an existing registry:
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to ad a password for an existing registry.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. Under **{{ ui-key.yacloud.iot.label_passwords }}**, click **{{ ui-key.yacloud.iot.button_add-password }}**.
-   1. In the **{{ ui-key.yacloud.common.password }}** field, enter the password you will use to access the registry.<br/>To create a password, you can use the [password generator](https://passwordsgenerator.net/).<br/>Make sure to save your password, as you will need it later.
+   1. In the **{{ ui-key.yacloud.common.password }}** field, enter the password you will be using to access your registry.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create a password.<br/>Make sure you save the password, as you will need it later.
    1. Click **{{ ui-key.yacloud.common.add }}**.
 
 - CLI {#cli}
@@ -69,7 +69,7 @@ You can add a password to an already created registry or set it when creating a 
 
   To add a password to a registry created using {{ TF }}:
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      * `yandex_iot_core_registry`: Registry parameters:
        * `name`: Registry name.
@@ -111,14 +111,14 @@ You can add a password to an already created registry or set it when creating a 
       terraform plan
       ```
   
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
       ```bash
       terraform apply
       ```
      
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
       You can verify registry passwords using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
@@ -182,7 +182,7 @@ You can add a password to an already created registry or set it when creating a 
    To view the list of registry passwords:
 
    1. In the [management console]({{ link-console-main }}), select the folder to get the list of registry passwords for.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_passwords }}** section.
 
@@ -238,7 +238,7 @@ You can add a password to an already created registry or set it when creating a 
    To delete a registry password:
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the registry password from.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. In the row with the password, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
@@ -291,7 +291,7 @@ You can add a password to an already created registry or set it when creating a 
 
   To delete the password of a registry created using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and delete the password value in the `passwords` section, in the registry description fragment. To delete all passwords, delete the entire `passwords` section.
+  1. Open the {{ TF }} configuration file and delete the value of the password in the `passwords` section, in the segment with the registry description. To delete all passwords, delete the entire `passwords` section.
 
       Example registry description in the {{ TF }} configuration:
 
@@ -328,14 +328,14 @@ You can add a password to an already created registry or set it when creating a 
       terraform plan
       ```
   
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
       ```bash
       terraform apply
       ```
      
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
       You can verify registry passwords using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
@@ -347,4 +347,4 @@ You can add a password to an already created registry or set it when creating a 
 
   To delete a registry password, use the [deletePassword](../../api-ref/Registry/deletePassword.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/DeletePassword](../../api-ref/grpc/Registry/deletePassword.md) gRPC API call.
 
-{% endlist %}
+{% endlist %}       

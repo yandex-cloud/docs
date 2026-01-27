@@ -4,10 +4,10 @@
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with your container.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with your [container](../../serverless-containers/concepts/container.md).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container whose [revision](../../serverless-containers/concepts/container.md#revision) you want to create.
-  1. Go to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
   1. Under **{{ ui-key.yacloud.serverless-containers.section_image }}**:
       * Specify the {{ container-registry-full-name }} Docker image URL.
       * Additionally specify the revision parameters, if needed:
@@ -106,9 +106,9 @@
      * `args`: Arguments matching the `CMD` instruction in the Dockerfile. Specify them in `key = value` format separated by commas. If you do not specify this parameter, the default CMD value from the Docker image will be used.
      * `work_dir`: Allows you to change the working directory of a container. It matches the `WORKDIR` instruction in the Dockerfile. We recommend setting absolute paths to folders.
 
-     For more information about the `yandex_serverless_container` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/serverless_container).
+     For more information about the `yandex_serverless_container` settings, see this [{{ TF }} guide]({{ tf-provider-resources-link }}/serverless_container).
 
-  1. Create resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

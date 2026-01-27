@@ -2,7 +2,7 @@
 title: '{{ VLK }} backups'
 description: '{{ mrd-short-name }} supports automatic and manual {{ VLK }} database backups. A backup of all cluster data (an RDB snapshot) is automatically created every day. You can set the backup start time when creating or updating a {{ VLK }} cluster.'
 keywords:
-  - backup
+  - backups
   - back up
   - backup
   - backing up
@@ -17,7 +17,9 @@ keywords:
 
 {{ mrd-short-name }} uses AOF (append-only file) with forced write to disk every second through the [appendfsync everysec](https://github.com/valkey-io/valkey/blob/unstable/valkey.conf) parameter.
 
-A backup of all cluster data (an RDB snapshot) is automatically created every day and stored for seven days. You cannot disable automatic backups or change the retention period.
+A backup of all cluster data (an RDB snapshot) is automatically created every day and stored for seven days. You cannot disable automatic backups or change their retention period.
+
+{% include [deprecated-note](../../_includes/mdb/backups/deprecated-note.md) %}
 
 To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md).
 
@@ -44,9 +46,9 @@ To avoid crashes:
 
 Backups are only created on running clusters. If you are not using your {{ mrd-short-name }} cluster 24/7, check the [settings of backup start time](../operations/update.md#change-additional-settings).
 
-For more information about creating a backup manually, see [Managing backups](../operations/cluster-backups.md).
+Learn about creating manual backups in [Managing backups](../operations/cluster-backups.md).
 
-## Storing backups {#storage}
+## Storing a backup {#storage}
 
 Storing backups in {{ mrd-name }}:
 
@@ -58,8 +60,8 @@ Storing backups in {{ mrd-name }}:
 
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
 
-   For more information, see the [{{ mrd-name }} pricing policy](../pricing.md#rules-storage).
+    For more information, see the [{{ mrd-name }} pricing policy](../pricing.md#rules-storage).
 
-## Checking backup recovery {#capabilities}
+## Testing recovery from a backup {#capabilities}
 
-To test how backup works, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.
+To test how backup works, [restore a cluster from a backup](../operations/cluster-backups.md) and check your data for integrity.

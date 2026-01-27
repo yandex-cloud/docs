@@ -10,44 +10,336 @@ Creates a Spark cluster.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta managed-spark cluster create <FOLDER-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--config`|<b>`shorthand/json`</b><br/><br/>Shorthand Syntax:<br/>{<br/>dependencies = {<br/>deb-packages = str,...,<br/>pip-packages = str,...<br/>},<br/>history-server = {<br/>enabled = bool<br/>},<br/>metastore = {<br/>cluster-id = str<br/>},<br/>resource-pools = {<br/>driver = {<br/>resource-preset-id = str,<br/>scale-policy = {<br/>scale-type = auto-scale={<br/>max-size = int,<br/>min-size = int<br/>} \| fixed-scale={<br/>size = int<br/>}<br/>}<br/>},<br/>executor = {<br/>resource-preset-id = str,<br/>scale-policy = {<br/>scale-type = auto-scale={<br/>max-size = int,<br/>min-size = int<br/>} \| fixed-scale={<br/>size = int<br/>}<br/>}<br/>}<br/>},<br/>spark-version = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"dependencies": {<br/>"deb-packages": [<br/>"str", ...<br/>],<br/>"pip-packages": [<br/>"str", ...<br/>]<br/>},<br/>"history-server": {<br/>"enabled": "bool"<br/>},<br/>"metastore": {<br/>"cluster-id": "str"<br/>},<br/>"resource-pools": {<br/>"driver": {<br/>"resource-preset-id": "str",<br/>"scale-policy": {<br/>"scale-type": {<br/>"auto-scale": {<br/>"max-size": "int",<br/>"min-size": "int"<br/>},<br/>"fixed-scale": {<br/>"size": "int"<br/>}<br/>}<br/>}<br/>},<br/>"executor": {<br/>"resource-preset-id": "str",<br/>"scale-policy": {<br/>"scale-type": {<br/>"auto-scale": {<br/>"max-size": "int",<br/>"min-size": "int"<br/>},<br/>"fixed-scale": {<br/>"size": "int"<br/>}<br/>}<br/>}<br/>}<br/>},<br/>"spark-version": "str"<br/>}"<br/>Fields:<br/>dependencies -> (struct)<br/>Container custom environment dependencies<br/>deb-packages -> ([]string)<br/>pip-packages -> ([]string)<br/>history-server -> (struct)<br/>Configuration for HistoryServer<br/>enabled -> (bool)<br/>metastore -> (struct)<br/>Metastore Cluster<br/>cluster-id -> (string)<br/>resource-pools -> (struct)<br/>driver -> (struct)<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources allocated to a instance (e.g., CPU, memory, etc.).<br/>scale-policy -> (struct)<br/>scale-type -> (oneof<auto-scale\|fixed-scale>)<br/>Oneof scale-type field<br/>fixed-scale -> (struct)<br/>size -> (int)<br/>auto-scale -> (struct)<br/>max-size -> (int)<br/>min-size -> (int)<br/>executor -> (struct)<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources allocated to a instance (e.g., CPU, memory, etc.).<br/>scale-policy -> (struct)<br/>scale-type -> (oneof<auto-scale\|fixed-scale>)<br/>Oneof scale-type field<br/>fixed-scale -> (struct)<br/>size -> (int)<br/>auto-scale -> (struct)<br/>max-size -> (int)<br/>min-size -> (int)<br/>spark-version -> (string)<br/>Spark version. Format: "Major.Minor"|
-|`--deletion-protection`|Deletion Protection inhibits deletion of the cluster|
-|`--description`|<b>`string`</b><br/>Description of the Spark cluster. 0-256 characters long.|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to create Spark cluster in.|
-|`--labels`|<b>`stringToString`</b><br/>|
-|`--logging`|<b>`shorthand/json`</b><br/>Cloud logging configuration<br/>Shorthand Syntax:<br/>{<br/>destination = folder-id=str \| log-group-id=str,<br/>enabled = bool<br/>}<br/>JSON Syntax:<br/>"{<br/>"destination": {<br/>"folder-id": "str",<br/>"log-group-id": "str"<br/>},<br/>"enabled": "bool"<br/>}"<br/>Fields:<br/>enabled -> (bool)<br/>destination -> (oneof<folder-id\|log-group-id>)<br/>Oneof destination field<br/>folder-id -> (string)<br/>log-group-id -> (string)|
-|`--maintenance-window`|<b>`shorthand/json`</b><br/>Window of maintenance operations.<br/>Shorthand Syntax:<br/>{<br/>policy = anytime={} \| weekly-maintenance-window={<br/>day = MON\|TUE\|WED\|THU\|FRI\|SAT\|SUN,<br/>hour = int<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"policy": {<br/>"anytime": {},<br/>"weekly-maintenance-window": {<br/>"day": "MON\|TUE\|WED\|THU\|FRI\|SAT\|SUN",<br/>"hour": "int"<br/>}<br/>}<br/>}"<br/>Fields:<br/>policy -> (oneof<anytime\|weekly-maintenance-window>)<br/>Oneof policy field<br/>anytime -> (struct)<br/>weekly-maintenance-window -> (struct)<br/>day -> (enum<FRI\|MON\|SAT\|SUN\|THU\|TUE\|WED>)<br/>hour -> (int)<br/>Hour of the day in UTC.|
-|`--name`|<b>`string`</b><br/>Name of the Spark cluster. The name must be unique within the folder.|
-|`--network`|<b>`shorthand/json`</b><br/><br/>Shorthand Syntax:<br/>{<br/>security-group-ids = str,...,<br/>subnet-ids = str,...<br/>}<br/>JSON Syntax:<br/>"{<br/>"security-group-ids": [<br/>"str", ...<br/>],<br/>"subnet-ids": [<br/>"str", ...<br/>]<br/>}"<br/>Fields:<br/>security-group-ids -> ([]string)<br/>User security groups<br/>subnet-ids -> ([]string)<br/>IDs of VPC network subnets where instances of the cluster are attached.|
-|`--service-account-id`|<b>`string`</b><br/>Service account that will be used to access YC resources|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-json > request.json
+2. Edit the template: vim request.json
+3. Run with template: yc beta compute instance create -r request.json ||
+|| `--example-yaml` | Generates a YAML template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-yaml > request.yaml
+2. Edit the template: vim request.yaml
+3. Run with template: yc beta compute instance create -r request.yaml ||
+|| `--config` | `shorthand/json`
+
+Shorthand Syntax:
+
+```hcl
+{
+  dependencies = {
+    deb-packages = str,...,
+    pip-packages = str,...
+  },
+  history-server = {
+    enabled = bool
+  },
+  metastore = {
+    cluster-id = str
+  },
+  resource-pools = {
+    driver = {
+      resource-preset-id = str,
+      scale-policy = {
+        scale-type = auto-scale={
+          max-size = int,
+          min-size = int
+        } | fixed-scale={
+          size = int
+        }
+      }
+    },
+    executor = {
+      resource-preset-id = str,
+      scale-policy = {
+        scale-type = auto-scale={
+          max-size = int,
+          min-size = int
+        } | fixed-scale={
+          size = int
+        }
+      }
+    }
+  },
+  spark-version = str
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "dependencies": {
+    "deb-packages": [
+      "str", ...
+    ],
+    "pip-packages": [
+      "str", ...
+    ]
+  },
+  "history-server": {
+    "enabled": "bool"
+  },
+  "metastore": {
+    "cluster-id": "str"
+  },
+  "resource-pools": {
+    "driver": {
+      "resource-preset-id": "str",
+      "scale-policy": {
+        "scale-type": {
+          "auto-scale": {
+            "max-size": "int",
+            "min-size": "int"
+          },
+          "fixed-scale": {
+            "size": "int"
+          }
+        }
+      }
+    },
+    "executor": {
+      "resource-preset-id": "str",
+      "scale-policy": {
+        "scale-type": {
+          "auto-scale": {
+            "max-size": "int",
+            "min-size": "int"
+          },
+          "fixed-scale": {
+            "size": "int"
+          }
+        }
+      }
+    }
+  },
+  "spark-version": "str"
+}
+```
+
+Fields:
+
+```
+dependencies -> (struct)
+  Container custom environment dependencies
+  deb-packages -> ([]string)
+  pip-packages -> ([]string)
+history-server -> (struct)
+  Configuration for HistoryServer
+  enabled -> (bool)
+metastore -> (struct)
+  Metastore Cluster
+  cluster-id -> (string)
+resource-pools -> (struct)
+  driver -> (struct)
+    resource-preset-id -> (string)
+      ID of the preset for computational resources allocated to a instance (e.g., CPU, memory, etc.).
+    scale-policy -> (struct)
+      scale-type -> (oneof<auto-scale|fixed-scale>)
+        Oneof scale-type field
+        fixed-scale -> (struct)
+          size -> (int)
+        auto-scale -> (struct)
+          max-size -> (int)
+          min-size -> (int)
+  executor -> (struct)
+    resource-preset-id -> (string)
+      ID of the preset for computational resources allocated to a instance (e.g., CPU, memory, etc.).
+    scale-policy -> (struct)
+      scale-type -> (oneof<auto-scale|fixed-scale>)
+        Oneof scale-type field
+        fixed-scale -> (struct)
+          size -> (int)
+        auto-scale -> (struct)
+          max-size -> (int)
+          min-size -> (int)
+spark-version -> (string)
+  Spark version. Format: "Major.Minor"
+``` ||
+|| `--deletion-protection` | Deletion Protection inhibits deletion of the cluster ||
+|| `--description` | `string`
+
+Description of the Spark cluster. 0-256 characters long. ||
+|| `--folder-id` | `string`
+
+ID of the folder to create Spark cluster in. ||
+|| `--labels` | `stringToString`
+
+ ||
+|| `--logging` | `shorthand/json`
+
+Cloud logging configuration
+
+Shorthand Syntax:
+
+```hcl
+{
+  destination = folder-id=str | log-group-id=str,
+  enabled = bool
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "destination": {
+    "folder-id": "str",
+    "log-group-id": "str"
+  },
+  "enabled": "bool"
+}
+```
+
+Fields:
+
+```
+enabled -> (bool)
+destination -> (oneof<folder-id|log-group-id>)
+  Oneof destination field
+  folder-id -> (string)
+  log-group-id -> (string)
+``` ||
+|| `--maintenance-window` | `shorthand/json`
+
+Window of maintenance operations.
+
+Shorthand Syntax:
+
+```hcl
+{
+  policy = anytime={} | weekly-maintenance-window={
+    day = MON|TUE|WED|THU|FRI|SAT|SUN,
+    hour = int
+  }
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "policy": {
+    "anytime": {},
+    "weekly-maintenance-window": {
+      "day": "MON|TUE|WED|THU|FRI|SAT|SUN",
+      "hour": "int"
+    }
+  }
+}
+```
+
+Fields:
+
+```
+policy -> (oneof<anytime|weekly-maintenance-window>)
+  Oneof policy field
+  anytime -> (struct)
+  weekly-maintenance-window -> (struct)
+    day -> (struct)
+    hour -> (int)
+      Hour of the day in UTC.
+``` ||
+|| `--name` | `string`
+
+Name of the Spark cluster. The name must be unique within the folder. ||
+|| `--network` | `shorthand/json`
+
+Shorthand Syntax:
+
+```hcl
+{
+  security-group-ids = str,...,
+  subnet-ids = str,...
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "security-group-ids": [
+    "str", ...
+  ],
+  "subnet-ids": [
+    "str", ...
+  ]
+}
+```
+
+Fields:
+
+```
+security-group-ids -> ([]string)
+  User security groups
+subnet-ids -> ([]string)
+  IDs of VPC network subnets where instances of the cluster are attached.
+``` ||
+|| `--service-account-id` | `string`
+
+Service account that will be used to access YC resources ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

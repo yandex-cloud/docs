@@ -11,7 +11,7 @@ Create and run a user welcome [function](../../concepts/function.md) in Kotlin.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
     1. Enter the function name: `kotlin-function`.
     1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -80,18 +80,18 @@ Create and run a user welcome [function](../../concepts/function.md) in Kotlin.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the `kotlin-function` function.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
     1. Select the `{{ kotlin-full-ver }}` runtime environment.
     1. Disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Set the version parameters:
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: Attach `hello-kotlin.zip`
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `Handler`
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `3`
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
-        * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: Attach `hello-kotlin.zip`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `Handler`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `3`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+        * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`.
     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
@@ -149,7 +149,7 @@ Create and run a user welcome [function](../../concepts/function.md) in Kotlin.
 
 {% endlist %}
 
-## Invoke the function {#invoke}
+## Invoking a function {#invoke}
 
 {% note info %}
 
@@ -162,7 +162,7 @@ To allow any user to invoke your function, [make it public](../../operations/fun
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select a function.
     1. Navigate to the ![CirclePlay](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
     1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_tag }}** field, specify `$latest` to invoke the latest function version.

@@ -10,7 +10,7 @@ description: Follow this guide to create a {{ cloud-registry-name }} registry.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a registry in.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
     1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud.cloud-registry.title_registries }}**.
     1. In the top-right corner, click **{{ ui-key.yacloud.cloud-registry.action_registry-create }}**.
     1. Select the registry format.
@@ -82,7 +82,7 @@ description: Follow this guide to create a {{ cloud-registry-name }} registry.
             * `source`: Source registry. The possible values depend on the registry format, e.g., `@maven-central` for `maven` or `@npmjs` for `npm`.
             * `authorizationType`: Authorization type. Possible values: `none` and `basic`. The default value is `none`. Available only for a registry in `docker` format.
             * `authorizationSecretId`: ID of the user secret that stores the token or password. It is required if the `authorizationType` is `basic`. Available only for a registry in `docker` format.
-            * `authorizationUsername`: Username. It is required if the `authorizationType` is `basic`. Available only for a registry in `docker` format.
+            * `authorizationUsername`: Username. It is required if `authorizationType` is `basic`. Available only for a registry in `docker` format.
         * For `virtual` registries:
             * `registryIds`: List of local and remote registry IDs in the order of their traversal. Provide in `registryIds=registry1;registry2` format.
             * `readOnly`: Permission to push artifacts to the registry. Possible values: `true` to deny or `false` to allow pushing.

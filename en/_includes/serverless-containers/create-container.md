@@ -2,10 +2,10 @@
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [container](../../serverless-containers/concepts/container.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [container](../../serverless-containers/concepts/container.md).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Click **{{ ui-key.yacloud.serverless-containers.button_create-container }}**.
-  1. Enter a name and a description for the container. The name format is as follows:
+  1. Enter a name and a description for the container. Follow these naming requirements:
 
      {% include [name-format](../../_includes/name-format.md) %}
 
@@ -48,8 +48,8 @@
 
   {% endnote %}
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
-     * `name`: Container name. This is a required parameter. The naming requirements are as follows:
+  1. In the configuration file, describe the resources you want to create:
+     * `name`: Container name. This is a required parameter. Follow these naming requirements:
 
        {% include [name-format](../../_includes/name-format.md) %}
 
@@ -77,17 +77,17 @@
      >}
      >```
 
-     For more information about the `yandex_serverless_container` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/serverless_container).
+     For more information about the `yandex_serverless_container` settings, see this [{{ TF }} guide]({{ tf-provider-resources-link }}/serverless_container).
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Deploy cloud resources.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
         ```bash
@@ -96,7 +96,7 @@
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-        All the resources you need will then be created in the specified [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+        This will create all the resources you need in the specified [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
         ```bash
         yc serverless container list

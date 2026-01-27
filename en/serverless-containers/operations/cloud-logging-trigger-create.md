@@ -6,7 +6,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
 {% include [trigger-before-you-begin](../../_includes/serverless-containers/trigger-before-you-begin.md) %}
 
-* A log group that activates the trigger when entries are added there. If you do not have a log group, [create one](../../logging/operations/create-group.md).
+* Log group for which a trigger will fire when entries are added to it. If you do not have a log group, [create one](../../logging/operations/create-group.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -16,9 +16,9 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder you want to create a trigger in.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -145,8 +145,8 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
           resource_ids   = [ "<resource_ID>" ]
           stream_names   = [ "<log_stream>" ]
           levels         = [ "logging_level", "logging_level" ]
-          batch_cutoff   = "<maximum_timeout>"
-          batch_size     = "<message_group_size>"
+          batch_cutoff   = "<maximum_wait_time>"
+          batch_size     = "<message_batch_size>"
         }
         dlq {
          queue_id           = "<dead-letter_queue_ID>"
@@ -171,19 +171,19 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
         * `group_id`: ID of the log group that will invoke a container when entries are added to it.
         * `resource_types`: Types of resources, e.g., of the {{ sf-name }} function. This is an optional parameter.
-        * `resource_ids`: IDs of your resources or {{ yandex-cloud }} resources, e.g., of the {{ sf-name }} functions. This is an optional parameter.
+        * `resource_ids`: IDs of your resources or {{ yandex-cloud }} resources, e.g., {{ sf-name }} functions. This is an optional parameter.
         * `stream_names`: Log streams. This is an optional parameter.
         * `levels`: Logging levels. This is an optional parameter.
 
-          A trigger fires when the specified log group receives entries that comply with all of the following parameters: `resource_ids`, `resource_types`, `stream_names`, and `levels`. If a parameter is not specified, the trigger fires for any value of the parameter.
+          A trigger fires when the specified log group receives entries that comply with all of the following parameters: `resource_ids`, `resource_types`, `stream_names`, and `levels`. If the parameter is not specified, the trigger fires for any value.
 
         {% include [tf-batch-msg-params](../../_includes/serverless-containers/tf-batch-msg-params.md) %}
 
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-      For more information about resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+      For more information about resource properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function_trigger).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

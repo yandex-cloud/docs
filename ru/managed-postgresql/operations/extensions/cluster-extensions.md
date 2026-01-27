@@ -25,6 +25,8 @@
 * `pglogical` — необходима для работы [расширения pglogical](https://github.com/2ndQuadrant/pglogical);
 * `timescaledb` — необходима для работы [расширения TimescaleDB](https://github.com/timescale/timescaledb).
 
+Чтобы объявить библиотеку в {{ TF }}-манифесте, укажите ее название в формате `SHARED_PRELOAD_LIBRARIES_<название_библиотеки>`. Например, `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`.
+
 {% note warning %}
 
 Подключение библиотеки общего пользования приведет к перезагрузке {{ PG }} на хосте-мастере.

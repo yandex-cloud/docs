@@ -74,6 +74,40 @@ description: Следуя данной инструкции, вы сможете
      updated_at: "2025-10-21T12:37:19.274522Z"
      ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Опишите в конфигурационном файле новые параметры SAML-приложения:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_application_saml_application" "saml_app" {
+       organization_id = "<идентификатор_организации>"
+       name            = "<новое_имя_приложения>"
+       description     = "<новое_описание_приложения>"
+       labels          = {
+         "<ключ>" = "<значение>"
+       }
+     }
+     ```
+
+     Где:
+
+     * `name` — новое имя SAML-приложения. Имя должно быть уникальным в пределах организации и соответствовать требованиям:
+
+       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
+
+     * `description` — новое описание SAML-приложения.
+     * `labels` — новые [метки](../../../resource-manager/concepts/labels.md).
+
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
+
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     Проверить изменения ресурсов и их настройки можно в [{{ org-full-name }}]({{ link-org-cloud-center }}).
+
 - API {#api}
 
   Воспользуйтесь методом REST API [Application.Update](../../idp/application/saml/api-ref/Application/update.md) для ресурса [Application](../../idp/application/saml/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Update](../../idp/application/saml/api-ref/grpc/Application/update.md).
@@ -140,6 +174,47 @@ description: Следуя данной инструкции, вы сможете
      created_at: "2025-10-21T10:51:28.790866Z"
      updated_at: "2025-10-21T12:37:19.274522Z"
      ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Опишите в конфигурационном файле новые параметры конфигурации поставщика услуг:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_application_saml_application" "saml_app" {
+       organization_id = "<идентификатор_организации>"
+       name            = "<имя_приложения>"
+
+       service_provider = {
+         entity_id = "<идентификатор_поставщика_услуг>"
+         acs_urls  = [
+           {
+             url = "URL"
+           }
+         ]
+         security_settings = {
+           signature_mode = "RESPONSE_AND_ASSERTIONS"
+         }
+     }
+     ```
+
+     Где:
+
+     * `entity_id` — новый уникальный идентификатор поставщика услуг (Service Provider). Значение должно совпадать на стороне поставщика услуг и на стороне {{ org-name }}.
+     * `acs_urls` — новые URL-адреса, на которые {{ org-name }} будет отправлять SAML-ответ. ACS URL должен соответствовать схеме `https`. Использовать протокол без шифрования допускается только в целях тестирования на локальном хосте (значения `http://127.0.0.1` и `http://localhost`).
+     * `signature_mode` — новые элементы SAML-ответа, которые будут подписываться электронной подписью. Возможные значения:
+       * `ASSERTION_ONLY` — только передаваемые атрибуты пользователя;
+       * `RESPONSE_ONLY` — весь SAML-ответ целиком;
+       * `RESPONSE_AND_ASSERTION` — целиком весь SAML-ответ и (отдельно) передаваемые атрибуты.
+
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
+
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     Проверить изменения ресурсов и их настройки можно в [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
 - API {#api}
 
@@ -224,6 +299,38 @@ description: Следуя данной инструкции, вы сможете
      * `--active` — установите `true` для активации сертификата.
 
      {% include [saml-app-cert-update-warn](../../../_includes/organization/saml-app-cert-update-warn.md) %}
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Опишите в конфигурационном файле ресурс для создания нового сертификата:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_application_saml_signature_certificate" "cert" {
+       application_id = "<идентификатор_приложения>"
+       name           = "<имя_сертификата>"
+     }
+     ```
+
+     Где:
+
+     * `application_id` — идентификатор SAML-приложения.
+     * `name` — имя сертификата.
+
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_saml_signature_certificate` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_signature_certificate).
+
+  1. Создайте ресурс:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  1. Чтобы активировать новый сертификат, добавьте его в конфигурацию SAML-приложения, указав идентификатор сертификата в описании ресурса `yandex_organizationmanager_idp_application_saml_application` в блоке `signature_certificate_ids`.
+  
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     Проверить изменения ресурсов и их настройки можно в [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
 - API {#api}
 

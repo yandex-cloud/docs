@@ -14,9 +14,9 @@ description: Follow this guide to configure and invoke a function asynchronously
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select a function.
-    1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
+    1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_async }}**, switch the **{{ ui-key.yacloud.serverless-functions.item.editor.label_turn-on-button }}** toggle to on.
     1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_tries-count }}** field, specify the number of invocation retries before the call is considered failed.
     1. In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, specify a service account with rights to invoke the function.
@@ -57,7 +57,7 @@ description: Follow this guide to configure and invoke a function asynchronously
     * `--runtime`: Runtime environment.
     * `--entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
     * `--memory`: Amount of RAM.
-    * `--execution-timeout`: Maximum function running time before the timeout is reached.
+    * `--execution-timeout`: Maximum function running time before timeout.
     * `--source-version-id`: ID of the function version from which you want to copy the code.
     * `--async-max-retries`: Number of retries before the invocation fails.
     * `--async-service-account-id`: ID of the service account with permissions to invoke the function.

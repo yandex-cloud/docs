@@ -1,10 +1,6 @@
 # Loading data from {{ objstorage-full-name }} to {{ mgp-full-name }} using {{ data-transfer-full-name }}
 
-
-{% include [storage-preview-disclaimer](../../_includes/data-transfer/storage-preview-disclaimer.md) %}
-
-
-You can migrate data from {{ objstorage-name }} to the {{ GP }} table in {{ mgp-name }} using {{ data-transfer-name }}. Proceed as follows:
+You can migrate data from {{ objstorage-name }} to the {{ GP }} table in {{ mgp-name }} using {{ data-transfer-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
 1. [Create a database in the target cluster](#prepare-data).
@@ -24,13 +20,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Getting started {#before-you-begin}
 
 
-1. Set up the infrastructure:
+1. Set up your infrastructure:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
-        1. [Create a {{ GP }} target cluster](../../managed-greenplum/operations/cluster-create.md) of any suitable configuration with publicly available hosts and the following settings:
+        1. [Create a target {{ GP }} cluster](../../managed-greenplum/operations/cluster-create.md) in any suitable configuration with publicly available hosts and the following settings:
 
             * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`.
             * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`.
@@ -42,7 +38,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md).
 
         
-        1. [Create a service account](../../iam/operations/sa/create.md#create-sa) `storage-viewer` with the `storage.viewer` role. The transfer will use it to access the bucket.
+        1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `storage-viewer` with the `storage.viewer` role. The transfer will use it to access the bucket.
 
         1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the `storage-viewer` service account.
 
@@ -125,16 +121,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
     CREATE DATABASE db1;
     ```
 
-## Prepare and activate your transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
-1. Create an `{{ objstorage-name }}`-type [source endpoint](../../data-transfer/operations/endpoint/source/object-storage.md#objstorage-name) with the following settings:
+1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/object-storage.md#objstorage-name) of the `{{ objstorage-name }}` type with the following settings:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Object Storage`.
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: {{ objstorage-name }} bucket name.
 
     
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public part of the service account static key. If you created your infrastructure using {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Private part of the service account’s static key. If you created your infrastructure using {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public component of the service account’s static key. If you created your infrastructure using {{ TF }}, [copy the key’s value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Service account’s secret access key. If you created your infrastructure using {{ TF }}, [copy the key’s value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
 
 
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}**: `https://storage.yandexcloud.net`.
@@ -152,9 +148,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/greenplum.md#gp) of the `{{ GP }}` type and specify the cluster connection settings in it:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}**: `<target_{{ GP }}_cluster_name>` from the drop-down list
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.database.title }}**: `db1`
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.user.title }}**: `user1`
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}**: `<target_{{ GP }}_cluster_name>` from the drop-down list.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.database.title }}**: `db1`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.user.title }}**: `user1`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.password.title }}**: `<user_password>`.
 
 1. Create and activate your transfer:
@@ -163,7 +159,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - Manually {#manual}
 
-        1. [Create](../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**-type transfer configured to use the new endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**-type that will use the endpoints you created.
 
         1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
@@ -173,7 +169,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             * `source_endpoint_id`: Source endpoint ID.
             * `target_endpoint_id`: Target endpoint ID.
-            * `transfer_enabled`: `1` to create a transfer.
+            * `transfer_enabled`: Set to `1` to create a transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -187,7 +183,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        1. The transfer will activate automatically upon creation. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     {% endlist %}
 
@@ -251,13 +247,13 @@ Make sure the transfer works correctly by testing copying and replication.
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the objects](../../storage/operations/objects/delete.md) from the bucket.
-1. Delete other resources using the same method used for their creation:
+1. Delete the other resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

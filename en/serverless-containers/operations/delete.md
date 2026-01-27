@@ -9,9 +9,9 @@ description: Follow this guide to delete a container.
 
 - Management console {#console}
 
-	1. In the [management console]({{ link-console-main }}), select the folder with your container.
-	1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
-	1. In the required container row, click ![image](../../_assets/console-icons/ellipsis.svg).
+	1. In the [management console]({{ link-console-main }}), go to the folder with your container.
+	1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+	1. In the container row, click ![image](../../_assets/console-icons/ellipsis.svg).
 	1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
 	1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
@@ -54,7 +54,7 @@ description: Follow this guide to delete a container.
      ...
      ```
 
-	 For more information about the `yandex_serverless_container` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/serverless_container).
+	 For more information about `yandex_serverless_container` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Check the configuration using this command:
      ```
@@ -72,14 +72,14 @@ description: Follow this guide to delete a container.
      terraform plan
      ```
   
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
      ```
      terraform apply
      ```
      
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
   You can check the deletion of the container using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 

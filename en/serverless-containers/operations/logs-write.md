@@ -12,7 +12,7 @@ description: Follow this guide to configure container logging.
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with your container.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Select the container you want to configure logging for.
     1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
     1. Under **{{ ui-key.yacloud.logging.label_title }}**:
@@ -41,11 +41,11 @@ description: Follow this guide to configure container logging.
 
     For logging to another folder's default log group, provide that folder's ID in the `--log-folder-id` parameter when [creating a container revision](manage-revision.md). The [account](../../iam/concepts/users/accounts.md) used to run the command must have the `logging.editor` [role](../../logging/security/index.md#logging-editor) or higher for the folder.
 
-    For logging to a custom log group, provide that log group's ID in the `--log-group-id` parameter when creating a container revision. The log group may reside in a different folder. The account used to run the command must have the `logging.editor` role or higher for the folder.
+    For logging to a custom log group, provide that log group's ID in the `--log-group-id` parameter when creating a container revision. The log group may reside in a different folder. The account used to run the command must have the `logging.editor` role or higher for that folder.
 
     ### Minimum logging level {#log-level}
 
-    To set the minimum logging level, specify it in the `--min-log-level` parameter when creating a container revision. 
+    To set a minimum logging level, specify it in the `--min-log-level` parameter when creating a container revision. 
 
     {% include [min-log-level](../../_includes/serverless-containers/min-log-level.md) %}
 
@@ -107,11 +107,11 @@ description: Follow this guide to configure container logging.
 
     For logging to another folder's default log group, provide that folder's ID under `log_options` in the `folder_id` parameter when [creating a container revision](manage-revision.md). The [account](../../iam/concepts/users/accounts.md) used to run the command must have the `logging.editor` [role](../../logging/security/index.md#logging-editor) or higher for the folder.
 
-    For logging to a custom log group, provide that log group's ID under `log_options` in the `log_group_id` parameter when creating a container revision. The log group may reside in a different folder. The account used to run the command must have the `logging.editor` role or higher for the folder.
+    For logging to a custom log group, provide that log group's ID under `log_options` in the `log_group_id` parameter when creating a container revision. The log group may reside in a different folder. The account used to run the command must have the `logging.editor` role or higher for that folder.
 
     ### Minimum logging level {#log-level}
 
-    To set the minimum logging level, specify it under `log_options` in the `min_level` parameter when creating a container revision. 
+    To set a minimum logging level, specify it under `log_options` in the `min_level` parameter when creating a container revision. 
 
     {% include [min-log-level](../../_includes/serverless-containers/min-log-level.md) %}
 

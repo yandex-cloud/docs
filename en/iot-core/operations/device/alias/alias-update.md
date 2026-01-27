@@ -9,7 +9,7 @@ Aliases are linked to specific devices. To update an alias, you [need the device
    To update an alias:
 
    1. In the [management console]({{ link-console-main }}), select a folder in which to update an alias.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
    1. Click ![image](../../../../_assets/console-icons/ellipsis.svg) to the right of the appropriate device name and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
@@ -91,8 +91,8 @@ Aliases are linked to specific devices. To update an alias, you [need the device
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
       ```bash
       terraform apply

@@ -14,7 +14,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder to delete the broker from.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
     1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
     1. To the right of the name of the broker you want to delete, click the ![image](../../../_assets/console-icons/ellipsis.svg) icon and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
     1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
@@ -86,8 +86,8 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
         terraform plan
         ```
     
-        The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-    1. Apply the configuration changes:
+        You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+    1. Apply the changes:
 
         ```bash
         terraform apply
@@ -95,7 +95,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
        
     1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-        You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+        You can check the updates in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
         ```bash
         yc iot broker list
