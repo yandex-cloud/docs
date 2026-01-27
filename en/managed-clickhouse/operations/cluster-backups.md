@@ -1,14 +1,14 @@
 ---
 title: Managing {{ CH }} backups
-description: You can create backups and use existing backups to restore {{ CH }} clusters. When you restore a cluster from a backup, you create a new cluster with the backup data. If your cloud lacks resources to create such a cluster, you will not be able to restore your data from the backup.
+description: You can back up {{ CH }} clusters and restore them from existing backups. When you restore a cluster from a backup, you create a new cluster with the backup data. If your cloud lacks resources to create such a cluster, you will not be able to restore your data from the backup.
 ---
 
 # Managing backups in {{ mch-name }}
 
 
-You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
+You can create [backups](../concepts/backup.md) and use existing backups to restore your clusters.
 
-Moreover, {{ mch-name }} creates automatic daily backups. You can [set the backup start time](#set-backup-window) and [retention period](#set-backup-retain).
+{{ mch-name }} automatically takes a daily backup as well. You can [set the backup start time](#set-backup-window) and [retention period](#set-backup-retain).
 
 ## Creating a backup {#create-backup}
 
@@ -23,8 +23,8 @@ The system uses random replica hosts to create backups. If cluster hosts lack da
 - Management console {#console}
   
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
@@ -43,7 +43,7 @@ The system uses random replica hosts to create backups. If cluster hosts lack da
       {{ yc-mdb-ch }} cluster backup --help
       ```
   
-  1. Send a request to create a cluster backup, specifying the cluster name or ID:
+  1. Send the following request to create a cluster backup, specifying the cluster name or ID:
   
       ```bash
       {{ yc-mdb-ch }} cluster backup <cluster_name_or_ID>
@@ -53,7 +53,7 @@ The system uses random replica hosts to create backups. If cluster hosts lack da
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -67,13 +67,13 @@ The system uses random replica hosts to create backups. If cluster hosts lack da
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>:backup'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/backup.md#responses) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -95,7 +95,7 @@ The system uses random replica hosts to create backups. If cluster hosts lack da
             yandex.cloud.mdb.clickhouse.v1.ClusterService.Backup
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -105,7 +105,13 @@ The system uses random replica hosts to create backups. If cluster hosts lack da
 
 ## Restoring a cluster from a backup {#restore}
 
-When you restore a cluster from a backup, you create a new cluster with the backup data. If your cloud lacks [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore your data from the backup. The average backup recovery speed is 10 MBps per database core.
+{% note warning %}
+
+For clusters with a deprecated [DBMS version](../concepts/update-policy.md#versioning-policy), there is no option to restore from backups.
+
+{% endnote %}
+
+Restoring a cluster from a backup creates a new cluster with that backup’s data. If your cloud lacks [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore your data from the backup. The average backup recovery speed is 10 MBps per database core.
 
 You can restore an individual [shard](../concepts/sharding.md) or the whole cluster.
 
@@ -113,7 +119,7 @@ You can restore an individual [shard](../concepts/sharding.md) or the whole clus
 Before you begin, [assign](../../iam/operations/roles/grant.md) the following roles to your {{ yandex-cloud }} account:
 
 * [managed-clickhouse.restorer](../../iam/roles-reference.md#managed-clickhouse-restorer) or higher for the backup folder and the new cluster folder.
-* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) or higher if restoring a cluster assigned to a [service account](../../iam/concepts/users/service-accounts.md).
+* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) or higher if restoring a cluster attached to a [service account](../../iam/concepts/users/service-accounts.md).
 
 
 {% include [mch-mergetree-conversion](../../_includes/mdb/mch-restore-tables-conversion-alert.md) %}
@@ -124,31 +130,31 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
   To restore an existing cluster from a backup:
   1. In the [management console]({{ link-console-main }}), select the folder where you want to restore a cluster.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Update the new cluster settings, if required. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
 
       To restore a single shard, make sure to leave only that particular shard checked under **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}**. Uncheck the rest of the shards.
 
       To restore the whole cluster, leave all shards checked under **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}**.
 
-      You can set up a separate configuration for each shard you restore.
+      You can set a separate configuration for each shard you restore.
 
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
   To restore a previously deleted cluster from a backup:
   1. In the [management console]({{ link-console-main }}), select the folder where you want to restore a cluster.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Update the new cluster settings, if required. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
 
       To restore a single shard, make sure to leave only that particular shard checked under **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}**. Uncheck the rest of the shards.
 
       To restore the whole cluster, leave all shards checked under **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}**.
 
-      You can set up a separate configuration for each shard you restore.
+      You can set a separate configuration for each shard you restore.
 
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
@@ -212,7 +218,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
           * `--environment`: Environment:
 
               * `PRODUCTION`: For stable versions of your applications.
-              * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
+              * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by an SLA. However, it receives new features, improvements, and bug fixes earlier. In the prestable environment, you can test new versions for compatibility with your application.
 
           * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
           * `--host`: Host settings:
@@ -252,7 +258,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -306,7 +312,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
                 This will restore your cluster as a whole.
 
-            * `additionalBackupIds`: Array of additional backup IDs. Use this parameter if separate backups were created for each shard (the legacy backup option).
+            * `additionalBackupIds`: Array of additional backup IDs. Use this parameter if separate backups were created for each shard, which is the legacy backup option.
 
                 This will restore the shards for which those backups were created. To restore the whole cluster, provide backup IDs for all cluster shards.
 
@@ -314,7 +320,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
             * `environment`: Environment:
 
                 * `PRODUCTION`: For stable versions of your applications.
-                * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
+                * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by an SLA. However, it receives new features, improvements, and bug fixes earlier. In the prestable environment, you can test new versions for compatibility with your application.
 
             * `configSpec`: {{ CH }} cluster configuration. For a detailed description of the parameters, see the [Cluster.restore](../api-ref/Cluster/restore.md) method description.
             * `hostSpecs`: Array of settings for the new hosts. Each array element contains the configuration for a single host and has the following structure:
@@ -334,7 +340,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
               To restore the whole cluster, you may skip this parameter.
 
-              You can set up a separate configuration for each shard you restore.
+              You can set a separate configuration for each shard you restore.
 
             * `folderId`: ID of the folder where you want to create your cluster.
             * `networkId`: ID of the network where you want to deploy your cluster.
@@ -344,7 +350,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-            You can request the cluster ID and backup ID together with the [list of backups in the folder](#list-backups).
+            You can get the cluster ID and backup ID with the [list of backups in the folder](#list-backups).
 
         1. Run this query:
 
@@ -357,11 +363,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
                 --data "@body.json"
             ```
 
-    1. View the [server response](../api-ref/Cluster/restore.md#responses) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/restore.md#responses) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -417,7 +423,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
                 This will restore your cluster as a whole.
 
-            * `additional_backup_ids`: Array of additional backup IDs. Use this parameter if separate backups were created for each shard (the legacy backup option).
+            * `additional_backup_ids`: Array of additional backup IDs. Use this parameter if separate backups were created for each shard, which is the legacy backup option.
 
                 This will restore the shards for which those backups were created. To restore the whole cluster, provide backup IDs for all cluster shards.
 
@@ -425,7 +431,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
             * `environment`: Environment:
 
                 * `PRODUCTION`: For stable versions of your applications.
-                * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
+                * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by an SLA. However, it receives new features, improvements, and bug fixes earlier. In the prestable environment, you can test new versions for compatibility with your application.
 
             * `config_spec`: {{ CH }} cluster configuration. For a detailed description of the parameters, see the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) call description.
             * `host_specs`: Array of settings for the new hosts. Each array element contains the configuration for a single host and has the following structure:
@@ -445,7 +451,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
               To restore the whole cluster, you may skip this parameter.
 
-              You can set up a separate configuration for each shard you restore.
+              You can set a separate configuration for each shard you restore.
 
             * `folder_id`: ID of the folder where you want to create your cluster.
             * `network_id`: ID of the network where you want to deploy your cluster.
@@ -455,7 +461,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-            You can request the cluster ID and backup ID together with the [list of backups in the folder](#list-backups).
+            You can get the cluster ID and backup ID with the [list of backups in the folder](#list-backups).
 
         1. Run this query:
 
@@ -484,12 +490,12 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
   To get a list of cluster backups:
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
 
-  To get a list of all backups in a folder:
+  To get a list of all backups in your folder:
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
 
   These lists contain the following information:
@@ -534,7 +540,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -549,7 +555,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
                 --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/backups'
             ```
 
-            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
         1. View the [server response](../api-ref/Cluster/listBackups.md#responses) to make sure your request was successful.
 
@@ -573,7 +579,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -597,7 +603,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
                 yandex.cloud.mdb.clickhouse.v1.ClusterService.ListBackups
             ```
 
-            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
         1. View the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.clickhouse.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
@@ -633,14 +639,14 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 - Management console {#console}
 
-  To get information about a backup of an existing cluster:
+  To get backup details for an existing cluster:
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
 
-  To get information about a backup of a previously deleted cluster:
+  To get backup details for a previously deleted cluster:
   1. In the [management console]({{ link-console-main }}), select the folder where the cluster used to reside.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
 
 - CLI {#cli}
@@ -659,7 +665,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -678,7 +684,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -731,11 +737,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -760,25 +766,25 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
         Where:
 
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings you want to update.
 
             Here, we only specified a single setting, `configSpec.backupWindowStart`.
 
         * {% include [backup-windows-start-rest](../../_includes/mdb/api/backup-windows-start-rest.md) %}
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -811,7 +817,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
         Where:
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
 
             Here, we only specified a single setting, `config_spec.backup_window_start`.
 
@@ -819,7 +825,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -829,7 +835,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 - Management console {#console}
   
-  In the [management console]({{ link-console-main }}), you can set the retention period for automatic backups when [creating](cluster-create.md) or [updating the cluster](update.md).
+  You can set the retention period for automatic backups when you [create](cluster-create.md) or [update](update.md) the cluster via the [management console]({{ link-console-main }}).
   
 - CLI {#cli}
 
@@ -848,11 +854,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+  1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -872,24 +878,24 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
       Where:
 
-      * `updateMask`: Comma-separated list of settings you want to update.
+      * `updateMask`: Comma-separated string of settings you want to update.
 
         Here, we only specified a single setting, `configSpec.backupRetainPeriodDays`.
 
       * `configSpec.backupRetainPeriodDays`: New automatic backup retention period, in days.
 
-      You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+  1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -917,15 +923,15 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
       Where:
 
-      * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+      * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
 
         Here, we only specified a single setting, `config_spec.backup_retain_period_days`.
 
       * `config_spec.backup_retain_period_days`: New automatic backup retention period, in days.
 
-      You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -942,8 +948,8 @@ You can only delete manual backups.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup in question and select **{{ ui-key.yacloud.mdb.cluster.backups.button_delete }}**.
 
 - CLI {#cli}
@@ -960,7 +966,7 @@ You can only delete manual backups.
       {{ yc-mdb-ch }} backup delete --help
       ```
   
-  1. Send a request to delete a backup, specifying the backup ID:
+  1. Send the following request to delete a backup, specifying the backup ID:
   
       ```bash
       {{ yc-mdb-ch }} backup delete <cluster_ID>:<backup_ID>
@@ -970,11 +976,11 @@ You can only delete manual backups.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Call the [Backup.Delete](../api-ref/Backup/delete.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
+  1. Call the [Backup.Delete](../api-ref/Backup/delete.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -989,12 +995,12 @@ You can only delete manual backups.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Call the [BackupService.Delete](../api-ref/grpc/Backup/delete.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
+  1. Call the [BackupService.Delete](../api-ref/grpc/Backup/delete.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
      ```bash
      grpcurl \

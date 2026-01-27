@@ -1,24 +1,24 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/cluster/remove-labels.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/cluster/remove-labels.md
 ---
 
-# yc managed-postgresql cluster remove-labels
+# yc managed-sharded-postgresql cluster remove-labels
 
-Remove labels from PostgreSQL cluster
+Remove labels from Sharded PostgreSQL cluster
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-postgresql cluster remove-labels <CLUSTER-NAME>|<CLUSTER-ID> --labels KEY,[KEY...] [Flags...] [Global Flags...]`
+`yc managed-sharded-postgresql cluster remove-labels <CLUSTER-NAME>|<CLUSTER-ID> --labels KEY,[KEY...] [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>PostgreSQL cluster id.|
-|`--name`|<b>`string`</b><br/>PostgreSQL cluster name.|
+|`--id`|<b>`string`</b><br/>Sharded PostgreSQL cluster id.|
+|`--name`|<b>`string`</b><br/>Sharded PostgreSQL cluster name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--labels`|<b>`value[,value]`</b><br/>Label keys to remove.|
 

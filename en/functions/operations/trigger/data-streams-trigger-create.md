@@ -17,22 +17,22 @@ Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigge
 
 To create a trigger, you will need:
 
-* A function to be invoked by the trigger. If you do not have a function:
+* Function the trigger will invoke. If you do not have a function:
 
     * [Create a function](../function/function-create.md).
     * [Create a function version](../function/version-manage.md).
 
-* (Optional) A [dead-letter queue](../../concepts/dlq.md) where messages that could not be processed by a function will be redirected. If you do not have a queue, [create one](../../../message-queue/operations/message-queue-new-queue.md).
+* Optionally, a [dead-letter queue](../../concepts/dlq.md) where to redirect the messages the function failed to process. If you do not have a queue, [create one](../../../message-queue/operations/message-queue-new-queue.md).
 
 * [Service accounts](../../../iam/concepts/users/service-accounts.md) with the following permissions:
 
     * To invoke a function.
-    * To read from the stream that will set off the trigger when it receives data.
+    * To read from the stream that will fire the trigger when data is sent to it.
     * Optionally, to write to a dead-letter queue.
 
     You can use the same service account or different ones. If you do not have a service account, [create one](../../../iam/operations/sa/create.md).
 
-* A stream that will set off the trigger when it receives data.  If you do not have a stream, [create one](../../../data-streams/quickstart/create-stream.md). 
+* Stream that will fire the trigger when data is sent to it.  If you do not have a stream, [create one](../../../data-streams/quickstart/create-stream.md). 
 
 ## Creating a trigger {#trigger-create}
 
@@ -44,7 +44,7 @@ To create a trigger, you will need:
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -111,7 +111,7 @@ To create a trigger, you will need:
     * `--stream`: Name of the {{ yds-name }} stream.
     * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 B to 64 KB. The default value is 1 B.
     * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The total amount of data transmitted to a function may exceed `batch-size` if the data is transmitted as a single message. In all other cases, the amount of data does not exceed `batch-size`.
-    * `--stream-service-account-id`: ID of the service account with write and read permissions for the stream.
+    * `--stream-service-account-id`: ID of the service account with write and read permissions to the stream.
     
     {% include [trigger-cli-param](../../../_includes/functions/trigger-cli-param.md) %}
 

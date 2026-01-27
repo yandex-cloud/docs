@@ -11,14 +11,14 @@ description: Follow this guide to mount an ephemeral disk to {{ serverless-conta
 
 - Management console {#console}
     
-    1. In the [management console]({{ link-console-main }}), select the folder with your container.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. In the [management console]({{ link-console-main }}), go to the folder with your container.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Select the container.
     1. In the left-hand menu, select ![image](../../_assets/console-icons/pencil-to-square.svg) **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.title_ephemeral-storage }}**:
 
         1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.label_add-ephemeral-storage }}**.
-        1. Specify the following in the field:
+        1. In the field, specify the following:
 
             * **{{ ui-key.yacloud.serverless-functions.item.editor.label_mount-point-path }}**: Absolute mount path. Use this path to access the directory the disk will be mounted to.
             

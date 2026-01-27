@@ -9,8 +9,8 @@ description: Follow this guide to update a container description.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with your container.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. In the [management console]({{ link-console-main }}), go to the folder with your container.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container.
   1. Click **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the container description.
@@ -68,7 +68,7 @@ description: Follow this guide to update a container description.
      ...
      ```
 
-   For more information about the `yandex_serverless_container` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/serverless_container).
+   For more information about `yandex_serverless_container` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Check the configuration using this command:
      ```
@@ -86,14 +86,14 @@ description: Follow this guide to update a container description.
      terraform plan
      ```
   
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
      ```
      terraform apply
      ```
      
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
   You can check the container update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 

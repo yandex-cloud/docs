@@ -2,7 +2,6 @@
 
 * [Fixing the `Bucket is not empty` error when deleting a bucket](bucket-deletion-issue.md)
 * [Troubleshooting access to a bucket with an assigned security policy](unable-to-access-bucket-with-assigned-policy.md)
-* [Fixing error 429](error-429.md)
 * [Fixing error 409: `BucketAlreadyExists`](error-409-bucket-already-exists.md)
 * [Troubleshooting access to S3 buckets from a {{ dataproc-name }} 1.4 cluster](cannot-access-buckets.md)
 * [Fixing error 403 (header is not provided when using the `OPTION` method)](error-403-cors-header.md)

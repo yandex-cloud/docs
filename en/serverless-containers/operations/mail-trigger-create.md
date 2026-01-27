@@ -21,7 +21,7 @@ To create a trigger, you will need:
     
     You can use the same service account or different ones. If you do not have a service account, [create one](../../iam/operations/sa/create.md).
 
-* Optionally, a [bucket](../../storage/concepts/bucket.md) to save email attachments to. If you do not have a bucket, [create one](../../storage/operations/buckets/create.md) with restricted access.
+* [Bucket](../../storage/concepts/bucket.md) to save email attachments to (optional). If you do not have a bucket, [create one](../../storage/operations/buckets/create.md) with restricted access.
 
 ## Creating a trigger {#trigger-create}
 
@@ -33,7 +33,7 @@ To create a trigger, you will need:
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -148,8 +148,8 @@ To create a trigger, you will need:
          mail {
            attachments_bucket_id = "<bucket_name>"
            service_account_id    = "<service_account_ID>"
-           batch_cutoff          = <maximum_timeout>
-           batch_size            = <message_group_size>
+           batch_cutoff          = <maximum_wait_time>
+           batch_size            = <message_batch_size>
          }
          dlq {
            queue_id           = "<dead-letter_queue_ID>"
@@ -179,9 +179,9 @@ To create a trigger, you will need:
 
        {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-       For more information about the `yandex_function_trigger` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+       For more information about `yandex_function_trigger` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function_trigger).
 
-    1. Create resources:
+    1. Create the resources:
 
         {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -197,7 +197,7 @@ To create a trigger, you will need:
 
 {% endlist %}
 
-{{ serverless-containers-name }} will automatically generate an email address that will cause the trigger to fire when messages are sent to it. To see it, [retrieve detailed trigger information](trigger-list.md#trigger-get).
+{{ serverless-containers-name }} will automatically generate an email address for which the trigger will fire when messages are sent to it. To see it, [retrieve detailed trigger information](trigger-list.md#trigger-get).
 
 ## Checking the result {#check-result}
 

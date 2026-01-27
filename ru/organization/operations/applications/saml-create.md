@@ -89,6 +89,43 @@ description: Следуя данной инструкции, вы сможете
 
      При создании SAML-приложения автоматически создается сертификат для проверки подписи SAML-ответов.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Опишите в конфигурационном файле параметры SAML-приложения:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_application_saml_application" "saml_app" {
+       organization_id = "<идентификатор_организации>"
+       name            = "<имя_приложения>"
+       description     = "<описание_приложения>"
+       labels          = {
+         "<ключ>" = "<значение>"
+       }
+     }
+     ```
+
+     Где:
+
+     * `organization_id` — [идентификатор организации](../organization-get-id.md), в которой нужно создать SAML-приложение. Обязательный параметр.
+     * `name` — имя SAML-приложения. Обязательный параметр. Имя должно быть уникальным в пределах организации и соответствовать требованиям:
+
+         {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
+
+     * `description` — описание SAML-приложения. Необязательный параметр.
+     * `labels` — список [меток](../../../resource-manager/concepts/labels.md). Необязательный параметр.
+
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
+
+  1. Создайте ресурсы:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [{{ org-full-name }}]({{ link-org-cloud-center }}).
+
+   При создании SAML-приложения автоматически создается сертификат для проверки подписи SAML-ответов.
+
 - API {#api}
 
   Воспользуйтесь методом REST API [Application.Create](../../idp/application/saml/api-ref/Application/create.md) для ресурса [Application](../../idp/application/saml/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Create](../../idp/application/saml/api-ref/grpc/Application/create.md).
@@ -196,6 +233,49 @@ description: Следуя данной инструкции, вы сможете
      created_at: "2025-10-21T10:51:28.790866Z"
      updated_at: "2025-10-21T12:37:19.274522Z"
      ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Опишите в конфигурационном файле параметры настройки SAML-приложения:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_application_saml_application" "saml_app" {
+       organization_id = "<идентификатор_организации>"
+       name            = "<имя_приложения>"
+
+       service_provider = {
+         entity_id = "<идентификатор_поставщика_услуг>"
+         acs_urls  = [
+           {
+             url = "URL"
+           }
+         ]
+         security_settings = {
+           signature_mode = "RESPONSE_AND_ASSERTIONS"
+         }
+       }
+     }
+     ```
+
+     Где:
+
+     * `organization_id` — [идентификатор организации](../organization-get-id.md), в которой нужно создать SAML-приложение. Обязательный параметр.
+     * `entity_id` — уникальный идентификатор поставщика услуг (Service Provider). Значение должно совпадать на стороне поставщика услуг и на стороне {{ org-name }}.
+     * `acs_urls` — список URL-адресов, на которые {{ org-name }} будет отправлять SAML-ответ. ACS URL должен соответствовать схеме `https`. Использовать протокол без шифрования допускается только в целях тестирования на локальном хосте (значения `http://127.0.0.1` и `http://localhost`).
+     * `signature_mode` — элементы SAML-ответа, которые будут подписываться электронной подписью. Возможные значения:
+       * `ASSERTION_ONLY` — только передаваемые атрибуты пользователя;
+       * `RESPONSE_ONLY` — весь SAML-ответ целиком;
+       * `RESPONSE_AND_ASSERTION` — целиком весь SAML-ответ и (отдельно) передаваемые атрибуты.
+
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
+
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     Проверить изменения ресурсов и их настройки можно в [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
 - API {#api}
 

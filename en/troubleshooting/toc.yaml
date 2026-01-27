@@ -188,8 +188,6 @@ items:
           Resolving the `no such bucket` and `no such key` errors when uploading
           objects from {{ cdn-name }}
         href: cdn/known-issues/no-such-bucket-no-such-key.md
-      - name: Resolving the `CNAME already exists` error
-        href: cdn/known-issues/cname-already-exists.md
       - name: >-
           Resolving the `You cannot enable redirect HTTP to HTTPS when HTTPS is
           disabled` error
@@ -857,8 +855,6 @@ items:
         href: storage/known-issues/bucket-deletion-issue.md
       - name: Troubleshooting access to a bucket with an assigned security policy
         href: storage/known-issues/unable-to-access-bucket-with-assigned-policy.md
-      - name: Fixing error 429
-        href: storage/known-issues/error-429.md
       - name: 'Fixing error 409: `BucketAlreadyExists`'
         href: storage/known-issues/error-409-bucket-already-exists.md
       - name: >-

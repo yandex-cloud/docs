@@ -9,8 +9,8 @@ description: In this tutorial, you will learn how to delete a trigger in {{ sf-f
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing your trigger.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the trigger.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
     1. Select the trigger you want to delete.
     1. In the top-right corner, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
@@ -100,15 +100,15 @@ description: In this tutorial, you will learn how to delete a trigger in {{ sf-f
      terraform plan
      ```
   
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
 
      ```
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
      You can check the update using the [management console]({{ link-console-main }}) or these [CLI](../../../cli/quickstart.md) commands:
 

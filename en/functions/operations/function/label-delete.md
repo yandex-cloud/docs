@@ -10,7 +10,7 @@ description: Follow this guide to delete a function label.
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select a function.
     1. In the top-right corner, click **{{ ui-key.yacloud.serverless-functions.list.button_action-edit }}**.
     1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, select the appropriate label and click ![cross](../../../_assets/console-icons/xmark.svg) next to its name.
@@ -51,9 +51,9 @@ description: Follow this guide to delete a function label.
 
     To delete a function label:
 
-    1. Open the {{ TF }} configuration file and delete the label you do not need in the `labels` section.
+    1. Open the {{ TF }} configuration file and delete the label you no longer need in the `labels` section.
 
-        Example function description in the {{ TF }} configuration:
+        Example of a function description in the {{ TF }} configuration:
       
         ```
         resource "yandex_function" "test-function" {
@@ -76,7 +76,7 @@ description: Follow this guide to delete a function label.
         }
         ``` 
 
-        For more information about the `yandex_function` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
 
     1. Check the configuration using this command:
         
@@ -96,14 +96,14 @@ description: Follow this guide to delete a function label.
        terraform plan
        ```
         
-       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
          
-    1. Apply the configuration changes:
+    1. Apply the changes:
 
        ```
        terraform apply
        ```
-    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+    1. Type `yes` and press **Enter** to confirm the changes.
       
     You can check the deletion of the function labels using this [CLI](../../../cli/quickstart.md) command:
 

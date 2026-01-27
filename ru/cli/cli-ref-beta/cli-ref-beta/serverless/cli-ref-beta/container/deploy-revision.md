@@ -10,51 +10,559 @@ Deploys a revision for the specified container.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta serverless container deploy-revision <CONTAINER-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--async-invocation-config`|<b>`shorthand/json`</b><br/>Config for asynchronous invocations of the revision.<br/>Shorthand Syntax:<br/>{<br/>service-account-id = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"service-account-id": "str"<br/>}"<br/>Fields:<br/>service-account-id -> (string)<br/>Optional id of service account with permission to invoke container.|
-|`--concurrency`|<b>`int`</b><br/>The number of concurrent requests allowed per container instance. The default value is 1.|
-|`--connectivity`|<b>`shorthand/json`</b><br/>Network access. If specified the revision will be attached to specified network/subnet(s).<br/>Shorthand Syntax:<br/>{<br/>network-id = str,<br/>subnet-ids = str,...<br/>}<br/>JSON Syntax:<br/>"{<br/>"network-id": "str",<br/>"subnet-ids": [<br/>"str", ...<br/>]<br/>}"<br/>Fields:<br/>network-id -> (string)<br/>Network the revision will have access to.<br/>subnet-ids -> ([]string)<br/>The list of subnets (from the same network) the revision can be attached to. Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.|
-|`--container-id`|<b>`string`</b><br/>ID of the container to create a revision for. To get a container ID, make a [ContainerService.List] request.|
-|`--description`|<b>`string`</b><br/>Description of the revision.|
-|`--execution-timeout`|<b>`duration`</b><br/>Timeout for the execution of the revision. If the timeout is exceeded, Serverless Containers responds with a 504 HTTP code. (duration, e.g. 30s, 5m10s)|
-|`--image-spec`|<b>`shorthand/json`</b><br/>Image configuration for the revision.<br/>Shorthand Syntax:<br/>{<br/>args = {<br/>args = str,...<br/>},<br/>command = {<br/>command = str,...<br/>},<br/>environment = {key=str, key=...},<br/>image-url = str,<br/>working-dir = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"args": {<br/>"args": [<br/>"str", ...<br/>]<br/>},<br/>"command": {<br/>"command": [<br/>"str", ...<br/>]<br/>},<br/>"environment": {<br/>"\<key\>": "str", ...<br/>},<br/>"image-url": "str",<br/>"working-dir": "str"<br/>}"<br/>Fields:<br/>args -> (struct)<br/>Override for the image's CMD.<br/>args -> ([]string)<br/>Arguments that will override CMD of an image. Arguments will be passed as is. The runtime will not substitute environment variables or execute shell commands. If one wants to do that, they should invoke shell interpreter with an appropriate shell script.<br/>command -> (struct)<br/>Override for the image's ENTRYPOINT.<br/>command -> ([]string)<br/>Command that will override ENTRYPOINT of an image. Commands will be executed as is. The runtime will not substitute environment variables or execute shell commands. If one wants to do that, they should invoke shell interpreter with an appropriate shell script.<br/>environment -> (map[string,string])<br/>Additional environment for the container.<br/>image-url -> (string)<br/>Image URL, that is used by the revision.<br/>working-dir -> (string)<br/>Override for the image's WORKDIR.|
-|`--log-options`|<b>`shorthand/json`</b><br/>Options for logging from the container.<br/>Shorthand Syntax:<br/>{<br/>destination = folder-id=str \| log-group-id=str,<br/>disabled = bool,<br/>min-level = TRACE\|DEBUG\|INFO\|WARN\|ERROR\|FATAL<br/>}<br/>JSON Syntax:<br/>"{<br/>"destination": {<br/>"folder-id": "str",<br/>"log-group-id": "str"<br/>},<br/>"disabled": "bool",<br/>"min-level": "TRACE\|DEBUG\|INFO\|WARN\|ERROR\|FATAL"<br/>}"<br/>Fields:<br/>disabled -> (bool)<br/>Is logging from container disabled.<br/>min-level -> (enum<DEBUG\|ERROR\|FATAL\|INFO\|TRACE\|WARN>)<br/>Minimum log entry level. See [LogLevel.Level] for details.<br/>destination -> (oneof<folder-id\|log-group-id>)<br/>Oneof destination field<br/>log-group-id -> (string)<br/>Entry should be written to log group resolved by ID.<br/>folder-id -> (string)<br/>Entry should be written to default log group for specified folder.|
-|`--metadata-options`|<b>`shorthand/json`</b><br/>Metadata options for the revision.<br/>Shorthand Syntax:<br/>{<br/>aws-v1-http-endpoint = ENABLED\|DISABLED,<br/>gce-http-endpoint = ENABLED\|DISABLED<br/>}<br/>JSON Syntax:<br/>"{<br/>"aws-v1-http-endpoint": "ENABLED\|DISABLED",<br/>"gce-http-endpoint": "ENABLED\|DISABLED"<br/>}"<br/>Fields:<br/>aws-v1-http-endpoint -> (enum<DISABLED\|ENABLED>)<br/>Enabled access to AWS flavored metadata (IMDSv1)<br/>gce-http-endpoint -> (enum<DISABLED\|ENABLED>)<br/>Enabled access to GCE flavored metadata|
-|`--mounts`|<b>`shorthand/json`</b><br/>Mounts to be used by the revision.<br/>Shorthand Syntax:<br/>[<br/>{<br/>mode = READ_ONLY\|READ_WRITE,<br/>mount-point-path = str,<br/>target = ephemeral-disk-spec={<br/>block-size = int,<br/>size = int<br/>} \| object-storage={<br/>bucket-id = str,<br/>prefix = str<br/>}<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"mode": "READ_ONLY\|READ_WRITE",<br/>"mount-point-path": "str",<br/>"target": {<br/>"ephemeral-disk-spec": {<br/>"block-size": "int",<br/>"size": "int"<br/>},<br/>"object-storage": {<br/>"bucket-id": "str",<br/>"prefix": "str"<br/>}<br/>}<br/>}, ...<br/>]"<br/>Fields:<br/>mode -> (enum<READ_ONLY\|READ_WRITE>)<br/>Mount's mode<br/>mount-point-path -> (string)<br/>The absolute mount point path inside the container for mounting.<br/>target -> (oneof<ephemeral-disk-spec\|object-storage>)<br/>Oneof target field<br/>object-storage -> (struct)<br/>Object storage mounts<br/>bucket-id -> (string)<br/>ObjectStorage bucket name for mounting.<br/>prefix -> (string)<br/>ObjectStorage bucket prefix for mounting.<br/>ephemeral-disk-spec -> (struct)<br/>Working disk (worker-local non-shared read-write NBS disk templates)<br/>block-size -> (int)<br/>Optional block size of disk for mount in bytes<br/>size -> (int)<br/>The size of disk for mount in bytes|
-|`--provision-policy`|<b>`shorthand/json`</b><br/>Policy for provisioning instances of the revision. The policy is only applied when the revision is ACTIVE.<br/>Shorthand Syntax:<br/>{<br/>min-instances = int<br/>}<br/>JSON Syntax:<br/>"{<br/>"min-instances": "int"<br/>}"<br/>Fields:<br/>min-instances -> (int)<br/>Minimum number of guaranteed provisioned container instances for all zones in total.|
-|`--resources`|<b>`shorthand/json`</b><br/>Resources allocated to the revision.<br/>Shorthand Syntax:<br/>{<br/>core-fraction = int,<br/>cores = int,<br/>memory = int<br/>}<br/>JSON Syntax:<br/>"{<br/>"core-fraction": "int",<br/>"cores": "int",<br/>"memory": "int"<br/>}"<br/>Fields:<br/>core-fraction -> (int)<br/>Specifies baseline performance for a core in percent, multiple of 5%. Should be 100% for cores > 1.<br/>cores -> (int)<br/>Number of cores available to the revision.<br/>memory -> (int)<br/>Amount of memory available to the revision, specified in bytes, multiple of 128MB.|
-|`--runtime`|<b>`shorthand/json`</b><br/>The container's execution mode.<br/>Shorthand Syntax:<br/>{<br/>type = http={} \| task={}<br/>}<br/>JSON Syntax:<br/>"{<br/>"type": {<br/>"http": {},<br/>"task": {}<br/>}<br/>}"<br/>Fields:<br/>type -> (oneof<http\|task>)<br/>Oneof type field<br/>http -> (struct)<br/>The classic one. You need to run an HTTP server inside the container.<br/>task -> (struct)<br/>We run a process from ENTRYPOINT inside the container for each user request.|
-|`--scaling-policy`|<b>`shorthand/json`</b><br/>Policy for scaling instances of the revision.<br/>Shorthand Syntax:<br/>{<br/>zone-instances-limit = int,<br/>zone-requests-limit = int<br/>}<br/>JSON Syntax:<br/>"{<br/>"zone-instances-limit": "int",<br/>"zone-requests-limit": "int"<br/>}"<br/>Fields:<br/>zone-instances-limit -> (int)<br/>Upper limit for instance count in each zone. 0 means no limit.<br/>zone-requests-limit -> (int)<br/>Upper limit of requests count in each zone. 0 means no limit.|
-|`--secrets`|<b>`shorthand/json`</b><br/>Yandex Lockbox secrets to be used by the revision.<br/>Shorthand Syntax:<br/>[<br/>{<br/>id = str,<br/>key = str,<br/>reference = environment-variable=str,<br/>version-id = str<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"id": "str",<br/>"key": "str",<br/>"reference": {<br/>"environment-variable": "str"<br/>},<br/>"version-id": "str"<br/>}, ...<br/>]"<br/>Fields:<br/>id -> (string)<br/>ID of Yandex Lockbox secret.<br/>key -> (string)<br/>Key in secret's payload, which value to be delivered into container environment.<br/>version-id -> (string)<br/>ID of Yandex Lockbox secret.<br/>reference -> (oneof\<environment-variable\>)<br/>Oneof reference field<br/>environment-variable -> (string)<br/>Environment variable in which secret's value is delivered.|
-|`--service-account-id`|<b>`string`</b><br/>ID of the service account to associate with the revision.|
-|`--storage-mounts`|<b>`shorthand/json`</b><br/>S3 mounts to be used by the revision.<br/>Shorthand Syntax:<br/>[<br/>{<br/>bucket-id = str,<br/>mount-point-path = str,<br/>prefix = str,<br/>read-only = bool<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"bucket-id": "str",<br/>"mount-point-path": "str",<br/>"prefix": "str",<br/>"read-only": "bool"<br/>}, ...<br/>]"<br/>Fields:<br/>bucket-id -> (string)<br/>S3 bucket name for mounting.<br/>mount-point-path -> (string)<br/>Mount point path inside the container for mounting.<br/>prefix -> (string)<br/>S3 bucket prefix for mounting.<br/>read-only -> (bool)<br/>Is mount read only.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-json > request.json
+2. Edit the template: vim request.json
+3. Run with template: yc beta compute instance create -r request.json ||
+|| `--example-yaml` | Generates a YAML template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-yaml > request.yaml
+2. Edit the template: vim request.yaml
+3. Run with template: yc beta compute instance create -r request.yaml ||
+|| `--async-invocation-config` | `shorthand/json`
+
+Config for asynchronous invocations of the revision.
+
+Shorthand Syntax:
+
+```hcl
+{
+  service-account-id = str
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "service-account-id": "str"
+}
+```
+
+Fields:
+
+```
+service-account-id -> (string)
+  Optional id of service account with permission to invoke container.
+``` ||
+|| `--concurrency` | `int`
+
+The number of concurrent requests allowed per container instance. The default value is 1. ||
+|| `--connectivity` | `shorthand/json`
+
+Network access. If specified the revision will be attached to specified network/subnet(s).
+
+Shorthand Syntax:
+
+```hcl
+{
+  network-id = str,
+  subnet-ids = str,...
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "network-id": "str",
+  "subnet-ids": [
+    "str", ...
+  ]
+}
+```
+
+Fields:
+
+```
+network-id -> (string)
+  Network the revision will have access to.
+subnet-ids -> ([]string)
+  The list of subnets (from the same network) the revision can be attached to. Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.
+``` ||
+|| `--container-id` | `string`
+
+ID of the container to create a revision for. To get a container ID, make a [ContainerService.List] request. ||
+|| `--description` | `string`
+
+Description of the revision. ||
+|| `--execution-timeout` | `duration`
+
+Timeout for the execution of the revision. If the timeout is exceeded, Serverless Containers responds with a 504 HTTP code. (duration, e.g. 30s, 5m10s) ||
+|| `--image-spec` | `shorthand/json`
+
+Image configuration for the revision.
+
+Shorthand Syntax:
+
+```hcl
+{
+  args = {
+    args = str,...
+  },
+  command = {
+    command = str,...
+  },
+  environment = {key=str, key=...},
+  image-url = str,
+  working-dir = str
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "args": {
+    "args": [
+      "str", ...
+    ]
+  },
+  "command": {
+    "command": [
+      "str", ...
+    ]
+  },
+  "environment": {
+    "<key>": "str", ...
+  },
+  "image-url": "str",
+  "working-dir": "str"
+}
+```
+
+Fields:
+
+```
+args -> (struct)
+  Override for the image's CMD.
+  args -> ([]string)
+    Arguments that will override CMD of an image. Arguments will be passed as is. The runtime will not substitute environment variables or execute shell commands. If one wants to do that, they should invoke shell interpreter with an appropriate shell script.
+command -> (struct)
+  Override for the image's ENTRYPOINT.
+  command -> ([]string)
+    Command that will override ENTRYPOINT of an image. Commands will be executed as is. The runtime will not substitute environment variables or execute shell commands. If one wants to do that, they should invoke shell interpreter with an appropriate shell script.
+environment -> (map[string,string])
+  Additional environment for the container.
+image-url -> (string)
+  Image URL, that is used by the revision.
+working-dir -> (string)
+  Override for the image's WORKDIR.
+``` ||
+|| `--log-options` | `shorthand/json`
+
+Options for logging from the container.
+
+Shorthand Syntax:
+
+```hcl
+{
+  destination = folder-id=str | log-group-id=str,
+  disabled = bool,
+  min-level = TRACE|DEBUG|INFO|WARN|ERROR|FATAL
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "destination": {
+    "folder-id": "str",
+    "log-group-id": "str"
+  },
+  "disabled": "bool",
+  "min-level": "TRACE|DEBUG|INFO|WARN|ERROR|FATAL"
+}
+```
+
+Fields:
+
+```
+disabled -> (bool)
+  Is logging from container disabled.
+min-level -> (struct)
+  Minimum log entry level. See [LogLevel.Level] for details.
+destination -> (oneof<folder-id|log-group-id>)
+  Oneof destination field
+  log-group-id -> (string)
+    Entry should be written to log group resolved by ID.
+  folder-id -> (string)
+    Entry should be written to default log group for specified folder.
+``` ||
+|| `--metadata-options` | `shorthand/json`
+
+Metadata options for the revision.
+
+Shorthand Syntax:
+
+```hcl
+{
+  aws-v1-http-endpoint = ENABLED|DISABLED,
+  gce-http-endpoint = ENABLED|DISABLED
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "aws-v1-http-endpoint": "ENABLED|DISABLED",
+  "gce-http-endpoint": "ENABLED|DISABLED"
+}
+```
+
+Fields:
+
+```
+aws-v1-http-endpoint -> (struct)
+  Enabled access to AWS flavored metadata (IMDSv1)
+gce-http-endpoint -> (struct)
+  Enabled access to GCE flavored metadata
+``` ||
+|| `--mounts` | `shorthand/json`
+
+Mounts to be used by the revision.
+
+Shorthand Syntax:
+
+```hcl
+[
+  {
+    mode = READ_ONLY|READ_WRITE,
+    mount-point-path = str,
+    target = ephemeral-disk-spec={
+      block-size = int,
+      size = int
+    } | object-storage={
+      bucket-id = str,
+      prefix = str
+    }
+  }, ...
+]
+```
+
+JSON Syntax:
+
+```json
+[
+  {
+    "mode": "READ_ONLY|READ_WRITE",
+    "mount-point-path": "str",
+    "target": {
+      "ephemeral-disk-spec": {
+        "block-size": "int",
+        "size": "int"
+      },
+      "object-storage": {
+        "bucket-id": "str",
+        "prefix": "str"
+      }
+    }
+  }, ...
+]
+```
+
+Fields:
+
+```
+mode -> (struct)
+  Mount's mode
+mount-point-path -> (string)
+  The absolute mount point path inside the container for mounting.
+target -> (oneof<ephemeral-disk-spec|object-storage>)
+  Oneof target field
+  object-storage -> (struct)
+    Object storage mounts
+    bucket-id -> (string)
+      ObjectStorage bucket name for mounting.
+    prefix -> (string)
+      ObjectStorage bucket prefix for mounting.
+  ephemeral-disk-spec -> (struct)
+    Working disk (worker-local non-shared read-write NBS disk templates)
+    block-size -> (int)
+      Optional block size of disk for mount in bytes
+    size -> (int)
+      The size of disk for mount in bytes
+``` ||
+|| `--provision-policy` | `shorthand/json`
+
+Policy for provisioning instances of the revision. The policy is only applied when the revision is ACTIVE.
+
+Shorthand Syntax:
+
+```hcl
+{
+  min-instances = int
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "min-instances": "int"
+}
+```
+
+Fields:
+
+```
+min-instances -> (int)
+  Minimum number of guaranteed provisioned container instances for all zones in total.
+``` ||
+|| `--resources` | `shorthand/json`
+
+Resources allocated to the revision.
+
+Shorthand Syntax:
+
+```hcl
+{
+  core-fraction = int,
+  cores = int,
+  memory = int
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "core-fraction": "int",
+  "cores": "int",
+  "memory": "int"
+}
+```
+
+Fields:
+
+```
+core-fraction -> (int)
+  Specifies baseline performance for a core in percent, multiple of 5%. Should be 100% for cores > 1.
+cores -> (int)
+  Number of cores available to the revision.
+memory -> (int)
+  Amount of memory available to the revision, specified in bytes, multiple of 128MB.
+``` ||
+|| `--runtime` | `shorthand/json`
+
+The container's execution mode.
+
+Shorthand Syntax:
+
+```hcl
+{
+  type = http={} | task={}
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "type": {
+    "http": {},
+    "task": {}
+  }
+}
+```
+
+Fields:
+
+```
+type -> (oneof<http|task>)
+  Oneof type field
+  http -> (struct)
+    The classic one. You need to run an HTTP server inside the container.
+  task -> (struct)
+    We run a process from ENTRYPOINT inside the container for each user request.
+``` ||
+|| `--scaling-policy` | `shorthand/json`
+
+Policy for scaling instances of the revision.
+
+Shorthand Syntax:
+
+```hcl
+{
+  zone-instances-limit = int,
+  zone-requests-limit = int
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "zone-instances-limit": "int",
+  "zone-requests-limit": "int"
+}
+```
+
+Fields:
+
+```
+zone-instances-limit -> (int)
+  Upper limit for instance count in each zone. 0 means no limit.
+zone-requests-limit -> (int)
+  Upper limit of requests count in each zone. 0 means no limit.
+``` ||
+|| `--secrets` | `shorthand/json`
+
+Yandex Lockbox secrets to be used by the revision.
+
+Shorthand Syntax:
+
+```hcl
+[
+  {
+    id = str,
+    key = str,
+    reference = environment-variable=str,
+    version-id = str
+  }, ...
+]
+```
+
+JSON Syntax:
+
+```json
+[
+  {
+    "id": "str",
+    "key": "str",
+    "reference": {
+      "environment-variable": "str"
+    },
+    "version-id": "str"
+  }, ...
+]
+```
+
+Fields:
+
+```
+id -> (string)
+  ID of Yandex Lockbox secret.
+key -> (string)
+  Key in secret's payload, which value to be delivered into container environment.
+version-id -> (string)
+  ID of Yandex Lockbox secret.
+reference -> (oneof<environment-variable>)
+  Oneof reference field
+  environment-variable -> (string)
+    Environment variable in which secret's value is delivered.
+``` ||
+|| `--service-account-id` | `string`
+
+ID of the service account to associate with the revision. ||
+|| `--storage-mounts` | `shorthand/json`
+
+S3 mounts to be used by the revision.
+
+Shorthand Syntax:
+
+```hcl
+[
+  {
+    bucket-id = str,
+    mount-point-path = str,
+    prefix = str,
+    read-only = bool
+  }, ...
+]
+```
+
+JSON Syntax:
+
+```json
+[
+  {
+    "bucket-id": "str",
+    "mount-point-path": "str",
+    "prefix": "str",
+    "read-only": "bool"
+  }, ...
+]
+```
+
+Fields:
+
+```
+bucket-id -> (string)
+  S3 bucket name for mounting.
+mount-point-path -> (string)
+  Mount point path inside the container for mounting.
+prefix -> (string)
+  S3 bucket prefix for mounting.
+read-only -> (bool)
+  Is mount read only.
+``` ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

@@ -15,7 +15,7 @@ To protect your domain from sender email spoofing and increase the security of y
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the address and your domain zone.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
     1. Select your domain zone.
     1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
     1. In the **{{ ui-key.yacloud.common.name }}** field, specify `_dmarc`.

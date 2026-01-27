@@ -10,46 +10,458 @@ Creates an OpenSearch cluster in the specified folder.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta managed-opensearch cluster create <FOLDER-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--config-spec`|<b>`shorthand/json`</b><br/>OpenSearch cluster configuration.<br/>Shorthand Syntax:<br/>{<br/>access = {<br/>data-transfer = bool,<br/>serverless = bool<br/>},<br/>admin-password = str,<br/>dashboards-spec = {<br/>node-groups = [<br/>{<br/>assign-public-ip = bool,<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>hosts-count = int,<br/>name = str,<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>},<br/>subnet-ids = str,...,<br/>zone-ids = str,...<br/>}, ...<br/>]<br/>},<br/>opensearch-spec = {<br/>config = opensearch-config-2={<br/>fielddata-cache-size = str,<br/>max-clause-count = int,<br/>reindex-remote-whitelist = str<br/>},<br/>keystore-settings = [<br/>{<br/>name = str,<br/>value = str<br/>}, ...<br/>],<br/>node-groups = [<br/>{<br/>assign-public-ip = bool,<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>hosts-count = int,<br/>name = str,<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>},<br/>roles = DATA\|MANAGER,...,<br/>subnet-ids = str,...,<br/>zone-ids = str,...<br/>}, ...<br/>],<br/>plugins = str,...<br/>},<br/>snapshot-management = {<br/>snapshot-max-age-days = int,<br/>snapshot-schedule = {<br/>schedule = daily-snapshot-schedule={<br/>hour = int,<br/>minute = int<br/>} \| hourly-snapshot-schedule={<br/>minute = int<br/>} \| weekly-snapshot-schedule={<br/>day = MON\|TUE\|WED\|THU\|FRI\|SAT\|SUN,<br/>hour = int,<br/>minute = int<br/>}<br/>}<br/>},<br/>version = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"access": {<br/>"data-transfer": "bool",<br/>"serverless": "bool"<br/>},<br/>"admin-password": "str",<br/>"dashboards-spec": {<br/>"node-groups": [<br/>{<br/>"assign-public-ip": "bool",<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"hosts-count": "int",<br/>"name": "str",<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>},<br/>"subnet-ids": [<br/>"str", ...<br/>],<br/>"zone-ids": [<br/>"str", ...<br/>]<br/>}, ...<br/>]<br/>},<br/>"opensearch-spec": {<br/>"config": {<br/>"opensearch-config-2": {<br/>"fielddata-cache-size": "str",<br/>"max-clause-count": "int",<br/>"reindex-remote-whitelist": "str"<br/>}<br/>},<br/>"keystore-settings": [<br/>{<br/>"name": "str",<br/>"value": "str"<br/>}, ...<br/>],<br/>"node-groups": [<br/>{<br/>"assign-public-ip": "bool",<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"hosts-count": "int",<br/>"name": "str",<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>},<br/>"roles": [<br/>"DATA\|MANAGER", ...<br/>],<br/>"subnet-ids": [<br/>"str", ...<br/>],<br/>"zone-ids": [<br/>"str", ...<br/>]<br/>}, ...<br/>],<br/>"plugins": [<br/>"str", ...<br/>]<br/>},<br/>"snapshot-management": {<br/>"snapshot-max-age-days": "int",<br/>"snapshot-schedule": {<br/>"schedule": {<br/>"daily-snapshot-schedule": {<br/>"hour": "int",<br/>"minute": "int"<br/>},<br/>"hourly-snapshot-schedule": {<br/>"minute": "int"<br/>},<br/>"weekly-snapshot-schedule": {<br/>"day": "MON\|TUE\|WED\|THU\|FRI\|SAT\|SUN",<br/>"hour": "int",<br/>"minute": "int"<br/>}<br/>}<br/>}<br/>},<br/>"version": "str"<br/>}"<br/>Fields:<br/>access -> (struct)<br/>Access policy for external services.<br/>data-transfer -> (bool)<br/>Determines whether the access to Data Transfer is allowed.<br/>serverless -> (bool)<br/>Determines whether the access to Serverless is allowed.<br/>admin-password -> (string)<br/>OpenSearch admin password.<br/>dashboards-spec -> (struct)<br/>Dashboards configuration.<br/>node-groups -> ([]struct)<br/>Dashboards type host groups of the cluster.<br/>assign-public-ip -> (bool)<br/>Determines whether a public IP is assigned to the hosts in the group.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>hosts-count -> (int)<br/>Number of hosts in the group.<br/>name -> (string)<br/>Name of the group.<br/>resources -> (struct)<br/>Resources allocated to the hosts.<br/>disk-size -> (int)<br/>Volume of the storage used by the host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage used by the host: 'network-hdd', 'network-ssd' or 'local-ssd'.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources allocated to a host.<br/>subnet-ids -> ([]string)<br/>IDs of the subnets that the hosts belong to.<br/>zone-ids -> ([]string)<br/>IDs of the availability zones the hosts belong to.<br/>opensearch-spec -> (struct)<br/>OpenSearch configuration.<br/>keystore-settings -> ([]struct)<br/>Initial cluster keystore settings.<br/>name -> (string)<br/>Keystore entry name.<br/>value -> (string)<br/>Keystore entry value.<br/>node-groups -> ([]struct)<br/>OpenSearch type host groups of the cluster.<br/>assign-public-ip -> (bool)<br/>Determines whether a public IP is assigned to the hosts in the group.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>hosts-count -> (int)<br/>Number of hosts in the group.<br/>name -> (string)<br/>Name of the group.<br/>resources -> (struct)<br/>Resources allocated to the hosts.<br/>disk-size -> (int)<br/>Volume of the storage used by the host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage used by the host: 'network-hdd', 'network-ssd' or 'local-ssd'.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources allocated to a host.<br/>roles -> ([]int)<br/>Roles of the hosts in the group.<br/>subnet-ids -> ([]string)<br/>IDs of the subnets that the hosts belong to.<br/>zone-ids -> ([]string)<br/>IDs of the availability zones the hosts belong to.<br/>plugins -> ([]string)<br/>Names of the cluster plugins.<br/>config -> (oneof\<opensearch-config-2\>)<br/>Oneof config field<br/>opensearch-config-2 -> (struct)<br/>fielddata-cache-size -> (string)<br/>the percentage or absolute value (10%, 512mb) of heap space that is allocated to fielddata<br/>max-clause-count -> (int)<br/>the maximum number of allowed boolean clauses in a query<br/>reindex-remote-whitelist -> (string)<br/>snapshot-management -> (struct)<br/>Snapshot management configuration<br/>snapshot-max-age-days -> (int)<br/>Snapshot max age in days<br/>snapshot-schedule -> (struct)<br/>Snapshot creation schedule<br/>schedule -> (oneof<daily-snapshot-schedule\|hourly-snapshot-schedule\|weekly-snapshot-schedule>)<br/>Oneof schedule field<br/>hourly-snapshot-schedule -> (struct)<br/>Hourly based snapshot schedule<br/>minute -> (int)<br/>The minute of the hour at which the backup should be created.<br/>daily-snapshot-schedule -> (struct)<br/>Daily based snapshot schedule<br/>hour -> (int)<br/>The hour of the day in UTC timezone at which the backup should be created.<br/>minute -> (int)<br/>The minute of the hour at which the backup should be created.<br/>weekly-snapshot-schedule -> (struct)<br/>Weekly based snapshot schedule<br/>day -> (enum<FRI\|MON\|SAT\|SUN\|THU\|TUE\|WED>)<br/>Day of the week<br/>hour -> (int)<br/>The hour of the day in UTC timezone at which the backup should be created.<br/>minute -> (int)<br/>The minute of the hour at which the backup should be created.<br/>version -> (string)<br/>OpenSearch version.|
-|`--deletion-protection`|Determines whether the cluster is protected from being deleted.|
-|`--description`|<b>`string`</b><br/>Description of the OpenSearch cluster.|
-|`--disk-encryption-key-id`|<b>`string`</b><br/>ID of the key to encrypt cluster disks.|
-|`--environment`|<b>`enum`</b><br/>Deployment environment of the OpenSearch cluster. Possible Values: 'production', 'prestable'|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to create the OpenSearch cluster in.|
-|`--labels`|<b>`stringToString`</b><br/>Custom labels for the OpenSearch cluster as 'key:value' pairs. For example, '"project": "mvp"' or '"source": "dictionary"'.|
-|`--maintenance-window`|<b>`shorthand/json`</b><br/>Cluster maintenance window. Should be defined by either one of the two options.<br/>Shorthand Syntax:<br/>{<br/>policy = anytime={} \| weekly-maintenance-window={<br/>day = MON\|TUE\|WED\|THU\|FRI\|SAT\|SUN,<br/>hour = int<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"policy": {<br/>"anytime": {},<br/>"weekly-maintenance-window": {<br/>"day": "MON\|TUE\|WED\|THU\|FRI\|SAT\|SUN",<br/>"hour": "int"<br/>}<br/>}<br/>}"<br/>Fields:<br/>policy -> (oneof<anytime\|weekly-maintenance-window>)<br/>Oneof policy field<br/>anytime -> (struct)<br/>An any-time maintenance window.<br/>weekly-maintenance-window -> (struct)<br/>A weekly maintenance window.<br/>day -> (enum<FRI\|MON\|SAT\|SUN\|THU\|TUE\|WED>)<br/>Day of the week.<br/>hour -> (int)<br/>Hour of the day in the UTC timezone.|
-|`--name`|<b>`string`</b><br/>Name of the OpenSearch cluster. The name must be unique within the folder.|
-|`--network-id`|<b>`string`</b><br/>ID of the network to create the cluster in.|
-|`--security-group-ids`|<b>`strings`</b><br/>User security groups.|
-|`--service-account-id`|<b>`string`</b><br/>ID of the service account used to access Object Storage.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-json > request.json
+2. Edit the template: vim request.json
+3. Run with template: yc beta compute instance create -r request.json ||
+|| `--example-yaml` | Generates a YAML template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-yaml > request.yaml
+2. Edit the template: vim request.yaml
+3. Run with template: yc beta compute instance create -r request.yaml ||
+|| `--config-spec` | `shorthand/json`
+
+OpenSearch cluster configuration.
+
+Shorthand Syntax:
+
+```hcl
+{
+  access = {
+    data-transfer = bool,
+    serverless = bool
+  },
+  admin-password = str,
+  dashboards-spec = {
+    node-groups = [
+      {
+        assign-public-ip = bool,
+        disk-size-autoscaling = {
+          disk-size-limit = int,
+          emergency-usage-threshold = int,
+          planned-usage-threshold = int
+        },
+        hosts-count = int,
+        name = str,
+        resources = {
+          disk-size = int,
+          disk-type-id = str,
+          resource-preset-id = str
+        },
+        subnet-ids = str,...,
+        zone-ids = str,...
+      }, ...
+    ]
+  },
+  opensearch-spec = {
+    config = opensearch-config-2={
+      fielddata-cache-size = str,
+      max-clause-count = int,
+      reindex-remote-whitelist = str
+    },
+    keystore-settings = [
+      {
+        name = str,
+        value = str
+      }, ...
+    ],
+    node-groups = [
+      {
+        assign-public-ip = bool,
+        disk-size-autoscaling = {
+          disk-size-limit = int,
+          emergency-usage-threshold = int,
+          planned-usage-threshold = int
+        },
+        hosts-count = int,
+        name = str,
+        resources = {
+          disk-size = int,
+          disk-type-id = str,
+          resource-preset-id = str
+        },
+        roles = [
+          DATA|MANAGER, ...
+        ],
+        subnet-ids = str,...,
+        zone-ids = str,...
+      }, ...
+    ],
+    plugins = str,...
+  },
+  snapshot-management = {
+    snapshot-max-age-days = int,
+    snapshot-schedule = {
+      schedule = daily-snapshot-schedule={
+        hour = int,
+        minute = int
+      } | hourly-snapshot-schedule={
+        minute = int
+      } | weekly-snapshot-schedule={
+        day = MON|TUE|WED|THU|FRI|SAT|SUN,
+        hour = int,
+        minute = int
+      }
+    }
+  },
+  version = str
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "access": {
+    "data-transfer": "bool",
+    "serverless": "bool"
+  },
+  "admin-password": "str",
+  "dashboards-spec": {
+    "node-groups": [
+      {
+        "assign-public-ip": "bool",
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "hosts-count": "int",
+        "name": "str",
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        },
+        "subnet-ids": [
+          "str", ...
+        ],
+        "zone-ids": [
+          "str", ...
+        ]
+      }, ...
+    ]
+  },
+  "opensearch-spec": {
+    "config": {
+      "opensearch-config-2": {
+        "fielddata-cache-size": "str",
+        "max-clause-count": "int",
+        "reindex-remote-whitelist": "str"
+      }
+    },
+    "keystore-settings": [
+      {
+        "name": "str",
+        "value": "str"
+      }, ...
+    ],
+    "node-groups": [
+      {
+        "assign-public-ip": "bool",
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "hosts-count": "int",
+        "name": "str",
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        },
+        "roles": [
+          "DATA|MANAGER", ...
+        ],
+        "subnet-ids": [
+          "str", ...
+        ],
+        "zone-ids": [
+          "str", ...
+        ]
+      }, ...
+    ],
+    "plugins": [
+      "str", ...
+    ]
+  },
+  "snapshot-management": {
+    "snapshot-max-age-days": "int",
+    "snapshot-schedule": {
+      "schedule": {
+        "daily-snapshot-schedule": {
+          "hour": "int",
+          "minute": "int"
+        },
+        "hourly-snapshot-schedule": {
+          "minute": "int"
+        },
+        "weekly-snapshot-schedule": {
+          "day": "MON|TUE|WED|THU|FRI|SAT|SUN",
+          "hour": "int",
+          "minute": "int"
+        }
+      }
+    }
+  },
+  "version": "str"
+}
+```
+
+Fields:
+
+```
+access -> (struct)
+  Access policy for external services.
+  data-transfer -> (bool)
+    Determines whether the access to Data Transfer is allowed.
+  serverless -> (bool)
+    Determines whether the access to Serverless is allowed.
+admin-password -> (string)
+  OpenSearch admin password.
+dashboards-spec -> (struct)
+  Dashboards configuration.
+  node-groups -> ([]struct)
+    Dashboards type host groups of the cluster.
+    assign-public-ip -> (bool)
+      Determines whether a public IP is assigned to the hosts in the group.
+    disk-size-autoscaling -> (struct)
+      Disk size autoscaling settings
+      disk-size-limit -> (int)
+        Limit on how large the storage for database instances can automatically grow, in bytes.
+      emergency-usage-threshold -> (int)
+        Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+      planned-usage-threshold -> (int)
+        Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+    hosts-count -> (int)
+      Number of hosts in the group.
+    name -> (string)
+      Name of the group.
+    resources -> (struct)
+      Resources allocated to the hosts.
+      disk-size -> (int)
+        Volume of the storage used by the host, in bytes.
+      disk-type-id -> (string)
+        Type of the storage used by the host: 'network-hdd', 'network-ssd' or 'local-ssd'.
+      resource-preset-id -> (string)
+        ID of the preset for computational resources allocated to a host.
+    subnet-ids -> ([]string)
+      IDs of the subnets that the hosts belong to.
+    zone-ids -> ([]string)
+      IDs of the availability zones the hosts belong to.
+opensearch-spec -> (struct)
+  OpenSearch configuration.
+  keystore-settings -> ([]struct)
+    Initial cluster keystore settings.
+    name -> (string)
+      Keystore entry name.
+    value -> (string)
+      Keystore entry value.
+  node-groups -> ([]struct)
+    OpenSearch type host groups of the cluster.
+    assign-public-ip -> (bool)
+      Determines whether a public IP is assigned to the hosts in the group.
+    disk-size-autoscaling -> (struct)
+      Disk size autoscaling settings
+      disk-size-limit -> (int)
+        Limit on how large the storage for database instances can automatically grow, in bytes.
+      emergency-usage-threshold -> (int)
+        Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+      planned-usage-threshold -> (int)
+        Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+    hosts-count -> (int)
+      Number of hosts in the group.
+    name -> (string)
+      Name of the group.
+    resources -> (struct)
+      Resources allocated to the hosts.
+      disk-size -> (int)
+        Volume of the storage used by the host, in bytes.
+      disk-type-id -> (string)
+        Type of the storage used by the host: 'network-hdd', 'network-ssd' or 'local-ssd'.
+      resource-preset-id -> (string)
+        ID of the preset for computational resources allocated to a host.
+    roles -> ([]struct)
+      Roles of the hosts in the group.
+    subnet-ids -> ([]string)
+      IDs of the subnets that the hosts belong to.
+    zone-ids -> ([]string)
+      IDs of the availability zones the hosts belong to.
+  plugins -> ([]string)
+    Names of the cluster plugins.
+  config -> (oneof<opensearch-config-2>)
+    Oneof config field
+    opensearch-config-2 -> (struct)
+      fielddata-cache-size -> (string)
+        the percentage or absolute value (10%, 512mb) of heap space that is allocated to fielddata
+      max-clause-count -> (int)
+        the maximum number of allowed boolean clauses in a query
+      reindex-remote-whitelist -> (string)
+snapshot-management -> (struct)
+  Snapshot management configuration
+  snapshot-max-age-days -> (int)
+    Snapshot max age in days
+  snapshot-schedule -> (struct)
+    Snapshot creation schedule
+    schedule -> (oneof<daily-snapshot-schedule|hourly-snapshot-schedule|weekly-snapshot-schedule>)
+      Oneof schedule field
+      hourly-snapshot-schedule -> (struct)
+        Hourly based snapshot schedule
+        minute -> (int)
+          The minute of the hour at which the backup should be created.
+      daily-snapshot-schedule -> (struct)
+        Daily based snapshot schedule
+        hour -> (int)
+          The hour of the day in UTC timezone at which the backup should be created.
+        minute -> (int)
+          The minute of the hour at which the backup should be created.
+      weekly-snapshot-schedule -> (struct)
+        Weekly based snapshot schedule
+        day -> (struct)
+          Day of the week
+        hour -> (int)
+          The hour of the day in UTC timezone at which the backup should be created.
+        minute -> (int)
+          The minute of the hour at which the backup should be created.
+version -> (string)
+  OpenSearch version.
+``` ||
+|| `--deletion-protection` | Determines whether the cluster is protected from being deleted. ||
+|| `--description` | `string`
+
+Description of the OpenSearch cluster. ||
+|| `--disk-encryption-key-id` | `string`
+
+ID of the key to encrypt cluster disks. ||
+|| `--environment` | `enum`
+
+Deployment environment of the OpenSearch cluster. Possible Values: 'production', 'prestable' ||
+|| `--folder-id` | `string`
+
+ID of the folder to create the OpenSearch cluster in. ||
+|| `--labels` | `stringToString`
+
+Custom labels for the OpenSearch cluster as 'key:value' pairs. For example, '"project": "mvp"' or '"source": "dictionary"'. ||
+|| `--maintenance-window` | `shorthand/json`
+
+Cluster maintenance window. Should be defined by either one of the two options.
+
+Shorthand Syntax:
+
+```hcl
+{
+  policy = anytime={} | weekly-maintenance-window={
+    day = MON|TUE|WED|THU|FRI|SAT|SUN,
+    hour = int
+  }
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "policy": {
+    "anytime": {},
+    "weekly-maintenance-window": {
+      "day": "MON|TUE|WED|THU|FRI|SAT|SUN",
+      "hour": "int"
+    }
+  }
+}
+```
+
+Fields:
+
+```
+policy -> (oneof<anytime|weekly-maintenance-window>)
+  Oneof policy field
+  anytime -> (struct)
+    An any-time maintenance window.
+  weekly-maintenance-window -> (struct)
+    A weekly maintenance window.
+    day -> (struct)
+      Day of the week.
+    hour -> (int)
+      Hour of the day in the UTC timezone.
+``` ||
+|| `--name` | `string`
+
+Name of the OpenSearch cluster. The name must be unique within the folder. ||
+|| `--network-id` | `string`
+
+ID of the network to create the cluster in. ||
+|| `--security-group-ids` | `strings`
+
+User security groups. ||
+|| `--service-account-id` | `string`
+
+ID of the service account used to access Object Storage. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

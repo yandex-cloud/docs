@@ -83,6 +83,32 @@
               subject_id: ajetvnq2mil8********
         ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. Опишите в конфигурационном файле параметры SAML-приложения с пользователями и группами:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_application_saml_application_assignment" "example_assignment" {
+       application_id = "<идентификатор_SAML-приложения>"
+       subject_id     = "<идентификатор_пользователя_или_группы>"
+     }
+     ```
+
+     Где:
+
+     * `application_id` — идентификатор SAML-приложения.
+     * `subject_id` — идентификатор пользователя или группы пользователей, которые будут иметь доступ к SAML-приложению. Чтобы получить идентификатор пользователя, воспользуйтесь [инструкцией](../../organization/operations/users-get.md). Чтобы получить идентификатор группы пользователей, воспользуйтесь [инструкцией](../../organization/operations/group-get-id.md).
+
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application_assignment` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application_assignment).
+
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     Проверить изменения ресурсов и их настройки можно в [{{ org-full-name }}]({{ link-org-cloud-center }}).
+
 - API {#api}
 
   Воспользуйтесь методом REST API [Application.UpdateAssignments](../../organization/idp/application/saml/api-ref/Application/updateAssignments.md) для ресурса [Application](../../organization/idp/application/saml/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/UpdateAssignments](../../organization/idp/application/saml/api-ref/grpc/Application/updateAssignments.md).

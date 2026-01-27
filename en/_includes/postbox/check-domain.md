@@ -9,7 +9,7 @@ To send emails, confirm domain ownership. After creating an address, DKIM signat
     1. In the [management console]({{ link-console-main }}), select the folder containing the address and your domain zone.
 
         If you do not have a [public DNS zone](../../dns/concepts/dns-zone.md#public-zones) yet, [create](../../dns/operations/zone-create-public.md) one:
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
     1. Select your domain zone.
     1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
     1. In the **{{ ui-key.yacloud.common.name }}** field, specify the name portion generated when creating the address, omitting the domain in `<selector>._domainkey` format, e.g., `postbox._domainkey`.
@@ -28,7 +28,7 @@ To send emails, confirm domain ownership. After creating an address, DKIM signat
         ```
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
-    1. Go to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. Select the address you created.
     1. Click **{{ ui-key.yacloud.postbox.button_validate }}**. If the record is correct, the verification status on the address page will change to `Success`.
 

@@ -13,7 +13,7 @@ In this section, you can find the {{ mos-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using {{ mos-name }}, use [our calculator](https://yandex.cloud/en/prices?state=6045f728368e#calculator) on the {{ yandex-cloud }} website or check the pricing data below.
+For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=6045f728368e#calculator) on our website or check out the pricing below.
 
 
 
@@ -27,7 +27,7 @@ To calculate the cost of using {{ mos-name }}, use [our calculator](https://yand
 
 ## Cluster status {#running-stopped}
 
-Prices are applied differently depending on the cluster status:
+The prices apply differently depending on the cluster status:
 
 * For a `Running` cluster, you pay for both the computing resources and storage size.
 * For a `Stopped` cluster, you only pay for your storage size.
@@ -42,17 +42,17 @@ The {{ mos-name }} usage cost includes:
 
 * Disk type and disk space.
 
-* Egress traffic from {{ yandex-cloud }}.
+* Egress traffic from {{ yandex-cloud }} to the internet.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
 ### Using cluster hosts {#rules-hosts-uptime}
 
-Host operation cost depends on what resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
+The host operation cost depends on what resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
-You can select host class both for hosts with the `DATA` role and hosts with the `MANAGER` and `DASHBOARDS` roles.
+You can select a host class both for hosts with the `DATA` role and hosts with the `MANAGER` and `DASHBOARDS` roles.
 
-Host operation cost is charged per hour. The minimum billing unit is one minute (for example, 90 seconds of host operation count as two minutes). You do not pay for the time when the {{ OS }} host is unable to perform its main functions.
+The host operation cost is charged per hour. The minimum billing unit is one minute, e.g., 1.5 minutes of host operation cost the same as two minutes. You will not be charged for the time when the {{ OS }} host is unavailable for basic operations.
 
 ### Disk space usage {#rules-storage}
 
@@ -60,9 +60,9 @@ You pay for the following:
 
 * Storage allocated for clusters.
 
-* Storage taken up by backups over specified cluster storage.
+* Storage taken up by backups over the specified cluster storage.
 
-    * Backups are stored free of charge as long as the combined size of the data in the cluster and all backups is smaller than the selected storage size.
+    * Backups are stored free of charge as long as the combined size of data in the cluster and all backups is smaller than the selected storage size.
 
     * All automatic and [manual](operations/cluster-backups.md) backups are incremental. This means the initial backup contains all index segments, and all subsequent backups contain only the _increment_, i.e., changes made since the previous backup. This saves storage space and reduces the cost of using resources.
 
@@ -70,13 +70,13 @@ You pay for the following:
 
     * The number of hosts in a cluster does not affect the storage size and, consequently, the amount of free backups.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds counts as storing 1 GB for 2 minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes costs the same as for 2 minutes.
 
 ### Example of cluster cost calculation {#example}
 
 Let's calculate the cost of using a cluster with the following properties for 30 days:
 
-* **{{ OS }}** hosts: Three `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
+* **{{ OS }} hosts**: Three `s3-c2-m8` hosts, Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
 * **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 GB of network HDD storage.
 
 Cost calculation for {{ OS }} hosts:
@@ -103,7 +103,7 @@ Calculation for the storage cost and total cost:
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mos-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ mos-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
@@ -116,14 +116,15 @@ A CVoS discount is only available for certain resource types. For unsupported re
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
+
 {% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
 
 {% include [local-ssd for Intel Ice Lake only on request](../_includes/ice-lake-local-ssd-note.md) %}
+
 
 
 

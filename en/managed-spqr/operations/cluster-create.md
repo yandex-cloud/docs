@@ -1,5 +1,5 @@
 ---
-title: Creating an {{ SPQR }} cluster
+title: Creating a {{ SPQR }} cluster
 description: Follow this guide to create a {{ SPQR }} cluster with standard or advanced sharding.
 keywords:
   - creating an {{ SPQR }} cluster
@@ -7,7 +7,7 @@ keywords:
   - '{{ SPQR }}'
 ---
 
-# Creating an {{ SPQR }} cluster
+# Creating a {{ SPQR }} cluster
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
@@ -30,7 +30,7 @@ keywords:
             1. Enter a label in `key: value` format.
             1. Press **Enter**.
 
-        1. Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
+        1. Select your cluster environment. Note that you cannot change the environment once the cluster is created:
 
             * `PRODUCTION`: For stable versions of your applications.
             * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
@@ -74,9 +74,9 @@ keywords:
 
         * Username. Acceptable length is from 1 to 63 characters. Can contain lowercase and uppercase Latin letters, numbers, underscores, and hyphens, but can't start with a hyphen.
 
-        * User password. It may be from 8 to 128 characters long.
+        * Password: It may be from 8 to 128 characters long.
 
-    1. Specify additional cluster settings, if required:
+    1. If needed, configure advanced cluster settings:
 
         {% include [extra-settings](../../_includes/mdb/mspqr/console/extra-settings.md) %}
 
@@ -86,7 +86,7 @@ keywords:
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -106,7 +106,7 @@ keywords:
          "<security_group_N_ID>"
        ],
        "networkId": "<network_ID>",
-       "deletionProtection": <protect_cluster_against_deletion>,
+       "deletionProtection": <protect_cluster_from_deletion>,
        "configSpec": {
          "spqrSpec": {
            "router": {
@@ -225,7 +225,7 @@ keywords:
 
      Where:
 
-     * `folderId`: Folder ID.  You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+     * `folderId`: Folder ID.  You can get it from the [list of your cloud folders](../../resource-manager/operations/folder/get-id.md).
      * `name`: Cluster name.
      * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
      * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be deployed in.
@@ -249,7 +249,7 @@ keywords:
            * `config`: Router configuration:
 
              * `showNoticeMessages`: Show information notifications, `true` or `false`.
-             * `timeQuantiles`: Array of time quantile strings for displaying statistics. The following values ​​are used by default: `"0.5"`, `"0.75"`, `"0.9"`, `"0.95"`, `"0.99"`, `"0.999"`, `"0.9999"`.
+             * `timeQuantiles`: Array of time quantile strings for displaying statistics. The default values are `"0.5"`, `"0.75"`, `"0.9"`, `"0.95"`, `"0.99"`, `"0.999"`, `"0.9999"`.
              * `defaultRouteBehavior`: Router's multishard request execution policy. Possible values: `BLOCK` or `ALLOW`.
              * `preferSameAvailabilityZone`: Enable priority routing of read requests to the router's availability zone, `true` or `false`.
 
@@ -273,7 +273,7 @@ keywords:
            * `router`: Router configuration:
 
              * `showNoticeMessages`: Show information notifications, `true` or `false`.
-             * `timeQuantiles`: Array of time quantiles for displaying statistics. The following values ​​are used by default: `0.5`, `0.75`, `0.9`, `0.95`, `0.99`, `0.999`, `0.9999`.
+             * `timeQuantiles`: Array of time quantiles for displaying statistics. The default values are `0.5`, `0.75`, `0.9`, `0.95`, `0.99`, `0.999`, `0.9999`.
              * `defaultRouteBehavior`: Router's multishard request execution policy. Possible values: `BLOCK` or `ALLOW`.
              * `preferSameAvailabilityZone`: Enable priority routing of read requests to the router's availability zone, `true` or `false`.
 
@@ -294,13 +294,13 @@ keywords:
 
      * `databaseSpecs`: Database settings as an array of elements, one per database. Each element has the following structure:
 
-       * `name`: Database name
+       * `name`: Database name.
 
      * `userSpecs`: User settings as an array of elements, one per user. Each element has the following structure:
 
        * `name`: Username.
        * `password`: User password. The password must be from 8 to 128 characters long.
-       * `permissions.databaseName`: Name of the database to which the user will have access.
+       * `permissions.databaseName`: Name of the database the user can access.
        * `settings`: Database user connection parameters:
 
          * `connectionLimit`: Connection limit.
@@ -330,7 +330,7 @@ keywords:
      * `maintenanceWindow`: Maintenance window settings:
 
        * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The valid values range from `1` to `24`.
+       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. Allowed values range from `1` to `24`.
 
   1. Call the [Cluster.Create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -343,11 +343,11 @@ keywords:
        --data "@body.json"
      ```
 
-  1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -368,7 +368,7 @@ keywords:
          "<security_group_N_ID>"
        ],
        "network_id": "<network_ID>",
-       "deletion_protection": <protect_cluster_against_deletion>,
+       "deletion_protection": <protect_cluster_from_deletion>,
        "config_spec": {
          "spqr_spec": {
            "router": {
@@ -501,7 +501,7 @@ keywords:
      * `folder_id`: Folder ID.  You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
      * `name`: Cluster name.
      * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
-     * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) where the cluster will be deployed.
+     * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be deployed in.
 
        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
@@ -521,7 +521,7 @@ keywords:
            * `config`: Router configuration:
 
              * `show_notice_messages`: Show information notifications, `true` or `false`.
-             * `time_quantiles`: Array of time quantiles for displaying statistics. The following values ​​are used by default: `0.5`, `0.75`, `0.9`, `0.95`, `0.99`, `0.999`, `0.9999`.
+             * `time_quantiles`: Array of time quantiles for displaying statistics. The default values are `0.5`, `0.75`, `0.9`, `0.95`, `0.99`, `0.999`, `0.9999`.
              * `default_route_behavior`: Router's multishard request execution policy. Possible values: `BLOCK` or `ALLOW`.
              * `prefer_same_availability_zone`: Enable priority routing of read requests to the router's availability zone, `true` or `false`.
 
@@ -569,7 +569,7 @@ keywords:
 
        * `name`: Username.
        * `password`: User password. The password must be from 8 to 128 characters long.
-       * `permissions.database_name`: Name of the database to which the user will have access.
+       * `permissions.database_name`: Name of the database the user can access.
        * `settings`: Database user connection parameters:
 
          * `connection_limit`: Connection limit.
@@ -599,7 +599,7 @@ keywords:
      * `maintenance_window`: Maintenance window settings:
 
        * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The valid values range from `1` to `24`.
+       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. Allowed values range from `1` to `24`.
 
   1. Call the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 

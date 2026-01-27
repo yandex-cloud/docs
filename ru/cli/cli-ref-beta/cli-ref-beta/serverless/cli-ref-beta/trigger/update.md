@@ -10,36 +10,1573 @@ Updates the specified trigger.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta serverless trigger update <TRIGGER-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`--description`|<b>`string`</b><br/>New description of the trigger.|
-|`--labels`|<b>`stringToString`</b><br/>Trigger labels as 'key:value' pairs. Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label, request the current set of labels with a [TriggerService.Get] request.|
-|`--name`|<b>`string`</b><br/>New name for the trigger. The name must be unique within the folder.|
-|`--rule`|<b>`shorthand/json`</b><br/>New parameters for trigger.<br/>Shorthand Syntax:<br/>{<br/>rule = billing-budget={<br/>action = gateway-websocket-broadcast={<br/>gateway-id = str,<br/>path = str,<br/>service-account-id = str<br/>} \| invoke-container={<br/>container-id = str,<br/>dead-letter-queue = {<br/>queue-id = str,<br/>service-account-id = str<br/>},<br/>path = str,<br/>retry-settings = {<br/>interval = duration,<br/>retry-attempts = int<br/>},<br/>service-account-id = str<br/>} \| invoke-function={<br/>dead-letter-queue = {<br/>queue-id = str,<br/>service-account-id = str<br/>},<br/>function-id = str,<br/>function-tag = str,<br/>retry-settings = {<br/>interval = duration,<br/>retry-attempts = int<br/>},<br/>service-account-id = str<br/>},<br/>billing-account-id = str,<br/>budget-id = str<br/>} \| cloud-logs={<br/>action = invoke-container={<br/>container-id = str,<br/>dead-letter-queue = {<br/>queue-id = str,<br/>service-account-id = str<br/>},<br/>path = str,<br/>retry-settings = {<br/>interval = duration,<br/>retry-attempts = int<br/>},<br/>service-account-id = str<br/>} \| invoke-function={<br/>dead-letter-queue = {<br/>queue-id = str,<br/>service-account-id = str<br/>},<br/>function-id = str,<br/>function-tag = str,<br/>retry-settings = {<br/>interval = duration,<br/>retry-attempts = int<br/>},<br/>service-account-id = str<br/>},<br/>batch-settings = {<br/>cutoff = duration,<br/>size = int<br/>},<br/>log-group-id = str,...<br/>} \| container-registry={<br/>action = gateway-websocket-broadcast={<br/>gateway-id = str,<br/>path = str,<br/>service-account-id = str<br/>} \| invoke-container={<br/>container-id = str,<br/>dead-letter-queue = {<br/>queue-id = str,<br/>service-account-id = str<br/>},<br/>path = str,<br/>retry-settings = {<br/>interval = duration,<br/>retry-attempts = int<br/>},<br/>service-account-id = str<br/>} \| invoke-function={<br/>dead-letter-queue = {<br/>queue-id = str,<br/>service-account-id = str<br/>},<br/>function-id = str,<br/>function-tag = str,<br/>retry-settings = {<br/>interval = duration,<br/>retry-attempts = int<br/>},<br/>service-account-id = str<br/>},<br/>batch-settings = {<br/>cutoff = duration,<br/>size = int<br/>},<br/>event-type = CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE\|CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE\|CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG\|CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG,...,<br/>image-name = str,<br/>registry-id = str,<br/>tag = str<br/>} \| data-stream={<br/>action = gateway-websocket-broadcast={<br/>gateway-id = str,<br/>path = str,<br/>service-account-id = str<br/>} \| invoke-container={<br/>container-id = str,<br/>dead-letter-queue = {<br/>queue-id = str,<br/>service-account-id = str<br/>},<br/>path = str,<br/>retry-settings = {<br/>interval = duration,<br/>retry-attempts = int<br/>},<br/>service-account-id = str<br/>} \| invoke-function={<br/>dead-letter-queue = {<br/>queue-id = str,<br/>service-account-id = str<br/>},<br/>function-id = str,<br/>function-tag = str,<br/>retry-settings = {<br/>interval = duration,<br/>retry-attempts = int<br/>},<br/>service-account-id = str<br/>},<br/>batch-settings = {<br/>cutoff = duration,<br/>size = int<br/>},<br/>database = str,<br/>endpoint = str,<br/>service-account-id = str,<br/>stream = str<br/>} \| iot-broker-message={<br/>action = gateway-websocket-broadcast={<br/>gateway-id = str,<br/>path = str,<br/>service-account-id = str<br/>} \| invoke-container={<br/>container-id = str,<br/>dead-letter-queue = {<br/>queue-id = str,<br/>service-account-id = str<br/>},<br/>path = str,<br/>retry-settings = {<br/>interval = duration,<br/>retry-attempts = int<br/>},<br/>service-account-id = str<br/>} \| invoke-function={<br/>dead-letter-queue = {<br/>queue-id = str,<br/>service-account-id = str<br/>},<br/>function-id = str,<br/>function-tag = str,<br/>retry-settings = {<br/>interval = duration,<br/>retry-attempts = int<br/>},<br/>service-account-id = str<br/>},<br/>batch-settings = {<br/>cutoff = duration,<br/>size = int<br/>},<br/>broker-id = str,<br/>mqtt-topic = str<br/>} \| iot-message={<br/>action = gateway-websocket-broadcast={<br/>gateway-id = str,<br/>path = str,<br/>service-account-id = str<br/>} \| invoke-container={<br/>container-id = str,<br/>dead-letter-queue = {<br/>queue-id = str,<br/>service-account-id = str<br/>},<br/>path = str,<br/>retry-settings = {<br/>interval = duration,<br/>retry-attempts = int<br/>},<br/>service-account-id = str<br/>} \| invoke-function={<br/>dead-letter-queue = {<br/>queue-id = str,<br/>service-account-id = str<br/>},<br/>function-id = str,<br/>function-tag = str,<br/>retry-settings = {<br/>interval = duration,<br/>retry-attempts = int<br/>},<br/>service-account-id = str<br/>},<br/>batch-settings = {<br/>cutoff = duration,<br/>size = int<br/>},<br/>device-id = str,<br/>mqtt-topic = str,<br/>registry-id = str<br/>} \| logging={<br/>action = gateway-websocket-broadcast={<br/>gateway-id = str,<br/>path = str,<br/>service-account-id = str<br/>} \| invoke-container={<br/>container-id = str,<br/>dead-letter-queue = {<br/>queue-id = str,<br/>service-account-id = str<br/>},<br/>path = str,<br/>retry-settings = {<br/>interval = duration,<br/>retry-attempts = int<br/>},<br/>service-account-id = str<br/>} \| invoke-function={<br/>dead-letter-queue = {<br/>queue-id = str,<br/>service-account-id = str<br/>},<br/>function-id = str,<br/>function-tag = str,<br/>retry-settings = {<br/>interval = duration,<br/>retry-attempts = int<br/>},<br/>service-account-id = str<br/>},<br/>batch-settings = {<br/>cutoff = duration,<br/>size = int<br/>},<br/>levels = TRACE\|DEBUG\|INFO\|WARN\|ERROR\|FATAL,...,<br/>log-group-id = str,<br/>resource-id = str,...,<br/>resource-type = str,...,<br/>stream-name = str,...<br/>} \| mail={<br/>action = gateway-websocket-broadcast={<br/>gateway-id = str,<br/>path = str,<br/>service-account-id = str<br/>} \| invoke-container={<br/>container-id = str,<br/>dead-letter-queue = {<br/>queue-id = str,<br/>service-account-id = str<br/>},<br/>path = str,<br/>retry-settings = {<br/>interval = duration,<br/>retry-attempts = int<br/>},<br/>service-account-id = str<br/>} \| invoke-function={<br/>dead-letter-queue = {<br/>queue-id = str,<br/>service-account-id = str<br/>},<br/>function-id = str,<br/>function-tag = str,<br/>retry-settings = {<br/>interval = duration,<br/>retry-attempts = int<br/>},<br/>service-account-id = str<br/>},<br/>attachments-bucket = {<br/>bucket-id = str,<br/>service-account-id = str<br/>},<br/>batch-settings = {<br/>cutoff = duration,<br/>size = int<br/>},<br/>email = str<br/>} \| message-queue={<br/>action = gateway-websocket-broadcast={<br/>gateway-id = str,<br/>path = str,<br/>service-account-id = str<br/>} \| invoke-container={<br/>container-id = str,<br/>path = str,<br/>service-account-id = str<br/>} \| invoke-function={<br/>function-id = str,<br/>function-tag = str,<br/>service-account-id = str<br/>},<br/>batch-settings = {<br/>cutoff = duration,<br/>size = int<br/>},<br/>queue-id = str,<br/>service-account-id = str,<br/>visibility-timeout = duration<br/>} \| object-storage={<br/>action = gateway-websocket-broadcast={<br/>gateway-id = str,<br/>path = str,<br/>service-account-id = str<br/>} \| invoke-container={<br/>container-id = str,<br/>dead-letter-queue = {<br/>queue-id = str,<br/>service-account-id = str<br/>},<br/>path = str,<br/>retry-settings = {<br/>interval = duration,<br/>retry-attempts = int<br/>},<br/>service-account-id = str<br/>} \| invoke-function={<br/>dead-letter-queue = {<br/>queue-id = str,<br/>service-account-id = str<br/>},<br/>function-id = str,<br/>function-tag = str,<br/>retry-settings = {<br/>interval = duration,<br/>retry-attempts = int<br/>},<br/>service-account-id = str<br/>},<br/>batch-settings = {<br/>cutoff = duration,<br/>size = int<br/>},<br/>bucket-id = str,<br/>event-type = OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT\|OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT\|OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT,...,<br/>prefix = str,<br/>suffix = str<br/>} \| timer={<br/>action = gateway-websocket-broadcast={<br/>gateway-id = str,<br/>path = str,<br/>service-account-id = str<br/>} \| invoke-container-with-retry={<br/>container-id = str,<br/>dead-letter-queue = {<br/>queue-id = str,<br/>service-account-id = str<br/>},<br/>path = str,<br/>retry-settings = {<br/>interval = duration,<br/>retry-attempts = int<br/>},<br/>service-account-id = str<br/>} \| invoke-function={<br/>function-id = str,<br/>function-tag = str,<br/>service-account-id = str<br/>} \| invoke-function-with-retry={<br/>dead-letter-queue = {<br/>queue-id = str,<br/>service-account-id = str<br/>},<br/>function-id = str,<br/>function-tag = str,<br/>retry-settings = {<br/>interval = duration,<br/>retry-attempts = int<br/>},<br/>service-account-id = str<br/>},<br/>cron-expression = str,<br/>payload = str<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"rule": {<br/>"billing-budget": {<br/>"action": {<br/>"gateway-websocket-broadcast": {<br/>"gateway-id": "str",<br/>"path": "str",<br/>"service-account-id": "str"<br/>},<br/>"invoke-container": {<br/>"container-id": "str",<br/>"dead-letter-queue": {<br/>"queue-id": "str",<br/>"service-account-id": "str"<br/>},<br/>"path": "str",<br/>"retry-settings": {<br/>"interval": "duration",<br/>"retry-attempts": "int"<br/>},<br/>"service-account-id": "str"<br/>},<br/>"invoke-function": {<br/>"dead-letter-queue": {<br/>"queue-id": "str",<br/>"service-account-id": "str"<br/>},<br/>"function-id": "str",<br/>"function-tag": "str",<br/>"retry-settings": {<br/>"interval": "duration",<br/>"retry-attempts": "int"<br/>},<br/>"service-account-id": "str"<br/>}<br/>},<br/>"billing-account-id": "str",<br/>"budget-id": "str"<br/>},<br/>"cloud-logs": {<br/>"action": {<br/>"invoke-container": {<br/>"container-id": "str",<br/>"dead-letter-queue": {<br/>"queue-id": "str",<br/>"service-account-id": "str"<br/>},<br/>"path": "str",<br/>"retry-settings": {<br/>"interval": "duration",<br/>"retry-attempts": "int"<br/>},<br/>"service-account-id": "str"<br/>},<br/>"invoke-function": {<br/>"dead-letter-queue": {<br/>"queue-id": "str",<br/>"service-account-id": "str"<br/>},<br/>"function-id": "str",<br/>"function-tag": "str",<br/>"retry-settings": {<br/>"interval": "duration",<br/>"retry-attempts": "int"<br/>},<br/>"service-account-id": "str"<br/>}<br/>},<br/>"batch-settings": {<br/>"cutoff": "duration",<br/>"size": "int"<br/>},<br/>"log-group-id": [<br/>"str", ...<br/>]<br/>},<br/>"container-registry": {<br/>"action": {<br/>"gateway-websocket-broadcast": {<br/>"gateway-id": "str",<br/>"path": "str",<br/>"service-account-id": "str"<br/>},<br/>"invoke-container": {<br/>"container-id": "str",<br/>"dead-letter-queue": {<br/>"queue-id": "str",<br/>"service-account-id": "str"<br/>},<br/>"path": "str",<br/>"retry-settings": {<br/>"interval": "duration",<br/>"retry-attempts": "int"<br/>},<br/>"service-account-id": "str"<br/>},<br/>"invoke-function": {<br/>"dead-letter-queue": {<br/>"queue-id": "str",<br/>"service-account-id": "str"<br/>},<br/>"function-id": "str",<br/>"function-tag": "str",<br/>"retry-settings": {<br/>"interval": "duration",<br/>"retry-attempts": "int"<br/>},<br/>"service-account-id": "str"<br/>}<br/>},<br/>"batch-settings": {<br/>"cutoff": "duration",<br/>"size": "int"<br/>},<br/>"event-type": [<br/>"CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE\|CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE\|CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG\|CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG", ...<br/>],<br/>"image-name": "str",<br/>"registry-id": "str",<br/>"tag": "str"<br/>},<br/>"data-stream": {<br/>"action": {<br/>"gateway-websocket-broadcast": {<br/>"gateway-id": "str",<br/>"path": "str",<br/>"service-account-id": "str"<br/>},<br/>"invoke-container": {<br/>"container-id": "str",<br/>"dead-letter-queue": {<br/>"queue-id": "str",<br/>"service-account-id": "str"<br/>},<br/>"path": "str",<br/>"retry-settings": {<br/>"interval": "duration",<br/>"retry-attempts": "int"<br/>},<br/>"service-account-id": "str"<br/>},<br/>"invoke-function": {<br/>"dead-letter-queue": {<br/>"queue-id": "str",<br/>"service-account-id": "str"<br/>},<br/>"function-id": "str",<br/>"function-tag": "str",<br/>"retry-settings": {<br/>"interval": "duration",<br/>"retry-attempts": "int"<br/>},<br/>"service-account-id": "str"<br/>}<br/>},<br/>"batch-settings": {<br/>"cutoff": "duration",<br/>"size": "int"<br/>},<br/>"database": "str",<br/>"endpoint": "str",<br/>"service-account-id": "str",<br/>"stream": "str"<br/>},<br/>"iot-broker-message": {<br/>"action": {<br/>"gateway-websocket-broadcast": {<br/>"gateway-id": "str",<br/>"path": "str",<br/>"service-account-id": "str"<br/>},<br/>"invoke-container": {<br/>"container-id": "str",<br/>"dead-letter-queue": {<br/>"queue-id": "str",<br/>"service-account-id": "str"<br/>},<br/>"path": "str",<br/>"retry-settings": {<br/>"interval": "duration",<br/>"retry-attempts": "int"<br/>},<br/>"service-account-id": "str"<br/>},<br/>"invoke-function": {<br/>"dead-letter-queue": {<br/>"queue-id": "str",<br/>"service-account-id": "str"<br/>},<br/>"function-id": "str",<br/>"function-tag": "str",<br/>"retry-settings": {<br/>"interval": "duration",<br/>"retry-attempts": "int"<br/>},<br/>"service-account-id": "str"<br/>}<br/>},<br/>"batch-settings": {<br/>"cutoff": "duration",<br/>"size": "int"<br/>},<br/>"broker-id": "str",<br/>"mqtt-topic": "str"<br/>},<br/>"iot-message": {<br/>"action": {<br/>"gateway-websocket-broadcast": {<br/>"gateway-id": "str",<br/>"path": "str",<br/>"service-account-id": "str"<br/>},<br/>"invoke-container": {<br/>"container-id": "str",<br/>"dead-letter-queue": {<br/>"queue-id": "str",<br/>"service-account-id": "str"<br/>},<br/>"path": "str",<br/>"retry-settings": {<br/>"interval": "duration",<br/>"retry-attempts": "int"<br/>},<br/>"service-account-id": "str"<br/>},<br/>"invoke-function": {<br/>"dead-letter-queue": {<br/>"queue-id": "str",<br/>"service-account-id": "str"<br/>},<br/>"function-id": "str",<br/>"function-tag": "str",<br/>"retry-settings": {<br/>"interval": "duration",<br/>"retry-attempts": "int"<br/>},<br/>"service-account-id": "str"<br/>}<br/>},<br/>"batch-settings": {<br/>"cutoff": "duration",<br/>"size": "int"<br/>},<br/>"device-id": "str",<br/>"mqtt-topic": "str",<br/>"registry-id": "str"<br/>},<br/>"logging": {<br/>"action": {<br/>"gateway-websocket-broadcast": {<br/>"gateway-id": "str",<br/>"path": "str",<br/>"service-account-id": "str"<br/>},<br/>"invoke-container": {<br/>"container-id": "str",<br/>"dead-letter-queue": {<br/>"queue-id": "str",<br/>"service-account-id": "str"<br/>},<br/>"path": "str",<br/>"retry-settings": {<br/>"interval": "duration",<br/>"retry-attempts": "int"<br/>},<br/>"service-account-id": "str"<br/>},<br/>"invoke-function": {<br/>"dead-letter-queue": {<br/>"queue-id": "str",<br/>"service-account-id": "str"<br/>},<br/>"function-id": "str",<br/>"function-tag": "str",<br/>"retry-settings": {<br/>"interval": "duration",<br/>"retry-attempts": "int"<br/>},<br/>"service-account-id": "str"<br/>}<br/>},<br/>"batch-settings": {<br/>"cutoff": "duration",<br/>"size": "int"<br/>},<br/>"levels": [<br/>"TRACE\|DEBUG\|INFO\|WARN\|ERROR\|FATAL", ...<br/>],<br/>"log-group-id": "str",<br/>"resource-id": [<br/>"str", ...<br/>],<br/>"resource-type": [<br/>"str", ...<br/>],<br/>"stream-name": [<br/>"str", ...<br/>]<br/>},<br/>"mail": {<br/>"action": {<br/>"gateway-websocket-broadcast": {<br/>"gateway-id": "str",<br/>"path": "str",<br/>"service-account-id": "str"<br/>},<br/>"invoke-container": {<br/>"container-id": "str",<br/>"dead-letter-queue": {<br/>"queue-id": "str",<br/>"service-account-id": "str"<br/>},<br/>"path": "str",<br/>"retry-settings": {<br/>"interval": "duration",<br/>"retry-attempts": "int"<br/>},<br/>"service-account-id": "str"<br/>},<br/>"invoke-function": {<br/>"dead-letter-queue": {<br/>"queue-id": "str",<br/>"service-account-id": "str"<br/>},<br/>"function-id": "str",<br/>"function-tag": "str",<br/>"retry-settings": {<br/>"interval": "duration",<br/>"retry-attempts": "int"<br/>},<br/>"service-account-id": "str"<br/>}<br/>},<br/>"attachments-bucket": {<br/>"bucket-id": "str",<br/>"service-account-id": "str"<br/>},<br/>"batch-settings": {<br/>"cutoff": "duration",<br/>"size": "int"<br/>},<br/>"email": "str"<br/>},<br/>"message-queue": {<br/>"action": {<br/>"gateway-websocket-broadcast": {<br/>"gateway-id": "str",<br/>"path": "str",<br/>"service-account-id": "str"<br/>},<br/>"invoke-container": {<br/>"container-id": "str",<br/>"path": "str",<br/>"service-account-id": "str"<br/>},<br/>"invoke-function": {<br/>"function-id": "str",<br/>"function-tag": "str",<br/>"service-account-id": "str"<br/>}<br/>},<br/>"batch-settings": {<br/>"cutoff": "duration",<br/>"size": "int"<br/>},<br/>"queue-id": "str",<br/>"service-account-id": "str",<br/>"visibility-timeout": "duration"<br/>},<br/>"object-storage": {<br/>"action": {<br/>"gateway-websocket-broadcast": {<br/>"gateway-id": "str",<br/>"path": "str",<br/>"service-account-id": "str"<br/>},<br/>"invoke-container": {<br/>"container-id": "str",<br/>"dead-letter-queue": {<br/>"queue-id": "str",<br/>"service-account-id": "str"<br/>},<br/>"path": "str",<br/>"retry-settings": {<br/>"interval": "duration",<br/>"retry-attempts": "int"<br/>},<br/>"service-account-id": "str"<br/>},<br/>"invoke-function": {<br/>"dead-letter-queue": {<br/>"queue-id": "str",<br/>"service-account-id": "str"<br/>},<br/>"function-id": "str",<br/>"function-tag": "str",<br/>"retry-settings": {<br/>"interval": "duration",<br/>"retry-attempts": "int"<br/>},<br/>"service-account-id": "str"<br/>}<br/>},<br/>"batch-settings": {<br/>"cutoff": "duration",<br/>"size": "int"<br/>},<br/>"bucket-id": "str",<br/>"event-type": [<br/>"OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT\|OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT\|OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT", ...<br/>],<br/>"prefix": "str",<br/>"suffix": "str"<br/>},<br/>"timer": {<br/>"action": {<br/>"gateway-websocket-broadcast": {<br/>"gateway-id": "str",<br/>"path": "str",<br/>"service-account-id": "str"<br/>},<br/>"invoke-container-with-retry": {<br/>"container-id": "str",<br/>"dead-letter-queue": {<br/>"queue-id": "str",<br/>"service-account-id": "str"<br/>},<br/>"path": "str",<br/>"retry-settings": {<br/>"interval": "duration",<br/>"retry-attempts": "int"<br/>},<br/>"service-account-id": "str"<br/>},<br/>"invoke-function": {<br/>"function-id": "str",<br/>"function-tag": "str",<br/>"service-account-id": "str"<br/>},<br/>"invoke-function-with-retry": {<br/>"dead-letter-queue": {<br/>"queue-id": "str",<br/>"service-account-id": "str"<br/>},<br/>"function-id": "str",<br/>"function-tag": "str",<br/>"retry-settings": {<br/>"interval": "duration",<br/>"retry-attempts": "int"<br/>},<br/>"service-account-id": "str"<br/>}<br/>},<br/>"cron-expression": "str",<br/>"payload": "str"<br/>}<br/>}<br/>}"<br/>Fields:<br/>rule -> (oneof<billing-budget\|cloud-logs\|container-registry\|data-stream\|iot-broker-message\|iot-message\|logging\|mail\|message-queue\|object-storage\|timer>)<br/>Oneof rule field<br/>timer -> (struct)<br/>Rule for a timed trigger.<br/>cron-expression -> (string)<br/>Description of a schedule as a documentation.<br/>payload -> (string)<br/>Payload to be passed to function.<br/>action -> (oneof<gateway-websocket-broadcast\|invoke-container-with-retry\|invoke-function\|invoke-function-with-retry>)<br/>Oneof action field<br/>invoke-function -> (struct)<br/>Instructions for invoking a function once.<br/>function-id -> (string)<br/>ID of the function to invoke.<br/>function-tag -> (string)<br/>Version tag of the function to execute.<br/>service-account-id -> (string)<br/>ID of the service account that should be used to invoke the function.<br/>invoke-function-with-retry -> (struct)<br/>Instructions for invoking a function with retry.<br/>dead-letter-queue -> (struct)<br/>DLQ policy (no value means discarding a message).<br/>queue-id -> (string)<br/>ID of the queue.<br/>service-account-id -> (string)<br/>Service account which has write permission on the queue.<br/>function-id -> (string)<br/>ID of the function to invoke.<br/>function-tag -> (string)<br/>Version tag of the function to execute.<br/>retry-settings -> (struct)<br/>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.<br/>interval -> (duration)<br/>Time in seconds to wait between individual retries.<br/>retry-attempts -> (int)<br/>Maximum number of retries (extra invokes) before the action is considered failed.<br/>service-account-id -> (string)<br/>ID of the service account which has permission to invoke the function.<br/>invoke-container-with-retry -> (struct)<br/>Instructions for invoking a container with retry.<br/>container-id -> (string)<br/>ID of the container to invoke.<br/>dead-letter-queue -> (struct)<br/>DLQ policy (no value means discarding a message).<br/>queue-id -> (string)<br/>ID of the queue.<br/>service-account-id -> (string)<br/>Service account which has write permission on the queue.<br/>path -> (string)<br/>Endpoint HTTP path to invoke.<br/>retry-settings -> (struct)<br/>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.<br/>interval -> (duration)<br/>Time in seconds to wait between individual retries.<br/>retry-attempts -> (int)<br/>Maximum number of retries (extra invokes) before the action is considered failed.<br/>service-account-id -> (string)<br/>ID of the service account which has permission to invoke the container.<br/>gateway-websocket-broadcast -> (struct)<br/>Instructions for broadcasting to API gateway websocket once.<br/>gateway-id -> (string)<br/>path -> (string)<br/>service-account-id -> (string)<br/>sa which has permission for writing to websockets<br/>message-queue -> (struct)<br/>Rule for a message queue trigger.<br/>batch-settings -> (struct)<br/>Batch settings for processing messages in the queue.<br/>cutoff -> (duration)<br/>Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.<br/>size -> (int)<br/>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.<br/>queue-id -> (string)<br/>ID of the message queue in Message Queue.<br/>service-account-id -> (string)<br/>ID of the service account which has read access to the message queue.<br/>visibility-timeout -> (duration)<br/>Queue visibility timeout override.<br/>action -> (oneof<gateway-websocket-broadcast\|invoke-container\|invoke-function>)<br/>Oneof action field<br/>invoke-function -> (struct)<br/>Instructions for invoking a function once.<br/>function-id -> (string)<br/>ID of the function to invoke.<br/>function-tag -> (string)<br/>Version tag of the function to execute.<br/>service-account-id -> (string)<br/>ID of the service account that should be used to invoke the function.<br/>invoke-container -> (struct)<br/>Instructions for invoking a container once.<br/>container-id -> (string)<br/>ID of the container to invoke.<br/>path -> (string)<br/>Endpoint HTTP path to invoke.<br/>service-account-id -> (string)<br/>ID of the service account which has permission to invoke the container.<br/>gateway-websocket-broadcast -> (struct)<br/>Instructions for broadcasting to API gateway websocket once.<br/>gateway-id -> (string)<br/>path -> (string)<br/>service-account-id -> (string)<br/>sa which has permission for writing to websockets<br/>iot-message -> (struct)<br/>Rule for a IoT Core trigger.<br/>batch-settings -> (struct)<br/>Batch settings for processing events.<br/>cutoff -> (duration)<br/>Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.<br/>size -> (int)<br/>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.<br/>device-id -> (string)<br/>ID of the IoT Core device in the registry.<br/>mqtt-topic -> (string)<br/>MQTT topic whose messages activate the trigger.<br/>registry-id -> (string)<br/>ID of the IoT Core registry.<br/>action -> (oneof<gateway-websocket-broadcast\|invoke-container\|invoke-function>)<br/>Oneof action field<br/>invoke-function -> (struct)<br/>Instructions for invoking a function with retries as needed.<br/>dead-letter-queue -> (struct)<br/>DLQ policy (no value means discarding a message).<br/>queue-id -> (string)<br/>ID of the queue.<br/>service-account-id -> (string)<br/>Service account which has write permission on the queue.<br/>function-id -> (string)<br/>ID of the function to invoke.<br/>function-tag -> (string)<br/>Version tag of the function to execute.<br/>retry-settings -> (struct)<br/>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.<br/>interval -> (duration)<br/>Time in seconds to wait between individual retries.<br/>retry-attempts -> (int)<br/>Maximum number of retries (extra invokes) before the action is considered failed.<br/>service-account-id -> (string)<br/>ID of the service account which has permission to invoke the function.<br/>invoke-container -> (struct)<br/>Instructions for invoking a container with retries as needed.<br/>container-id -> (string)<br/>ID of the container to invoke.<br/>dead-letter-queue -> (struct)<br/>DLQ policy (no value means discarding a message).<br/>queue-id -> (string)<br/>ID of the queue.<br/>service-account-id -> (string)<br/>Service account which has write permission on the queue.<br/>path -> (string)<br/>Endpoint HTTP path to invoke.<br/>retry-settings -> (struct)<br/>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.<br/>interval -> (duration)<br/>Time in seconds to wait between individual retries.<br/>retry-attempts -> (int)<br/>Maximum number of retries (extra invokes) before the action is considered failed.<br/>service-account-id -> (string)<br/>ID of the service account which has permission to invoke the container.<br/>gateway-websocket-broadcast -> (struct)<br/>Instructions for broadcasting to API gateway websocket once.<br/>gateway-id -> (string)<br/>path -> (string)<br/>service-account-id -> (string)<br/>sa which has permission for writing to websockets<br/>iot-broker-message -> (struct)<br/>batch-settings -> (struct)<br/>Batch settings for processing events.<br/>cutoff -> (duration)<br/>Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.<br/>size -> (int)<br/>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.<br/>broker-id -> (string)<br/>ID of the IoT Core broker.<br/>mqtt-topic -> (string)<br/>MQTT topic whose messages activate the trigger.<br/>action -> (oneof<gateway-websocket-broadcast\|invoke-container\|invoke-function>)<br/>Oneof action field<br/>invoke-function -> (struct)<br/>Instructions for invoking a function with retries as needed.<br/>dead-letter-queue -> (struct)<br/>DLQ policy (no value means discarding a message).<br/>queue-id -> (string)<br/>ID of the queue.<br/>service-account-id -> (string)<br/>Service account which has write permission on the queue.<br/>function-id -> (string)<br/>ID of the function to invoke.<br/>function-tag -> (string)<br/>Version tag of the function to execute.<br/>retry-settings -> (struct)<br/>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.<br/>interval -> (duration)<br/>Time in seconds to wait between individual retries.<br/>retry-attempts -> (int)<br/>Maximum number of retries (extra invokes) before the action is considered failed.<br/>service-account-id -> (string)<br/>ID of the service account which has permission to invoke the function.<br/>invoke-container -> (struct)<br/>Instructions for invoking a container with retries as needed.<br/>container-id -> (string)<br/>ID of the container to invoke.<br/>dead-letter-queue -> (struct)<br/>DLQ policy (no value means discarding a message).<br/>queue-id -> (string)<br/>ID of the queue.<br/>service-account-id -> (string)<br/>Service account which has write permission on the queue.<br/>path -> (string)<br/>Endpoint HTTP path to invoke.<br/>retry-settings -> (struct)<br/>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.<br/>interval -> (duration)<br/>Time in seconds to wait between individual retries.<br/>retry-attempts -> (int)<br/>Maximum number of retries (extra invokes) before the action is considered failed.<br/>service-account-id -> (string)<br/>ID of the service account which has permission to invoke the container.<br/>gateway-websocket-broadcast -> (struct)<br/>Instructions for broadcasting to API gateway websocket once.<br/>gateway-id -> (string)<br/>path -> (string)<br/>service-account-id -> (string)<br/>sa which has permission for writing to websockets<br/>object-storage -> (struct)<br/>batch-settings -> (struct)<br/>Batch settings for processing events.<br/>cutoff -> (duration)<br/>Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.<br/>size -> (int)<br/>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.<br/>bucket-id -> (string)<br/>ID of the bucket.<br/>event-type -> ([]int)<br/>Type (name) of events, at least one value is required.<br/>prefix -> (string)<br/>Prefix of the object key. Filter, optional.<br/>suffix -> (string)<br/>Suffix of the object key. Filter, optional.<br/>action -> (oneof<gateway-websocket-broadcast\|invoke-container\|invoke-function>)<br/>Oneof action field<br/>invoke-function -> (struct)<br/>Instructions for invoking a function with retries as needed.<br/>dead-letter-queue -> (struct)<br/>DLQ policy (no value means discarding a message).<br/>queue-id -> (string)<br/>ID of the queue.<br/>service-account-id -> (string)<br/>Service account which has write permission on the queue.<br/>function-id -> (string)<br/>ID of the function to invoke.<br/>function-tag -> (string)<br/>Version tag of the function to execute.<br/>retry-settings -> (struct)<br/>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.<br/>interval -> (duration)<br/>Time in seconds to wait between individual retries.<br/>retry-attempts -> (int)<br/>Maximum number of retries (extra invokes) before the action is considered failed.<br/>service-account-id -> (string)<br/>ID of the service account which has permission to invoke the function.<br/>invoke-container -> (struct)<br/>Instructions for invoking a container with retries as needed.<br/>container-id -> (string)<br/>ID of the container to invoke.<br/>dead-letter-queue -> (struct)<br/>DLQ policy (no value means discarding a message).<br/>queue-id -> (string)<br/>ID of the queue.<br/>service-account-id -> (string)<br/>Service account which has write permission on the queue.<br/>path -> (string)<br/>Endpoint HTTP path to invoke.<br/>retry-settings -> (struct)<br/>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.<br/>interval -> (duration)<br/>Time in seconds to wait between individual retries.<br/>retry-attempts -> (int)<br/>Maximum number of retries (extra invokes) before the action is considered failed.<br/>service-account-id -> (string)<br/>ID of the service account which has permission to invoke the container.<br/>gateway-websocket-broadcast -> (struct)<br/>Instructions for broadcasting to API gateway websocket once.<br/>gateway-id -> (string)<br/>path -> (string)<br/>service-account-id -> (string)<br/>sa which has permission for writing to websockets<br/>container-registry -> (struct)<br/>batch-settings -> (struct)<br/>Batch settings for processing events.<br/>cutoff -> (duration)<br/>Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.<br/>size -> (int)<br/>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.<br/>event-type -> ([]int)<br/>Type (name) of events, at least one value is required.<br/>image-name -> (string)<br/>Docker-image name. Filter, optional.<br/>registry-id -> (string)<br/>ID of the registry.<br/>tag -> (string)<br/>Docker-image tag. Filter, optional.<br/>action -> (oneof<gateway-websocket-broadcast\|invoke-container\|invoke-function>)<br/>Oneof action field<br/>invoke-function -> (struct)<br/>Instructions for invoking a function with retries as needed.<br/>dead-letter-queue -> (struct)<br/>DLQ policy (no value means discarding a message).<br/>queue-id -> (string)<br/>ID of the queue.<br/>service-account-id -> (string)<br/>Service account which has write permission on the queue.<br/>function-id -> (string)<br/>ID of the function to invoke.<br/>function-tag -> (string)<br/>Version tag of the function to execute.<br/>retry-settings -> (struct)<br/>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.<br/>interval -> (duration)<br/>Time in seconds to wait between individual retries.<br/>retry-attempts -> (int)<br/>Maximum number of retries (extra invokes) before the action is considered failed.<br/>service-account-id -> (string)<br/>ID of the service account which has permission to invoke the function.<br/>invoke-container -> (struct)<br/>Instructions for invoking a container with retries as needed.<br/>container-id -> (string)<br/>ID of the container to invoke.<br/>dead-letter-queue -> (struct)<br/>DLQ policy (no value means discarding a message).<br/>queue-id -> (string)<br/>ID of the queue.<br/>service-account-id -> (string)<br/>Service account which has write permission on the queue.<br/>path -> (string)<br/>Endpoint HTTP path to invoke.<br/>retry-settings -> (struct)<br/>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.<br/>interval -> (duration)<br/>Time in seconds to wait between individual retries.<br/>retry-attempts -> (int)<br/>Maximum number of retries (extra invokes) before the action is considered failed.<br/>service-account-id -> (string)<br/>ID of the service account which has permission to invoke the container.<br/>gateway-websocket-broadcast -> (struct)<br/>Instructions for broadcasting to API gateway websocket once.<br/>gateway-id -> (string)<br/>path -> (string)<br/>service-account-id -> (string)<br/>sa which has permission for writing to websockets<br/>cloud-logs -> (struct)<br/>batch-settings -> (struct)<br/>Batch settings for processing log events.<br/>cutoff -> (duration)<br/>Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the log group reaches [size], or the [cutoff] time has passed.<br/>size -> (int)<br/>Batch size. Trigger will send the batch of messages to the function when the number of messages in the log group reaches [size], or the [cutoff] time has passed.<br/>log-group-id -> ([]string)<br/>Log group identifiers, at least one value is required.<br/>action -> (oneof<invoke-container\|invoke-function>)<br/>Oneof action field<br/>invoke-function -> (struct)<br/>Instructions for invoking a function with retries as needed.<br/>dead-letter-queue -> (struct)<br/>DLQ policy (no value means discarding a message).<br/>queue-id -> (string)<br/>ID of the queue.<br/>service-account-id -> (string)<br/>Service account which has write permission on the queue.<br/>function-id -> (string)<br/>ID of the function to invoke.<br/>function-tag -> (string)<br/>Version tag of the function to execute.<br/>retry-settings -> (struct)<br/>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.<br/>interval -> (duration)<br/>Time in seconds to wait between individual retries.<br/>retry-attempts -> (int)<br/>Maximum number of retries (extra invokes) before the action is considered failed.<br/>service-account-id -> (string)<br/>ID of the service account which has permission to invoke the function.<br/>invoke-container -> (struct)<br/>Instructions for invoking a container with retries as needed.<br/>container-id -> (string)<br/>ID of the container to invoke.<br/>dead-letter-queue -> (struct)<br/>DLQ policy (no value means discarding a message).<br/>queue-id -> (string)<br/>ID of the queue.<br/>service-account-id -> (string)<br/>Service account which has write permission on the queue.<br/>path -> (string)<br/>Endpoint HTTP path to invoke.<br/>retry-settings -> (struct)<br/>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.<br/>interval -> (duration)<br/>Time in seconds to wait between individual retries.<br/>retry-attempts -> (int)<br/>Maximum number of retries (extra invokes) before the action is considered failed.<br/>service-account-id -> (string)<br/>ID of the service account which has permission to invoke the container.<br/>logging -> (struct)<br/>batch-settings -> (struct)<br/>Batch settings for processing log events.<br/>cutoff -> (duration)<br/>Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the 'cutoff' value, regardless of the amount of log events.<br/>size -> (int)<br/>Batch size. Trigger will send the batch of messages to the associated function when the number of log events reaches this value, or the [cutoff] time has passed.<br/>levels -> ([]int)<br/>log-group-id -> (string)<br/>Log events filter settings.<br/>resource-id -> ([]string)<br/>resource-type -> ([]string)<br/>stream-name -> ([]string)<br/>action -> (oneof<gateway-websocket-broadcast\|invoke-container\|invoke-function>)<br/>Oneof action field<br/>invoke-function -> (struct)<br/>Instructions for invoking a function with retries as needed.<br/>dead-letter-queue -> (struct)<br/>DLQ policy (no value means discarding a message).<br/>queue-id -> (string)<br/>ID of the queue.<br/>service-account-id -> (string)<br/>Service account which has write permission on the queue.<br/>function-id -> (string)<br/>ID of the function to invoke.<br/>function-tag -> (string)<br/>Version tag of the function to execute.<br/>retry-settings -> (struct)<br/>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.<br/>interval -> (duration)<br/>Time in seconds to wait between individual retries.<br/>retry-attempts -> (int)<br/>Maximum number of retries (extra invokes) before the action is considered failed.<br/>service-account-id -> (string)<br/>ID of the service account which has permission to invoke the function.<br/>invoke-container -> (struct)<br/>Instructions for invoking a container with retries as needed.<br/>container-id -> (string)<br/>ID of the container to invoke.<br/>dead-letter-queue -> (struct)<br/>DLQ policy (no value means discarding a message).<br/>queue-id -> (string)<br/>ID of the queue.<br/>service-account-id -> (string)<br/>Service account which has write permission on the queue.<br/>path -> (string)<br/>Endpoint HTTP path to invoke.<br/>retry-settings -> (struct)<br/>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.<br/>interval -> (duration)<br/>Time in seconds to wait between individual retries.<br/>retry-attempts -> (int)<br/>Maximum number of retries (extra invokes) before the action is considered failed.<br/>service-account-id -> (string)<br/>ID of the service account which has permission to invoke the container.<br/>gateway-websocket-broadcast -> (struct)<br/>Instructions for broadcasting to API gateway websocket once.<br/>gateway-id -> (string)<br/>path -> (string)<br/>service-account-id -> (string)<br/>sa which has permission for writing to websockets<br/>billing-budget -> (struct)<br/>billing-account-id -> (string)<br/>budget-id -> (string)<br/>action -> (oneof<gateway-websocket-broadcast\|invoke-container\|invoke-function>)<br/>Oneof action field<br/>invoke-function -> (struct)<br/>dead-letter-queue -> (struct)<br/>DLQ policy (no value means discarding a message).<br/>queue-id -> (string)<br/>ID of the queue.<br/>service-account-id -> (string)<br/>Service account which has write permission on the queue.<br/>function-id -> (string)<br/>ID of the function to invoke.<br/>function-tag -> (string)<br/>Version tag of the function to execute.<br/>retry-settings -> (struct)<br/>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.<br/>interval -> (duration)<br/>Time in seconds to wait between individual retries.<br/>retry-attempts -> (int)<br/>Maximum number of retries (extra invokes) before the action is considered failed.<br/>service-account-id -> (string)<br/>ID of the service account which has permission to invoke the function.<br/>invoke-container -> (struct)<br/>container-id -> (string)<br/>ID of the container to invoke.<br/>dead-letter-queue -> (struct)<br/>DLQ policy (no value means discarding a message).<br/>queue-id -> (string)<br/>ID of the queue.<br/>service-account-id -> (string)<br/>Service account which has write permission on the queue.<br/>path -> (string)<br/>Endpoint HTTP path to invoke.<br/>retry-settings -> (struct)<br/>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.<br/>interval -> (duration)<br/>Time in seconds to wait between individual retries.<br/>retry-attempts -> (int)<br/>Maximum number of retries (extra invokes) before the action is considered failed.<br/>service-account-id -> (string)<br/>ID of the service account which has permission to invoke the container.<br/>gateway-websocket-broadcast -> (struct)<br/>gateway-id -> (string)<br/>path -> (string)<br/>service-account-id -> (string)<br/>sa which has permission for writing to websockets<br/>data-stream -> (struct)<br/>batch-settings -> (struct)<br/>Batch settings for processing events.<br/>cutoff -> (duration)<br/>Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the 'cutoff' value, regardless of the amount of log events.<br/>size -> (int)<br/>Batch size in bytes. Trigger will send the batch of messages to the associated function when size of log events reaches this value, or the [cutoff] time has passed.<br/>database -> (string)<br/>Data stream database.<br/>endpoint -> (string)<br/>Data stream endpoint.<br/>service-account-id -> (string)<br/>ID of the service account which has permission to read data stream.<br/>stream -> (string)<br/>Stream name.<br/>action -> (oneof<gateway-websocket-broadcast\|invoke-container\|invoke-function>)<br/>Oneof action field<br/>invoke-function -> (struct)<br/>dead-letter-queue -> (struct)<br/>DLQ policy (no value means discarding a message).<br/>queue-id -> (string)<br/>ID of the queue.<br/>service-account-id -> (string)<br/>Service account which has write permission on the queue.<br/>function-id -> (string)<br/>ID of the function to invoke.<br/>function-tag -> (string)<br/>Version tag of the function to execute.<br/>retry-settings -> (struct)<br/>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.<br/>interval -> (duration)<br/>Time in seconds to wait between individual retries.<br/>retry-attempts -> (int)<br/>Maximum number of retries (extra invokes) before the action is considered failed.<br/>service-account-id -> (string)<br/>ID of the service account which has permission to invoke the function.<br/>invoke-container -> (struct)<br/>container-id -> (string)<br/>ID of the container to invoke.<br/>dead-letter-queue -> (struct)<br/>DLQ policy (no value means discarding a message).<br/>queue-id -> (string)<br/>ID of the queue.<br/>service-account-id -> (string)<br/>Service account which has write permission on the queue.<br/>path -> (string)<br/>Endpoint HTTP path to invoke.<br/>retry-settings -> (struct)<br/>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.<br/>interval -> (duration)<br/>Time in seconds to wait between individual retries.<br/>retry-attempts -> (int)<br/>Maximum number of retries (extra invokes) before the action is considered failed.<br/>service-account-id -> (string)<br/>ID of the service account which has permission to invoke the container.<br/>gateway-websocket-broadcast -> (struct)<br/>gateway-id -> (string)<br/>path -> (string)<br/>service-account-id -> (string)<br/>sa which has permission for writing to websockets<br/>mail -> (struct)<br/>attachments-bucket -> (struct)<br/>Bucket settings for saving attachments.<br/>bucket-id -> (string)<br/>Bucket for saving.<br/>service-account-id -> (string)<br/>SA which has write permission on storage.<br/>batch-settings -> (struct)<br/>Batch settings for processing events.<br/>cutoff -> (duration)<br/>Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.<br/>size -> (int)<br/>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.<br/>email -> (string)<br/>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation.<br/>action -> (oneof<gateway-websocket-broadcast\|invoke-container\|invoke-function>)<br/>Oneof action field<br/>invoke-function -> (struct)<br/>dead-letter-queue -> (struct)<br/>DLQ policy (no value means discarding a message).<br/>queue-id -> (string)<br/>ID of the queue.<br/>service-account-id -> (string)<br/>Service account which has write permission on the queue.<br/>function-id -> (string)<br/>ID of the function to invoke.<br/>function-tag -> (string)<br/>Version tag of the function to execute.<br/>retry-settings -> (struct)<br/>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.<br/>interval -> (duration)<br/>Time in seconds to wait between individual retries.<br/>retry-attempts -> (int)<br/>Maximum number of retries (extra invokes) before the action is considered failed.<br/>service-account-id -> (string)<br/>ID of the service account which has permission to invoke the function.<br/>invoke-container -> (struct)<br/>container-id -> (string)<br/>ID of the container to invoke.<br/>dead-letter-queue -> (struct)<br/>DLQ policy (no value means discarding a message).<br/>queue-id -> (string)<br/>ID of the queue.<br/>service-account-id -> (string)<br/>Service account which has write permission on the queue.<br/>path -> (string)<br/>Endpoint HTTP path to invoke.<br/>retry-settings -> (struct)<br/>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.<br/>interval -> (duration)<br/>Time in seconds to wait between individual retries.<br/>retry-attempts -> (int)<br/>Maximum number of retries (extra invokes) before the action is considered failed.<br/>service-account-id -> (string)<br/>ID of the service account which has permission to invoke the container.<br/>gateway-websocket-broadcast -> (struct)<br/>gateway-id -> (string)<br/>path -> (string)<br/>service-account-id -> (string)<br/>sa which has permission for writing to websockets|
-|`--trigger-id`|<b>`string`</b><br/>ID of the trigger to update. To get a trigger ID make a [TriggerService.List] request.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `--description` | `string`
+
+New description of the trigger. ||
+|| `--labels` | `stringToString`
+
+Trigger labels as 'key:value' pairs. Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label, request the current set of labels with a [TriggerService.Get] request. ||
+|| `--name` | `string`
+
+New name for the trigger. The name must be unique within the folder. ||
+|| `--rule` | `shorthand/json`
+
+New parameters for trigger.
+
+Shorthand Syntax:
+
+```hcl
+{
+  rule = billing-budget={
+    action = gateway-websocket-broadcast={
+      gateway-id = str,
+      path = str,
+      service-account-id = str
+    } | invoke-container={
+      container-id = str,
+      dead-letter-queue = {
+        queue-id = str,
+        service-account-id = str
+      },
+      path = str,
+      retry-settings = {
+        interval = duration,
+        retry-attempts = int
+      },
+      service-account-id = str
+    } | invoke-function={
+      dead-letter-queue = {
+        queue-id = str,
+        service-account-id = str
+      },
+      function-id = str,
+      function-tag = str,
+      retry-settings = {
+        interval = duration,
+        retry-attempts = int
+      },
+      service-account-id = str
+    },
+    billing-account-id = str,
+    budget-id = str
+  } | cloud-logs={
+    action = invoke-container={
+      container-id = str,
+      dead-letter-queue = {
+        queue-id = str,
+        service-account-id = str
+      },
+      path = str,
+      retry-settings = {
+        interval = duration,
+        retry-attempts = int
+      },
+      service-account-id = str
+    } | invoke-function={
+      dead-letter-queue = {
+        queue-id = str,
+        service-account-id = str
+      },
+      function-id = str,
+      function-tag = str,
+      retry-settings = {
+        interval = duration,
+        retry-attempts = int
+      },
+      service-account-id = str
+    },
+    batch-settings = {
+      cutoff = duration,
+      size = int
+    },
+    log-group-id = str,...
+  } | container-registry={
+    action = gateway-websocket-broadcast={
+      gateway-id = str,
+      path = str,
+      service-account-id = str
+    } | invoke-container={
+      container-id = str,
+      dead-letter-queue = {
+        queue-id = str,
+        service-account-id = str
+      },
+      path = str,
+      retry-settings = {
+        interval = duration,
+        retry-attempts = int
+      },
+      service-account-id = str
+    } | invoke-function={
+      dead-letter-queue = {
+        queue-id = str,
+        service-account-id = str
+      },
+      function-id = str,
+      function-tag = str,
+      retry-settings = {
+        interval = duration,
+        retry-attempts = int
+      },
+      service-account-id = str
+    },
+    batch-settings = {
+      cutoff = duration,
+      size = int
+    },
+    event-type = [
+      CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE|CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE|CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG|CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG, ...
+    ],
+    image-name = str,
+    registry-id = str,
+    tag = str
+  } | data-stream={
+    action = gateway-websocket-broadcast={
+      gateway-id = str,
+      path = str,
+      service-account-id = str
+    } | invoke-container={
+      container-id = str,
+      dead-letter-queue = {
+        queue-id = str,
+        service-account-id = str
+      },
+      path = str,
+      retry-settings = {
+        interval = duration,
+        retry-attempts = int
+      },
+      service-account-id = str
+    } | invoke-function={
+      dead-letter-queue = {
+        queue-id = str,
+        service-account-id = str
+      },
+      function-id = str,
+      function-tag = str,
+      retry-settings = {
+        interval = duration,
+        retry-attempts = int
+      },
+      service-account-id = str
+    },
+    batch-settings = {
+      cutoff = duration,
+      size = int
+    },
+    database = str,
+    endpoint = str,
+    service-account-id = str,
+    stream = str
+  } | iot-broker-message={
+    action = gateway-websocket-broadcast={
+      gateway-id = str,
+      path = str,
+      service-account-id = str
+    } | invoke-container={
+      container-id = str,
+      dead-letter-queue = {
+        queue-id = str,
+        service-account-id = str
+      },
+      path = str,
+      retry-settings = {
+        interval = duration,
+        retry-attempts = int
+      },
+      service-account-id = str
+    } | invoke-function={
+      dead-letter-queue = {
+        queue-id = str,
+        service-account-id = str
+      },
+      function-id = str,
+      function-tag = str,
+      retry-settings = {
+        interval = duration,
+        retry-attempts = int
+      },
+      service-account-id = str
+    },
+    batch-settings = {
+      cutoff = duration,
+      size = int
+    },
+    broker-id = str,
+    mqtt-topic = str
+  } | iot-message={
+    action = gateway-websocket-broadcast={
+      gateway-id = str,
+      path = str,
+      service-account-id = str
+    } | invoke-container={
+      container-id = str,
+      dead-letter-queue = {
+        queue-id = str,
+        service-account-id = str
+      },
+      path = str,
+      retry-settings = {
+        interval = duration,
+        retry-attempts = int
+      },
+      service-account-id = str
+    } | invoke-function={
+      dead-letter-queue = {
+        queue-id = str,
+        service-account-id = str
+      },
+      function-id = str,
+      function-tag = str,
+      retry-settings = {
+        interval = duration,
+        retry-attempts = int
+      },
+      service-account-id = str
+    },
+    batch-settings = {
+      cutoff = duration,
+      size = int
+    },
+    device-id = str,
+    mqtt-topic = str,
+    registry-id = str
+  } | logging={
+    action = gateway-websocket-broadcast={
+      gateway-id = str,
+      path = str,
+      service-account-id = str
+    } | invoke-container={
+      container-id = str,
+      dead-letter-queue = {
+        queue-id = str,
+        service-account-id = str
+      },
+      path = str,
+      retry-settings = {
+        interval = duration,
+        retry-attempts = int
+      },
+      service-account-id = str
+    } | invoke-function={
+      dead-letter-queue = {
+        queue-id = str,
+        service-account-id = str
+      },
+      function-id = str,
+      function-tag = str,
+      retry-settings = {
+        interval = duration,
+        retry-attempts = int
+      },
+      service-account-id = str
+    },
+    batch-settings = {
+      cutoff = duration,
+      size = int
+    },
+    levels = [
+      TRACE|DEBUG|INFO|WARN|ERROR|FATAL, ...
+    ],
+    log-group-id = str,
+    resource-id = str,...,
+    resource-type = str,...,
+    stream-name = str,...
+  } | mail={
+    action = gateway-websocket-broadcast={
+      gateway-id = str,
+      path = str,
+      service-account-id = str
+    } | invoke-container={
+      container-id = str,
+      dead-letter-queue = {
+        queue-id = str,
+        service-account-id = str
+      },
+      path = str,
+      retry-settings = {
+        interval = duration,
+        retry-attempts = int
+      },
+      service-account-id = str
+    } | invoke-function={
+      dead-letter-queue = {
+        queue-id = str,
+        service-account-id = str
+      },
+      function-id = str,
+      function-tag = str,
+      retry-settings = {
+        interval = duration,
+        retry-attempts = int
+      },
+      service-account-id = str
+    },
+    attachments-bucket = {
+      bucket-id = str,
+      service-account-id = str
+    },
+    batch-settings = {
+      cutoff = duration,
+      size = int
+    },
+    email = str
+  } | message-queue={
+    action = gateway-websocket-broadcast={
+      gateway-id = str,
+      path = str,
+      service-account-id = str
+    } | invoke-container={
+      container-id = str,
+      path = str,
+      service-account-id = str
+    } | invoke-function={
+      function-id = str,
+      function-tag = str,
+      service-account-id = str
+    },
+    batch-settings = {
+      cutoff = duration,
+      size = int
+    },
+    queue-id = str,
+    service-account-id = str,
+    visibility-timeout = duration
+  } | object-storage={
+    action = gateway-websocket-broadcast={
+      gateway-id = str,
+      path = str,
+      service-account-id = str
+    } | invoke-container={
+      container-id = str,
+      dead-letter-queue = {
+        queue-id = str,
+        service-account-id = str
+      },
+      path = str,
+      retry-settings = {
+        interval = duration,
+        retry-attempts = int
+      },
+      service-account-id = str
+    } | invoke-function={
+      dead-letter-queue = {
+        queue-id = str,
+        service-account-id = str
+      },
+      function-id = str,
+      function-tag = str,
+      retry-settings = {
+        interval = duration,
+        retry-attempts = int
+      },
+      service-account-id = str
+    },
+    batch-settings = {
+      cutoff = duration,
+      size = int
+    },
+    bucket-id = str,
+    event-type = [
+      OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT|OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT|OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT, ...
+    ],
+    prefix = str,
+    suffix = str
+  } | timer={
+    action = gateway-websocket-broadcast={
+      gateway-id = str,
+      path = str,
+      service-account-id = str
+    } | invoke-container-with-retry={
+      container-id = str,
+      dead-letter-queue = {
+        queue-id = str,
+        service-account-id = str
+      },
+      path = str,
+      retry-settings = {
+        interval = duration,
+        retry-attempts = int
+      },
+      service-account-id = str
+    } | invoke-function={
+      function-id = str,
+      function-tag = str,
+      service-account-id = str
+    } | invoke-function-with-retry={
+      dead-letter-queue = {
+        queue-id = str,
+        service-account-id = str
+      },
+      function-id = str,
+      function-tag = str,
+      retry-settings = {
+        interval = duration,
+        retry-attempts = int
+      },
+      service-account-id = str
+    },
+    cron-expression = str,
+    payload = str
+  }
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "rule": {
+    "billing-budget": {
+      "action": {
+        "gateway-websocket-broadcast": {
+          "gateway-id": "str",
+          "path": "str",
+          "service-account-id": "str"
+        },
+        "invoke-container": {
+          "container-id": "str",
+          "dead-letter-queue": {
+            "queue-id": "str",
+            "service-account-id": "str"
+          },
+          "path": "str",
+          "retry-settings": {
+            "interval": "duration",
+            "retry-attempts": "int"
+          },
+          "service-account-id": "str"
+        },
+        "invoke-function": {
+          "dead-letter-queue": {
+            "queue-id": "str",
+            "service-account-id": "str"
+          },
+          "function-id": "str",
+          "function-tag": "str",
+          "retry-settings": {
+            "interval": "duration",
+            "retry-attempts": "int"
+          },
+          "service-account-id": "str"
+        }
+      },
+      "billing-account-id": "str",
+      "budget-id": "str"
+    },
+    "cloud-logs": {
+      "action": {
+        "invoke-container": {
+          "container-id": "str",
+          "dead-letter-queue": {
+            "queue-id": "str",
+            "service-account-id": "str"
+          },
+          "path": "str",
+          "retry-settings": {
+            "interval": "duration",
+            "retry-attempts": "int"
+          },
+          "service-account-id": "str"
+        },
+        "invoke-function": {
+          "dead-letter-queue": {
+            "queue-id": "str",
+            "service-account-id": "str"
+          },
+          "function-id": "str",
+          "function-tag": "str",
+          "retry-settings": {
+            "interval": "duration",
+            "retry-attempts": "int"
+          },
+          "service-account-id": "str"
+        }
+      },
+      "batch-settings": {
+        "cutoff": "duration",
+        "size": "int"
+      },
+      "log-group-id": [
+        "str", ...
+      ]
+    },
+    "container-registry": {
+      "action": {
+        "gateway-websocket-broadcast": {
+          "gateway-id": "str",
+          "path": "str",
+          "service-account-id": "str"
+        },
+        "invoke-container": {
+          "container-id": "str",
+          "dead-letter-queue": {
+            "queue-id": "str",
+            "service-account-id": "str"
+          },
+          "path": "str",
+          "retry-settings": {
+            "interval": "duration",
+            "retry-attempts": "int"
+          },
+          "service-account-id": "str"
+        },
+        "invoke-function": {
+          "dead-letter-queue": {
+            "queue-id": "str",
+            "service-account-id": "str"
+          },
+          "function-id": "str",
+          "function-tag": "str",
+          "retry-settings": {
+            "interval": "duration",
+            "retry-attempts": "int"
+          },
+          "service-account-id": "str"
+        }
+      },
+      "batch-settings": {
+        "cutoff": "duration",
+        "size": "int"
+      },
+      "event-type": [
+        "CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE|CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE|CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG|CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG", ...
+      ],
+      "image-name": "str",
+      "registry-id": "str",
+      "tag": "str"
+    },
+    "data-stream": {
+      "action": {
+        "gateway-websocket-broadcast": {
+          "gateway-id": "str",
+          "path": "str",
+          "service-account-id": "str"
+        },
+        "invoke-container": {
+          "container-id": "str",
+          "dead-letter-queue": {
+            "queue-id": "str",
+            "service-account-id": "str"
+          },
+          "path": "str",
+          "retry-settings": {
+            "interval": "duration",
+            "retry-attempts": "int"
+          },
+          "service-account-id": "str"
+        },
+        "invoke-function": {
+          "dead-letter-queue": {
+            "queue-id": "str",
+            "service-account-id": "str"
+          },
+          "function-id": "str",
+          "function-tag": "str",
+          "retry-settings": {
+            "interval": "duration",
+            "retry-attempts": "int"
+          },
+          "service-account-id": "str"
+        }
+      },
+      "batch-settings": {
+        "cutoff": "duration",
+        "size": "int"
+      },
+      "database": "str",
+      "endpoint": "str",
+      "service-account-id": "str",
+      "stream": "str"
+    },
+    "iot-broker-message": {
+      "action": {
+        "gateway-websocket-broadcast": {
+          "gateway-id": "str",
+          "path": "str",
+          "service-account-id": "str"
+        },
+        "invoke-container": {
+          "container-id": "str",
+          "dead-letter-queue": {
+            "queue-id": "str",
+            "service-account-id": "str"
+          },
+          "path": "str",
+          "retry-settings": {
+            "interval": "duration",
+            "retry-attempts": "int"
+          },
+          "service-account-id": "str"
+        },
+        "invoke-function": {
+          "dead-letter-queue": {
+            "queue-id": "str",
+            "service-account-id": "str"
+          },
+          "function-id": "str",
+          "function-tag": "str",
+          "retry-settings": {
+            "interval": "duration",
+            "retry-attempts": "int"
+          },
+          "service-account-id": "str"
+        }
+      },
+      "batch-settings": {
+        "cutoff": "duration",
+        "size": "int"
+      },
+      "broker-id": "str",
+      "mqtt-topic": "str"
+    },
+    "iot-message": {
+      "action": {
+        "gateway-websocket-broadcast": {
+          "gateway-id": "str",
+          "path": "str",
+          "service-account-id": "str"
+        },
+        "invoke-container": {
+          "container-id": "str",
+          "dead-letter-queue": {
+            "queue-id": "str",
+            "service-account-id": "str"
+          },
+          "path": "str",
+          "retry-settings": {
+            "interval": "duration",
+            "retry-attempts": "int"
+          },
+          "service-account-id": "str"
+        },
+        "invoke-function": {
+          "dead-letter-queue": {
+            "queue-id": "str",
+            "service-account-id": "str"
+          },
+          "function-id": "str",
+          "function-tag": "str",
+          "retry-settings": {
+            "interval": "duration",
+            "retry-attempts": "int"
+          },
+          "service-account-id": "str"
+        }
+      },
+      "batch-settings": {
+        "cutoff": "duration",
+        "size": "int"
+      },
+      "device-id": "str",
+      "mqtt-topic": "str",
+      "registry-id": "str"
+    },
+    "logging": {
+      "action": {
+        "gateway-websocket-broadcast": {
+          "gateway-id": "str",
+          "path": "str",
+          "service-account-id": "str"
+        },
+        "invoke-container": {
+          "container-id": "str",
+          "dead-letter-queue": {
+            "queue-id": "str",
+            "service-account-id": "str"
+          },
+          "path": "str",
+          "retry-settings": {
+            "interval": "duration",
+            "retry-attempts": "int"
+          },
+          "service-account-id": "str"
+        },
+        "invoke-function": {
+          "dead-letter-queue": {
+            "queue-id": "str",
+            "service-account-id": "str"
+          },
+          "function-id": "str",
+          "function-tag": "str",
+          "retry-settings": {
+            "interval": "duration",
+            "retry-attempts": "int"
+          },
+          "service-account-id": "str"
+        }
+      },
+      "batch-settings": {
+        "cutoff": "duration",
+        "size": "int"
+      },
+      "levels": [
+        "TRACE|DEBUG|INFO|WARN|ERROR|FATAL", ...
+      ],
+      "log-group-id": "str",
+      "resource-id": [
+        "str", ...
+      ],
+      "resource-type": [
+        "str", ...
+      ],
+      "stream-name": [
+        "str", ...
+      ]
+    },
+    "mail": {
+      "action": {
+        "gateway-websocket-broadcast": {
+          "gateway-id": "str",
+          "path": "str",
+          "service-account-id": "str"
+        },
+        "invoke-container": {
+          "container-id": "str",
+          "dead-letter-queue": {
+            "queue-id": "str",
+            "service-account-id": "str"
+          },
+          "path": "str",
+          "retry-settings": {
+            "interval": "duration",
+            "retry-attempts": "int"
+          },
+          "service-account-id": "str"
+        },
+        "invoke-function": {
+          "dead-letter-queue": {
+            "queue-id": "str",
+            "service-account-id": "str"
+          },
+          "function-id": "str",
+          "function-tag": "str",
+          "retry-settings": {
+            "interval": "duration",
+            "retry-attempts": "int"
+          },
+          "service-account-id": "str"
+        }
+      },
+      "attachments-bucket": {
+        "bucket-id": "str",
+        "service-account-id": "str"
+      },
+      "batch-settings": {
+        "cutoff": "duration",
+        "size": "int"
+      },
+      "email": "str"
+    },
+    "message-queue": {
+      "action": {
+        "gateway-websocket-broadcast": {
+          "gateway-id": "str",
+          "path": "str",
+          "service-account-id": "str"
+        },
+        "invoke-container": {
+          "container-id": "str",
+          "path": "str",
+          "service-account-id": "str"
+        },
+        "invoke-function": {
+          "function-id": "str",
+          "function-tag": "str",
+          "service-account-id": "str"
+        }
+      },
+      "batch-settings": {
+        "cutoff": "duration",
+        "size": "int"
+      },
+      "queue-id": "str",
+      "service-account-id": "str",
+      "visibility-timeout": "duration"
+    },
+    "object-storage": {
+      "action": {
+        "gateway-websocket-broadcast": {
+          "gateway-id": "str",
+          "path": "str",
+          "service-account-id": "str"
+        },
+        "invoke-container": {
+          "container-id": "str",
+          "dead-letter-queue": {
+            "queue-id": "str",
+            "service-account-id": "str"
+          },
+          "path": "str",
+          "retry-settings": {
+            "interval": "duration",
+            "retry-attempts": "int"
+          },
+          "service-account-id": "str"
+        },
+        "invoke-function": {
+          "dead-letter-queue": {
+            "queue-id": "str",
+            "service-account-id": "str"
+          },
+          "function-id": "str",
+          "function-tag": "str",
+          "retry-settings": {
+            "interval": "duration",
+            "retry-attempts": "int"
+          },
+          "service-account-id": "str"
+        }
+      },
+      "batch-settings": {
+        "cutoff": "duration",
+        "size": "int"
+      },
+      "bucket-id": "str",
+      "event-type": [
+        "OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT|OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT|OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT", ...
+      ],
+      "prefix": "str",
+      "suffix": "str"
+    },
+    "timer": {
+      "action": {
+        "gateway-websocket-broadcast": {
+          "gateway-id": "str",
+          "path": "str",
+          "service-account-id": "str"
+        },
+        "invoke-container-with-retry": {
+          "container-id": "str",
+          "dead-letter-queue": {
+            "queue-id": "str",
+            "service-account-id": "str"
+          },
+          "path": "str",
+          "retry-settings": {
+            "interval": "duration",
+            "retry-attempts": "int"
+          },
+          "service-account-id": "str"
+        },
+        "invoke-function": {
+          "function-id": "str",
+          "function-tag": "str",
+          "service-account-id": "str"
+        },
+        "invoke-function-with-retry": {
+          "dead-letter-queue": {
+            "queue-id": "str",
+            "service-account-id": "str"
+          },
+          "function-id": "str",
+          "function-tag": "str",
+          "retry-settings": {
+            "interval": "duration",
+            "retry-attempts": "int"
+          },
+          "service-account-id": "str"
+        }
+      },
+      "cron-expression": "str",
+      "payload": "str"
+    }
+  }
+}
+```
+
+Fields:
+
+```
+rule -> (oneof<billing-budget|cloud-logs|container-registry|data-stream|iot-broker-message|iot-message|logging|mail|message-queue|object-storage|timer>)
+  Oneof rule field
+  timer -> (struct)
+    Rule for a timed trigger.
+    cron-expression -> (string)
+      Description of a schedule as a documentation.
+    payload -> (string)
+      Payload to be passed to function.
+    action -> (oneof<gateway-websocket-broadcast|invoke-container-with-retry|invoke-function|invoke-function-with-retry>)
+      Oneof action field
+      invoke-function -> (struct)
+        Instructions for invoking a function once.
+        function-id -> (string)
+          ID of the function to invoke.
+        function-tag -> (string)
+          Version tag of the function to execute.
+        service-account-id -> (string)
+          ID of the service account that should be used to invoke the function.
+      invoke-function-with-retry -> (struct)
+        Instructions for invoking a function with retry.
+        dead-letter-queue -> (struct)
+          DLQ policy (no value means discarding a message).
+          queue-id -> (string)
+            ID of the queue.
+          service-account-id -> (string)
+            Service account which has write permission on the queue.
+        function-id -> (string)
+          ID of the function to invoke.
+        function-tag -> (string)
+          Version tag of the function to execute.
+        retry-settings -> (struct)
+          Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
+          interval -> (duration)
+            Time in seconds to wait between individual retries.
+          retry-attempts -> (int)
+            Maximum number of retries (extra invokes) before the action is considered failed.
+        service-account-id -> (string)
+          ID of the service account which has permission to invoke the function.
+      invoke-container-with-retry -> (struct)
+        Instructions for invoking a container with retry.
+        container-id -> (string)
+          ID of the container to invoke.
+        dead-letter-queue -> (struct)
+          DLQ policy (no value means discarding a message).
+          queue-id -> (string)
+            ID of the queue.
+          service-account-id -> (string)
+            Service account which has write permission on the queue.
+        path -> (string)
+          Endpoint HTTP path to invoke.
+        retry-settings -> (struct)
+          Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
+          interval -> (duration)
+            Time in seconds to wait between individual retries.
+          retry-attempts -> (int)
+            Maximum number of retries (extra invokes) before the action is considered failed.
+        service-account-id -> (string)
+          ID of the service account which has permission to invoke the container.
+      gateway-websocket-broadcast -> (struct)
+        Instructions for broadcasting to API gateway websocket once.
+        gateway-id -> (string)
+        path -> (string)
+        service-account-id -> (string)
+          sa which has permission for writing to websockets
+  message-queue -> (struct)
+    Rule for a message queue trigger.
+    batch-settings -> (struct)
+      Batch settings for processing messages in the queue.
+      cutoff -> (duration)
+        Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.
+      size -> (int)
+        Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.
+    queue-id -> (string)
+      ID of the message queue in Message Queue.
+    service-account-id -> (string)
+      ID of the service account which has read access to the message queue.
+    visibility-timeout -> (duration)
+      Queue visibility timeout override.
+    action -> (oneof<gateway-websocket-broadcast|invoke-container|invoke-function>)
+      Oneof action field
+      invoke-function -> (struct)
+        Instructions for invoking a function once.
+        function-id -> (string)
+          ID of the function to invoke.
+        function-tag -> (string)
+          Version tag of the function to execute.
+        service-account-id -> (string)
+          ID of the service account that should be used to invoke the function.
+      invoke-container -> (struct)
+        Instructions for invoking a container once.
+        container-id -> (string)
+          ID of the container to invoke.
+        path -> (string)
+          Endpoint HTTP path to invoke.
+        service-account-id -> (string)
+          ID of the service account which has permission to invoke the container.
+      gateway-websocket-broadcast -> (struct)
+        Instructions for broadcasting to API gateway websocket once.
+        gateway-id -> (string)
+        path -> (string)
+        service-account-id -> (string)
+          sa which has permission for writing to websockets
+  iot-message -> (struct)
+    Rule for a IoT Core trigger.
+    batch-settings -> (struct)
+      Batch settings for processing events.
+      cutoff -> (duration)
+        Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.
+      size -> (int)
+        Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.
+    device-id -> (string)
+      ID of the IoT Core device in the registry.
+    mqtt-topic -> (string)
+      MQTT topic whose messages activate the trigger.
+    registry-id -> (string)
+      ID of the IoT Core registry.
+    action -> (oneof<gateway-websocket-broadcast|invoke-container|invoke-function>)
+      Oneof action field
+      invoke-function -> (struct)
+        Instructions for invoking a function with retries as needed.
+        dead-letter-queue -> (struct)
+          DLQ policy (no value means discarding a message).
+          queue-id -> (string)
+            ID of the queue.
+          service-account-id -> (string)
+            Service account which has write permission on the queue.
+        function-id -> (string)
+          ID of the function to invoke.
+        function-tag -> (string)
+          Version tag of the function to execute.
+        retry-settings -> (struct)
+          Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
+          interval -> (duration)
+            Time in seconds to wait between individual retries.
+          retry-attempts -> (int)
+            Maximum number of retries (extra invokes) before the action is considered failed.
+        service-account-id -> (string)
+          ID of the service account which has permission to invoke the function.
+      invoke-container -> (struct)
+        Instructions for invoking a container with retries as needed.
+        container-id -> (string)
+          ID of the container to invoke.
+        dead-letter-queue -> (struct)
+          DLQ policy (no value means discarding a message).
+          queue-id -> (string)
+            ID of the queue.
+          service-account-id -> (string)
+            Service account which has write permission on the queue.
+        path -> (string)
+          Endpoint HTTP path to invoke.
+        retry-settings -> (struct)
+          Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
+          interval -> (duration)
+            Time in seconds to wait between individual retries.
+          retry-attempts -> (int)
+            Maximum number of retries (extra invokes) before the action is considered failed.
+        service-account-id -> (string)
+          ID of the service account which has permission to invoke the container.
+      gateway-websocket-broadcast -> (struct)
+        Instructions for broadcasting to API gateway websocket once.
+        gateway-id -> (string)
+        path -> (string)
+        service-account-id -> (string)
+          sa which has permission for writing to websockets
+  iot-broker-message -> (struct)
+    batch-settings -> (struct)
+      Batch settings for processing events.
+      cutoff -> (duration)
+        Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.
+      size -> (int)
+        Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.
+    broker-id -> (string)
+      ID of the IoT Core broker.
+    mqtt-topic -> (string)
+      MQTT topic whose messages activate the trigger.
+    action -> (oneof<gateway-websocket-broadcast|invoke-container|invoke-function>)
+      Oneof action field
+      invoke-function -> (struct)
+        Instructions for invoking a function with retries as needed.
+        dead-letter-queue -> (struct)
+          DLQ policy (no value means discarding a message).
+          queue-id -> (string)
+            ID of the queue.
+          service-account-id -> (string)
+            Service account which has write permission on the queue.
+        function-id -> (string)
+          ID of the function to invoke.
+        function-tag -> (string)
+          Version tag of the function to execute.
+        retry-settings -> (struct)
+          Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
+          interval -> (duration)
+            Time in seconds to wait between individual retries.
+          retry-attempts -> (int)
+            Maximum number of retries (extra invokes) before the action is considered failed.
+        service-account-id -> (string)
+          ID of the service account which has permission to invoke the function.
+      invoke-container -> (struct)
+        Instructions for invoking a container with retries as needed.
+        container-id -> (string)
+          ID of the container to invoke.
+        dead-letter-queue -> (struct)
+          DLQ policy (no value means discarding a message).
+          queue-id -> (string)
+            ID of the queue.
+          service-account-id -> (string)
+            Service account which has write permission on the queue.
+        path -> (string)
+          Endpoint HTTP path to invoke.
+        retry-settings -> (struct)
+          Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
+          interval -> (duration)
+            Time in seconds to wait between individual retries.
+          retry-attempts -> (int)
+            Maximum number of retries (extra invokes) before the action is considered failed.
+        service-account-id -> (string)
+          ID of the service account which has permission to invoke the container.
+      gateway-websocket-broadcast -> (struct)
+        Instructions for broadcasting to API gateway websocket once.
+        gateway-id -> (string)
+        path -> (string)
+        service-account-id -> (string)
+          sa which has permission for writing to websockets
+  object-storage -> (struct)
+    batch-settings -> (struct)
+      Batch settings for processing events.
+      cutoff -> (duration)
+        Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.
+      size -> (int)
+        Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.
+    bucket-id -> (string)
+      ID of the bucket.
+    event-type -> ([]struct)
+      Type (name) of events, at least one value is required.
+    prefix -> (string)
+      Prefix of the object key. Filter, optional.
+    suffix -> (string)
+      Suffix of the object key. Filter, optional.
+    action -> (oneof<gateway-websocket-broadcast|invoke-container|invoke-function>)
+      Oneof action field
+      invoke-function -> (struct)
+        Instructions for invoking a function with retries as needed.
+        dead-letter-queue -> (struct)
+          DLQ policy (no value means discarding a message).
+          queue-id -> (string)
+            ID of the queue.
+          service-account-id -> (string)
+            Service account which has write permission on the queue.
+        function-id -> (string)
+          ID of the function to invoke.
+        function-tag -> (string)
+          Version tag of the function to execute.
+        retry-settings -> (struct)
+          Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
+          interval -> (duration)
+            Time in seconds to wait between individual retries.
+          retry-attempts -> (int)
+            Maximum number of retries (extra invokes) before the action is considered failed.
+        service-account-id -> (string)
+          ID of the service account which has permission to invoke the function.
+      invoke-container -> (struct)
+        Instructions for invoking a container with retries as needed.
+        container-id -> (string)
+          ID of the container to invoke.
+        dead-letter-queue -> (struct)
+          DLQ policy (no value means discarding a message).
+          queue-id -> (string)
+            ID of the queue.
+          service-account-id -> (string)
+            Service account which has write permission on the queue.
+        path -> (string)
+          Endpoint HTTP path to invoke.
+        retry-settings -> (struct)
+          Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
+          interval -> (duration)
+            Time in seconds to wait between individual retries.
+          retry-attempts -> (int)
+            Maximum number of retries (extra invokes) before the action is considered failed.
+        service-account-id -> (string)
+          ID of the service account which has permission to invoke the container.
+      gateway-websocket-broadcast -> (struct)
+        Instructions for broadcasting to API gateway websocket once.
+        gateway-id -> (string)
+        path -> (string)
+        service-account-id -> (string)
+          sa which has permission for writing to websockets
+  container-registry -> (struct)
+    batch-settings -> (struct)
+      Batch settings for processing events.
+      cutoff -> (duration)
+        Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.
+      size -> (int)
+        Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.
+    event-type -> ([]struct)
+      Type (name) of events, at least one value is required.
+    image-name -> (string)
+      Docker-image name. Filter, optional.
+    registry-id -> (string)
+      ID of the registry.
+    tag -> (string)
+      Docker-image tag. Filter, optional.
+    action -> (oneof<gateway-websocket-broadcast|invoke-container|invoke-function>)
+      Oneof action field
+      invoke-function -> (struct)
+        Instructions for invoking a function with retries as needed.
+        dead-letter-queue -> (struct)
+          DLQ policy (no value means discarding a message).
+          queue-id -> (string)
+            ID of the queue.
+          service-account-id -> (string)
+            Service account which has write permission on the queue.
+        function-id -> (string)
+          ID of the function to invoke.
+        function-tag -> (string)
+          Version tag of the function to execute.
+        retry-settings -> (struct)
+          Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
+          interval -> (duration)
+            Time in seconds to wait between individual retries.
+          retry-attempts -> (int)
+            Maximum number of retries (extra invokes) before the action is considered failed.
+        service-account-id -> (string)
+          ID of the service account which has permission to invoke the function.
+      invoke-container -> (struct)
+        Instructions for invoking a container with retries as needed.
+        container-id -> (string)
+          ID of the container to invoke.
+        dead-letter-queue -> (struct)
+          DLQ policy (no value means discarding a message).
+          queue-id -> (string)
+            ID of the queue.
+          service-account-id -> (string)
+            Service account which has write permission on the queue.
+        path -> (string)
+          Endpoint HTTP path to invoke.
+        retry-settings -> (struct)
+          Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
+          interval -> (duration)
+            Time in seconds to wait between individual retries.
+          retry-attempts -> (int)
+            Maximum number of retries (extra invokes) before the action is considered failed.
+        service-account-id -> (string)
+          ID of the service account which has permission to invoke the container.
+      gateway-websocket-broadcast -> (struct)
+        Instructions for broadcasting to API gateway websocket once.
+        gateway-id -> (string)
+        path -> (string)
+        service-account-id -> (string)
+          sa which has permission for writing to websockets
+  cloud-logs -> (struct)
+    batch-settings -> (struct)
+      Batch settings for processing log events.
+      cutoff -> (duration)
+        Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the log group reaches [size], or the [cutoff] time has passed.
+      size -> (int)
+        Batch size. Trigger will send the batch of messages to the function when the number of messages in the log group reaches [size], or the [cutoff] time has passed.
+    log-group-id -> ([]string)
+      Log group identifiers, at least one value is required.
+    action -> (oneof<invoke-container|invoke-function>)
+      Oneof action field
+      invoke-function -> (struct)
+        Instructions for invoking a function with retries as needed.
+        dead-letter-queue -> (struct)
+          DLQ policy (no value means discarding a message).
+          queue-id -> (string)
+            ID of the queue.
+          service-account-id -> (string)
+            Service account which has write permission on the queue.
+        function-id -> (string)
+          ID of the function to invoke.
+        function-tag -> (string)
+          Version tag of the function to execute.
+        retry-settings -> (struct)
+          Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
+          interval -> (duration)
+            Time in seconds to wait between individual retries.
+          retry-attempts -> (int)
+            Maximum number of retries (extra invokes) before the action is considered failed.
+        service-account-id -> (string)
+          ID of the service account which has permission to invoke the function.
+      invoke-container -> (struct)
+        Instructions for invoking a container with retries as needed.
+        container-id -> (string)
+          ID of the container to invoke.
+        dead-letter-queue -> (struct)
+          DLQ policy (no value means discarding a message).
+          queue-id -> (string)
+            ID of the queue.
+          service-account-id -> (string)
+            Service account which has write permission on the queue.
+        path -> (string)
+          Endpoint HTTP path to invoke.
+        retry-settings -> (struct)
+          Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
+          interval -> (duration)
+            Time in seconds to wait between individual retries.
+          retry-attempts -> (int)
+            Maximum number of retries (extra invokes) before the action is considered failed.
+        service-account-id -> (string)
+          ID of the service account which has permission to invoke the container.
+  logging -> (struct)
+    batch-settings -> (struct)
+      Batch settings for processing log events.
+      cutoff -> (duration)
+        Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the 'cutoff' value, regardless of the amount of log events.
+      size -> (int)
+        Batch size. Trigger will send the batch of messages to the associated function when the number of log events reaches this value, or the [cutoff] time has passed.
+    levels -> ([]struct)
+    log-group-id -> (string)
+      Log events filter settings.
+    resource-id -> ([]string)
+    resource-type -> ([]string)
+    stream-name -> ([]string)
+    action -> (oneof<gateway-websocket-broadcast|invoke-container|invoke-function>)
+      Oneof action field
+      invoke-function -> (struct)
+        Instructions for invoking a function with retries as needed.
+        dead-letter-queue -> (struct)
+          DLQ policy (no value means discarding a message).
+          queue-id -> (string)
+            ID of the queue.
+          service-account-id -> (string)
+            Service account which has write permission on the queue.
+        function-id -> (string)
+          ID of the function to invoke.
+        function-tag -> (string)
+          Version tag of the function to execute.
+        retry-settings -> (struct)
+          Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
+          interval -> (duration)
+            Time in seconds to wait between individual retries.
+          retry-attempts -> (int)
+            Maximum number of retries (extra invokes) before the action is considered failed.
+        service-account-id -> (string)
+          ID of the service account which has permission to invoke the function.
+      invoke-container -> (struct)
+        Instructions for invoking a container with retries as needed.
+        container-id -> (string)
+          ID of the container to invoke.
+        dead-letter-queue -> (struct)
+          DLQ policy (no value means discarding a message).
+          queue-id -> (string)
+            ID of the queue.
+          service-account-id -> (string)
+            Service account which has write permission on the queue.
+        path -> (string)
+          Endpoint HTTP path to invoke.
+        retry-settings -> (struct)
+          Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
+          interval -> (duration)
+            Time in seconds to wait between individual retries.
+          retry-attempts -> (int)
+            Maximum number of retries (extra invokes) before the action is considered failed.
+        service-account-id -> (string)
+          ID of the service account which has permission to invoke the container.
+      gateway-websocket-broadcast -> (struct)
+        Instructions for broadcasting to API gateway websocket once.
+        gateway-id -> (string)
+        path -> (string)
+        service-account-id -> (string)
+          sa which has permission for writing to websockets
+  billing-budget -> (struct)
+    billing-account-id -> (string)
+    budget-id -> (string)
+    action -> (oneof<gateway-websocket-broadcast|invoke-container|invoke-function>)
+      Oneof action field
+      invoke-function -> (struct)
+        dead-letter-queue -> (struct)
+          DLQ policy (no value means discarding a message).
+          queue-id -> (string)
+            ID of the queue.
+          service-account-id -> (string)
+            Service account which has write permission on the queue.
+        function-id -> (string)
+          ID of the function to invoke.
+        function-tag -> (string)
+          Version tag of the function to execute.
+        retry-settings -> (struct)
+          Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
+          interval -> (duration)
+            Time in seconds to wait between individual retries.
+          retry-attempts -> (int)
+            Maximum number of retries (extra invokes) before the action is considered failed.
+        service-account-id -> (string)
+          ID of the service account which has permission to invoke the function.
+      invoke-container -> (struct)
+        container-id -> (string)
+          ID of the container to invoke.
+        dead-letter-queue -> (struct)
+          DLQ policy (no value means discarding a message).
+          queue-id -> (string)
+            ID of the queue.
+          service-account-id -> (string)
+            Service account which has write permission on the queue.
+        path -> (string)
+          Endpoint HTTP path to invoke.
+        retry-settings -> (struct)
+          Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
+          interval -> (duration)
+            Time in seconds to wait between individual retries.
+          retry-attempts -> (int)
+            Maximum number of retries (extra invokes) before the action is considered failed.
+        service-account-id -> (string)
+          ID of the service account which has permission to invoke the container.
+      gateway-websocket-broadcast -> (struct)
+        gateway-id -> (string)
+        path -> (string)
+        service-account-id -> (string)
+          sa which has permission for writing to websockets
+  data-stream -> (struct)
+    batch-settings -> (struct)
+      Batch settings for processing events.
+      cutoff -> (duration)
+        Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the 'cutoff' value, regardless of the amount of log events.
+      size -> (int)
+        Batch size in bytes. Trigger will send the batch of messages to the associated function when size of log events reaches this value, or the [cutoff] time has passed.
+    database -> (string)
+      Data stream database.
+    endpoint -> (string)
+      Data stream endpoint.
+    service-account-id -> (string)
+      ID of the service account which has permission to read data stream.
+    stream -> (string)
+      Stream name.
+    action -> (oneof<gateway-websocket-broadcast|invoke-container|invoke-function>)
+      Oneof action field
+      invoke-function -> (struct)
+        dead-letter-queue -> (struct)
+          DLQ policy (no value means discarding a message).
+          queue-id -> (string)
+            ID of the queue.
+          service-account-id -> (string)
+            Service account which has write permission on the queue.
+        function-id -> (string)
+          ID of the function to invoke.
+        function-tag -> (string)
+          Version tag of the function to execute.
+        retry-settings -> (struct)
+          Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
+          interval -> (duration)
+            Time in seconds to wait between individual retries.
+          retry-attempts -> (int)
+            Maximum number of retries (extra invokes) before the action is considered failed.
+        service-account-id -> (string)
+          ID of the service account which has permission to invoke the function.
+      invoke-container -> (struct)
+        container-id -> (string)
+          ID of the container to invoke.
+        dead-letter-queue -> (struct)
+          DLQ policy (no value means discarding a message).
+          queue-id -> (string)
+            ID of the queue.
+          service-account-id -> (string)
+            Service account which has write permission on the queue.
+        path -> (string)
+          Endpoint HTTP path to invoke.
+        retry-settings -> (struct)
+          Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
+          interval -> (duration)
+            Time in seconds to wait between individual retries.
+          retry-attempts -> (int)
+            Maximum number of retries (extra invokes) before the action is considered failed.
+        service-account-id -> (string)
+          ID of the service account which has permission to invoke the container.
+      gateway-websocket-broadcast -> (struct)
+        gateway-id -> (string)
+        path -> (string)
+        service-account-id -> (string)
+          sa which has permission for writing to websockets
+  mail -> (struct)
+    attachments-bucket -> (struct)
+      Bucket settings for saving attachments.
+      bucket-id -> (string)
+        Bucket for saving.
+      service-account-id -> (string)
+        SA which has write permission on storage.
+    batch-settings -> (struct)
+      Batch settings for processing events.
+      cutoff -> (duration)
+        Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.
+      size -> (int)
+        Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches [size], or the [cutoff] time has passed.
+    email -> (string)
+      Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation.
+    action -> (oneof<gateway-websocket-broadcast|invoke-container|invoke-function>)
+      Oneof action field
+      invoke-function -> (struct)
+        dead-letter-queue -> (struct)
+          DLQ policy (no value means discarding a message).
+          queue-id -> (string)
+            ID of the queue.
+          service-account-id -> (string)
+            Service account which has write permission on the queue.
+        function-id -> (string)
+          ID of the function to invoke.
+        function-tag -> (string)
+          Version tag of the function to execute.
+        retry-settings -> (struct)
+          Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
+          interval -> (duration)
+            Time in seconds to wait between individual retries.
+          retry-attempts -> (int)
+            Maximum number of retries (extra invokes) before the action is considered failed.
+        service-account-id -> (string)
+          ID of the service account which has permission to invoke the function.
+      invoke-container -> (struct)
+        container-id -> (string)
+          ID of the container to invoke.
+        dead-letter-queue -> (struct)
+          DLQ policy (no value means discarding a message).
+          queue-id -> (string)
+            ID of the queue.
+          service-account-id -> (string)
+            Service account which has write permission on the queue.
+        path -> (string)
+          Endpoint HTTP path to invoke.
+        retry-settings -> (struct)
+          Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
+          interval -> (duration)
+            Time in seconds to wait between individual retries.
+          retry-attempts -> (int)
+            Maximum number of retries (extra invokes) before the action is considered failed.
+        service-account-id -> (string)
+          ID of the service account which has permission to invoke the container.
+      gateway-websocket-broadcast -> (struct)
+        gateway-id -> (string)
+        path -> (string)
+        service-account-id -> (string)
+          sa which has permission for writing to websockets
+``` ||
+|| `--trigger-id` | `string`
+
+ID of the trigger to update. To get a trigger ID make a [TriggerService.List] request. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

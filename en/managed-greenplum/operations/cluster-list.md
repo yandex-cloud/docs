@@ -8,7 +8,8 @@ You can get detailed information about each {{ GP }} cluster you created.
 
 - Management console {#console}
 
-    Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
 
 - CLI {#cli}
 
@@ -16,7 +17,7 @@ You can get detailed information about each {{ GP }} cluster you created.
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To request a list of {{ GP }} clusters in a folder, run the following command:
+    To get a list of {{ GP }} clusters in a folder, run this command:
 
     ```bash
     {{ yc-mdb-gp }} cluster list
@@ -24,11 +25,11 @@ You can get detailed information about each {{ GP }} cluster you created.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Call the [Cluster.list](../api-ref/Cluster/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+    1. Call the [Cluster.List](../api-ref/Cluster/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -39,14 +40,14 @@ You can get detailed information about each {{ GP }} cluster you created.
         ```
 
         
-        You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
     1. Check the [server response](../api-ref/Cluster/list.md#yandex.cloud.mdb.greenplum.v1.ListClustersResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -69,7 +70,7 @@ You can get detailed information about each {{ GP }} cluster you created.
         ```
 
         
-        You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
     1. Check the [server response](../api-ref/grpc/Cluster/list.md#yandex.cloud.mdb.greenplum.v1.ListClustersResponse) to make sure your request was successful.
@@ -82,8 +83,9 @@ You can get detailed information about each {{ GP }} cluster you created.
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
-    1. Click the cluster name.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. Click the name of your cluster.
 
 - CLI {#cli}
 
@@ -91,7 +93,7 @@ You can get detailed information about each {{ GP }} cluster you created.
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get information about a {{ GP }} cluster, run the following command:
+    To get {{ GP }} cluster details, run the following command:
 
     ```bash
     {{ yc-mdb-gp }} cluster get <cluster_name_or_ID>
@@ -101,7 +103,7 @@ You can get detailed information about each {{ GP }} cluster you created.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -120,7 +122,7 @@ You can get detailed information about each {{ GP }} cluster you created.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -154,8 +156,9 @@ You can get detailed information about each {{ GP }} cluster you created.
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
-    1. Click the name of your cluster and open the ![hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. Click the cluster name and select the ![hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
 
     In the list of hosts, the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_role }}** column shows the role of each host:
 
@@ -187,7 +190,7 @@ You can get detailed information about each {{ GP }} cluster you created.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -223,7 +226,7 @@ You can get detailed information about each {{ GP }} cluster you created.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

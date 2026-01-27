@@ -10,43 +10,325 @@ Creates a userpool in the specified organization.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta organization-manager idp userpool create <ORGANIZATION-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--bruteforce-protection-policy`|<b>`shorthand/json`</b><br/>Bruteforce protection policy for the userpool.<br/>Shorthand Syntax:<br/>{<br/>attempts = int,<br/>block = duration,<br/>window = duration<br/>}<br/>JSON Syntax:<br/>"{<br/>"attempts": "int",<br/>"block": "duration",<br/>"window": "duration"<br/>}"<br/>Fields:<br/>attempts -> (int)<br/>Number of failed attempts allowed within the window before blocking.<br/>block -> (duration)<br/>Duration of the block after too many failed attempts.<br/>window -> (duration)<br/>Time window for counting failed authentication attempts.|
-|`--default-subdomain`|<b>`string`</b><br/>Default subdomain for the userpool.|
-|`--description`|<b>`string`</b><br/>Description of the userpool.|
-|`--labels`|<b>`stringToString`</b><br/>Resource labels as key:value pairs.|
-|`--name`|<b>`string`</b><br/>Name of the userpool. The name must be unique within the organization.|
-|`--organization-id`|<b>`string`</b><br/>ID of the organization to create a userpool in.|
-|`--password-lifetime-policy`|<b>`shorthand/json`</b><br/>Password lifetime policy for the userpool.<br/>Shorthand Syntax:<br/>{<br/>max-days-count = int,<br/>min-days-count = int<br/>}<br/>JSON Syntax:<br/>"{<br/>"max-days-count": "int",<br/>"min-days-count": "int"<br/>}"<br/>Fields:<br/>max-days-count -> (int)<br/>Maximum number of days a password remains valid. Zero means passwords never expire.<br/>min-days-count -> (int)<br/>Minimum number of days before a password can be changed.|
-|`--password-quality-policy`|<b>`shorthand/json`</b><br/>Password quality policy for the userpool.<br/>Shorthand Syntax:<br/>{<br/>allow-similar = bool,<br/>complexity-policy = fixed={<br/>digits-required = bool,<br/>lowers-required = bool,<br/>min-length = int,<br/>specials-required = bool,<br/>uppers-required = bool<br/>} \| smart={<br/>four-classes = int,<br/>one-class = int,<br/>three-classes = int,<br/>two-classes = int<br/>},<br/>match-length = int,<br/>max-length = int,<br/>min-length = int,<br/>min-length-by-class-settings = {<br/>one = int,<br/>three = int,<br/>two = int<br/>},<br/>required-classes = {<br/>digits = bool,<br/>lowers = bool,<br/>specials = bool,<br/>uppers = bool<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"allow-similar": "bool",<br/>"complexity-policy": {<br/>"fixed": {<br/>"digits-required": "bool",<br/>"lowers-required": "bool",<br/>"min-length": "int",<br/>"specials-required": "bool",<br/>"uppers-required": "bool"<br/>},<br/>"smart": {<br/>"four-classes": "int",<br/>"one-class": "int",<br/>"three-classes": "int",<br/>"two-classes": "int"<br/>}<br/>},<br/>"match-length": "int",<br/>"max-length": "int",<br/>"min-length": "int",<br/>"min-length-by-class-settings": {<br/>"one": "int",<br/>"three": "int",<br/>"two": "int"<br/>},<br/>"required-classes": {<br/>"digits": "bool",<br/>"lowers": "bool",<br/>"specials": "bool",<br/>"uppers": "bool"<br/>}<br/>}"<br/>Fields:<br/>allow-similar -> (bool)<br/>Whether passwords similar to previous ones are allowed.<br/>match-length -> (int)<br/>Minimum length of substrings to check for similarity to vulnerable sequences.<br/>max-length -> (int)<br/>Maximum password length. Zero means no maximum length is enforced.<br/>min-length -> (int)<br/>Minimum password length.<br/>min-length-by-class-settings -> (struct)<br/>Minimum length requirements based on character class diversity. If not specified, these checks are disabled.<br/>one -> (int)<br/>Minimum length for passwords with one character class.<br/>three -> (int)<br/>Minimum length for passwords with three character classes.<br/>two -> (int)<br/>Minimum length for passwords with two character classes.<br/>required-classes -> (struct)<br/>Character classes required in passwords.<br/>digits -> (bool)<br/>Whether digits are required.<br/>lowers -> (bool)<br/>Whether lowercase letters are required.<br/>specials -> (bool)<br/>Whether special characters are required.<br/>uppers -> (bool)<br/>Whether uppercase letters are required.<br/>complexity-policy -> (oneof<fixed\|smart>)<br/>Oneof complexity-policy field<br/>fixed -> (struct)<br/>Fixed complexity requirements. Exactly one of complexity requirements must be specified.<br/>digits-required -> (bool)<br/>Whether digits are required in the password.<br/>lowers-required -> (bool)<br/>Whether lowercase letters are required in the password.<br/>min-length -> (int)<br/>Minimum length required for all passwords.<br/>specials-required -> (bool)<br/>Whether special characters are required in the password.<br/>uppers-required -> (bool)<br/>Whether uppercase letters are required in the password.<br/>smart -> (struct)<br/>Smart complexity requirements. Exactly one of complexity requirements must be specified.<br/>four-classes -> (int)<br/>For passwords with all four classes of characters<br/>one-class -> (int)<br/>For passwords with one class of characters<br/>three-classes -> (int)<br/>For passwords with three classes of characters<br/>two-classes -> (int)<br/>For passwords with two classes of characters|
-|`--user-settings`|<b>`shorthand/json`</b><br/>User settings for the userpool.<br/>Shorthand Syntax:<br/>{<br/>allow-edit-self-contacts = bool,<br/>allow-edit-self-info = bool,<br/>allow-edit-self-login = bool,<br/>allow-edit-self-password = bool<br/>}<br/>JSON Syntax:<br/>"{<br/>"allow-edit-self-contacts": "bool",<br/>"allow-edit-self-info": "bool",<br/>"allow-edit-self-login": "bool",<br/>"allow-edit-self-password": "bool"<br/>}"<br/>Fields:<br/>allow-edit-self-contacts -> (bool)<br/>Whether users can edit their own contact information.<br/>allow-edit-self-info -> (bool)<br/>Whether users can edit their own profile information.<br/>allow-edit-self-login -> (bool)<br/>Whether users can edit their own login information.<br/>allow-edit-self-password -> (bool)<br/>Whether users can change their own passwords.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-json > request.json
+2. Edit the template: vim request.json
+3. Run with template: yc beta compute instance create -r request.json ||
+|| `--example-yaml` | Generates a YAML template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-yaml > request.yaml
+2. Edit the template: vim request.yaml
+3. Run with template: yc beta compute instance create -r request.yaml ||
+|| `--bruteforce-protection-policy` | `shorthand/json`
+
+Bruteforce protection policy for the userpool.
+
+Shorthand Syntax:
+
+```hcl
+{
+  attempts = int,
+  block = duration,
+  window = duration
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "attempts": "int",
+  "block": "duration",
+  "window": "duration"
+}
+```
+
+Fields:
+
+```
+attempts -> (int)
+  Number of failed attempts allowed within the window before blocking.
+block -> (duration)
+  Duration of the block after too many failed attempts.
+window -> (duration)
+  Time window for counting failed authentication attempts.
+``` ||
+|| `--default-subdomain` | `string`
+
+Default subdomain for the userpool. ||
+|| `--description` | `string`
+
+Description of the userpool. ||
+|| `--labels` | `stringToString`
+
+Resource labels as key:value pairs. ||
+|| `--name` | `string`
+
+Name of the userpool. The name must be unique within the organization. ||
+|| `--organization-id` | `string`
+
+ID of the organization to create a userpool in. ||
+|| `--password-lifetime-policy` | `shorthand/json`
+
+Password lifetime policy for the userpool.
+
+Shorthand Syntax:
+
+```hcl
+{
+  max-days-count = int,
+  min-days-count = int
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "max-days-count": "int",
+  "min-days-count": "int"
+}
+```
+
+Fields:
+
+```
+max-days-count -> (int)
+  Maximum number of days a password remains valid. Zero means passwords never expire.
+min-days-count -> (int)
+  Minimum number of days before a password can be changed.
+``` ||
+|| `--password-quality-policy` | `shorthand/json`
+
+Password quality policy for the userpool.
+
+Shorthand Syntax:
+
+```hcl
+{
+  allow-similar = bool,
+  complexity-policy = fixed={
+    digits-required = bool,
+    lowers-required = bool,
+    min-length = int,
+    specials-required = bool,
+    uppers-required = bool
+  } | smart={
+    four-classes = int,
+    one-class = int,
+    three-classes = int,
+    two-classes = int
+  },
+  match-length = int,
+  max-length = int,
+  min-length = int,
+  min-length-by-class-settings = {
+    one = int,
+    three = int,
+    two = int
+  },
+  required-classes = {
+    digits = bool,
+    lowers = bool,
+    specials = bool,
+    uppers = bool
+  }
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "allow-similar": "bool",
+  "complexity-policy": {
+    "fixed": {
+      "digits-required": "bool",
+      "lowers-required": "bool",
+      "min-length": "int",
+      "specials-required": "bool",
+      "uppers-required": "bool"
+    },
+    "smart": {
+      "four-classes": "int",
+      "one-class": "int",
+      "three-classes": "int",
+      "two-classes": "int"
+    }
+  },
+  "match-length": "int",
+  "max-length": "int",
+  "min-length": "int",
+  "min-length-by-class-settings": {
+    "one": "int",
+    "three": "int",
+    "two": "int"
+  },
+  "required-classes": {
+    "digits": "bool",
+    "lowers": "bool",
+    "specials": "bool",
+    "uppers": "bool"
+  }
+}
+```
+
+Fields:
+
+```
+allow-similar -> (bool)
+  Whether passwords similar to previous ones are allowed.
+match-length -> (int)
+  Minimum length of substrings to check for similarity to vulnerable sequences.
+max-length -> (int)
+  Maximum password length. Zero means no maximum length is enforced.
+min-length -> (int)
+  Deprecated. Use Fixed instead.
+min-length-by-class-settings -> (struct)
+  Deprecated. Use Smart instead.
+  one -> (int)
+    Minimum length for passwords with one character class.
+  three -> (int)
+    Minimum length for passwords with three character classes.
+  two -> (int)
+    Minimum length for passwords with two character classes.
+required-classes -> (struct)
+  Deprecated. Use Fixed instead.
+  digits -> (bool)
+    Whether digits are required.
+  lowers -> (bool)
+    Whether lowercase letters are required.
+  specials -> (bool)
+    Whether special characters are required.
+  uppers -> (bool)
+    Whether uppercase letters are required.
+complexity-policy -> (oneof<fixed|smart>)
+  Oneof complexity-policy field
+  fixed -> (struct)
+    Fixed complexity requirements. Exactly one of complexity requirements must be specified.
+    digits-required -> (bool)
+      Whether digits are required in the password.
+    lowers-required -> (bool)
+      Whether lowercase letters are required in the password.
+    min-length -> (int)
+      Minimum length required for all passwords.
+    specials-required -> (bool)
+      Whether special characters are required in the password.
+    uppers-required -> (bool)
+      Whether uppercase letters are required in the password.
+  smart -> (struct)
+    Smart complexity requirements. Exactly one of complexity requirements must be specified.
+    four-classes -> (int)
+      For passwords with all four classes of characters
+    one-class -> (int)
+      For passwords with one class of characters
+    three-classes -> (int)
+      For passwords with three classes of characters
+    two-classes -> (int)
+      For passwords with two classes of characters
+``` ||
+|| `--user-settings` | `shorthand/json`
+
+User settings for the userpool.
+
+Shorthand Syntax:
+
+```hcl
+{
+  allow-edit-self-contacts = bool,
+  allow-edit-self-info = bool,
+  allow-edit-self-login = bool,
+  allow-edit-self-password = bool
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "allow-edit-self-contacts": "bool",
+  "allow-edit-self-info": "bool",
+  "allow-edit-self-login": "bool",
+  "allow-edit-self-password": "bool"
+}
+```
+
+Fields:
+
+```
+allow-edit-self-contacts -> (bool)
+  Whether users can edit their own contact information.
+allow-edit-self-info -> (bool)
+  Whether users can edit their own profile information.
+allow-edit-self-login -> (bool)
+  Whether users can edit their own login information.
+allow-edit-self-password -> (bool)
+  Whether users can change their own passwords.
+``` ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

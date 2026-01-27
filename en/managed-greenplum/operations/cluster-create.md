@@ -9,7 +9,7 @@ For more information, see [{#T}](../concepts/index.md).
 ## Creating a cluster {#create-cluster}
 
 
-To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) and [{{ roles.mgp.editor }} roles or higher](../security/index.md#roles-list). For more information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
+To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mgp.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} guides](../../iam/operations/roles/grant.md).
 
 
 {% list tabs group=instructions %}
@@ -19,13 +19,13 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
     To create a {{ GP }} cluster:
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database cluster.
-    1. Select **Yandex MPP Analytics for PostgreSQL**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Enter a name for the cluster. It must be unique within the folder.
     1. Optionally, enter a description for the cluster.
     1. Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
         * `PRODUCTION`: For stable versions of your applications.
-        * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
+        * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by an SLA. However, it receives new features, improvements, and bug fixes earlier. In the prestable environment, you can test new versions for compatibility with your application.
     1. Select the {{ GP }} version.
 
     
@@ -148,13 +148,13 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
     To create a {{ GP }} cluster:
 
     
-    1. Check whether the folder has any subnets for the cluster hosts:
+    1. Verify that your folder has subnets for cluster host placement:
 
         ```bash
         yc vpc subnet list
         ```
 
-        If your folder has no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+        If your folder contains no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
     1. View the description of the CLI command for creating a cluster:
@@ -197,7 +197,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
         * `--greenplum-version`: {{ GP }} version, {{ versions.cli.str }}.
         * `--environment`: Environment:
             * `PRODUCTION`: For stable versions of your applications.
-            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
+            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by an SLA. However, it receives new features, improvements, and bug fixes earlier. In the prestable environment, you can test new versions for compatibility with your application.
         * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
         * `--user-name`: Username. It may contain Latin letters, numbers, hyphens, and underscores, and must start with a letter, number, or underscore. It must be from 1 to 32 characters long.
         * `--user-password`: Password. It must be from 8 to 128 characters long.
@@ -315,16 +315,16 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
   To create a {{ GP }} cluster:
 
-  1. In the command line, navigate to the directory that will contain the {{ TF }} configuration files with the infrastructure plan. If there is no such directory, create one.
+  1. In the command line, navigate to the directory that will contain the {{ TF }} configuration files describing your infrastructure. If there is no such directory, create one.
 
   
   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. Create a configuration file describing the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
 
-      The cluster is hosted on a cloud network. If you already have a network in place, you do not need to describe it again.
+      The cluster is hosted on a cloud network. If you already have a suitable network, you do not need to describe it again.
 
-      Cluster hosts are located on the selected cloud network's subnets. If you already have subnets in place, you do not need to describe them again.
+      Cluster hosts are located on the selected cloud network's subnets. If you already have suitable subnets, you do not need to describe them again.
 
       Below is an example of a configuration file describing a single-subnet cloud network:
 
@@ -390,7 +390,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
       Where:
 
       * `assign_public_ip`: Public access to cluster hosts, `true` or `false`.
-      * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`.
+      * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
           {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -459,7 +459,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
               Specify either `folder_id` or `log_group_id`.
 
 
-  1. Make sure the {{ TF }} configuration files are correct:
+  1. Validate your {{ TF }} configuration:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -471,7 +471,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -552,7 +552,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
         Where:
 
-        * `folderId`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `folderId`: Folder ID. You can get it from the [list of your cloud folders](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
         * `config`: Cluster settings:
@@ -560,7 +560,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
             * `version`: {{ GP }} version.
 
             
-            * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
+            * `access`: Cluster access settings for the following {{ yandex-cloud }} services:
 
                 * `dataLens`: [{{ datalens-full-name }}](../../datalens/index.yaml), `true` or `false`.
                 * `yandexQuery`: [{{ yq-full-name }}](../../query/concepts/index.md), `true` or `false`.
@@ -591,7 +591,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
         * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
-        * `deletionProtection`: Cluster protection against accidental deletion, `true` or `false`.
+        * `deletionProtection`: Cluster deletion protection, `true` or `false`.
 
             {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -601,7 +601,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
             * `size`: Maximum number of client connections.
             * `clientIdleTimeout`: Idle timeout for a client connection (in seconds).
 
-        * `cloudStorage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in your cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ GP }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloudStorage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ GP }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
             You cannot disable hybrid storage after you save your cluster settings.
 
@@ -644,7 +644,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -727,7 +727,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
         Where:
 
-        * `folder_id`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `folder_id`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
         * `config`: Cluster settings:
@@ -735,7 +735,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
             * `version`: {{ GP }} version.
 
             
-            * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
+            * `access`: Cluster access settings for the following {{ yandex-cloud }} services:
 
                 * `data_lens`: [{{ datalens-full-name }}](../../datalens/index.yaml), `true` or `false`.
                 * `yandex_query`: [{{ yq-full-name }}](../../query/concepts/index.md), `true` or `false`.
@@ -766,7 +766,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
         * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
-        * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`.
+        * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
             {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -776,7 +776,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
             * `size`: Maximum number of client connections.
             * `client_idle_timeout`: Idle timeout for a client connection (in seconds).
 
-        * `cloud_storage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in your cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ GP }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloud_storage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ GP }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
             You cannot disable hybrid storage after you save your cluster settings.
 
@@ -804,7 +804,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
                 Specify either `folder_id` or `log_group_id`.
 
 
-    1. Call the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+    1. Call the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -825,7 +825,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ GP }} cluster with the settings of another one created earlier. Do it by importing the original {{ GP }} cluster configuration to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea if the original {{ GP }} cluster has lots of settings and you want to create a similar one.
+You can create a {{ GP }} cluster with the settings of another one created earlier. Do this by importing the original {{ GP }} cluster configuration into {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. The import feature is handy when the original {{ GP }} cluster has a lot of settings and you need to create a similar one.
 
 To create a {{ GP }} cluster copy:
 
@@ -850,7 +850,7 @@ To create a {{ GP }} cluster copy:
         export GREENPLUM_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can request the ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Import the original {{ GP }} cluster settings to the {{ TF }} configuration:
 
@@ -865,28 +865,28 @@ To create a {{ GP }} cluster copy:
         ```
 
     1. Copy it from the terminal and paste it into the `.tf` file.
-    1. Place the file in the new `imported-cluster` directory.
-    1. Edit the copied configuration so that you can create a new cluster from it:
+    1. Move the file to the new `imported-cluster` directory.
+    1. Modify the copied configuration to prepare it for creating a new cluster:
 
         * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Delete the `created_at`, `health`, `id`, `status`, `master_hosts`, and `segment_hosts` parameters.
         * Add the `user_password` parameter.
-        * If the `maintenance_window` section has `type = "ANYTIME"`, delete the `hour` parameter.
+        * If the `maintenance_window` section contains `type = "ANYTIME"`, delete the `hour` setting.
         * Optionally, make further changes if you need a customized configuration.
 
-    1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
+    1. Navigate to the `imported-cluster` directory and [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
 
-    1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, as you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
+    1. Move the configuration file to the `imported-cluster` directory and [specify its settings](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
 
-    1. Make sure the {{ TF }} configuration files are correct:
+    1. Validate your {{ TF }} configuration:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 

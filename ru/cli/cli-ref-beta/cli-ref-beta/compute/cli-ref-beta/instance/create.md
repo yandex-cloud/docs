@@ -6,63 +6,896 @@ sourcePath: en/_cli-ref-beta/cli-ref-beta/compute/cli-ref-beta/instance/create.m
 
 # yc beta compute instance create
 
-Creates an instance in the specified folder.  Method starts an asynchronous operation that can be cancelled while it is in progress.
+Creates an instance in the specified folder.
+Method starts an asynchronous operation that can be cancelled while it is in progress.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta compute instance create <FOLDER-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--application`|<b>`shorthand/json`</b><br/>Instance application settings.<br/>Shorthand Syntax:<br/>{<br/>cloudbackup = {<br/>backup-id = str,<br/>enabled = bool,<br/>initial-policy-ids = str,...,<br/>instance-registration-id = str,<br/>recovery-from-backup = bool<br/>},<br/>container = container-solution={<br/>environment = {key=str, key=...},<br/>product-id = str,<br/>secrets = {key={<br/>id = str,<br/>key = str,<br/>version-id = str<br/>}, key=...}<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"cloudbackup": {<br/>"backup-id": "str",<br/>"enabled": "bool",<br/>"initial-policy-ids": [<br/>"str", ...<br/>],<br/>"instance-registration-id": "str",<br/>"recovery-from-backup": "bool"<br/>},<br/>"container": {<br/>"container-solution": {<br/>"environment": {<br/>"\<key\>": "str", ...<br/>},<br/>"product-id": "str",<br/>"secrets": {<br/>"\<key\>": {<br/>"id": "str",<br/>"key": "str",<br/>"version-id": "str"<br/>}, ...<br/>}<br/>}<br/>}<br/>}"<br/>Fields:<br/>cloudbackup -> (struct)<br/>Backup settings.<br/>backup-id -> (string)<br/>ID of the backup to recover from.<br/>enabled -> (bool)<br/>If true, backup is enabled.<br/>initial-policy-ids -> ([]string)<br/>A list of policy IDs to apply after resource registration.<br/>instance-registration-id -> (string)<br/>ID of the instance registration for cloud backup agent installation.<br/>recovery-from-backup -> (bool)<br/>If true, recovery from backup starts on instance.<br/>container -> (oneof\<container-solution\>)<br/>Oneof container field<br/>container-solution -> (struct)<br/>Container specification.<br/>environment -> (map[string,string])<br/>A list of the environmets.<br/>product-id -> (string)<br/>ID of the product.<br/>secrets -> (map[string,struct])<br/>A list of the secrets.<br/>id -> (string)<br/>ID of the secret.<br/>key -> (string)<br/>Name of the key.<br/>version-id -> (string)<br/>Version of the secret.|
-|`--boot-disk-spec`|<b>`shorthand/json`</b><br/>Boot disk to attach to the instance.<br/>Shorthand Syntax:<br/>{<br/>auto-delete = bool,<br/>device-name = str,<br/>disk = disk-id=str \| disk-spec={<br/>block-size = int,<br/>description = str,<br/>disk-placement-policy = {<br/>placement-group-id = str,<br/>placement-group-partition = int<br/>},<br/>kms-key-id = str,<br/>name = str,<br/>size = int,<br/>source = image-id=str \| snapshot-id=str,<br/>type-id = str<br/>},<br/>mode = READ_ONLY\|READ_WRITE<br/>}<br/>JSON Syntax:<br/>"{<br/>"auto-delete": "bool",<br/>"device-name": "str",<br/>"disk": {<br/>"disk-id": "str",<br/>"disk-spec": {<br/>"block-size": "int",<br/>"description": "str",<br/>"disk-placement-policy": {<br/>"placement-group-id": "str",<br/>"placement-group-partition": "int"<br/>},<br/>"kms-key-id": "str",<br/>"name": "str",<br/>"size": "int",<br/>"source": {<br/>"image-id": "str",<br/>"snapshot-id": "str"<br/>},<br/>"type-id": "str"<br/>}<br/>},<br/>"mode": "READ_ONLY\|READ_WRITE"<br/>}"<br/>Fields:<br/>auto-delete -> (bool)<br/>Specifies whether the disk will be auto-deleted when the instance is deleted.<br/>device-name -> (string)<br/>Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. This value can be used to reference the device for mounting, resizing, and so on, from within the instance. If not specified, a random value will be generated.<br/>mode -> (enum<READ_ONLY\|READ_WRITE>)<br/>The mode in which to attach this disk.<br/>disk -> (oneof<disk-id\|disk-spec>)<br/>Oneof disk field<br/>disk-spec -> (struct)<br/>Disk specification.<br/>block-size -> (int)<br/>Block size of the disk, specified in bytes. The default is 4096.<br/>description -> (string)<br/>Description of the disk.<br/>disk-placement-policy -> (struct)<br/>Placement policy configuration.<br/>placement-group-id -> (string)<br/>Placement group ID.<br/>placement-group-partition -> (int)<br/>kms-key-id -> (string)<br/>ID of KMS key for disk encryption<br/>name -> (string)<br/>Name of the disk.<br/>size -> (int)<br/>Size of the disk, specified in bytes.<br/>type-id -> (string)<br/>ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List] request.<br/>source -> (oneof<image-id\|snapshot-id>)<br/>Oneof source field<br/>image-id -> (string)<br/>ID of the image to create the disk from.<br/>snapshot-id -> (string)<br/>ID of the snapshot to restore the disk from.<br/>disk-id -> (string)<br/>ID of the disk that should be attached.|
-|`--description`|<b>`string`</b><br/>Description of the instance.|
-|`--filesystem-specs`|<b>`shorthand/json`</b><br/>Array of filesystems to attach to the instance. The filesystems must reside in the same availability zone as the instance. To use the instance with an attached filesystem, the latter must be mounted. For details, see documentation.<br/>Shorthand Syntax:<br/>[<br/>{<br/>device-name = str,<br/>filesystem-id = str,<br/>mode = READ_ONLY\|READ_WRITE<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"device-name": "str",<br/>"filesystem-id": "str",<br/>"mode": "READ_ONLY\|READ_WRITE"<br/>}, ...<br/>]"<br/>Fields:<br/>device-name -> (string)<br/>Name of the device representing the filesystem on the instance. The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. If not specified, a random value will be generated.<br/>filesystem-id -> (string)<br/>ID of the filesystem that should be attached.<br/>mode -> (enum<READ_ONLY\|READ_WRITE>)<br/>Mode of access to the filesystem that should be attached.|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to create an instance in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
-|`--gpu-settings`|<b>`shorthand/json`</b><br/>GPU settings.<br/>Shorthand Syntax:<br/>{<br/>gpu-cluster-id = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"gpu-cluster-id": "str"<br/>}"<br/>Fields:<br/>gpu-cluster-id -> (string)<br/>Attach instance to specified GPU cluster.|
-|`--hostname`|<b>`string`</b><br/>Host name for the instance. This field is used to generate the [yandex.cloud.compute.v1.Instance.fqdn] value. The host name must be unique within the network and region. If not specified, the host name will be equal to [yandex.cloud.compute.v1.Instance.id] of the instance and FQDN will be '\<id\>.auto.internal'. Otherwise FQDN will be '\<hostname\>.<region_id>.internal'.|
-|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs.|
-|`--local-disk-specs`|<b>`shorthand/json`</b><br/>Array of local disks to attach to the instance.<br/>Shorthand Syntax:<br/>[<br/>{<br/>size = int<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"size": "int"<br/>}, ...<br/>]"<br/>Fields:<br/>size -> (int)<br/>Size of the disk, specified in bytes.|
-|`--maintenance-grace-period`|<b>`duration`</b><br/>Time between notification via metadata service and maintenance (duration, e.g. 30s, 5m10s)|
-|`--maintenance-policy`|<b>`enum`</b><br/>Behaviour on maintenance events Possible Values: 'restart', 'migrate'|
-|`--metadata`|<b>`stringToString`</b><br/>The metadata 'key:value' pairs that will be assigned to this instance. This includes custom metadata and predefined keys. The total size of all keys and values must be less than 512 KB. Values are free-form strings, and only have meaning as interpreted by the programs which configure the instance. The values must be 256 KB or less. For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see documentation.|
-|`--metadata-options`|<b>`shorthand/json`</b><br/>Options allow user to configure access to instance's metadata<br/>Shorthand Syntax:<br/>{<br/>aws-v1-http-endpoint = ENABLED\|DISABLED,<br/>aws-v1-http-token = ENABLED\|DISABLED,<br/>gce-http-endpoint = ENABLED\|DISABLED,<br/>gce-http-token = ENABLED\|DISABLED<br/>}<br/>JSON Syntax:<br/>"{<br/>"aws-v1-http-endpoint": "ENABLED\|DISABLED",<br/>"aws-v1-http-token": "ENABLED\|DISABLED",<br/>"gce-http-endpoint": "ENABLED\|DISABLED",<br/>"gce-http-token": "ENABLED\|DISABLED"<br/>}"<br/>Fields:<br/>aws-v1-http-endpoint -> (enum<DISABLED\|ENABLED>)<br/>Enabled access to AWS flavored metadata (IMDSv1)<br/>aws-v1-http-token -> (enum<DISABLED\|ENABLED>)<br/>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)<br/>gce-http-endpoint -> (enum<DISABLED\|ENABLED>)<br/>Enabled access to GCE flavored metadata<br/>gce-http-token -> (enum<DISABLED\|ENABLED>)<br/>Enabled access to IAM credentials with GCE flavored metadata|
-|`--name`|<b>`string`</b><br/>Name of the instance.|
-|`--network-interface-specs`|<b>`shorthand/json`</b><br/>Network configuration for the instance. Specifies how the network interface is configured to interact with other services on the internal network and on the internet.<br/>Shorthand Syntax:<br/>[<br/>{<br/>index = str,<br/>primary-v4-address-spec = {<br/>address = str,<br/>dns-record-specs = [<br/>{<br/>dns-zone-id = str,<br/>fqdn = str,<br/>ptr = bool,<br/>ttl = int<br/>}, ...<br/>],<br/>one-to-one-nat-spec = {<br/>address = str,<br/>dns-record-specs = [<br/>{<br/>dns-zone-id = str,<br/>fqdn = str,<br/>ptr = bool,<br/>ttl = int<br/>}, ...<br/>],<br/>ip-version = IPV4\|IPV6<br/>}<br/>},<br/>primary-v6-address-spec = {<br/>address = str,<br/>dns-record-specs = [<br/>{<br/>dns-zone-id = str,<br/>fqdn = str,<br/>ptr = bool,<br/>ttl = int<br/>}, ...<br/>],<br/>one-to-one-nat-spec = {<br/>address = str,<br/>dns-record-specs = [<br/>{<br/>dns-zone-id = str,<br/>fqdn = str,<br/>ptr = bool,<br/>ttl = int<br/>}, ...<br/>],<br/>ip-version = IPV4\|IPV6<br/>}<br/>},<br/>security-group-ids = str,...,<br/>subnet-id = str<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"index": "str",<br/>"primary-v4-address-spec": {<br/>"address": "str",<br/>"dns-record-specs": [<br/>{<br/>"dns-zone-id": "str",<br/>"fqdn": "str",<br/>"ptr": "bool",<br/>"ttl": "int"<br/>}, ...<br/>],<br/>"one-to-one-nat-spec": {<br/>"address": "str",<br/>"dns-record-specs": [<br/>{<br/>"dns-zone-id": "str",<br/>"fqdn": "str",<br/>"ptr": "bool",<br/>"ttl": "int"<br/>}, ...<br/>],<br/>"ip-version": "IPV4\|IPV6"<br/>}<br/>},<br/>"primary-v6-address-spec": {<br/>"address": "str",<br/>"dns-record-specs": [<br/>{<br/>"dns-zone-id": "str",<br/>"fqdn": "str",<br/>"ptr": "bool",<br/>"ttl": "int"<br/>}, ...<br/>],<br/>"one-to-one-nat-spec": {<br/>"address": "str",<br/>"dns-record-specs": [<br/>{<br/>"dns-zone-id": "str",<br/>"fqdn": "str",<br/>"ptr": "bool",<br/>"ttl": "int"<br/>}, ...<br/>],<br/>"ip-version": "IPV4\|IPV6"<br/>}<br/>},<br/>"security-group-ids": [<br/>"str", ...<br/>],<br/>"subnet-id": "str"<br/>}, ...<br/>]"<br/>Fields:<br/>index -> (string)<br/>The index of the network interface, will be generated by the server, 0,1,2... etc if not specified.<br/>primary-v4-address-spec -> (struct)<br/>Primary IPv4 address that will be assigned to the instance for this network interface.<br/>address -> (string)<br/>An IPv4 internal network address that is assigned to the instance for this network interface. If not specified by the user, an unused internal IP is assigned by the system.<br/>dns-record-specs -> ([]struct)<br/>Internal DNS configuration<br/>dns-zone-id -> (string)<br/>DNS zone id (optional, if not set, private zone used)<br/>fqdn -> (string)<br/>FQDN (required)<br/>ptr -> (bool)<br/>When set to true, also create PTR DNS record (optional)<br/>ttl -> (int)<br/>DNS record ttl, values in 0-86400 (optional)<br/>one-to-one-nat-spec -> (struct)<br/>An external IP address configuration. If not specified, then this instance will have no external internet access.<br/>address -> (string)<br/>dns-record-specs -> ([]struct)<br/>External DNS configuration<br/>dns-zone-id -> (string)<br/>DNS zone id (optional, if not set, private zone used)<br/>fqdn -> (string)<br/>FQDN (required)<br/>ptr -> (bool)<br/>When set to true, also create PTR DNS record (optional)<br/>ttl -> (int)<br/>DNS record ttl, values in 0-86400 (optional)<br/>ip-version -> (enum<IPV4\|IPV6>)<br/>External IP address version.<br/>primary-v6-address-spec -> (struct)<br/>Primary IPv6 address that will be assigned to the instance for this network interface. IPv6 not available yet.<br/>address -> (string)<br/>An IPv4 internal network address that is assigned to the instance for this network interface. If not specified by the user, an unused internal IP is assigned by the system.<br/>dns-record-specs -> ([]struct)<br/>Internal DNS configuration<br/>dns-zone-id -> (string)<br/>DNS zone id (optional, if not set, private zone used)<br/>fqdn -> (string)<br/>FQDN (required)<br/>ptr -> (bool)<br/>When set to true, also create PTR DNS record (optional)<br/>ttl -> (int)<br/>DNS record ttl, values in 0-86400 (optional)<br/>one-to-one-nat-spec -> (struct)<br/>An external IP address configuration. If not specified, then this instance will have no external internet access.<br/>address -> (string)<br/>dns-record-specs -> ([]struct)<br/>External DNS configuration<br/>dns-zone-id -> (string)<br/>DNS zone id (optional, if not set, private zone used)<br/>fqdn -> (string)<br/>FQDN (required)<br/>ptr -> (bool)<br/>When set to true, also create PTR DNS record (optional)<br/>ttl -> (int)<br/>DNS record ttl, values in 0-86400 (optional)<br/>ip-version -> (enum<IPV4\|IPV6>)<br/>External IP address version.<br/>security-group-ids -> ([]string)<br/>ID's of security groups attached to the interface<br/>subnet-id -> (string)<br/>ID of the subnet.|
-|`--network-settings`|<b>`shorthand/json`</b><br/>Network settings.<br/>Shorthand Syntax:<br/>{<br/>type = STANDARD\|SOFTWARE_ACCELERATED\|HARDWARE_ACCELERATED<br/>}<br/>JSON Syntax:<br/>"{<br/>"type": "STANDARD\|SOFTWARE_ACCELERATED\|HARDWARE_ACCELERATED"<br/>}"<br/>Fields:<br/>type -> (enum<HARDWARE_ACCELERATED\|SOFTWARE_ACCELERATED\|STANDARD>)<br/>Network Type|
-|`--placement-policy`|<b>`shorthand/json`</b><br/>Placement policy configuration.<br/>Shorthand Syntax:<br/>{<br/>host-affinity-rules = [<br/>{<br/>key = str,<br/>op = IN\|NOT_IN,<br/>values = str,...<br/>}, ...<br/>],<br/>placement-group-id = str,<br/>placement-group-partition = int<br/>}<br/>JSON Syntax:<br/>"{<br/>"host-affinity-rules": [<br/>{<br/>"key": "str",<br/>"op": "IN\|NOT_IN",<br/>"values": [<br/>"str", ...<br/>]<br/>}, ...<br/>],<br/>"placement-group-id": "str",<br/>"placement-group-partition": "int"<br/>}"<br/>Fields:<br/>host-affinity-rules -> ([]struct)<br/>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules.<br/>key -> (string)<br/>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId'<br/>op -> (enum<IN\|NOT_IN>)<br/>Include or exclude action<br/>values -> ([]string)<br/>Affinity value or host ID or host group ID<br/>placement-group-id -> (string)<br/>Placement group ID.<br/>placement-group-partition -> (int)<br/>Placement group partition|
-|`--platform-id`|<b>`string`</b><br/>ID of the hardware platform configuration for the instance. This field affects the available values in [resources_spec] field. Platforms allows you to create various types of instances: with a large amount of memory, with a large number of cores, with a burstable performance. For more information, see documentation.|
-|`--reserved-instance-pool-id`|<b>`string`</b><br/>ID of the reserved instance pool that the instance should belong to. Instance will be created using resources from the reserved instance pool. Reserved instance pool resource configuration must match the resource configuration of the instance.|
-|`--resources-spec`|<b>`shorthand/json`</b><br/>Computing resources of the instance, such as the amount of memory and number of cores. To get a list of available values, see documentation.<br/>Shorthand Syntax:<br/>{<br/>core-fraction = int,<br/>cores = int,<br/>gpus = int,<br/>memory = int<br/>}<br/>JSON Syntax:<br/>"{<br/>"core-fraction": "int",<br/>"cores": "int",<br/>"gpus": "int",<br/>"memory": "int"<br/>}"<br/>Fields:<br/>core-fraction -> (int)<br/>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. For example, if you need only 5% of the CPU performance, you can set core_fraction=5. For more information, see documentation.<br/>cores -> (int)<br/>The number of cores available to the instance.<br/>gpus -> (int)<br/>The number of GPUs available to the instance.<br/>memory -> (int)<br/>The amount of memory available to the instance, specified in bytes.|
-|`--scheduling-policy`|<b>`shorthand/json`</b><br/>Scheduling policy configuration.<br/>Shorthand Syntax:<br/>{<br/>preemptible = bool<br/>}<br/>JSON Syntax:<br/>"{<br/>"preemptible": "bool"<br/>}"<br/>Fields:<br/>preemptible -> (bool)<br/>True for short-lived compute instances. For more information, see documentation.|
-|`--secondary-disk-specs`|<b>`shorthand/json`</b><br/>Array of secondary disks to attach to the instance.<br/>Shorthand Syntax:<br/>[<br/>{<br/>auto-delete = bool,<br/>device-name = str,<br/>disk = disk-id=str \| disk-spec={<br/>block-size = int,<br/>description = str,<br/>disk-placement-policy = {<br/>placement-group-id = str,<br/>placement-group-partition = int<br/>},<br/>kms-key-id = str,<br/>name = str,<br/>size = int,<br/>source = image-id=str \| snapshot-id=str,<br/>type-id = str<br/>},<br/>mode = READ_ONLY\|READ_WRITE<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"auto-delete": "bool",<br/>"device-name": "str",<br/>"disk": {<br/>"disk-id": "str",<br/>"disk-spec": {<br/>"block-size": "int",<br/>"description": "str",<br/>"disk-placement-policy": {<br/>"placement-group-id": "str",<br/>"placement-group-partition": "int"<br/>},<br/>"kms-key-id": "str",<br/>"name": "str",<br/>"size": "int",<br/>"source": {<br/>"image-id": "str",<br/>"snapshot-id": "str"<br/>},<br/>"type-id": "str"<br/>}<br/>},<br/>"mode": "READ_ONLY\|READ_WRITE"<br/>}, ...<br/>]"<br/>Fields:<br/>auto-delete -> (bool)<br/>Specifies whether the disk will be auto-deleted when the instance is deleted.<br/>device-name -> (string)<br/>Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. This value can be used to reference the device for mounting, resizing, and so on, from within the instance. If not specified, a random value will be generated.<br/>mode -> (enum<READ_ONLY\|READ_WRITE>)<br/>The mode in which to attach this disk.<br/>disk -> (oneof<disk-id\|disk-spec>)<br/>Oneof disk field<br/>disk-spec -> (struct)<br/>Disk specification.<br/>block-size -> (int)<br/>Block size of the disk, specified in bytes. The default is 4096.<br/>description -> (string)<br/>Description of the disk.<br/>disk-placement-policy -> (struct)<br/>Placement policy configuration.<br/>placement-group-id -> (string)<br/>Placement group ID.<br/>placement-group-partition -> (int)<br/>kms-key-id -> (string)<br/>ID of KMS key for disk encryption<br/>name -> (string)<br/>Name of the disk.<br/>size -> (int)<br/>Size of the disk, specified in bytes.<br/>type-id -> (string)<br/>ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List] request.<br/>source -> (oneof<image-id\|snapshot-id>)<br/>Oneof source field<br/>image-id -> (string)<br/>ID of the image to create the disk from.<br/>snapshot-id -> (string)<br/>ID of the snapshot to restore the disk from.<br/>disk-id -> (string)<br/>ID of the disk that should be attached.|
-|`--serial-port-settings`|<b>`shorthand/json`</b><br/>Serial port settings<br/>Shorthand Syntax:<br/>{<br/>ssh-authorization = INSTANCE_METADATA\|OS_LOGIN<br/>}<br/>JSON Syntax:<br/>"{<br/>"ssh-authorization": "INSTANCE_METADATA\|OS_LOGIN"<br/>}"<br/>Fields:<br/>ssh-authorization -> (enum<INSTANCE_METADATA\|OS_LOGIN>)<br/>Authentication and authorization in serial console when using SSH protocol|
-|`--service-account-id`|<b>`string`</b><br/>ID of the service account to use for documentation. To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List] request.|
-|`--zone-id`|<b>`string`</b><br/>ID of the availability zone where the instance resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List] request|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-json > request.json
+2. Edit the template: vim request.json
+3. Run with template: yc beta compute instance create -r request.json ||
+|| `--example-yaml` | Generates a YAML template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-yaml > request.yaml
+2. Edit the template: vim request.yaml
+3. Run with template: yc beta compute instance create -r request.yaml ||
+|| `--application` | `shorthand/json`
+
+Instance application settings.
+
+Shorthand Syntax:
+
+```hcl
+{
+  cloudbackup = {
+    backup-id = str,
+    enabled = bool,
+    initial-policy-ids = str,...,
+    instance-registration-id = str,
+    recovery-from-backup = bool
+  },
+  container = container-solution={
+    environment = {key=str, key=...},
+    product-id = str,
+    secrets = {key={
+      id = str,
+      key = str,
+      version-id = str
+    }, key=...}
+  }
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "cloudbackup": {
+    "backup-id": "str",
+    "enabled": "bool",
+    "initial-policy-ids": [
+      "str", ...
+    ],
+    "instance-registration-id": "str",
+    "recovery-from-backup": "bool"
+  },
+  "container": {
+    "container-solution": {
+      "environment": {
+        "<key>": "str", ...
+      },
+      "product-id": "str",
+      "secrets": {
+        "<key>": {
+          "id": "str",
+          "key": "str",
+          "version-id": "str"
+        }, ...
+      }
+    }
+  }
+}
+```
+
+Fields:
+
+```
+cloudbackup -> (struct)
+  Backup settings.
+  backup-id -> (string)
+    ID of the backup to recover from.
+  enabled -> (bool)
+    If true, backup is enabled.
+  initial-policy-ids -> ([]string)
+    A list of policy IDs to apply after resource registration.
+  instance-registration-id -> (string)
+    ID of the instance registration for cloud backup agent installation.
+  recovery-from-backup -> (bool)
+    If true, recovery from backup starts on instance.
+container -> (oneof<container-solution>)
+  Oneof container field
+  container-solution -> (struct)
+    Container specification.
+    environment -> (map[string,string])
+      A list of the environmets.
+    product-id -> (string)
+      ID of the product.
+    secrets -> (map[string,struct])
+      A list of the secrets.
+      id -> (string)
+        ID of the secret.
+      key -> (string)
+        Name of the key.
+      version-id -> (string)
+        Version of the secret.
+``` ||
+|| `--boot-disk-spec` | `shorthand/json`
+
+Boot disk to attach to the instance.
+
+Shorthand Syntax:
+
+```hcl
+{
+  auto-delete = bool,
+  device-name = str,
+  disk = disk-id=str | disk-spec={
+    block-size = int,
+    description = str,
+    disk-placement-policy = {
+      placement-group-id = str,
+      placement-group-partition = int
+    },
+    kms-key-id = str,
+    name = str,
+    size = int,
+    source = image-id=str | snapshot-id=str,
+    type-id = str
+  },
+  mode = READ_ONLY|READ_WRITE
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "auto-delete": "bool",
+  "device-name": "str",
+  "disk": {
+    "disk-id": "str",
+    "disk-spec": {
+      "block-size": "int",
+      "description": "str",
+      "disk-placement-policy": {
+        "placement-group-id": "str",
+        "placement-group-partition": "int"
+      },
+      "kms-key-id": "str",
+      "name": "str",
+      "size": "int",
+      "source": {
+        "image-id": "str",
+        "snapshot-id": "str"
+      },
+      "type-id": "str"
+    }
+  },
+  "mode": "READ_ONLY|READ_WRITE"
+}
+```
+
+Fields:
+
+```
+auto-delete -> (bool)
+  Specifies whether the disk will be auto-deleted when the instance is deleted.
+device-name -> (string)
+  Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. This value can be used to reference the device for mounting, resizing, and so on, from within the instance. If not specified, a random value will be generated.
+mode -> (struct)
+  The mode in which to attach this disk.
+disk -> (oneof<disk-id|disk-spec>)
+  Oneof disk field
+  disk-spec -> (struct)
+    Disk specification.
+    block-size -> (int)
+      Block size of the disk, specified in bytes. The default is 4096.
+    description -> (string)
+      Description of the disk.
+    disk-placement-policy -> (struct)
+      Placement policy configuration.
+      placement-group-id -> (string)
+        Placement group ID.
+      placement-group-partition -> (int)
+    kms-key-id -> (string)
+      ID of KMS key for disk encryption
+    name -> (string)
+      Name of the disk.
+    size -> (int)
+      Size of the disk, specified in bytes.
+    type-id -> (string)
+      ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List] request.
+    source -> (oneof<image-id|snapshot-id>)
+      Oneof source field
+      image-id -> (string)
+        ID of the image to create the disk from.
+      snapshot-id -> (string)
+        ID of the snapshot to restore the disk from.
+  disk-id -> (string)
+    ID of the disk that should be attached.
+``` ||
+|| `--description` | `string`
+
+Description of the instance. ||
+|| `--filesystem-specs` | `shorthand/json`
+
+Array of filesystems to attach to the instance. The filesystems must reside in the same availability zone as the instance. To use the instance with an attached filesystem, the latter must be mounted. For details, see documentation.
+
+Shorthand Syntax:
+
+```hcl
+[
+  {
+    device-name = str,
+    filesystem-id = str,
+    mode = READ_ONLY|READ_WRITE
+  }, ...
+]
+```
+
+JSON Syntax:
+
+```json
+[
+  {
+    "device-name": "str",
+    "filesystem-id": "str",
+    "mode": "READ_ONLY|READ_WRITE"
+  }, ...
+]
+```
+
+Fields:
+
+```
+device-name -> (string)
+  Name of the device representing the filesystem on the instance. The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. If not specified, a random value will be generated.
+filesystem-id -> (string)
+  ID of the filesystem that should be attached.
+mode -> (struct)
+  Mode of access to the filesystem that should be attached.
+``` ||
+|| `--folder-id` | `string`
+
+ID of the folder to create an instance in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request. ||
+|| `--gpu-settings` | `shorthand/json`
+
+GPU settings.
+
+Shorthand Syntax:
+
+```hcl
+{
+  gpu-cluster-id = str
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "gpu-cluster-id": "str"
+}
+```
+
+Fields:
+
+```
+gpu-cluster-id -> (string)
+  Attach instance to specified GPU cluster.
+``` ||
+|| `--hostname` | `string`
+
+Host name for the instance. This field is used to generate the [yandex.cloud.compute.v1.Instance.fqdn] value. The host name must be unique within the network and region. If not specified, the host name will be equal to [yandex.cloud.compute.v1.Instance.id] of the instance and FQDN will be '&lt;id&gt;.auto.internal'. Otherwise FQDN will be '&lt;hostname&gt;.&lt;region_id&gt;.internal'. ||
+|| `--labels` | `stringToString`
+
+Resource labels as 'key:value' pairs. ||
+|| `--local-disk-specs` | `shorthand/json`
+
+Array of local disks to attach to the instance.
+
+Shorthand Syntax:
+
+```hcl
+[
+  {
+    size = int
+  }, ...
+]
+```
+
+JSON Syntax:
+
+```json
+[
+  {
+    "size": "int"
+  }, ...
+]
+```
+
+Fields:
+
+```
+size -> (int)
+  Size of the disk, specified in bytes.
+``` ||
+|| `--maintenance-grace-period` | `duration`
+
+Time between notification via metadata service and maintenance (duration, e.g. 30s, 5m10s) ||
+|| `--maintenance-policy` | `enum`
+
+Behaviour on maintenance events Possible Values: 'restart', 'migrate' ||
+|| `--metadata` | `stringToString`
+
+The metadata 'key:value' pairs that will be assigned to this instance. This includes custom metadata and predefined keys. The total size of all keys and values must be less than 512 KB. Values are free-form strings, and only have meaning as interpreted by the programs which configure the instance. The values must be 256 KB or less. For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see documentation. ||
+|| `--metadata-options` | `shorthand/json`
+
+Options allow user to configure access to instance's metadata
+
+Shorthand Syntax:
+
+```hcl
+{
+  aws-v1-http-endpoint = ENABLED|DISABLED,
+  aws-v1-http-token = ENABLED|DISABLED,
+  gce-http-endpoint = ENABLED|DISABLED,
+  gce-http-token = ENABLED|DISABLED
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "aws-v1-http-endpoint": "ENABLED|DISABLED",
+  "aws-v1-http-token": "ENABLED|DISABLED",
+  "gce-http-endpoint": "ENABLED|DISABLED",
+  "gce-http-token": "ENABLED|DISABLED"
+}
+```
+
+Fields:
+
+```
+aws-v1-http-endpoint -> (struct)
+  Enabled access to AWS flavored metadata (IMDSv1)
+aws-v1-http-token -> (struct)
+  Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
+gce-http-endpoint -> (struct)
+  Enabled access to GCE flavored metadata
+gce-http-token -> (struct)
+  Enabled access to IAM credentials with GCE flavored metadata
+``` ||
+|| `--name` | `string`
+
+Name of the instance. ||
+|| `--network-interface-specs` | `shorthand/json`
+
+Network configuration for the instance. Specifies how the network interface is configured to interact with other services on the internal network and on the internet.
+
+Shorthand Syntax:
+
+```hcl
+[
+  {
+    index = str,
+    primary-v4-address-spec = {
+      address = str,
+      dns-record-specs = [
+        {
+          dns-zone-id = str,
+          fqdn = str,
+          ptr = bool,
+          ttl = int
+        }, ...
+      ],
+      one-to-one-nat-spec = {
+        address = str,
+        dns-record-specs = [
+          {
+            dns-zone-id = str,
+            fqdn = str,
+            ptr = bool,
+            ttl = int
+          }, ...
+        ],
+        ip-version = IPV4|IPV6
+      }
+    },
+    primary-v6-address-spec = {
+      address = str,
+      dns-record-specs = [
+        {
+          dns-zone-id = str,
+          fqdn = str,
+          ptr = bool,
+          ttl = int
+        }, ...
+      ],
+      one-to-one-nat-spec = {
+        address = str,
+        dns-record-specs = [
+          {
+            dns-zone-id = str,
+            fqdn = str,
+            ptr = bool,
+            ttl = int
+          }, ...
+        ],
+        ip-version = IPV4|IPV6
+      }
+    },
+    security-group-ids = str,...,
+    subnet-id = str
+  }, ...
+]
+```
+
+JSON Syntax:
+
+```json
+[
+  {
+    "index": "str",
+    "primary-v4-address-spec": {
+      "address": "str",
+      "dns-record-specs": [
+        {
+          "dns-zone-id": "str",
+          "fqdn": "str",
+          "ptr": "bool",
+          "ttl": "int"
+        }, ...
+      ],
+      "one-to-one-nat-spec": {
+        "address": "str",
+        "dns-record-specs": [
+          {
+            "dns-zone-id": "str",
+            "fqdn": "str",
+            "ptr": "bool",
+            "ttl": "int"
+          }, ...
+        ],
+        "ip-version": "IPV4|IPV6"
+      }
+    },
+    "primary-v6-address-spec": {
+      "address": "str",
+      "dns-record-specs": [
+        {
+          "dns-zone-id": "str",
+          "fqdn": "str",
+          "ptr": "bool",
+          "ttl": "int"
+        }, ...
+      ],
+      "one-to-one-nat-spec": {
+        "address": "str",
+        "dns-record-specs": [
+          {
+            "dns-zone-id": "str",
+            "fqdn": "str",
+            "ptr": "bool",
+            "ttl": "int"
+          }, ...
+        ],
+        "ip-version": "IPV4|IPV6"
+      }
+    },
+    "security-group-ids": [
+      "str", ...
+    ],
+    "subnet-id": "str"
+  }, ...
+]
+```
+
+Fields:
+
+```
+index -> (string)
+  The index of the network interface, will be generated by the server, 0,1,2... etc if not specified.
+primary-v4-address-spec -> (struct)
+  Primary IPv4 address that will be assigned to the instance for this network interface.
+  address -> (string)
+    An IPv4 internal network address that is assigned to the instance for this network interface. If not specified by the user, an unused internal IP is assigned by the system.
+  dns-record-specs -> ([]struct)
+    Internal DNS configuration
+    dns-zone-id -> (string)
+      DNS zone id (optional, if not set, private zone used)
+    fqdn -> (string)
+      FQDN (required)
+    ptr -> (bool)
+      When set to true, also create PTR DNS record (optional)
+    ttl -> (int)
+      DNS record ttl, values in 0-86400 (optional)
+  one-to-one-nat-spec -> (struct)
+    An external IP address configuration. If not specified, then this instance will have no external internet access.
+    address -> (string)
+    dns-record-specs -> ([]struct)
+      External DNS configuration
+      dns-zone-id -> (string)
+        DNS zone id (optional, if not set, private zone used)
+      fqdn -> (string)
+        FQDN (required)
+      ptr -> (bool)
+        When set to true, also create PTR DNS record (optional)
+      ttl -> (int)
+        DNS record ttl, values in 0-86400 (optional)
+    ip-version -> (struct)
+      External IP address version.
+primary-v6-address-spec -> (struct)
+  Primary IPv6 address that will be assigned to the instance for this network interface. IPv6 not available yet.
+  address -> (string)
+    An IPv4 internal network address that is assigned to the instance for this network interface. If not specified by the user, an unused internal IP is assigned by the system.
+  dns-record-specs -> ([]struct)
+    Internal DNS configuration
+    dns-zone-id -> (string)
+      DNS zone id (optional, if not set, private zone used)
+    fqdn -> (string)
+      FQDN (required)
+    ptr -> (bool)
+      When set to true, also create PTR DNS record (optional)
+    ttl -> (int)
+      DNS record ttl, values in 0-86400 (optional)
+  one-to-one-nat-spec -> (struct)
+    An external IP address configuration. If not specified, then this instance will have no external internet access.
+    address -> (string)
+    dns-record-specs -> ([]struct)
+      External DNS configuration
+      dns-zone-id -> (string)
+        DNS zone id (optional, if not set, private zone used)
+      fqdn -> (string)
+        FQDN (required)
+      ptr -> (bool)
+        When set to true, also create PTR DNS record (optional)
+      ttl -> (int)
+        DNS record ttl, values in 0-86400 (optional)
+    ip-version -> (struct)
+      External IP address version.
+security-group-ids -> ([]string)
+  ID's of security groups attached to the interface
+subnet-id -> (string)
+  ID of the subnet.
+``` ||
+|| `--network-settings` | `shorthand/json`
+
+Network settings.
+
+Shorthand Syntax:
+
+```hcl
+{
+  type = STANDARD|SOFTWARE_ACCELERATED|HARDWARE_ACCELERATED
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "type": "STANDARD|SOFTWARE_ACCELERATED|HARDWARE_ACCELERATED"
+}
+```
+
+Fields:
+
+```
+type -> (struct)
+  Network Type
+``` ||
+|| `--placement-policy` | `shorthand/json`
+
+Placement policy configuration.
+
+Shorthand Syntax:
+
+```hcl
+{
+  host-affinity-rules = [
+    {
+      key = str,
+      op = IN|NOT_IN,
+      values = str,...
+    }, ...
+  ],
+  placement-group-id = str,
+  placement-group-partition = int
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "host-affinity-rules": [
+    {
+      "key": "str",
+      "op": "IN|NOT_IN",
+      "values": [
+        "str", ...
+      ]
+    }, ...
+  ],
+  "placement-group-id": "str",
+  "placement-group-partition": "int"
+}
+```
+
+Fields:
+
+```
+host-affinity-rules -> ([]struct)
+  List of affinity rules. Scheduler will attempt to allocate instances according to order of rules.
+  key -> (string)
+    Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId'
+  op -> (struct)
+    Include or exclude action
+  values -> ([]string)
+    Affinity value or host ID or host group ID
+placement-group-id -> (string)
+  Placement group ID.
+placement-group-partition -> (int)
+  Placement group partition
+``` ||
+|| `--platform-id` | `string`
+
+ID of the hardware platform configuration for the instance. This field affects the available values in [resources_spec] field. Platforms allows you to create various types of instances: with a large amount of memory, with a large number of cores, with a burstable performance. For more information, see documentation. ||
+|| `--reserved-instance-pool-id` | `string`
+
+ID of the reserved instance pool that the instance should belong to. Instance will be created using resources from the reserved instance pool. Reserved instance pool resource configuration must match the resource configuration of the instance. ||
+|| `--resources-spec` | `shorthand/json`
+
+Computing resources of the instance, such as the amount of memory and number of cores. To get a list of available values, see documentation.
+
+Shorthand Syntax:
+
+```hcl
+{
+  core-fraction = int,
+  cores = int,
+  gpus = int,
+  memory = int
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "core-fraction": "int",
+  "cores": "int",
+  "gpus": "int",
+  "memory": "int"
+}
+```
+
+Fields:
+
+```
+core-fraction -> (int)
+  Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. For example, if you need only 5% of the CPU performance, you can set core_fraction=5. For more information, see documentation.
+cores -> (int)
+  The number of cores available to the instance.
+gpus -> (int)
+  The number of GPUs available to the instance.
+memory -> (int)
+  The amount of memory available to the instance, specified in bytes.
+``` ||
+|| `--scheduling-policy` | `shorthand/json`
+
+Scheduling policy configuration.
+
+Shorthand Syntax:
+
+```hcl
+{
+  preemptible = bool
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "preemptible": "bool"
+}
+```
+
+Fields:
+
+```
+preemptible -> (bool)
+  True for short-lived compute instances. For more information, see documentation.
+``` ||
+|| `--secondary-disk-specs` | `shorthand/json`
+
+Array of secondary disks to attach to the instance.
+
+Shorthand Syntax:
+
+```hcl
+[
+  {
+    auto-delete = bool,
+    device-name = str,
+    disk = disk-id=str | disk-spec={
+      block-size = int,
+      description = str,
+      disk-placement-policy = {
+        placement-group-id = str,
+        placement-group-partition = int
+      },
+      kms-key-id = str,
+      name = str,
+      size = int,
+      source = image-id=str | snapshot-id=str,
+      type-id = str
+    },
+    mode = READ_ONLY|READ_WRITE
+  }, ...
+]
+```
+
+JSON Syntax:
+
+```json
+[
+  {
+    "auto-delete": "bool",
+    "device-name": "str",
+    "disk": {
+      "disk-id": "str",
+      "disk-spec": {
+        "block-size": "int",
+        "description": "str",
+        "disk-placement-policy": {
+          "placement-group-id": "str",
+          "placement-group-partition": "int"
+        },
+        "kms-key-id": "str",
+        "name": "str",
+        "size": "int",
+        "source": {
+          "image-id": "str",
+          "snapshot-id": "str"
+        },
+        "type-id": "str"
+      }
+    },
+    "mode": "READ_ONLY|READ_WRITE"
+  }, ...
+]
+```
+
+Fields:
+
+```
+auto-delete -> (bool)
+  Specifies whether the disk will be auto-deleted when the instance is deleted.
+device-name -> (string)
+  Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. This value can be used to reference the device for mounting, resizing, and so on, from within the instance. If not specified, a random value will be generated.
+mode -> (struct)
+  The mode in which to attach this disk.
+disk -> (oneof<disk-id|disk-spec>)
+  Oneof disk field
+  disk-spec -> (struct)
+    Disk specification.
+    block-size -> (int)
+      Block size of the disk, specified in bytes. The default is 4096.
+    description -> (string)
+      Description of the disk.
+    disk-placement-policy -> (struct)
+      Placement policy configuration.
+      placement-group-id -> (string)
+        Placement group ID.
+      placement-group-partition -> (int)
+    kms-key-id -> (string)
+      ID of KMS key for disk encryption
+    name -> (string)
+      Name of the disk.
+    size -> (int)
+      Size of the disk, specified in bytes.
+    type-id -> (string)
+      ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List] request.
+    source -> (oneof<image-id|snapshot-id>)
+      Oneof source field
+      image-id -> (string)
+        ID of the image to create the disk from.
+      snapshot-id -> (string)
+        ID of the snapshot to restore the disk from.
+  disk-id -> (string)
+    ID of the disk that should be attached.
+``` ||
+|| `--serial-port-settings` | `shorthand/json`
+
+Serial port settings
+
+Shorthand Syntax:
+
+```hcl
+{
+  ssh-authorization = INSTANCE_METADATA|OS_LOGIN
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "ssh-authorization": "INSTANCE_METADATA|OS_LOGIN"
+}
+```
+
+Fields:
+
+```
+ssh-authorization -> (struct)
+  Authentication and authorization in serial console when using SSH protocol
+``` ||
+|| `--service-account-id` | `string`
+
+ID of the service account to use for documentation. To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List] request. ||
+|| `--zone-id` | `string`
+
+ID of the availability zone where the instance resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List] request ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

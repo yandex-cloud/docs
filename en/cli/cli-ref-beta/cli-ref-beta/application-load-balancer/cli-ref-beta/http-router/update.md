@@ -10,37 +10,1046 @@ Updates the specified HTTP router.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta application-load-balancer http-router update <HTTP-ROUTER-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`--description`|<b>`string`</b><br/>New description of the HTTP router.|
-|`--http-router-id`|<b>`string`</b><br/>ID of the HTTP router to update. To get the HTTP router ID, make a [HttpRouterService.List] request.|
-|`--labels`|<b>`stringToString`</b><br/>HTTP router labels as 'key:value' pairs. For details about the concept, see documentation. Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: 1. Get the current set of labels with a [HttpRouterService.Get] request. 2. Add or remove a label in this set. 3. Send the new set in this field.|
-|`--name`|<b>`string`</b><br/>New name for the HTTP router. The name must be unique within the folder.|
-|`--route-options`|<b>`shorthand/json`</b><br/>New route options for the HTTP router.<br/>Shorthand Syntax:<br/>{<br/>modify-request-headers = [<br/>{<br/>name = str,<br/>operation = append=str \| remove=bool \| rename=str \| replace=str<br/>}, ...<br/>],<br/>modify-response-headers = [<br/>{<br/>name = str,<br/>operation = append=str \| remove=bool \| rename=str \| replace=str<br/>}, ...<br/>],<br/>rbac = {<br/>action = ALLOW\|DENY,<br/>principals = [<br/>{<br/>and-principals = [<br/>{<br/>identifier = any=bool \| header={<br/>name = str,<br/>value = {<br/>match = exact-match=str \| prefix-match=str \| regex-match=str<br/>}<br/>} \| remote-ip=str<br/>}, ...<br/>]<br/>}, ...<br/>]<br/>},<br/>security-profile-id = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"modify-request-headers": [<br/>{<br/>"name": "str",<br/>"operation": {<br/>"append": "str",<br/>"remove": "bool",<br/>"rename": "str",<br/>"replace": "str"<br/>}<br/>}, ...<br/>],<br/>"modify-response-headers": [<br/>{<br/>"name": "str",<br/>"operation": {<br/>"append": "str",<br/>"remove": "bool",<br/>"rename": "str",<br/>"replace": "str"<br/>}<br/>}, ...<br/>],<br/>"rbac": {<br/>"action": "ALLOW\|DENY",<br/>"principals": [<br/>{<br/>"and-principals": [<br/>{<br/>"identifier": {<br/>"any": "bool",<br/>"header": {<br/>"name": "str",<br/>"value": {<br/>"match": {<br/>"exact-match": "str",<br/>"prefix-match": "str",<br/>"regex-match": "str"<br/>}<br/>}<br/>},<br/>"remote-ip": "str"<br/>}<br/>}, ...<br/>]<br/>}, ...<br/>]<br/>},<br/>"security-profile-id": "str"<br/>}"<br/>Fields:<br/>modify-request-headers -> ([]struct)<br/>Apply the following modifications to the request headers.<br/>name -> (string)<br/>Name of the header.<br/>operation -> (oneof<append\|remove\|rename\|replace>)<br/>Oneof operation field<br/>append -> (string)<br/>Appends the specified string to the header value. Variables defined for Envoy proxy are supported.<br/>replace -> (string)<br/>Replaces the value of the header with the specified string. Variables defined for Envoy proxy are supported.<br/>remove -> (bool)<br/>Removes the header.<br/>rename -> (string)<br/>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.<br/>modify-response-headers -> ([]struct)<br/>Apply the following modifications to the response headers.<br/>name -> (string)<br/>Name of the header.<br/>operation -> (oneof<append\|remove\|rename\|replace>)<br/>Oneof operation field<br/>append -> (string)<br/>Appends the specified string to the header value. Variables defined for Envoy proxy are supported.<br/>replace -> (string)<br/>Replaces the value of the header with the specified string. Variables defined for Envoy proxy are supported.<br/>remove -> (bool)<br/>Removes the header.<br/>rename -> (string)<br/>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.<br/>rbac -> (struct)<br/>action -> (enum<ALLOW\|DENY>)<br/>The action to take if a principal matches. Every action either allows or denies a request.<br/>principals -> ([]struct)<br/>Required. A match occurs when at least one matches the request.<br/>and-principals -> ([]struct)<br/>Required. A match occurs when all principals match the request.<br/>identifier -> (oneof<any\|header\|remote-ip>)<br/>Oneof identifier field<br/>header -> (struct)<br/>A header (or pseudo-header such as :path or :method) of the incoming HTTP request.<br/>name -> (string)<br/>Specifies the name of the header in the request.<br/>value -> (struct)<br/>Specifies how the header match will be performed to route the request. In the absence of value a request that has specified header name will match, regardless of the header's value.<br/>match -> (oneof<exact-match\|prefix-match\|regex-match>)<br/>Oneof match field<br/>exact-match -> (string)<br/>Exact match string.<br/>prefix-match -> (string)<br/>Prefix match string.<br/>regex-match -> (string)<br/>Regular expression match string.<br/>remote-ip -> (string)<br/>A CIDR block or IP that describes the request remote/origin address, e.g. ''192.0.0.0/24'' or''192.0.0.4'' .<br/>any -> (bool)<br/>When any is set, it matches any request.<br/>security-profile-id -> (string)<br/>Security profile that will take effect to all requests routed via particular virtual host.|
-|`--virtual-hosts`|<b>`shorthand/json`</b><br/>New virtual hosts that combine routes inside the router. For details about the concept, see documentation. Only one virtual host with no authority (default match) can be specified. Existing list of virtual hosts is completely replaced by the specified list, so if you just want to add or remove a virtual host, make a [VirtualHostService.Create] request or a [VirtualHostService.Delete] request.<br/>Shorthand Syntax:<br/>[<br/>{<br/>authority = str,...,<br/>modify-request-headers = [<br/>{<br/>name = str,<br/>operation = append=str \| remove=bool \| rename=str \| replace=str<br/>}, ...<br/>],<br/>modify-response-headers = [<br/>{<br/>name = str,<br/>operation = append=str \| remove=bool \| rename=str \| replace=str<br/>}, ...<br/>],<br/>name = str,<br/>rate-limit = {<br/>all-requests = {<br/>rate = per-minute=int \| per-second=int<br/>},<br/>requests-per-ip = {<br/>rate = per-minute=int \| per-second=int<br/>}<br/>},<br/>route-options = {<br/>modify-request-headers = [<br/>{<br/>name = str,<br/>operation = append=str \| remove=bool \| rename=str \| replace=str<br/>}, ...<br/>],<br/>modify-response-headers = [<br/>{<br/>name = str,<br/>operation = append=str \| remove=bool \| rename=str \| replace=str<br/>}, ...<br/>],<br/>rbac = {<br/>action = ALLOW\|DENY,<br/>principals = [<br/>{<br/>and-principals = [<br/>{<br/>identifier = any=bool \| header={<br/>name = str,<br/>value = {<br/>match = exact-match=str \| prefix-match=str \| regex-match=str<br/>}<br/>} \| remote-ip=str<br/>}, ...<br/>]<br/>}, ...<br/>]<br/>},<br/>security-profile-id = str<br/>},<br/>routes = [<br/>{<br/>disable-security-profile = bool,<br/>name = str,<br/>route = grpc={<br/>action = route={<br/>backend-group-id = str,<br/>host-rewrite-specifier = auto-host-rewrite=bool \| host-rewrite=str,<br/>idle-timeout = duration,<br/>max-timeout = duration,<br/>rate-limit = {<br/>all-requests = {<br/>rate = per-minute=int \| per-second=int<br/>},<br/>requests-per-ip = {<br/>rate = per-minute=int \| per-second=int<br/>}<br/>}<br/>} \| status-response={<br/>status = OK\|INVALID_ARGUMENT\|NOT_FOUND\|PERMISSION_DENIED\|UNAUTHENTICATED\|UNIMPLEMENTED\|INTERNAL\|UNAVAILABLE<br/>},<br/>match = {<br/>fqmn = {<br/>match = exact-match=str \| prefix-match=str \| regex-match=str<br/>}<br/>}<br/>} \| http={<br/>action = direct-response={<br/>body = {<br/>payload = text=str<br/>},<br/>status = int<br/>} \| redirect={<br/>path = replace-path=str \| replace-prefix=str,<br/>remove-query = bool,<br/>replace-host = str,<br/>replace-port = int,<br/>replace-scheme = str,<br/>response-code = MOVED_PERMANENTLY\|FOUND\|SEE_OTHER\|TEMPORARY_REDIRECT\|PERMANENT_REDIRECT<br/>} \| route={<br/>backend-group-id = str,<br/>host-rewrite-specifier = auto-host-rewrite=bool \| host-rewrite=str,<br/>idle-timeout = duration,<br/>prefix-rewrite = str,<br/>rate-limit = {<br/>all-requests = {<br/>rate = per-minute=int \| per-second=int<br/>},<br/>requests-per-ip = {<br/>rate = per-minute=int \| per-second=int<br/>}<br/>},<br/>regex-rewrite = {<br/>regex = str,<br/>substitute = str<br/>},<br/>timeout = duration,<br/>upgrade-types = str,...<br/>},<br/>match = {<br/>headers = [<br/>{<br/>name = str,<br/>value = {<br/>match = exact-match=str \| prefix-match=str \| regex-match=str<br/>}<br/>}, ...<br/>],<br/>http-method = str,...,<br/>path = {<br/>match = exact-match=str \| prefix-match=str \| regex-match=str<br/>},<br/>query-parameters = [<br/>{<br/>name = str,<br/>value = {<br/>match = exact-match=str \| prefix-match=str \| regex-match=str<br/>}<br/>}, ...<br/>]<br/>}<br/>},<br/>route-options = {<br/>modify-request-headers = [<br/>{<br/>name = str,<br/>operation = append=str \| remove=bool \| rename=str \| replace=str<br/>}, ...<br/>],<br/>modify-response-headers = [<br/>{<br/>name = str,<br/>operation = append=str \| remove=bool \| rename=str \| replace=str<br/>}, ...<br/>],<br/>rbac = {<br/>action = ALLOW\|DENY,<br/>principals = [<br/>{<br/>and-principals = [<br/>{<br/>identifier = any=bool \| header={<br/>name = str,<br/>value = {<br/>match = exact-match=str \| prefix-match=str \| regex-match=str<br/>}<br/>} \| remote-ip=str<br/>}, ...<br/>]<br/>}, ...<br/>]<br/>},<br/>security-profile-id = str<br/>}<br/>}, ...<br/>]<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"authority": [<br/>"str", ...<br/>],<br/>"modify-request-headers": [<br/>{<br/>"name": "str",<br/>"operation": {<br/>"append": "str",<br/>"remove": "bool",<br/>"rename": "str",<br/>"replace": "str"<br/>}<br/>}, ...<br/>],<br/>"modify-response-headers": [<br/>{<br/>"name": "str",<br/>"operation": {<br/>"append": "str",<br/>"remove": "bool",<br/>"rename": "str",<br/>"replace": "str"<br/>}<br/>}, ...<br/>],<br/>"name": "str",<br/>"rate-limit": {<br/>"all-requests": {<br/>"rate": {<br/>"per-minute": "int",<br/>"per-second": "int"<br/>}<br/>},<br/>"requests-per-ip": {<br/>"rate": {<br/>"per-minute": "int",<br/>"per-second": "int"<br/>}<br/>}<br/>},<br/>"route-options": {<br/>"modify-request-headers": [<br/>{<br/>"name": "str",<br/>"operation": {<br/>"append": "str",<br/>"remove": "bool",<br/>"rename": "str",<br/>"replace": "str"<br/>}<br/>}, ...<br/>],<br/>"modify-response-headers": [<br/>{<br/>"name": "str",<br/>"operation": {<br/>"append": "str",<br/>"remove": "bool",<br/>"rename": "str",<br/>"replace": "str"<br/>}<br/>}, ...<br/>],<br/>"rbac": {<br/>"action": "ALLOW\|DENY",<br/>"principals": [<br/>{<br/>"and-principals": [<br/>{<br/>"identifier": {<br/>"any": "bool",<br/>"header": {<br/>"name": "str",<br/>"value": {<br/>"match": {<br/>"exact-match": "str",<br/>"prefix-match": "str",<br/>"regex-match": "str"<br/>}<br/>}<br/>},<br/>"remote-ip": "str"<br/>}<br/>}, ...<br/>]<br/>}, ...<br/>]<br/>},<br/>"security-profile-id": "str"<br/>},<br/>"routes": [<br/>{<br/>"disable-security-profile": "bool",<br/>"name": "str",<br/>"route": {<br/>"grpc": {<br/>"action": {<br/>"route": {<br/>"backend-group-id": "str",<br/>"host-rewrite-specifier": {<br/>"auto-host-rewrite": "bool",<br/>"host-rewrite": "str"<br/>},<br/>"idle-timeout": "duration",<br/>"max-timeout": "duration",<br/>"rate-limit": {<br/>"all-requests": {<br/>"rate": {<br/>"per-minute": "int",<br/>"per-second": "int"<br/>}<br/>},<br/>"requests-per-ip": {<br/>"rate": {<br/>"per-minute": "int",<br/>"per-second": "int"<br/>}<br/>}<br/>}<br/>},<br/>"status-response": {<br/>"status": "OK\|INVALID_ARGUMENT\|NOT_FOUND\|PERMISSION_DENIED\|UNAUTHENTICATED\|UNIMPLEMENTED\|INTERNAL\|UNAVAILABLE"<br/>}<br/>},<br/>"match": {<br/>"fqmn": {<br/>"match": {<br/>"exact-match": "str",<br/>"prefix-match": "str",<br/>"regex-match": "str"<br/>}<br/>}<br/>}<br/>},<br/>"http": {<br/>"action": {<br/>"direct-response": {<br/>"body": {<br/>"payload": {<br/>"text": "str"<br/>}<br/>},<br/>"status": "int"<br/>},<br/>"redirect": {<br/>"path": {<br/>"replace-path": "str",<br/>"replace-prefix": "str"<br/>},<br/>"remove-query": "bool",<br/>"replace-host": "str",<br/>"replace-port": "int",<br/>"replace-scheme": "str",<br/>"response-code": "MOVED_PERMANENTLY\|FOUND\|SEE_OTHER\|TEMPORARY_REDIRECT\|PERMANENT_REDIRECT"<br/>},<br/>"route": {<br/>"backend-group-id": "str",<br/>"host-rewrite-specifier": {<br/>"auto-host-rewrite": "bool",<br/>"host-rewrite": "str"<br/>},<br/>"idle-timeout": "duration",<br/>"prefix-rewrite": "str",<br/>"rate-limit": {<br/>"all-requests": {<br/>"rate": {<br/>"per-minute": "int",<br/>"per-second": "int"<br/>}<br/>},<br/>"requests-per-ip": {<br/>"rate": {<br/>"per-minute": "int",<br/>"per-second": "int"<br/>}<br/>}<br/>},<br/>"regex-rewrite": {<br/>"regex": "str",<br/>"substitute": "str"<br/>},<br/>"timeout": "duration",<br/>"upgrade-types": [<br/>"str", ...<br/>]<br/>}<br/>},<br/>"match": {<br/>"headers": [<br/>{<br/>"name": "str",<br/>"value": {<br/>"match": {<br/>"exact-match": "str",<br/>"prefix-match": "str",<br/>"regex-match": "str"<br/>}<br/>}<br/>}, ...<br/>],<br/>"http-method": [<br/>"str", ...<br/>],<br/>"path": {<br/>"match": {<br/>"exact-match": "str",<br/>"prefix-match": "str",<br/>"regex-match": "str"<br/>}<br/>},<br/>"query-parameters": [<br/>{<br/>"name": "str",<br/>"value": {<br/>"match": {<br/>"exact-match": "str",<br/>"prefix-match": "str",<br/>"regex-match": "str"<br/>}<br/>}<br/>}, ...<br/>]<br/>}<br/>}<br/>},<br/>"route-options": {<br/>"modify-request-headers": [<br/>{<br/>"name": "str",<br/>"operation": {<br/>"append": "str",<br/>"remove": "bool",<br/>"rename": "str",<br/>"replace": "str"<br/>}<br/>}, ...<br/>],<br/>"modify-response-headers": [<br/>{<br/>"name": "str",<br/>"operation": {<br/>"append": "str",<br/>"remove": "bool",<br/>"rename": "str",<br/>"replace": "str"<br/>}<br/>}, ...<br/>],<br/>"rbac": {<br/>"action": "ALLOW\|DENY",<br/>"principals": [<br/>{<br/>"and-principals": [<br/>{<br/>"identifier": {<br/>"any": "bool",<br/>"header": {<br/>"name": "str",<br/>"value": {<br/>"match": {<br/>"exact-match": "str",<br/>"prefix-match": "str",<br/>"regex-match": "str"<br/>}<br/>}<br/>},<br/>"remote-ip": "str"<br/>}<br/>}, ...<br/>]<br/>}, ...<br/>]<br/>},<br/>"security-profile-id": "str"<br/>}<br/>}, ...<br/>]<br/>}, ...<br/>]"<br/>Fields:<br/>authority -> ([]string)<br/>List of domains that are attributed to the virtual host. The host is selected to process the request received by the load balancer if the domain specified in the HTTP/1.1 'Host' header or the HTTP/2 ':authority' pseudo-header matches a domain specified in the host. A wildcard asterisk character ('*') matches 0 or more characters. If not specified, all domains are attributed to the host, which is the same as specifying a '*' value. An HTTP router must not contain more than one virtual host to which all domains are attributed.<br/>modify-request-headers -> ([]struct)<br/>Deprecated, use route_options.modify_request_headers.<br/>name -> (string)<br/>Name of the header.<br/>operation -> (oneof<append\|remove\|rename\|replace>)<br/>Oneof operation field<br/>append -> (string)<br/>Appends the specified string to the header value. Variables defined for Envoy proxy are supported.<br/>replace -> (string)<br/>Replaces the value of the header with the specified string. Variables defined for Envoy proxy are supported.<br/>remove -> (bool)<br/>Removes the header.<br/>rename -> (string)<br/>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.<br/>modify-response-headers -> ([]struct)<br/>Deprecated, use route_options.modify_response_headers.<br/>name -> (string)<br/>Name of the header.<br/>operation -> (oneof<append\|remove\|rename\|replace>)<br/>Oneof operation field<br/>append -> (string)<br/>Appends the specified string to the header value. Variables defined for Envoy proxy are supported.<br/>replace -> (string)<br/>Replaces the value of the header with the specified string. Variables defined for Envoy proxy are supported.<br/>remove -> (bool)<br/>Removes the header.<br/>rename -> (string)<br/>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.<br/>name -> (string)<br/>Name of the virtual host. The name is unique within the HTTP router.<br/>rate-limit -> (struct)<br/>RateLimit is a rate limit configuration applied for a whole virtual host.<br/>all-requests -> (struct)<br/>AllRequests is a rate limit configuration applied to all incoming requests.<br/>rate -> (oneof<per-minute\|per-second>)<br/>Oneof rate field<br/>per-second -> (int)<br/>PerSecond is a limit value specified with per second time unit.<br/>per-minute -> (int)<br/>PerMinute is a limit value specified with per minute time unit.<br/>requests-per-ip -> (struct)<br/>RequestsPerIp is a rate limit configuration applied separately for each set of requests grouped by client IP address.<br/>rate -> (oneof<per-minute\|per-second>)<br/>Oneof rate field<br/>per-second -> (int)<br/>PerSecond is a limit value specified with per second time unit.<br/>per-minute -> (int)<br/>PerMinute is a limit value specified with per minute time unit.<br/>route-options -> (struct)<br/>modify-request-headers -> ([]struct)<br/>Apply the following modifications to the request headers.<br/>name -> (string)<br/>Name of the header.<br/>operation -> (oneof<append\|remove\|rename\|replace>)<br/>Oneof operation field<br/>append -> (string)<br/>Appends the specified string to the header value. Variables defined for Envoy proxy are supported.<br/>replace -> (string)<br/>Replaces the value of the header with the specified string. Variables defined for Envoy proxy are supported.<br/>remove -> (bool)<br/>Removes the header.<br/>rename -> (string)<br/>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.<br/>modify-response-headers -> ([]struct)<br/>Apply the following modifications to the response headers.<br/>name -> (string)<br/>Name of the header.<br/>operation -> (oneof<append\|remove\|rename\|replace>)<br/>Oneof operation field<br/>append -> (string)<br/>Appends the specified string to the header value. Variables defined for Envoy proxy are supported.<br/>replace -> (string)<br/>Replaces the value of the header with the specified string. Variables defined for Envoy proxy are supported.<br/>remove -> (bool)<br/>Removes the header.<br/>rename -> (string)<br/>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.<br/>rbac -> (struct)<br/>action -> (enum<ALLOW\|DENY>)<br/>The action to take if a principal matches. Every action either allows or denies a request.<br/>principals -> ([]struct)<br/>Required. A match occurs when at least one matches the request.<br/>and-principals -> ([]struct)<br/>Required. A match occurs when all principals match the request.<br/>identifier -> (oneof<any\|header\|remote-ip>)<br/>Oneof identifier field<br/>header -> (struct)<br/>A header (or pseudo-header such as :path or :method) of the incoming HTTP request.<br/>name -> (string)<br/>Specifies the name of the header in the request.<br/>value -> (struct)<br/>Specifies how the header match will be performed to route the request. In the absence of value a request that has specified header name will match, regardless of the header's value.<br/>match -> (oneof<exact-match\|prefix-match\|regex-match>)<br/>Oneof match field<br/>exact-match -> (string)<br/>Exact match string.<br/>prefix-match -> (string)<br/>Prefix match string.<br/>regex-match -> (string)<br/>Regular expression match string.<br/>remote-ip -> (string)<br/>A CIDR block or IP that describes the request remote/origin address, e.g. ''192.0.0.0/24'' or''192.0.0.4'' .<br/>any -> (bool)<br/>When any is set, it matches any request.<br/>security-profile-id -> (string)<br/>Security profile that will take effect to all requests routed via particular virtual host.<br/>routes -> ([]struct)<br/>Routes of the virtual host. A route contains a set of conditions (predicates) that are used by the load balancer to select the route for the request and an action on the request. For details about the concept, see documentation. The order of routes matters: the first route whose predicate matches the request is selected. The most specific routes should be at the top of the list, so that they are not overridden. For example, if the first HTTP route is configured, via [HttpRoute.match], to match paths prefixed with just '/', other routes are never matched.<br/>disable-security-profile -> (bool)<br/>Whether set to 'true' disables security profile for the route.<br/>name -> (string)<br/>Name of the route.<br/>route-options -> (struct)<br/>modify-request-headers -> ([]struct)<br/>Apply the following modifications to the request headers.<br/>name -> (string)<br/>Name of the header.<br/>operation -> (oneof<append\|remove\|rename\|replace>)<br/>Oneof operation field<br/>append -> (string)<br/>Appends the specified string to the header value. Variables defined for Envoy proxy are supported.<br/>replace -> (string)<br/>Replaces the value of the header with the specified string. Variables defined for Envoy proxy are supported.<br/>remove -> (bool)<br/>Removes the header.<br/>rename -> (string)<br/>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.<br/>modify-response-headers -> ([]struct)<br/>Apply the following modifications to the response headers.<br/>name -> (string)<br/>Name of the header.<br/>operation -> (oneof<append\|remove\|rename\|replace>)<br/>Oneof operation field<br/>append -> (string)<br/>Appends the specified string to the header value. Variables defined for Envoy proxy are supported.<br/>replace -> (string)<br/>Replaces the value of the header with the specified string. Variables defined for Envoy proxy are supported.<br/>remove -> (bool)<br/>Removes the header.<br/>rename -> (string)<br/>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.<br/>rbac -> (struct)<br/>action -> (enum<ALLOW\|DENY>)<br/>The action to take if a principal matches. Every action either allows or denies a request.<br/>principals -> ([]struct)<br/>Required. A match occurs when at least one matches the request.<br/>and-principals -> ([]struct)<br/>Required. A match occurs when all principals match the request.<br/>identifier -> (oneof<any\|header\|remote-ip>)<br/>Oneof identifier field<br/>header -> (struct)<br/>A header (or pseudo-header such as :path or :method) of the incoming HTTP request.<br/>name -> (string)<br/>Specifies the name of the header in the request.<br/>value -> (struct)<br/>Specifies how the header match will be performed to route the request. In the absence of value a request that has specified header name will match, regardless of the header's value.<br/>match -> (oneof<exact-match\|prefix-match\|regex-match>)<br/>Oneof match field<br/>exact-match -> (string)<br/>Exact match string.<br/>prefix-match -> (string)<br/>Prefix match string.<br/>regex-match -> (string)<br/>Regular expression match string.<br/>remote-ip -> (string)<br/>A CIDR block or IP that describes the request remote/origin address, e.g. ''192.0.0.0/24'' or''192.0.0.4'' .<br/>any -> (bool)<br/>When any is set, it matches any request.<br/>security-profile-id -> (string)<br/>Security profile that will take effect to all requests routed via particular virtual host.<br/>route -> (oneof<grpc\|http>)<br/>Oneof route field<br/>http -> (struct)<br/>HTTP route configuration.<br/>match -> (struct)<br/>Condition (predicate) used to select the route.<br/>headers -> ([]struct)<br/>Headers specify HTTP request header matchers. Multiple match values are ANDed together, meaning, a request must match all the specified headers to select the route. Headers must be unique.<br/>name -> (string)<br/>Name of the HTTP Header to be matched.<br/>value -> (struct)<br/>Value of HTTP Header to be matched.<br/>match -> (oneof<exact-match\|prefix-match\|regex-match>)<br/>Oneof match field<br/>exact-match -> (string)<br/>Exact match string.<br/>prefix-match -> (string)<br/>Prefix match string.<br/>regex-match -> (string)<br/>Regular expression match string.<br/>http-method -> ([]string)<br/>HTTP method specified in the request.<br/>path -> (struct)<br/>Match settings for the path specified in the request. If not specified, the route matches all paths.<br/>match -> (oneof<exact-match\|prefix-match\|regex-match>)<br/>Oneof match field<br/>exact-match -> (string)<br/>Exact match string.<br/>prefix-match -> (string)<br/>Prefix match string.<br/>regex-match -> (string)<br/>Regular expression match string.<br/>query-parameters -> ([]struct)<br/>Query Parameters specify HTTP query parameter matchers. Multiple match values are ANDed together, meaning, a request must match all the specified query parameters to select the route. Query parameters must be unique.<br/>name -> (string)<br/>Name of the HTTP query parameter to be matched.<br/>value -> (struct)<br/>Value of HTTP query parameter to be matched.<br/>match -> (oneof<exact-match\|prefix-match\|regex-match>)<br/>Oneof match field<br/>exact-match -> (string)<br/>Exact match string.<br/>prefix-match -> (string)<br/>Prefix match string.<br/>regex-match -> (string)<br/>Regular expression match string.<br/>action -> (oneof<direct-response\|redirect\|route>)<br/>Oneof action field<br/>route -> (struct)<br/>Forwards the request to a backend group for processing as configured.<br/>backend-group-id -> (string)<br/>Backend group to forward requests to. Stream (TCP) backend groups are not supported.<br/>idle-timeout -> (duration)<br/>Idle timeout for an HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is allowed to be idle, i.e. without any data transferred over it. Specifying meaningful values for both [timeout] and 'idle_timeout' is useful for implementing server-push mechanisms such as long polling, server-sent events ('EventSource' interface) etc. If a connection times out, the load balancer responds to the client with a '504 Gateway Timeout' status code. If not specified, no idle timeout is used, and an alive connection may be idle for any duration (see [timeout]).<br/>prefix-rewrite -> (string)<br/>Replacement for the path prefix matched by [StringMatch]. For instance, if [StringMatch.prefix_match] value is '/foo' and 'prefix_rewrite' value is '/bar', a request with '/foobaz' path is forwarded with '/barbaz' path. For [StringMatch.exact_match], the whole path is replaced. If not specified, the path is not changed. Only one of regex_rewrite, or prefix_rewrite may be specified.<br/>rate-limit -> (struct)<br/>RateLimit is a rate limit configuration applied for route.<br/>all-requests -> (struct)<br/>AllRequests is a rate limit configuration applied to all incoming requests.<br/>rate -> (oneof<per-minute\|per-second>)<br/>Oneof rate field<br/>per-second -> (int)<br/>PerSecond is a limit value specified with per second time unit.<br/>per-minute -> (int)<br/>PerMinute is a limit value specified with per minute time unit.<br/>requests-per-ip -> (struct)<br/>RequestsPerIp is a rate limit configuration applied separately for each set of requests grouped by client IP address.<br/>rate -> (oneof<per-minute\|per-second>)<br/>Oneof rate field<br/>per-second -> (int)<br/>PerSecond is a limit value specified with per second time unit.<br/>per-minute -> (int)<br/>PerMinute is a limit value specified with per minute time unit.<br/>regex-rewrite -> (struct)<br/>Replacement for portions of the path that match the pattern should be rewritten, even allowing the substitution of capture groups from the pattern into the new path as specified by the rewrite substitution string. Only one of regex_rewrite, or prefix_rewrite may be specified. Examples of using: - The path pattern ^/service/([^/]+)(/.*)\$ paired with a substitution string of \2/instance/\1 would transform /service/foo/v1/api into /v1/api/instance/foo. - The pattern one paired with a substitution string of two would transform /xxx/one/yyy/one/zzz into /xxx/two/yyy/two/zzz. - The pattern ^(.*?)one(.*)\$ paired with a substitution string of \1two\2 would replace only the first occurrence of one, transforming path /xxx/one/yyy/one/zzz into /xxx/two/yyy/one/zzz. - The pattern (?i)/xxx/ paired with a substitution string of /yyy/ would do a case-insensitive match and transform path /aaa/XxX/bbb to /aaa/yyy/bbb.<br/>regex -> (string)<br/>The regular expression used to find portions of a string that should be replaced.<br/>substitute -> (string)<br/>The string that should be substituted into matching portions of the subject string during a substitution operation to produce a new string.<br/>timeout -> (duration)<br/>Overall timeout for an HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is kept alive for, regardless of whether data is transferred over it. If a connection times out, the load balancer responds to the client with a '504 Gateway Timeout' status code. Default value: '60'.<br/>upgrade-types -> ([]string)<br/>Supported values for HTTP 'Upgrade' header. E.g. 'websocket'.<br/>host-rewrite-specifier -> (oneof<auto-host-rewrite\|host-rewrite>)<br/>Oneof host-rewrite-specifier field<br/>host-rewrite -> (string)<br/>Host replacement.<br/>auto-host-rewrite -> (bool)<br/>Automatically replaces the host with that of the target.<br/>redirect -> (struct)<br/>Redirects the request as configured.<br/>remove-query -> (bool)<br/>Removes URI query.<br/>replace-host -> (string)<br/>URI host replacement. If not specified, the original host is used.<br/>replace-port -> (int)<br/>URI host replacement. If not specified, the original host is used.<br/>replace-scheme -> (string)<br/>URI scheme replacement. If 'http' or 'https' scheme is to be replaced and '80' or '443' port is specified in the original URI, the port is also removed. If not specified, the original scheme and port are used.<br/>response-code -> (enum<FOUND\|MOVED_PERMANENTLY\|PERMANENT_REDIRECT\|SEE_OTHER\|TEMPORARY_REDIRECT>)<br/>HTTP status code to use in redirect responses.<br/>path -> (oneof<replace-path\|replace-prefix>)<br/>Oneof path field<br/>replace-path -> (string)<br/>Replacement for the whole path.<br/>replace-prefix -> (string)<br/>Replacement for the path prefix matched by [StringMatch]. For instance, if [StringMatch.prefix_match] value is '/foo' and 'replace_prefix' value is '/bar', a request with 'https://example.com/foobaz' URI is redirected to 'https://example.com/barbaz'. For [StringMatch.exact_match], the whole path is replaced.<br/>direct-response -> (struct)<br/>Instructs the load balancer to respond directly as configured.<br/>body -> (struct)<br/>Response body.<br/>payload -> (oneof\<text\>)<br/>Oneof payload field<br/>text -> (string)<br/>Payload text.<br/>status -> (int)<br/>HTTP status code to use in responses.<br/>grpc -> (struct)<br/>gRPC route configuration.<br/>match -> (struct)<br/>Condition (predicate) used to select the route.<br/>fqmn -> (struct)<br/>Match settings for gRPC service method called in the request. A match string must be a fully qualified method name, e.g. 'foo.bar.v1.BazService/Get', or a prefix of such. If not specified, the route matches all methods.<br/>match -> (oneof<exact-match\|prefix-match\|regex-match>)<br/>Oneof match field<br/>exact-match -> (string)<br/>Exact match string.<br/>prefix-match -> (string)<br/>Prefix match string.<br/>regex-match -> (string)<br/>Regular expression match string.<br/>action -> (oneof<route\|status-response>)<br/>Oneof action field<br/>route -> (struct)<br/>Forwards the request to a backend group for processing as configured.<br/>backend-group-id -> (string)<br/>Backend group to forward requests to.<br/>idle-timeout -> (duration)<br/>Idle timeout for an underlying HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is allowed to be idle, i.e. without any data transferred over it. Specifying meaningful values for both [max_timeout] and 'idle_timeout' is useful for implementing server-push mechanisms such as long polling, server-sent events etc. If a connection times out, the load balancer responds to the client with an 'UNAVAILABLE' status code. If not specified, no idle timeout is used, and an alive connection may be idle for any duration (see [max_timeout]).<br/>max-timeout -> (duration)<br/>Overall timeout for an underlying HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is kept alive for, regardless of whether data is transferred over it. If a client specifies a lower timeout in HTTP 'grpc-timeout' header, the 'max_timeout' value is ignored. If a connection times out, the load balancer responds to the client with an 'UNAVAILABLE' status code. Default value: '60'.<br/>rate-limit -> (struct)<br/>RateLimit is a rate limit configuration applied for route.<br/>all-requests -> (struct)<br/>AllRequests is a rate limit configuration applied to all incoming requests.<br/>rate -> (oneof<per-minute\|per-second>)<br/>Oneof rate field<br/>per-second -> (int)<br/>PerSecond is a limit value specified with per second time unit.<br/>per-minute -> (int)<br/>PerMinute is a limit value specified with per minute time unit.<br/>requests-per-ip -> (struct)<br/>RequestsPerIp is a rate limit configuration applied separately for each set of requests grouped by client IP address.<br/>rate -> (oneof<per-minute\|per-second>)<br/>Oneof rate field<br/>per-second -> (int)<br/>PerSecond is a limit value specified with per second time unit.<br/>per-minute -> (int)<br/>PerMinute is a limit value specified with per minute time unit.<br/>host-rewrite-specifier -> (oneof<auto-host-rewrite\|host-rewrite>)<br/>Oneof host-rewrite-specifier field<br/>host-rewrite -> (string)<br/>Host replacement.<br/>auto-host-rewrite -> (bool)<br/>Automatically replaces the host with that of the target.<br/>status-response -> (struct)<br/>Instructs the load balancer to respond directly with a specified status.<br/>status -> (enum<INTERNAL\|INVALID_ARGUMENT\|NOT_FOUND\|OK\|PERMISSION_DENIED\|UNAUTHENTICATED\|UNAVAILABLE\|UNIMPLEMENTED>)<br/>gRPC status code to use in responses.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `--description` | `string`
+
+New description of the HTTP router. ||
+|| `--http-router-id` | `string`
+
+ID of the HTTP router to update. To get the HTTP router ID, make a [HttpRouterService.List] request. ||
+|| `--labels` | `stringToString`
+
+HTTP router labels as 'key:value' pairs. For details about the concept, see documentation. Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: 1. Get the current set of labels with a [HttpRouterService.Get] request. 2. Add or remove a label in this set. 3. Send the new set in this field. ||
+|| `--name` | `string`
+
+New name for the HTTP router. The name must be unique within the folder. ||
+|| `--route-options` | `shorthand/json`
+
+New route options for the HTTP router.
+
+Shorthand Syntax:
+
+```hcl
+{
+  modify-request-headers = [
+    {
+      name = str,
+      operation = append=str | remove=bool | rename=str | replace=str
+    }, ...
+  ],
+  modify-response-headers = [
+    {
+      name = str,
+      operation = append=str | remove=bool | rename=str | replace=str
+    }, ...
+  ],
+  rbac = {
+    action = ALLOW|DENY,
+    principals = [
+      {
+        and-principals = [
+          {
+            identifier = any=bool | header={
+              name = str,
+              value = {
+                match = exact-match=str | prefix-match=str | regex-match=str
+              }
+            } | remote-ip=str
+          }, ...
+        ]
+      }, ...
+    ]
+  },
+  security-profile-id = str
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "modify-request-headers": [
+    {
+      "name": "str",
+      "operation": {
+        "append": "str",
+        "remove": "bool",
+        "rename": "str",
+        "replace": "str"
+      }
+    }, ...
+  ],
+  "modify-response-headers": [
+    {
+      "name": "str",
+      "operation": {
+        "append": "str",
+        "remove": "bool",
+        "rename": "str",
+        "replace": "str"
+      }
+    }, ...
+  ],
+  "rbac": {
+    "action": "ALLOW|DENY",
+    "principals": [
+      {
+        "and-principals": [
+          {
+            "identifier": {
+              "any": "bool",
+              "header": {
+                "name": "str",
+                "value": {
+                  "match": {
+                    "exact-match": "str",
+                    "prefix-match": "str",
+                    "regex-match": "str"
+                  }
+                }
+              },
+              "remote-ip": "str"
+            }
+          }, ...
+        ]
+      }, ...
+    ]
+  },
+  "security-profile-id": "str"
+}
+```
+
+Fields:
+
+```
+modify-request-headers -> ([]struct)
+  Apply the following modifications to the request headers.
+  name -> (string)
+    Name of the header.
+  operation -> (oneof<append|remove|rename|replace>)
+    Oneof operation field
+    append -> (string)
+      Appends the specified string to the header value. Variables defined for Envoy proxy are supported.
+    replace -> (string)
+      Replaces the value of the header with the specified string. Variables defined for Envoy proxy are supported.
+    remove -> (bool)
+      Removes the header.
+    rename -> (string)
+      Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.
+modify-response-headers -> ([]struct)
+  Apply the following modifications to the response headers.
+  name -> (string)
+    Name of the header.
+  operation -> (oneof<append|remove|rename|replace>)
+    Oneof operation field
+    append -> (string)
+      Appends the specified string to the header value. Variables defined for Envoy proxy are supported.
+    replace -> (string)
+      Replaces the value of the header with the specified string. Variables defined for Envoy proxy are supported.
+    remove -> (bool)
+      Removes the header.
+    rename -> (string)
+      Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.
+rbac -> (struct)
+  action -> (struct)
+    The action to take if a principal matches. Every action either allows or denies a request.
+  principals -> ([]struct)
+    Required. A match occurs when at least one matches the request.
+    and-principals -> ([]struct)
+      Required. A match occurs when all principals match the request.
+      identifier -> (oneof<any|header|remote-ip>)
+        Oneof identifier field
+        header -> (struct)
+          A header (or pseudo-header such as :path or :method) of the incoming HTTP request.
+          name -> (string)
+            Specifies the name of the header in the request.
+          value -> (struct)
+            Specifies how the header match will be performed to route the request. In the absence of value a request that has specified header name will match, regardless of the header's value.
+            match -> (oneof<exact-match|prefix-match|regex-match>)
+              Oneof match field
+              exact-match -> (string)
+                Exact match string.
+              prefix-match -> (string)
+                Prefix match string.
+              regex-match -> (string)
+                Regular expression match string.
+        remote-ip -> (string)
+          A CIDR block or IP that describes the request remote/origin address, e.g. ''192.0.0.0/24'' or''192.0.0.4'' .
+        any -> (bool)
+          When any is set, it matches any request.
+security-profile-id -> (string)
+  Security profile that will take effect to all requests routed via particular virtual host.
+``` ||
+|| `--virtual-hosts` | `shorthand/json`
+
+New virtual hosts that combine routes inside the router. For details about the concept, see documentation. Only one virtual host with no authority (default match) can be specified. Existing list of virtual hosts is completely replaced by the specified list, so if you just want to add or remove a virtual host, make a [VirtualHostService.Create] request or a [VirtualHostService.Delete] request.
+
+Shorthand Syntax:
+
+```hcl
+[
+  {
+    authority = str,...,
+    modify-request-headers = [
+      {
+        name = str,
+        operation = append=str | remove=bool | rename=str | replace=str
+      }, ...
+    ],
+    modify-response-headers = [
+      {
+        name = str,
+        operation = append=str | remove=bool | rename=str | replace=str
+      }, ...
+    ],
+    name = str,
+    rate-limit = {
+      all-requests = {
+        rate = per-minute=int | per-second=int
+      },
+      requests-per-ip = {
+        rate = per-minute=int | per-second=int
+      }
+    },
+    route-options = {
+      modify-request-headers = [
+        {
+          name = str,
+          operation = append=str | remove=bool | rename=str | replace=str
+        }, ...
+      ],
+      modify-response-headers = [
+        {
+          name = str,
+          operation = append=str | remove=bool | rename=str | replace=str
+        }, ...
+      ],
+      rbac = {
+        action = ALLOW|DENY,
+        principals = [
+          {
+            and-principals = [
+              {
+                identifier = any=bool | header={
+                  name = str,
+                  value = {
+                    match = exact-match=str | prefix-match=str | regex-match=str
+                  }
+                } | remote-ip=str
+              }, ...
+            ]
+          }, ...
+        ]
+      },
+      security-profile-id = str
+    },
+    routes = [
+      {
+        disable-security-profile = bool,
+        name = str,
+        route = grpc={
+          action = route={
+            backend-group-id = str,
+            host-rewrite-specifier = auto-host-rewrite=bool | host-rewrite=str,
+            idle-timeout = duration,
+            max-timeout = duration,
+            rate-limit = {
+              all-requests = {
+                rate = per-minute=int | per-second=int
+              },
+              requests-per-ip = {
+                rate = per-minute=int | per-second=int
+              }
+            }
+          } | status-response={
+            status = OK|INVALID_ARGUMENT|NOT_FOUND|PERMISSION_DENIED|UNAUTHENTICATED|UNIMPLEMENTED|INTERNAL|UNAVAILABLE
+          },
+          match = {
+            fqmn = {
+              match = exact-match=str | prefix-match=str | regex-match=str
+            }
+          }
+        } | http={
+          action = direct-response={
+            body = {
+              payload = text=str
+            },
+            status = int
+          } | redirect={
+            path = replace-path=str | replace-prefix=str,
+            remove-query = bool,
+            replace-host = str,
+            replace-port = int,
+            replace-scheme = str,
+            response-code = MOVED_PERMANENTLY|FOUND|SEE_OTHER|TEMPORARY_REDIRECT|PERMANENT_REDIRECT
+          } | route={
+            backend-group-id = str,
+            host-rewrite-specifier = auto-host-rewrite=bool | host-rewrite=str,
+            idle-timeout = duration,
+            prefix-rewrite = str,
+            rate-limit = {
+              all-requests = {
+                rate = per-minute=int | per-second=int
+              },
+              requests-per-ip = {
+                rate = per-minute=int | per-second=int
+              }
+            },
+            regex-rewrite = {
+              regex = str,
+              substitute = str
+            },
+            timeout = duration,
+            upgrade-types = str,...
+          },
+          match = {
+            headers = [
+              {
+                name = str,
+                value = {
+                  match = exact-match=str | prefix-match=str | regex-match=str
+                }
+              }, ...
+            ],
+            http-method = str,...,
+            path = {
+              match = exact-match=str | prefix-match=str | regex-match=str
+            },
+            query-parameters = [
+              {
+                name = str,
+                value = {
+                  match = exact-match=str | prefix-match=str | regex-match=str
+                }
+              }, ...
+            ]
+          }
+        },
+        route-options = {
+          modify-request-headers = [
+            {
+              name = str,
+              operation = append=str | remove=bool | rename=str | replace=str
+            }, ...
+          ],
+          modify-response-headers = [
+            {
+              name = str,
+              operation = append=str | remove=bool | rename=str | replace=str
+            }, ...
+          ],
+          rbac = {
+            action = ALLOW|DENY,
+            principals = [
+              {
+                and-principals = [
+                  {
+                    identifier = any=bool | header={
+                      name = str,
+                      value = {
+                        match = exact-match=str | prefix-match=str | regex-match=str
+                      }
+                    } | remote-ip=str
+                  }, ...
+                ]
+              }, ...
+            ]
+          },
+          security-profile-id = str
+        }
+      }, ...
+    ]
+  }, ...
+]
+```
+
+JSON Syntax:
+
+```json
+[
+  {
+    "authority": [
+      "str", ...
+    ],
+    "modify-request-headers": [
+      {
+        "name": "str",
+        "operation": {
+          "append": "str",
+          "remove": "bool",
+          "rename": "str",
+          "replace": "str"
+        }
+      }, ...
+    ],
+    "modify-response-headers": [
+      {
+        "name": "str",
+        "operation": {
+          "append": "str",
+          "remove": "bool",
+          "rename": "str",
+          "replace": "str"
+        }
+      }, ...
+    ],
+    "name": "str",
+    "rate-limit": {
+      "all-requests": {
+        "rate": {
+          "per-minute": "int",
+          "per-second": "int"
+        }
+      },
+      "requests-per-ip": {
+        "rate": {
+          "per-minute": "int",
+          "per-second": "int"
+        }
+      }
+    },
+    "route-options": {
+      "modify-request-headers": [
+        {
+          "name": "str",
+          "operation": {
+            "append": "str",
+            "remove": "bool",
+            "rename": "str",
+            "replace": "str"
+          }
+        }, ...
+      ],
+      "modify-response-headers": [
+        {
+          "name": "str",
+          "operation": {
+            "append": "str",
+            "remove": "bool",
+            "rename": "str",
+            "replace": "str"
+          }
+        }, ...
+      ],
+      "rbac": {
+        "action": "ALLOW|DENY",
+        "principals": [
+          {
+            "and-principals": [
+              {
+                "identifier": {
+                  "any": "bool",
+                  "header": {
+                    "name": "str",
+                    "value": {
+                      "match": {
+                        "exact-match": "str",
+                        "prefix-match": "str",
+                        "regex-match": "str"
+                      }
+                    }
+                  },
+                  "remote-ip": "str"
+                }
+              }, ...
+            ]
+          }, ...
+        ]
+      },
+      "security-profile-id": "str"
+    },
+    "routes": [
+      {
+        "disable-security-profile": "bool",
+        "name": "str",
+        "route": {
+          "grpc": {
+            "action": {
+              "route": {
+                "backend-group-id": "str",
+                "host-rewrite-specifier": {
+                  "auto-host-rewrite": "bool",
+                  "host-rewrite": "str"
+                },
+                "idle-timeout": "duration",
+                "max-timeout": "duration",
+                "rate-limit": {
+                  "all-requests": {
+                    "rate": {
+                      "per-minute": "int",
+                      "per-second": "int"
+                    }
+                  },
+                  "requests-per-ip": {
+                    "rate": {
+                      "per-minute": "int",
+                      "per-second": "int"
+                    }
+                  }
+                }
+              },
+              "status-response": {
+                "status": "OK|INVALID_ARGUMENT|NOT_FOUND|PERMISSION_DENIED|UNAUTHENTICATED|UNIMPLEMENTED|INTERNAL|UNAVAILABLE"
+              }
+            },
+            "match": {
+              "fqmn": {
+                "match": {
+                  "exact-match": "str",
+                  "prefix-match": "str",
+                  "regex-match": "str"
+                }
+              }
+            }
+          },
+          "http": {
+            "action": {
+              "direct-response": {
+                "body": {
+                  "payload": {
+                    "text": "str"
+                  }
+                },
+                "status": "int"
+              },
+              "redirect": {
+                "path": {
+                  "replace-path": "str",
+                  "replace-prefix": "str"
+                },
+                "remove-query": "bool",
+                "replace-host": "str",
+                "replace-port": "int",
+                "replace-scheme": "str",
+                "response-code": "MOVED_PERMANENTLY|FOUND|SEE_OTHER|TEMPORARY_REDIRECT|PERMANENT_REDIRECT"
+              },
+              "route": {
+                "backend-group-id": "str",
+                "host-rewrite-specifier": {
+                  "auto-host-rewrite": "bool",
+                  "host-rewrite": "str"
+                },
+                "idle-timeout": "duration",
+                "prefix-rewrite": "str",
+                "rate-limit": {
+                  "all-requests": {
+                    "rate": {
+                      "per-minute": "int",
+                      "per-second": "int"
+                    }
+                  },
+                  "requests-per-ip": {
+                    "rate": {
+                      "per-minute": "int",
+                      "per-second": "int"
+                    }
+                  }
+                },
+                "regex-rewrite": {
+                  "regex": "str",
+                  "substitute": "str"
+                },
+                "timeout": "duration",
+                "upgrade-types": [
+                  "str", ...
+                ]
+              }
+            },
+            "match": {
+              "headers": [
+                {
+                  "name": "str",
+                  "value": {
+                    "match": {
+                      "exact-match": "str",
+                      "prefix-match": "str",
+                      "regex-match": "str"
+                    }
+                  }
+                }, ...
+              ],
+              "http-method": [
+                "str", ...
+              ],
+              "path": {
+                "match": {
+                  "exact-match": "str",
+                  "prefix-match": "str",
+                  "regex-match": "str"
+                }
+              },
+              "query-parameters": [
+                {
+                  "name": "str",
+                  "value": {
+                    "match": {
+                      "exact-match": "str",
+                      "prefix-match": "str",
+                      "regex-match": "str"
+                    }
+                  }
+                }, ...
+              ]
+            }
+          }
+        },
+        "route-options": {
+          "modify-request-headers": [
+            {
+              "name": "str",
+              "operation": {
+                "append": "str",
+                "remove": "bool",
+                "rename": "str",
+                "replace": "str"
+              }
+            }, ...
+          ],
+          "modify-response-headers": [
+            {
+              "name": "str",
+              "operation": {
+                "append": "str",
+                "remove": "bool",
+                "rename": "str",
+                "replace": "str"
+              }
+            }, ...
+          ],
+          "rbac": {
+            "action": "ALLOW|DENY",
+            "principals": [
+              {
+                "and-principals": [
+                  {
+                    "identifier": {
+                      "any": "bool",
+                      "header": {
+                        "name": "str",
+                        "value": {
+                          "match": {
+                            "exact-match": "str",
+                            "prefix-match": "str",
+                            "regex-match": "str"
+                          }
+                        }
+                      },
+                      "remote-ip": "str"
+                    }
+                  }, ...
+                ]
+              }, ...
+            ]
+          },
+          "security-profile-id": "str"
+        }
+      }, ...
+    ]
+  }, ...
+]
+```
+
+Fields:
+
+```
+authority -> ([]string)
+  List of domains that are attributed to the virtual host. The host is selected to process the request received by the load balancer if the domain specified in the HTTP/1.1 'Host' header or the HTTP/2 ':authority' pseudo-header matches a domain specified in the host. A wildcard asterisk character ('*') matches 0 or more characters. If not specified, all domains are attributed to the host, which is the same as specifying a '*' value. An HTTP router must not contain more than one virtual host to which all domains are attributed.
+modify-request-headers -> ([]struct)
+  Deprecated, use route_options.modify_request_headers.
+  name -> (string)
+    Name of the header.
+  operation -> (oneof<append|remove|rename|replace>)
+    Oneof operation field
+    append -> (string)
+      Appends the specified string to the header value. Variables defined for Envoy proxy are supported.
+    replace -> (string)
+      Replaces the value of the header with the specified string. Variables defined for Envoy proxy are supported.
+    remove -> (bool)
+      Removes the header.
+    rename -> (string)
+      Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.
+modify-response-headers -> ([]struct)
+  Deprecated, use route_options.modify_response_headers.
+  name -> (string)
+    Name of the header.
+  operation -> (oneof<append|remove|rename|replace>)
+    Oneof operation field
+    append -> (string)
+      Appends the specified string to the header value. Variables defined for Envoy proxy are supported.
+    replace -> (string)
+      Replaces the value of the header with the specified string. Variables defined for Envoy proxy are supported.
+    remove -> (bool)
+      Removes the header.
+    rename -> (string)
+      Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.
+name -> (string)
+  Name of the virtual host. The name is unique within the HTTP router.
+rate-limit -> (struct)
+  RateLimit is a rate limit configuration applied for a whole virtual host.
+  all-requests -> (struct)
+    AllRequests is a rate limit configuration applied to all incoming requests.
+    rate -> (oneof<per-minute|per-second>)
+      Oneof rate field
+      per-second -> (int)
+        PerSecond is a limit value specified with per second time unit.
+      per-minute -> (int)
+        PerMinute is a limit value specified with per minute time unit.
+  requests-per-ip -> (struct)
+    RequestsPerIp is a rate limit configuration applied separately for each set of requests grouped by client IP address.
+    rate -> (oneof<per-minute|per-second>)
+      Oneof rate field
+      per-second -> (int)
+        PerSecond is a limit value specified with per second time unit.
+      per-minute -> (int)
+        PerMinute is a limit value specified with per minute time unit.
+route-options -> (struct)
+  modify-request-headers -> ([]struct)
+    Apply the following modifications to the request headers.
+    name -> (string)
+      Name of the header.
+    operation -> (oneof<append|remove|rename|replace>)
+      Oneof operation field
+      append -> (string)
+        Appends the specified string to the header value. Variables defined for Envoy proxy are supported.
+      replace -> (string)
+        Replaces the value of the header with the specified string. Variables defined for Envoy proxy are supported.
+      remove -> (bool)
+        Removes the header.
+      rename -> (string)
+        Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.
+  modify-response-headers -> ([]struct)
+    Apply the following modifications to the response headers.
+    name -> (string)
+      Name of the header.
+    operation -> (oneof<append|remove|rename|replace>)
+      Oneof operation field
+      append -> (string)
+        Appends the specified string to the header value. Variables defined for Envoy proxy are supported.
+      replace -> (string)
+        Replaces the value of the header with the specified string. Variables defined for Envoy proxy are supported.
+      remove -> (bool)
+        Removes the header.
+      rename -> (string)
+        Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.
+  rbac -> (struct)
+    action -> (struct)
+      The action to take if a principal matches. Every action either allows or denies a request.
+    principals -> ([]struct)
+      Required. A match occurs when at least one matches the request.
+      and-principals -> ([]struct)
+        Required. A match occurs when all principals match the request.
+        identifier -> (oneof<any|header|remote-ip>)
+          Oneof identifier field
+          header -> (struct)
+            A header (or pseudo-header such as :path or :method) of the incoming HTTP request.
+            name -> (string)
+              Specifies the name of the header in the request.
+            value -> (struct)
+              Specifies how the header match will be performed to route the request. In the absence of value a request that has specified header name will match, regardless of the header's value.
+              match -> (oneof<exact-match|prefix-match|regex-match>)
+                Oneof match field
+                exact-match -> (string)
+                  Exact match string.
+                prefix-match -> (string)
+                  Prefix match string.
+                regex-match -> (string)
+                  Regular expression match string.
+          remote-ip -> (string)
+            A CIDR block or IP that describes the request remote/origin address, e.g. ''192.0.0.0/24'' or''192.0.0.4'' .
+          any -> (bool)
+            When any is set, it matches any request.
+  security-profile-id -> (string)
+    Security profile that will take effect to all requests routed via particular virtual host.
+routes -> ([]struct)
+  Routes of the virtual host. A route contains a set of conditions (predicates) that are used by the load balancer to select the route for the request and an action on the request. For details about the concept, see documentation. The order of routes matters: the first route whose predicate matches the request is selected. The most specific routes should be at the top of the list, so that they are not overridden. For example, if the first HTTP route is configured, via [HttpRoute.match], to match paths prefixed with just '/', other routes are never matched.
+  disable-security-profile -> (bool)
+    Whether set to 'true' disables security profile for the route.
+  name -> (string)
+    Name of the route.
+  route-options -> (struct)
+    modify-request-headers -> ([]struct)
+      Apply the following modifications to the request headers.
+      name -> (string)
+        Name of the header.
+      operation -> (oneof<append|remove|rename|replace>)
+        Oneof operation field
+        append -> (string)
+          Appends the specified string to the header value. Variables defined for Envoy proxy are supported.
+        replace -> (string)
+          Replaces the value of the header with the specified string. Variables defined for Envoy proxy are supported.
+        remove -> (bool)
+          Removes the header.
+        rename -> (string)
+          Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.
+    modify-response-headers -> ([]struct)
+      Apply the following modifications to the response headers.
+      name -> (string)
+        Name of the header.
+      operation -> (oneof<append|remove|rename|replace>)
+        Oneof operation field
+        append -> (string)
+          Appends the specified string to the header value. Variables defined for Envoy proxy are supported.
+        replace -> (string)
+          Replaces the value of the header with the specified string. Variables defined for Envoy proxy are supported.
+        remove -> (bool)
+          Removes the header.
+        rename -> (string)
+          Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.
+    rbac -> (struct)
+      action -> (struct)
+        The action to take if a principal matches. Every action either allows or denies a request.
+      principals -> ([]struct)
+        Required. A match occurs when at least one matches the request.
+        and-principals -> ([]struct)
+          Required. A match occurs when all principals match the request.
+          identifier -> (oneof<any|header|remote-ip>)
+            Oneof identifier field
+            header -> (struct)
+              A header (or pseudo-header such as :path or :method) of the incoming HTTP request.
+              name -> (string)
+                Specifies the name of the header in the request.
+              value -> (struct)
+                Specifies how the header match will be performed to route the request. In the absence of value a request that has specified header name will match, regardless of the header's value.
+                match -> (oneof<exact-match|prefix-match|regex-match>)
+                  Oneof match field
+                  exact-match -> (string)
+                    Exact match string.
+                  prefix-match -> (string)
+                    Prefix match string.
+                  regex-match -> (string)
+                    Regular expression match string.
+            remote-ip -> (string)
+              A CIDR block or IP that describes the request remote/origin address, e.g. ''192.0.0.0/24'' or''192.0.0.4'' .
+            any -> (bool)
+              When any is set, it matches any request.
+    security-profile-id -> (string)
+      Security profile that will take effect to all requests routed via particular virtual host.
+  route -> (oneof<grpc|http>)
+    Oneof route field
+    http -> (struct)
+      HTTP route configuration.
+      match -> (struct)
+        Condition (predicate) used to select the route.
+        headers -> ([]struct)
+          Headers specify HTTP request header matchers. Multiple match values are ANDed together, meaning, a request must match all the specified headers to select the route. Headers must be unique.
+          name -> (string)
+            Name of the HTTP Header to be matched.
+          value -> (struct)
+            Value of HTTP Header to be matched.
+            match -> (oneof<exact-match|prefix-match|regex-match>)
+              Oneof match field
+              exact-match -> (string)
+                Exact match string.
+              prefix-match -> (string)
+                Prefix match string.
+              regex-match -> (string)
+                Regular expression match string.
+        http-method -> ([]string)
+          HTTP method specified in the request.
+        path -> (struct)
+          Match settings for the path specified in the request. If not specified, the route matches all paths.
+          match -> (oneof<exact-match|prefix-match|regex-match>)
+            Oneof match field
+            exact-match -> (string)
+              Exact match string.
+            prefix-match -> (string)
+              Prefix match string.
+            regex-match -> (string)
+              Regular expression match string.
+        query-parameters -> ([]struct)
+          Query Parameters specify HTTP query parameter matchers. Multiple match values are ANDed together, meaning, a request must match all the specified query parameters to select the route. Query parameters must be unique.
+          name -> (string)
+            Name of the HTTP query parameter to be matched.
+          value -> (struct)
+            Value of HTTP query parameter to be matched.
+            match -> (oneof<exact-match|prefix-match|regex-match>)
+              Oneof match field
+              exact-match -> (string)
+                Exact match string.
+              prefix-match -> (string)
+                Prefix match string.
+              regex-match -> (string)
+                Regular expression match string.
+      action -> (oneof<direct-response|redirect|route>)
+        Oneof action field
+        route -> (struct)
+          Forwards the request to a backend group for processing as configured.
+          backend-group-id -> (string)
+            Backend group to forward requests to. Stream (TCP) backend groups are not supported.
+          idle-timeout -> (duration)
+            Idle timeout for an HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is allowed to be idle, i.e. without any data transferred over it. Specifying meaningful values for both [timeout] and 'idle_timeout' is useful for implementing server-push mechanisms such as long polling, server-sent events ('EventSource' interface) etc. If a connection times out, the load balancer responds to the client with a '504 Gateway Timeout' status code. If not specified, no idle timeout is used, and an alive connection may be idle for any duration (see [timeout]).
+          prefix-rewrite -> (string)
+            Replacement for the path prefix matched by [StringMatch]. For instance, if [StringMatch.prefix_match] value is '/foo' and 'prefix_rewrite' value is '/bar', a request with '/foobaz' path is forwarded with '/barbaz' path. For [StringMatch.exact_match], the whole path is replaced. If not specified, the path is not changed. Only one of regex_rewrite, or prefix_rewrite may be specified.
+          rate-limit -> (struct)
+            RateLimit is a rate limit configuration applied for route.
+            all-requests -> (struct)
+              AllRequests is a rate limit configuration applied to all incoming requests.
+              rate -> (oneof<per-minute|per-second>)
+                Oneof rate field
+                per-second -> (int)
+                  PerSecond is a limit value specified with per second time unit.
+                per-minute -> (int)
+                  PerMinute is a limit value specified with per minute time unit.
+            requests-per-ip -> (struct)
+              RequestsPerIp is a rate limit configuration applied separately for each set of requests grouped by client IP address.
+              rate -> (oneof<per-minute|per-second>)
+                Oneof rate field
+                per-second -> (int)
+                  PerSecond is a limit value specified with per second time unit.
+                per-minute -> (int)
+                  PerMinute is a limit value specified with per minute time unit.
+          regex-rewrite -> (struct)
+            Replacement for portions of the path that match the pattern should be rewritten, even allowing the substitution of capture groups from the pattern into the new path as specified by the rewrite substitution string. Only one of regex_rewrite, or prefix_rewrite may be specified. Examples of using: - The path pattern ^/service/([^/]+)(/.*)$ paired with a substitution string of \2/instance/\1 would transform /service/foo/v1/api into /v1/api/instance/foo. - The pattern one paired with a substitution string of two would transform /xxx/one/yyy/one/zzz into /xxx/two/yyy/two/zzz. - The pattern ^(.*?)one(.*)$ paired with a substitution string of \1two\2 would replace only the first occurrence of one, transforming path /xxx/one/yyy/one/zzz into /xxx/two/yyy/one/zzz. - The pattern (?i)/xxx/ paired with a substitution string of /yyy/ would do a case-insensitive match and transform path /aaa/XxX/bbb to /aaa/yyy/bbb.
+            regex -> (string)
+              The regular expression used to find portions of a string that should be replaced.
+            substitute -> (string)
+              The string that should be substituted into matching portions of the subject string during a substitution operation to produce a new string.
+          timeout -> (duration)
+            Overall timeout for an HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is kept alive for, regardless of whether data is transferred over it. If a connection times out, the load balancer responds to the client with a '504 Gateway Timeout' status code. Default value: '60'.
+          upgrade-types -> ([]string)
+            Supported values for HTTP 'Upgrade' header. E.g. 'websocket'.
+          host-rewrite-specifier -> (oneof<auto-host-rewrite|host-rewrite>)
+            Oneof host-rewrite-specifier field
+            host-rewrite -> (string)
+              Host replacement.
+            auto-host-rewrite -> (bool)
+              Automatically replaces the host with that of the target.
+        redirect -> (struct)
+          Redirects the request as configured.
+          remove-query -> (bool)
+            Removes URI query.
+          replace-host -> (string)
+            URI host replacement. If not specified, the original host is used.
+          replace-port -> (int)
+            URI host replacement. If not specified, the original host is used.
+          replace-scheme -> (string)
+            URI scheme replacement. If 'http' or 'https' scheme is to be replaced and '80' or '443' port is specified in the original URI, the port is also removed. If not specified, the original scheme and port are used.
+          response-code -> (struct)
+            HTTP status code to use in redirect responses.
+          path -> (oneof<replace-path|replace-prefix>)
+            Oneof path field
+            replace-path -> (string)
+              Replacement for the whole path.
+            replace-prefix -> (string)
+              Replacement for the path prefix matched by [StringMatch]. For instance, if [StringMatch.prefix_match] value is '/foo' and 'replace_prefix' value is '/bar', a request with 'https://example.com/foobaz' URI is redirected to 'https://example.com/barbaz'. For [StringMatch.exact_match], the whole path is replaced.
+        direct-response -> (struct)
+          Instructs the load balancer to respond directly as configured.
+          body -> (struct)
+            Response body.
+            payload -> (oneof<text>)
+              Oneof payload field
+              text -> (string)
+                Payload text.
+          status -> (int)
+            HTTP status code to use in responses.
+    grpc -> (struct)
+      gRPC route configuration.
+      match -> (struct)
+        Condition (predicate) used to select the route.
+        fqmn -> (struct)
+          Match settings for gRPC service method called in the request. A match string must be a fully qualified method name, e.g. 'foo.bar.v1.BazService/Get', or a prefix of such. If not specified, the route matches all methods.
+          match -> (oneof<exact-match|prefix-match|regex-match>)
+            Oneof match field
+            exact-match -> (string)
+              Exact match string.
+            prefix-match -> (string)
+              Prefix match string.
+            regex-match -> (string)
+              Regular expression match string.
+      action -> (oneof<route|status-response>)
+        Oneof action field
+        route -> (struct)
+          Forwards the request to a backend group for processing as configured.
+          backend-group-id -> (string)
+            Backend group to forward requests to.
+          idle-timeout -> (duration)
+            Idle timeout for an underlying HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is allowed to be idle, i.e. without any data transferred over it. Specifying meaningful values for both [max_timeout] and 'idle_timeout' is useful for implementing server-push mechanisms such as long polling, server-sent events etc. If a connection times out, the load balancer responds to the client with an 'UNAVAILABLE' status code. If not specified, no idle timeout is used, and an alive connection may be idle for any duration (see [max_timeout]).
+          max-timeout -> (duration)
+            Overall timeout for an underlying HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is kept alive for, regardless of whether data is transferred over it. If a client specifies a lower timeout in HTTP 'grpc-timeout' header, the 'max_timeout' value is ignored. If a connection times out, the load balancer responds to the client with an 'UNAVAILABLE' status code. Default value: '60'.
+          rate-limit -> (struct)
+            RateLimit is a rate limit configuration applied for route.
+            all-requests -> (struct)
+              AllRequests is a rate limit configuration applied to all incoming requests.
+              rate -> (oneof<per-minute|per-second>)
+                Oneof rate field
+                per-second -> (int)
+                  PerSecond is a limit value specified with per second time unit.
+                per-minute -> (int)
+                  PerMinute is a limit value specified with per minute time unit.
+            requests-per-ip -> (struct)
+              RequestsPerIp is a rate limit configuration applied separately for each set of requests grouped by client IP address.
+              rate -> (oneof<per-minute|per-second>)
+                Oneof rate field
+                per-second -> (int)
+                  PerSecond is a limit value specified with per second time unit.
+                per-minute -> (int)
+                  PerMinute is a limit value specified with per minute time unit.
+          host-rewrite-specifier -> (oneof<auto-host-rewrite|host-rewrite>)
+            Oneof host-rewrite-specifier field
+            host-rewrite -> (string)
+              Host replacement.
+            auto-host-rewrite -> (bool)
+              Automatically replaces the host with that of the target.
+        status-response -> (struct)
+          Instructs the load balancer to respond directly with a specified status.
+          status -> (struct)
+            gRPC status code to use in responses.
+``` ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

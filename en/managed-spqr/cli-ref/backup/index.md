@@ -1,17 +1,17 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/backup/index.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/backup/index.md
 ---
 
-# yc managed-postgresql backup
+# yc managed-sharded-postgresql backup
 
-Manage PostgreSQL backups
+Manage Sharded PostgreSQL backups
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-postgresql backup <command>`
+`yc managed-sharded-postgresql backup <command>`
 
 Aliases: 
 
@@ -19,9 +19,9 @@ Aliases:
 
 #### Command Tree
 
-- [yc managed-postgresql backup delete](delete.md) — Delete the specified PostgreSQL backup
-- [yc managed-postgresql backup get](get.md) — Show information about the specified PostgreSQL backup
-- [yc managed-postgresql backup list](list.md) — List available backups
+- [yc managed-sharded-postgresql backup delete](delete.md) — Delete the specified Sharded PostgreSQL backup
+- [yc managed-sharded-postgresql backup get](get.md) — Show information about the specified Sharded PostgreSQL backup
+- [yc managed-sharded-postgresql backup list](list.md) — List available backups
 
 #### Global Flags
 

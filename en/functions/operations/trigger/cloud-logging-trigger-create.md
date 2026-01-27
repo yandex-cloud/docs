@@ -6,7 +6,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
 {% include [trigger-before-you-begin](../../../_includes/functions/trigger-before-you-begin.md) %}
 
-* A log group that activates the trigger when entries are added there. If you do not have a log group, [create one](../../../logging/operations/create-group.md).
+* Log group for which a trigger will fire when entries are added to it. If you do not have a log group, [create one](../../../logging/operations/create-group.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -18,7 +18,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -131,7 +131,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
   To create a trigger for {{ cloud-logging-name }}:
 
-  1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
 
      ```
      resource "yandex_function_trigger" "my_trigger" {
@@ -141,16 +141,16 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
           id                 = "<function_ID>"
           service_account_id = "<service_account_ID>"
           retry_attempts     = "<number_of_retry_attempts>"
-          retry_interval     = "<interval_between_retry_attempts>"
+          retry_interval     = "<time_between_retry_attempts>"
        }
        logging {
           group_id       = "<log_group_ID>"
           resource_types = [ "<resource_type>" ]
           resource_ids   = [ "<resource_ID>" ]
-          stream_names   = [ "<logging_stream>" ]
+          stream_names   = [ "<log_stream>" ]
           levels         = [ "<logging_level>", "<logging_level>" ]
-          batch_cutoff   = "<maximum_timeout>"
-          batch_size     = "<message_group_size>"
+          batch_cutoff   = "<maximum_wait_time>"
+          batch_size     = "<message_batch_size>"
        }
        dlq {
          queue_id           = "<dead-letter_queue_ID>"
@@ -166,21 +166,21 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
      * `logging`: Trigger parameters:
 
         * `group_id`: ID of the log group that will invoke a function when entries are added to it.
-        * `resource_types`: Types of resources, e.g., of the `resource_types = [ "serverless.function" ]` {{ sf-name }} function. You can specify multiple types.
+        * `resource_types`: Types of resources, e.g., of a `resource_types = [ "serverless.function" ]` {{ sf-name }} function. You can specify multiple types. 
         * `resource_ids`: IDs of your resources or {{ yandex-cloud }} resources, e.g., of the `resource_ids = [ "<function_ID>" ]` functions. You can specify multiple IDs.
         * `stream_names`: Log streams. This is an optional parameter.
         * `levels`: Logging levels. For example, `levels = [ "INFO", "ERROR"]`.
 
-          A trigger fires when the specified log group receives entries that comply with all of the following parameters: `resource-ids`, `resource-types`, `stream-names`, and `levels`. If a parameter is not specified, the trigger fires for any value of the parameter.
+          A trigger fires when the specified log group receives entries that comply with all of the following parameters: `resource-ids`, `resource-types`, `stream-names`, and `levels`. If the parameter is not specified, the trigger fires for any value.
 
         * `batch_cutoff`: Maximum wait time. Acceptable values are from 0 to 60 seconds. The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function. The number of messages cannot exceed the specified `batch-size`.
         * `batch_size`: Message batch size. Acceptable values are from 1 to 10.
 
      {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-     For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+     For more information about `yandex_function_trigger` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-  1. Create resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

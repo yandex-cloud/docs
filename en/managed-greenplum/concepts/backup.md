@@ -14,21 +14,23 @@ For example, if the backup was created on November 10, 2022, 12:00:00 UTC, the c
 
 PITR mode is enabled by default. It supports automatic backups only.
 
+{% include [deprecated-note](../../_includes/mdb/backups/deprecated-note.md) %}
+
 To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md#restore). You can also restore your cluster to move its hosts to a different availability zone.
 
 ## Creating a backup {#size}
 
 The first and every second automatic backup, as well as all manually created backups are full backups of all databases. To save space, other backups are incremental and only store the data that has changed since the previous backup.
 
-A backup is automatically created every day. You cannot disable automatic backups. However, for such backups, you can specify a time interval during which the backup will start when you [create](../operations/cluster-create.md) or [update](../operations/update.md#change-additional-settings) a cluster. The default value is `22:00 - 23:00` UTC (Coordinated Universal Time).
+A backup is automatically created once a day. You cannot disable automatic backups. However, for such backups, you can specify a time interval during which the backup will start when you [create](../operations/cluster-create.md) or [update](../operations/update.md#change-additional-settings) a cluster. The default value is `22:00 - 23:00` UTC (Coordinated Universal Time).
 
 After a backup is created, it is compressed for storage. Append-optimized tables use data deduplication technology: newly added data or old data last archived more than 30 days ago is copied. The backup size does not include the deduplicated part size, so the displayed value can be significantly smaller than the data size in the cluster.
 
 Backups are only created on running clusters. If you are not using your {{ GP }} cluster 24/7, check the [settings of backup start time](../operations/update.md#change-additional-settings).
 
-For more information about creating a backup manually, see [Managing backups](../operations/cluster-backups.md#create-backup).
+Learn about creating manual backups in [Managing backups](../operations/cluster-backups.md#create-backup).
 
-## Storing backups {#storage}
+## Storing a backup {#storage}
 
 Storing backups in {{ mgp-name }}:
 
@@ -42,9 +44,9 @@ Storing backups in {{ mgp-name }}:
 
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 
-## Checking backup recovery {#capabilities}
+## Testing recovery from a backup {#capabilities}
 
-To test how backup works, [restore a cluster from a backup](../operations/cluster-backups.md#restore) and check the integrity of your data.
+To test how backup works, [restore a cluster from a backup](../operations/cluster-backups.md#restore) and check your data for integrity.
 
 ## Use cases {#examples}
 

@@ -12,7 +12,7 @@ description: Follow this guide to view function scaling settings.
     To view any scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`):
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select a function.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}**, hover over the tag (e.g., ![image](../../../_assets/console-icons/gear.svg) `$latest`) of the function version whose scaling settings you want to view.
     1. Information on these scaling settings will be displayed in a pop-up window:

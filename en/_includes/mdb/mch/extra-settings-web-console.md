@@ -15,7 +15,7 @@
 
    * To [create](../../../kms/operations/key.md#create) a new key, click **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
 
-   * To use the key you created earlier, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
+   * To use a previously created key, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
 
    To learn more about disk encryption, see [Storage](../../../managed-clickhouse/concepts/storage.md#disk-encryption).
 

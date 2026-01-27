@@ -1,30 +1,31 @@
 # Editing PXF settings
 
-The [PXF](../external-tables.md) settings you can configure using the {{ yandex-cloud }} tools match those in the {{ GP }} [pxf-application.properties]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/config_files.html#pxfappprops) configuration file. It describes the features of the PXF protocol. In {{ GP }} clusters, PXF settings have the default values. To optimize working with [external tables](../../concepts/external-tables.md), you can update the PXF settings using the {{ yandex-cloud }} interfaces rather than edit the file.
+The [PXF](../external-tables.md) settings you can configure using the {{ yandex-cloud }} tools match those in the {{ GP }} [pxf-application.properties]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/config_files.html#pxfappprops) configuration file. It describes the PXF protocol features. In {{ GP }} clusters, the PXF settings have the default values. To optimize working with [external tables](../../concepts/external-tables.md), you can update the PXF settings using the {{ yandex-cloud }} interfaces rather than edit the file.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    To change the PXF settings:
+    To edit PXF settings:
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Navigate to](../../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
     1. Click the cluster name and select ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}** in the left-hand panel.
     1. Click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.greenplum.cluster.pxf.action_edit-settings }}** at the top of the page.
-    1. Change the settings:
+    1. Edit the settings:
 
-        * **Connection Timeout**: Timeout for connection to the Apache Tomcat® server when making read queries. The value range is from `5` to `600` seconds. You can specify the values in various time units.
-        * **Upload Timeout**: Timeout for connection to the Apache Tomcat® server when making write queries. The value range is from `5` to `600` seconds. You can specify the values in various time units.
-        * **Max Threads**: Maximum number of the Apache Tomcat® threads. The value range is from `1` to `1024`.
+        * **Connection Timeout**: Timeout for connection to the Apache Tomcat® server when making read queries. The value range is from `5` to `600` seconds. You can specify values in various time units.
+        * **Upload Timeout**: Timeout for connection to the Apache Tomcat® server when making write queries. The value range is from `5` to `600` seconds. You can specify values in various time units.
+        * **Max Threads**: Maximum number of Apache Tomcat® threads. The value range is from `1` to `1024`.
 
-            To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html) documentation.
+            To prevent requests from getting stuck or failing due to running out of memory or malfunctioning of the Java garbage collector, specify the number of Apache Tomcat® threads. Learn more about adjusting the number of threads in the guide on [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html).
 
         * **Pool Allow Core Thread Timeout**: Whether or not a timeout for core streaming threads is allowed.
         * **Pool Core Size**: Number of core streaming threads per pool. The value range is from `1` to `1024`.
         * **Pool Queue Capacity**: Maximum number of queries you can add to a pool queue after core streaming threads. The values may range from zero upward. If `0`, no pool queue is generated.
         * **Pool Max Size**: Maximum allowed number of core streaming threads. The value range is from `1` to `1024`.
-        * **Xmx**: Maximum size of the JVM heap for the PXF daemon. The value range is from `64` to `16384` MB. You can specify the values in various units.
-        * **Xms**: Initial size of the JVM heap for the PXF daemon. The value range is from `64` to `16384` MB. You can specify the values in various units.
+        * **Xmx**: Maximum size of the JVM heap for the PXF daemon. The value range is from `64` to `16384` MB. You can specify values in various units.
+        * **Xms**: Initial size of the JVM heap for the PXF daemon. The value range is from `64` to `16384` MB. You can specify values in various units.
 
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -34,21 +35,21 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    To change the PXF settings:
+    To edit PXF settings:
 
-    1. See the description of the CLI command for updating the cluster configuration:
+    1. See the description of the CLI command for updating a cluster configuration:
 
         ```bash
         {{ yc-mdb-gp }} cluster update --help
         ```
 
-    1. Specify PXF settings:
+    1. Specify the PXF settings:
 
         ```bash
         {{ yc-mdb-gp }} cluster update <cluster_name_or_ID> \
            --pxf-connection-timeout=<read_queries_timeout> \
            --pxf-upload-timeout=<write_queries_timeout> \
-           --pxf-max-threads=<Maximum_number_of_the_Apache_Tomcat®_threads> \
+           --pxf-max-threads=<Maximum_number_of_Apache_Tomcat®_threads> \
            --pxf-pool-allow-core-thread-timeout=<whether_a_timeout_for_core_streaming_threads_is_allowed> \
            --pxf-poll-core-size=<number_of_streaming_threads> \
            --pxf-pool-queue-capacity=<pool_queue_capacity_for_streaming_threads> \
@@ -63,7 +64,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * `pxf-upload-timeout`: Timeout for connection to the Apache Tomcat® server when making write queries, in seconds. The value range is from `5` to `600`.
         * `pxf-max-threads`: Maximum number of the Apache Tomcat® threads. The value range is from `1` to `1024`.
 
-            To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html) documentation.
+            To prevent requests from getting stuck or failing due to running out of memory or malfunctioning of the Java garbage collector, specify the number of Apache Tomcat® threads. Learn more about adjusting the number of threads in the guide on [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html).
 
         * `pxf-pool-allow-core-thread-timeout`: Whether or not a timeout for core streaming threads is allowed. The default value is `false`.
         * `pxf-poll-core-size`: Number of core streaming threads per pool. The value range is from `1` to `1024`.
@@ -76,13 +77,13 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
 
 - {{ TF }} {#tf}
 
-    To change the PXF settings:
+    To edit PXF settings:
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-        For more information on how to create this file, see [{#T}](../cluster-create.md).
+        For more information about creating this file, see [{#T}](../cluster-create.md).
 
-        For a complete list of configurable {{ GP }} cluster fields, refer to the [{{ TF }} provider guides]({{ tf-provider-mgp }}).
+        For a complete list of adjustable configuration fields for {{ GP }} clusters, see the [{{ TF }} provider guide]({{ tf-provider-mgp }}).
 
     1. In the cluster description, under `pxf_config`, configure the PXF settings:
 
@@ -92,7 +93,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
           pxf_config {
             connection_timeout             = <read_queries_timeout>
             upload_timeout                 = <write_queries_timeout>
-            max_threads                    = <Maximum_number_of_the_Apache_Tomcat®_threads>
+            max_threads                    = <Maximum_number_of_Apache_Tomcat®_threads>
             pool_allow_core_thread_timeout = <whether_a_timeout_for_core_streaming_threads_is_allowed>
             pool_core_size                 = <number_of_streaming_threads>
             pool_queue_capacity            = <pool_queue_capacity_for_streaming_threads>
@@ -109,7 +110,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * `upload_timeout`: Timeout for connection to the Apache Tomcat® server when making write queries, in seconds. The value range is from `5` to `600`.
         * `max_threads`: Maximum number of the Apache Tomcat® threads. The value range is from `1` to `1024`.
 
-            To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html) documentation.
+            To prevent requests from getting stuck or failing due to running out of memory or malfunctioning of the Java garbage collector, specify the number of Apache Tomcat® threads. Learn more about adjusting the number of threads in the guide on [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html).
 
         * `pool_allow_core_thread_timeout`: Whether or not a timeout for core streaming threads is allowed. The default value is `false`.
         * `pool_core_size`: Number of core streaming threads per pool. The value range is from `1` to `1024`.
@@ -118,7 +119,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * `xmx`: Maximum size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
         * `xms`: Initial size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
 
-    1. Check if the settings are correct.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -128,11 +129,11 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
-    1. Call the [Cluster.Update](../../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+    1. Use the [Cluster.Update](../../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../../_includes/note-api-updatemask.md) %}
 
@@ -148,7 +149,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
                         "pxfConfig" : {
                           "connectionTimeout": "<read_queries_timeout>",
                           "uploadTimeout": "<write_queries_timeout>",
-                          "maxThreads": "<Maximum_number_of_the_Apache_Tomcat®_threads>",
+                          "maxThreads": "<Maximum_number_of_Apache_Tomcat®_threads>",
                           "poolAllowCoreThreadTimeout": <whether_a_timeout_for_core_streaming_threads_is_allowed>,
                           "poolCoreSize": "<number_of_streaming_threads>",
                           "poolQueueCapacity": "<pool_queue_capacity_for_streaming_threads>",
@@ -162,12 +163,12 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
 
         Where:
 
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings you want to update.
         * `connectionTimeout`: Timeout for connection to the Apache Tomcat® server when making read queries, in seconds. The value range is from `5` to `600`.
         * `uploadTimeout`: Timeout for connection to the Apache Tomcat® server when making write queries, in seconds. The value range is from `5` to `600`.
         * `maxThreads`: Maximum number of the Apache Tomcat® threads. The value range is from `1` to `1024`.
 
-            To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html) documentation.
+            To prevent requests from getting stuck or failing due to running out of memory or malfunctioning of the Java garbage collector, specify the number of Apache Tomcat® threads. Learn more about adjusting the number of threads in the guide on [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html).
 
         * `poolAllowCoreThreadTimeout`: Whether or not a timeout for core streaming threads is allowed. The default value is `false`.
         * `poolCoreSize`: Number of core streaming threads per pool. The value range is from `1` to `1024`.
@@ -176,19 +177,19 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * `xmx`: Maximum size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
         * `xms`: Initial size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
 
-        You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
+        You can get the cluster ID from the [list of clusters in your folder](../cluster-list.md#list-clusters).
 
-    1. Check the [server response](../../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Call the [ClusterService.Update](../../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+    1. Use the [ClusterService.Update](../../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -218,7 +219,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
                     "pxf_config" : {
                       "connection_timeout": "<read_queries_timeout>",
                       "upload_timeout": "<write_queries_timeout>",
-                      "max_threads": "<Maximum_number_of_the_Apache_Tomcat®_threads>",
+                      "max_threads": "<Maximum_number_of_Apache_Tomcat®_threads>",
                       "pool_allow_core_thread_timeout": <whether_a_timeout_for_core_streaming_threads_is_allowed>,
                       "pool_core_size": "<number_of_streaming_threads>",
                       "pool_queue_capacity": "<pool_queue_capacity_for_streaming_threads>",
@@ -239,7 +240,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * `upload_timeout`: Timeout for connection to the Apache Tomcat® server when making write queries, in seconds. The value range is from `5` to `600`.
         * `max_threads`: Maximum number of the Apache Tomcat® threads. The value range is from `1` to `1024`.
 
-            To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html) documentation.
+            To prevent requests from getting stuck or failing due to running out of memory or malfunctioning of the Java garbage collector, specify the number of Apache Tomcat® threads. Learn more about adjusting the number of threads in the guide on [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html).
 
         * `pool_allow_core_thread_timeout`: Whether or not a timeout for core streaming threads is allowed. The default value is `false`.
         * `pool_core_size`: Number of core streaming threads per pool. The value range is from `1` to `1024`.
@@ -248,9 +249,9 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * `xmx`: Maximum size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
         * `xms`: Initial size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
 
-        You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
+        You can get the cluster ID from the [list of clusters in your folder](../cluster-list.md#list-clusters).
 
-    1. Check the [server response](../../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

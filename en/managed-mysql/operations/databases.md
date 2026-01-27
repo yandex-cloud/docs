@@ -10,8 +10,8 @@ You can add and remove databases, view database details, and manage some databas
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
 
 - CLI {#cli}
 
@@ -30,7 +30,7 @@ You can add and remove databases, view database details, and manage some databas
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -45,11 +45,11 @@ You can add and remove databases, view database details, and manage some databas
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Database/list.md#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Database/list.md#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -78,14 +78,14 @@ You can add and remove databases, view database details, and manage some databas
 
 ## Creating a database {#add-db}
 
-{% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
+{% include [note-db-limit](../../_includes/mdb/mmy/note-db-limit.md) %}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the cluster name.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
+  1. Click the name of your cluster.
   1. If you want a new user to become the database owner, [create it](cluster-users.md#adduser).
   1. Select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
@@ -125,7 +125,7 @@ You can add and remove databases, view database details, and manage some databas
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Add the `yandex_mdb_mysql_database` resource:
 
@@ -150,7 +150,7 @@ You can add and remove databases, view database details, and manage some databas
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -173,11 +173,11 @@ You can add and remove databases, view database details, and manage some databas
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -215,8 +215,8 @@ You can add and remove databases, view database details, and manage some databas
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the database in question and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
 - CLI {#cli}
@@ -237,9 +237,9 @@ You can add and remove databases, view database details, and manage some databas
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-  1. Delete the `yandex_mdb_mysql_database` resource with the name of the database you are deleting.
+  1. Remove the `yandex_mdb_mysql_database` resource with the name of the database you are deleting.
 
   1. Make sure the settings are correct.
 
@@ -253,7 +253,7 @@ You can add and remove databases, view database details, and manage some databas
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -272,7 +272,7 @@ You can add and remove databases, view database details, and manage some databas
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -372,7 +372,7 @@ You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mo
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -400,7 +400,7 @@ You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mo
 
       Where:
 
-      * `updateMask`: Comma-separated list of settings you want to update.
+      * `updateMask`: Comma-separated string of settings you want to update.
 
           Here, we provide only one setting.
 
@@ -411,11 +411,11 @@ You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mo
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -452,7 +452,7 @@ You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mo
 
       Where:
 
-      * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+      * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
 
           Here, we provide only one setting.
 

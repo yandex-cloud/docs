@@ -24,8 +24,7 @@ The parameters listed bellow can be managed by the user globally at cluster leve
 |-------------------|---------|--------------------------------|-----------------------|----------|
 | 6.25 and higher | Boolean | `true` (`on`), `false` (`off`) | `false` (`off`) | `user` |
 
-When adding a column to an append-optimized column-oriented table (`append-optimized`) 
-using the `ALTER TABLE` command, this parameters decides whether the table data compression settings for the column (`compresstype`, `compresslevel`, and `blocksize`) will be inherited from the table values.
+When adding a column to an append-optimized column-oriented table (`append-optimized`) using the `ALTER TABLE` command, this parameter decides whether the table data compression settings for the column (`compresstype`, `compresslevel`, and `blocksize`) will be inherited from the table values.
 
 By default, this parameter is off (`false`/`off`): the table data compression settings are not considered when adding a column. If the parameter is on (`true`/`on`), the table compression settings will be considered.
 
@@ -68,7 +67,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### gp_autostats_on_change_threshold {#setting-gp-autostats-on-change-threshold}
 
-| Available in version | Type | Acceptable values | Default value | Context |
+| It is available in versions from | Type | Acceptable values | Default value | Context |
 |-------------------|---------|---------------------|-----------------------|----------|
 | 6.25 and higher | Integer | from 0 to 2147483647 | 2147483647 | `user` |
 
@@ -78,7 +77,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### gp_cached_segworkers_threshold {#setting-gp-cached-segworkers-threshold}
 
-| Available in version | Type | Acceptable values | Default value | Context |
+| It is available in versions from | Type | Acceptable values | Default value | Context |
 |-------------------|---------|---------------------|-----------------------|----------|
 | 6.25 and higher | Integer | from 1 to 10 | 5 | `user` |
 
@@ -463,7 +462,7 @@ The DBMS itself has only one parameter: `shared_buffers`. On the service side, t
 | 6.25 and higher       | Integer | from 1048576 to the calculated value | 134217728 (128 MB)    | `postmaster` |
 
 
-Sets the amount of memory the segment instance uses for shared memory buffers. This parameter value must be at least 1 MB and must not exceed the value of the following expression (in particular, this depends on [max_connections](#setting-max-connections)):
+This parameter sets the amount of memory that a segment instance uses for shared memory buffers. This parameter value must be at least 1 MB and must not exceed the value of the following expression (in particular, it depends on [max_connections](#setting-max-connections)):
 
 ```
 max(0.2 × RAM available on the segment / number of segments per host), 16384 × 5 × max_connections)

@@ -2,15 +2,17 @@
 
 {{ mos-short-name }} supports automatic and manual [index](./indexing.md) backups.
 
-## Creating backup {#size}
+For clusters running an unsupported [DBMS version](update-policy.md#versioning-policy), restoring from backups is not available.
+
+## Creating a backup {#size}
 
 Backups are only created on running clusters.
 
 Automatic backup takes place every hour, and you cannot turn it off.
 
-For more information about creating a backup manually, see [Managing backups](../operations/cluster-backups.md).
+Learn about creating manual backups in [Managing backups](../operations/cluster-backups.md).
 
-## Storing backups {#storage}
+## Storing a backup {#storage}
 
 Storing backups in {{ mos-name }}:
 
@@ -32,6 +34,6 @@ Storing backups in {{ mos-name }}:
     For more information, see the [{{ mos-name }} pricing policy](../pricing.md#rules-storage).
 
 
-## Checking backup recovery {#capabilities}
+## Testing recovery from a backup {#capabilities}
 
 To test how backup works, you can [restore a cluster from a backup](../operations/cluster-backups.md#restore) and check the integrity of your data.

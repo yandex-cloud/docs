@@ -15,7 +15,7 @@ In this section, you can find the {{ mmy-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using {{ mmy-name }}, use our [calculator](https://yandex.cloud/en/prices?state=7f776c1fc309#calculator) on the {{ yandex-cloud }} website or check the pricing data below.
+For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=7f776c1fc309#calculator) on our website or check out the pricing below.
 
 
 {% endnote %}
@@ -51,17 +51,17 @@ There are different ways to calculate the cost depending on the [host type](conc
 
 * Dedicated hosts
 
-  The cost is a sum of the [price for {{ compute-full-name }} computing resources](../compute/pricing.md#prices) and {{ mmy-name }} markup on these resources.
+  There are two cost components: the [{{ compute-full-name }} computing resources](../compute/pricing.md#prices) and the {{ mmy-name }} markup on these resources.
 
 
 You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
-The minimum billing unit is one minute, e.g., you will be charged for 2 minutes when using a host for 90 seconds (1.5 minutes). You will not be charged for the time when the {{ MY }} host is unavailable for basic operations.
+The minimum billing unit is one minute, e.g., 1.5 minutes of host operation cost the same as two minutes. You will not be charged for the time when the {{ MY }} host is unavailable for basic operations.
 
 
 ### Disk space usage {#rules-storage}
 
-You are charged for the following:
+You pay for the following:
 
 * Storage allocated for database clusters.
 
@@ -77,14 +77,14 @@ You are charged for the following:
 
     * The number of hosts in a cluster does not affect the storage size and, consequently, the amount of free backups.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 90 seconds (1.5 minutes) costs the same as for 2 minutes.
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes costs the same as for 2 minutes.
 
 
 ### Example of cluster cost calculation {#example}
 
 Let's calculate the cost of using a cluster with the following properties for 30 days:
 
-* **{{ MY }} hosts**: Three `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
+* **{{ MY }} hosts**: Three `s3-c2-m8` hosts, Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
 * **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 GB of network HDD storage.
 
 Cost calculation for {{ MY }} hosts:
@@ -108,7 +108,7 @@ Calculation for the storage cost and total cost:
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mmy-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ mmy-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
@@ -118,7 +118,6 @@ A CVoS discount is only available for certain resource types. For unsupported re
 
 
 ## Prices for the Russia region {#prices}
-
 
 
 
@@ -134,7 +133,7 @@ The price of local SSD storage (`local-ssd`) also depends on the host type.
 {% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
 
 
-The dedicated host cost is a sum of the [price for {{ compute-full-name }} computing resources](../compute/pricing.md#prices) and {{ mmy-name }} markup on these resources.
+There are two cost components: the [{{ compute-full-name }} computing resources](../compute/pricing.md#prices) and the {{ mmy-name }} markup on these resources.
 
 
 

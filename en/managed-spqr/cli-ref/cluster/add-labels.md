@@ -1,24 +1,24 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/cluster/add-labels.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/cluster/add-labels.md
 ---
 
-# yc managed-postgresql cluster add-labels
+# yc managed-sharded-postgresql cluster add-labels
 
-Add labels to PostgreSQL cluster
+Add labels to Sharded PostgreSQL cluster
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-postgresql cluster add-labels <CLUSTER-NAME>|<CLUSTER-ID> --labels KEY=VALUE[,KEY=VALUE...] [Flags...] [Global Flags...]`
+`yc managed-sharded-postgresql cluster add-labels <CLUSTER-NAME>|<CLUSTER-ID> --labels KEY=VALUE[,KEY=VALUE...] [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>PostgreSQL cluster id.|
-|`--name`|<b>`string`</b><br/>PostgreSQL cluster name.|
+|`--id`|<b>`string`</b><br/>Sharded PostgreSQL cluster id.|
+|`--name`|<b>`string`</b><br/>Sharded PostgreSQL cluster name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
 

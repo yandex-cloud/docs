@@ -2,7 +2,7 @@ Create a [trigger](../../functions/concepts/trigger/iot-core-trigger.md) for an 
 
 {% note warning %}
 
-The trigger must be in the same cloud as the broker whose topic it reads messages from.
+The trigger must be in the same cloud as the broker from topic of which it reads messages.
 
 {% endnote %}
 
@@ -22,7 +22,7 @@ The trigger must be in the same cloud as the broker whose topic it reads message
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -37,7 +37,7 @@ The trigger must be in the same cloud as the broker whose topic it reads message
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}**:
       
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_broker }}** field, specify the broker.
-        * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_mqtt-topic }}** field, specify an MQTT topic. If no MQTT topic is set, the trigger fires for all broker topics.
+        * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_mqtt-topic }}** field, specify an MQTT topic. If no MQTT topic is set, the trigger fires for all broker topics.
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 

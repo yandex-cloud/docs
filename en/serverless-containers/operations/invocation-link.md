@@ -9,8 +9,8 @@ description: Follow this guide to get an invocation link.
 
 - Management console {#console}
 
-	1. In the [management console]({{ link-console-main }}), select the folder with your container.
-	1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+	1. In the [management console]({{ link-console-main }}), go to the folder with your container.
+	1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 	1. Select the container. You will find the invocation link in the **{{ ui-key.yacloud.serverless-containers.label_url }}** field.
 
 - CLI {#cli}

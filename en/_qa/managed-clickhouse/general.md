@@ -9,7 +9,7 @@ With {{ mch-short-name }}, you can:
 
 {{ mch-short-name }} takes over time-consuming administrative tasks in {{ CH }}:
 - Monitors your resource consumption.
-- Automatically backs up your databases.
+- Automatically creates DB backups.
 - Ensures [high availability](../../managed-clickhouse/concepts/high-availability.md) through automatic failover to standby replicas.
 - Keeps your DBMS software up to date.
 
@@ -55,7 +55,7 @@ Before creating a database cluster in {{ mch-short-name }}, you need to decide o
 
 For more information, see [Getting started](../../managed-clickhouse/quickstart.md).
 
-#### How many database hosts can be in a cluster? {#how-many-hosts}
+#### How many database hosts can there be in a cluster? {#how-many-hosts}
 
 
 The minimum number of hosts in a cluster depends on the following:
@@ -95,7 +95,7 @@ To learn more about MDB technical and organizational limitations, see [Quotas an
 
 Maintenance in {{ mch-short-name }} includes:
 
-- Automatic installation of DBMS updates and patches for all hosts, even disabled ones.
+- Automatic installation of DBMS updates and patches for database hosts (including for stopped clusters).
 - Changes in the host class and storage size.
 - Other {{ mch-short-name }} maintenance activities.
 
@@ -123,15 +123,15 @@ We recommend the latest available LTS version of {{ CH }}. For more information,
 
 When new minor versions are released, the cluster software is automatically updated after a short testing period. 
 
-Owners of affected database clusters are notified of an expected maintenance period and database availability in advance. 
+Owners of affected database clusters get advance notice of upcoming maintenance and database availability. 
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 
 When a DBMS version becomes deprecated, {{ mch-short-name }} automatically sends email notifications to the owners of database clusters created with this version.
 
-New hosts can no longer be created using deprecated DBMS versions. Clusters running a deprecated {{ CH }} version are updated according to the [versioning policy](../../managed-clickhouse/concepts/update-policy.md).
+For clusters with a deprecated DBMS version, there is no option to create new hosts or restore from backups. Clusters running a deprecated {{ CH }} version are updated according to the [versioning policy](../../managed-clickhouse/concepts/update-policy.md).
 
-Owners of affected database clusters are notified of an expected maintenance period and database availability in advance.
+Owners of affected database clusters get advance notice of upcoming maintenance and database availability.
 
 #### How do you calculate usage cost for a database host? {#db-cost}
 

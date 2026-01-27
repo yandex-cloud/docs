@@ -20,7 +20,7 @@ Key columns may have the following data types:
 
 ## Sharding strategies {#sharding-strategies}
 
-Row distribution across shards follows the strategy you choose:
+Row distribution across shards follows the [strategy you choose](sharding-method.md):
 
 * _Range_ strategy assigns rows to shards based on value ranges. A row goes to a shard if its key value falls within that shard’s range. Rows with close key values be placed on the same shard.
 
@@ -70,7 +70,7 @@ When using a composite key, the system determines the target shard for a row as 
   > CREATE KEY RANGE FROM 0 ROUTE TO sh1;
   > ```
 
-  Using the hash strategy makes it easier to configure sharding rules, particularly for composite keys consisting of three or more columns.
+  Using the hash strategy makes it easier to configure sharding rules.
 
 Learn more about composite sharding keys in {{ SPQR }} [here](https://docs.pg-sharding.tech/sharding/composite_keys).
 

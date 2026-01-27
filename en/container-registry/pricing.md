@@ -37,7 +37,6 @@ If multiple [Docker images](concepts/docker-image.md) in the same registry use t
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 

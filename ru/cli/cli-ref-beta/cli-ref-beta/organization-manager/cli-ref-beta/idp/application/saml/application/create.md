@@ -10,42 +10,263 @@ Creates a SAML application in the specified organization.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta organization-manager idp application saml application create <ORGANIZATION-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--attribute-mapping`|<b>`shorthand/json`</b><br/>Attribute mapping configuration for the SAML application.<br/>Shorthand Syntax:<br/>{<br/>attributes = [<br/>{<br/>name = str,<br/>value = str<br/>}, ...<br/>],<br/>name-id = {<br/>format = PERSISTENT\|EMAIL<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"attributes": [<br/>{<br/>"name": "str",<br/>"value": "str"<br/>}, ...<br/>],<br/>"name-id": {<br/>"format": "PERSISTENT\|EMAIL"<br/>}<br/>}"<br/>Fields:<br/>attributes -> ([]struct)<br/>List of attribute mappings.<br/>name -> (string)<br/>Name of the SAML attribute.<br/>value -> (string)<br/>Value of the SAML attribute.<br/>name-id -> (struct)<br/>NameID configuration.<br/>format -> (enum<EMAIL\|PERSISTENT>)<br/>Format of the NameID.|
-|`--description`|<b>`string`</b><br/>Description of the SAML application.|
-|`--group-claims-settings`|<b>`shorthand/json`</b><br/>Group claims settings for the SAML application.<br/>Shorthand Syntax:<br/>{<br/>group-attribute-name = str,<br/>group-distribution-type = NONE\|ASSIGNED_GROUPS\|ALL_GROUPS<br/>}<br/>JSON Syntax:<br/>"{<br/>"group-attribute-name": "str",<br/>"group-distribution-type": "NONE\|ASSIGNED_GROUPS\|ALL_GROUPS"<br/>}"<br/>Fields:<br/>group-attribute-name -> (string)<br/>Name of the SAML attribute that contains group information.<br/>group-distribution-type -> (enum<ALL_GROUPS\|ASSIGNED_GROUPS\|NONE>)<br/>Distribution type for group claims.|
-|`--labels`|<b>`stringToString`</b><br/>Resource labels as '' key:value '' pairs.|
-|`--name`|<b>`string`</b><br/>Name of the SAML application.|
-|`--organization-id`|<b>`string`</b><br/>ID of the organization to create the application in.|
-|`--security-settings`|<b>`shorthand/json`</b><br/>Security settings for the SAML application.<br/>Shorthand Syntax:<br/>{<br/>signature-mode = ASSERTIONS\|RESPONSE\|RESPONSE_AND_ASSERTIONS<br/>}<br/>JSON Syntax:<br/>"{<br/>"signature-mode": "ASSERTIONS\|RESPONSE\|RESPONSE_AND_ASSERTIONS"<br/>}"<br/>Fields:<br/>signature-mode -> (enum<ASSERTIONS\|RESPONSE\|RESPONSE_AND_ASSERTIONS>)<br/>Signature mode for SAML assertions and responses.|
-|`--service-provider`|<b>`shorthand/json`</b><br/>Service provider configuration for the SAML application.<br/>Shorthand Syntax:<br/>{<br/>acs-urls = [<br/>{<br/>index = int,<br/>url = str<br/>}, ...<br/>],<br/>entity-id = str,<br/>slo-urls = [<br/>{<br/>protocol-binding = HTTP_POST\|HTTP_REDIRECT,<br/>response-url = str,<br/>url = str<br/>}, ...<br/>]<br/>}<br/>JSON Syntax:<br/>"{<br/>"acs-urls": [<br/>{<br/>"index": "int",<br/>"url": "str"<br/>}, ...<br/>],<br/>"entity-id": "str",<br/>"slo-urls": [<br/>{<br/>"protocol-binding": "HTTP_POST\|HTTP_REDIRECT",<br/>"response-url": "str",<br/>"url": "str"<br/>}, ...<br/>]<br/>}"<br/>Fields:<br/>acs-urls -> ([]struct)<br/>Assertion Consumer Service URLs.<br/>index -> (int)<br/>Optional index for the assertion consumer service.<br/>url -> (string)<br/>The URL where SAML responses are sent.<br/>entity-id -> (string)<br/>Service provider entity ID.<br/>slo-urls -> ([]struct)<br/>Single Logout Service URLs.<br/>protocol-binding -> (enum<HTTP_POST\|HTTP_REDIRECT>)<br/>Protocol binding supported by the logout endpoint.<br/>response-url -> (string)<br/>Optional separate URL for logout responses.<br/>url -> (string)<br/>The URL where logout requests are sent.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-json > request.json
+2. Edit the template: vim request.json
+3. Run with template: yc beta compute instance create -r request.json ||
+|| `--example-yaml` | Generates a YAML template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-yaml > request.yaml
+2. Edit the template: vim request.yaml
+3. Run with template: yc beta compute instance create -r request.yaml ||
+|| `--attribute-mapping` | `shorthand/json`
+
+Attribute mapping configuration for the SAML application.
+
+Shorthand Syntax:
+
+```hcl
+{
+  attributes = [
+    {
+      name = str,
+      value = str
+    }, ...
+  ],
+  name-id = {
+    format = PERSISTENT|EMAIL
+  }
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "attributes": [
+    {
+      "name": "str",
+      "value": "str"
+    }, ...
+  ],
+  "name-id": {
+    "format": "PERSISTENT|EMAIL"
+  }
+}
+```
+
+Fields:
+
+```
+attributes -> ([]struct)
+  List of attribute mappings.
+  name -> (string)
+    Name of the SAML attribute.
+  value -> (string)
+    Value of the SAML attribute.
+name-id -> (struct)
+  NameID configuration.
+  format -> (struct)
+    Format of the NameID.
+``` ||
+|| `--description` | `string`
+
+Description of the SAML application. ||
+|| `--group-claims-settings` | `shorthand/json`
+
+Group claims settings for the SAML application.
+
+Shorthand Syntax:
+
+```hcl
+{
+  group-attribute-name = str,
+  group-distribution-type = NONE|ASSIGNED_GROUPS|ALL_GROUPS
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "group-attribute-name": "str",
+  "group-distribution-type": "NONE|ASSIGNED_GROUPS|ALL_GROUPS"
+}
+```
+
+Fields:
+
+```
+group-attribute-name -> (string)
+  Name of the SAML attribute that contains group information.
+group-distribution-type -> (struct)
+  Distribution type for group claims.
+``` ||
+|| `--labels` | `stringToString`
+
+Resource labels as '' key:value '' pairs. ||
+|| `--name` | `string`
+
+Name of the SAML application. ||
+|| `--organization-id` | `string`
+
+ID of the organization to create the application in. ||
+|| `--security-settings` | `shorthand/json`
+
+Security settings for the SAML application.
+
+Shorthand Syntax:
+
+```hcl
+{
+  signature-mode = ASSERTIONS|RESPONSE|RESPONSE_AND_ASSERTIONS
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "signature-mode": "ASSERTIONS|RESPONSE|RESPONSE_AND_ASSERTIONS"
+}
+```
+
+Fields:
+
+```
+signature-mode -> (struct)
+  Signature mode for SAML assertions and responses.
+``` ||
+|| `--service-provider` | `shorthand/json`
+
+Service provider configuration for the SAML application.
+
+Shorthand Syntax:
+
+```hcl
+{
+  acs-urls = [
+    {
+      index = int,
+      url = str
+    }, ...
+  ],
+  entity-id = str,
+  slo-urls = [
+    {
+      protocol-binding = HTTP_POST|HTTP_REDIRECT,
+      response-url = str,
+      url = str
+    }, ...
+  ]
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "acs-urls": [
+    {
+      "index": "int",
+      "url": "str"
+    }, ...
+  ],
+  "entity-id": "str",
+  "slo-urls": [
+    {
+      "protocol-binding": "HTTP_POST|HTTP_REDIRECT",
+      "response-url": "str",
+      "url": "str"
+    }, ...
+  ]
+}
+```
+
+Fields:
+
+```
+acs-urls -> ([]struct)
+  Assertion Consumer Service URLs.
+  index -> (int)
+    Optional index for the assertion consumer service.
+  url -> (string)
+    The URL where SAML responses are sent.
+entity-id -> (string)
+  Service provider entity ID.
+slo-urls -> ([]struct)
+  Single Logout Service URLs.
+  protocol-binding -> (struct)
+    Protocol binding supported by the logout endpoint.
+  response-url -> (string)
+    Optional separate URL for logout responses.
+  url -> (string)
+    The URL where logout requests are sent.
+``` ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

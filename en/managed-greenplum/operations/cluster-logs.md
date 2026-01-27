@@ -1,6 +1,6 @@
 # Viewing {{ GP }} cluster logs
 
-{{ mgp-name }} allows you to [get a cluster log snippet](#get-log) for the selected period and [view logs in real time](#get-log-stream).
+{{ mgp-name }} allows you to [get a cluster log snippet](#get-log) for the selected time period and [view logs in real time](#get-log-stream).
 
 {% include [log-duration](../../_includes/mdb/log-duration.md) %}
 
@@ -10,9 +10,10 @@
 
 - Management console {#console}
 
-    1. Navigate to the folder dashboard and select **Yandex MPP Analytics for PostgreSQL**.
-    1. Click the name of your cluster and open the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** tab.
-    1. Specify a time period for the log entries you want to view by entering it manually or selecting it in the calendar using the date input field.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. Click the name of your cluster and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** tab.
+    1. Specify a time period for the log entries to be displayed: enter it manually or click the date field to choose from a calendar.
     1. Select the type of service for which you want to output logs:
 
         * `GREENPLUM`: {{ GP }} operations log.
@@ -21,9 +22,9 @@
     
     1. Select hosts and a logging level if needed.
 
-    You will see a list of log entries for the time period you specified. To view detailed information about an event, click the relevant entry in the list.
+    You will see a list of log entries for the time period you specified. To see details of a specific event, click its entry in the list.
 
-    If there are too many entries and not all of them are displayed, click **{{ ui-key.yacloud.common.label_load-more }}** at the end of the list.
+    If the list is too long to display all entries at once, click **{{ ui-key.yacloud.common.label_load-more }}** at the end of the list.
 
 - CLI {#cli}
 
@@ -58,7 +59,7 @@
             * `greenplum`: {{ GP }} operations log.
             * `greenplum-pooler`: Connection manager operations log.
             * `greenplum-pxf`: [PXF](../concepts/external-tables.md) protocol log.
-        * `--columns`: List of data columns:
+        * `--columns`: List of output columns:
             * `hostname`: [Host name](cluster-list.md#get-hosts).
             * `level`: Logging level, e.g., `info`.
             * `pid`: ID of the current session’s server process.
@@ -80,11 +81,11 @@
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Call the [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+    1. Call the [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -122,21 +123,21 @@
 
         {% include [from-time-rest](../../_includes/mdb/api/from-time-rest.md) %}
 
-        * `toTime`: Right boundary of a time range, with the format analogous to that for `fromTime`.
+        * `toTime`: End of the time range in the same format as `fromTime`.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.greenplum.v1.ListClusterLogsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -183,9 +184,9 @@
 
         {% include [from-time-grpc](../../_includes/mdb/api/from-time-grpc.md) %}
 
-        * `to_time`: Right boundary of a time range, with the format analogous to that for `from_time`.
+        * `to_time`: End of the time range in the same format as `from_time`.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/listLogs.md#yandex.cloud.mdb.greenplum.v1.ListClusterLogsResponse) to make sure your request was successful.
 
@@ -193,7 +194,7 @@
 
 ## Getting a cluster log stream {#get-log-stream}
 
-This method allows you to get cluster logs in real time.
+This method allows you to stream cluster logs in real time.
 
 {% list tabs group=instructions %}
 
@@ -209,15 +210,15 @@ This method allows you to get cluster logs in real time.
     {{ yc-mdb-gp }} cluster list-logs <cluster_name_or_ID> --follow
     ```
 
-    You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Call the [Cluster.StreamLogs](../api-ref/Cluster/streamLogs.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+    1. Call the [Cluster.StreamLogs](../api-ref/Cluster/streamLogs.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -256,7 +257,7 @@ This method allows you to get cluster logs in real time.
 
         {% include [from-time-rest](../../_includes/mdb/api/from-time-rest.md) %}
 
-        * `toTime`: Right boundary of a time range, with the format analogous to that for `fromTime`.
+        * `toTime`: End of the time range in the same format as `fromTime`.
 
             {% include [tail-f-semantics](../../_includes/mdb/api/tail-f-semantics.md) %}
 
@@ -264,19 +265,19 @@ This method allows you to get cluster logs in real time.
 
             For more information about filters and their syntax, see the [API reference](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.greenplum.v1.StreamClusterLogsRequest).
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.greenplum.v1.StreamLogRecord) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -324,7 +325,7 @@ This method allows you to get cluster logs in real time.
 
         {% include [from-time-grpc](../../_includes/mdb/api/from-time-grpc.md) %}
 
-        * `to_time`: Right boundary of a time range, with the format analogous to that for `from_time`.
+        * `to_time`: End of the time range in the same format as `from_time`.
 
             {% include [tail-f-semantics](../../_includes/mdb/api/tail-f-semantics.md) %}
 
@@ -332,7 +333,7 @@ This method allows you to get cluster logs in real time.
 
             For more information about filters and their syntax, see the [API reference](../api-ref/grpc/Cluster/streamLogs.md).
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.greenplum.v1.StreamLogRecord) to make sure your request was successful.
 

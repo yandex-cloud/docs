@@ -1,44 +1,45 @@
 ---
-title: Monitoring the state of an {{ OS }} cluster and hosts
-description: Follow this guide to get detailed information about a {{ mos-name }} cluster state.
+title: '{{ OS }} cluster and host state monitoring'
+description: Follow this guide to get detailed information about a {{ mos-name }} cluster's state.
 ---
 
-# Monitoring the state of an {{ OS }} cluster and hosts
+# {{ OS }} cluster and host state monitoring
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
-New data for charts is received every {{ graph-update }}.
+Charts are updated every {{ graph-update }}.
 
 {% include [note-monitoring-auto-units](../../_includes/mdb/note-monitoring-auto-units.md) %}
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
-## Monitoring cluster state {#monitoring-cluster}
+## Cluster state monitoring {#monitoring-cluster}
 
-To view detailed information about the {{ mos-name }} cluster state:
+To view detailed information on the state of a {{ mos-name }} cluster:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+    1. Click the name of your cluster and open the ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
 
         The page displays the following charts:
 
         * **Health status**: Cluster health and technical condition:
 
-            * `0` (red): Cluster is unhealthy or partially functional. At least one of the [primary shards](../concepts/scalability-and-resilience.md) is unavailable. If the cluster responds to queries, the search results will be incomplete.
-            * `1` (yellow): Cluster is functional. There is no access to at least one of the replica shards. The search results in the cluster responses are complete; however, if there are more unavailable shards, cluster performance will be disrupted.
+            * `0` (red): Cluster is unhealthy or partially functional. At least one of the [primary shards](../concepts/scalability-and-resilience.md) is not available. If the cluster responds to queries, search results will be incomplete.
+            * `1` (yellow): Cluster is functional. There is no access to at least one of the shard replicas. Search results in the cluster responses are complete, but if more shards become unavailable, the cluster performance will be disrupted.
             * `2` (green): Cluster is healthy. All cluster shards are available.
 
         * **Active shards**: Number of active primary shards and the total number of active shards in the cluster.
         * **Other shards**: Number of inactive shards in each of the following states:
 
             * `Delayed unassigned`: Host assignment is delayed.
-            * `Unassigned`: No host assigned.
-            * `Relocating`: Moving to another host.
-            * `Initializing`: Initializing.
+            * `Unassigned`: No host is assigned.
+            * `Relocating`: Shards are being moved to another host.
+            * `Initializing`: Shards are initializing.
 
         * **Nodes**: Number of hosts with the `DATA` [role](../concepts/host-roles.md#data).
         * **Segments**: Number of index segments per host.
@@ -56,23 +57,24 @@ To view detailed information about the {{ mos-name }} cluster state:
 
 ## Monitoring the state of hosts {#monitoring-hosts}
 
-To view detailed information about the state of individual {{ mos-name }} hosts:
+To view detailed information on the state of individual {{ mos-name }} hosts:
 
-1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+1. In the [management console]({{ link-console-main }}), navigate to the folder page.
+1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+1. Click the name of your cluster and open the ![image](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
 1. Select the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
 1. Select the host from the drop-down list.
 
-This page displays charts showing the load on an individual host in the cluster. Which charts are exactly displayed depends on the host type:
+This page displays the charts showing workloads of individual cluster hosts. It depends on the host type:
 
 {% list tabs %}
 
 * MANAGER
 
     * **Process CPU**: Processor core workload generated by the JVM {{ OS }} process.
-    * **Memory usage**: Use of RAM, in bytes.
+    * **Memory usage**: Amount of RAM used, in bytes.
     * **JVM heap**: Use of JVM heap memory, in bytes.
-    * **Disk space usage percent**: Use of disk space, in percentage.
+    * **Disk space usage percent**: Percentage of the disk space used.
     * **Management thread pool**: Number of cluster management requests.
     * **Generic thread pool**: Number of requests for running general operations.
     * **Thread pool queued**: Number of enqueued requests.
@@ -82,8 +84,8 @@ This page displays charts showing the load on an individual host in the cluster.
 
     * **Process CPU**: Processor core workload generated by the JVM {{ OS }} process.
     * **Memory usage**: Use of RAM, in bytes.
-    * **JVM heap percent**: Use of JVM heap memory, in percentage
-    * **Disk space usage percent**: Use of disk space, in percentage.
+    * **JVM heap percent**: Percentage of the JVM heap memory used.
+    * **Disk space usage percent**: Percentage of the disk space used.
     * **Indexing rate**: Number of indexing operations per second.
     * **Search queries**: Number of search queries per second.
     * **Open file descriptors**: Number of open file descriptors.
@@ -92,7 +94,7 @@ This page displays charts showing the load on an individual host in the cluster.
     * **Write thread pool**: Requests for indexing, deleting, or updating documents.
     * **Write operations**: Number of write operations per second.
     * **Read operations**: Number of read operations per second.
-    * **Query time**: Time spent to run the queries.
+    * **Query time**: Time spent to run requests.
     * **Thread pool queued**: Number of enqueued requests.
     * **Thread pool rejected**: Number of rejected requests.
     * **Indexing time**: Time spent to index the documents.
@@ -100,37 +102,38 @@ This page displays charts showing the load on an individual host in the cluster.
 
 * DASHBOARDS
 
-    * **Is Alive**: Status that shows the host is up and running.
+    * **Is Alive**: Status that shows the host is available.
     * **Requests Total**: Total number of host requests.
     * **Process CPU**: Processor core workload generated by the JVM {{ OS }} process.
     * **Memory usage**: Use of RAM, in bytes.
     * **Disk read/write bytes**: Speed of disk operations, in bytes per second.
     * **Disk IOPS**: Number of disk operations per second.
-    * **Network packets**: Number of packets exchanged over the network, per second.
-    * **Network bytes**: Speed of data exchange over the network, in bytes per second.
+    * **Network Packets**: Network packet exchange rate, in packets per second.
+    * **Network bytes**: Speed of network data exchange, in bytes per second.
 
 {% endlist %}
 
 ## Monitoring the state of host groups {#monitoring-host-groups}
 
-To view detailed information about the state of a {{ mos-name }} host group:
+To view detailed information on the state of a {{ mos-name }} host group:
 
-1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
+1. In the [management console]({{ link-console-main }}), navigate to the folder page.
+1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+1. Click the name of your cluster and open the ![image](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
 1. Select the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
-1. Select the host group you need from the drop-down list.
+1. Select the host group from the drop-down list.
 
-This page displays charts showing the load on the cluster's host group. Which charts are exactly displayed depends on the type of hosts in the group; this is in line with the [charts shown for individual hosts](#monitoring-hosts).
+This page displays the charts showing workloads of a cluster host group. The list depends on the type of hosts in the group and matches the [charts shown for individual hosts](#monitoring-hosts).
 
 
-## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
+## Setting up alerts in {{ monitoring-full-name }} {#monitoring-integration}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
-  1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to configure alerts.
+  1. [Go to](../../console/operations/select-service.md#select-service) ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
 
       * **{{ mos-name }}** to configure cluster alerts.
@@ -139,23 +142,23 @@ This page displays charts showing the load on the cluster's host group. Which ch
       * **{{ mos-name }} — Manager** to configure alerts for hosts with the `MANAGER` role.
 
   1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-  1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
-  1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` threshold values to trigger the alert.
+  1. If the chart shows multiple metrics, select the data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in [this {{ monitoring-full-name }} article](../../monitoring/concepts/querying.md).
+  1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds to trigger the alert.
   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-The recommended thresholds are as follows:
+Below are the recommended thresholds for some metrics:
 
-| Metrica                                      |                Parameter             |         Formula        |              `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`              |             `{{ ui-key.yacloud_monitoring.alert.status_warn }}`             |
+| Metric                                      |                Designation             |         Formula        |              `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`              |             `{{ ui-key.yacloud_monitoring.alert.status_warn }}`             |
 |----------------------------------------------|:--------------------------------------:|:----------------------:|:---------------------------------:|:---------------------------------:|
 | Cluster status                              |           `opensearch_status`          |     `bottom_last(1)`   |              `equal to 0`            |              `equal to 1`            |
 | Number of unassigned shards                   |     `opensearch_unassigned_shards`     |      `top_last(1)`     |             `greater than 0`            |                                   |
-| Number of relocated shards                    |     `opensearch_relocating_shards`     |      `top_last(1)`     |             `greater than 0`            |                                   |
-| Number of initialized shards                |    `opensearch_initializing_shards`    |      `top_last(1)`     |             `greater than 0`            |                                   |
-| Number of delayed assignment shards         | `opensearch_delayed_unassigned_shards` |      `top_last(1)`     |             `greater than 0`            |                                   |
+| Number of shards being relocated                    |     `opensearch_relocating_shards`     |      `top_last(1)`     |             `greater than 0`            |                                   |
+| Number of initializing shards                |    `opensearch_initializing_shards`    |      `top_last(1)`     |             `greater than 0`            |                                   |
+| Number of delayed unassigned shards         | `opensearch_delayed_unassigned_shards` |      `top_last(1)`     |             `greater than 0`            |                                   |
 | JVM heap memory used         | `opensearch_jvm_mem_heap_used_percent` |      `top_last(1)`     | Over 90% of host RAM |                                   |
 | Storage space used              |   `opensearch_fs_total_used_percent`   |      `top_last(1)`     |  Over 90% of the storage size  |  Over 85% of the storage size  |
 | Using the JVM long-lived object pool |   `opensearch_jvm_mem_heap_pressure`   |      `top_last(1)`     | Over 90% of host RAM | Over 75% of host RAM |
@@ -166,21 +169,22 @@ For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert.status
 * `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96636764160` bytes (90%).
 * `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85899345920` bytes (80%).
 
-You can view the current storage size and RAM of the hosts in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/managed-opensearch-ref.md).
+You can view the current storage size and RAM of the hosts in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see [this {{ monitoring-name }} guide](../../monitoring/metrics-ref/managed-opensearch-ref.md).
 
 
 ## Cluster state and status {#cluster-health-and-status}
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 
-To view a cluster's state and status:
+To check the cluster state and status:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column in the required cluster row.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+    1. Hover over the indicator in the cluster row of the **{{ ui-key.yacloud.common.availability }}** column.
 
 - CLI {#cli}
 
@@ -194,17 +198,17 @@ To view a cluster's state and status:
     {{ yc-mdb-os }} cluster get <cluster_name_or_ID>
     ```
 
-    The `health` parameter gives the cluster state; the `status` parameter gives the cluster status.
+    You will see the cluster state in the `health` parameter and the cluster status, in the `status` parameter.
 
-    You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Get](../api-ref/Cluster/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Get](../api-ref/Cluster/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -213,20 +217,20 @@ To view a cluster's state and status:
             --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<cluster_ID>'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure the request was successful.
+    1. Check the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
 
-        The cluster health and status are shown in the `health` and `status` parameters, respectively.
+        You will see the cluster health and status in the `health` and `status` parameters, respectively.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Use the [ClusterService.Get](../api-ref/grpc/Cluster/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Get](../api-ref/grpc/Cluster/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -242,11 +246,11 @@ To view a cluster's state and status:
             yandex.cloud.mdb.opensearch.v1.ClusterService.Get
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure the request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
 
-        The cluster health and status are shown in the `health` and `status` parameters, respectively.
+        You will see the cluster health and status in the `health` and `status` parameters, respectively.
 
 {% endlist %}
 

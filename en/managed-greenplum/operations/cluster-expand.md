@@ -10,7 +10,8 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
     1. Select a cluster and open the ![hosts-edit](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
     1. Click **{{ ui-key.yacloud.greenplum.action_expand-open }}** in the top-right corner.
     1. Specify the cluster expansion settings:
@@ -115,7 +116,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -137,7 +138,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
                     }'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         Request body parameters:
 
@@ -171,7 +172,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -199,7 +200,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
             yandex.cloud.mdb.greenplum.v1.ClusterService.Expand
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         Request body parameters:
 
@@ -290,7 +291,7 @@ To edit the ranks of redistributed tables:
     WHERE fq_name IN (<list_of_full_table_names>);
     ```
 
-    For more information, see this [{{ GP }} guide]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-expand-expand-redistribute.html#ranking-tables-for-redistribution).
+    For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-expand-expand-redistribute.html#ranking-tables-for-redistribution).
 
 ### Running data redistribution manually {#start-redistribute}
 

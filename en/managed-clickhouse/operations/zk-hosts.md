@@ -6,9 +6,9 @@ description: Follow this guide to manage {{ ZK }} hosts.
 # Managing {{ ZK }} hosts
 
 
-{{ ZK }} is a coordination tool you can use to distribute queries among {{ CH }} hosts for [data replication](../concepts/replication.md). For successful replication, a {{ mch-name }} cluster must have [three or five {{ ZK }} hosts](../qa/cluster-settings.md#zookeeper-hosts-number). This cluster will be fault-tolerant.
+{{ ZK }} is a coordination system you can use to distribute queries among {{ CH }} hosts for [data replication](../concepts/replication.md). For successful replication, your {{ mch-name }} cluster must have [three or five {{ ZK }} hosts](../qa/cluster-settings.md#zookeeper-hosts-number). This cluster will be fault-tolerant.
 
-If you are creating a cluster with two or more {{ CH }} hosts per shard, the system automatically adds three {{ ZK }} hosts to the cluster. At this stage, you can only set up their configuration. If you created a single-host cluster or a cluster with multiple single-host shards, you can add {{ ZK }} hosts later.
+If you are creating a cluster with two or more {{ CH }} hosts per shard, the system will automatically add three {{ ZK }} hosts to the cluster. At this stage, you can only set up their configuration. If you created a single-host cluster or a cluster with multiple single-host shards, you can add {{ ZK }} hosts later.
 
 For more information about {{ ZK }} hosts, see [{#T}](../concepts/replication.md#zk).
 
@@ -39,13 +39,13 @@ Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. At the top right, click **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-coordinator }}**.
   1. Specify the [host class](../concepts/instance-types.md).
   1. Configure the storage.
   1. Change the {{ ZK }} host settings, if required. To do this, hover over the relevant host row and click ![image](../../_assets/console-icons/pencil.svg).
-  1. To convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables), enable **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**. This will convert [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) ones.
+  1. To convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables) ones, enable **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**. This will automatically convert [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) ones.
 
      {% note warning %}
 
@@ -62,7 +62,7 @@ Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To add {{ ZK }} hosts to a cluster:
-  1. See the description of the CLI command for adding {{ ZK }} hosts:
+  1. View the description of the CLI command for adding {{ ZK }} hosts:
 
      ```bash
      {{ yc-mdb-ch }} cluster add-zookeeper --help
@@ -79,7 +79,7 @@ Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](
 
      If the cluster network contains exactly three subnets, one per availability zone, you do not have to explicitly specify subnets for the hosts: {{ mch-name }} will automatically distribute hosts across these subnets.
 
-     To convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables), add the `--convert-tables-to-replicated` parameter to the command. This will convert [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) ones.
+     To convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables), add the `--convert-tables-to-replicated` parameter to the command. This will automatically convert [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) ones.
 
      {% note warning %}
 
@@ -87,7 +87,7 @@ Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](
 
      {% endnote %}
 
-     You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -97,7 +97,7 @@ Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+     To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Make sure the configuration file describes three subnets, one per availability zone. Add the missing ones, if required:
 
@@ -130,7 +130,7 @@ Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](
 
   1. Add a {{ ZK }} configuration section and at least three `ZOOKEEPER`-type `host` sections to the {{ CH }} cluster description.
 
-     {{ ZK }} host requirements:
+     The {{ ZK }} host requirements are as follows:
      * Each availability zone must have at least one host.
      * Minimum host class: `b1.medium`.
      * Disk type: `{{ disk-type-example }}`.
@@ -203,6 +203,8 @@ After creating {{ ZK }} hosts, you can change their [class](../concepts/instance
 
 {% include [instance-type-change](../../_includes/mdb/mch/instance-type-change.md) %}
 
+{% include [note-change-disk-type-data-loss](../../_includes/mdb/mch/note-change-disk-type-data-loss.md) %}
+
 {% note info %}
 
 To change the disk type to `local-ssd`, contact [support]({{ link-console-support }}).
@@ -216,7 +218,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**, select the platform, VM type, and required {{ ZK }} host class.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**, set the storage size and disk type for {{ ZK }} hosts.
@@ -236,7 +238,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
      {{ yc-mdb-ch }} cluster update --help
      ```
 
-  1. Get the list of available host classes (the `ZONE IDS` column specifies the availability zones where you can select the appropriate class):
+  1. Request a list of available host classes. The `ZONE IDS` column lists the availability zones where the relevant class can be selected:
 
      ```bash
      {{ yc-mdb-ch }} resource-preset list
@@ -250,7 +252,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
      +-----------+--------------------------------+-------+----------+
      ```
 
-  1. In the update cluster command, specify the new class, disk type, and storage size for your {{ ZK }} host:
+  1. In the update cluster command, provide the new class, disk type, and storage size for your {{ ZK }} host:
 
      ```bash
      {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
@@ -265,15 +267,15 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  To change the {{ ZK }} host settings:
+  To update the {{ ZK }} host settings:
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+     To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. In the {{ ZK }} configuration section, specify the new host class, disk type, and storage size.
 
-     {{ ZK }} host requirements:
+     The {{ ZK }} host requirements are as follows:
      * Minimum host class: `b1.medium`.
      * Minimum storage size: 10 GB.
 
@@ -305,7 +307,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -320,7 +322,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
               --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/resourcePresets'
           ```
 
-      1. View the [server response](../api-ref/ResourcePreset/list.md#responses) to make sure your request was successful.
+      1. Check the [server response](../api-ref/ResourcePreset/list.md#responses) to make sure your request was successful.
 
   1. Update the host class, disk type, and storage size:
 
@@ -350,7 +352,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
           Where:
 
-          * `updateMask`: Comma-separated list of settings you want to update.
+          * `updateMask`: Comma-separated string of settings you want to update.
 
               Specify the relevant parameters:
               * `configSpec.zookeeper.resources.resourcePresetId`: To change the {{ ZK }} host class.
@@ -361,13 +363,13 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
           * `configSpec.zookeeper.resources.diskTypeId`: [Disk type](../concepts/storage.md).
           * `configSpec.zookeeper.resources.diskSize`: Storage size, in GB.
 
-          You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
+          You can get the cluster ID from the [list of clusters in your folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -375,7 +377,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
   1. Get the list of available host classes:
 
-      1. Use the [ResourcePresetService.List](../api-ref/grpc/ResourcePreset/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+      1. Call the [ResourcePresetService.List](../api-ref/grpc/ResourcePreset/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
           ```bash
           grpcurl \
@@ -388,7 +390,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
               yandex.cloud.mdb.clickhouse.v1.ResourcePresetService.List
           ```
 
-      1. View the [server response](../api-ref/grpc/ResourcePreset/list.md#yandex.cloud.mdb.clickhouse.v1.ListResourcePresetsResponse) to make sure your request was successful.
+      1. Check the [server response](../api-ref/grpc/ResourcePreset/list.md#yandex.cloud.mdb.clickhouse.v1.ListResourcePresetsResponse) to make sure your request was successful.
 
   1. Update the host class, disk type, and storage size:
 
@@ -428,7 +430,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
           Where:
 
-          * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+          * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
 
               Specify the relevant parameters:
               * `config_spec.zookeeper.resources.resource_preset_id`: To change the {{ ZK }} host class.
@@ -439,7 +441,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
           * `config_spec.zookeeper.resources.disk_type_id`: [Disk type](../concepts/storage.md).
           * `config_spec.zookeeper.resources.disk_size`: Storage size, in GB.
 
-          You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
+          You can get the cluster ID from the [list of clusters in your folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
 
   1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -449,7 +451,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
 {% include notitle [restart-host](../../_includes/mdb/mch/restart-host.md) %}
 
-## Converting non-replicated tables to replicated {#replicated-tables}
+## Converting non-replicated tables to replicated ones {#replicated-tables}
 
 To automatically convert non-replicated [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables to [replicated](../concepts/replication.md#replicated-tables) [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) tables, add {{ ZK }} hosts with table conversion enabled.
 
@@ -468,8 +470,8 @@ If {{ ZK }} hosts have already been created in the cluster, you cannot delete th
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. Hover over the relevant host row and click ![image](../../_assets/console-icons/xmark.svg).
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
@@ -479,7 +481,7 @@ If {{ ZK }} hosts have already been created in the cluster, you cannot delete th
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To delete a host from the cluster, run this command:
+  To delete a host from a cluster, run this command:
 
   ```bash
   {{ yc-mdb-ch }} hosts delete <host_name> \
@@ -496,7 +498,7 @@ If {{ ZK }} hosts have already been created in the cluster, you cannot delete th
 
    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
    1. Delete the `ZOOKEEPER`-type `host` section from the {{ mch-name }} cluster description.
    1. Make sure the settings are correct.
 

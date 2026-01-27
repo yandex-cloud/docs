@@ -31,7 +31,7 @@ description: Follow this guide to add interaction with Yandex Disk files to your
           * `JSON`: File text containing [JSON](https://en.wikipedia.org/wiki/JSON) will be saved as a JSON structure.
 
           {% endcut %}
-
+              
           {% cut "If you are downloading files from disk" %}
 
           * `BINARY`: File content will be encoded in [Base64](https://{{ lang }}.wikipedia.org/wiki/Base64) format.

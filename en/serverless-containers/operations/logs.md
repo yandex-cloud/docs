@@ -1,6 +1,6 @@
 ---
 title: Viewing the execution log in {{ serverless-containers-full-name }}
-description: You can view monitoring charts in {{ serverless-containers-full-name }} using the management console. To do this, select {{ serverless-containers-name }} and click the container whose execution log you want to view. In the window that opens, go to Logs and specify the time period. The default time period is one hour. All times in the log are UTC.
+description: You can view monitoring charts in {{ serverless-containers-full-name }} using the management console. To do this, navigate to {{ serverless-containers-name }} and click the container whose execution log you want to view. In the window that opens, go to Logs and specify the time period. The default time period is one hour. All times in the log are UTC.
 ---
 
 # Viewing container logs
@@ -11,7 +11,8 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with your container.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Click the container to view its runtime log.
     1. Go to the **{{ ui-key.yacloud.common.logs }}** tab and specify the period to view the logs for. The default period is 1 hour.
     

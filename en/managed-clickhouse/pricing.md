@@ -56,7 +56,7 @@ You can choose a host class both for {{ CH }} and {{ ZK }} hosts based on the ex
 
 {% note warning %}
 
-In clusters with disabled [{{ CK }}](./concepts/replication.md#ck) support and with two or more {{ CH }} hosts, three {{ ZK }} hosts with the lowest class are automatically created for replication and [high availability](concepts/high-availability.md).
+In clusters with [{{ CK }}](./concepts/replication.md#ck) support off and with two or more {{ CH }} hosts, three {{ ZK }} hosts of the lowest class are automatically created for replication and [high availability](concepts/high-availability.md).
 
 {% endnote %}
 
@@ -80,7 +80,7 @@ You pay for the following:
 
     * If the combined size of the database and all its backups exceeds the cluster storage size, you only pay for the portion in excess of the storage size.
 
-   * Automatic backups in {{ mch-short-name }} only include the data that has been changed since the previous backup rather than a full database. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
+   * When performing automatic backups, {{ mch-short-name }} does not create a new backup but saves the database changes introduced since the previous one. This means the storage space used by automatic backups increases only in proportion to the amount of changes.
 
    * The number of hosts in a cluster does not affect the storage size and, consequently, the amount of free backups.
 
@@ -92,9 +92,9 @@ You pay for the following:
 
    * The cost of using {{ objstorage-name }} includes both the space used by the backups and the space used by the data itself.
 
-   * Automatic backups in {{ mch-short-name }} only include the data that has been changed since the previous backup rather than a full database. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
+   * When performing automatic backups, {{ mch-short-name }} does not create a new backup but saves the database changes introduced since the previous one. This means the storage space used by automatic backups increases only in proportion to the amount of changes.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes costs the same as for 2 minutes.
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes costs the same as for 2 minutes.
 
 
 ### Example of cluster cost calculation {#example}
@@ -121,14 +121,13 @@ Let's calculate the cost of using a cluster with the following properties for 30
 
 {% note info %}
 
-A CVoS discount is only available for certain types of resources. If the relevant CVoS columns under [Prices for the Russia region](#prices) are blank, this means the resource is not supported. Currently, you cannot order storage or web traffic this way.
+A CVoS discount is only available for certain types of resources. For unsupported resource types, the relevant CVoS columns under [Prices for the Russia region](#prices) are blank. Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 
 
 
 ## Prices for the Russia region {#prices}
-
 
 
 
@@ -140,6 +139,7 @@ You cannot order {{ ZK }} host resources via CVoS.
 
 
 {% include [note-compute-optimized-request](../_includes/mdb/note-compute-optimized-request.md) %}
+
 
 
 

@@ -1,0 +1,3 @@
+Under **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}**, enable standard or advanced diagnostics. The advanced mode also includes collecting and analyzing query plans.
+    
+To use the [Performance diagnostics](../../../managed-postgresql/operations/performance-diagnostics.md) tool, select **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** and set up **{{ ui-key.yacloud.mdb.forms.field_diagnostics-sessions-interval }}** and **{{ ui-key.yacloud.mdb.forms.field_diagnostics-statements-interval }}**. Both settings are measured in seconds.

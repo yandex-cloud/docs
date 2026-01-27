@@ -17,8 +17,8 @@ Your changes will apply within five minutes.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing your trigger.
-  1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder containing the trigger.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Select the trigger whose parameters you want to update.
   1. In the top-right corner of the page, click **{{ ui-key.yacloud.common.edit }}**.
@@ -103,7 +103,7 @@ Your changes will apply within five minutes.
 
       Where:
 
-      * `name`: Timer name. The name format is as follows:
+      * `name`: Timer name. Follow these naming requirements:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
@@ -119,13 +119,13 @@ Your changes will apply within five minutes.
 
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-      For more information about the `function_trigger` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+      For more information about `function_trigger` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      You can check the updates in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc serverless trigger list

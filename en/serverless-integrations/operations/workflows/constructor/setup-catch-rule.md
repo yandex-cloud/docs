@@ -26,7 +26,7 @@ To configure an error transition rule for a workflow integration step, do the fo
           * `EXCLUDE`: To transition to the next workflow step on any errors except those listed in the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_catch-rule-error-list-label }}** field.
       1. In the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_catch-rule-output-field }}** field, specify a [jq template](../../../concepts/workflows/templating.md) to filter the step outputs added into the workflow state. Note that the jq template defined for this step on the **{{ ui-key.yacloud.serverless-workflows.workflow-viewer_node-output-label }}** tab will not apply.
 
-  1. To add the next step for error transition, drag the step from the **Integration steps** or **Control steps** section to the area marked with the dotted line, which was automatically added to the workflow when you created this error transition rule.
+  1. To add a new step for error transition, drag the step from the **Integration steps** or **Control steps** section to the area marked with the dotted line, which was automatically added to the workflow when you created this error transition rule.
 
 {% endlist %}
 

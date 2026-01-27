@@ -10,36 +10,183 @@ Updates the specified lifecycle policy.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta cloud-registry lifecycle-policy update <POLICY-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`--description`|<b>`string`</b><br/>Description of the lifecycle policy. 0-1024 characters long.|
-|`--name`|<b>`string`</b><br/>Name of the lifecycle policy.|
-|`--policy-id`|<b>`string`</b><br/>ID of the lifecycle policy to update.|
-|`--rules`|<b>`shorthand/json`</b><br/>List of lifecycle rules.<br/>Shorthand Syntax:<br/>[<br/>{<br/>filter = docker-filters={<br/>tag-status = TAG_STATUS_ANY\|TAGGED\|UNTAGGED<br/>} \| maven-filters={<br/>version-type = VERSION_TYPE_ANY\|RELEASE\|SNAPSHOT<br/>},<br/>kind = delete={<br/>condition = always=bool \| older-than-days=int \| version-condition={<br/>versions-count-greater-than = int<br/>},<br/>cooldown-period-days = int,<br/>type = HARD_DELETE\|SOFT_DELETE<br/>} \| keep-by-age={<br/>younger-than-days = int<br/>} \| keep-by-version={<br/>keep-versions-count = int<br/>},<br/>path-prefix = str<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"filter": {<br/>"docker-filters": {<br/>"tag-status": "TAG_STATUS_ANY\|TAGGED\|UNTAGGED"<br/>},<br/>"maven-filters": {<br/>"version-type": "VERSION_TYPE_ANY\|RELEASE\|SNAPSHOT"<br/>}<br/>},<br/>"kind": {<br/>"delete": {<br/>"condition": {<br/>"always": "bool",<br/>"older-than-days": "int",<br/>"version-condition": {<br/>"versions-count-greater-than": "int"<br/>}<br/>},<br/>"cooldown-period-days": "int",<br/>"type": "HARD_DELETE\|SOFT_DELETE"<br/>},<br/>"keep-by-age": {<br/>"younger-than-days": "int"<br/>},<br/>"keep-by-version": {<br/>"keep-versions-count": "int"<br/>}<br/>},<br/>"path-prefix": "str"<br/>}, ...<br/>]"<br/>Fields:<br/>path-prefix -> (string)<br/>Path prefix to which the rule applies.<br/>filter -> (oneof<docker-filters\|maven-filters>)<br/>Oneof filter field<br/>docker-filters -> (struct)<br/>Docker-specific filters.<br/>tag-status -> (enum<TAGGED\|TAG_STATUS_ANY\|UNTAGGED>)<br/>Filter by tag status.<br/>maven-filters -> (struct)<br/>Maven-specific filters.<br/>version-type -> (enum<RELEASE\|SNAPSHOT\|VERSION_TYPE_ANY>)<br/>Filter by version type.<br/>kind -> (oneof<delete\|keep-by-age\|keep-by-version>)<br/>Oneof kind field<br/>keep-by-age -> (struct)<br/>Rule that keeps artifacts by age.<br/>younger-than-days -> (int)<br/>Keep artifacts younger than this number of days.<br/>keep-by-version -> (struct)<br/>Rule that keeps artifacts by version count.<br/>keep-versions-count -> (int)<br/>Number of versions to keep.<br/>delete -> (struct)<br/>Rule that deletes artifacts.<br/>cooldown-period-days -> (int)<br/>Cooldown period in days before deletion.<br/>type -> (enum<HARD_DELETE\|SOFT_DELETE>)<br/>Type of deletion.<br/>condition -> (oneof<always\|older-than-days\|version-condition>)<br/>Oneof condition field<br/>older-than-days -> (int)<br/>Delete artifacts older than specified days.<br/>version-condition -> (struct)<br/>Delete artifacts by version count condition.<br/>versions-count-greater-than -> (int)<br/>Delete when version count exceeds this number.<br/>always -> (bool)<br/>Always delete (use with caution).|
-|`--state`|<b>`enum`</b><br/>State of the lifecycle policy. Possible Values: 'disabled', 'enabled'|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `--description` | `string`
+
+Description of the lifecycle policy. 0-1024 characters long. ||
+|| `--name` | `string`
+
+Name of the lifecycle policy. ||
+|| `--policy-id` | `string`
+
+ID of the lifecycle policy to update. ||
+|| `--rules` | `shorthand/json`
+
+List of lifecycle rules.
+
+Shorthand Syntax:
+
+```hcl
+[
+  {
+    filter = docker-filters={
+      tag-status = TAG_STATUS_ANY|TAGGED|UNTAGGED
+    } | maven-filters={
+      version-type = VERSION_TYPE_ANY|RELEASE|SNAPSHOT
+    },
+    kind = delete={
+      condition = always=bool | older-than-days=int | version-condition={
+        versions-count-greater-than = int
+      },
+      cooldown-period-days = int,
+      type = HARD_DELETE|SOFT_DELETE
+    } | keep-by-age={
+      younger-than-days = int
+    } | keep-by-version={
+      keep-versions-count = int
+    },
+    path-prefix = str
+  }, ...
+]
+```
+
+JSON Syntax:
+
+```json
+[
+  {
+    "filter": {
+      "docker-filters": {
+        "tag-status": "TAG_STATUS_ANY|TAGGED|UNTAGGED"
+      },
+      "maven-filters": {
+        "version-type": "VERSION_TYPE_ANY|RELEASE|SNAPSHOT"
+      }
+    },
+    "kind": {
+      "delete": {
+        "condition": {
+          "always": "bool",
+          "older-than-days": "int",
+          "version-condition": {
+            "versions-count-greater-than": "int"
+          }
+        },
+        "cooldown-period-days": "int",
+        "type": "HARD_DELETE|SOFT_DELETE"
+      },
+      "keep-by-age": {
+        "younger-than-days": "int"
+      },
+      "keep-by-version": {
+        "keep-versions-count": "int"
+      }
+    },
+    "path-prefix": "str"
+  }, ...
+]
+```
+
+Fields:
+
+```
+path-prefix -> (string)
+  Path prefix to which the rule applies.
+filter -> (oneof<docker-filters|maven-filters>)
+  Oneof filter field
+  docker-filters -> (struct)
+    Docker-specific filters.
+    tag-status -> (struct)
+      Filter by tag status.
+  maven-filters -> (struct)
+    Maven-specific filters.
+    version-type -> (struct)
+      Filter by version type.
+kind -> (oneof<delete|keep-by-age|keep-by-version>)
+  Oneof kind field
+  keep-by-age -> (struct)
+    Rule that keeps artifacts by age.
+    younger-than-days -> (int)
+      Keep artifacts younger than this number of days.
+  keep-by-version -> (struct)
+    Rule that keeps artifacts by version count.
+    keep-versions-count -> (int)
+      Number of versions to keep.
+  delete -> (struct)
+    Rule that deletes artifacts.
+    cooldown-period-days -> (int)
+      Cooldown period in days before deletion.
+    type -> (struct)
+      Type of deletion.
+    condition -> (oneof<always|older-than-days|version-condition>)
+      Oneof condition field
+      older-than-days -> (int)
+        Delete artifacts older than specified days.
+      version-condition -> (struct)
+        Delete artifacts by version count condition.
+        versions-count-greater-than -> (int)
+          Delete when version count exceeds this number.
+      always -> (bool)
+        Always delete (use with caution).
+``` ||
+|| `--state` | `enum`
+
+State of the lifecycle policy. Possible Values: 'disabled', 'enabled' ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

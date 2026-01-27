@@ -14,7 +14,7 @@ Each execution branch within the While step (including all [Switch](./switch.md)
 - Management console {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. From the **Control steps** section on the left side of the screen, drag the ![arrows-rotate-right](../../../../_assets/console-icons/arrows-rotate-right.svg) **While** element to the appropriate workflow location in the constructor window.
+  1. From the **Control steps** section on the left side of the screen, drag the ![arrows-rotate-right](../../../../_assets/console-icons/arrows-rotate-right.svg) **While** element to the relevant workflow location in the constructor window.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
   1. In the workflow schema window, click the added **While** section to select it.

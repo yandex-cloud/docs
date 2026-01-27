@@ -147,7 +147,7 @@ In this tutorial, you will create a basic {{ cloud-apps-name }} product with a {
 
         Parameter | Value | Description
         --- | --- | ---
-        Name | `service-account` | Click ![image](../../_assets/console-icons/pencil.svg) next to the auto-generated service account name to change it. The resource name must be unique within the configuration. The user will see it when installing the app.
+        Name | `service-account` | Click ![image](../../_assets/console-icons/pencil.svg) next to the auto-generated service account name to change it. The resource name must be unique within the configuration. The user will see it when installing the application.
         Folder id | `Application attribute` → `Folder ID` | The service account to use for deploying the application will be automatically created in the same folder the user selected for app installation.
         Name | `Value` → `my-best-app` | The name of the automatically created service account will be `my-best-app`.
 
@@ -155,7 +155,7 @@ In this tutorial, you will create a basic {{ cloud-apps-name }} product with a {
 
         Parameter | Value | Description
         --- | --- | ---
-        Name | `lockbox-payload-viewer` | Click ![image](../../_assets/console-icons/pencil.svg) next to the auto-generated folder user name to change it. The resource name must be unique within the configuration. The user will see it when installing the app.
+        Name | `lockbox-payload-viewer` | Click ![image](../../_assets/console-icons/pencil.svg) next to the auto-generated folder user name to change it. The resource name must be unique within the configuration. The user will see it when installing the application.
         Folder id | `Application attribute` → `Folder ID` | The specified roles will be assigned to the service account for the folder the user selected for app installation.
         Member | `Value` → `Service account` → `Reference` → `service-account` → `id` | The specified roles will be assigned to the `my-best-app` service account.
         Role |  `Value` → `{{ roles-lockbox-payloadviewer }}` | The service account will get the [{{ roles-lockbox-payloadviewer }}](../../lockbox/security/index.md#lockbox-payloadViewer) role required for accessing the {{ lockbox-full-name }} secret that stores the DB user password.
@@ -164,7 +164,7 @@ In this tutorial, you will create a basic {{ cloud-apps-name }} product with a {
 
         Parameter | Value | Description
         --- | --- | ---
-        Name | `postgres-cluster` | Click ![image](../../_assets/console-icons/pencil.svg) next to the {{ mpg-full-name }} [cluster’s](../../managed-postgresql/concepts/index.md) auto-generated name to change it. The resource name must be unique within the configuration. The user will see it when installing the app.
+        Name | `postgres-cluster` | Click ![image](../../_assets/console-icons/pencil.svg) next to the {{ mpg-full-name }} [cluster’s](../../managed-postgresql/concepts/index.md) auto-generated name to change it. The resource name must be unique within the configuration. The user will see it when installing the application.
         Environment | `Value` → `PRODUCTION` | The environment where you want to create the cluster. The production environment is used for stable app versions.
         Folder id | `Application attribute` → `Folder ID` | The cluster will be automatically created in the same folder the user selected for app installation.
         Name |  `Value` → `my-best-app-pg-cluster` | The new cluster’s name will be `my-best-app-pg-cluster`.
@@ -182,7 +182,7 @@ In this tutorial, you will create a basic {{ cloud-apps-name }} product with a {
 
         Parameter | Value | Description
         --- | --- | ---
-        Name | `postgresql-user` | Click ![image](../../_assets/console-icons/pencil.svg) next to the auto-generated {{ PG }} user name to change it. The resource name must be unique within the configuration. The user will see it when installing the app.
+        Name | `postgresql-user` | Click ![image](../../_assets/console-icons/pencil.svg) next to the auto-generated {{ PG }} user name to change it. The resource name must be unique within the configuration. The user will see it when installing the application.
         Cluster id | `Resource` → `postgres-cluster` | The cluster to which `pg_username` will have access.
         Name | `Parameter` → `pg_username` | The username will be retrieved from the **Database username** field as specified by the user when filling out the form.
         Password |  `Reference` → `lockbox-secret-with-db-password` → `entries[0].text_value` | To access the cluster, `pg_username` will use the password retrieved from `lockbox-secret-with-db-password`.
@@ -191,7 +191,7 @@ In this tutorial, you will create a basic {{ cloud-apps-name }} product with a {
 
         Parameter | Value | Description
         --- | --- | ---
-        Name | `postgresql-db` | Click ![image](../../_assets/console-icons/pencil.svg) next to the auto-generated {{ PG }} DB name to change it. The resource name must be unique within the configuration. The user will see it when installing the app.
+        Name | `postgresql-db` | Click ![image](../../_assets/console-icons/pencil.svg) next to the auto-generated {{ PG }} DB name to change it. The resource name must be unique within the configuration. The user will see it when installing the application.
         Cluster id | `Resource` → `postgres-cluster` | The cluster where the `pg_username` database will be automatically created.
         Name | `Parameter` → `pg_username` | The database name will be retrieved from the **Database username** field as specified by the user when filling out the form. The DB user name and the DB name match in the demo example.
         Owner |  `Reference` → `postgresql-user` → `name` | The DB owner name will be the {{ PG }} user name, `postgresql-user`.
@@ -200,7 +200,7 @@ In this tutorial, you will create a basic {{ cloud-apps-name }} product with a {
 
         Parameter | Value | Description
         --- | --- | ---
-        Name | `instance` | Click ![image](../../_assets/console-icons/pencil.svg) next to the auto-generated VM name to change it. The resource name must be unique within the configuration. The user will see it when installing the app.
+        Name | `instance` | Click ![image](../../_assets/console-icons/pencil.svg) next to the auto-generated VM name to change it. The resource name must be unique within the configuration. The user will see it when installing the application.
         Folder id | `Application attribute` → `Folder ID` | The {{ compute-name }} [VM](../../compute/concepts/vm.md) will be automatically created in the same folder the user selected for app installation.
         Boot disk | `Value` → `Key: Initialize params` → `Value` → `Key: Image id` → `Artifact` → `ubuntu` | Disk image to create the VM from. You added it at [this step](#artifact).
         Boot disk | `Value` → `Key: Initialize params` → `Value` → `Key: Size` → `Value` → `32` | Disk size. 
@@ -225,5 +225,5 @@ In this tutorial, you will create a basic {{ cloud-apps-name }} product with a {
 1. Fill out the form.
 1. Click **Install**.
 1. Wait for the service to verify the resources you are creating and click **Confirm**.
-1. The application list will now contain your `demo-app` with the `Deploying` status. Wait until the status switches to `Deployed`. This may take several minutes.
+1. The application list will now contain your `demo-app` with the `Deploying` status. Wait until the status switches to `Deployed`. This may take a few minutes.
 1. Check all newly created resources. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM and [make sure](../../managed-postgresql/operations/connect.md) it can access the {{ mpg-full-name }} cluster.

@@ -9,7 +9,7 @@ Create a [trigger](../concepts/trigger/iot-core-trigger.md) for an {{ iot-name }
 
 {% note warning %}
 
-The trigger must be in the same cloud as the registry or device whose topic it reads messages from.
+The trigger must be in the same cloud as the registry or device from the topic of which it reads messages.
 
 {% endnote %}
 
@@ -30,9 +30,9 @@ The trigger must be in the same cloud as the registry or device whose topic it r
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder you want to create a trigger in.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -44,7 +44,7 @@ The trigger must be in the same cloud as the registry or device whose topic it r
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_iot }}`.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}**, specify the registry, device, and MQTT topic to create a trigger for. When creating a trigger for a registry topic, you do not need to specify a device or an MQTT topic. If no MQTT topic is set, the trigger fires for all registry or device topics.
+    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}**, specify the registry, device, and MQTT topic to create a trigger for. When creating a trigger for a registry topic, you do not need to specify a device or an MQTT topic. If no MQTT topic is set, the trigger will fire for all registry or device topics.
  
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
@@ -76,7 +76,7 @@ The trigger must be in the same cloud as the registry or device whose topic it r
       --registry-id <registry_ID> \
       --device-id <device_ID> \
       --mqtt-topic '<broker_MQTT_topic>' \
-      --batch-size <message_group_size> \
+      --batch-size <message_batch_size> \
       --batch-cutoff <maximum_timeout> \
       --invoke-container-id <container_ID> \
       --invoke-container-service-account-id <service_account_ID> \
@@ -91,7 +91,7 @@ The trigger must be in the same cloud as the registry or device whose topic it r
     * `--name`: Trigger name.
     * `--registry-id`: [Registry ID](../../iot-core/operations/registry/registry-list.md).
     * `--device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you are creating a trigger for a registry topic, you can omit this parameter.
-    * `--mqtt-topic`: MQTT topic you want to create a trigger for. This is an optional parameter. If this parameter is skipped, the trigger fires for all registry or device topics.
+    * `--mqtt-topic`: MQTT topic you want to create a trigger for. This is an optional parameter. If this parameter is skipped, the trigger will fire for all registry or device topics.
 
     {% include [trigger-param](../../_includes/iot-core/trigger-param-sc.md) %}
 
@@ -138,14 +138,14 @@ The trigger must be in the same cloud as the registry or device whose topic it r
           id                 = "<container_ID>"
           service_account_id = "<service_account_ID>"
           retry_attempts     = "<number_of_retry_attempts>"
-          retry_interval     = "<interval_between_retry_attempts>"
+          retry_interval     = "<time_between_retry_attempts>"
         }
         iot {
           registry_id  = "<registry_ID>"
           device_id    = "<device_ID>"
           topic        = "<broker_MQTT_topic>"
-          batch_cutoff = "<maximum_timeout>"
-          batch_size   = "<message_group_size>"
+          batch_cutoff = "<maximum_wait_time>"
+          batch_size   = "<message_batch_size>"
         }
         dlq {
          queue_id           = "<dead-letter_queue_ID>"
@@ -170,15 +170,15 @@ The trigger must be in the same cloud as the registry or device whose topic it r
 
         * `registry-id`: [Registry ID](../../iot-core/operations/registry/registry-list.md).
         * `device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you are creating a trigger for a registry topic, you can omit this parameter.
-        * `topic`: MQTT topic you want to create a trigger for. This is an optional parameter. If this parameter is skipped, the trigger fires for all registry or device topics.
+        * `topic`: MQTT topic you want to create a trigger for. This is an optional parameter. If this parameter is skipped, the trigger will fire for all registry or device topics.
         * `batch_cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch_cutoff` and sends them to a container. The number of messages cannot exceed `batch_size`.
         * `batch_size`: Size of the message batch from MQTT topics. This is an optional parameter. The values may range from 1 to 10. The default value is 1.
 
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+      For more information about resource properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function_trigger).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

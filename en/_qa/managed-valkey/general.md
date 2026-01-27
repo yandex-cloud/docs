@@ -9,8 +9,8 @@ With {{ mrd-short-name }}, you can:
 
 {{ mrd-short-name }} takes over time-consuming administrative tasks in {{ VLK }}:
 - Monitors your resource consumption.
-- Automatically backs up your databases.
-- Ensures fault tolerance through automatic failover to standby replicas.
+- Automatically creates DB backups.
+- Provides fault tolerance through automatic failover to backup replicas.
 - Keeps your DBMS software up to date.
 
 You work with a {{ mrd-short-name }} database cluster just like with your regular local database. This allows you to manage internal database settings to meet your app requirements.
@@ -26,7 +26,7 @@ Furthermore, {{ mrd-short-name }} ensures data replication across database hosts
 
 {% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
 
-#### When should I use {{ mrd-short-name }}, and when should I use VMs running databases? {#mdb-advantage}
+#### Not sure whether to use {{ mrd-short-name }} or VMs with databases? {#mdb-advantage}
 
 {{ yandex-cloud }} offers two ways to work with databases:
 
@@ -54,7 +54,7 @@ Before creating a database cluster in {{ mrd-short-name }}, you need to decide o
 
 For more information, see [Getting started](../../managed-valkey/quickstart.md).
 
-#### How many database hosts can be in a cluster? {#how-many-hosts}
+#### How many database hosts can there be in a cluster? {#how-many-hosts}
 
 The minimum number of hosts in a cluster depends on the following:
 * Selected [platform and host class](../../managed-valkey/concepts/instance-types.md).
@@ -79,7 +79,7 @@ To learn more about MDB technical and organizational limitations, see [Quotas an
 
 Maintenance in {{ mrd-short-name }} includes:
 
-- Automatic installation of DBMS updates and patches for all hosts, even disabled ones.
+- Automatic installation of DBMS updates and patches for database hosts (including for stopped clusters).
 - Changes in the host class and storage size.
 - Other {{ mrd-short-name }} maintenance activities.
 
@@ -91,14 +91,14 @@ For more information, see [Maintenance](../../managed-valkey/concepts/maintenanc
 
 #### What happens when a new DBMS version is released? {#new-version}
 
-The database software is updated whenever new minor versions are released. Owners of affected database clusters are notified of an expected maintenance period and database availability in advance.
+The database software is updated whenever new minor versions are released. Owners of affected database clusters get advance notice of upcoming maintenance and database availability.
 
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 
 One month after a DBMS version becomes deprecated, {{ mrd-short-name }} automatically sends email notifications to the owners of database clusters created with that version.
 
-New hosts can no longer be created using deprecated DBMS versions. Database clusters are automatically upgraded to the next supported version seven days after notification for minor versions and one month after notification for major versions. Deprecated major versions will be upgraded even if you disabled automatic updates.
+For clusters with a deprecated DBMS version, there is no option to create new hosts or restore from backups. Database clusters are automatically upgraded to the next supported version seven days after notification for minor versions and one month after notification for major versions. Deprecated major versions will be upgraded even if you disabled automatic updates.
 
 
 #### How do you calculate usage cost for a database host? {#db-cost}
@@ -138,13 +138,13 @@ Clusters remain fully available during the backup window.
 
 For all DBMS types, you can monitor:
 
-- CPU, memory, network, or disk usage, in absolute terms.
-- Memory, network, and disk usage as a percentage of the set limits for the relevant cluster host class.
-- Amount of data in a database cluster and the remaining free space in your data storage.
+- CPU, memory, network, and disk usage, in absolute terms.
+- Memory, network, and disk usage as a percentage of the set limits for the relevant cluster's host class.
+- Amount of data in a DB cluster and the remaining free space in your data storage.
 
 For all database hosts, you can monitor metrics specific to their DBMS type. For example, for {{ VLK }}, you can monitor:
-- Average command execution time.
-- Number of commands per second.
+- Average query execution time.
+- Number of queries per second.
 - Number of errors in logs, and more.
 
 You can monitor metrics with a minimum granularity of five seconds.
@@ -196,12 +196,12 @@ Here is the full text of the error:
 curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
 The revocation function was unable to check revocation for the certificate
 ```
-This means that the service was unable to verify the website certificate against the revocation list when trying to connect.
+This means that when connecting to the website, the service was unable to check whether or not its certificate was listed among revoked ones.
 
 To fix this error:
 
-* Make sure your corporate network policies are not blocking the verification.
-* Run the following command with the `--ssl-no-revoke` flag:
+* Make sure your corporate network policies are not blocking the check.
+* Run the following command with `--ssl-no-revoke`:
 
    ```powershell
    mkdir $HOME\.redis; curl.exe --ssl-no-revoke -o $HOME\.redis\{{ crt-local-file }} {{ crt-web-path }}

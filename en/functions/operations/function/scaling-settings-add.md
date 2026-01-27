@@ -26,7 +26,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select a function.
     1. To configure:
         * Any scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`):
@@ -127,7 +127,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
     To add scaling settings:
 
-    1. In the configuration file, describe the properties of resources you want to create:
+    1. In the configuration file, describe the resources you want to create:
 
        * `yandex_function`: Description of the function being created and its source code.
          * `name`: Function name.
@@ -200,7 +200,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
        terraform plan
        ```
 
-       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them. 
 
     1. Apply the changes:
 

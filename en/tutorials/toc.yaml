@@ -1595,6 +1595,8 @@ items:
             href: serverless/send-emails-aws-sdk-python.md
       - name: Creating an AI agent with {{ sf-full-name }}
         href: serverless/create-ai-agent-function.md
+      - name: Creating an AI agent with response streaming via web sockets
+        href: serverless/streaming-openai-agent.md
       - name: Configuring Postfix to send emails via {{ postbox-full-name }}
         href: serverless/postfix-integration.md
       - name: '{{ postbox-full-name }} integration with external systems via webhooks'

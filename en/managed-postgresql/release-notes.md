@@ -1,13 +1,14 @@
 ---
 title: '{{ mpg-full-name }} release notes'
-description: This section contains {{ mpg-name }} release notes.
+description: This section contains the {{ mpg-name }} release notes.
 ---
 
 # {{ mpg-full-name }} release notes
 
 ## November 2025 {#nov-2025}
 
-Added the `managed-postgresql.restorer` role, which allows restoring clusters from backups. To learn more, see [Access management](security/index.md#managed-postgresql-restorer).
+* Added the `managed-postgresql.restorer` role for restoring clusters from backups. To learn more, see [Access management](security/index.md#managed-postgresql-restorer).
+* {{ PG }} 13 is [no longer](https://www.postgresql.org/about/news/postgresql-181-177-1611-1515-1420-and-1323-released-3171/) supported.
 
 ## October 2025 {#oct-2025}
 
@@ -40,6 +41,10 @@ Now you can [upgrade clusters](operations/cluster-version-update.md) to {{ PG }}
 ## January 2025 {#jan-2025}
 
 [logerrors](https://github.com/munakoiso/logerrors) is now a system extension enabled by default in new clusters.
+
+## November 2024 {#nov-2024}
+
+{{ PG }} 12 is [no longer](https://www.postgresql.org/about/news/postgresql-164-158-1413-1316-1220-and-17-beta-3-released-2910/) supported.
 
 ## October 2024 {#oct-2024}
 

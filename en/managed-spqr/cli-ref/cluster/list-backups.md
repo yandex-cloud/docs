@@ -1,24 +1,24 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/cluster/list-backups.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/cluster/list-backups.md
 ---
 
-# yc managed-postgresql cluster list-backups
+# yc managed-sharded-postgresql cluster list-backups
 
-List available backups for the specified PostgreSQL cluster
+List available backups for the specified Sharded PostgreSQL cluster
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-postgresql cluster list-backups <CLUSTER-NAME>|<CLUSTER-ID> [Global Flags...]`
+`yc managed-sharded-postgresql cluster list-backups <CLUSTER-NAME>|<CLUSTER-ID> [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>PostgreSQL cluster id.|
-|`--name`|<b>`string`</b><br/>PostgreSQL cluster name.|
+|`--id`|<b>`string`</b><br/>Sharded PostgreSQL cluster id.|
+|`--name`|<b>`string`</b><br/>Sharded PostgreSQL cluster name.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
 
 #### Global Flags

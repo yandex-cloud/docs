@@ -1,47 +1,52 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/cluster/restore.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/cluster/restore.md
 ---
 
-# yc managed-postgresql cluster restore
+# yc managed-sharded-postgresql cluster restore
 
-Restore PostgreSQL cluster
+Restore Sharded PostgreSQL cluster
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-postgresql cluster restore [Flags...] [Global Flags...]`
+`yc managed-sharded-postgresql cluster restore [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
 |`--backup-id`|<b>`string`</b><br/>ID of the backup to create a cluster from.|
-|`--time`|<b>`timestamp`</b><br/>Timestamp in RFC3339 of the moment to which the PostgreSQL cluster should be restored.|
+|`--time`|<b>`timestamp`</b><br/>Timestamp in RFC3339 of the moment to which the Sharded PostgreSQL cluster should be restored.|
 |`--name`|<b>`string`</b><br/>Cluster name.|
 |`--description`|<b>`string`</b><br/>Cluster description.|
 |`--environment`|<b>`string`</b><br/>Cluster environment. Values: production, prestable.|
 |`--network-id`|<b>`string`</b><br/>Network id.|
 |`--network-name`|<b>`string`</b><br/>Network name.|
-|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Individual configurations for hosts that should be created for the PostgresSQL cluster.<br/><br/>Possible property names:<br/><ul> <li><code>zone-id</code>:     ID of the availability zone where the host resides.</li> <li><code>subnet-id</code>:     ID of the subnet that the host should be created in.</li> <li><code>subnet-name</code>:     Name of the subnet that the host should be created in.</li> <li><code>assign-public-ip</code>:     Whether the host should get a public IP address on creation.</li> <li><code>replication-source</code>:     Host name of the host to be used as the replication source (for cascading replication).</li> <li><code>priority</code>:     Priority of the host as a replica.</li> </ul>|
+|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Individual configurations for hosts that should be created for the Sharded PostgreSQL cluster.<br/><br/>Possible property names:<br/><ul> <li><code>zone-id</code>:     ID of the availability zone where the host resides.</li> <li><code>subnet-id</code>:     ID of the subnet that the host should be created in.</li> <li><code>subnet-name</code>:     Name of the subnet that the host should be created in.</li> <li><code>assign-public-ip</code>:     Whether the host should get a public IP address on creation.</li> <li><code>type</code>:     Type of the host Values: 'router', 'coordinator', 'infra', 'postgresql', 'external-postgresql', 'mdb-postgresql'</li> </ul>|
+|`--router-resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available to a host (CPU, memory etc.).|
+|`--router-disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host in GB.|
+|`--router-disk-type`|<b>`string`</b><br/>Type of the storage environment for the host.|
+|`--coordinator-resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available to a host (CPU, memory etc.).|
+|`--coordinator-disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host in GB.|
+|`--coordinator-disk-type`|<b>`string`</b><br/>Type of the storage environment for the host.|
+|`--infra-resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available to a host (CPU, memory etc.).|
+|`--infra-disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host in GB.|
+|`--infra-disk-type`|<b>`string`</b><br/>Type of the storage environment for the host.|
+|`--postgresql-resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available to a host (CPU, memory etc.).|
+|`--postgresql-disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host in GB.|
+|`--postgresql-disk-type`|<b>`string`</b><br/>Type of the storage environment for the host.|
+|`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
+|`--backup-retain-period-days`|<b>`int`</b><br/>Retention policy of automated backups.|
 |`--datalens-access`|Allow access for DataLens|
 |`--websql-access`|Allow access for Web SQL|
 |`--serverless-access`|Allow access for Serverless|
 |`--datatransfer-access`|Allow access for DataTransfer|
-|`--yandexquery-access`|Allow access for Yandex Query|
-|`--postgresql-version`|<b>`string`</b><br/>Version of PostgreSQL used in the cluster. Values: 16, 15, 14, 13, 12, 11, 10, 14-1c, 13-1c, 12-1c, 11-1c, 10-1c|
-|`--resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available to a host (CPU, memory etc.).|
-|`--disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host in GB.|
-|`--disk-type`|<b>`string`</b><br/>Type of the storage environment for the host.|
-|`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
-|`--backup-retain-period-days`|<b>`int`</b><br/>Retention policy of automated backups.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--folder-id`|<b>`string`</b><br/>Set the ID of the folder to use.|
-|`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the PostgreSQL cluster.|
+|`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the Sharded PostgreSQL cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
-|`--host-group-ids`|<b>`value[,value]`</b><br/>A list of host groups to place VMs of cluster on.|
-|`--disk-encryption-key-id`|<b>`string`</b><br/>ID of the KMS key for cluster disk encryption. Empty input will remove the use of encryption.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

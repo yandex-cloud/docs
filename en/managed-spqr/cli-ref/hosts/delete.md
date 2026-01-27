@@ -1,9 +1,9 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/hosts/delete.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/hosts/delete.md
 ---
 
-# yc managed-postgresql hosts delete
+# yc managed-sharded-postgresql hosts delete
 
 Delete the specified hosts
 
@@ -11,14 +11,14 @@ Delete the specified hosts
 
 Syntax: 
 
-`yc managed-postgresql hosts delete <HOST-NAME> [<HOST-NAME>...] [Flags...] [Global Flags...]`
+`yc managed-sharded-postgresql hosts delete <HOST-NAME> [<HOST-NAME>...] [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>PostgreSQL cluster id.|
-|`--cluster-name`|<b>`string`</b><br/>PostgreSQL cluster name.|
+|`--cluster-id`|<b>`string`</b><br/>Sharded PostgreSQL cluster id.|
+|`--cluster-name`|<b>`string`</b><br/>Sharded PostgreSQL cluster name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

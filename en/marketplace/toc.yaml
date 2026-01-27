@@ -374,6 +374,8 @@ items:
                 href: tutorials/hashicorp-vault.md
               - name: Deploying S2S VPN using strongSwan in {{ yandex-cloud }}
                 href: tutorials/s2s-vpn.md
+              - name: Installing Ghost CMS CloudApp in {{ objstorage-name }}
+                href: tutorials/ghost-cms-cloudapp.md
       - name: Concepts
         items:
           - name: Subscription

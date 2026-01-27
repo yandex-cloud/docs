@@ -1,17 +1,17 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/cluster/list.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/cluster/list.md
 ---
 
-# yc managed-postgresql cluster list
+# yc managed-sharded-postgresql cluster list
 
-List PostgreSQL clusters
+List Sharded PostgreSQL clusters
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-postgresql cluster list [Flags...] [Global Flags...]`
+`yc managed-sharded-postgresql cluster list [Flags...] [Global Flags...]`
 
 #### Flags
 

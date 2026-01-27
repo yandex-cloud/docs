@@ -13,10 +13,10 @@ To access a device, use its unique ID or name. For information about how to get 
    To update the name of a device:
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the device name in.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
-   1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
-   1. To the right of the name of the device you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
+   1. To the right of the device name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Edit the **{{ ui-key.yacloud.common.name }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -79,8 +79,8 @@ To access a device, use its unique ID or name. For information about how to get 
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
       ```bash
       terraform apply
@@ -109,10 +109,10 @@ To access a device, use its unique ID or name. For information about how to get 
    To update the description of a device:
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the device description in.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
-   1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
-   1. To the right of the name of the device you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
+   1. To the right of the device name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Edit the **{{ ui-key.yacloud.common.description }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -177,8 +177,8 @@ To access a device, use its unique ID or name. For information about how to get 
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
       ```bash
       terraform apply

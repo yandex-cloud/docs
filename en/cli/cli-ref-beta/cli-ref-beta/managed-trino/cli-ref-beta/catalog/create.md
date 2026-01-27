@@ -10,36 +10,737 @@ Creates a new Trino Catalog.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta managed-trino catalog create <CLUSTER-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--catalog`|<b>`shorthand/json`</b><br/>Specification of the catalog to be created.<br/>Shorthand Syntax:<br/>{<br/>connector = {<br/>type = clickhouse={<br/>additional-properties = {key=str, key=...},<br/>connection = {<br/>type = connection-manager={<br/>connection-id = str,<br/>connection-properties = {key=str, key=...},<br/>database = str<br/>} \| on-premise={<br/>connection-url = str,<br/>password = str,<br/>user-name = str<br/>}<br/>}<br/>} \| delta-lake={<br/>additional-properties = {key=str, key=...},<br/>filesystem = {<br/>type = external-s3={<br/>aws-access-key = str,<br/>aws-endpoint = str,<br/>aws-region = str,<br/>aws-secret-key = str<br/>} \| s3={}<br/>},<br/>metastore = {<br/>type = hive={<br/>connection = uri=str<br/>}<br/>}<br/>} \| greenplum={<br/>additional-properties = {key=str, key=...},<br/>connection = {<br/>type = connection-manager={<br/>connection-id = str,<br/>connection-properties = {key=str, key=...},<br/>database = str<br/>} \| on-premise={<br/>connection-url = str,<br/>password = str,<br/>user-name = str<br/>}<br/>}<br/>} \| hive={<br/>additional-properties = {key=str, key=...},<br/>filesystem = {<br/>type = external-s3={<br/>aws-access-key = str,<br/>aws-endpoint = str,<br/>aws-region = str,<br/>aws-secret-key = str<br/>} \| s3={}<br/>},<br/>metastore = {<br/>type = hive={<br/>connection = uri=str<br/>}<br/>}<br/>} \| hudi={<br/>additional-properties = {key=str, key=...},<br/>filesystem = {<br/>type = external-s3={<br/>aws-access-key = str,<br/>aws-endpoint = str,<br/>aws-region = str,<br/>aws-secret-key = str<br/>} \| s3={}<br/>},<br/>metastore = {<br/>type = hive={<br/>connection = uri=str<br/>}<br/>}<br/>} \| iceberg={<br/>additional-properties = {key=str, key=...},<br/>filesystem = {<br/>type = external-s3={<br/>aws-access-key = str,<br/>aws-endpoint = str,<br/>aws-region = str,<br/>aws-secret-key = str<br/>} \| s3={}<br/>},<br/>metastore = {<br/>type = hive={<br/>connection = uri=str<br/>}<br/>}<br/>} \| mysql={<br/>additional-properties = {key=str, key=...},<br/>connection = {<br/>type = connection-manager={<br/>connection-id = str,<br/>connection-properties = {key=str, key=...}<br/>} \| on-premise={<br/>connection-url = str,<br/>password = str,<br/>user-name = str<br/>}<br/>}<br/>} \| oracle={<br/>additional-properties = {key=str, key=...},<br/>connection = {<br/>type = on-premise={<br/>connection-url = str,<br/>password = str,<br/>user-name = str<br/>}<br/>}<br/>} \| postgresql={<br/>additional-properties = {key=str, key=...},<br/>connection = {<br/>type = connection-manager={<br/>connection-id = str,<br/>connection-properties = {key=str, key=...},<br/>database = str<br/>} \| on-premise={<br/>connection-url = str,<br/>password = str,<br/>user-name = str<br/>}<br/>}<br/>} \| sqlserver={<br/>additional-properties = {key=str, key=...},<br/>connection = {<br/>type = on-premise={<br/>connection-url = str,<br/>password = str,<br/>user-name = str<br/>}<br/>}<br/>} \| tpcds={<br/>additional-properties = {key=str, key=...}<br/>} \| tpch={<br/>additional-properties = {key=str, key=...}<br/>}<br/>},<br/>description = str,<br/>labels = {key=str, key=...},<br/>name = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"connector": {<br/>"type": {<br/>"clickhouse": {<br/>"additional-properties": {<br/>"\<key\>": "str", ...<br/>},<br/>"connection": {<br/>"type": {<br/>"connection-manager": {<br/>"connection-id": "str",<br/>"connection-properties": {<br/>"\<key\>": "str", ...<br/>},<br/>"database": "str"<br/>},<br/>"on-premise": {<br/>"connection-url": "str",<br/>"password": "str",<br/>"user-name": "str"<br/>}<br/>}<br/>}<br/>},<br/>"delta-lake": {<br/>"additional-properties": {<br/>"\<key\>": "str", ...<br/>},<br/>"filesystem": {<br/>"type": {<br/>"external-s3": {<br/>"aws-access-key": "str",<br/>"aws-endpoint": "str",<br/>"aws-region": "str",<br/>"aws-secret-key": "str"<br/>},<br/>"s3": {}<br/>}<br/>},<br/>"metastore": {<br/>"type": {<br/>"hive": {<br/>"connection": {<br/>"uri": "str"<br/>}<br/>}<br/>}<br/>}<br/>},<br/>"greenplum": {<br/>"additional-properties": {<br/>"\<key\>": "str", ...<br/>},<br/>"connection": {<br/>"type": {<br/>"connection-manager": {<br/>"connection-id": "str",<br/>"connection-properties": {<br/>"\<key\>": "str", ...<br/>},<br/>"database": "str"<br/>},<br/>"on-premise": {<br/>"connection-url": "str",<br/>"password": "str",<br/>"user-name": "str"<br/>}<br/>}<br/>}<br/>},<br/>"hive": {<br/>"additional-properties": {<br/>"\<key\>": "str", ...<br/>},<br/>"filesystem": {<br/>"type": {<br/>"external-s3": {<br/>"aws-access-key": "str",<br/>"aws-endpoint": "str",<br/>"aws-region": "str",<br/>"aws-secret-key": "str"<br/>},<br/>"s3": {}<br/>}<br/>},<br/>"metastore": {<br/>"type": {<br/>"hive": {<br/>"connection": {<br/>"uri": "str"<br/>}<br/>}<br/>}<br/>}<br/>},<br/>"hudi": {<br/>"additional-properties": {<br/>"\<key\>": "str", ...<br/>},<br/>"filesystem": {<br/>"type": {<br/>"external-s3": {<br/>"aws-access-key": "str",<br/>"aws-endpoint": "str",<br/>"aws-region": "str",<br/>"aws-secret-key": "str"<br/>},<br/>"s3": {}<br/>}<br/>},<br/>"metastore": {<br/>"type": {<br/>"hive": {<br/>"connection": {<br/>"uri": "str"<br/>}<br/>}<br/>}<br/>}<br/>},<br/>"iceberg": {<br/>"additional-properties": {<br/>"\<key\>": "str", ...<br/>},<br/>"filesystem": {<br/>"type": {<br/>"external-s3": {<br/>"aws-access-key": "str",<br/>"aws-endpoint": "str",<br/>"aws-region": "str",<br/>"aws-secret-key": "str"<br/>},<br/>"s3": {}<br/>}<br/>},<br/>"metastore": {<br/>"type": {<br/>"hive": {<br/>"connection": {<br/>"uri": "str"<br/>}<br/>}<br/>}<br/>}<br/>},<br/>"mysql": {<br/>"additional-properties": {<br/>"\<key\>": "str", ...<br/>},<br/>"connection": {<br/>"type": {<br/>"connection-manager": {<br/>"connection-id": "str",<br/>"connection-properties": {<br/>"\<key\>": "str", ...<br/>}<br/>},<br/>"on-premise": {<br/>"connection-url": "str",<br/>"password": "str",<br/>"user-name": "str"<br/>}<br/>}<br/>}<br/>},<br/>"oracle": {<br/>"additional-properties": {<br/>"\<key\>": "str", ...<br/>},<br/>"connection": {<br/>"type": {<br/>"on-premise": {<br/>"connection-url": "str",<br/>"password": "str",<br/>"user-name": "str"<br/>}<br/>}<br/>}<br/>},<br/>"postgresql": {<br/>"additional-properties": {<br/>"\<key\>": "str", ...<br/>},<br/>"connection": {<br/>"type": {<br/>"connection-manager": {<br/>"connection-id": "str",<br/>"connection-properties": {<br/>"\<key\>": "str", ...<br/>},<br/>"database": "str"<br/>},<br/>"on-premise": {<br/>"connection-url": "str",<br/>"password": "str",<br/>"user-name": "str"<br/>}<br/>}<br/>}<br/>},<br/>"sqlserver": {<br/>"additional-properties": {<br/>"\<key\>": "str", ...<br/>},<br/>"connection": {<br/>"type": {<br/>"on-premise": {<br/>"connection-url": "str",<br/>"password": "str",<br/>"user-name": "str"<br/>}<br/>}<br/>}<br/>},<br/>"tpcds": {<br/>"additional-properties": {<br/>"\<key\>": "str", ...<br/>}<br/>},<br/>"tpch": {<br/>"additional-properties": {<br/>"\<key\>": "str", ...<br/>}<br/>}<br/>}<br/>},<br/>"description": "str",<br/>"labels": {<br/>"\<key\>": "str", ...<br/>},<br/>"name": "str"<br/>}"<br/>Fields:<br/>connector -> (struct)<br/>Connector backing this catalog.<br/>type -> (oneof<clickhouse\|delta-lake\|greenplum\|hive\|hudi\|iceberg\|mysql\|oracle\|postgresql\|sqlserver\|tpcds\|tpch>)<br/>Oneof type field<br/>hive -> (struct)<br/>Hive connector configuration.<br/>additional-properties -> (map[string,string])<br/>Additional properties.<br/>filesystem -> (struct)<br/>File system configuration.<br/>type -> (oneof<external-s3\|s3>)<br/>Oneof type field<br/>s3 -> (struct)<br/>Yandex Cloud S3 filesystem.<br/>external-s3 -> (struct)<br/>External S3 filesystem.<br/>aws-access-key -> (string)<br/>AWS access key.<br/>aws-endpoint -> (string)<br/>AWS endpoint.<br/>aws-region -> (string)<br/>AWS region.<br/>aws-secret-key -> (string)<br/>AWS secret key.<br/>metastore -> (struct)<br/>Metastore configuration.<br/>type -> (oneof\<hive\>)<br/>Oneof type field<br/>hive -> (struct)<br/>Apache Hive Metastore.<br/>connection -> (oneof\<uri\>)<br/>Oneof connection field<br/>uri -> (string)<br/>URI or cluster ID of the Hive Metastore.<br/>iceberg -> (struct)<br/>Iceberg connector configuration.<br/>additional-properties -> (map[string,string])<br/>Additional properties.<br/>filesystem -> (struct)<br/>File system configuration.<br/>type -> (oneof<external-s3\|s3>)<br/>Oneof type field<br/>s3 -> (struct)<br/>Yandex Cloud S3 filesystem.<br/>external-s3 -> (struct)<br/>External S3 filesystem.<br/>aws-access-key -> (string)<br/>AWS access key.<br/>aws-endpoint -> (string)<br/>AWS endpoint.<br/>aws-region -> (string)<br/>AWS region.<br/>aws-secret-key -> (string)<br/>AWS secret key.<br/>metastore -> (struct)<br/>Metastore configuration.<br/>type -> (oneof\<hive\>)<br/>Oneof type field<br/>hive -> (struct)<br/>Apache Hive Metastore.<br/>connection -> (oneof\<uri\>)<br/>Oneof connection field<br/>uri -> (string)<br/>URI or cluster ID of the Hive Metastore.<br/>delta-lake -> (struct)<br/>Delta Lake connector configuration.<br/>additional-properties -> (map[string,string])<br/>Additional properties.<br/>filesystem -> (struct)<br/>File system configuration.<br/>type -> (oneof<external-s3\|s3>)<br/>Oneof type field<br/>s3 -> (struct)<br/>Yandex Cloud S3 filesystem.<br/>external-s3 -> (struct)<br/>External S3 filesystem.<br/>aws-access-key -> (string)<br/>AWS access key.<br/>aws-endpoint -> (string)<br/>AWS endpoint.<br/>aws-region -> (string)<br/>AWS region.<br/>aws-secret-key -> (string)<br/>AWS secret key.<br/>metastore -> (struct)<br/>Metastore configuration.<br/>type -> (oneof\<hive\>)<br/>Oneof type field<br/>hive -> (struct)<br/>Apache Hive Metastore.<br/>connection -> (oneof\<uri\>)<br/>Oneof connection field<br/>uri -> (string)<br/>URI or cluster ID of the Hive Metastore.<br/>postgresql -> (struct)<br/>PostgreSQL connector configuration.<br/>additional-properties -> (map[string,string])<br/>Additional properties.<br/>connection -> (struct)<br/>Connection configuration.<br/>type -> (oneof<connection-manager\|on-premise>)<br/>Oneof type field<br/>on-premise -> (struct)<br/>Connection configured manually.<br/>connection-url -> (string)<br/>Connection to the Postgresql.<br/>password -> (string)<br/>Password of the Postgresql user.<br/>user-name -> (string)<br/>Name of the Postgresql user.<br/>connection-manager -> (struct)<br/>Connection configured using Yandex Cloud Connection Manager.<br/>connection-id -> (string)<br/>Connection ID.<br/>connection-properties -> (map[string,string])<br/>Additional connection properties.<br/>database -> (string)<br/>Database.<br/>clickhouse -> (struct)<br/>ClickHouse connector configuration.<br/>additional-properties -> (map[string,string])<br/>Additional properties.<br/>connection -> (struct)<br/>Connection configuration.<br/>type -> (oneof<connection-manager\|on-premise>)<br/>Oneof type field<br/>on-premise -> (struct)<br/>Connection configured manually.<br/>connection-url -> (string)<br/>Connection to the Clickhouse.<br/>password -> (string)<br/>Password of the Clickhouse user.<br/>user-name -> (string)<br/>Name of the Clickhouse user.<br/>connection-manager -> (struct)<br/>Connection configured using Yandex Cloud Connection Manager.<br/>connection-id -> (string)<br/>Connection ID.<br/>connection-properties -> (map[string,string])<br/>Additional connection properties.<br/>database -> (string)<br/>Database.<br/>tpch -> (struct)<br/>TPC-H connector for synthetic benchmarking.<br/>additional-properties -> (map[string,string])<br/>Additional properties.<br/>tpcds -> (struct)<br/>TPC-DS connector for synthetic benchmarking.<br/>additional-properties -> (map[string,string])<br/>Additional properties.<br/>oracle -> (struct)<br/>Oracle connector configuration for connecting to Oracle Database instances.<br/>additional-properties -> (map[string,string])<br/>Additional properties.<br/>connection -> (struct)<br/>Connection configuration.<br/>type -> (oneof\<on-premise\>)<br/>Oneof type field<br/>on-premise -> (struct)<br/>Connection configured manually.<br/>connection-url -> (string)<br/>Connection to the Oracle.<br/>password -> (string)<br/>Password of the Oracle user.<br/>user-name -> (string)<br/>Name of the Oracle user.<br/>sqlserver -> (struct)<br/>SQLServer connector configuration for connecting to SQLServer Database instances.<br/>additional-properties -> (map[string,string])<br/>Additional properties.<br/>connection -> (struct)<br/>Connection configuration.<br/>type -> (oneof\<on-premise\>)<br/>Oneof type field<br/>on-premise -> (struct)<br/>Connection configured manually.<br/>connection-url -> (string)<br/>Connection to the SQLServer.<br/>password -> (string)<br/>Password of the SQLServer user.<br/>user-name -> (string)<br/>Name of the SQLServer user.<br/>hudi -> (struct)<br/>Hudi connector configuration.<br/>additional-properties -> (map[string,string])<br/>Additional properties.<br/>filesystem -> (struct)<br/>File system configuration.<br/>type -> (oneof<external-s3\|s3>)<br/>Oneof type field<br/>s3 -> (struct)<br/>Yandex Cloud S3 filesystem.<br/>external-s3 -> (struct)<br/>External S3 filesystem.<br/>aws-access-key -> (string)<br/>AWS access key.<br/>aws-endpoint -> (string)<br/>AWS endpoint.<br/>aws-region -> (string)<br/>AWS region.<br/>aws-secret-key -> (string)<br/>AWS secret key.<br/>metastore -> (struct)<br/>Metastore configuration.<br/>type -> (oneof\<hive\>)<br/>Oneof type field<br/>hive -> (struct)<br/>Apache Hive Metastore.<br/>connection -> (oneof\<uri\>)<br/>Oneof connection field<br/>uri -> (string)<br/>URI or cluster ID of the Hive Metastore.<br/>mysql -> (struct)<br/>MySQL connector configuration for connecting to MySQL Database instances.<br/>additional-properties -> (map[string,string])<br/>Additional properties.<br/>connection -> (struct)<br/>Connection configuration.<br/>type -> (oneof<connection-manager\|on-premise>)<br/>Oneof type field<br/>on-premise -> (struct)<br/>Connection configured manually.<br/>connection-url -> (string)<br/>Connection to the MySQL.<br/>password -> (string)<br/>Password of the MySQL user.<br/>user-name -> (string)<br/>Name of the MySQL user.<br/>connection-manager -> (struct)<br/>Connection configured using Yandex Cloud Connection Manager.<br/>connection-id -> (string)<br/>Connection ID.<br/>connection-properties -> (map[string,string])<br/>Additional connection properties.<br/>greenplum -> (struct)<br/>Greenplum connector configuration for connecting to Greenplum or Cloudberry Database instances.<br/>additional-properties -> (map[string,string])<br/>Additional properties.<br/>connection -> (struct)<br/>Connection configuration<br/>type -> (oneof<connection-manager\|on-premise>)<br/>Oneof type field<br/>on-premise -> (struct)<br/>Connection configured manually.<br/>connection-url -> (string)<br/>Connection to the Greenplum/Cloudberry.<br/>password -> (string)<br/>Password of the Greenplum/Cloudberry user.<br/>user-name -> (string)<br/>Name of the Greenplum/Cloudberry user.<br/>connection-manager -> (struct)<br/>Connection configured using Yandex Cloud Connection Manager.<br/>connection-id -> (string)<br/>Connection ID.<br/>connection-properties -> (map[string,string])<br/>Additional connection properties.<br/>database -> (string)<br/>Database.<br/>description -> (string)<br/>Description of the catalog.<br/>labels -> (map[string,string])<br/>Labels associated with the catalog.<br/>name -> (string)<br/>Name of the catalog. Must be unique within a Trino cluster.|
-|`--cluster-id`|<b>`string`</b><br/>ID of the Trino Cluster where the catalog should be created.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-json > request.json
+2. Edit the template: vim request.json
+3. Run with template: yc beta compute instance create -r request.json ||
+|| `--example-yaml` | Generates a YAML template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-yaml > request.yaml
+2. Edit the template: vim request.yaml
+3. Run with template: yc beta compute instance create -r request.yaml ||
+|| `--catalog` | `shorthand/json`
+
+Specification of the catalog to be created.
+
+Shorthand Syntax:
+
+```hcl
+{
+  connector = {
+    type = clickhouse={
+      additional-properties = {key=str, key=...},
+      connection = {
+        type = connection-manager={
+          connection-id = str,
+          connection-properties = {key=str, key=...},
+          database = str
+        } | on-premise={
+          connection-url = str,
+          password = str,
+          user-name = str
+        }
+      }
+    } | delta-lake={
+      additional-properties = {key=str, key=...},
+      filesystem = {
+        type = external-s3={
+          aws-access-key = str,
+          aws-endpoint = str,
+          aws-region = str,
+          aws-secret-key = str
+        } | s3={}
+      },
+      metastore = {
+        type = hive={
+          connection = uri=str
+        }
+      }
+    } | greenplum={
+      additional-properties = {key=str, key=...},
+      connection = {
+        type = connection-manager={
+          connection-id = str,
+          connection-properties = {key=str, key=...},
+          database = str
+        } | on-premise={
+          connection-url = str,
+          password = str,
+          user-name = str
+        }
+      }
+    } | hive={
+      additional-properties = {key=str, key=...},
+      filesystem = {
+        type = external-s3={
+          aws-access-key = str,
+          aws-endpoint = str,
+          aws-region = str,
+          aws-secret-key = str
+        } | s3={}
+      },
+      metastore = {
+        type = hive={
+          connection = uri=str
+        }
+      }
+    } | hudi={
+      additional-properties = {key=str, key=...},
+      filesystem = {
+        type = external-s3={
+          aws-access-key = str,
+          aws-endpoint = str,
+          aws-region = str,
+          aws-secret-key = str
+        } | s3={}
+      },
+      metastore = {
+        type = hive={
+          connection = uri=str
+        }
+      }
+    } | iceberg={
+      additional-properties = {key=str, key=...},
+      filesystem = {
+        type = external-s3={
+          aws-access-key = str,
+          aws-endpoint = str,
+          aws-region = str,
+          aws-secret-key = str
+        } | s3={}
+      },
+      metastore = {
+        type = hive={
+          connection = uri=str
+        }
+      }
+    } | mysql={
+      additional-properties = {key=str, key=...},
+      connection = {
+        type = connection-manager={
+          connection-id = str,
+          connection-properties = {key=str, key=...}
+        } | on-premise={
+          connection-url = str,
+          password = str,
+          user-name = str
+        }
+      }
+    } | oracle={
+      additional-properties = {key=str, key=...},
+      connection = {
+        type = on-premise={
+          connection-url = str,
+          password = str,
+          user-name = str
+        }
+      }
+    } | postgresql={
+      additional-properties = {key=str, key=...},
+      connection = {
+        type = connection-manager={
+          connection-id = str,
+          connection-properties = {key=str, key=...},
+          database = str
+        } | on-premise={
+          connection-url = str,
+          password = str,
+          user-name = str
+        }
+      }
+    } | sqlserver={
+      additional-properties = {key=str, key=...},
+      connection = {
+        type = on-premise={
+          connection-url = str,
+          password = str,
+          user-name = str
+        }
+      }
+    } | tpcds={
+      additional-properties = {key=str, key=...}
+    } | tpch={
+      additional-properties = {key=str, key=...}
+    }
+  },
+  description = str,
+  labels = {key=str, key=...},
+  name = str
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "connector": {
+    "type": {
+      "clickhouse": {
+        "additional-properties": {
+          "<key>": "str", ...
+        },
+        "connection": {
+          "type": {
+            "connection-manager": {
+              "connection-id": "str",
+              "connection-properties": {
+                "<key>": "str", ...
+              },
+              "database": "str"
+            },
+            "on-premise": {
+              "connection-url": "str",
+              "password": "str",
+              "user-name": "str"
+            }
+          }
+        }
+      },
+      "delta-lake": {
+        "additional-properties": {
+          "<key>": "str", ...
+        },
+        "filesystem": {
+          "type": {
+            "external-s3": {
+              "aws-access-key": "str",
+              "aws-endpoint": "str",
+              "aws-region": "str",
+              "aws-secret-key": "str"
+            },
+            "s3": {}
+          }
+        },
+        "metastore": {
+          "type": {
+            "hive": {
+              "connection": {
+                "uri": "str"
+              }
+            }
+          }
+        }
+      },
+      "greenplum": {
+        "additional-properties": {
+          "<key>": "str", ...
+        },
+        "connection": {
+          "type": {
+            "connection-manager": {
+              "connection-id": "str",
+              "connection-properties": {
+                "<key>": "str", ...
+              },
+              "database": "str"
+            },
+            "on-premise": {
+              "connection-url": "str",
+              "password": "str",
+              "user-name": "str"
+            }
+          }
+        }
+      },
+      "hive": {
+        "additional-properties": {
+          "<key>": "str", ...
+        },
+        "filesystem": {
+          "type": {
+            "external-s3": {
+              "aws-access-key": "str",
+              "aws-endpoint": "str",
+              "aws-region": "str",
+              "aws-secret-key": "str"
+            },
+            "s3": {}
+          }
+        },
+        "metastore": {
+          "type": {
+            "hive": {
+              "connection": {
+                "uri": "str"
+              }
+            }
+          }
+        }
+      },
+      "hudi": {
+        "additional-properties": {
+          "<key>": "str", ...
+        },
+        "filesystem": {
+          "type": {
+            "external-s3": {
+              "aws-access-key": "str",
+              "aws-endpoint": "str",
+              "aws-region": "str",
+              "aws-secret-key": "str"
+            },
+            "s3": {}
+          }
+        },
+        "metastore": {
+          "type": {
+            "hive": {
+              "connection": {
+                "uri": "str"
+              }
+            }
+          }
+        }
+      },
+      "iceberg": {
+        "additional-properties": {
+          "<key>": "str", ...
+        },
+        "filesystem": {
+          "type": {
+            "external-s3": {
+              "aws-access-key": "str",
+              "aws-endpoint": "str",
+              "aws-region": "str",
+              "aws-secret-key": "str"
+            },
+            "s3": {}
+          }
+        },
+        "metastore": {
+          "type": {
+            "hive": {
+              "connection": {
+                "uri": "str"
+              }
+            }
+          }
+        }
+      },
+      "mysql": {
+        "additional-properties": {
+          "<key>": "str", ...
+        },
+        "connection": {
+          "type": {
+            "connection-manager": {
+              "connection-id": "str",
+              "connection-properties": {
+                "<key>": "str", ...
+              }
+            },
+            "on-premise": {
+              "connection-url": "str",
+              "password": "str",
+              "user-name": "str"
+            }
+          }
+        }
+      },
+      "oracle": {
+        "additional-properties": {
+          "<key>": "str", ...
+        },
+        "connection": {
+          "type": {
+            "on-premise": {
+              "connection-url": "str",
+              "password": "str",
+              "user-name": "str"
+            }
+          }
+        }
+      },
+      "postgresql": {
+        "additional-properties": {
+          "<key>": "str", ...
+        },
+        "connection": {
+          "type": {
+            "connection-manager": {
+              "connection-id": "str",
+              "connection-properties": {
+                "<key>": "str", ...
+              },
+              "database": "str"
+            },
+            "on-premise": {
+              "connection-url": "str",
+              "password": "str",
+              "user-name": "str"
+            }
+          }
+        }
+      },
+      "sqlserver": {
+        "additional-properties": {
+          "<key>": "str", ...
+        },
+        "connection": {
+          "type": {
+            "on-premise": {
+              "connection-url": "str",
+              "password": "str",
+              "user-name": "str"
+            }
+          }
+        }
+      },
+      "tpcds": {
+        "additional-properties": {
+          "<key>": "str", ...
+        }
+      },
+      "tpch": {
+        "additional-properties": {
+          "<key>": "str", ...
+        }
+      }
+    }
+  },
+  "description": "str",
+  "labels": {
+    "<key>": "str", ...
+  },
+  "name": "str"
+}
+```
+
+Fields:
+
+```
+connector -> (struct)
+  Connector backing this catalog.
+  type -> (oneof<clickhouse|delta-lake|greenplum|hive|hudi|iceberg|mysql|oracle|postgresql|sqlserver|tpcds|tpch>)
+    Oneof type field
+    hive -> (struct)
+      Hive connector configuration.
+      additional-properties -> (map[string,string])
+        Additional properties.
+      filesystem -> (struct)
+        File system configuration.
+        type -> (oneof<external-s3|s3>)
+          Oneof type field
+          s3 -> (struct)
+            Yandex Cloud S3 filesystem.
+          external-s3 -> (struct)
+            External S3 filesystem.
+            aws-access-key -> (string)
+              AWS access key.
+            aws-endpoint -> (string)
+              AWS endpoint.
+            aws-region -> (string)
+              AWS region.
+            aws-secret-key -> (string)
+              AWS secret key.
+      metastore -> (struct)
+        Metastore configuration.
+        type -> (oneof<hive>)
+          Oneof type field
+          hive -> (struct)
+            Apache Hive Metastore.
+            connection -> (oneof<uri>)
+              Oneof connection field
+              uri -> (string)
+                URI or cluster ID of the Hive Metastore.
+    iceberg -> (struct)
+      Iceberg connector configuration.
+      additional-properties -> (map[string,string])
+        Additional properties.
+      filesystem -> (struct)
+        File system configuration.
+        type -> (oneof<external-s3|s3>)
+          Oneof type field
+          s3 -> (struct)
+            Yandex Cloud S3 filesystem.
+          external-s3 -> (struct)
+            External S3 filesystem.
+            aws-access-key -> (string)
+              AWS access key.
+            aws-endpoint -> (string)
+              AWS endpoint.
+            aws-region -> (string)
+              AWS region.
+            aws-secret-key -> (string)
+              AWS secret key.
+      metastore -> (struct)
+        Metastore configuration.
+        type -> (oneof<hive>)
+          Oneof type field
+          hive -> (struct)
+            Apache Hive Metastore.
+            connection -> (oneof<uri>)
+              Oneof connection field
+              uri -> (string)
+                URI or cluster ID of the Hive Metastore.
+    delta-lake -> (struct)
+      Delta Lake connector configuration.
+      additional-properties -> (map[string,string])
+        Additional properties.
+      filesystem -> (struct)
+        File system configuration.
+        type -> (oneof<external-s3|s3>)
+          Oneof type field
+          s3 -> (struct)
+            Yandex Cloud S3 filesystem.
+          external-s3 -> (struct)
+            External S3 filesystem.
+            aws-access-key -> (string)
+              AWS access key.
+            aws-endpoint -> (string)
+              AWS endpoint.
+            aws-region -> (string)
+              AWS region.
+            aws-secret-key -> (string)
+              AWS secret key.
+      metastore -> (struct)
+        Metastore configuration.
+        type -> (oneof<hive>)
+          Oneof type field
+          hive -> (struct)
+            Apache Hive Metastore.
+            connection -> (oneof<uri>)
+              Oneof connection field
+              uri -> (string)
+                URI or cluster ID of the Hive Metastore.
+    postgresql -> (struct)
+      PostgreSQL connector configuration.
+      additional-properties -> (map[string,string])
+        Additional properties.
+      connection -> (struct)
+        Connection configuration.
+        type -> (oneof<connection-manager|on-premise>)
+          Oneof type field
+          on-premise -> (struct)
+            Connection configured manually.
+            connection-url -> (string)
+              Connection to the Postgresql.
+            password -> (string)
+              Password of the Postgresql user.
+            user-name -> (string)
+              Name of the Postgresql user.
+          connection-manager -> (struct)
+            Connection configured using Yandex Cloud Connection Manager.
+            connection-id -> (string)
+              Connection ID.
+            connection-properties -> (map[string,string])
+              Additional connection properties.
+            database -> (string)
+              Database.
+    clickhouse -> (struct)
+      ClickHouse connector configuration.
+      additional-properties -> (map[string,string])
+        Additional properties.
+      connection -> (struct)
+        Connection configuration.
+        type -> (oneof<connection-manager|on-premise>)
+          Oneof type field
+          on-premise -> (struct)
+            Connection configured manually.
+            connection-url -> (string)
+              Connection to the Clickhouse.
+            password -> (string)
+              Password of the Clickhouse user.
+            user-name -> (string)
+              Name of the Clickhouse user.
+          connection-manager -> (struct)
+            Connection configured using Yandex Cloud Connection Manager.
+            connection-id -> (string)
+              Connection ID.
+            connection-properties -> (map[string,string])
+              Additional connection properties.
+            database -> (string)
+              Database.
+    tpch -> (struct)
+      TPC-H connector for synthetic benchmarking.
+      additional-properties -> (map[string,string])
+        Additional properties.
+    tpcds -> (struct)
+      TPC-DS connector for synthetic benchmarking.
+      additional-properties -> (map[string,string])
+        Additional properties.
+    oracle -> (struct)
+      Oracle connector configuration for connecting to Oracle Database instances.
+      additional-properties -> (map[string,string])
+        Additional properties.
+      connection -> (struct)
+        Connection configuration.
+        type -> (oneof<on-premise>)
+          Oneof type field
+          on-premise -> (struct)
+            Connection configured manually.
+            connection-url -> (string)
+              Connection to the Oracle.
+            password -> (string)
+              Password of the Oracle user.
+            user-name -> (string)
+              Name of the Oracle user.
+    sqlserver -> (struct)
+      SQLServer connector configuration for connecting to SQLServer Database instances.
+      additional-properties -> (map[string,string])
+        Additional properties.
+      connection -> (struct)
+        Connection configuration.
+        type -> (oneof<on-premise>)
+          Oneof type field
+          on-premise -> (struct)
+            Connection configured manually.
+            connection-url -> (string)
+              Connection to the SQLServer.
+            password -> (string)
+              Password of the SQLServer user.
+            user-name -> (string)
+              Name of the SQLServer user.
+    hudi -> (struct)
+      Hudi connector configuration.
+      additional-properties -> (map[string,string])
+        Additional properties.
+      filesystem -> (struct)
+        File system configuration.
+        type -> (oneof<external-s3|s3>)
+          Oneof type field
+          s3 -> (struct)
+            Yandex Cloud S3 filesystem.
+          external-s3 -> (struct)
+            External S3 filesystem.
+            aws-access-key -> (string)
+              AWS access key.
+            aws-endpoint -> (string)
+              AWS endpoint.
+            aws-region -> (string)
+              AWS region.
+            aws-secret-key -> (string)
+              AWS secret key.
+      metastore -> (struct)
+        Metastore configuration.
+        type -> (oneof<hive>)
+          Oneof type field
+          hive -> (struct)
+            Apache Hive Metastore.
+            connection -> (oneof<uri>)
+              Oneof connection field
+              uri -> (string)
+                URI or cluster ID of the Hive Metastore.
+    mysql -> (struct)
+      MySQL connector configuration for connecting to MySQL Database instances.
+      additional-properties -> (map[string,string])
+        Additional properties.
+      connection -> (struct)
+        Connection configuration.
+        type -> (oneof<connection-manager|on-premise>)
+          Oneof type field
+          on-premise -> (struct)
+            Connection configured manually.
+            connection-url -> (string)
+              Connection to the MySQL.
+            password -> (string)
+              Password of the MySQL user.
+            user-name -> (string)
+              Name of the MySQL user.
+          connection-manager -> (struct)
+            Connection configured using Yandex Cloud Connection Manager.
+            connection-id -> (string)
+              Connection ID.
+            connection-properties -> (map[string,string])
+              Additional connection properties.
+    greenplum -> (struct)
+      Greenplum connector configuration for connecting to Greenplum or Cloudberry Database instances.
+      additional-properties -> (map[string,string])
+        Additional properties.
+      connection -> (struct)
+        Connection configuration
+        type -> (oneof<connection-manager|on-premise>)
+          Oneof type field
+          on-premise -> (struct)
+            Connection configured manually.
+            connection-url -> (string)
+              Connection to the Greenplum/Cloudberry.
+            password -> (string)
+              Password of the Greenplum/Cloudberry user.
+            user-name -> (string)
+              Name of the Greenplum/Cloudberry user.
+          connection-manager -> (struct)
+            Connection configured using Yandex Cloud Connection Manager.
+            connection-id -> (string)
+              Connection ID.
+            connection-properties -> (map[string,string])
+              Additional connection properties.
+            database -> (string)
+              Database.
+description -> (string)
+  Description of the catalog.
+labels -> (map[string,string])
+  Labels associated with the catalog.
+name -> (string)
+  Name of the catalog. Must be unique within a Trino cluster.
+``` ||
+|| `--cluster-id` | `string`
+
+ID of the Trino Cluster where the catalog should be created. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

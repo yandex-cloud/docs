@@ -15,68 +15,68 @@ Create a [timer](../concepts/trigger/timer.md) that invokes a {{ serverless-cont
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a timer.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a timer.
 
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+    1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
-   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
+    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
-   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
+    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
-      * Enter the trigger name: `timer`.
-      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
-      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
+        * Enter a name for the trigger: `timer`.
+        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
+        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
 
-   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}**, enter `* * ? * * *` or select `{{ ui-key.yacloud.common.button_cron-1min }}`.
+    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}**, enter `* * ? * * *` or select `{{ ui-key.yacloud.common.button_cron-1min }}`.
 
-   1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
-   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
+    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a trigger that invokes a container every minute, run this command:
+    To create a trigger that invokes a container every minute, run this command:
 
-   ```bash
-   yc serverless trigger create timer \
-     --name timer \
-     --cron-expression '* * ? * * *' \
-     --invoke-container-id <container_ID> \
-     --invoke-container-service-account-id <service_account_ID>
-   ```
+    ```bash
+    yc serverless trigger create timer \
+      --name timer \
+      --cron-expression '* * ? * * *' \
+      --invoke-container-id <container_ID> \
+      --invoke-container-service-account-id <service_account_ID>
+    ```
 
-   Where:
+    Where:
 
-   * `--name`: Timer name.
-   * `--cron-expression`: Container invocation schedule specified as a [cron expression](../concepts/trigger/timer.md#cron-expression).
-   * `--invoke-container-id`: Container ID.
-   * `--invoke-container-service-account-id`: ID of the service account with rights to invoke the container.
+    * `--name`: Timer name.
+    * `--cron-expression`: Container invocation schedule specified as a [cron expression](../concepts/trigger/timer.md#cron-expression).
+    * `--invoke-container-id`: Container ID.
+    * `--invoke-container-service-account-id`: ID of the service account with permissions to invoke the container.
 
-   Result:
+    Result:
 
-   ```text
-   id: a1sp9tj1jhar********
-   folder_id: b1g4j6o69kqj********
-   created_at: "2023-03-16T17:45:23.145213360Z"
-   name: timer
-   rule:
-     timer:
-       cron_expression: '* * ? * * *'
-       invoke_container_with_retry:
-         container_id: bbavvhra8ekc********
-         service_account_id: aje1ki4ae68u********
-   status: ACTIVE
-   ```
+    ```text
+    id: a1sp9tj1jhar********
+    folder_id: b1g4j6o69kqj********
+    created_at: "2023-03-16T17:45:23.145213360Z"
+    name: timer
+    rule:
+      timer:
+        cron_expression: '* * ? * * *'
+        invoke_container_with_retry:
+          container_id: bbavvhra8ekc********
+          service_account_id: aje1ki4ae68u********
+    status: ACTIVE
+    ```
 
 - API {#api}
 
-   You can create a timer using the [create](../triggers/api-ref/Trigger/create.md) API method.
+  You can create a timer using the [create](../triggers/api-ref/Trigger/create.md) API method.
 
 {% endlist %}
 
@@ -84,8 +84,8 @@ Create a [timer](../concepts/trigger/timer.md) that invokes a {{ serverless-cont
 
 To make sure the timer is running properly, view the container logs. They should show that the container is invoked every minute.
 
-1. In the [management console]({{ link-console-main }}), select the folder with your container.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+1. In the [management console]({{ link-console-main }}), go to the folder with your container.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 1. Click the container to view its invocation log.
 1. In the window that opens, go to **{{ ui-key.yacloud.common.logs }}** and specify the period to view them for. The default period is 1 hour.
 

@@ -7,7 +7,7 @@ description: In this tutorial, you will learn how to delete a cluster in {{ mgp-
 
 ## Before deleting a cluster {#before-you-delete}
 
-* [Disable deletion protection](update.md#change-additional-settings) for the cluster if it is enabled.
+* If deletion protection is on for the cluster, [disable it](update.md#change-additional-settings).
 * [Save the cluster ID](cluster-list.md#list-clusters).
 
   {% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
@@ -18,7 +18,8 @@ description: In this tutorial, you will learn how to delete a cluster in {{ mgp-
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
+  1. Open the [folder dashboard]({{ link-console-main }}).
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster in question, select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**, and confirm the deletion.
 
 - CLI {#cli}
@@ -43,11 +44,11 @@ description: In this tutorial, you will learn how to delete a cluster in {{ mgp-
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Call the [Cluster.Delete](../api-ref/Cluster/delete.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+    1. Call the [Cluster.Delete](../api-ref/Cluster/delete.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -56,19 +57,19 @@ description: In this tutorial, you will learn how to delete a cluster in {{ mgp-
             --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Delete](../api-ref/grpc/Cluster/delete.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Delete](../api-ref/grpc/Cluster/delete.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -84,7 +85,7 @@ description: In this tutorial, you will learn how to delete a cluster in {{ mgp-
             yandex.cloud.mdb.greenplum.v1.ClusterService.Delete
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

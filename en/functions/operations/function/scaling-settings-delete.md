@@ -12,7 +12,7 @@ description: Follow this guide to delete function scaling settings.
     To delete any scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`):
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select a function.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}**, hover over the tag of the function version (e.g., ![image](../../../_assets/console-icons/gear.svg) `$latest`) you want to delete scaling settings for.
     1. In the pop-up window, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_edit-scale-settings }}**.
@@ -38,11 +38,11 @@ description: Follow this guide to delete function scaling settings.
 
     {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-    {% include [terraform-install](../../../_includes/terraform-install.md) %}
+    {% include [terraform-install](../../../_includes/terraform-install.md) %}  
 
     To delete any scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`):
 
-    1. In the configuration file, describe the parameters of resources you want to create:
+    1. In the configuration file, describe the resources you want to create:
 
        * `yandex_function_scaling_policy`: Description of function scaling settings.
          * `function_id`: Function ID.
@@ -84,7 +84,7 @@ description: Follow this guide to delete function scaling settings.
        terraform plan
        ```
         
-       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them. 
          
     1. Apply the changes:
 

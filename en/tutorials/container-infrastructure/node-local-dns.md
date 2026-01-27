@@ -1,15 +1,15 @@
 ---
-title: Setting up NodeLocal DNS Cache in {{ managed-k8s-full-name }}
-description: Follow this guide to configure NodeLocal DNS Cache in {{ managed-k8s-name }}.
+title: Setting up NodeLocal DNS in {{ managed-k8s-full-name }}
+description: Follow this guide to set up NodeLocal DNS in {{ managed-k8s-name }}.
 ---
 
-# Setting up NodeLocal DNS Cache in {{ managed-k8s-full-name }}
+# Setting up NodeLocal DNS in {{ managed-k8s-full-name }}
 
-To reduce the number of DNS requests to a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), enable NodeLocal DNS Cache.
+To reduce the load from DNS queries in a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), use NodeLocal DNS.
 
 {% note tip %}
 
-If a {{ managed-k8s-name }} cluster contains more than 50 [nodes](../../managed-kubernetes/concepts/index.md#node-group), use [automatic DNS scaling](dns-autoscaler.md).
+If your {{ managed-k8s-name }} cluster has more than 50 [nodes](../../managed-kubernetes/concepts/index.md#node-group), use [DNS autoscaling](dns-autoscaler.md).
 
 {% endnote %}
 

@@ -55,7 +55,6 @@ Here are the commands that are charged under {{ iot-name }}:
 
 ## Prices for the Russia region {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
