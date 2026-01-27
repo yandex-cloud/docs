@@ -10,34 +10,256 @@ Updates an Apache Kafka® connector.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta managed-kafka connector update <CLUSTER-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the Apache Kafka® cluster to update the connector in. To get this ID, make a [ClusterService.List] request.|
-|`--connector-name`|<b>`string`</b><br/>Name of the connector to update. To get this name, make a [ConnectorService.List] request.|
-|`--connector-spec`|<b>`shorthand/json`</b><br/>Configuration of the connector to update.<br/>Shorthand Syntax:<br/>{<br/>connector-config = connector-config-mirrormaker={<br/>replication-factor = int,<br/>source-cluster = {<br/>alias = str,<br/>cluster-connection = external-cluster={<br/>bootstrap-servers = str,<br/>sasl-mechanism = str,<br/>sasl-password = str,<br/>sasl-username = str,<br/>security-protocol = str,<br/>ssl-truststore-certificates = str<br/>} \| this-cluster={}<br/>},<br/>target-cluster = {<br/>alias = str,<br/>cluster-connection = external-cluster={<br/>bootstrap-servers = str,<br/>sasl-mechanism = str,<br/>sasl-password = str,<br/>sasl-username = str,<br/>security-protocol = str,<br/>ssl-truststore-certificates = str<br/>} \| this-cluster={}<br/>},<br/>topics = str<br/>} \| connector-config-s3-sink={<br/>file-max-records = int,<br/>s3-connection = {<br/>bucket-name = str,<br/>storage = external-s3={<br/>access-key-id = str,<br/>endpoint = str,<br/>region = str,<br/>secret-access-key = str<br/>}<br/>},<br/>topics = str<br/>},<br/>properties = {key=str, key=...},<br/>tasks-max = int<br/>}<br/>JSON Syntax:<br/>"{<br/>"connector-config": {<br/>"connector-config-mirrormaker": {<br/>"replication-factor": "int",<br/>"source-cluster": {<br/>"alias": "str",<br/>"cluster-connection": {<br/>"external-cluster": {<br/>"bootstrap-servers": "str",<br/>"sasl-mechanism": "str",<br/>"sasl-password": "str",<br/>"sasl-username": "str",<br/>"security-protocol": "str",<br/>"ssl-truststore-certificates": "str"<br/>},<br/>"this-cluster": {}<br/>}<br/>},<br/>"target-cluster": {<br/>"alias": "str",<br/>"cluster-connection": {<br/>"external-cluster": {<br/>"bootstrap-servers": "str",<br/>"sasl-mechanism": "str",<br/>"sasl-password": "str",<br/>"sasl-username": "str",<br/>"security-protocol": "str",<br/>"ssl-truststore-certificates": "str"<br/>},<br/>"this-cluster": {}<br/>}<br/>},<br/>"topics": "str"<br/>},<br/>"connector-config-s3-sink": {<br/>"file-max-records": "int",<br/>"s3-connection": {<br/>"bucket-name": "str",<br/>"storage": {<br/>"external-s3": {<br/>"access-key-id": "str",<br/>"endpoint": "str",<br/>"region": "str",<br/>"secret-access-key": "str"<br/>}<br/>}<br/>},<br/>"topics": "str"<br/>}<br/>},<br/>"properties": {<br/>"\<key\>": "str", ...<br/>},<br/>"tasks-max": "int"<br/>}"<br/>Fields:<br/>properties -> (map[string,string])<br/>A set of new or changed properties to update for the connector. They are passed with the connector configuration to Managed Service for Apache Kafka®. Example: 'sync.topics.config.enabled: false'.<br/>tasks-max -> (int)<br/>Maximum number of connector tasks to update.<br/>connector-config -> (oneof<connector-config-mirrormaker\|connector-config-s3-sink>)<br/>Oneof connector-config field<br/>connector-config-mirrormaker -> (struct)<br/>Configuration of the MirrorMaker connector.<br/>replication-factor -> (int)<br/>Replication factor for automatically created topics.<br/>source-cluster -> (struct)<br/>Source cluster configuration for the MirrorMaker connector.<br/>alias -> (string)<br/>Alias of cluster connection configuration. Examples: 'source', 'target'.<br/>cluster-connection -> (oneof<external-cluster\|this-cluster>)<br/>Oneof cluster-connection field<br/>this-cluster -> (struct)<br/>Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty.<br/>external-cluster -> (struct)<br/>Configuration of connection to an external cluster with all the necessary credentials.<br/>bootstrap-servers -> (string)<br/>List of bootstrap servers of the cluster, separated by ','.<br/>sasl-mechanism -> (string)<br/>SASL mechanism to use for connection to the cluster.<br/>sasl-password -> (string)<br/>SASL password to use for connection to the cluster.<br/>sasl-username -> (string)<br/>SASL username to use for connection to the cluster.<br/>security-protocol -> (string)<br/>Security protocol to use for connection to the cluster.<br/>ssl-truststore-certificates -> (string)<br/>CA in PEM format to connect to external cluster. Lines of certificate separated by '\n' symbol.<br/>target-cluster -> (struct)<br/>Target cluster configuration for the MirrorMaker connector.<br/>alias -> (string)<br/>Alias of cluster connection configuration. Examples: 'source', 'target'.<br/>cluster-connection -> (oneof<external-cluster\|this-cluster>)<br/>Oneof cluster-connection field<br/>this-cluster -> (struct)<br/>Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty.<br/>external-cluster -> (struct)<br/>Configuration of connection to an external cluster with all the necessary credentials.<br/>bootstrap-servers -> (string)<br/>List of bootstrap servers of the cluster, separated by ','.<br/>sasl-mechanism -> (string)<br/>SASL mechanism to use for connection to the cluster.<br/>sasl-password -> (string)<br/>SASL password to use for connection to the cluster.<br/>sasl-username -> (string)<br/>SASL username to use for connection to the cluster.<br/>security-protocol -> (string)<br/>Security protocol to use for connection to the cluster.<br/>ssl-truststore-certificates -> (string)<br/>CA in PEM format to connect to external cluster. Lines of certificate separated by '\n' symbol.<br/>topics -> (string)<br/>List of Kafka topics, separated by ','.<br/>connector-config-s3-sink -> (struct)<br/>Update specification for S3-Sink Connector.<br/>file-max-records -> (int)<br/>Max records per file.<br/>s3-connection -> (struct)<br/>Credentials for connecting to S3 storage.<br/>bucket-name -> (string)<br/>storage -> (oneof\<external-s3\>)<br/>Oneof storage field<br/>external-s3 -> (struct)<br/>access-key-id -> (string)<br/>endpoint -> (string)<br/>region -> (string)<br/>Default is 'us-east-1'.<br/>secret-access-key -> (string)<br/>topics -> (string)<br/>List of Kafka topics, separated by ','.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `--cluster-id` | `string`
+
+ID of the Apache Kafka® cluster to update the connector in. To get this ID, make a [ClusterService.List] request. ||
+|| `--connector-name` | `string`
+
+Name of the connector to update. To get this name, make a [ConnectorService.List] request. ||
+|| `--connector-spec` | `shorthand/json`
+
+Configuration of the connector to update.
+
+Shorthand Syntax:
+
+```hcl
+{
+  connector-config = connector-config-mirrormaker={
+    replication-factor = int,
+    source-cluster = {
+      alias = str,
+      cluster-connection = external-cluster={
+        bootstrap-servers = str,
+        sasl-mechanism = str,
+        sasl-password = str,
+        sasl-username = str,
+        security-protocol = str,
+        ssl-truststore-certificates = str
+      } | this-cluster={}
+    },
+    target-cluster = {
+      alias = str,
+      cluster-connection = external-cluster={
+        bootstrap-servers = str,
+        sasl-mechanism = str,
+        sasl-password = str,
+        sasl-username = str,
+        security-protocol = str,
+        ssl-truststore-certificates = str
+      } | this-cluster={}
+    },
+    topics = str
+  } | connector-config-s3-sink={
+    file-max-records = int,
+    s3-connection = {
+      bucket-name = str,
+      storage = external-s3={
+        access-key-id = str,
+        endpoint = str,
+        region = str,
+        secret-access-key = str
+      }
+    },
+    topics = str
+  },
+  properties = {key=str, key=...},
+  tasks-max = int
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "connector-config": {
+    "connector-config-mirrormaker": {
+      "replication-factor": "int",
+      "source-cluster": {
+        "alias": "str",
+        "cluster-connection": {
+          "external-cluster": {
+            "bootstrap-servers": "str",
+            "sasl-mechanism": "str",
+            "sasl-password": "str",
+            "sasl-username": "str",
+            "security-protocol": "str",
+            "ssl-truststore-certificates": "str"
+          },
+          "this-cluster": {}
+        }
+      },
+      "target-cluster": {
+        "alias": "str",
+        "cluster-connection": {
+          "external-cluster": {
+            "bootstrap-servers": "str",
+            "sasl-mechanism": "str",
+            "sasl-password": "str",
+            "sasl-username": "str",
+            "security-protocol": "str",
+            "ssl-truststore-certificates": "str"
+          },
+          "this-cluster": {}
+        }
+      },
+      "topics": "str"
+    },
+    "connector-config-s3-sink": {
+      "file-max-records": "int",
+      "s3-connection": {
+        "bucket-name": "str",
+        "storage": {
+          "external-s3": {
+            "access-key-id": "str",
+            "endpoint": "str",
+            "region": "str",
+            "secret-access-key": "str"
+          }
+        }
+      },
+      "topics": "str"
+    }
+  },
+  "properties": {
+    "<key>": "str", ...
+  },
+  "tasks-max": "int"
+}
+```
+
+Fields:
+
+```
+properties -> (map[string,string])
+  A set of new or changed properties to update for the connector. They are passed with the connector configuration to Managed Service for Apache Kafka®. Example: 'sync.topics.config.enabled: false'.
+tasks-max -> (int)
+  Maximum number of connector tasks to update.
+connector-config -> (oneof<connector-config-mirrormaker|connector-config-s3-sink>)
+  Oneof connector-config field
+  connector-config-mirrormaker -> (struct)
+    Configuration of the MirrorMaker connector.
+    replication-factor -> (int)
+      Replication factor for automatically created topics.
+    source-cluster -> (struct)
+      Source cluster configuration for the MirrorMaker connector.
+      alias -> (string)
+        Alias of cluster connection configuration. Examples: 'source', 'target'.
+      cluster-connection -> (oneof<external-cluster|this-cluster>)
+        Oneof cluster-connection field
+        this-cluster -> (struct)
+          Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty.
+        external-cluster -> (struct)
+          Configuration of connection to an external cluster with all the necessary credentials.
+          bootstrap-servers -> (string)
+            List of bootstrap servers of the cluster, separated by ','.
+          sasl-mechanism -> (string)
+            SASL mechanism to use for connection to the cluster.
+          sasl-password -> (string)
+            SASL password to use for connection to the cluster.
+          sasl-username -> (string)
+            SASL username to use for connection to the cluster.
+          security-protocol -> (string)
+            Security protocol to use for connection to the cluster.
+          ssl-truststore-certificates -> (string)
+            CA in PEM format to connect to external cluster. Lines of certificate separated by '\n' symbol.
+    target-cluster -> (struct)
+      Target cluster configuration for the MirrorMaker connector.
+      alias -> (string)
+        Alias of cluster connection configuration. Examples: 'source', 'target'.
+      cluster-connection -> (oneof<external-cluster|this-cluster>)
+        Oneof cluster-connection field
+        this-cluster -> (struct)
+          Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty.
+        external-cluster -> (struct)
+          Configuration of connection to an external cluster with all the necessary credentials.
+          bootstrap-servers -> (string)
+            List of bootstrap servers of the cluster, separated by ','.
+          sasl-mechanism -> (string)
+            SASL mechanism to use for connection to the cluster.
+          sasl-password -> (string)
+            SASL password to use for connection to the cluster.
+          sasl-username -> (string)
+            SASL username to use for connection to the cluster.
+          security-protocol -> (string)
+            Security protocol to use for connection to the cluster.
+          ssl-truststore-certificates -> (string)
+            CA in PEM format to connect to external cluster. Lines of certificate separated by '\n' symbol.
+    topics -> (string)
+      List of Kafka topics, separated by ','.
+  connector-config-s3-sink -> (struct)
+    Update specification for S3-Sink Connector.
+    file-max-records -> (int)
+      Max records per file.
+    s3-connection -> (struct)
+      Credentials for connecting to S3 storage.
+      bucket-name -> (string)
+      storage -> (oneof<external-s3>)
+        Oneof storage field
+        external-s3 -> (struct)
+          access-key-id -> (string)
+          endpoint -> (string)
+          region -> (string)
+            Default is 'us-east-1'.
+          secret-access-key -> (string)
+    topics -> (string)
+      List of Kafka topics, separated by ','.
+``` ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

@@ -1,9 +1,9 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/backup/list.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/backup/list.md
 ---
 
-# yc managed-postgresql backup list
+# yc managed-sharded-postgresql backup list
 
 List available backups
 
@@ -11,7 +11,7 @@ List available backups
 
 Syntax: 
 
-`yc managed-postgresql backup list [Global Flags...]`
+`yc managed-sharded-postgresql backup list [Global Flags...]`
 
 #### Flags
 

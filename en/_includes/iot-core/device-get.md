@@ -3,9 +3,9 @@
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the device is located.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the registry where the device is located.
-   1. Go to the **{{ ui-key.yacloud.iot.label_devices }}** tab.
+   1. Navigate to the **{{ ui-key.yacloud.iot.label_devices }}** tab.
    1. Select the device.
    1. The **{{ ui-key.yacloud.common.overview }}** page will show the device details.
 
@@ -58,14 +58,14 @@
      * `data "yandex_iot_core_device"`: Description of the device as a data source:
        * `device_id`: Device ID.
      * `output "device_params"`: Output variable containing information about the registry the device belongs to:
-       * `value`: Returned value.
+       * `value`: Return value.
 
-     You can replace `registry_id` with any other parameter to get the information you need. For more information about the `yandex_iot_core_device` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/iot_core_device).
-  1. Create resources:
+     You can replace `registry_id` with any other parameter to get the information you need. For more information about the `yandex_iot_core_device` data source properties, see [this {{ TF }} provider article]({{ tf-provider-datasources-link }}/iot_core_device).
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
+     {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
 
      ```bash
      terraform output
@@ -76,7 +76,7 @@
      ```text
      device_params = "are7ajlrf493********"
      ```
-
+ 
 - API {#api}
 
   To get detailed information about a device, use the [get](../../iot-core/api-ref/Device/get.md) REST API method for the [Device](../../iot-core/api-ref/Device/index.md) resource or the [DeviceService/Get](../../iot-core/api-ref/grpc/Device/get.md) gRPC API call.

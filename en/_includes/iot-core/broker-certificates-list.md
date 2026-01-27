@@ -3,7 +3,7 @@
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the broker is located.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Select the broker. A list of certificates will be displayed in the **{{ ui-key.yacloud.iot.label_certificates }}** section.
 

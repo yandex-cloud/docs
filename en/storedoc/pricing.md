@@ -15,7 +15,7 @@ In this section, you can find the {{ mmg-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using {{ mmg-name }}, use [our calculator](https://yandex.cloud/en/prices?state=a147d66e1d1e#calculator) on the {{ yandex-cloud }} website or see the pricing data below.
+For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=a147d66e1d1e#calculator) on our website or check out the pricing below.
 
 
 {% endnote %}
@@ -38,11 +38,11 @@ The {{ mmg-name }} usage cost includes:
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
-### DB host usage {#rules-hosts-uptime}
+### Database host usage {#rules-hosts-uptime}
 
-Host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
+The host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
-The minimum billing unit is one minute (for example, 90 seconds of host operation count as two minutes). You do not pay for the time when the {{ SD }} host is unable to perform its main functions.
+The minimum billing unit is one minute, e.g., 1.5 minutes of host operation cost the same as two minutes. You will not be charged for the time when the {{ SD }} host is unavailable for basic operations.
 
 ### Disk space usage {#rules-storage}
 
@@ -50,7 +50,7 @@ You pay for the following:
 
 * Storage allocated for database clusters.
 
-    * Non-replicated SSD (`network-ssd-nonreplicated`) storage can only be ordered for clusters with three or more hosts, in increments of 93 GB.
+    * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) for clusters with three or more hosts, in increments of 93 GB.
 
     * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
         * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
@@ -58,21 +58,21 @@ You pay for the following:
 
     For more information about platform-specific storage limitations, see [{#T}](./concepts/storage.md).
 
-* Space used by DB backups in excess of the storage amount specified for the cluster.
+* Amount of storage used by database backups that exceeds the allocated cluster storage.
 
-    * Backups are stored free of charge as long as the combined size of the DB and all its backups is smaller than the selected storage size.
+    * Backups are stored free of charge as long as the combined size of the database and all its backups is smaller than the selected storage size.
 
-    * When performing automatic backups, {{ mmg-short-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the amount of changes.
+    * When performing automatic backups, {{ mmg-short-name }} does not create a new backup but saves the database changes introduced since the previous one. This means the storage space used by automatic backups increases only in proportion to the amount of changes.
 
     * The number of hosts in a cluster does not affect the storage size and, consequently, the amount of free backups.
 
-The price covers one month of use based on 720 hours per month.  The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds counts as storing 1 GB for 2 minutes).
+The price covers one month of use based on 720 hours per month.  The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes costs the same as for 2 minutes.
 
 ### Example of cluster cost calculation {#example}
 
 Let's calculate the cost of using a cluster with the following properties for 30 days:
 
-* **{{ SD }}** hosts: Three `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
+* **{{ SD }}** hosts: Three `s3-c2-m8` hosts, Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
 * **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 GB of network HDD storage.
 
 Cost calculation for {{ SD }} hosts:
@@ -91,7 +91,6 @@ Calculation for the storage cost and total cost:
 
 
 ## Prices for the Russia region {#prices}
-
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
@@ -114,4 +113,5 @@ Access to ultra high-speed network storage with three replicas (SSD) is availabl
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+
 

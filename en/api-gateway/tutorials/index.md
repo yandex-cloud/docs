@@ -23,3 +23,4 @@ description: Various {{ api-gw-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](serverless-url-shortener.md)
 * [{#T}](data-ingestion.md)
 * [{#T}](api-gw-sws-integration.md)
+* [{#T}](streaming-openai-agent.md)

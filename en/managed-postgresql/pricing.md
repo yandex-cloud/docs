@@ -15,7 +15,7 @@ In this section, you can find the {{ mpg-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using {{ mpg-name }}, use [our calculator](https://yandex.cloud/en/prices?state=ae5598bac8c3#calculator) on the {{ yandex-cloud }} website or check the pricing data below.
+For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=ae5598bac8c3#calculator) on our website or check out the pricing below.
 
 
 {% endnote %}
@@ -40,18 +40,18 @@ The {{ mpg-name }} usage cost includes:
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
 
-### DB host usage {#rules-hosts-uptime}
+### Database host usage {#rules-hosts-uptime}
 
-Host operation cost is charged per hour based on the host class. You can find detailed class specifications in the [Host classes](concepts/instance-types.md) section.
+The host operation cost is charged per hour based on the host class. For detailed class specifications, see [Host classes](concepts/instance-types.md).
 
-The minimum billing unit is one minute (for example, 90 seconds of host operation count as two minutes). You do not pay for the time when the {{ PG }} host is unable to perform its main functions.
+The minimum billing unit is one minute, e.g., 1.5 minutes of host operation cost the same as two minutes. You will not be charged for the time when the {{ PG }} host is unavailable for basic operations.
 
 
 ### Disk space usage {#rules-storage}
 
 You pay for the following:
 
-* Storage allocated for DB clusters.
+* Storage allocated for database clusters.
 
     
     * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
@@ -61,9 +61,9 @@ You pay for the following:
 
 
 
-    * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more broker hosts.
+    * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
 
-* Space used by DB backups in excess of the storage amount specified for the cluster.
+* Space occupied by DB backups beyond the storage size specified for the cluster.
 
     {% note info %}
 
@@ -73,18 +73,18 @@ You pay for the following:
 
     * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
 
-    * When performing automatic backups, {{ mpg-short-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
+    * When performing automatic backups, {{ mpg-short-name }} does not create a new backup but saves the database changes introduced since the previous one. This means the storage space used by automatic backups increases only in proportion to the amount of changes.
 
     * Adding hosts increases the cluster's total storage size and, consequently, the free amount of backups.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds counts as storing 1 GB for 2 minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes costs the same as for 2 minutes.
 
 
 ### Example of cluster cost calculation {#example}
 
 Let's calculate the cost of using a cluster with the following properties for 30 days:
 
-* **{{ PG }} hosts**: Three `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
+* **{{ PG }} hosts**: Three `s3-c2-m8` hosts, Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
 * **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 GB of network HDD storage.
 
 Cost calculation for {{ PG }} hosts:
@@ -104,11 +104,11 @@ Calculation for the storage cost and total cost:
 
 
 
-## Discount for committed volumes of services (CVoS) {#cvos}
+## Discount for committed volume of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mpg-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ mpg-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
@@ -122,7 +122,6 @@ A CVoS discount is only available for certain resource types. For unsupported re
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
@@ -132,6 +131,7 @@ A CVoS discount is only available for certain resource types. For unsupported re
 
 
 {% include [ice-lake-local-ssd-note](../_includes/ice-lake-local-ssd-note.md) %}
+
 
 Pricing for backup storage has the following specifics:
 

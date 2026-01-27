@@ -9,10 +9,10 @@ description: Follow this guide to delete container scaling settings.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder with your container.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. In the [management console]({{ link-console-main }}), go to the folder with your container.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Select the container.
-    1. Go to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
+    1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
     1. Under **{{ ui-key.yacloud.serverless-containers.section_parameters }}**, set the number of ready-to-go instances to `0`.
     1. Click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
 

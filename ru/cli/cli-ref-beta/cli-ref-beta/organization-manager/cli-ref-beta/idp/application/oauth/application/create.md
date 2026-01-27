@@ -10,40 +10,149 @@ Creates an OAuth application in the specified organization.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta organization-manager idp application oauth application create <ORGANIZATION-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--client-grant`|<b>`shorthand/json`</b><br/>Connection to the OAuth client with specified scopes<br/>Shorthand Syntax:<br/>{<br/>authorized-scopes = str,...,<br/>client-id = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"authorized-scopes": [<br/>"str", ...<br/>],<br/>"client-id": "str"<br/>}"<br/>Fields:<br/>authorized-scopes -> ([]string)<br/>List of authorized client scopes by the application<br/>client-id -> (string)<br/>OAuth client id|
-|`--description`|<b>`string`</b><br/>Description of the OAuth application.|
-|`--group-claims-settings`|<b>`shorthand/json`</b><br/>Settings of the group claims<br/>Shorthand Syntax:<br/>{<br/>group-distribution-type = NONE\|ASSIGNED_GROUPS\|ALL_GROUPS<br/>}<br/>JSON Syntax:<br/>"{<br/>"group-distribution-type": "NONE\|ASSIGNED_GROUPS\|ALL_GROUPS"<br/>}"<br/>Fields:<br/>group-distribution-type -> (enum<ALL_GROUPS\|ASSIGNED_GROUPS\|NONE>)<br/>Represents current distribution type of the groups. I.e. which groups are visible for the application users.|
-|`--labels`|<b>`stringToString`</b><br/>Resource labels as key:value pairs.|
-|`--name`|<b>`string`</b><br/>Name of the OAuth application. The name must be unique within the organization.|
-|`--organization-id`|<b>`string`</b><br/>ID of the organization to create a OAuth application in.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-json > request.json
+2. Edit the template: vim request.json
+3. Run with template: yc beta compute instance create -r request.json ||
+|| `--example-yaml` | Generates a YAML template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-yaml > request.yaml
+2. Edit the template: vim request.yaml
+3. Run with template: yc beta compute instance create -r request.yaml ||
+|| `--client-grant` | `shorthand/json`
+
+Connection to the OAuth client with specified scopes
+
+Shorthand Syntax:
+
+```hcl
+{
+  authorized-scopes = str,...,
+  client-id = str
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "authorized-scopes": [
+    "str", ...
+  ],
+  "client-id": "str"
+}
+```
+
+Fields:
+
+```
+authorized-scopes -> ([]string)
+  List of authorized client scopes by the application
+client-id -> (string)
+  OAuth client id
+``` ||
+|| `--description` | `string`
+
+Description of the OAuth application. ||
+|| `--group-claims-settings` | `shorthand/json`
+
+Settings of the group claims
+
+Shorthand Syntax:
+
+```hcl
+{
+  group-distribution-type = NONE|ASSIGNED_GROUPS|ALL_GROUPS
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "group-distribution-type": "NONE|ASSIGNED_GROUPS|ALL_GROUPS"
+}
+```
+
+Fields:
+
+```
+group-distribution-type -> (struct)
+  Represents current distribution type of the groups. I.e. which groups are visible for the application users.
+``` ||
+|| `--labels` | `stringToString`
+
+Resource labels as key:value pairs. ||
+|| `--name` | `string`
+
+Name of the OAuth application. The name must be unique within the organization. ||
+|| `--organization-id` | `string`
+
+ID of the organization to create a OAuth application in. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

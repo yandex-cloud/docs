@@ -10,53 +10,749 @@ Creates a new database.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta ydb database create <FOLDER-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--assign-public-ips`||
-|`--backup-config`|<b>`shorthand/json`</b><br/><br/>Shorthand Syntax:<br/>{<br/>backup-settings = [<br/>{<br/>backup-schedule = {<br/>next-execute-time = timestamp,<br/>policy = daily-backup-schedule={<br/>execute-time = timeofday<br/>} \| recurring-backup-schedule={<br/>recurrence = str,<br/>start-time = timestamp<br/>} \| weekly-backup-schedule={<br/>days-of-week = [<br/>{<br/>days = MONDAY\|TUESDAY\|WEDNESDAY\|THURSDAY\|FRIDAY\|SATURDAY\|SUNDAY,...,<br/>execute-time = timeofday<br/>}, ...<br/>]<br/>}<br/>},<br/>backup-time-to-live = duration,<br/>description = str,<br/>name = str,<br/>source-paths = str,...,<br/>source-paths-to-exclude = str,...,<br/>storage-class = STANDARD\|REDUCED_REDUNDANCY\|STANDARD_IA\|ONEZONE_IA\|INTELLIGENT_TIERING\|GLACIER\|DEEP_ARCHIVE\|OUTPOSTS,<br/>type = SYSTEM\|USER<br/>}, ...<br/>]<br/>}<br/>JSON Syntax:<br/>"{<br/>"backup-settings": [<br/>{<br/>"backup-schedule": {<br/>"next-execute-time": "timestamp",<br/>"policy": {<br/>"daily-backup-schedule": {<br/>"execute-time": "timeofday"<br/>},<br/>"recurring-backup-schedule": {<br/>"recurrence": "str",<br/>"start-time": "timestamp"<br/>},<br/>"weekly-backup-schedule": {<br/>"days-of-week": [<br/>{<br/>"days": [<br/>"MONDAY\|TUESDAY\|WEDNESDAY\|THURSDAY\|FRIDAY\|SATURDAY\|SUNDAY", ...<br/>],<br/>"execute-time": "timeofday"<br/>}, ...<br/>]<br/>}<br/>}<br/>},<br/>"backup-time-to-live": "duration",<br/>"description": "str",<br/>"name": "str",<br/>"source-paths": [<br/>"str", ...<br/>],<br/>"source-paths-to-exclude": [<br/>"str", ...<br/>],<br/>"storage-class": "STANDARD\|REDUCED_REDUNDANCY\|STANDARD_IA\|ONEZONE_IA\|INTELLIGENT_TIERING\|GLACIER\|DEEP_ARCHIVE\|OUTPOSTS",<br/>"type": "SYSTEM\|USER"<br/>}, ...<br/>]<br/>}"<br/>Fields:<br/>backup-settings -> ([]struct)<br/>backup-schedule -> (struct)<br/>provide schedule. if empty, backup will be disabled.<br/>next-execute-time -> (timestamp)<br/>output only field: when next backup will be executed using provided schedule.<br/>policy -> (oneof<daily-backup-schedule\|recurring-backup-schedule\|weekly-backup-schedule>)<br/>Oneof policy field<br/>daily-backup-schedule -> (struct)<br/>execute-time -> (timeofday)<br/>weekly-backup-schedule -> (struct)<br/>days-of-week -> ([]struct)<br/>days -> ([]int)<br/>execute-time -> (timeofday)<br/>recurring-backup-schedule -> (struct)<br/>recurrence -> (string)<br/>An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported.<br/>start-time -> (timestamp)<br/>Timestamp of the first recurrence.<br/>backup-time-to-live -> (duration)<br/>provide time to live of backup.<br/>description -> (string)<br/>human readable description.<br/>name -> (string)<br/>name of backup settings<br/>source-paths -> ([]string)<br/>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database.<br/>source-paths-to-exclude -> ([]string)<br/>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded.<br/>storage-class -> (enum<DEEP_ARCHIVE\|GLACIER\|INTELLIGENT_TIERING\|ONEZONE_IA\|OUTPOSTS\|REDUCED_REDUNDANCY\|STANDARD\|STANDARD_IA>)<br/>type -> (enum<SYSTEM\|USER>)|
-|`--deletion-protection`||
-|`--description`|<b>`string`</b><br/>|
-|`--folder-id`|<b>`string`</b><br/>|
-|`--labels`|<b>`stringToString`</b><br/>|
-|`--location-id`|<b>`string`</b><br/>|
-|`--monitoring-config`|<b>`shorthand/json`</b><br/><br/>Shorthand Syntax:<br/>{<br/>alerts = [<br/>{<br/>alert-id = str,<br/>alert-parameters = [<br/>{<br/>parameter = double-parameter-value={<br/>name = str,<br/>value = double<br/>} \| integer-parameter-value={<br/>name = str,<br/>value = int<br/>} \| label-list-parameter-value={<br/>name = str,<br/>values = str,...<br/>} \| text-list-parameter-value={<br/>name = str,<br/>values = str,...<br/>} \| text-parameter-value={<br/>name = str,<br/>value = str<br/>}<br/>}, ...<br/>],<br/>alert-template-id = str,<br/>alert-thresholds = [<br/>{<br/>parameter = double-parameter-value={<br/>name = str,<br/>value = double<br/>} \| integer-parameter-value={<br/>name = str,<br/>value = int<br/>} \| label-list-parameter-value={<br/>name = str,<br/>values = str,...<br/>} \| text-list-parameter-value={<br/>name = str,<br/>values = str,...<br/>} \| text-parameter-value={<br/>name = str,<br/>value = str<br/>}<br/>}, ...<br/>],<br/>description = str,<br/>name = str,<br/>notification-channels = [<br/>{<br/>notification-channel-id = str,<br/>notify-about-statuses = ALERT_EVALUATION_STATUS_OK\|ALERT_EVALUATION_STATUS_NO_DATA\|ALERT_EVALUATION_STATUS_ERROR\|ALERT_EVALUATION_STATUS_ALARM\|ALERT_EVALUATION_STATUS_WARN,...,<br/>repeate-notify-delay-ms = int<br/>}, ...<br/>]<br/>}, ...<br/>]<br/>}<br/>JSON Syntax:<br/>"{<br/>"alerts": [<br/>{<br/>"alert-id": "str",<br/>"alert-parameters": [<br/>{<br/>"parameter": {<br/>"double-parameter-value": {<br/>"name": "str",<br/>"value": "double"<br/>},<br/>"integer-parameter-value": {<br/>"name": "str",<br/>"value": "int"<br/>},<br/>"label-list-parameter-value": {<br/>"name": "str",<br/>"values": [<br/>"str", ...<br/>]<br/>},<br/>"text-list-parameter-value": {<br/>"name": "str",<br/>"values": [<br/>"str", ...<br/>]<br/>},<br/>"text-parameter-value": {<br/>"name": "str",<br/>"value": "str"<br/>}<br/>}<br/>}, ...<br/>],<br/>"alert-template-id": "str",<br/>"alert-thresholds": [<br/>{<br/>"parameter": {<br/>"double-parameter-value": {<br/>"name": "str",<br/>"value": "double"<br/>},<br/>"integer-parameter-value": {<br/>"name": "str",<br/>"value": "int"<br/>},<br/>"label-list-parameter-value": {<br/>"name": "str",<br/>"values": [<br/>"str", ...<br/>]<br/>},<br/>"text-list-parameter-value": {<br/>"name": "str",<br/>"values": [<br/>"str", ...<br/>]<br/>},<br/>"text-parameter-value": {<br/>"name": "str",<br/>"value": "str"<br/>}<br/>}<br/>}, ...<br/>],<br/>"description": "str",<br/>"name": "str",<br/>"notification-channels": [<br/>{<br/>"notification-channel-id": "str",<br/>"notify-about-statuses": [<br/>"ALERT_EVALUATION_STATUS_OK\|ALERT_EVALUATION_STATUS_NO_DATA\|ALERT_EVALUATION_STATUS_ERROR\|ALERT_EVALUATION_STATUS_ALARM\|ALERT_EVALUATION_STATUS_WARN", ...<br/>],<br/>"repeate-notify-delay-ms": "int"<br/>}, ...<br/>]<br/>}, ...<br/>]<br/>}"<br/>Fields:<br/>alerts -> ([]struct)<br/>alert-id -> (string)<br/>output only field.<br/>alert-parameters -> ([]struct)<br/>alert parameters to override.<br/>parameter -> (oneof<double-parameter-value\|integer-parameter-value\|label-list-parameter-value\|text-list-parameter-value\|text-parameter-value>)<br/>Oneof parameter field<br/>double-parameter-value -> (struct)<br/>name -> (string)<br/>Required. Parameter name<br/>value -> (double)<br/>Required. Parameter value<br/>integer-parameter-value -> (struct)<br/>name -> (string)<br/>Required. Parameter name<br/>value -> (int)<br/>Required. Parameter value<br/>text-parameter-value -> (struct)<br/>name -> (string)<br/>Required. Parameter name<br/>value -> (string)<br/>Required. Parameter value<br/>text-list-parameter-value -> (struct)<br/>name -> (string)<br/>Required. Parameter name<br/>values -> ([]string)<br/>Required. Parameter value<br/>label-list-parameter-value -> (struct)<br/>name -> (string)<br/>Required. Parameter name<br/>values -> ([]string)<br/>Required. Parameter value<br/>alert-template-id -> (string)<br/>template of the alert.<br/>alert-thresholds -> ([]struct)<br/>alert paratemers to override.<br/>parameter -> (oneof<double-parameter-value\|integer-parameter-value\|label-list-parameter-value\|text-list-parameter-value\|text-parameter-value>)<br/>Oneof parameter field<br/>double-parameter-value -> (struct)<br/>name -> (string)<br/>Required. Parameter name<br/>value -> (double)<br/>Required. Parameter value<br/>integer-parameter-value -> (struct)<br/>name -> (string)<br/>Required. Parameter name<br/>value -> (int)<br/>Required. Parameter value<br/>text-parameter-value -> (struct)<br/>name -> (string)<br/>Required. Parameter name<br/>value -> (string)<br/>Required. Parameter value<br/>text-list-parameter-value -> (struct)<br/>name -> (string)<br/>Required. Parameter name<br/>values -> ([]string)<br/>Required. Parameter value<br/>label-list-parameter-value -> (struct)<br/>name -> (string)<br/>Required. Parameter name<br/>values -> ([]string)<br/>Required. Parameter value<br/>description -> (string)<br/>human readable description of the alert.<br/>name -> (string)<br/>name of the alert.<br/>notification-channels -> ([]struct)<br/>the notification channels of the alert.<br/>notification-channel-id -> (string)<br/>notify-about-statuses -> ([]int)<br/>repeate-notify-delay-ms -> (int)|
-|`--name`|<b>`string`</b><br/>|
-|`--network-id`|<b>`string`</b><br/>|
-|`--resource-preset-id`|<b>`string`</b><br/>|
-|`--scale-policy`|<b>`shorthand/json`</b><br/><br/>Shorthand Syntax:<br/>{<br/>scale-type = auto-scale={<br/>auto-scale-type = target-tracking={<br/>target = cpu-utilization-percent=int<br/>},<br/>max-size = int,<br/>min-size = int<br/>} \| fixed-scale={<br/>size = int<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"scale-type": {<br/>"auto-scale": {<br/>"auto-scale-type": {<br/>"target-tracking": {<br/>"target": {<br/>"cpu-utilization-percent": "int"<br/>}<br/>}<br/>},<br/>"max-size": "int",<br/>"min-size": "int"<br/>},<br/>"fixed-scale": {<br/>"size": "int"<br/>}<br/>}<br/>}"<br/>Fields:<br/>scale-type -> (oneof<auto-scale\|fixed-scale>)<br/>Oneof scale-type field<br/>fixed-scale -> (struct)<br/>size -> (int)<br/>auto-scale -> (struct)<br/>max-size -> (int)<br/>Maximum number of nodes to which autoscaling can scale the database.<br/>min-size -> (int)<br/>Minimum number of nodes to which autoscaling can scale the database.<br/>auto-scale-type -> (oneof\<target-tracking\>)<br/>Oneof auto-scale-type field<br/>target-tracking -> (struct)<br/>target -> (oneof\<cpu-utilization-percent\>)<br/>Oneof target field<br/>cpu-utilization-percent -> (int)<br/>A percentage of database nodes average CPU utilization.|
-|`--security-group-ids`|<b>`strings`</b><br/>|
-|`--storage-config`|<b>`shorthand/json`</b><br/><br/>Shorthand Syntax:<br/>{<br/>storage-options = [<br/>{<br/>group-count = int,<br/>storage-type-id = str<br/>}, ...<br/>],<br/>storage-size-limit = int<br/>}<br/>JSON Syntax:<br/>"{<br/>"storage-options": [<br/>{<br/>"group-count": "int",<br/>"storage-type-id": "str"<br/>}, ...<br/>],<br/>"storage-size-limit": "int"<br/>}"<br/>Fields:<br/>storage-options -> ([]struct)<br/>group-count -> (int)<br/>storage-type-id -> (string)<br/>storage-size-limit -> (int)<br/>output only field: storage size limit of dedicated database.|
-|`--subnet-ids`|<b>`strings`</b><br/>|
-|`--zonal-database`|<b>`shorthand/json`</b><br/>deprecated field<br/>Shorthand Syntax:<br/>{<br/>zone-id = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"zone-id": "str"<br/>}"<br/>Fields:<br/>zone-id -> (string)|
-|`--regional-database`|<b>`shorthand/json`</b><br/>deprecated field<br/>Shorthand Syntax:<br/>{<br/>region-id = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"region-id": "str"<br/>}"<br/>Fields:<br/>region-id -> (string)|
-|`--dedicated-database`|<b>`shorthand/json`</b><br/><br/>Shorthand Syntax:<br/>{<br/>assign-public-ips = bool,<br/>network-id = str,<br/>resource-preset-id = str,<br/>scale-policy = {<br/>scale-type = auto-scale={<br/>auto-scale-type = target-tracking={<br/>target = cpu-utilization-percent=int<br/>},<br/>max-size = int,<br/>min-size = int<br/>} \| fixed-scale={<br/>size = int<br/>}<br/>},<br/>security-group-ids = str,...,<br/>storage-config = {<br/>storage-options = [<br/>{<br/>group-count = int,<br/>storage-type-id = str<br/>}, ...<br/>],<br/>storage-size-limit = int<br/>},<br/>subnet-ids = str,...<br/>}<br/>JSON Syntax:<br/>"{<br/>"assign-public-ips": "bool",<br/>"network-id": "str",<br/>"resource-preset-id": "str",<br/>"scale-policy": {<br/>"scale-type": {<br/>"auto-scale": {<br/>"auto-scale-type": {<br/>"target-tracking": {<br/>"target": {<br/>"cpu-utilization-percent": "int"<br/>}<br/>}<br/>},<br/>"max-size": "int",<br/>"min-size": "int"<br/>},<br/>"fixed-scale": {<br/>"size": "int"<br/>}<br/>}<br/>},<br/>"security-group-ids": [<br/>"str", ...<br/>],<br/>"storage-config": {<br/>"storage-options": [<br/>{<br/>"group-count": "int",<br/>"storage-type-id": "str"<br/>}, ...<br/>],<br/>"storage-size-limit": "int"<br/>},<br/>"subnet-ids": [<br/>"str", ...<br/>]<br/>}"<br/>Fields:<br/>assign-public-ips -> (bool)<br/>network-id -> (string)<br/>resource-preset-id -> (string)<br/>scale-policy -> (struct)<br/>scale-type -> (oneof<auto-scale\|fixed-scale>)<br/>Oneof scale-type field<br/>fixed-scale -> (struct)<br/>size -> (int)<br/>auto-scale -> (struct)<br/>max-size -> (int)<br/>Maximum number of nodes to which autoscaling can scale the database.<br/>min-size -> (int)<br/>Minimum number of nodes to which autoscaling can scale the database.<br/>auto-scale-type -> (oneof\<target-tracking\>)<br/>Oneof auto-scale-type field<br/>target-tracking -> (struct)<br/>target -> (oneof\<cpu-utilization-percent\>)<br/>Oneof target field<br/>cpu-utilization-percent -> (int)<br/>A percentage of database nodes average CPU utilization.<br/>security-group-ids -> ([]string)<br/>storage-config -> (struct)<br/>storage-options -> ([]struct)<br/>group-count -> (int)<br/>storage-type-id -> (string)<br/>storage-size-limit -> (int)<br/>output only field: storage size limit of dedicated database.<br/>subnet-ids -> ([]string)|
-|`--serverless-database`|<b>`shorthand/json`</b><br/><br/>Shorthand Syntax:<br/>{<br/>enable-throttling-rcu-limit = bool,<br/>provisioned-rcu-limit = int,<br/>storage-size-limit = int,<br/>throttling-rcu-limit = int,<br/>topic-write-quota = int<br/>}<br/>JSON Syntax:<br/>"{<br/>"enable-throttling-rcu-limit": "bool",<br/>"provisioned-rcu-limit": "int",<br/>"storage-size-limit": "int",<br/>"throttling-rcu-limit": "int",<br/>"topic-write-quota": "int"<br/>}"<br/>Fields:<br/>enable-throttling-rcu-limit -> (bool)<br/>If false, the database is throttled by cloud value.<br/>provisioned-rcu-limit -> (int)<br/>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed.<br/>storage-size-limit -> (int)<br/>Specify serverless database storage size limit. If zero, default value is applied.<br/>throttling-rcu-limit -> (int)<br/>Let's define 1 RU - 1 request unit Let's define 1 RCU - 1 request capacity unit, which is 1 RU per second. If 'enable_throttling_rcu_limit' flag is true, the database will be throttled using 'throttling_rcu_limit' value. Otherwise, the database is throttled using the cloud quotas. If zero, all requests will be blocked until non zero value is set.<br/>topic-write-quota -> (int)<br/>write quota for topic service, defined in bytes per second.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-json > request.json
+2. Edit the template: vim request.json
+3. Run with template: yc beta compute instance create -r request.json ||
+|| `--example-yaml` | Generates a YAML template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-yaml > request.yaml
+2. Edit the template: vim request.yaml
+3. Run with template: yc beta compute instance create -r request.yaml ||
+|| `--assign-public-ips` |  ||
+|| `--backup-config` | `shorthand/json`
+
+Shorthand Syntax:
+
+```hcl
+{
+  backup-settings = [
+    {
+      backup-schedule = {
+        next-execute-time = timestamp,
+        policy = daily-backup-schedule={
+          execute-time = timeofday
+        } | recurring-backup-schedule={
+          recurrence = str,
+          start-time = timestamp
+        } | weekly-backup-schedule={
+          days-of-week = [
+            {
+              days = [
+                MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY, ...
+              ],
+              execute-time = timeofday
+            }, ...
+          ]
+        }
+      },
+      backup-time-to-live = duration,
+      description = str,
+      name = str,
+      source-paths = str,...,
+      source-paths-to-exclude = str,...,
+      storage-class = STANDARD|REDUCED_REDUNDANCY|STANDARD_IA|ONEZONE_IA|INTELLIGENT_TIERING|GLACIER|DEEP_ARCHIVE|OUTPOSTS,
+      type = SYSTEM|USER
+    }, ...
+  ]
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "backup-settings": [
+    {
+      "backup-schedule": {
+        "next-execute-time": "timestamp",
+        "policy": {
+          "daily-backup-schedule": {
+            "execute-time": "timeofday"
+          },
+          "recurring-backup-schedule": {
+            "recurrence": "str",
+            "start-time": "timestamp"
+          },
+          "weekly-backup-schedule": {
+            "days-of-week": [
+              {
+                "days": [
+                  "MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY", ...
+                ],
+                "execute-time": "timeofday"
+              }, ...
+            ]
+          }
+        }
+      },
+      "backup-time-to-live": "duration",
+      "description": "str",
+      "name": "str",
+      "source-paths": [
+        "str", ...
+      ],
+      "source-paths-to-exclude": [
+        "str", ...
+      ],
+      "storage-class": "STANDARD|REDUCED_REDUNDANCY|STANDARD_IA|ONEZONE_IA|INTELLIGENT_TIERING|GLACIER|DEEP_ARCHIVE|OUTPOSTS",
+      "type": "SYSTEM|USER"
+    }, ...
+  ]
+}
+```
+
+Fields:
+
+```
+backup-settings -> ([]struct)
+  backup-schedule -> (struct)
+    provide schedule. if empty, backup will be disabled.
+    next-execute-time -> (timestamp)
+      output only field: when next backup will be executed using provided schedule.
+    policy -> (oneof<daily-backup-schedule|recurring-backup-schedule|weekly-backup-schedule>)
+      Oneof policy field
+      daily-backup-schedule -> (struct)
+        execute-time -> (timeofday)
+      weekly-backup-schedule -> (struct)
+        days-of-week -> ([]struct)
+          days -> ([]struct)
+          execute-time -> (timeofday)
+      recurring-backup-schedule -> (struct)
+        recurrence -> (string)
+          An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported.
+        start-time -> (timestamp)
+          Timestamp of the first recurrence.
+  backup-time-to-live -> (duration)
+    provide time to live of backup.
+  description -> (string)
+    human readable description.
+  name -> (string)
+    name of backup settings
+  source-paths -> ([]string)
+    provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database.
+  source-paths-to-exclude -> ([]string)
+    provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded.
+  storage-class -> (struct)
+  type -> (struct)
+``` ||
+|| `--deletion-protection` |  ||
+|| `--description` | `string`
+
+ ||
+|| `--folder-id` | `string`
+
+ ||
+|| `--labels` | `stringToString`
+
+ ||
+|| `--location-id` | `string`
+
+ ||
+|| `--monitoring-config` | `shorthand/json`
+
+Shorthand Syntax:
+
+```hcl
+{
+  alerts = [
+    {
+      alert-id = str,
+      alert-parameters = [
+        {
+          parameter = double-parameter-value={
+            name = str,
+            value = double
+          } | integer-parameter-value={
+            name = str,
+            value = int
+          } | label-list-parameter-value={
+            name = str,
+            values = str,...
+          } | text-list-parameter-value={
+            name = str,
+            values = str,...
+          } | text-parameter-value={
+            name = str,
+            value = str
+          }
+        }, ...
+      ],
+      alert-template-id = str,
+      alert-thresholds = [
+        {
+          parameter = double-parameter-value={
+            name = str,
+            value = double
+          } | integer-parameter-value={
+            name = str,
+            value = int
+          } | label-list-parameter-value={
+            name = str,
+            values = str,...
+          } | text-list-parameter-value={
+            name = str,
+            values = str,...
+          } | text-parameter-value={
+            name = str,
+            value = str
+          }
+        }, ...
+      ],
+      description = str,
+      name = str,
+      notification-channels = [
+        {
+          notification-channel-id = str,
+          notify-about-statuses = [
+            ALERT_EVALUATION_STATUS_OK|ALERT_EVALUATION_STATUS_NO_DATA|ALERT_EVALUATION_STATUS_ERROR|ALERT_EVALUATION_STATUS_ALARM|ALERT_EVALUATION_STATUS_WARN, ...
+          ],
+          repeate-notify-delay-ms = int
+        }, ...
+      ]
+    }, ...
+  ]
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "alerts": [
+    {
+      "alert-id": "str",
+      "alert-parameters": [
+        {
+          "parameter": {
+            "double-parameter-value": {
+              "name": "str",
+              "value": "double"
+            },
+            "integer-parameter-value": {
+              "name": "str",
+              "value": "int"
+            },
+            "label-list-parameter-value": {
+              "name": "str",
+              "values": [
+                "str", ...
+              ]
+            },
+            "text-list-parameter-value": {
+              "name": "str",
+              "values": [
+                "str", ...
+              ]
+            },
+            "text-parameter-value": {
+              "name": "str",
+              "value": "str"
+            }
+          }
+        }, ...
+      ],
+      "alert-template-id": "str",
+      "alert-thresholds": [
+        {
+          "parameter": {
+            "double-parameter-value": {
+              "name": "str",
+              "value": "double"
+            },
+            "integer-parameter-value": {
+              "name": "str",
+              "value": "int"
+            },
+            "label-list-parameter-value": {
+              "name": "str",
+              "values": [
+                "str", ...
+              ]
+            },
+            "text-list-parameter-value": {
+              "name": "str",
+              "values": [
+                "str", ...
+              ]
+            },
+            "text-parameter-value": {
+              "name": "str",
+              "value": "str"
+            }
+          }
+        }, ...
+      ],
+      "description": "str",
+      "name": "str",
+      "notification-channels": [
+        {
+          "notification-channel-id": "str",
+          "notify-about-statuses": [
+            "ALERT_EVALUATION_STATUS_OK|ALERT_EVALUATION_STATUS_NO_DATA|ALERT_EVALUATION_STATUS_ERROR|ALERT_EVALUATION_STATUS_ALARM|ALERT_EVALUATION_STATUS_WARN", ...
+          ],
+          "repeate-notify-delay-ms": "int"
+        }, ...
+      ]
+    }, ...
+  ]
+}
+```
+
+Fields:
+
+```
+alerts -> ([]struct)
+  alert-id -> (string)
+    output only field.
+  alert-parameters -> ([]struct)
+    alert parameters to override.
+    parameter -> (oneof<double-parameter-value|integer-parameter-value|label-list-parameter-value|text-list-parameter-value|text-parameter-value>)
+      Oneof parameter field
+      double-parameter-value -> (struct)
+        name -> (string)
+          Required. Parameter name
+        value -> (double)
+          Required. Parameter value
+      integer-parameter-value -> (struct)
+        name -> (string)
+          Required. Parameter name
+        value -> (int)
+          Required. Parameter value
+      text-parameter-value -> (struct)
+        name -> (string)
+          Required. Parameter name
+        value -> (string)
+          Required. Parameter value
+      text-list-parameter-value -> (struct)
+        name -> (string)
+          Required. Parameter name
+        values -> ([]string)
+          Required. Parameter value
+      label-list-parameter-value -> (struct)
+        name -> (string)
+          Required. Parameter name
+        values -> ([]string)
+          Required. Parameter value
+  alert-template-id -> (string)
+    template of the alert.
+  alert-thresholds -> ([]struct)
+    alert paratemers to override.
+    parameter -> (oneof<double-parameter-value|integer-parameter-value|label-list-parameter-value|text-list-parameter-value|text-parameter-value>)
+      Oneof parameter field
+      double-parameter-value -> (struct)
+        name -> (string)
+          Required. Parameter name
+        value -> (double)
+          Required. Parameter value
+      integer-parameter-value -> (struct)
+        name -> (string)
+          Required. Parameter name
+        value -> (int)
+          Required. Parameter value
+      text-parameter-value -> (struct)
+        name -> (string)
+          Required. Parameter name
+        value -> (string)
+          Required. Parameter value
+      text-list-parameter-value -> (struct)
+        name -> (string)
+          Required. Parameter name
+        values -> ([]string)
+          Required. Parameter value
+      label-list-parameter-value -> (struct)
+        name -> (string)
+          Required. Parameter name
+        values -> ([]string)
+          Required. Parameter value
+  description -> (string)
+    human readable description of the alert.
+  name -> (string)
+    name of the alert.
+  notification-channels -> ([]struct)
+    the notification channels of the alert.
+    notification-channel-id -> (string)
+    notify-about-statuses -> ([]struct)
+    repeate-notify-delay-ms -> (int)
+``` ||
+|| `--name` | `string`
+
+ ||
+|| `--network-id` | `string`
+
+ ||
+|| `--resource-preset-id` | `string`
+
+ ||
+|| `--scale-policy` | `shorthand/json`
+
+Shorthand Syntax:
+
+```hcl
+{
+  scale-type = auto-scale={
+    auto-scale-type = target-tracking={
+      target = cpu-utilization-percent=int
+    },
+    max-size = int,
+    min-size = int
+  } | fixed-scale={
+    size = int
+  }
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "scale-type": {
+    "auto-scale": {
+      "auto-scale-type": {
+        "target-tracking": {
+          "target": {
+            "cpu-utilization-percent": "int"
+          }
+        }
+      },
+      "max-size": "int",
+      "min-size": "int"
+    },
+    "fixed-scale": {
+      "size": "int"
+    }
+  }
+}
+```
+
+Fields:
+
+```
+scale-type -> (oneof<auto-scale|fixed-scale>)
+  Oneof scale-type field
+  fixed-scale -> (struct)
+    size -> (int)
+  auto-scale -> (struct)
+    max-size -> (int)
+      Maximum number of nodes to which autoscaling can scale the database.
+    min-size -> (int)
+      Minimum number of nodes to which autoscaling can scale the database.
+    auto-scale-type -> (oneof<target-tracking>)
+      Oneof auto-scale-type field
+      target-tracking -> (struct)
+        target -> (oneof<cpu-utilization-percent>)
+          Oneof target field
+          cpu-utilization-percent -> (int)
+            A percentage of database nodes average CPU utilization.
+``` ||
+|| `--security-group-ids` | `strings`
+
+ ||
+|| `--storage-config` | `shorthand/json`
+
+Shorthand Syntax:
+
+```hcl
+{
+  storage-options = [
+    {
+      group-count = int,
+      storage-type-id = str
+    }, ...
+  ],
+  storage-size-limit = int
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "storage-options": [
+    {
+      "group-count": "int",
+      "storage-type-id": "str"
+    }, ...
+  ],
+  "storage-size-limit": "int"
+}
+```
+
+Fields:
+
+```
+storage-options -> ([]struct)
+  group-count -> (int)
+  storage-type-id -> (string)
+storage-size-limit -> (int)
+  output only field: storage size limit of dedicated database.
+``` ||
+|| `--subnet-ids` | `strings`
+
+ ||
+|| `--zonal-database` | `shorthand/json`
+
+deprecated field
+
+Shorthand Syntax:
+
+```hcl
+{
+  zone-id = str
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "zone-id": "str"
+}
+```
+
+Fields:
+
+```
+zone-id -> (string)
+``` ||
+|| `--regional-database` | `shorthand/json`
+
+deprecated field
+
+Shorthand Syntax:
+
+```hcl
+{
+  region-id = str
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "region-id": "str"
+}
+```
+
+Fields:
+
+```
+region-id -> (string)
+``` ||
+|| `--dedicated-database` | `shorthand/json`
+
+Shorthand Syntax:
+
+```hcl
+{
+  assign-public-ips = bool,
+  network-id = str,
+  resource-preset-id = str,
+  scale-policy = {
+    scale-type = auto-scale={
+      auto-scale-type = target-tracking={
+        target = cpu-utilization-percent=int
+      },
+      max-size = int,
+      min-size = int
+    } | fixed-scale={
+      size = int
+    }
+  },
+  security-group-ids = str,...,
+  storage-config = {
+    storage-options = [
+      {
+        group-count = int,
+        storage-type-id = str
+      }, ...
+    ],
+    storage-size-limit = int
+  },
+  subnet-ids = str,...
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "assign-public-ips": "bool",
+  "network-id": "str",
+  "resource-preset-id": "str",
+  "scale-policy": {
+    "scale-type": {
+      "auto-scale": {
+        "auto-scale-type": {
+          "target-tracking": {
+            "target": {
+              "cpu-utilization-percent": "int"
+            }
+          }
+        },
+        "max-size": "int",
+        "min-size": "int"
+      },
+      "fixed-scale": {
+        "size": "int"
+      }
+    }
+  },
+  "security-group-ids": [
+    "str", ...
+  ],
+  "storage-config": {
+    "storage-options": [
+      {
+        "group-count": "int",
+        "storage-type-id": "str"
+      }, ...
+    ],
+    "storage-size-limit": "int"
+  },
+  "subnet-ids": [
+    "str", ...
+  ]
+}
+```
+
+Fields:
+
+```
+assign-public-ips -> (bool)
+network-id -> (string)
+resource-preset-id -> (string)
+scale-policy -> (struct)
+  scale-type -> (oneof<auto-scale|fixed-scale>)
+    Oneof scale-type field
+    fixed-scale -> (struct)
+      size -> (int)
+    auto-scale -> (struct)
+      max-size -> (int)
+        Maximum number of nodes to which autoscaling can scale the database.
+      min-size -> (int)
+        Minimum number of nodes to which autoscaling can scale the database.
+      auto-scale-type -> (oneof<target-tracking>)
+        Oneof auto-scale-type field
+        target-tracking -> (struct)
+          target -> (oneof<cpu-utilization-percent>)
+            Oneof target field
+            cpu-utilization-percent -> (int)
+              A percentage of database nodes average CPU utilization.
+security-group-ids -> ([]string)
+storage-config -> (struct)
+  storage-options -> ([]struct)
+    group-count -> (int)
+    storage-type-id -> (string)
+  storage-size-limit -> (int)
+    output only field: storage size limit of dedicated database.
+subnet-ids -> ([]string)
+``` ||
+|| `--serverless-database` | `shorthand/json`
+
+Shorthand Syntax:
+
+```hcl
+{
+  enable-throttling-rcu-limit = bool,
+  provisioned-rcu-limit = int,
+  storage-size-limit = int,
+  throttling-rcu-limit = int,
+  topic-write-quota = int
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "enable-throttling-rcu-limit": "bool",
+  "provisioned-rcu-limit": "int",
+  "storage-size-limit": "int",
+  "throttling-rcu-limit": "int",
+  "topic-write-quota": "int"
+}
+```
+
+Fields:
+
+```
+enable-throttling-rcu-limit -> (bool)
+  If false, the database is throttled by cloud value.
+provisioned-rcu-limit -> (int)
+  Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed.
+storage-size-limit -> (int)
+  Specify serverless database storage size limit. If zero, default value is applied.
+throttling-rcu-limit -> (int)
+  Let's define 1 RU - 1 request unit Let's define 1 RCU - 1 request capacity unit, which is 1 RU per second. If 'enable_throttling_rcu_limit' flag is true, the database will be throttled using 'throttling_rcu_limit' value. Otherwise, the database is throttled using the cloud quotas. If zero, all requests will be blocked until non zero value is set.
+topic-write-quota -> (int)
+  write quota for topic service, defined in bytes per second.
+``` ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

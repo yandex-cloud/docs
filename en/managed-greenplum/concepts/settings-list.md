@@ -2,9 +2,9 @@
 
 For {{ mgp-name }} clusters, you can configure {{ GP }} settings. Some settings are configured [at the cluster level](#dbms-cluster-settings), while others, at the level of external data sources, such as [S3](#s3-settings), [JDBC](#jdbc-settings), [HDFS](#hdfs-settings), [Hive](#hive-settings).
 
-The label next to the setting name helps determine which interface is used to set the value of this setting: the management console, CLI, API, SQL, or Terraform. The {{ tag-all }} label means that all of the above interfaces are supported.
+The label next to the setting name helps determine which interface is used to set the value of this setting: the management console, CLI, API, SQL, or Terraform. The {{ tag-all }} label means you can use any of the above interfaces.
 
-Depending on the selected interface, the same setting will be represented differently. For example, **max_connections** in the management console is the same as:
+The name for a setting depends on the interface you use. For example, **max_connections** in the management console is the same as:
 
 * `max_connections` in the gRPC API
 * `maxConnections` in the REST API
@@ -31,7 +31,7 @@ The important distinctions of this list of parameters are the following:
 
 - Within the service, the possible (boundary) values are different for some properties.
 - Within the service, the default values are different for some properties.
-- Within the service, there are some [open-gpdb](https://github.com/open-gpdb/gpdb) build-specific properties.
+- Some properties within the service are build-specific for [open-gpdb](https://github.com/open-gpdb/gpdb).
 
 {% include [mgp-dbms-settings](../../_includes/mdb/mgp/dbms-settings.md) %}
 

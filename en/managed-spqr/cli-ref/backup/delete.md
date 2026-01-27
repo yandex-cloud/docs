@@ -1,24 +1,24 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/backup/delete.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/backup/delete.md
 ---
 
-# yc managed-postgresql backup delete
+# yc managed-sharded-postgresql backup delete
 
-Delete the specified PostgreSQL backup
+Delete the specified Sharded PostgreSQL backup
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-postgresql backup delete <BACKUP-ID> [<BACKUP-ID>...] [Global Flags...]`
+`yc managed-sharded-postgresql backup delete <BACKUP-ID> [<BACKUP-ID>...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>PostgreSQL cluster id.|
-|`--name`|<b>`string`</b><br/>PostgreSQL cluster name.|
+|`--id`|<b>`string`</b><br/>Sharded PostgreSQL cluster id.|
+|`--name`|<b>`string`</b><br/>Sharded PostgreSQL cluster name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

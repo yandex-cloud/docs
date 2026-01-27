@@ -144,6 +144,36 @@ description: Следуя данной инструкции, вы сможете
      yc organization-manager idp application saml application delete <идентификатор_приложения>
      ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием SAML-приложения:
+
+     Пример описания SAML-приложения в конфигурации {{ TF }}
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_application_saml_application" "saml_app" {
+       organization_id = "bpfd1n2bnoqr********"
+       name            = "my-saml-app"
+
+       service_provider = {
+         entity_id = "https://example.com/saml/metadata"
+         acs_urls       = [
+           {
+             url = "http://localhost"
+           }
+         ]
+       }
+     }
+     ```
+
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     Проверить удаление ресурсов можно в [{{ org-full-name }}]({{ link-org-cloud-center }}).
+
 - API {#api}
 
   Воспользуйтесь методом REST API [Application.Delete](../../idp/application/saml/api-ref/Application/delete.md) для ресурса [Application](../../idp/application/saml/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Delete](../../idp/application/saml/api-ref/grpc/Application/delete.md).

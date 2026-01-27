@@ -9,7 +9,7 @@ The configuration will apply to all emails sent from this address. To apply your
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder with your address and configuration.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/at.svg) **{{ ui-key.yacloud.postbox.label_identities }}**.
     1. Select an address to link the configuration to.
     1. Click **{{ ui-key.yacloud.common.edit }}**.

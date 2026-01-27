@@ -2531,6 +2531,7 @@ default:
         v3|string: "0,3074\_₽"
   sku|RUB|datalens:
     users:
+      v1|number: 990
       v1|string: "990,00\_₽"
   sku|RUB|datatransfer:
     compute:

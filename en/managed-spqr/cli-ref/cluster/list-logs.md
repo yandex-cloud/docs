@@ -1,26 +1,26 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/cluster/list-logs.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/cluster/list-logs.md
 ---
 
-# yc managed-postgresql cluster list-logs
+# yc managed-sharded-postgresql cluster list-logs
 
-Retrieves logs for the specified PostgreSQL cluster
+Retrieves logs for the specified Sharded PostgreSQL cluster
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-postgresql cluster list-logs <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
+`yc managed-sharded-postgresql cluster list-logs <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>PostgreSQL cluster id.|
-|`--name`|<b>`string`</b><br/>PostgreSQL cluster name.|
+|`--id`|<b>`string`</b><br/>Sharded PostgreSQL cluster id.|
+|`--name`|<b>`string`</b><br/>Sharded PostgreSQL cluster name.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
-|`--service-type`|<b>`string`</b><br/>Type of the service to request logs about. Values: 'postgresql', 'pooler'|
+|`--service-type`|<b>`string`</b><br/>Type of the service to request logs about. Values: 'postgresql', 'router', 'coordinator', 'infra'|
 |`--columns`|<b>`value[,value]`</b><br/>Columns from logs table to request|
 |`--filter`|<b>`string`</b><br/>Filter expression that filters resources listed in the response. Entire filter must be surrounded with quotes.<br/>Examples: "message.hostname='node1.db.cloud.yandex.net'", "message.error_severity IN ('ERROR', 'FATAL', 'PANIC') AND message.hostname = 'node1.db.cloud.yandex.net'"|
 |`--since`|<b>`timestamp`</b><br/>Start timestamp for the logs request. Format: timestamp in HH:MM:SS format or RFC-3339, or duration since now.<br/>Examples: '15:04:05', '2006-01-02T15:04:05Z', '2h', '3h30m ago'|

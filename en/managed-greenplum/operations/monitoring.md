@@ -1,9 +1,9 @@
 ---
-title: '{{ GP }} cluster and host status monitoring'
+title: '{{ GP }} cluster and host state monitoring'
 description: Follow this guide to get detailed information about a {{ GP }} cluster's state.
 ---
 
-# {{ GP }} cluster and host status monitoring
+# {{ GP }} cluster and host state monitoring
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -19,7 +19,8 @@ To view detailed information on the state of a {{ GP }} cluster:
 
 - Management console {#console}
 
-    1. Navigate to the [folder page]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
     1. Click the name of your cluster and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** tab.
       
         The page that opens will display performance charts for the {{ GP }} cluster.
@@ -119,7 +120,8 @@ To view detailed information on the state of individual {{ GP }} hosts:
 
 - Management console {#console}
 
-    1. Navigate to the [folder page]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
     1. Click the cluster name and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
     1. Select the host you need.
 
@@ -134,7 +136,7 @@ To view detailed information on the state of individual {{ GP }} hosts:
     * **CPU**: Processor core workload. As the workload goes up, the `Idle` value goes down.
     * **Virtual memory usage**: Amount of VRAM used, in bytes.
     * **Disk Await**: Average time per disk operation.
-    * **Memory usage**: Amount of RAM used, in bytes. At high workloads, the `Free` value goes down, while the other values go up.
+    * **Memory usage**: Use of RAM, in bytes. At high workloads, the `Free` value goes down, while the other values go up.
     * **Disk IOPS**: Number of disk operations per second.
     * **Network Bytes**: Network data exchange rate.
     * **Disk IOPS in progress**: Number of pending disk operations.
@@ -160,7 +162,8 @@ To view detailed information about the network state of each host in a {{ GP }} 
 
 - Management console {#console}
 
-    1. Navigate to the [folder page]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
     1. Click the cluster name and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.mdb.cluster.switch_network }}** tab.
 
         The page that opens will display network state charts for each cluster host.
@@ -224,7 +227,8 @@ To view detailed information about the [PXF](external-tables.md) state:
 
 - Management console {#console}
 
-    1. Navigate to the [folder page]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
     1. Click the cluster name and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.greenplum.cluster.pxf.value_pxf }}** tab.
 
         The page that opens will display PXF state charts.
@@ -257,7 +261,8 @@ To view a dashboard for a {{ GP }} cluster, do the following:
 
 - Management console {#console}
 
-    1. Navigate to the [folder page]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
     1. Click the cluster name and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **Dashboard** tab.
 
         The page that opens will display the cluster dashboard charts.
@@ -311,7 +316,8 @@ To view information on {{ GP }} resource groups:
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ mgp-short-name }}**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
     1. Click the cluster name and select ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **Resource groups**.
       
         The page that opens will display performance charts for resource groups.
@@ -336,7 +342,8 @@ You can also view information on resource groups for each {{ GP }} cluster host:
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ mgp-short-name }}**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
     1. Click the cluster name and select ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **Resource groups per host**.
       
         The page that opens will display performance charts for resource groups by host.
@@ -358,11 +365,11 @@ To configure state indicator alerts for a [cluster](#monitoring-cluster) and [ho
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster for which you want to set up alerts.
-  1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to configure alerts.
+  1. [Go to](../../console/operations/select-service.md#select-service) ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
-      * **{{ mgp-name }} — Cluster Overview** to set up cluster alerts.
-      * **{{ mgp-name }} — Host Overview** to set up host alerts.
+      * **{{ mgp-name }} — Cluster Overview** to configure cluster alerts.
+      * **{{ mgp-name }} — Host Overview** to configure host alerts.
   1. In the indicator chart, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
   1. If the chart shows multiple indicators, select a data query to create a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see [this {{ monitoring-full-name }} article](../../monitoring/concepts/querying.md).
   1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds for notifications.
@@ -379,10 +386,11 @@ For a complete list of supported metrics, see [this {{ monitoring-name }} articl
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 
-To check the cluster’s state and status:
+To view the state and status of a cluster:
 
-1. Navigate to the [folder page]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
-1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column.
+1. Open the [folder dashboard]({{ link-console-main }}).
+1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+1. Hover over the indicator in the cluster row of the **{{ ui-key.yacloud.common.availability }}** column.
 
 ### Cluster states {#cluster-health}
 

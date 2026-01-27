@@ -541,6 +541,8 @@ items:
                 href: cli-ref-beta/cdn/cli-ref-beta/resource/delete.md
               - name: get
                 href: cli-ref-beta/cdn/cli-ref-beta/resource/get.md
+              - name: get-attributes
+                href: cli-ref-beta/cdn/cli-ref-beta/resource/get-attributes.md
               - name: get-provider-cname
                 href: cli-ref-beta/cdn/cli-ref-beta/resource/get-provider-cname.md
               - name: list
@@ -1611,18 +1613,27 @@ items:
                 href: cli-ref-beta/dataproc/cli-ref-beta/cluster/get.md
               - name: list
                 href: cli-ref-beta/dataproc/cli-ref-beta/cluster/list.md
+              - name: list-access-bindings
+                href: >-
+                  cli-ref-beta/dataproc/cli-ref-beta/cluster/list-access-bindings.md
               - name: list-hosts
                 href: cli-ref-beta/dataproc/cli-ref-beta/cluster/list-hosts.md
               - name: list-operations
                 href: cli-ref-beta/dataproc/cli-ref-beta/cluster/list-operations.md
               - name: list-ui-links
                 href: cli-ref-beta/dataproc/cli-ref-beta/cluster/list-ui-links.md
+              - name: set-access-bindings
+                href: >-
+                  cli-ref-beta/dataproc/cli-ref-beta/cluster/set-access-bindings.md
               - name: start
                 href: cli-ref-beta/dataproc/cli-ref-beta/cluster/start.md
               - name: stop
                 href: cli-ref-beta/dataproc/cli-ref-beta/cluster/stop.md
               - name: update
                 href: cli-ref-beta/dataproc/cli-ref-beta/cluster/update.md
+              - name: update-access-bindings
+                href: >-
+                  cli-ref-beta/dataproc/cli-ref-beta/cluster/update-access-bindings.md
           - name: job
             items:
               - name: Overview
@@ -4679,31 +4690,6 @@ items:
               - name: update-access-bindings
                 href: >-
                   cli-ref-beta/organization-manager/cli-ref-beta/organization/update-access-bindings.md
-          - name: oslogin
-            items:
-              - name: Overview
-                href: >-
-                  cli-ref-beta/organization-manager/cli-ref-beta/oslogin/index.md
-              - name: user-ssh-key
-                items:
-                  - name: Overview
-                    href: >-
-                      cli-ref-beta/organization-manager/cli-ref-beta/oslogin/user-ssh-key/index.md
-                  - name: create
-                    href: >-
-                      cli-ref-beta/organization-manager/cli-ref-beta/oslogin/user-ssh-key/create.md
-                  - name: delete
-                    href: >-
-                      cli-ref-beta/organization-manager/cli-ref-beta/oslogin/user-ssh-key/delete.md
-                  - name: get
-                    href: >-
-                      cli-ref-beta/organization-manager/cli-ref-beta/oslogin/user-ssh-key/get.md
-                  - name: list
-                    href: >-
-                      cli-ref-beta/organization-manager/cli-ref-beta/oslogin/user-ssh-key/list.md
-                  - name: update
-                    href: >-
-                      cli-ref-beta/organization-manager/cli-ref-beta/oslogin/user-ssh-key/update.md
           - name: oslogin
             items:
               - name: Overview

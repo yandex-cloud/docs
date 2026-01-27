@@ -10,42 +10,367 @@ Updates the specified Kubernetes cluster.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta managed-kubernetes cluster update <CLUSTER-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the Kubernetes cluster to update. To get the Kubernetes cluster ID use a [ClusterService.List] request.|
-|`--description`|<b>`string`</b><br/>Description of the Kubernetes cluster.|
-|`--ip-allocation-policy`|<b>`shorthand/json`</b><br/><br/>Shorthand Syntax:<br/>{<br/>cluster-ipv4-cidr-block = str,<br/>cluster-ipv6-cidr-block = str,<br/>node-ipv4-cidr-mask-size = int,<br/>service-ipv4-cidr-block = str,<br/>service-ipv6-cidr-block = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"cluster-ipv4-cidr-block": "str",<br/>"cluster-ipv6-cidr-block": "str",<br/>"node-ipv4-cidr-mask-size": "int",<br/>"service-ipv4-cidr-block": "str",<br/>"service-ipv6-cidr-block": "str"<br/>}"<br/>Fields:<br/>cluster-ipv4-cidr-block -> (string)<br/>CIDR block. IP range for allocating pod addresses. It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be set up for this CIDR blocks in node subnets.<br/>cluster-ipv6-cidr-block -> (string)<br/>IPv6 range for allocating pod IP addresses.<br/>node-ipv4-cidr-mask-size -> (int)<br/>Size of the masks that are assigned for each node in the cluster. If not specified, 24 is used.<br/>service-ipv4-cidr-block -> (string)<br/>CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from. It should not overlap with any subnet in the network the Kubernetes cluster located in.<br/>service-ipv6-cidr-block -> (string)<br/>IPv6 range for allocating Kubernetes service IP addresses|
-|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs. Existing set of 'labels' is completely replaced by the provided set.|
-|`--master-spec`|<b>`shorthand/json`</b><br/>Specification of the master update.<br/>Shorthand Syntax:<br/>{<br/>external-v6-address-spec = {<br/>address = str<br/>},<br/>locations = [<br/>{<br/>subnet-id = str,<br/>zone-id = str<br/>}, ...<br/>],<br/>maintenance-policy = {<br/>auto-upgrade = bool,<br/>maintenance-window = {<br/>policy = anytime={} \| daily-maintenance-window={<br/>duration = duration,<br/>start-time = timeofday<br/>} \| weekly-maintenance-window={<br/>days-of-week = [<br/>{<br/>days = MONDAY\|TUESDAY\|WEDNESDAY\|THURSDAY\|FRIDAY\|SATURDAY\|SUNDAY,...,<br/>duration = duration,<br/>start-time = timeofday<br/>}, ...<br/>]<br/>}<br/>}<br/>},<br/>master-logging = {<br/>audit-enabled = bool,<br/>cluster-autoscaler-enabled = bool,<br/>destination = folder-id=str \| log-group-id=str,<br/>enabled = bool,<br/>events-enabled = bool,<br/>kube-apiserver-enabled = bool<br/>},<br/>scale-policy = {<br/>scale-type = auto-scale={<br/>min-resource-preset-id = str<br/>}<br/>},<br/>security-group-ids = str,...,<br/>version = {<br/>specifier = latest-revision=bool \| version=str<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"external-v6-address-spec": {<br/>"address": "str"<br/>},<br/>"locations": [<br/>{<br/>"subnet-id": "str",<br/>"zone-id": "str"<br/>}, ...<br/>],<br/>"maintenance-policy": {<br/>"auto-upgrade": "bool",<br/>"maintenance-window": {<br/>"policy": {<br/>"anytime": {},<br/>"daily-maintenance-window": {<br/>"duration": "duration",<br/>"start-time": "timeofday"<br/>},<br/>"weekly-maintenance-window": {<br/>"days-of-week": [<br/>{<br/>"days": [<br/>"MONDAY\|TUESDAY\|WEDNESDAY\|THURSDAY\|FRIDAY\|SATURDAY\|SUNDAY", ...<br/>],<br/>"duration": "duration",<br/>"start-time": "timeofday"<br/>}, ...<br/>]<br/>}<br/>}<br/>}<br/>},<br/>"master-logging": {<br/>"audit-enabled": "bool",<br/>"cluster-autoscaler-enabled": "bool",<br/>"destination": {<br/>"folder-id": "str",<br/>"log-group-id": "str"<br/>},<br/>"enabled": "bool",<br/>"events-enabled": "bool",<br/>"kube-apiserver-enabled": "bool"<br/>},<br/>"scale-policy": {<br/>"scale-type": {<br/>"auto-scale": {<br/>"min-resource-preset-id": "str"<br/>}<br/>}<br/>},<br/>"security-group-ids": [<br/>"str", ...<br/>],<br/>"version": {<br/>"specifier": {<br/>"latest-revision": "bool",<br/>"version": "str"<br/>}<br/>}<br/>}"<br/>Fields:<br/>external-v6-address-spec -> (struct)<br/>Specification of parameters for external IPv6 networking.<br/>address -> (string)<br/>IP address.<br/>locations -> ([]struct)<br/>Update master instance locations.<br/>subnet-id -> (string)<br/>ID of the VPC network's subnet where the master resides. If not specified and there is a single subnet in specified zone, address in this subnet will be allocated.<br/>zone-id -> (string)<br/>ID of the availability zone where the master resides.<br/>maintenance-policy -> (struct)<br/>Maintenance policy of the master.<br/>auto-upgrade -> (bool)<br/>If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled.<br/>maintenance-window -> (struct)<br/>Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC.<br/>policy -> (oneof<anytime\|daily-maintenance-window\|weekly-maintenance-window>)<br/>Oneof policy field<br/>anytime -> (struct)<br/>Updating the master at any time.<br/>daily-maintenance-window -> (struct)<br/>Updating the master on any day during the specified time window.<br/>duration -> (duration)<br/>Window duration.<br/>start-time -> (timeofday)<br/>Window start time, in the UTC timezone.<br/>weekly-maintenance-window -> (struct)<br/>Updating the master on selected days during the specified time window.<br/>days-of-week -> ([]struct)<br/>Days of the week and the maintenance window for these days when automatic updates are allowed.<br/>days -> ([]int)<br/>Days of the week when automatic updates are allowed.<br/>duration -> (duration)<br/>Window duration.<br/>start-time -> (timeofday)<br/>Window start time, in the UTC timezone.<br/>master-logging -> (struct)<br/>Cloud Logging for master components.<br/>audit-enabled -> (bool)<br/>Identifies whether Cloud Logging is enabled for audit logs.<br/>cluster-autoscaler-enabled -> (bool)<br/>Identifies whether Cloud Logging is enabled for cluster-autoscaler.<br/>enabled -> (bool)<br/>Identifies whether Cloud Logging is enabled for master components.<br/>events-enabled -> (bool)<br/>Identifies whether Cloud Logging is enabled for events.<br/>kube-apiserver-enabled -> (bool)<br/>Identifies whether Cloud Logging is enabled for kube-apiserver.<br/>destination -> (oneof<folder-id\|log-group-id>)<br/>Oneof destination field<br/>log-group-id -> (string)<br/>ID of the log group where logs of master components should be stored.<br/>folder-id -> (string)<br/>ID of the folder where logs should be stored (in default group).<br/>scale-policy -> (struct)<br/>Scale policy of the master.<br/>scale-type -> (oneof\<auto-scale\>)<br/>Oneof scale-type field<br/>auto-scale -> (struct)<br/>min-resource-preset-id -> (string)<br/>Preset of computing resources to be used as lower boundary for scaling.<br/>security-group-ids -> ([]string)<br/>Master security groups.<br/>version -> (struct)<br/>Specification of the master update.<br/>specifier -> (oneof<latest-revision\|version>)<br/>Oneof specifier field<br/>version -> (string)<br/>Request update to a newer version of Kubernetes (1.x -> 1.y).<br/>latest-revision -> (bool)<br/>Request update to the latest revision for the current version.|
-|`--name`|<b>`string`</b><br/>Name of the Kubernetes cluster. The name must be unique within the folder.|
-|`--network-policy`|<b>`shorthand/json`</b><br/><br/>Shorthand Syntax:<br/>{<br/>provider = CALICO<br/>}<br/>JSON Syntax:<br/>"{<br/>"provider": "CALICO"<br/>}"<br/>Fields:<br/>provider -> (enum\<CALICO\>)|
-|`--node-service-account-id`|<b>`string`</b><br/>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics.|
-|`--service-account-id`|<b>`string`</b><br/>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. Selected service account should have 'edit' role on the folder where the Kubernetes cluster will be located and on the folder where selected network resides.|
-|`--workload-identity-federation`|<b>`shorthand/json`</b><br/><br/>Shorthand Syntax:<br/>{<br/>enabled = bool<br/>}<br/>JSON Syntax:<br/>"{<br/>"enabled": "bool"<br/>}"<br/>Fields:<br/>enabled -> (bool)<br/>Identifies whether Workload Identity Federation is enabled.|
-|`--gateway-ipv4-address`|<b>`string`</b><br/>Gateway IPv4 address.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `--cluster-id` | `string`
+
+ID of the Kubernetes cluster to update. To get the Kubernetes cluster ID use a [ClusterService.List] request. ||
+|| `--description` | `string`
+
+Description of the Kubernetes cluster. ||
+|| `--ip-allocation-policy` | `shorthand/json`
+
+Shorthand Syntax:
+
+```hcl
+{
+  cluster-ipv4-cidr-block = str,
+  cluster-ipv6-cidr-block = str,
+  node-ipv4-cidr-mask-size = int,
+  service-ipv4-cidr-block = str,
+  service-ipv6-cidr-block = str
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "cluster-ipv4-cidr-block": "str",
+  "cluster-ipv6-cidr-block": "str",
+  "node-ipv4-cidr-mask-size": "int",
+  "service-ipv4-cidr-block": "str",
+  "service-ipv6-cidr-block": "str"
+}
+```
+
+Fields:
+
+```
+cluster-ipv4-cidr-block -> (string)
+  CIDR block. IP range for allocating pod addresses. It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be set up for this CIDR blocks in node subnets.
+cluster-ipv6-cidr-block -> (string)
+  IPv6 range for allocating pod IP addresses.
+node-ipv4-cidr-mask-size -> (int)
+  Size of the masks that are assigned for each node in the cluster. If not specified, 24 is used.
+service-ipv4-cidr-block -> (string)
+  CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from. It should not overlap with any subnet in the network the Kubernetes cluster located in.
+service-ipv6-cidr-block -> (string)
+  IPv6 range for allocating Kubernetes service IP addresses
+``` ||
+|| `--labels` | `stringToString`
+
+Resource labels as 'key:value' pairs. Existing set of 'labels' is completely replaced by the provided set. ||
+|| `--master-spec` | `shorthand/json`
+
+Specification of the master update.
+
+Shorthand Syntax:
+
+```hcl
+{
+  external-v6-address-spec = {
+    address = str
+  },
+  locations = [
+    {
+      subnet-id = str,
+      zone-id = str
+    }, ...
+  ],
+  maintenance-policy = {
+    auto-upgrade = bool,
+    maintenance-window = {
+      policy = anytime={} | daily-maintenance-window={
+        duration = duration,
+        start-time = timeofday
+      } | weekly-maintenance-window={
+        days-of-week = [
+          {
+            days = [
+              MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY, ...
+            ],
+            duration = duration,
+            start-time = timeofday
+          }, ...
+        ]
+      }
+    }
+  },
+  master-logging = {
+    audit-enabled = bool,
+    cluster-autoscaler-enabled = bool,
+    destination = folder-id=str | log-group-id=str,
+    enabled = bool,
+    events-enabled = bool,
+    kube-apiserver-enabled = bool
+  },
+  scale-policy = {
+    scale-type = auto-scale={
+      min-resource-preset-id = str
+    }
+  },
+  security-group-ids = str,...,
+  version = {
+    specifier = latest-revision=bool | version=str
+  }
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "external-v6-address-spec": {
+    "address": "str"
+  },
+  "locations": [
+    {
+      "subnet-id": "str",
+      "zone-id": "str"
+    }, ...
+  ],
+  "maintenance-policy": {
+    "auto-upgrade": "bool",
+    "maintenance-window": {
+      "policy": {
+        "anytime": {},
+        "daily-maintenance-window": {
+          "duration": "duration",
+          "start-time": "timeofday"
+        },
+        "weekly-maintenance-window": {
+          "days-of-week": [
+            {
+              "days": [
+                "MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY", ...
+              ],
+              "duration": "duration",
+              "start-time": "timeofday"
+            }, ...
+          ]
+        }
+      }
+    }
+  },
+  "master-logging": {
+    "audit-enabled": "bool",
+    "cluster-autoscaler-enabled": "bool",
+    "destination": {
+      "folder-id": "str",
+      "log-group-id": "str"
+    },
+    "enabled": "bool",
+    "events-enabled": "bool",
+    "kube-apiserver-enabled": "bool"
+  },
+  "scale-policy": {
+    "scale-type": {
+      "auto-scale": {
+        "min-resource-preset-id": "str"
+      }
+    }
+  },
+  "security-group-ids": [
+    "str", ...
+  ],
+  "version": {
+    "specifier": {
+      "latest-revision": "bool",
+      "version": "str"
+    }
+  }
+}
+```
+
+Fields:
+
+```
+external-v6-address-spec -> (struct)
+  Specification of parameters for external IPv6 networking.
+  address -> (string)
+    IP address.
+locations -> ([]struct)
+  Update master instance locations.
+  subnet-id -> (string)
+    ID of the VPC network's subnet where the master resides. If not specified and there is a single subnet in specified zone, address in this subnet will be allocated.
+  zone-id -> (string)
+    ID of the availability zone where the master resides.
+maintenance-policy -> (struct)
+  Maintenance policy of the master.
+  auto-upgrade -> (bool)
+    If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled.
+  maintenance-window -> (struct)
+    Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC.
+    policy -> (oneof<anytime|daily-maintenance-window|weekly-maintenance-window>)
+      Oneof policy field
+      anytime -> (struct)
+        Updating the master at any time.
+      daily-maintenance-window -> (struct)
+        Updating the master on any day during the specified time window.
+        duration -> (duration)
+          Window duration.
+        start-time -> (timeofday)
+          Window start time, in the UTC timezone.
+      weekly-maintenance-window -> (struct)
+        Updating the master on selected days during the specified time window.
+        days-of-week -> ([]struct)
+          Days of the week and the maintenance window for these days when automatic updates are allowed.
+          days -> ([]struct)
+            Days of the week when automatic updates are allowed.
+          duration -> (duration)
+            Window duration.
+          start-time -> (timeofday)
+            Window start time, in the UTC timezone.
+master-logging -> (struct)
+  Cloud Logging for master components.
+  audit-enabled -> (bool)
+    Identifies whether Cloud Logging is enabled for audit logs.
+  cluster-autoscaler-enabled -> (bool)
+    Identifies whether Cloud Logging is enabled for cluster-autoscaler.
+  enabled -> (bool)
+    Identifies whether Cloud Logging is enabled for master components.
+  events-enabled -> (bool)
+    Identifies whether Cloud Logging is enabled for events.
+  kube-apiserver-enabled -> (bool)
+    Identifies whether Cloud Logging is enabled for kube-apiserver.
+  destination -> (oneof<folder-id|log-group-id>)
+    Oneof destination field
+    log-group-id -> (string)
+      ID of the log group where logs of master components should be stored.
+    folder-id -> (string)
+      ID of the folder where logs should be stored (in default group).
+scale-policy -> (struct)
+  Scale policy of the master.
+  scale-type -> (oneof<auto-scale>)
+    Oneof scale-type field
+    auto-scale -> (struct)
+      min-resource-preset-id -> (string)
+        Preset of computing resources to be used as lower boundary for scaling.
+security-group-ids -> ([]string)
+  Master security groups.
+version -> (struct)
+  Specification of the master update.
+  specifier -> (oneof<latest-revision|version>)
+    Oneof specifier field
+    version -> (string)
+      Request update to a newer version of Kubernetes (1.x -> 1.y).
+    latest-revision -> (bool)
+      Request update to the latest revision for the current version.
+``` ||
+|| `--name` | `string`
+
+Name of the Kubernetes cluster. The name must be unique within the folder. ||
+|| `--network-policy` | `shorthand/json`
+
+Shorthand Syntax:
+
+```hcl
+{
+  provider = CALICO
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "provider": "CALICO"
+}
+```
+
+Fields:
+
+```
+provider -> (struct)
+``` ||
+|| `--node-service-account-id` | `string`
+
+Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics. ||
+|| `--service-account-id` | `string`
+
+Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. Selected service account should have 'edit' role on the folder where the Kubernetes cluster will be located and on the folder where selected network resides. ||
+|| `--workload-identity-federation` | `shorthand/json`
+
+Shorthand Syntax:
+
+```hcl
+{
+  enabled = bool
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "enabled": "bool"
+}
+```
+
+Fields:
+
+```
+enabled -> (bool)
+  Identifies whether Workload Identity Federation is enabled.
+``` ||
+|| `--gateway-ipv4-address` | `string`
+
+Gateway IPv4 address. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

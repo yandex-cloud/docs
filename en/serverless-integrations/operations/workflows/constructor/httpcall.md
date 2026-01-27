@@ -10,7 +10,7 @@ description: Follow this guide to add an HTTP request to a specified endpoint in
 - Management console {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. From the **Integration steps** section on the left side of the screen, drag the ![ArrowShapeRightToLine](../../../../_assets/console-icons/arrow-shape-right-to-line.svg) **{{ ui-key.yacloud.common.label_http }}** element to relevant workflow location in the constructor window.
+  1. From the **Integration steps** section on the left side of the screen, drag the ![ArrowShapeRightToLine](../../../../_assets/console-icons/arrow-shape-right-to-line.svg) **{{ ui-key.yacloud.common.label_http }}** element to the relevant workflow location in the constructor window.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
   1. In the workflow schema window, click the new **{{ ui-key.yacloud.common.label_http }}** section to select it.

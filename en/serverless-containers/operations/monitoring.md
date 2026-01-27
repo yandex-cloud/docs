@@ -15,11 +15,11 @@ The chart update period is 15 seconds.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with your container.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. In the [management console]({{ link-console-main }}), go to the folder with your container.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container to view its monitoring charts.
   1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.
-  1. The following charts will appear on the page:
+  1. You will see the following charts:
       * **Requests**: Number of container calls
       * **Requests latency**: Average time for a container to process a call.
       * **Errors**: Number of errors generated while a container was processing a call.

@@ -2,7 +2,7 @@
 title: '{{ SD }} backups'
 description: '{{ mmg-short-name }} supports automatic and manual {{ SD }} database backups. Backups take up space in the storage allocated to the cluster. You can recover the cluster data from a given point in time (Point-in-Time-Recovery, PITR).'
 keywords:
-  - backup
+  - backups
   - back up
   - backup
   - backups
@@ -28,9 +28,11 @@ When creating backups and restoring data from them to a given point in time, kee
 
 To use PITR, you must disable the [sharding](../tutorials/sharding.md) mechanism in the cluster: PITR works only for a cluster with a single replica set.
 
+{% include [deprecated-note](../../_includes/mdb/backups/deprecated-note.md) %}
+
 To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md#restore).
 
-## Creating backups {#size}
+## Creating a backup {#size}
 
 You can create backups either automatically or manually; in both cases, you get a full backup of all databases.
 
@@ -43,33 +45,33 @@ You can restore only a non-sharded cluster from a non-sharded backup. From a sha
 All cluster data is automatically backed up every day. You cannot disable automatic backups. However, when [creating](../operations/cluster-create.md) or [editing](../operations/update.md#change-additional-settings) a cluster, you can set the following parameters for automatic backups:
 
 * [Retention time](#storage).
-* Time interval during which the backup starts. Default time: `22:00 - 23:00` UTC (Coordinated Universal Time).
+* Time interval during which the backup starts. The default value is `22:00 - 23:00` UTC (Coordinated Universal Time).
 
 After a backup is created, it is compressed for storage. To find out its exact size, request a [list of backups](../operations/cluster-backups.md#list-backups).
 
 Backups are only created on running clusters. If not using your {{ mmg-short-name }} cluster 24/7, look up the [settings](../operations/update.md#change-additional-settings) to make sure the backup is taking place when the cluster is running.
 
-For more information about creating a backup manually, see [Managing backups](../operations/cluster-backups.md).
+Learn about creating manual backups in [Managing backups](../operations/cluster-backups.md).
 
-## Storing backups {#storage}
+## Storing a backup {#storage}
 
 Storing backups in {{ mmg-name }}:
 
 * Backups are stored in Yandex internal storage as logical dumps and are encrypted using [GPG](https://en.wikipedia.org/wiki/GNU_Privacy_Guard). Each cluster has its own encryption keys.
 
-* The retention time for backups of an existing cluster depends on the method used to create such backups:
+* The retention time for backups of an existing cluster depends on the way they were created:
 
     * Automatic backups are stored for {{ mmg-backup-retention }} days by default. When [creating](../operations/cluster-create.md) a cluster or [editing](../operations/update.md#change-additional-settings) its settings, you can specify a different retention period of between {{ mmg-backup-retention-min }} and {{ mmg-backup-retention-max }} days.
 
-    * Manually created backups are stored with no time limit.
+    * Manual backups are stored with no time limit.
 
 * After you delete a cluster, all its backups are kept for seven days.
 
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
 
-    For more information, see [Pricing policy](../pricing.md#rules-storage).
+    For more information, see the [pricing policy](../pricing.md#rules-storage).
 
-## Checking backup recovery {#capabilities}
+## Testing recovery from a backup {#capabilities}
 
-To test how backup works, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.
+To test how backup works, [restore a cluster from a backup](../operations/cluster-backups.md) and check your data for integrity.

@@ -1,9 +1,9 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/hosts/add.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/hosts/add.md
 ---
 
-# yc managed-postgresql hosts add
+# yc managed-sharded-postgresql hosts add
 
 Create new hosts for the cluster in the specified availability zones
 
@@ -11,16 +11,16 @@ Create new hosts for the cluster in the specified availability zones
 
 Syntax: 
 
-`yc managed-postgresql hosts add [Flags...] [Global Flags...]`
+`yc managed-sharded-postgresql hosts add [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>PostgreSQL cluster id.|
-|`--cluster-name`|<b>`string`</b><br/>PostgreSQL cluster name.|
+|`--cluster-id`|<b>`string`</b><br/>Sharded PostgreSQL cluster id.|
+|`--cluster-name`|<b>`string`</b><br/>Sharded PostgreSQL cluster name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Configurations for PostgreSQL hosts that should be added to the cluster.<br/><br/>Possible property names:<br/><ul> <li><code>zone-id</code>:     ID of the availability zone where the host resides.</li> <li><code>subnet-id</code>:     ID of the subnet that the host should be created in.</li> <li><code>subnet-name</code>:     Name of the subnet that the host should be created in.</li> <li><code>assign-public-ip</code>:     Whether the host should get a public IP address on creation.</li> <li><code>replication-source</code>:     Host name of the host to be used as the replication source (for cascading replication).</li> <li><code>priority</code>:     Priority of the host as a replica.</li> </ul>|
+|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Configurations for Sharded PostgreSQL hosts that should be added to the cluster.<br/><br/>Possible property names:<br/><ul> <li><code>zone-id</code>:     ID of the availability zone where the host resides.</li> <li><code>subnet-id</code>:     ID of the subnet that the host should be created in.</li> <li><code>subnet-name</code>:     Name of the subnet that the host should be created in.</li> <li><code>assign-public-ip</code>:     Whether the host should get a public IP address on creation.</li> <li><code>type</code>:     Type of the host Values: 'router', 'coordinator', 'infra', 'postgresql', 'external-postgresql', 'mdb-postgresql'</li> </ul>|
 
 #### Global Flags
 

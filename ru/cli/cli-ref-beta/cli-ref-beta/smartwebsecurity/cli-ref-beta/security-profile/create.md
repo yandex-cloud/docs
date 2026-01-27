@@ -10,43 +10,883 @@ Creates a security profile in the specified folder using the data specified in t
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta smartwebsecurity security-profile create <ADVANCED-RATE-LIMITER-PROFILE-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--advanced-rate-limiter-profile-id`|<b>`string`</b><br/>Advanced rate limiter profile ID to use with this security profile. Set empty to use default.|
-|`--analyze-request-body`|<b>`shorthand/json`</b><br/>Parameters for request body analyzer.<br/>Shorthand Syntax:<br/>{<br/>size-limit = int,<br/>size-limit-action = IGNORE\|DENY<br/>}<br/>JSON Syntax:<br/>"{<br/>"size-limit": "int",<br/>"size-limit-action": "IGNORE\|DENY"<br/>}"<br/>Fields:<br/>size-limit -> (int)<br/>Maximum size of body to pass to analyzer. In kilobytes.<br/>size-limit-action -> (enum<DENY\|IGNORE>)<br/>Action to perform if maximum size of body exceeded.|
-|`--captcha-id`|<b>`string`</b><br/>Captcha ID to use with this security profile. Set empty to use default.|
-|`--default-action`|<b>`enum`</b><br/>Action to perform if none of rules matched. Possible Values: 'allow', 'deny'|
-|`--description`|<b>`string`</b><br/>Optional description of the security profile.|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to create a security profile in.|
-|`--labels`|<b>`stringToString`</b><br/>Labels as '' key:value '' pairs. Maximum of 64 per resource.|
-|`--name`|<b>`string`</b><br/>Name of the security profile. The name is unique within the folder. 1-50 characters long.|
-|`--security-rules`|<b>`shorthand/json`</b><br/>List of security rules.<br/>Shorthand Syntax:<br/>[<br/>{<br/>description = str,<br/>dry-run = bool,<br/>name = str,<br/>priority = int,<br/>rule-specifier = rule-condition={<br/>action = ALLOW\|DENY,<br/>condition = {<br/>authority = {<br/>authorities = [<br/>{<br/>match = exact-match=str \| exact-not-match=str \| pire-regex-match=str \| pire-regex-not-match=str \| prefix-match=str \| prefix-not-match=str<br/>}, ...<br/>]<br/>},<br/>headers = [<br/>{<br/>name = str,<br/>value = {<br/>match = exact-match=str \| exact-not-match=str \| pire-regex-match=str \| pire-regex-not-match=str \| prefix-match=str \| prefix-not-match=str<br/>}<br/>}, ...<br/>],<br/>http-method = {<br/>http-methods = [<br/>{<br/>match = exact-match=str \| exact-not-match=str \| pire-regex-match=str \| pire-regex-not-match=str \| prefix-match=str \| prefix-not-match=str<br/>}, ...<br/>]<br/>},<br/>request-uri = {<br/>path = {<br/>match = exact-match=str \| exact-not-match=str \| pire-regex-match=str \| pire-regex-not-match=str \| prefix-match=str \| prefix-not-match=str<br/>},<br/>queries = [<br/>{<br/>key = str,<br/>value = {<br/>match = exact-match=str \| exact-not-match=str \| pire-regex-match=str \| pire-regex-not-match=str \| prefix-match=str \| prefix-not-match=str<br/>}<br/>}, ...<br/>]<br/>},<br/>source-ip = {<br/>geo-ip-match = {<br/>locations = str,...<br/>},<br/>geo-ip-not-match = {<br/>locations = str,...<br/>},<br/>ip-ranges-match = {<br/>ip-ranges = str,...<br/>},<br/>ip-ranges-not-match = {<br/>ip-ranges = str,...<br/>}<br/>}<br/>}<br/>} \| smart-protection={<br/>condition = {<br/>authority = {<br/>authorities = [<br/>{<br/>match = exact-match=str \| exact-not-match=str \| pire-regex-match=str \| pire-regex-not-match=str \| prefix-match=str \| prefix-not-match=str<br/>}, ...<br/>]<br/>},<br/>headers = [<br/>{<br/>name = str,<br/>value = {<br/>match = exact-match=str \| exact-not-match=str \| pire-regex-match=str \| pire-regex-not-match=str \| prefix-match=str \| prefix-not-match=str<br/>}<br/>}, ...<br/>],<br/>http-method = {<br/>http-methods = [<br/>{<br/>match = exact-match=str \| exact-not-match=str \| pire-regex-match=str \| pire-regex-not-match=str \| prefix-match=str \| prefix-not-match=str<br/>}, ...<br/>]<br/>},<br/>request-uri = {<br/>path = {<br/>match = exact-match=str \| exact-not-match=str \| pire-regex-match=str \| pire-regex-not-match=str \| prefix-match=str \| prefix-not-match=str<br/>},<br/>queries = [<br/>{<br/>key = str,<br/>value = {<br/>match = exact-match=str \| exact-not-match=str \| pire-regex-match=str \| pire-regex-not-match=str \| prefix-match=str \| prefix-not-match=str<br/>}<br/>}, ...<br/>]<br/>},<br/>source-ip = {<br/>geo-ip-match = {<br/>locations = str,...<br/>},<br/>geo-ip-not-match = {<br/>locations = str,...<br/>},<br/>ip-ranges-match = {<br/>ip-ranges = str,...<br/>},<br/>ip-ranges-not-match = {<br/>ip-ranges = str,...<br/>}<br/>}<br/>},<br/>mode = FULL\|API<br/>} \| waf={<br/>condition = {<br/>authority = {<br/>authorities = [<br/>{<br/>match = exact-match=str \| exact-not-match=str \| pire-regex-match=str \| pire-regex-not-match=str \| prefix-match=str \| prefix-not-match=str<br/>}, ...<br/>]<br/>},<br/>headers = [<br/>{<br/>name = str,<br/>value = {<br/>match = exact-match=str \| exact-not-match=str \| pire-regex-match=str \| pire-regex-not-match=str \| prefix-match=str \| prefix-not-match=str<br/>}<br/>}, ...<br/>],<br/>http-method = {<br/>http-methods = [<br/>{<br/>match = exact-match=str \| exact-not-match=str \| pire-regex-match=str \| pire-regex-not-match=str \| prefix-match=str \| prefix-not-match=str<br/>}, ...<br/>]<br/>},<br/>request-uri = {<br/>path = {<br/>match = exact-match=str \| exact-not-match=str \| pire-regex-match=str \| pire-regex-not-match=str \| prefix-match=str \| prefix-not-match=str<br/>},<br/>queries = [<br/>{<br/>key = str,<br/>value = {<br/>match = exact-match=str \| exact-not-match=str \| pire-regex-match=str \| pire-regex-not-match=str \| prefix-match=str \| prefix-not-match=str<br/>}<br/>}, ...<br/>]<br/>},<br/>source-ip = {<br/>geo-ip-match = {<br/>locations = str,...<br/>},<br/>geo-ip-not-match = {<br/>locations = str,...<br/>},<br/>ip-ranges-match = {<br/>ip-ranges = str,...<br/>},<br/>ip-ranges-not-match = {<br/>ip-ranges = str,...<br/>}<br/>}<br/>},<br/>mode = FULL\|API,<br/>waf-profile-id = str<br/>}<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"description": "str",<br/>"dry-run": "bool",<br/>"name": "str",<br/>"priority": "int",<br/>"rule-specifier": {<br/>"rule-condition": {<br/>"action": "ALLOW\|DENY",<br/>"condition": {<br/>"authority": {<br/>"authorities": [<br/>{<br/>"match": {<br/>"exact-match": "str",<br/>"exact-not-match": "str",<br/>"pire-regex-match": "str",<br/>"pire-regex-not-match": "str",<br/>"prefix-match": "str",<br/>"prefix-not-match": "str"<br/>}<br/>}, ...<br/>]<br/>},<br/>"headers": [<br/>{<br/>"name": "str",<br/>"value": {<br/>"match": {<br/>"exact-match": "str",<br/>"exact-not-match": "str",<br/>"pire-regex-match": "str",<br/>"pire-regex-not-match": "str",<br/>"prefix-match": "str",<br/>"prefix-not-match": "str"<br/>}<br/>}<br/>}, ...<br/>],<br/>"http-method": {<br/>"http-methods": [<br/>{<br/>"match": {<br/>"exact-match": "str",<br/>"exact-not-match": "str",<br/>"pire-regex-match": "str",<br/>"pire-regex-not-match": "str",<br/>"prefix-match": "str",<br/>"prefix-not-match": "str"<br/>}<br/>}, ...<br/>]<br/>},<br/>"request-uri": {<br/>"path": {<br/>"match": {<br/>"exact-match": "str",<br/>"exact-not-match": "str",<br/>"pire-regex-match": "str",<br/>"pire-regex-not-match": "str",<br/>"prefix-match": "str",<br/>"prefix-not-match": "str"<br/>}<br/>},<br/>"queries": [<br/>{<br/>"key": "str",<br/>"value": {<br/>"match": {<br/>"exact-match": "str",<br/>"exact-not-match": "str",<br/>"pire-regex-match": "str",<br/>"pire-regex-not-match": "str",<br/>"prefix-match": "str",<br/>"prefix-not-match": "str"<br/>}<br/>}<br/>}, ...<br/>]<br/>},<br/>"source-ip": {<br/>"geo-ip-match": {<br/>"locations": [<br/>"str", ...<br/>]<br/>},<br/>"geo-ip-not-match": {<br/>"locations": [<br/>"str", ...<br/>]<br/>},<br/>"ip-ranges-match": {<br/>"ip-ranges": [<br/>"str", ...<br/>]<br/>},<br/>"ip-ranges-not-match": {<br/>"ip-ranges": [<br/>"str", ...<br/>]<br/>}<br/>}<br/>}<br/>},<br/>"smart-protection": {<br/>"condition": {<br/>"authority": {<br/>"authorities": [<br/>{<br/>"match": {<br/>"exact-match": "str",<br/>"exact-not-match": "str",<br/>"pire-regex-match": "str",<br/>"pire-regex-not-match": "str",<br/>"prefix-match": "str",<br/>"prefix-not-match": "str"<br/>}<br/>}, ...<br/>]<br/>},<br/>"headers": [<br/>{<br/>"name": "str",<br/>"value": {<br/>"match": {<br/>"exact-match": "str",<br/>"exact-not-match": "str",<br/>"pire-regex-match": "str",<br/>"pire-regex-not-match": "str",<br/>"prefix-match": "str",<br/>"prefix-not-match": "str"<br/>}<br/>}<br/>}, ...<br/>],<br/>"http-method": {<br/>"http-methods": [<br/>{<br/>"match": {<br/>"exact-match": "str",<br/>"exact-not-match": "str",<br/>"pire-regex-match": "str",<br/>"pire-regex-not-match": "str",<br/>"prefix-match": "str",<br/>"prefix-not-match": "str"<br/>}<br/>}, ...<br/>]<br/>},<br/>"request-uri": {<br/>"path": {<br/>"match": {<br/>"exact-match": "str",<br/>"exact-not-match": "str",<br/>"pire-regex-match": "str",<br/>"pire-regex-not-match": "str",<br/>"prefix-match": "str",<br/>"prefix-not-match": "str"<br/>}<br/>},<br/>"queries": [<br/>{<br/>"key": "str",<br/>"value": {<br/>"match": {<br/>"exact-match": "str",<br/>"exact-not-match": "str",<br/>"pire-regex-match": "str",<br/>"pire-regex-not-match": "str",<br/>"prefix-match": "str",<br/>"prefix-not-match": "str"<br/>}<br/>}<br/>}, ...<br/>]<br/>},<br/>"source-ip": {<br/>"geo-ip-match": {<br/>"locations": [<br/>"str", ...<br/>]<br/>},<br/>"geo-ip-not-match": {<br/>"locations": [<br/>"str", ...<br/>]<br/>},<br/>"ip-ranges-match": {<br/>"ip-ranges": [<br/>"str", ...<br/>]<br/>},<br/>"ip-ranges-not-match": {<br/>"ip-ranges": [<br/>"str", ...<br/>]<br/>}<br/>}<br/>},<br/>"mode": "FULL\|API"<br/>},<br/>"waf": {<br/>"condition": {<br/>"authority": {<br/>"authorities": [<br/>{<br/>"match": {<br/>"exact-match": "str",<br/>"exact-not-match": "str",<br/>"pire-regex-match": "str",<br/>"pire-regex-not-match": "str",<br/>"prefix-match": "str",<br/>"prefix-not-match": "str"<br/>}<br/>}, ...<br/>]<br/>},<br/>"headers": [<br/>{<br/>"name": "str",<br/>"value": {<br/>"match": {<br/>"exact-match": "str",<br/>"exact-not-match": "str",<br/>"pire-regex-match": "str",<br/>"pire-regex-not-match": "str",<br/>"prefix-match": "str",<br/>"prefix-not-match": "str"<br/>}<br/>}<br/>}, ...<br/>],<br/>"http-method": {<br/>"http-methods": [<br/>{<br/>"match": {<br/>"exact-match": "str",<br/>"exact-not-match": "str",<br/>"pire-regex-match": "str",<br/>"pire-regex-not-match": "str",<br/>"prefix-match": "str",<br/>"prefix-not-match": "str"<br/>}<br/>}, ...<br/>]<br/>},<br/>"request-uri": {<br/>"path": {<br/>"match": {<br/>"exact-match": "str",<br/>"exact-not-match": "str",<br/>"pire-regex-match": "str",<br/>"pire-regex-not-match": "str",<br/>"prefix-match": "str",<br/>"prefix-not-match": "str"<br/>}<br/>},<br/>"queries": [<br/>{<br/>"key": "str",<br/>"value": {<br/>"match": {<br/>"exact-match": "str",<br/>"exact-not-match": "str",<br/>"pire-regex-match": "str",<br/>"pire-regex-not-match": "str",<br/>"prefix-match": "str",<br/>"prefix-not-match": "str"<br/>}<br/>}<br/>}, ...<br/>]<br/>},<br/>"source-ip": {<br/>"geo-ip-match": {<br/>"locations": [<br/>"str", ...<br/>]<br/>},<br/>"geo-ip-not-match": {<br/>"locations": [<br/>"str", ...<br/>]<br/>},<br/>"ip-ranges-match": {<br/>"ip-ranges": [<br/>"str", ...<br/>]<br/>},<br/>"ip-ranges-not-match": {<br/>"ip-ranges": [<br/>"str", ...<br/>]<br/>}<br/>}<br/>},<br/>"mode": "FULL\|API",<br/>"waf-profile-id": "str"<br/>}<br/>}<br/>}, ...<br/>]"<br/>Fields:<br/>description -> (string)<br/>Optional description of the rule. 0-512 characters long.<br/>dry-run -> (bool)<br/>This mode allows you to test your security profile or a single rule. For example, you can have the number of alarms for a specific rule displayed. Note: if this option is true, no real action affecting your traffic regarding this rule will be taken.<br/>name -> (string)<br/>Name of the rule. The name is unique within the security profile. 1-50 characters long.<br/>priority -> (int)<br/>Determines the priority for checking the incoming traffic. Enter an integer within the range of 1 and 999999. The rule priority must be unique within the entire security profile. A lower numeric value means a higher priority. The default_action has the lowest priority.<br/>rule-specifier -> (oneof<rule-condition\|smart-protection\|waf>)<br/>Oneof rule-specifier field<br/>rule-condition -> (struct)<br/>Rule actions, see documentation.<br/>action -> (enum<ALLOW\|DENY>)<br/>Action to perform if this rule matched.<br/>condition -> (struct)<br/>The condition for matching the rule.<br/>authority -> (struct)<br/>Match authority (Host header).<br/>authorities -> ([]struct)<br/>List of authorities. OR semantics implied.<br/>match -> (oneof<exact-match\|exact-not-match\|pire-regex-match\|pire-regex-not-match\|prefix-match\|prefix-not-match>)<br/>Oneof match field<br/>exact-match -> (string)<br/>exact-not-match -> (string)<br/>prefix-match -> (string)<br/>prefix-not-match -> (string)<br/>pire-regex-match -> (string)<br/>pire-regex-not-match -> (string)<br/>headers -> ([]struct)<br/>Match HTTP headers.<br/>name -> (string)<br/>Name of header (case insensitive).<br/>value -> (struct)<br/>Value of the header.<br/>match -> (oneof<exact-match\|exact-not-match\|pire-regex-match\|pire-regex-not-match\|prefix-match\|prefix-not-match>)<br/>Oneof match field<br/>exact-match -> (string)<br/>exact-not-match -> (string)<br/>prefix-match -> (string)<br/>prefix-not-match -> (string)<br/>pire-regex-match -> (string)<br/>pire-regex-not-match -> (string)<br/>http-method -> (struct)<br/>Match HTTP method.<br/>http-methods -> ([]struct)<br/>List of HTTP methods. OR semantics implied.<br/>match -> (oneof<exact-match\|exact-not-match\|pire-regex-match\|pire-regex-not-match\|prefix-match\|prefix-not-match>)<br/>Oneof match field<br/>exact-match -> (string)<br/>exact-not-match -> (string)<br/>prefix-match -> (string)<br/>prefix-not-match -> (string)<br/>pire-regex-match -> (string)<br/>pire-regex-not-match -> (string)<br/>request-uri -> (struct)<br/>Match Request URI.<br/>path -> (struct)<br/>Path of the URI RFC3986.<br/>match -> (oneof<exact-match\|exact-not-match\|pire-regex-match\|pire-regex-not-match\|prefix-match\|prefix-not-match>)<br/>Oneof match field<br/>exact-match -> (string)<br/>exact-not-match -> (string)<br/>prefix-match -> (string)<br/>prefix-not-match -> (string)<br/>pire-regex-match -> (string)<br/>pire-regex-not-match -> (string)<br/>queries -> ([]struct)<br/>List of query matchers. AND semantics implied.<br/>key -> (string)<br/>Key of the query parameter.<br/>value -> (struct)<br/>Value of the query parameter.<br/>match -> (oneof<exact-match\|exact-not-match\|pire-regex-match\|pire-regex-not-match\|prefix-match\|prefix-not-match>)<br/>Oneof match field<br/>exact-match -> (string)<br/>exact-not-match -> (string)<br/>prefix-match -> (string)<br/>prefix-not-match -> (string)<br/>pire-regex-match -> (string)<br/>pire-regex-not-match -> (string)<br/>source-ip -> (struct)<br/>Match IP.<br/>geo-ip-match -> (struct)<br/>locations -> ([]string)<br/>ISO 3166-1 alpha 2. OR semantics implied.<br/>geo-ip-not-match -> (struct)<br/>locations -> ([]string)<br/>ISO 3166-1 alpha 2. OR semantics implied.<br/>ip-ranges-match -> (struct)<br/>ip-ranges -> ([]string)<br/>List of IP ranges. OR semantics implied.<br/>ip-ranges-not-match -> (struct)<br/>ip-ranges -> ([]string)<br/>List of IP ranges. OR semantics implied.<br/>smart-protection -> (struct)<br/>Smart Protection rule, see documentation.<br/>condition -> (struct)<br/>The condition for matching the rule.<br/>authority -> (struct)<br/>Match authority (Host header).<br/>authorities -> ([]struct)<br/>List of authorities. OR semantics implied.<br/>match -> (oneof<exact-match\|exact-not-match\|pire-regex-match\|pire-regex-not-match\|prefix-match\|prefix-not-match>)<br/>Oneof match field<br/>exact-match -> (string)<br/>exact-not-match -> (string)<br/>prefix-match -> (string)<br/>prefix-not-match -> (string)<br/>pire-regex-match -> (string)<br/>pire-regex-not-match -> (string)<br/>headers -> ([]struct)<br/>Match HTTP headers.<br/>name -> (string)<br/>Name of header (case insensitive).<br/>value -> (struct)<br/>Value of the header.<br/>match -> (oneof<exact-match\|exact-not-match\|pire-regex-match\|pire-regex-not-match\|prefix-match\|prefix-not-match>)<br/>Oneof match field<br/>exact-match -> (string)<br/>exact-not-match -> (string)<br/>prefix-match -> (string)<br/>prefix-not-match -> (string)<br/>pire-regex-match -> (string)<br/>pire-regex-not-match -> (string)<br/>http-method -> (struct)<br/>Match HTTP method.<br/>http-methods -> ([]struct)<br/>List of HTTP methods. OR semantics implied.<br/>match -> (oneof<exact-match\|exact-not-match\|pire-regex-match\|pire-regex-not-match\|prefix-match\|prefix-not-match>)<br/>Oneof match field<br/>exact-match -> (string)<br/>exact-not-match -> (string)<br/>prefix-match -> (string)<br/>prefix-not-match -> (string)<br/>pire-regex-match -> (string)<br/>pire-regex-not-match -> (string)<br/>request-uri -> (struct)<br/>Match Request URI.<br/>path -> (struct)<br/>Path of the URI RFC3986.<br/>match -> (oneof<exact-match\|exact-not-match\|pire-regex-match\|pire-regex-not-match\|prefix-match\|prefix-not-match>)<br/>Oneof match field<br/>exact-match -> (string)<br/>exact-not-match -> (string)<br/>prefix-match -> (string)<br/>prefix-not-match -> (string)<br/>pire-regex-match -> (string)<br/>pire-regex-not-match -> (string)<br/>queries -> ([]struct)<br/>List of query matchers. AND semantics implied.<br/>key -> (string)<br/>Key of the query parameter.<br/>value -> (struct)<br/>Value of the query parameter.<br/>match -> (oneof<exact-match\|exact-not-match\|pire-regex-match\|pire-regex-not-match\|prefix-match\|prefix-not-match>)<br/>Oneof match field<br/>exact-match -> (string)<br/>exact-not-match -> (string)<br/>prefix-match -> (string)<br/>prefix-not-match -> (string)<br/>pire-regex-match -> (string)<br/>pire-regex-not-match -> (string)<br/>source-ip -> (struct)<br/>Match IP.<br/>geo-ip-match -> (struct)<br/>locations -> ([]string)<br/>ISO 3166-1 alpha 2. OR semantics implied.<br/>geo-ip-not-match -> (struct)<br/>locations -> ([]string)<br/>ISO 3166-1 alpha 2. OR semantics implied.<br/>ip-ranges-match -> (struct)<br/>ip-ranges -> ([]string)<br/>List of IP ranges. OR semantics implied.<br/>ip-ranges-not-match -> (struct)<br/>ip-ranges -> ([]string)<br/>List of IP ranges. OR semantics implied.<br/>mode -> (enum<API\|FULL>)<br/>Mode of protection.<br/>waf -> (struct)<br/>Web Application Firewall (WAF) rule, see documentation.<br/>condition -> (struct)<br/>The condition for matching the rule.<br/>authority -> (struct)<br/>Match authority (Host header).<br/>authorities -> ([]struct)<br/>List of authorities. OR semantics implied.<br/>match -> (oneof<exact-match\|exact-not-match\|pire-regex-match\|pire-regex-not-match\|prefix-match\|prefix-not-match>)<br/>Oneof match field<br/>exact-match -> (string)<br/>exact-not-match -> (string)<br/>prefix-match -> (string)<br/>prefix-not-match -> (string)<br/>pire-regex-match -> (string)<br/>pire-regex-not-match -> (string)<br/>headers -> ([]struct)<br/>Match HTTP headers.<br/>name -> (string)<br/>Name of header (case insensitive).<br/>value -> (struct)<br/>Value of the header.<br/>match -> (oneof<exact-match\|exact-not-match\|pire-regex-match\|pire-regex-not-match\|prefix-match\|prefix-not-match>)<br/>Oneof match field<br/>exact-match -> (string)<br/>exact-not-match -> (string)<br/>prefix-match -> (string)<br/>prefix-not-match -> (string)<br/>pire-regex-match -> (string)<br/>pire-regex-not-match -> (string)<br/>http-method -> (struct)<br/>Match HTTP method.<br/>http-methods -> ([]struct)<br/>List of HTTP methods. OR semantics implied.<br/>match -> (oneof<exact-match\|exact-not-match\|pire-regex-match\|pire-regex-not-match\|prefix-match\|prefix-not-match>)<br/>Oneof match field<br/>exact-match -> (string)<br/>exact-not-match -> (string)<br/>prefix-match -> (string)<br/>prefix-not-match -> (string)<br/>pire-regex-match -> (string)<br/>pire-regex-not-match -> (string)<br/>request-uri -> (struct)<br/>Match Request URI.<br/>path -> (struct)<br/>Path of the URI RFC3986.<br/>match -> (oneof<exact-match\|exact-not-match\|pire-regex-match\|pire-regex-not-match\|prefix-match\|prefix-not-match>)<br/>Oneof match field<br/>exact-match -> (string)<br/>exact-not-match -> (string)<br/>prefix-match -> (string)<br/>prefix-not-match -> (string)<br/>pire-regex-match -> (string)<br/>pire-regex-not-match -> (string)<br/>queries -> ([]struct)<br/>List of query matchers. AND semantics implied.<br/>key -> (string)<br/>Key of the query parameter.<br/>value -> (struct)<br/>Value of the query parameter.<br/>match -> (oneof<exact-match\|exact-not-match\|pire-regex-match\|pire-regex-not-match\|prefix-match\|prefix-not-match>)<br/>Oneof match field<br/>exact-match -> (string)<br/>exact-not-match -> (string)<br/>prefix-match -> (string)<br/>prefix-not-match -> (string)<br/>pire-regex-match -> (string)<br/>pire-regex-not-match -> (string)<br/>source-ip -> (struct)<br/>Match IP.<br/>geo-ip-match -> (struct)<br/>locations -> ([]string)<br/>ISO 3166-1 alpha 2. OR semantics implied.<br/>geo-ip-not-match -> (struct)<br/>locations -> ([]string)<br/>ISO 3166-1 alpha 2. OR semantics implied.<br/>ip-ranges-match -> (struct)<br/>ip-ranges -> ([]string)<br/>List of IP ranges. OR semantics implied.<br/>ip-ranges-not-match -> (struct)<br/>ip-ranges -> ([]string)<br/>List of IP ranges. OR semantics implied.<br/>mode -> (enum<API\|FULL>)<br/>Mode of protection.<br/>waf-profile-id -> (string)<br/>ID of WAF profile to use in this rule.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-json > request.json
+2. Edit the template: vim request.json
+3. Run with template: yc beta compute instance create -r request.json ||
+|| `--example-yaml` | Generates a YAML template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-yaml > request.yaml
+2. Edit the template: vim request.yaml
+3. Run with template: yc beta compute instance create -r request.yaml ||
+|| `--advanced-rate-limiter-profile-id` | `string`
+
+Advanced rate limiter profile ID to use with this security profile. Set empty to use default. ||
+|| `--analyze-request-body` | `shorthand/json`
+
+Parameters for request body analyzer.
+
+Shorthand Syntax:
+
+```hcl
+{
+  size-limit = int,
+  size-limit-action = IGNORE|DENY
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "size-limit": "int",
+  "size-limit-action": "IGNORE|DENY"
+}
+```
+
+Fields:
+
+```
+size-limit -> (int)
+  Maximum size of body to pass to analyzer. In kilobytes.
+size-limit-action -> (struct)
+  Action to perform if maximum size of body exceeded.
+``` ||
+|| `--captcha-id` | `string`
+
+Captcha ID to use with this security profile. Set empty to use default. ||
+|| `--default-action` | `enum`
+
+Action to perform if none of rules matched. Possible Values: 'allow', 'deny' ||
+|| `--description` | `string`
+
+Optional description of the security profile. ||
+|| `--folder-id` | `string`
+
+ID of the folder to create a security profile in. ||
+|| `--labels` | `stringToString`
+
+Labels as '' key:value '' pairs. Maximum of 64 per resource. ||
+|| `--name` | `string`
+
+Name of the security profile. The name is unique within the folder. 1-50 characters long. ||
+|| `--security-rules` | `shorthand/json`
+
+List of security rules.
+
+Shorthand Syntax:
+
+```hcl
+[
+  {
+    description = str,
+    dry-run = bool,
+    name = str,
+    priority = int,
+    rule-specifier = rule-condition={
+      action = ALLOW|DENY,
+      condition = {
+        authority = {
+          authorities = [
+            {
+              match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+            }, ...
+          ]
+        },
+        headers = [
+          {
+            name = str,
+            value = {
+              match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+            }
+          }, ...
+        ],
+        http-method = {
+          http-methods = [
+            {
+              match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+            }, ...
+          ]
+        },
+        request-uri = {
+          path = {
+            match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+          },
+          queries = [
+            {
+              key = str,
+              value = {
+                match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+              }
+            }, ...
+          ]
+        },
+        source-ip = {
+          geo-ip-match = {
+            locations = str,...
+          },
+          geo-ip-not-match = {
+            locations = str,...
+          },
+          ip-ranges-match = {
+            ip-ranges = str,...
+          },
+          ip-ranges-not-match = {
+            ip-ranges = str,...
+          }
+        }
+      }
+    } | smart-protection={
+      condition = {
+        authority = {
+          authorities = [
+            {
+              match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+            }, ...
+          ]
+        },
+        headers = [
+          {
+            name = str,
+            value = {
+              match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+            }
+          }, ...
+        ],
+        http-method = {
+          http-methods = [
+            {
+              match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+            }, ...
+          ]
+        },
+        request-uri = {
+          path = {
+            match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+          },
+          queries = [
+            {
+              key = str,
+              value = {
+                match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+              }
+            }, ...
+          ]
+        },
+        source-ip = {
+          geo-ip-match = {
+            locations = str,...
+          },
+          geo-ip-not-match = {
+            locations = str,...
+          },
+          ip-ranges-match = {
+            ip-ranges = str,...
+          },
+          ip-ranges-not-match = {
+            ip-ranges = str,...
+          }
+        }
+      },
+      mode = FULL|API
+    } | waf={
+      condition = {
+        authority = {
+          authorities = [
+            {
+              match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+            }, ...
+          ]
+        },
+        headers = [
+          {
+            name = str,
+            value = {
+              match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+            }
+          }, ...
+        ],
+        http-method = {
+          http-methods = [
+            {
+              match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+            }, ...
+          ]
+        },
+        request-uri = {
+          path = {
+            match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+          },
+          queries = [
+            {
+              key = str,
+              value = {
+                match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+              }
+            }, ...
+          ]
+        },
+        source-ip = {
+          geo-ip-match = {
+            locations = str,...
+          },
+          geo-ip-not-match = {
+            locations = str,...
+          },
+          ip-ranges-match = {
+            ip-ranges = str,...
+          },
+          ip-ranges-not-match = {
+            ip-ranges = str,...
+          }
+        }
+      },
+      mode = FULL|API,
+      waf-profile-id = str
+    }
+  }, ...
+]
+```
+
+JSON Syntax:
+
+```json
+[
+  {
+    "description": "str",
+    "dry-run": "bool",
+    "name": "str",
+    "priority": "int",
+    "rule-specifier": {
+      "rule-condition": {
+        "action": "ALLOW|DENY",
+        "condition": {
+          "authority": {
+            "authorities": [
+              {
+                "match": {
+                  "exact-match": "str",
+                  "exact-not-match": "str",
+                  "pire-regex-match": "str",
+                  "pire-regex-not-match": "str",
+                  "prefix-match": "str",
+                  "prefix-not-match": "str"
+                }
+              }, ...
+            ]
+          },
+          "headers": [
+            {
+              "name": "str",
+              "value": {
+                "match": {
+                  "exact-match": "str",
+                  "exact-not-match": "str",
+                  "pire-regex-match": "str",
+                  "pire-regex-not-match": "str",
+                  "prefix-match": "str",
+                  "prefix-not-match": "str"
+                }
+              }
+            }, ...
+          ],
+          "http-method": {
+            "http-methods": [
+              {
+                "match": {
+                  "exact-match": "str",
+                  "exact-not-match": "str",
+                  "pire-regex-match": "str",
+                  "pire-regex-not-match": "str",
+                  "prefix-match": "str",
+                  "prefix-not-match": "str"
+                }
+              }, ...
+            ]
+          },
+          "request-uri": {
+            "path": {
+              "match": {
+                "exact-match": "str",
+                "exact-not-match": "str",
+                "pire-regex-match": "str",
+                "pire-regex-not-match": "str",
+                "prefix-match": "str",
+                "prefix-not-match": "str"
+              }
+            },
+            "queries": [
+              {
+                "key": "str",
+                "value": {
+                  "match": {
+                    "exact-match": "str",
+                    "exact-not-match": "str",
+                    "pire-regex-match": "str",
+                    "pire-regex-not-match": "str",
+                    "prefix-match": "str",
+                    "prefix-not-match": "str"
+                  }
+                }
+              }, ...
+            ]
+          },
+          "source-ip": {
+            "geo-ip-match": {
+              "locations": [
+                "str", ...
+              ]
+            },
+            "geo-ip-not-match": {
+              "locations": [
+                "str", ...
+              ]
+            },
+            "ip-ranges-match": {
+              "ip-ranges": [
+                "str", ...
+              ]
+            },
+            "ip-ranges-not-match": {
+              "ip-ranges": [
+                "str", ...
+              ]
+            }
+          }
+        }
+      },
+      "smart-protection": {
+        "condition": {
+          "authority": {
+            "authorities": [
+              {
+                "match": {
+                  "exact-match": "str",
+                  "exact-not-match": "str",
+                  "pire-regex-match": "str",
+                  "pire-regex-not-match": "str",
+                  "prefix-match": "str",
+                  "prefix-not-match": "str"
+                }
+              }, ...
+            ]
+          },
+          "headers": [
+            {
+              "name": "str",
+              "value": {
+                "match": {
+                  "exact-match": "str",
+                  "exact-not-match": "str",
+                  "pire-regex-match": "str",
+                  "pire-regex-not-match": "str",
+                  "prefix-match": "str",
+                  "prefix-not-match": "str"
+                }
+              }
+            }, ...
+          ],
+          "http-method": {
+            "http-methods": [
+              {
+                "match": {
+                  "exact-match": "str",
+                  "exact-not-match": "str",
+                  "pire-regex-match": "str",
+                  "pire-regex-not-match": "str",
+                  "prefix-match": "str",
+                  "prefix-not-match": "str"
+                }
+              }, ...
+            ]
+          },
+          "request-uri": {
+            "path": {
+              "match": {
+                "exact-match": "str",
+                "exact-not-match": "str",
+                "pire-regex-match": "str",
+                "pire-regex-not-match": "str",
+                "prefix-match": "str",
+                "prefix-not-match": "str"
+              }
+            },
+            "queries": [
+              {
+                "key": "str",
+                "value": {
+                  "match": {
+                    "exact-match": "str",
+                    "exact-not-match": "str",
+                    "pire-regex-match": "str",
+                    "pire-regex-not-match": "str",
+                    "prefix-match": "str",
+                    "prefix-not-match": "str"
+                  }
+                }
+              }, ...
+            ]
+          },
+          "source-ip": {
+            "geo-ip-match": {
+              "locations": [
+                "str", ...
+              ]
+            },
+            "geo-ip-not-match": {
+              "locations": [
+                "str", ...
+              ]
+            },
+            "ip-ranges-match": {
+              "ip-ranges": [
+                "str", ...
+              ]
+            },
+            "ip-ranges-not-match": {
+              "ip-ranges": [
+                "str", ...
+              ]
+            }
+          }
+        },
+        "mode": "FULL|API"
+      },
+      "waf": {
+        "condition": {
+          "authority": {
+            "authorities": [
+              {
+                "match": {
+                  "exact-match": "str",
+                  "exact-not-match": "str",
+                  "pire-regex-match": "str",
+                  "pire-regex-not-match": "str",
+                  "prefix-match": "str",
+                  "prefix-not-match": "str"
+                }
+              }, ...
+            ]
+          },
+          "headers": [
+            {
+              "name": "str",
+              "value": {
+                "match": {
+                  "exact-match": "str",
+                  "exact-not-match": "str",
+                  "pire-regex-match": "str",
+                  "pire-regex-not-match": "str",
+                  "prefix-match": "str",
+                  "prefix-not-match": "str"
+                }
+              }
+            }, ...
+          ],
+          "http-method": {
+            "http-methods": [
+              {
+                "match": {
+                  "exact-match": "str",
+                  "exact-not-match": "str",
+                  "pire-regex-match": "str",
+                  "pire-regex-not-match": "str",
+                  "prefix-match": "str",
+                  "prefix-not-match": "str"
+                }
+              }, ...
+            ]
+          },
+          "request-uri": {
+            "path": {
+              "match": {
+                "exact-match": "str",
+                "exact-not-match": "str",
+                "pire-regex-match": "str",
+                "pire-regex-not-match": "str",
+                "prefix-match": "str",
+                "prefix-not-match": "str"
+              }
+            },
+            "queries": [
+              {
+                "key": "str",
+                "value": {
+                  "match": {
+                    "exact-match": "str",
+                    "exact-not-match": "str",
+                    "pire-regex-match": "str",
+                    "pire-regex-not-match": "str",
+                    "prefix-match": "str",
+                    "prefix-not-match": "str"
+                  }
+                }
+              }, ...
+            ]
+          },
+          "source-ip": {
+            "geo-ip-match": {
+              "locations": [
+                "str", ...
+              ]
+            },
+            "geo-ip-not-match": {
+              "locations": [
+                "str", ...
+              ]
+            },
+            "ip-ranges-match": {
+              "ip-ranges": [
+                "str", ...
+              ]
+            },
+            "ip-ranges-not-match": {
+              "ip-ranges": [
+                "str", ...
+              ]
+            }
+          }
+        },
+        "mode": "FULL|API",
+        "waf-profile-id": "str"
+      }
+    }
+  }, ...
+]
+```
+
+Fields:
+
+```
+description -> (string)
+  Optional description of the rule. 0-512 characters long.
+dry-run -> (bool)
+  This mode allows you to test your security profile or a single rule. For example, you can have the number of alarms for a specific rule displayed. Note: if this option is true, no real action affecting your traffic regarding this rule will be taken.
+name -> (string)
+  Name of the rule. The name is unique within the security profile. 1-50 characters long.
+priority -> (int)
+  Determines the priority for checking the incoming traffic. Enter an integer within the range of 1 and 999999. The rule priority must be unique within the entire security profile. A lower numeric value means a higher priority. The default_action has the lowest priority.
+rule-specifier -> (oneof<rule-condition|smart-protection|waf>)
+  Oneof rule-specifier field
+  rule-condition -> (struct)
+    Rule actions, see documentation.
+    action -> (struct)
+      Action to perform if this rule matched.
+    condition -> (struct)
+      The condition for matching the rule.
+      authority -> (struct)
+        Match authority (Host header).
+        authorities -> ([]struct)
+          List of authorities. OR semantics implied.
+          match -> (oneof<exact-match|exact-not-match|pire-regex-match|pire-regex-not-match|prefix-match|prefix-not-match>)
+            Oneof match field
+            exact-match -> (string)
+            exact-not-match -> (string)
+            prefix-match -> (string)
+            prefix-not-match -> (string)
+            pire-regex-match -> (string)
+            pire-regex-not-match -> (string)
+      headers -> ([]struct)
+        Match HTTP headers.
+        name -> (string)
+          Name of header (case insensitive).
+        value -> (struct)
+          Value of the header.
+          match -> (oneof<exact-match|exact-not-match|pire-regex-match|pire-regex-not-match|prefix-match|prefix-not-match>)
+            Oneof match field
+            exact-match -> (string)
+            exact-not-match -> (string)
+            prefix-match -> (string)
+            prefix-not-match -> (string)
+            pire-regex-match -> (string)
+            pire-regex-not-match -> (string)
+      http-method -> (struct)
+        Match HTTP method.
+        http-methods -> ([]struct)
+          List of HTTP methods. OR semantics implied.
+          match -> (oneof<exact-match|exact-not-match|pire-regex-match|pire-regex-not-match|prefix-match|prefix-not-match>)
+            Oneof match field
+            exact-match -> (string)
+            exact-not-match -> (string)
+            prefix-match -> (string)
+            prefix-not-match -> (string)
+            pire-regex-match -> (string)
+            pire-regex-not-match -> (string)
+      request-uri -> (struct)
+        Match Request URI.
+        path -> (struct)
+          Path of the URI RFC3986.
+          match -> (oneof<exact-match|exact-not-match|pire-regex-match|pire-regex-not-match|prefix-match|prefix-not-match>)
+            Oneof match field
+            exact-match -> (string)
+            exact-not-match -> (string)
+            prefix-match -> (string)
+            prefix-not-match -> (string)
+            pire-regex-match -> (string)
+            pire-regex-not-match -> (string)
+        queries -> ([]struct)
+          List of query matchers. AND semantics implied.
+          key -> (string)
+            Key of the query parameter.
+          value -> (struct)
+            Value of the query parameter.
+            match -> (oneof<exact-match|exact-not-match|pire-regex-match|pire-regex-not-match|prefix-match|prefix-not-match>)
+              Oneof match field
+              exact-match -> (string)
+              exact-not-match -> (string)
+              prefix-match -> (string)
+              prefix-not-match -> (string)
+              pire-regex-match -> (string)
+              pire-regex-not-match -> (string)
+      source-ip -> (struct)
+        Match IP.
+        geo-ip-match -> (struct)
+          locations -> ([]string)
+            ISO 3166-1 alpha 2. OR semantics implied.
+        geo-ip-not-match -> (struct)
+          locations -> ([]string)
+            ISO 3166-1 alpha 2. OR semantics implied.
+        ip-ranges-match -> (struct)
+          ip-ranges -> ([]string)
+            List of IP ranges. OR semantics implied.
+        ip-ranges-not-match -> (struct)
+          ip-ranges -> ([]string)
+            List of IP ranges. OR semantics implied.
+  smart-protection -> (struct)
+    Smart Protection rule, see documentation.
+    condition -> (struct)
+      The condition for matching the rule.
+      authority -> (struct)
+        Match authority (Host header).
+        authorities -> ([]struct)
+          List of authorities. OR semantics implied.
+          match -> (oneof<exact-match|exact-not-match|pire-regex-match|pire-regex-not-match|prefix-match|prefix-not-match>)
+            Oneof match field
+            exact-match -> (string)
+            exact-not-match -> (string)
+            prefix-match -> (string)
+            prefix-not-match -> (string)
+            pire-regex-match -> (string)
+            pire-regex-not-match -> (string)
+      headers -> ([]struct)
+        Match HTTP headers.
+        name -> (string)
+          Name of header (case insensitive).
+        value -> (struct)
+          Value of the header.
+          match -> (oneof<exact-match|exact-not-match|pire-regex-match|pire-regex-not-match|prefix-match|prefix-not-match>)
+            Oneof match field
+            exact-match -> (string)
+            exact-not-match -> (string)
+            prefix-match -> (string)
+            prefix-not-match -> (string)
+            pire-regex-match -> (string)
+            pire-regex-not-match -> (string)
+      http-method -> (struct)
+        Match HTTP method.
+        http-methods -> ([]struct)
+          List of HTTP methods. OR semantics implied.
+          match -> (oneof<exact-match|exact-not-match|pire-regex-match|pire-regex-not-match|prefix-match|prefix-not-match>)
+            Oneof match field
+            exact-match -> (string)
+            exact-not-match -> (string)
+            prefix-match -> (string)
+            prefix-not-match -> (string)
+            pire-regex-match -> (string)
+            pire-regex-not-match -> (string)
+      request-uri -> (struct)
+        Match Request URI.
+        path -> (struct)
+          Path of the URI RFC3986.
+          match -> (oneof<exact-match|exact-not-match|pire-regex-match|pire-regex-not-match|prefix-match|prefix-not-match>)
+            Oneof match field
+            exact-match -> (string)
+            exact-not-match -> (string)
+            prefix-match -> (string)
+            prefix-not-match -> (string)
+            pire-regex-match -> (string)
+            pire-regex-not-match -> (string)
+        queries -> ([]struct)
+          List of query matchers. AND semantics implied.
+          key -> (string)
+            Key of the query parameter.
+          value -> (struct)
+            Value of the query parameter.
+            match -> (oneof<exact-match|exact-not-match|pire-regex-match|pire-regex-not-match|prefix-match|prefix-not-match>)
+              Oneof match field
+              exact-match -> (string)
+              exact-not-match -> (string)
+              prefix-match -> (string)
+              prefix-not-match -> (string)
+              pire-regex-match -> (string)
+              pire-regex-not-match -> (string)
+      source-ip -> (struct)
+        Match IP.
+        geo-ip-match -> (struct)
+          locations -> ([]string)
+            ISO 3166-1 alpha 2. OR semantics implied.
+        geo-ip-not-match -> (struct)
+          locations -> ([]string)
+            ISO 3166-1 alpha 2. OR semantics implied.
+        ip-ranges-match -> (struct)
+          ip-ranges -> ([]string)
+            List of IP ranges. OR semantics implied.
+        ip-ranges-not-match -> (struct)
+          ip-ranges -> ([]string)
+            List of IP ranges. OR semantics implied.
+    mode -> (struct)
+      Mode of protection.
+  waf -> (struct)
+    Web Application Firewall (WAF) rule, see documentation.
+    condition -> (struct)
+      The condition for matching the rule.
+      authority -> (struct)
+        Match authority (Host header).
+        authorities -> ([]struct)
+          List of authorities. OR semantics implied.
+          match -> (oneof<exact-match|exact-not-match|pire-regex-match|pire-regex-not-match|prefix-match|prefix-not-match>)
+            Oneof match field
+            exact-match -> (string)
+            exact-not-match -> (string)
+            prefix-match -> (string)
+            prefix-not-match -> (string)
+            pire-regex-match -> (string)
+            pire-regex-not-match -> (string)
+      headers -> ([]struct)
+        Match HTTP headers.
+        name -> (string)
+          Name of header (case insensitive).
+        value -> (struct)
+          Value of the header.
+          match -> (oneof<exact-match|exact-not-match|pire-regex-match|pire-regex-not-match|prefix-match|prefix-not-match>)
+            Oneof match field
+            exact-match -> (string)
+            exact-not-match -> (string)
+            prefix-match -> (string)
+            prefix-not-match -> (string)
+            pire-regex-match -> (string)
+            pire-regex-not-match -> (string)
+      http-method -> (struct)
+        Match HTTP method.
+        http-methods -> ([]struct)
+          List of HTTP methods. OR semantics implied.
+          match -> (oneof<exact-match|exact-not-match|pire-regex-match|pire-regex-not-match|prefix-match|prefix-not-match>)
+            Oneof match field
+            exact-match -> (string)
+            exact-not-match -> (string)
+            prefix-match -> (string)
+            prefix-not-match -> (string)
+            pire-regex-match -> (string)
+            pire-regex-not-match -> (string)
+      request-uri -> (struct)
+        Match Request URI.
+        path -> (struct)
+          Path of the URI RFC3986.
+          match -> (oneof<exact-match|exact-not-match|pire-regex-match|pire-regex-not-match|prefix-match|prefix-not-match>)
+            Oneof match field
+            exact-match -> (string)
+            exact-not-match -> (string)
+            prefix-match -> (string)
+            prefix-not-match -> (string)
+            pire-regex-match -> (string)
+            pire-regex-not-match -> (string)
+        queries -> ([]struct)
+          List of query matchers. AND semantics implied.
+          key -> (string)
+            Key of the query parameter.
+          value -> (struct)
+            Value of the query parameter.
+            match -> (oneof<exact-match|exact-not-match|pire-regex-match|pire-regex-not-match|prefix-match|prefix-not-match>)
+              Oneof match field
+              exact-match -> (string)
+              exact-not-match -> (string)
+              prefix-match -> (string)
+              prefix-not-match -> (string)
+              pire-regex-match -> (string)
+              pire-regex-not-match -> (string)
+      source-ip -> (struct)
+        Match IP.
+        geo-ip-match -> (struct)
+          locations -> ([]string)
+            ISO 3166-1 alpha 2. OR semantics implied.
+        geo-ip-not-match -> (struct)
+          locations -> ([]string)
+            ISO 3166-1 alpha 2. OR semantics implied.
+        ip-ranges-match -> (struct)
+          ip-ranges -> ([]string)
+            List of IP ranges. OR semantics implied.
+        ip-ranges-not-match -> (struct)
+          ip-ranges -> ([]string)
+            List of IP ranges. OR semantics implied.
+    mode -> (struct)
+      Mode of protection.
+    waf-profile-id -> (string)
+      ID of WAF profile to use in this rule.
+``` ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

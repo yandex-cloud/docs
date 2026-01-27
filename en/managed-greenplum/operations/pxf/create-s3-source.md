@@ -12,7 +12,8 @@ To get started, [create a static access key](../../../iam/operations/authenticat
 
     To create an external S3 data source:
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Navigate to](../../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
     1. Open the page of the {{ GP }} cluster in question.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}**.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.pxf.action_create-datasource }}**.
@@ -57,11 +58,11 @@ To get started, [create a static access key](../../../iam/operations/authenticat
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
-    1. Call the [PXFDatasource.Create](../../api-ref/PXFDatasource/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+    1. Use the [PXFDatasource.Create](../../api-ref/PXFDatasource/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -96,11 +97,11 @@ To get started, [create a static access key](../../../iam/operations/authenticat
 
         You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
-    1. Check the [server response](../../api-ref/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../../api-ref/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -145,7 +146,7 @@ To get started, [create a static access key](../../../iam/operations/authenticat
 
         You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
-    1. Check the [server response](../../api-ref/grpc/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../../api-ref/grpc/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

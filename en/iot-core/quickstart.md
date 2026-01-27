@@ -1,6 +1,6 @@
 ---
 title: Getting started with {{ iot-full-name }} device registries
-description: To get started with {{ iot-name }}, create an X.509 certificate, registry, and device. Then, set up message exchange between the registry and the device.
+description: To get started with {{ iot-name }}, create an X.509 certificate, registry, and device. Next, set up message exchange between the registry and the device.
 ---
 
 # Getting started with {{ iot-name }} device registries
@@ -24,25 +24,25 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
 * If you have certificates, add them to the MQTT clients. You can do this when creating clients.
 * If you do not have certificates, create them using the [OpenSSL](https://www.openssl.org) program (the command below creates only one certificate):
 
-   ```bash
-   openssl req -x509 \
-   -newkey rsa:4096 \
-     -keyout private-key.pem \
-     -out cert.pem \
-     -nodes \
-     -days 365 \
-     -subj '/CN=localhost'
-   ```
+    ```bash
+    openssl req -x509 \
+    -newkey rsa:4096 \
+      -keyout private-key.pem \
+      -out cert.pem \
+      -nodes \
+      -days 365 \
+      -subj '/CN=localhost'
+    ```
 
-   Where:
+    Where:
 
-   * `-x509`: Certificate type, X.509.
-   * `-newkey`: Encryption algorithm.
-   * `-keyout`: File with the private key of the certificate.
-   * `-out`: File with the public key of the certificate.
-   * `-nodes`: This flag is set when no public key encryption is required.
-   * `-days`: Certificate validity period in days.
-   * `-subj`: Request object.
+    * `-x509`: Certificate type: X.509.
+    * `-newkey`: Encryption algorithm.
+    * `-keyout`: File with the certificate's private key.
+    * `-out`: File with the certificate's public key.
+    * `-nodes`: This flag is set when no public key encryption is required.
+    * `-days`: Certificate validity period in days.
+    * `-subj`: Request object.
 
    For each of the MQTT clients, specify different names for files with private and public keys.
 
@@ -52,75 +52,75 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder to create your registry in.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_registries }}**.
-   1. Click **{{ ui-key.yacloud.iot.button_create-registry }}**.
-   1. Under **{{ ui-key.yacloud.common.section-base }}**, add `my-registry` as the registry name.
-   1. Add a certificate:
+    1. In the [management console]({{ link-console-main }}), select the folder you want to create a registry in.
+    1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_registries }}**.
+    1. Click **{{ ui-key.yacloud.iot.button_create-registry }}**.
+    1. Under **{{ ui-key.yacloud.common.section-base }}**, add `my-registry` as the registry name.
+    1. Add a certificate:
 
-      * To add a file:
+        * To add a file:
 
-         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
-         1. Click **Attach file**.
-         1. Select the file with the public key of the certificate and click **Open**.
-         1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+            1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
+            1. Click **Attach file**.
+            1. Select the file with the public key of the certificate and click **Open**.
+            1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-      * To add text:
+        * To add text:
 
-         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
-         1. Paste the public key of the certificate to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
-         1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+            1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
+            1. Paste the certificate's public key to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
+            1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-   1. Click **{{ ui-key.yacloud.common.create }}**.
+    1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../_includes/cli-install.md) %}
+    {% include [cli-install](../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
-   1. Create a registry:
+    1. Create a registry:
 
-      ```bash
-      yc iot registry create --name my-registry
-      ```
+        ```bash
+        yc iot registry create --name my-registry
+        ```
 
-      Result:
+        Result:
 
-      ```text
-      id: b91hafek85**********
-      folder_id: aoek49ghmk*********
-      created_at: "2019-05-27T13:40:06.923Z"
-      name: my-registry
-      status: ACTIVE
-      log_group_id: ckghotead**********
-      ```
+        ```text
+        id: b91hafek85**********
+        folder_id: aoek49ghmk*********
+        created_at: "2019-05-27T13:40:06.923Z"
+        name: my-registry
+        status: ACTIVE
+        log_group_id: ckghotead**********
+        ```
 
-   1. Add a certificate to the registry:
+    1. Add a certificate to the registry:
 
-      ```bash
-      yc iot registry certificate add \
-        --registry-name my-registry \
-        --certificate-file registry-cert.pem
-      ```
+        ```bash
+        yc iot registry certificate add \
+           --registry-name my-registry \
+           --certificate-file registry-cert.pem
+        ```
 
-      Where:
+        Where:
 
-      * `--registry-name`: Registry name.
-      * `--certificate-file`: Path to the public key of the certificate.
+        * `--registry-name`: Registry name.
+        * `--certificate-file`: Path to the certificate's public key.
 
-      Result:
+        Result:
 
-      ```text
-      registry_id: b91hafek85**********
-      fingerprint: 589ce16050****
-      certificate_data: |
-         -----BEGIN CERTIFICATE-----
-         MIIE/jCCAuagAwIBAgIJAPRA...
-         -----END CERTIFICATE-----
-      created_at: "2019-05-27T13:41:45.295Z"
-      ```
+        ```text
+        registry_id: b91hafek85**********
+        fingerprint: 589ce16050****
+        certificate_data: |
+           -----BEGIN CERTIFICATE-----
+           MIIE/jCCAuagAwIBAgIJAPRA...
+           -----END CERTIFICATE-----
+        created_at: "2019-05-27T13:41:45.295Z"
+        ```
 
 {% endlist %}
 
@@ -130,77 +130,77 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select a folder to create a device in.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Select `my-registry` from the list.
-   1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
-   1. Click **{{ ui-key.yacloud.iot.button_add-device }}**.
-   1. Under **{{ ui-key.yacloud.common.section-base }}**, add `my-device` as the device name.
-   1. Add a certificate:
+    1. In the [management console]({{ link-console-main }}), select a folder to create a device in.
+    1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+    1. Select `my-registry` from the list.
+    1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
+    1. Click **{{ ui-key.yacloud.iot.button_add-device }}**.
+    1. Under **{{ ui-key.yacloud.common.section-base }}**, add `my-device` as the device name.
+    1. Add a certificate:
 
-      * To add a file:
+        * To add a file:
 
-         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
-         1. Click **Attach file**.
-         1. Select the file with the public key of the certificate and click **Open**.
-         1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+            1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
+            1. Click **Attach file**.
+            1. Select the file with the public key of the certificate and click **Open**.
+            1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-      * To add text:
+        * To add text:
 
-         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
-         1. Paste the public key of the certificate to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
-         1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+            1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
+            1. Paste the certificate's public key to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
+            1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-   1. Click **{{ ui-key.yacloud.common.create }}**.
+    1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
-   1. Create a device:
+    1. Create a device:
 
-      ```bash
-      yc iot device create \
-        --registry-name my-registry \
-        --name my-device
-      ```
+        ```bash
+        yc iot device create \
+          --registry-name my-registry \
+          --name my-device
+        ```
 
-      Where:
+        Where:
 
-      * `--registry-name`: Name of the registry that the device is part of.
-      * `--name`: Device name.
+        * `--registry-name`: Name of the registry the device is part of.
+        * `--name`: Device name.
 
-      Result:
+        Result:
 
-      ```text
-      id: b912an77oq**********
-      registry_id: b91hafek85**********
-      created_at: "2019-05-27T13:44:35.164Z"
-      name: my-device
-      ```
+        ```text
+        id: b912an77oq**********
+        registry_id: b91hafek85**********
+        created_at: "2019-05-27T13:44:35.164Z"
+        name: my-device
+        ```
 
-   1. Add a certificate to the device:
+    1. Add a certificate to the device:
 
-      ```bash
-      yc iot device certificate add \
-        --device-name my-device \
-        --certificate-file ./certs/device-cert.pem
-      ```
+        ```bash
+        yc iot device certificate add \
+          --device-name my-device \
+          --certificate-file ./certs/device-cert.pem
+        ```
 
-      Where:
+        Where:
 
-      * `--device-name`: Device name.
-      * `--certificate-file`: Path to the public key of the certificate.
+        * `--device-name`: Device name.
+        * `--certificate-file`: Path to the certificate's public key.
 
-      Result:
+        Result:
 
-      ```text
-      device_id: b912an77oq**********
-      fingerprint: 65e5b05006***
-      certificate_data: |
-         -----BEGIN CERTIFICATE-----
-         MIIE/jCCAuagAwIBAgIJANZbq...
-         -----END CERTIFICATE-----
-      created_at: "2019-05-27T13:45:23.306Z"
-      ```
+        ```text
+        device_id: b912an77oq**********
+        fingerprint: 65e5b05006***
+        certificate_data: |
+           -----BEGIN CERTIFICATE-----
+           MIIE/jCCAuagAwIBAgIJANZbq...
+           -----END CERTIFICATE-----
+        created_at: "2019-05-27T13:45:23.306Z"
+        ```
 
 {% endlist %}
 

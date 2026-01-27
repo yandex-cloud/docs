@@ -69,7 +69,7 @@ Once created, the instance can process calls. Calls sent to the instance enter a
 If the new instance receives no new calls for a certain period of time, it gets suspended. The operating system and the running processes remain in RAM but are not processed by the CPU. The instance resumes operation in the following cases:
 
 * It gets a new call.
-* A service cycle is initiated to get the instance up and running again, e.g., one of updating timers or executing maintenance tasks of the guest operating system.
+* A service cycle is initiated to get the instance up and running again, e.g., to update timers or run maintenance tasks of the guest OS.
 * Prior to [terminating the instance](#instance-termination).
 
 {% note info %}
@@ -113,7 +113,7 @@ A _provisioned instance_ is a container instance that is guaranteed not to have 
 * {{ serverless-containers-name }} runtime environment components are initialized.
 * The user application is loaded and initialized.
 
-The initialization and operation processes of a simple and provisioned container instances are identical. A provisioned instance is suspended and does not consume CPU unit it begins processing a call.
+The initialization and operation processes of a simple and provisioned container instances are identical. A provisioned instance is remains suspended and does not consume CPU unit it begins processing a call.
 
 {% include [provisioned-instances-price](../../_includes/serverless-containers/provisioned-instances-price.md) %}
 

@@ -10,36 +10,151 @@ Updates the specified proxy.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta serverless mdbproxy update <PROXY-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`--description`|<b>`string`</b><br/>New description for the proxy.|
-|`--labels`|<b>`stringToString`</b><br/>Proxy labels as 'key:value' pairs.|
-|`--name`|<b>`string`</b><br/>New name for the proxy. The name must be unique within the folder.|
-|`--proxy-id`|<b>`string`</b><br/>ID of the proxy to update.|
-|`--target`|<b>`shorthand/json`</b><br/>Proxy target.<br/>Shorthand Syntax:<br/>{<br/>mdb = clickhouse={<br/>cluster-id = str,<br/>db = str,<br/>endpoint = str,<br/>password = str,<br/>user = str<br/>} \| postgresql={<br/>cluster-id = str,<br/>db = str,<br/>endpoint = str,<br/>password = str,<br/>user = str<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"mdb": {<br/>"clickhouse": {<br/>"cluster-id": "str",<br/>"db": "str",<br/>"endpoint": "str",<br/>"password": "str",<br/>"user": "str"<br/>},<br/>"postgresql": {<br/>"cluster-id": "str",<br/>"db": "str",<br/>"endpoint": "str",<br/>"password": "str",<br/>"user": "str"<br/>}<br/>}<br/>}"<br/>Fields:<br/>mdb -> (oneof<clickhouse\|postgresql>)<br/>Oneof mdb field<br/>clickhouse -> (struct)<br/>Clickhouse settings for proxy.<br/>cluster-id -> (string)<br/>Cluster identifier for clickhouse.<br/>db -> (string)<br/>Clickhouse database name.<br/>endpoint -> (string)<br/>Clickhouse proxy-host for connection, output only field.<br/>password -> (string)<br/>Clickhouse password, input only field.<br/>user -> (string)<br/>Clickhouse user.<br/>postgresql -> (struct)<br/>PostgreSQL settings for proxy.<br/>cluster-id -> (string)<br/>Cluster identifier for postgresql.<br/>db -> (string)<br/>PostgreSQL database name.<br/>endpoint -> (string)<br/>PostgreSQL proxy-host for connection, output only field.<br/>password -> (string)<br/>PostgreSQL password, input only field.<br/>user -> (string)<br/>PostgreSQL user.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `--description` | `string`
+
+New description for the proxy. ||
+|| `--labels` | `stringToString`
+
+Proxy labels as 'key:value' pairs. ||
+|| `--name` | `string`
+
+New name for the proxy. The name must be unique within the folder. ||
+|| `--proxy-id` | `string`
+
+ID of the proxy to update. ||
+|| `--target` | `shorthand/json`
+
+Proxy target.
+
+Shorthand Syntax:
+
+```hcl
+{
+  mdb = clickhouse={
+    cluster-id = str,
+    db = str,
+    endpoint = str,
+    password = str,
+    user = str
+  } | postgresql={
+    cluster-id = str,
+    db = str,
+    endpoint = str,
+    password = str,
+    user = str
+  }
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "mdb": {
+    "clickhouse": {
+      "cluster-id": "str",
+      "db": "str",
+      "endpoint": "str",
+      "password": "str",
+      "user": "str"
+    },
+    "postgresql": {
+      "cluster-id": "str",
+      "db": "str",
+      "endpoint": "str",
+      "password": "str",
+      "user": "str"
+    }
+  }
+}
+```
+
+Fields:
+
+```
+mdb -> (oneof<clickhouse|postgresql>)
+  Oneof mdb field
+  clickhouse -> (struct)
+    Clickhouse settings for proxy.
+    cluster-id -> (string)
+      Cluster identifier for clickhouse.
+    db -> (string)
+      Clickhouse database name.
+    endpoint -> (string)
+      Clickhouse proxy-host for connection, output only field.
+    password -> (string)
+      Clickhouse password, input only field.
+    user -> (string)
+      Clickhouse user.
+  postgresql -> (struct)
+    PostgreSQL settings for proxy.
+    cluster-id -> (string)
+      Cluster identifier for postgresql.
+    db -> (string)
+      PostgreSQL database name.
+    endpoint -> (string)
+      PostgreSQL proxy-host for connection, output only field.
+    password -> (string)
+      PostgreSQL password, input only field.
+    user -> (string)
+      PostgreSQL user.
+``` ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

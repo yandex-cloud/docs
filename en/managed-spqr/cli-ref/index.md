@@ -1,80 +1,62 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/index.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/index.md
 ---
 
-# yc managed-postgresql
+# yc managed-sharded-postgresql
 
-Manage PostgreSQL clusters, hosts, databases, backups and users.
+Manage Sharded PostgreSQL clusters, hosts, databases, backups and users.
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-postgresql <group|command>`
+`yc managed-sharded-postgresql <group|command>`
 
 Aliases: 
 
-- `postgresql`
-- `postgres`
+- `spqr`
+- `sharded-postgresql`
 
 #### Command Tree
 
-- [yc managed-postgresql connect](connect.md) — Connect to Postgresql cluster with iam-auth
-- [yc managed-postgresql backup](backup/index.md) — Manage PostgreSQL backups
-	- [yc managed-postgresql backup delete](backup/delete.md) — Delete the specified PostgreSQL backup
-	- [yc managed-postgresql backup get](backup/get.md) — Show information about the specified PostgreSQL backup
-	- [yc managed-postgresql backup list](backup/list.md) — List available backups
-- [yc managed-postgresql backup-retention-policy](backup-retention-policy/index.md) — Manage PostgreSQL backup long-term retention policies
-	- [yc managed-postgresql backup-retention-policy create](backup-retention-policy/create.md) — Create new backup retention policy
-	- [yc managed-postgresql backup-retention-policy delete](backup-retention-policy/delete.md) — Delete specific backup retention policy
-	- [yc managed-postgresql backup-retention-policy list](backup-retention-policy/list.md) — List available backup retention policies
-- [yc managed-postgresql cluster](cluster/index.md) — Manage PostgreSQL clusters
-	- [yc managed-postgresql cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified PostgreSQL cluster
-	- [yc managed-postgresql cluster add-labels](cluster/add-labels.md) — Add labels to PostgreSQL cluster
-	- [yc managed-postgresql cluster backup](cluster/backup.md) — Create a backup for the specified PostgreSQL cluster
-	- [yc managed-postgresql cluster create](cluster/create.md) — Create PostgreSQL cluster
-	- [yc managed-postgresql cluster delete](cluster/delete.md) — Delete the specified PostgreSQL cluster
-	- [yc managed-postgresql cluster get](cluster/get.md) — Show information about the specified PostgreSQL cluster
-	- [yc managed-postgresql cluster list](cluster/list.md) — List PostgreSQL clusters
-	- [yc managed-postgresql cluster list-access-bindings](cluster/list-access-bindings.md) — List access bindings for the specified PostgreSQL cluster
-	- [yc managed-postgresql cluster list-backups](cluster/list-backups.md) — List available backups for the specified PostgreSQL cluster
-	- [yc managed-postgresql cluster list-logs](cluster/list-logs.md) — Retrieves logs for the specified PostgreSQL cluster
-	- [yc managed-postgresql cluster list-operations](cluster/list-operations.md) — List operations for the specified PostgreSQL cluster
-	- [yc managed-postgresql cluster move](cluster/move.md) — Move the specified PostgreSQL cluster into the folder
-	- [yc managed-postgresql cluster remove-access-binding](cluster/remove-access-binding.md) — Remove access binding for the specified PostgreSQL cluster
-	- [yc managed-postgresql cluster remove-labels](cluster/remove-labels.md) — Remove labels from PostgreSQL cluster
-	- [yc managed-postgresql cluster reschedule-maintenance](cluster/reschedule-maintenance.md) — Reschedule currently planned maintenance operation.
-	- [yc managed-postgresql cluster restore](cluster/restore.md) — Restore PostgreSQL cluster
-	- [yc managed-postgresql cluster set-access-bindings](cluster/set-access-bindings.md) — Set access bindings for the specified PostgreSQL cluster and delete all existing access bindings if there were any
-	- [yc managed-postgresql cluster start](cluster/start.md) — Start the specified PostgreSQL cluster
-	- [yc managed-postgresql cluster start-failover](cluster/start-failover.md) — Start manual failover for the specified PostgreSQL cluster
-	- [yc managed-postgresql cluster stop](cluster/stop.md) — Stop the specified PostgreSQL cluster
-	- [yc managed-postgresql cluster update](cluster/update.md) — Update the specified PostgreSQL cluster
-	- [yc managed-postgresql cluster update-config](cluster/update-config.md) — Update the specified PostgreSQL cluster config
-- [yc managed-postgresql database](database/index.md) — Manage PostgreSQL databases
-	- [yc managed-postgresql database create](database/create.md) — Create PostgreSQL database
-	- [yc managed-postgresql database delete](database/delete.md) — Delete the specified PostgreSQL database
-	- [yc managed-postgresql database get](database/get.md) — Show information about the specified PostgreSQL database
-	- [yc managed-postgresql database list](database/list.md) — List PostgreSQL databases
-	- [yc managed-postgresql database update](database/update.md) — Update the specified PostgreSQL database
-- [yc managed-postgresql hosts](hosts/index.md) — Manage PostgreSQL cluster hosts
-	- [yc managed-postgresql hosts add](hosts/add.md) — Create new hosts for the cluster in the specified availability zones
-	- [yc managed-postgresql hosts delete](hosts/delete.md) — Delete the specified hosts
-	- [yc managed-postgresql hosts list](hosts/list.md) — List hosts for the specified PostgreSQL cluster
-	- [yc managed-postgresql hosts update](hosts/update.md) — Update the specified hosts
-	- [yc managed-postgresql hosts update-config](hosts/update-config.md) — Updates PostgreSQL config for the specified hosts
-- [yc managed-postgresql resource-preset](resource-preset/index.md) — Manage PostgreSQL resource presets
-	- [yc managed-postgresql resource-preset get](resource-preset/get.md) — Show information about the specified PostgreSQL resource preset
-	- [yc managed-postgresql resource-preset list](resource-preset/list.md) — List available PostgreSQL resource presets.
-- [yc managed-postgresql user](user/index.md) — Manage PostgreSQL users
-	- [yc managed-postgresql user create](user/create.md) — Create a PostgreSQL user
-	- [yc managed-postgresql user delete](user/delete.md) — Delete the specified PostgreSQL user
-	- [yc managed-postgresql user get](user/get.md) — Show information about the specified PostgreSQL user
-	- [yc managed-postgresql user grant-permission](user/grant-permission.md) — Grant permission to the specified PostgreSQL user
-	- [yc managed-postgresql user list](user/list.md) — List users for the specified PostgreSQL cluster
-	- [yc managed-postgresql user revoke-permission](user/revoke-permission.md) — Revoke permission from the specified PostgreSQL user
-	- [yc managed-postgresql user update](user/update.md) — Update the specified PostgreSQL user
+- [yc managed-sharded-postgresql resource-preset](resource-preset.md) — Manage Sharded PostgreSQL resource presets
+- [yc managed-sharded-postgresql backup](backup/index.md) — Manage Sharded PostgreSQL backups
+	- [yc managed-sharded-postgresql backup delete](backup/delete.md) — Delete the specified Sharded PostgreSQL backup
+	- [yc managed-sharded-postgresql backup get](backup/get.md) — Show information about the specified Sharded PostgreSQL backup
+	- [yc managed-sharded-postgresql backup list](backup/list.md) — List available backups
+- [yc managed-sharded-postgresql cluster](cluster/index.md) — Manage Sharded PostgreSQL clusters
+	- [yc managed-sharded-postgresql cluster add-labels](cluster/add-labels.md) — Add labels to Sharded PostgreSQL cluster
+	- [yc managed-sharded-postgresql cluster add-subcluster](cluster/add-subcluster.md) — Add a new subcluster to the specified Sharded PostgreSQL cluster
+	- [yc managed-sharded-postgresql cluster backup](cluster/backup.md) — Create a backup for the specified Sharded PostgreSQL cluster
+	- [yc managed-sharded-postgresql cluster create](cluster/create.md) — Create Sharded PostgreSQL cluster
+	- [yc managed-sharded-postgresql cluster delete](cluster/delete.md) — Delete the specified Sharded PostgreSQL cluster
+	- [yc managed-sharded-postgresql cluster get](cluster/get.md) — Show information about the specified Sharded PostgreSQL cluster
+	- [yc managed-sharded-postgresql cluster list](cluster/list.md) — List Sharded PostgreSQL clusters
+	- [yc managed-sharded-postgresql cluster list-backups](cluster/list-backups.md) — List available backups for the specified Sharded PostgreSQL cluster
+	- [yc managed-sharded-postgresql cluster list-logs](cluster/list-logs.md) — Retrieves logs for the specified Sharded PostgreSQL cluster
+	- [yc managed-sharded-postgresql cluster list-operations](cluster/list-operations.md) — List operations for the specified Sharded PostgreSQL cluster
+	- [yc managed-sharded-postgresql cluster remove-labels](cluster/remove-labels.md) — Remove labels from Sharded PostgreSQL cluster
+	- [yc managed-sharded-postgresql cluster reschedule-maintenance](cluster/reschedule-maintenance.md) — Reschedule currently planned maintenance operation.
+	- [yc managed-sharded-postgresql cluster restore](cluster/restore.md) — Restore Sharded PostgreSQL cluster
+	- [yc managed-sharded-postgresql cluster update](cluster/update.md) — Update the specified Sharded PostgreSQL cluster
+	- [yc managed-sharded-postgresql cluster update-config](cluster/update-config.md) — Update the specified Sharded PostgreSQL cluster config
+- [yc managed-sharded-postgresql database](database/index.md) — Manage Sharded PostgreSQL databases
+	- [yc managed-sharded-postgresql database create](database/create.md) — Create Sharded PostgreSQL database
+	- [yc managed-sharded-postgresql database delete](database/delete.md) — Delete the specified Sharded PostgreSQL database
+	- [yc managed-sharded-postgresql database get](database/get.md) — Show information about the specified Sharded PostgreSQL database
+	- [yc managed-sharded-postgresql database list](database/list.md) — List Sharded PostgreSQL databases
+- [yc managed-sharded-postgresql hosts](hosts/index.md) — Manage Sharded PostgreSQL cluster hosts
+	- [yc managed-sharded-postgresql hosts add](hosts/add.md) — Create new hosts for the cluster in the specified availability zones
+	- [yc managed-sharded-postgresql hosts delete](hosts/delete.md) — Delete the specified hosts
+	- [yc managed-sharded-postgresql hosts list](hosts/list.md) — List hosts for the specified Sharded PostgreSQL cluster
+	- [yc managed-sharded-postgresql hosts update](hosts/update.md) — Update the specified hosts
+- [yc managed-sharded-postgresql user](user/index.md) — Manage Sharded PostgreSQL users
+	- [yc managed-sharded-postgresql user create](user/create.md) — Create a Sharded PostgreSQL user
+	- [yc managed-sharded-postgresql user delete](user/delete.md) — Delete the specified Sharded PostgreSQL user
+	- [yc managed-sharded-postgresql user get](user/get.md) — Show information about the specified Sharded PostgreSQL user
+	- [yc managed-sharded-postgresql user list](user/list.md) — List users for the specified Sharded PostgreSQL cluster
+	- [yc managed-sharded-postgresql user update](user/update.md) — Update the specified Sharded PostgreSQL user
 
 #### Global Flags
 

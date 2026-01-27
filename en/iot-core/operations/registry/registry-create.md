@@ -10,7 +10,7 @@ description: Follow this guide to create a {{ iot-name }} registry.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to create a registry in.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_registries }}**.
   1. Click **{{ ui-key.yacloud.iot.button_create-registry }}**.
   1. Under **{{ ui-key.yacloud.common.section-base }}**, add:
@@ -167,7 +167,7 @@ description: Follow this guide to create a {{ iot-name }} registry.
       }
       ```
 
-      For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
+      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
       
   1. Make sure the configuration files are correct.
       1. In the command line, navigate to the directory where you created the configuration file.
@@ -177,7 +177,7 @@ description: Follow this guide to create a {{ iot-name }} registry.
           terraform plan
           ```
 
-      If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
+      If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
          
   1. Deploy the cloud resources.
 
@@ -189,7 +189,7 @@ description: Follow this guide to create a {{ iot-name }} registry.
 
       1. Confirm creating the resources.
       
-          This will create all resources you need in the specified folder. You can check your new resources and their settings in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+          This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
           ```bash
           yc iot registry list

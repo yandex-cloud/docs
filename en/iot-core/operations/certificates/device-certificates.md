@@ -23,7 +23,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
    To add a device certificate:
 
    1. In the [management console]({{ link-console-main }}), select the folder to add the device certificate to.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Click the name of the registry.
    1. Go to **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Select the device from the list.
@@ -73,9 +73,9 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
   To add a certificate to a device created using {{ TF }}:
   
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
-     * `yandex_iot_core_registry`: Device properties:
+     * `yandex_iot_core_device`: Device properties:
        * `registry_id`: [ID of the registry](../registry/registry-list.md#registry-list) where the device will be created.
        * `name`: [Device name](../device/device-list.md#device-list).
        * `description`: Device description.
@@ -116,8 +116,8 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
       ```bash
       terraform apply
@@ -125,7 +125,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify device certificates in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+      You can verify device certificates in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc iot device certificate list --device-name <device_name>
@@ -146,7 +146,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
    To delete a device certificate:
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the device certificate from.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Click the name of the registry.
    1. Go to **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Select the device from the list.
@@ -224,8 +224,8 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
       ```bash
       terraform apply
@@ -233,7 +233,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify device certificates in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+      You can verify device certificates in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc iot device certificate list --device-name <device_name>

@@ -1,24 +1,24 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/user/list.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/user/list.md
 ---
 
-# yc managed-postgresql user list
+# yc managed-sharded-postgresql user list
 
-List users for the specified PostgreSQL cluster
+List users for the specified Sharded PostgreSQL cluster
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-postgresql user list [Flags...] [Global Flags...]`
+`yc managed-sharded-postgresql user list [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>PostgreSQL cluster id.|
-|`--cluster-name`|<b>`string`</b><br/>PostgreSQL cluster name.|
+|`--cluster-id`|<b>`string`</b><br/>Sharded PostgreSQL cluster id.|
+|`--cluster-name`|<b>`string`</b><br/>Sharded PostgreSQL cluster name.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
 
 #### Global Flags

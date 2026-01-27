@@ -3,9 +3,9 @@
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the device is located.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the registry where the device is located.
-   1. Go to the **{{ ui-key.yacloud.iot.label_devices }}** tab.
+   1. Navigate to the **{{ ui-key.yacloud.iot.label_devices }}** tab.
    1. Select the device.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_aliases }}** section.
 

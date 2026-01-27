@@ -27,12 +27,12 @@ To create a trigger, you will need:
 * [Service accounts](../../iam/concepts/users/service-accounts.md) with the following permissions:
 
     * To invoke a container.
-    * To read from the stream that will set off the trigger when it receives data.
+    * To read from the stream that will fire the trigger when data is sent to it.
     * Optionally, to write to a dead-letter queue.
 
     You can use the same service account or different ones. If you do not have a service account, [create one](../../iam/operations/sa/create.md).
 
-* A stream that will set off the trigger when it receives data. If you do not have a stream, [create one](../../data-streams/quickstart/create-stream.md).
+* Stream that will fire the trigger when data is sent to it.  If you do not have a stream, [create one](../../data-streams/quickstart/create-stream.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -42,9 +42,9 @@ To create a trigger, you will need:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder you want to create a trigger in.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -109,7 +109,7 @@ To create a trigger, you will need:
     * `--stream`: Stream name.
     * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 B to 64 KB. The default value is 1 B.
     * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The total amount of the data transmitted to a container may exceed `batch-size` if the data is transmitted as a single message. In all other cases, the amount of data does not exceed `batch-size`.
-    * `--stream-service-account-id`: ID of the service account with write and read permissions for the stream.
+    * `--stream-service-account-id`: ID of the service account with write and read permissions to the stream.
     
     {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 
@@ -192,7 +192,7 @@ To create a trigger, you will need:
 
              To find out where the DB is located, run the `yc ydb database list` command. The DB location is specified in the `ENDPOINT` column, in the `database` parameter, e.g., `/ru-central1/b1gia87mba**********/etn7hehf6g*******`.
 
-         * `service_account_id`: ID of the service account with write and read permissions for the stream.
+         * `service_account_id`: ID of the service account with write and read permissions to the stream.
 
          * `batch_cutoff`: Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch_cutoff` and sends them to a container. The number of messages cannot exceed `batch_size`.
          * `batch_size`: Message batch size. This is an optional setting. The values may range from 1 B to 64 KB. The default value is 1 B.

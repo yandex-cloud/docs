@@ -16,7 +16,7 @@ description: Follow this guide to export messages to {{ yds-name }}.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the registry is located.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. Select the required registry from the list.
   1. Navigate to the **{{ ui-key.yacloud.iot.label_yds-exports }}** tab.
   1. In the top-right corner, click **{{ ui-key.yacloud.iot.button_add-yds-export }}**.

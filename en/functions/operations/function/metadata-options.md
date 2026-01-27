@@ -8,8 +8,8 @@ You can configure metadata service parameters when [creating a function version]
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [function](../../concepts/function.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [function](../../concepts/function.md).
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select a function.
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
   1. Expand the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-additional-parameters }}** section.
@@ -26,16 +26,16 @@ You can configure metadata service parameters when [creating a function version]
     --runtime <runtime_environment> \
     --entrypoint <entry_point> \
     --source-version-id <version_ID> \
-    --metadata-options <option>=<enabled_or_disabled>
+    --metadata-options <option>=<enable_or_disabled>
   ```
 
   Where:
 
   * `--function-id`: ID of the function a new version of which you want to create. To find out the function ID, [get a list of functions](function-list.md) in the folder.
   * `--runtime`: Runtime environment.
-  * `entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
+  * `--entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
   * `--source-version-id`: ID of the function version from which you want to copy the code. To find out the ID, [get a list of function versions](version-list.md).
-  * `--metadata-options`: Settings for the metadata service parameters, e.g., `aws-v1-http-endpoint=disabled`.
+  * `--metadata-options`: Metadata service settings, e.g., `aws-v1-http-endpoint=disabled`.
 
 - {{ TF }} {#tf}
 
@@ -74,7 +74,7 @@ You can configure metadata service parameters when [creating a function version]
             * `1` to enable the parameter.
             * `2` to disable the parameter.
 
-        For more information about the `yandex_function` resource parameters, see [this Terraform article]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function).
 
    1. Apply the changes:
 

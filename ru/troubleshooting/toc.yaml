@@ -192,8 +192,6 @@ items:
           Устранение ошибок `no such bucket` и `no such key` при загрузке
           объектов из {{ cdn-name }}
         href: cdn/known-issues/no-such-bucket-no-such-key.md
-      - name: Устранение ошибки `CNAME already exists`
-        href: cdn/known-issues/cname-already-exists.md
       - name: >-
           Устранение ошибки `You cannot enable redirect HTTP to HTTPS when HTTPS
           is disabled`
@@ -872,8 +870,6 @@ items:
           Устранение ошибок доступа к бакету с назначенной политикой
           безопасности
         href: storage/known-issues/unable-to-access-bucket-with-assigned-policy.md
-      - name: Устранение ошибки 429
-        href: storage/known-issues/error-429.md
       - name: Устранение ошибки 409 `BucketAlreadyExists`
         href: storage/known-issues/error-409-bucket-already-exists.md
       - name: >-

@@ -10,36 +10,2200 @@ Updates the specified endpoint.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta datatransfer endpoint update <ENDPOINT-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`--description`|<b>`string`</b><br/>The new description for the endpoint.|
-|`--endpoint-id`|<b>`string`</b><br/>Identifier of the endpoint to be updated.|
-|`--labels`|<b>`stringToString`</b><br/>Endpoint labels as 'key:value' pairs. For details about the concept, see [documentation]({{ api-url-prefix }}/resource-manager/concepts/labels).|
-|`--name`|<b>`string`</b><br/>The new endpoint name. Must be unique within the folder.|
-|`--settings`|<b>`shorthand/json`</b><br/>The new endpoint settings.<br/>Shorthand Syntax:<br/>{<br/>settings = clickhouse-source={<br/>clickhouse-cluster-name = str,<br/>connection = {<br/>connection = connection-options={<br/>address = connection-manager-connection={<br/>connection-id = str,<br/>subnet-id = str<br/>} \| mdb-cluster-id=str \| on-premise={<br/>http-port = int,<br/>native-port = int,<br/>shards = [<br/>{<br/>hosts = str,...,<br/>name = str<br/>}, ...<br/>],<br/>tls-mode = {<br/>tls-mode = disabled={} \| enabled={<br/>ca-certificate = str<br/>}<br/>}<br/>},<br/>database = str,<br/>password = {<br/>value = raw=str<br/>},<br/>user = str<br/>}<br/>},<br/>exclude-tables = str,...,<br/>include-tables = str,...,<br/>security-groups = str,...,<br/>subnet-id = str<br/>} \| clickhouse-target={<br/>alt-names = [<br/>{<br/>from-name = str,<br/>to-name = str<br/>}, ...<br/>],<br/>cleanup-policy = CLICKHOUSE_CLEANUP_POLICY_DISABLED\|CLICKHOUSE_CLEANUP_POLICY_DROP\|CLICKHOUSE_CLEANUP_POLICY_TRUNCATE,<br/>clickhouse-cluster-name = str,<br/>connection = {<br/>connection = connection-options={<br/>address = connection-manager-connection={<br/>connection-id = str,<br/>subnet-id = str<br/>} \| mdb-cluster-id=str \| on-premise={<br/>http-port = int,<br/>native-port = int,<br/>shards = [<br/>{<br/>hosts = str,...,<br/>name = str<br/>}, ...<br/>],<br/>tls-mode = {<br/>tls-mode = disabled={} \| enabled={<br/>ca-certificate = str<br/>}<br/>}<br/>},<br/>database = str,<br/>password = {<br/>value = raw=str<br/>},<br/>user = str<br/>}<br/>},<br/>is-schema-migration-disabled = bool,<br/>security-groups = str,...,<br/>sharding = {<br/>sharding = column-value-hash={<br/>column-name = str<br/>} \| custom-mapping={<br/>column-name = str,<br/>mapping = [<br/>{<br/>column-value = {<br/>value = string-value=str<br/>},<br/>shard-name = str<br/>}, ...<br/>]<br/>} \| round-robin={} \| transfer-id={}<br/>},<br/>subnet-id = str<br/>} \| kafka-source={<br/>auth = {<br/>security = no-auth={} \| sasl={<br/>mechanism = KAFKA_MECHANISM_SHA256\|KAFKA_MECHANISM_SHA512,<br/>password = {<br/>value = raw=str<br/>},<br/>user = str<br/>}<br/>},<br/>connection = {<br/>connection = cluster-id=str \| connection-manager-connection={<br/>connection-id = str,<br/>subnet-id = str<br/>} \| on-premise={<br/>broker-urls = str,...,<br/>subnet-id = str,<br/>tls-mode = {<br/>tls-mode = disabled={} \| enabled={<br/>ca-certificate = str<br/>}<br/>}<br/>}<br/>},<br/>parser = {<br/>parser = audit-trails-v1-parser={} \| cloud-logging-parser={} \| json-parser={<br/>add-rest-column = bool,<br/>data-schema = {<br/>schema = fields={<br/>fields = [<br/>{<br/>key = bool,<br/>name = str,<br/>path = str,<br/>required = bool,<br/>type = INT32\|INT16\|INT8\|UINT64\|UINT32\|UINT16\|UINT8\|DOUBLE\|BOOLEAN\|STRING\|UTF8\|ANY\|DATETIME\|INT64<br/>}, ...<br/>]<br/>} \| json-fields=str<br/>},<br/>null-keys-allowed = bool,<br/>unescape-string-values = bool<br/>} \| tskv-parser={<br/>add-rest-column = bool,<br/>data-schema = {<br/>schema = fields={<br/>fields = [<br/>{<br/>key = bool,<br/>name = str,<br/>path = str,<br/>required = bool,<br/>type = INT32\|INT16\|INT8\|UINT64\|UINT32\|UINT16\|UINT8\|DOUBLE\|BOOLEAN\|STRING\|UTF8\|ANY\|DATETIME\|INT64<br/>}, ...<br/>]<br/>} \| json-fields=str<br/>},<br/>null-keys-allowed = bool,<br/>unescape-string-values = bool<br/>}<br/>},<br/>security-groups = str,...,<br/>topic-name = str,<br/>topic-names = str,...,<br/>transformer = {<br/>buffer-flush-interval = str,<br/>buffer-size = str,<br/>cloud-function = str,<br/>invocation-timeout = str,<br/>number-of-retries = int,<br/>service-account-id = str<br/>}<br/>} \| kafka-target={<br/>auth = {<br/>security = no-auth={} \| sasl={<br/>mechanism = KAFKA_MECHANISM_SHA256\|KAFKA_MECHANISM_SHA512,<br/>password = {<br/>value = raw=str<br/>},<br/>user = str<br/>}<br/>},<br/>connection = {<br/>connection = cluster-id=str \| connection-manager-connection={<br/>connection-id = str,<br/>subnet-id = str<br/>} \| on-premise={<br/>broker-urls = str,...,<br/>subnet-id = str,<br/>tls-mode = {<br/>tls-mode = disabled={} \| enabled={<br/>ca-certificate = str<br/>}<br/>}<br/>}<br/>},<br/>security-groups = str,...,<br/>serializer = {<br/>serializer = serializer-auto={} \| serializer-debezium={<br/>serializer-parameters = [<br/>{<br/>key = str,<br/>value = str<br/>}, ...<br/>]<br/>} \| serializer-json={}<br/>},<br/>topic-settings = {<br/>topic-settings = topic={<br/>save-tx-order = bool,<br/>topic-name = str<br/>} \| topic-prefix=str<br/>}<br/>} \| metrika-source={<br/>counter-ids = int,...,<br/>streams = [<br/>{<br/>columns = str,...,<br/>type = METRIKA_STREAM_TYPE_HITS\|METRIKA_STREAM_TYPE_VISITS\|METRIKA_STREAM_TYPE_HITS_V2<br/>}, ...<br/>],<br/>token = {<br/>value = raw=str<br/>}<br/>} \| mongo-source={<br/>collections = [<br/>{<br/>collection-name = str,<br/>database-name = str<br/>}, ...<br/>],<br/>connection = {<br/>connection = connection-options={<br/>address = connection-manager-connection={<br/>connection-id = str,<br/>replica-set = str<br/>} \| mdb-cluster-id=str \| on-premise={<br/>hosts = str,...,<br/>port = int,<br/>replica-set = str,<br/>tls-mode = {<br/>tls-mode = disabled={} \| enabled={<br/>ca-certificate = str<br/>}<br/>}<br/>},<br/>auth-source = str,<br/>password = {<br/>value = raw=str<br/>},<br/>user = str<br/>}<br/>},<br/>excluded-collections = [<br/>{<br/>collection-name = str,<br/>database-name = str<br/>}, ...<br/>],<br/>secondary-preferred-mode = bool,<br/>security-groups = str,...,<br/>subnet-id = str<br/>} \| mongo-target={<br/>cleanup-policy = DISABLED\|DROP\|TRUNCATE,<br/>connection = {<br/>connection = connection-options={<br/>address = connection-manager-connection={<br/>connection-id = str,<br/>replica-set = str<br/>} \| mdb-cluster-id=str \| on-premise={<br/>hosts = str,...,<br/>port = int,<br/>replica-set = str,<br/>tls-mode = {<br/>tls-mode = disabled={} \| enabled={<br/>ca-certificate = str<br/>}<br/>}<br/>},<br/>auth-source = str,<br/>password = {<br/>value = raw=str<br/>},<br/>user = str<br/>}<br/>},<br/>database = str,<br/>security-groups = str,...,<br/>subnet-id = str<br/>} \| mysql-source={<br/>connection = {<br/>connection = connection-manager-connection={<br/>connection-id = str,<br/>subnet-id = str<br/>} \| mdb-cluster-id=str \| on-premise={<br/>hosts = str,...,<br/>port = int,<br/>subnet-id = str,<br/>tls-mode = {<br/>tls-mode = disabled={} \| enabled={<br/>ca-certificate = str<br/>}<br/>}<br/>}<br/>},<br/>database = str,<br/>exclude-tables-regex = str,...,<br/>include-tables-regex = str,...,<br/>object-transfer-settings = {<br/>routine = BEFORE_DATA\|AFTER_DATA\|NEVER,<br/>tables = BEFORE_DATA\|AFTER_DATA\|NEVER,<br/>trigger = BEFORE_DATA\|AFTER_DATA\|NEVER,<br/>view = BEFORE_DATA\|AFTER_DATA\|NEVER<br/>},<br/>password = {<br/>value = raw=str<br/>},<br/>security-groups = str,...,<br/>service-database = str,<br/>timezone = str,<br/>user = str<br/>} \| mysql-target={<br/>cleanup-policy = DISABLED\|DROP\|TRUNCATE,<br/>connection = {<br/>connection = connection-manager-connection={<br/>connection-id = str,<br/>subnet-id = str<br/>} \| mdb-cluster-id=str \| on-premise={<br/>hosts = str,...,<br/>port = int,<br/>subnet-id = str,<br/>tls-mode = {<br/>tls-mode = disabled={} \| enabled={<br/>ca-certificate = str<br/>}<br/>}<br/>}<br/>},<br/>database = str,<br/>is-schema-migration-disabled = bool,<br/>password = {<br/>value = raw=str<br/>},<br/>security-groups = str,...,<br/>service-database = str,<br/>skip-constraint-checks = bool,<br/>sql-mode = str,<br/>timezone = str,<br/>user = str<br/>} \| postgres-source={<br/>connection = {<br/>connection = connection-manager-connection={<br/>connection-id = str,<br/>subnet-id = str<br/>} \| mdb-cluster-id=str \| on-premise={<br/>hosts = str,...,<br/>port = int,<br/>subnet-id = str,<br/>tls-mode = {<br/>tls-mode = disabled={} \| enabled={<br/>ca-certificate = str<br/>}<br/>}<br/>}<br/>},<br/>database = str,<br/>exclude-tables = str,...,<br/>include-tables = str,...,<br/>object-transfer-settings = {<br/>cast = BEFORE_DATA\|AFTER_DATA\|NEVER,<br/>collation = BEFORE_DATA\|AFTER_DATA\|NEVER,<br/>constraint = BEFORE_DATA\|AFTER_DATA\|NEVER,<br/>default-values = BEFORE_DATA\|AFTER_DATA\|NEVER,<br/>fk-constraint = BEFORE_DATA\|AFTER_DATA\|NEVER,<br/>function = BEFORE_DATA\|AFTER_DATA\|NEVER,<br/>index = BEFORE_DATA\|AFTER_DATA\|NEVER,<br/>materialized-view = BEFORE_DATA\|AFTER_DATA\|NEVER,<br/>policy = BEFORE_DATA\|AFTER_DATA\|NEVER,<br/>primary-key = BEFORE_DATA\|AFTER_DATA\|NEVER,<br/>rule = BEFORE_DATA\|AFTER_DATA\|NEVER,<br/>sequence = BEFORE_DATA\|AFTER_DATA\|NEVER,<br/>sequence-owned-by = BEFORE_DATA\|AFTER_DATA\|NEVER,<br/>sequence-set = BEFORE_DATA\|AFTER_DATA\|NEVER,<br/>table = BEFORE_DATA\|AFTER_DATA\|NEVER,<br/>trigger = BEFORE_DATA\|AFTER_DATA\|NEVER,<br/>type = BEFORE_DATA\|AFTER_DATA\|NEVER,<br/>view = BEFORE_DATA\|AFTER_DATA\|NEVER<br/>},<br/>password = {<br/>value = raw=str<br/>},<br/>security-groups = str,...,<br/>service-schema = str,<br/>slot-byte-lag-limit = int,<br/>user = str<br/>} \| postgres-target={<br/>cleanup-policy = DISABLED\|DROP\|TRUNCATE,<br/>connection = {<br/>connection = connection-manager-connection={<br/>connection-id = str,<br/>subnet-id = str<br/>} \| mdb-cluster-id=str \| on-premise={<br/>hosts = str,...,<br/>port = int,<br/>subnet-id = str,<br/>tls-mode = {<br/>tls-mode = disabled={} \| enabled={<br/>ca-certificate = str<br/>}<br/>}<br/>}<br/>},<br/>database = str,<br/>is-schema-migration-disabled = bool,<br/>password = {<br/>value = raw=str<br/>},<br/>security-groups = str,...,<br/>user = str<br/>} \| ydb-source={<br/>changefeed-custom-consumer-name = str,<br/>changefeed-custom-name = str,<br/>database = str,<br/>instance = str,<br/>paths = str,...,<br/>sa-key-content = str,<br/>security-groups = str,...,<br/>service-account-id = str,<br/>subnet-id = str<br/>} \| ydb-target={<br/>cleanup-policy = YDB_CLEANUP_POLICY_DISABLED\|YDB_CLEANUP_POLICY_DROP,<br/>database = str,<br/>default-compression = YDB_DEFAULT_COMPRESSION_DISABLED\|YDB_DEFAULT_COMPRESSION_LZ4,<br/>instance = str,<br/>is-schema-migration-disabled = bool,<br/>is-table-column-oriented = bool,<br/>path = str,<br/>sa-key-content = str,<br/>security-groups = str,...,<br/>service-account-id = str,<br/>subnet-id = str<br/>} \| yds-source={<br/>allow-ttl-rewind = bool,<br/>consumer = str,<br/>database = str,<br/>endpoint = str,<br/>parser = {<br/>parser = audit-trails-v1-parser={} \| cloud-logging-parser={} \| json-parser={<br/>add-rest-column = bool,<br/>data-schema = {<br/>schema = fields={<br/>fields = [<br/>{<br/>key = bool,<br/>name = str,<br/>path = str,<br/>required = bool,<br/>type = INT32\|INT16\|INT8\|UINT64\|UINT32\|UINT16\|UINT8\|DOUBLE\|BOOLEAN\|STRING\|UTF8\|ANY\|DATETIME\|INT64<br/>}, ...<br/>]<br/>} \| json-fields=str<br/>},<br/>null-keys-allowed = bool,<br/>unescape-string-values = bool<br/>} \| tskv-parser={<br/>add-rest-column = bool,<br/>data-schema = {<br/>schema = fields={<br/>fields = [<br/>{<br/>key = bool,<br/>name = str,<br/>path = str,<br/>required = bool,<br/>type = INT32\|INT16\|INT8\|UINT64\|UINT32\|UINT16\|UINT8\|DOUBLE\|BOOLEAN\|STRING\|UTF8\|ANY\|DATETIME\|INT64<br/>}, ...<br/>]<br/>} \| json-fields=str<br/>},<br/>null-keys-allowed = bool,<br/>unescape-string-values = bool<br/>}<br/>},<br/>security-groups = str,...,<br/>service-account-id = str,<br/>stream = str,<br/>subnet-id = str,<br/>supported-codecs = YDS_COMPRESSION_CODEC_RAW\|YDS_COMPRESSION_CODEC_GZIP\|YDS_COMPRESSION_CODEC_ZSTD,...<br/>} \| yds-target={<br/>compression-codec = YDS_COMPRESSION_CODEC_RAW\|YDS_COMPRESSION_CODEC_GZIP\|YDS_COMPRESSION_CODEC_ZSTD,<br/>database = str,<br/>endpoint = str,<br/>save-tx-order = bool,<br/>security-groups = str,...,<br/>serializer = {<br/>serializer = serializer-auto={} \| serializer-debezium={<br/>serializer-parameters = [<br/>{<br/>key = str,<br/>value = str<br/>}, ...<br/>]<br/>} \| serializer-json={}<br/>},<br/>service-account-id = str,<br/>stream = str,<br/>subnet-id = str<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"settings": {<br/>"clickhouse-source": {<br/>"clickhouse-cluster-name": "str",<br/>"connection": {<br/>"connection": {<br/>"connection-options": {<br/>"address": {<br/>"connection-manager-connection": {<br/>"connection-id": "str",<br/>"subnet-id": "str"<br/>},<br/>"mdb-cluster-id": "str",<br/>"on-premise": {<br/>"http-port": "int",<br/>"native-port": "int",<br/>"shards": [<br/>{<br/>"hosts": [<br/>"str", ...<br/>],<br/>"name": "str"<br/>}, ...<br/>],<br/>"tls-mode": {<br/>"tls-mode": {<br/>"disabled": {},<br/>"enabled": {<br/>"ca-certificate": "str"<br/>}<br/>}<br/>}<br/>}<br/>},<br/>"database": "str",<br/>"password": {<br/>"value": {<br/>"raw": "str"<br/>}<br/>},<br/>"user": "str"<br/>}<br/>}<br/>},<br/>"exclude-tables": [<br/>"str", ...<br/>],<br/>"include-tables": [<br/>"str", ...<br/>],<br/>"security-groups": [<br/>"str", ...<br/>],<br/>"subnet-id": "str"<br/>},<br/>"clickhouse-target": {<br/>"alt-names": [<br/>{<br/>"from-name": "str",<br/>"to-name": "str"<br/>}, ...<br/>],<br/>"cleanup-policy": "CLICKHOUSE_CLEANUP_POLICY_DISABLED\|CLICKHOUSE_CLEANUP_POLICY_DROP\|CLICKHOUSE_CLEANUP_POLICY_TRUNCATE",<br/>"clickhouse-cluster-name": "str",<br/>"connection": {<br/>"connection": {<br/>"connection-options": {<br/>"address": {<br/>"connection-manager-connection": {<br/>"connection-id": "str",<br/>"subnet-id": "str"<br/>},<br/>"mdb-cluster-id": "str",<br/>"on-premise": {<br/>"http-port": "int",<br/>"native-port": "int",<br/>"shards": [<br/>{<br/>"hosts": [<br/>"str", ...<br/>],<br/>"name": "str"<br/>}, ...<br/>],<br/>"tls-mode": {<br/>"tls-mode": {<br/>"disabled": {},<br/>"enabled": {<br/>"ca-certificate": "str"<br/>}<br/>}<br/>}<br/>}<br/>},<br/>"database": "str",<br/>"password": {<br/>"value": {<br/>"raw": "str"<br/>}<br/>},<br/>"user": "str"<br/>}<br/>}<br/>},<br/>"is-schema-migration-disabled": "bool",<br/>"security-groups": [<br/>"str", ...<br/>],<br/>"sharding": {<br/>"sharding": {<br/>"column-value-hash": {<br/>"column-name": "str"<br/>},<br/>"custom-mapping": {<br/>"column-name": "str",<br/>"mapping": [<br/>{<br/>"column-value": {<br/>"value": {<br/>"string-value": "str"<br/>}<br/>},<br/>"shard-name": "str"<br/>}, ...<br/>]<br/>},<br/>"round-robin": {},<br/>"transfer-id": {}<br/>}<br/>},<br/>"subnet-id": "str"<br/>},<br/>"kafka-source": {<br/>"auth": {<br/>"security": {<br/>"no-auth": {},<br/>"sasl": {<br/>"mechanism": "KAFKA_MECHANISM_SHA256\|KAFKA_MECHANISM_SHA512",<br/>"password": {<br/>"value": {<br/>"raw": "str"<br/>}<br/>},<br/>"user": "str"<br/>}<br/>}<br/>},<br/>"connection": {<br/>"connection": {<br/>"cluster-id": "str",<br/>"connection-manager-connection": {<br/>"connection-id": "str",<br/>"subnet-id": "str"<br/>},<br/>"on-premise": {<br/>"broker-urls": [<br/>"str", ...<br/>],<br/>"subnet-id": "str",<br/>"tls-mode": {<br/>"tls-mode": {<br/>"disabled": {},<br/>"enabled": {<br/>"ca-certificate": "str"<br/>}<br/>}<br/>}<br/>}<br/>}<br/>},<br/>"parser": {<br/>"parser": {<br/>"audit-trails-v1-parser": {},<br/>"cloud-logging-parser": {},<br/>"json-parser": {<br/>"add-rest-column": "bool",<br/>"data-schema": {<br/>"schema": {<br/>"fields": {<br/>"fields": [<br/>{<br/>"key": "bool",<br/>"name": "str",<br/>"path": "str",<br/>"required": "bool",<br/>"type": "INT32\|INT16\|INT8\|UINT64\|UINT32\|UINT16\|UINT8\|DOUBLE\|BOOLEAN\|STRING\|UTF8\|ANY\|DATETIME\|INT64"<br/>}, ...<br/>]<br/>},<br/>"json-fields": "str"<br/>}<br/>},<br/>"null-keys-allowed": "bool",<br/>"unescape-string-values": "bool"<br/>},<br/>"tskv-parser": {<br/>"add-rest-column": "bool",<br/>"data-schema": {<br/>"schema": {<br/>"fields": {<br/>"fields": [<br/>{<br/>"key": "bool",<br/>"name": "str",<br/>"path": "str",<br/>"required": "bool",<br/>"type": "INT32\|INT16\|INT8\|UINT64\|UINT32\|UINT16\|UINT8\|DOUBLE\|BOOLEAN\|STRING\|UTF8\|ANY\|DATETIME\|INT64"<br/>}, ...<br/>]<br/>},<br/>"json-fields": "str"<br/>}<br/>},<br/>"null-keys-allowed": "bool",<br/>"unescape-string-values": "bool"<br/>}<br/>}<br/>},<br/>"security-groups": [<br/>"str", ...<br/>],<br/>"topic-name": "str",<br/>"topic-names": [<br/>"str", ...<br/>],<br/>"transformer": {<br/>"buffer-flush-interval": "str",<br/>"buffer-size": "str",<br/>"cloud-function": "str",<br/>"invocation-timeout": "str",<br/>"number-of-retries": "int",<br/>"service-account-id": "str"<br/>}<br/>},<br/>"kafka-target": {<br/>"auth": {<br/>"security": {<br/>"no-auth": {},<br/>"sasl": {<br/>"mechanism": "KAFKA_MECHANISM_SHA256\|KAFKA_MECHANISM_SHA512",<br/>"password": {<br/>"value": {<br/>"raw": "str"<br/>}<br/>},<br/>"user": "str"<br/>}<br/>}<br/>},<br/>"connection": {<br/>"connection": {<br/>"cluster-id": "str",<br/>"connection-manager-connection": {<br/>"connection-id": "str",<br/>"subnet-id": "str"<br/>},<br/>"on-premise": {<br/>"broker-urls": [<br/>"str", ...<br/>],<br/>"subnet-id": "str",<br/>"tls-mode": {<br/>"tls-mode": {<br/>"disabled": {},<br/>"enabled": {<br/>"ca-certificate": "str"<br/>}<br/>}<br/>}<br/>}<br/>}<br/>},<br/>"security-groups": [<br/>"str", ...<br/>],<br/>"serializer": {<br/>"serializer": {<br/>"serializer-auto": {},<br/>"serializer-debezium": {<br/>"serializer-parameters": [<br/>{<br/>"key": "str",<br/>"value": "str"<br/>}, ...<br/>]<br/>},<br/>"serializer-json": {}<br/>}<br/>},<br/>"topic-settings": {<br/>"topic-settings": {<br/>"topic": {<br/>"save-tx-order": "bool",<br/>"topic-name": "str"<br/>},<br/>"topic-prefix": "str"<br/>}<br/>}<br/>},<br/>"metrika-source": {<br/>"counter-ids": [<br/>"int", ...<br/>],<br/>"streams": [<br/>{<br/>"columns": [<br/>"str", ...<br/>],<br/>"type": "METRIKA_STREAM_TYPE_HITS\|METRIKA_STREAM_TYPE_VISITS\|METRIKA_STREAM_TYPE_HITS_V2"<br/>}, ...<br/>],<br/>"token": {<br/>"value": {<br/>"raw": "str"<br/>}<br/>}<br/>},<br/>"mongo-source": {<br/>"collections": [<br/>{<br/>"collection-name": "str",<br/>"database-name": "str"<br/>}, ...<br/>],<br/>"connection": {<br/>"connection": {<br/>"connection-options": {<br/>"address": {<br/>"connection-manager-connection": {<br/>"connection-id": "str",<br/>"replica-set": "str"<br/>},<br/>"mdb-cluster-id": "str",<br/>"on-premise": {<br/>"hosts": [<br/>"str", ...<br/>],<br/>"port": "int",<br/>"replica-set": "str",<br/>"tls-mode": {<br/>"tls-mode": {<br/>"disabled": {},<br/>"enabled": {<br/>"ca-certificate": "str"<br/>}<br/>}<br/>}<br/>}<br/>},<br/>"auth-source": "str",<br/>"password": {<br/>"value": {<br/>"raw": "str"<br/>}<br/>},<br/>"user": "str"<br/>}<br/>}<br/>},<br/>"excluded-collections": [<br/>{<br/>"collection-name": "str",<br/>"database-name": "str"<br/>}, ...<br/>],<br/>"secondary-preferred-mode": "bool",<br/>"security-groups": [<br/>"str", ...<br/>],<br/>"subnet-id": "str"<br/>},<br/>"mongo-target": {<br/>"cleanup-policy": "DISABLED\|DROP\|TRUNCATE",<br/>"connection": {<br/>"connection": {<br/>"connection-options": {<br/>"address": {<br/>"connection-manager-connection": {<br/>"connection-id": "str",<br/>"replica-set": "str"<br/>},<br/>"mdb-cluster-id": "str",<br/>"on-premise": {<br/>"hosts": [<br/>"str", ...<br/>],<br/>"port": "int",<br/>"replica-set": "str",<br/>"tls-mode": {<br/>"tls-mode": {<br/>"disabled": {},<br/>"enabled": {<br/>"ca-certificate": "str"<br/>}<br/>}<br/>}<br/>}<br/>},<br/>"auth-source": "str",<br/>"password": {<br/>"value": {<br/>"raw": "str"<br/>}<br/>},<br/>"user": "str"<br/>}<br/>}<br/>},<br/>"database": "str",<br/>"security-groups": [<br/>"str", ...<br/>],<br/>"subnet-id": "str"<br/>},<br/>"mysql-source": {<br/>"connection": {<br/>"connection": {<br/>"connection-manager-connection": {<br/>"connection-id": "str",<br/>"subnet-id": "str"<br/>},<br/>"mdb-cluster-id": "str",<br/>"on-premise": {<br/>"hosts": [<br/>"str", ...<br/>],<br/>"port": "int",<br/>"subnet-id": "str",<br/>"tls-mode": {<br/>"tls-mode": {<br/>"disabled": {},<br/>"enabled": {<br/>"ca-certificate": "str"<br/>}<br/>}<br/>}<br/>}<br/>}<br/>},<br/>"database": "str",<br/>"exclude-tables-regex": [<br/>"str", ...<br/>],<br/>"include-tables-regex": [<br/>"str", ...<br/>],<br/>"object-transfer-settings": {<br/>"routine": "BEFORE_DATA\|AFTER_DATA\|NEVER",<br/>"tables": "BEFORE_DATA\|AFTER_DATA\|NEVER",<br/>"trigger": "BEFORE_DATA\|AFTER_DATA\|NEVER",<br/>"view": "BEFORE_DATA\|AFTER_DATA\|NEVER"<br/>},<br/>"password": {<br/>"value": {<br/>"raw": "str"<br/>}<br/>},<br/>"security-groups": [<br/>"str", ...<br/>],<br/>"service-database": "str",<br/>"timezone": "str",<br/>"user": "str"<br/>},<br/>"mysql-target": {<br/>"cleanup-policy": "DISABLED\|DROP\|TRUNCATE",<br/>"connection": {<br/>"connection": {<br/>"connection-manager-connection": {<br/>"connection-id": "str",<br/>"subnet-id": "str"<br/>},<br/>"mdb-cluster-id": "str",<br/>"on-premise": {<br/>"hosts": [<br/>"str", ...<br/>],<br/>"port": "int",<br/>"subnet-id": "str",<br/>"tls-mode": {<br/>"tls-mode": {<br/>"disabled": {},<br/>"enabled": {<br/>"ca-certificate": "str"<br/>}<br/>}<br/>}<br/>}<br/>}<br/>},<br/>"database": "str",<br/>"is-schema-migration-disabled": "bool",<br/>"password": {<br/>"value": {<br/>"raw": "str"<br/>}<br/>},<br/>"security-groups": [<br/>"str", ...<br/>],<br/>"service-database": "str",<br/>"skip-constraint-checks": "bool",<br/>"sql-mode": "str",<br/>"timezone": "str",<br/>"user": "str"<br/>},<br/>"postgres-source": {<br/>"connection": {<br/>"connection": {<br/>"connection-manager-connection": {<br/>"connection-id": "str",<br/>"subnet-id": "str"<br/>},<br/>"mdb-cluster-id": "str",<br/>"on-premise": {<br/>"hosts": [<br/>"str", ...<br/>],<br/>"port": "int",<br/>"subnet-id": "str",<br/>"tls-mode": {<br/>"tls-mode": {<br/>"disabled": {},<br/>"enabled": {<br/>"ca-certificate": "str"<br/>}<br/>}<br/>}<br/>}<br/>}<br/>},<br/>"database": "str",<br/>"exclude-tables": [<br/>"str", ...<br/>],<br/>"include-tables": [<br/>"str", ...<br/>],<br/>"object-transfer-settings": {<br/>"cast": "BEFORE_DATA\|AFTER_DATA\|NEVER",<br/>"collation": "BEFORE_DATA\|AFTER_DATA\|NEVER",<br/>"constraint": "BEFORE_DATA\|AFTER_DATA\|NEVER",<br/>"default-values": "BEFORE_DATA\|AFTER_DATA\|NEVER",<br/>"fk-constraint": "BEFORE_DATA\|AFTER_DATA\|NEVER",<br/>"function": "BEFORE_DATA\|AFTER_DATA\|NEVER",<br/>"index": "BEFORE_DATA\|AFTER_DATA\|NEVER",<br/>"materialized-view": "BEFORE_DATA\|AFTER_DATA\|NEVER",<br/>"policy": "BEFORE_DATA\|AFTER_DATA\|NEVER",<br/>"primary-key": "BEFORE_DATA\|AFTER_DATA\|NEVER",<br/>"rule": "BEFORE_DATA\|AFTER_DATA\|NEVER",<br/>"sequence": "BEFORE_DATA\|AFTER_DATA\|NEVER",<br/>"sequence-owned-by": "BEFORE_DATA\|AFTER_DATA\|NEVER",<br/>"sequence-set": "BEFORE_DATA\|AFTER_DATA\|NEVER",<br/>"table": "BEFORE_DATA\|AFTER_DATA\|NEVER",<br/>"trigger": "BEFORE_DATA\|AFTER_DATA\|NEVER",<br/>"type": "BEFORE_DATA\|AFTER_DATA\|NEVER",<br/>"view": "BEFORE_DATA\|AFTER_DATA\|NEVER"<br/>},<br/>"password": {<br/>"value": {<br/>"raw": "str"<br/>}<br/>},<br/>"security-groups": [<br/>"str", ...<br/>],<br/>"service-schema": "str",<br/>"slot-byte-lag-limit": "int",<br/>"user": "str"<br/>},<br/>"postgres-target": {<br/>"cleanup-policy": "DISABLED\|DROP\|TRUNCATE",<br/>"connection": {<br/>"connection": {<br/>"connection-manager-connection": {<br/>"connection-id": "str",<br/>"subnet-id": "str"<br/>},<br/>"mdb-cluster-id": "str",<br/>"on-premise": {<br/>"hosts": [<br/>"str", ...<br/>],<br/>"port": "int",<br/>"subnet-id": "str",<br/>"tls-mode": {<br/>"tls-mode": {<br/>"disabled": {},<br/>"enabled": {<br/>"ca-certificate": "str"<br/>}<br/>}<br/>}<br/>}<br/>}<br/>},<br/>"database": "str",<br/>"is-schema-migration-disabled": "bool",<br/>"password": {<br/>"value": {<br/>"raw": "str"<br/>}<br/>},<br/>"security-groups": [<br/>"str", ...<br/>],<br/>"user": "str"<br/>},<br/>"ydb-source": {<br/>"changefeed-custom-consumer-name": "str",<br/>"changefeed-custom-name": "str",<br/>"database": "str",<br/>"instance": "str",<br/>"paths": [<br/>"str", ...<br/>],<br/>"sa-key-content": "str",<br/>"security-groups": [<br/>"str", ...<br/>],<br/>"service-account-id": "str",<br/>"subnet-id": "str"<br/>},<br/>"ydb-target": {<br/>"cleanup-policy": "YDB_CLEANUP_POLICY_DISABLED\|YDB_CLEANUP_POLICY_DROP",<br/>"database": "str",<br/>"default-compression": "YDB_DEFAULT_COMPRESSION_DISABLED\|YDB_DEFAULT_COMPRESSION_LZ4",<br/>"instance": "str",<br/>"is-schema-migration-disabled": "bool",<br/>"is-table-column-oriented": "bool",<br/>"path": "str",<br/>"sa-key-content": "str",<br/>"security-groups": [<br/>"str", ...<br/>],<br/>"service-account-id": "str",<br/>"subnet-id": "str"<br/>},<br/>"yds-source": {<br/>"allow-ttl-rewind": "bool",<br/>"consumer": "str",<br/>"database": "str",<br/>"endpoint": "str",<br/>"parser": {<br/>"parser": {<br/>"audit-trails-v1-parser": {},<br/>"cloud-logging-parser": {},<br/>"json-parser": {<br/>"add-rest-column": "bool",<br/>"data-schema": {<br/>"schema": {<br/>"fields": {<br/>"fields": [<br/>{<br/>"key": "bool",<br/>"name": "str",<br/>"path": "str",<br/>"required": "bool",<br/>"type": "INT32\|INT16\|INT8\|UINT64\|UINT32\|UINT16\|UINT8\|DOUBLE\|BOOLEAN\|STRING\|UTF8\|ANY\|DATETIME\|INT64"<br/>}, ...<br/>]<br/>},<br/>"json-fields": "str"<br/>}<br/>},<br/>"null-keys-allowed": "bool",<br/>"unescape-string-values": "bool"<br/>},<br/>"tskv-parser": {<br/>"add-rest-column": "bool",<br/>"data-schema": {<br/>"schema": {<br/>"fields": {<br/>"fields": [<br/>{<br/>"key": "bool",<br/>"name": "str",<br/>"path": "str",<br/>"required": "bool",<br/>"type": "INT32\|INT16\|INT8\|UINT64\|UINT32\|UINT16\|UINT8\|DOUBLE\|BOOLEAN\|STRING\|UTF8\|ANY\|DATETIME\|INT64"<br/>}, ...<br/>]<br/>},<br/>"json-fields": "str"<br/>}<br/>},<br/>"null-keys-allowed": "bool",<br/>"unescape-string-values": "bool"<br/>}<br/>}<br/>},<br/>"security-groups": [<br/>"str", ...<br/>],<br/>"service-account-id": "str",<br/>"stream": "str",<br/>"subnet-id": "str",<br/>"supported-codecs": [<br/>"YDS_COMPRESSION_CODEC_RAW\|YDS_COMPRESSION_CODEC_GZIP\|YDS_COMPRESSION_CODEC_ZSTD", ...<br/>]<br/>},<br/>"yds-target": {<br/>"compression-codec": "YDS_COMPRESSION_CODEC_RAW\|YDS_COMPRESSION_CODEC_GZIP\|YDS_COMPRESSION_CODEC_ZSTD",<br/>"database": "str",<br/>"endpoint": "str",<br/>"save-tx-order": "bool",<br/>"security-groups": [<br/>"str", ...<br/>],<br/>"serializer": {<br/>"serializer": {<br/>"serializer-auto": {},<br/>"serializer-debezium": {<br/>"serializer-parameters": [<br/>{<br/>"key": "str",<br/>"value": "str"<br/>}, ...<br/>]<br/>},<br/>"serializer-json": {}<br/>}<br/>},<br/>"service-account-id": "str",<br/>"stream": "str",<br/>"subnet-id": "str"<br/>}<br/>}<br/>}"<br/>Fields:<br/>settings -> (oneof<clickhouse-source\|clickhouse-target\|kafka-source\|kafka-target\|metrika-source\|mongo-source\|mongo-target\|mysql-source\|mysql-target\|postgres-source\|postgres-target\|ydb-source\|ydb-target\|yds-source\|yds-target>)<br/>Oneof settings field<br/>mysql-source -> (struct)<br/>connection -> (struct)<br/>Database connection settings<br/>connection -> (oneof<connection-manager-connection\|mdb-cluster-id\|on-premise>)<br/>Oneof connection field<br/>mdb-cluster-id -> (string)<br/>Managed Service for MySQL cluster ID<br/>on-premise -> (struct)<br/>Connection options for on-premise MySQL<br/>hosts -> ([]string)<br/>List of host names of the MySQL server. Exactly one host is expected<br/>port -> (int)<br/>Port for the database connection<br/>subnet-id -> (string)<br/>Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet<br/>tls-mode -> (struct)<br/>TLS settings for server connection. Disabled by default.<br/>tls-mode -> (oneof<disabled\|enabled>)<br/>Oneof tls-mode field<br/>disabled -> (struct)<br/>Empty block designating that the connection is not secured, i.e. plaintext connection<br/>enabled -> (struct)<br/>TLS is used for the server connection<br/>ca-certificate -> (string)<br/>CA certificate X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified, TLS is used to connect to the server. If CA certificate is empty, the server's certificate must be signed by a well-known CA<br/>connection-manager-connection -> (struct)<br/>Get Mysql installation params and credentials from Connection Manager<br/>connection-id -> (string)<br/>ID of connection in Connection Manager with installation params and credetials<br/>subnet-id -> (string)<br/>Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet<br/>database -> (string)<br/>Name of the database to transfer You can leave it empty, then it will be possible to transfer tables from several databases at the same time from this source.<br/>exclude-tables-regex -> ([]string)<br/>Opposite of 'include_table_regex'. The tables matching the specified regular expressions will not be transferred<br/>include-tables-regex -> ([]string)<br/>List of regular expressions of table names which should be transferred. A table name is formatted as schemaname.tablename. For example, a single regular expression may look like '^mydb.employees\$'<br/>object-transfer-settings -> (struct)<br/>Schema migration Defines which database schema objects should be transferred, e.g. views, routines, etc. All of the attrubutes in the block are optional and should be either 'BEFORE_DATA', 'AFTER_DATA' or 'NEVER'."<br/>routine -> (enum<AFTER_DATA\|BEFORE_DATA\|NEVER>)<br/>Routines CREATE PROCEDURE ... ; CREATE FUNCTION ... ;<br/>tables -> (enum<AFTER_DATA\|BEFORE_DATA\|NEVER>)<br/>trigger -> (enum<AFTER_DATA\|BEFORE_DATA\|NEVER>)<br/>Triggers CREATE TRIGGER ...<br/>view -> (enum<AFTER_DATA\|BEFORE_DATA\|NEVER>)<br/>Views CREATE VIEW ...<br/>password -> (struct)<br/>Password for database access.<br/>value -> (oneof\<raw\>)<br/>Oneof value field<br/>raw -> (string)<br/>Raw secret value<br/>security-groups -> ([]string)<br/>List of security groups that the transfer associated with this endpoint should use<br/>service-database -> (string)<br/>Database for service tables Default: data source database. Here created technical tables (__tm_keeper, __tm_gtid_keeper).<br/>timezone -> (string)<br/>Database timezone Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone.<br/>user -> (string)<br/>User for database access. Required unless connection manager connection is used<br/>postgres-source -> (struct)<br/>connection -> (struct)<br/>Database connection settings<br/>connection -> (oneof<connection-manager-connection\|mdb-cluster-id\|on-premise>)<br/>Oneof connection field<br/>mdb-cluster-id -> (string)<br/>Managed Service for PostgreSQL cluster ID<br/>on-premise -> (struct)<br/>Connection options for on-premise PostgreSQL<br/>hosts -> ([]string)<br/>PG installation hosts<br/>port -> (int)<br/>PG port. Will be used if the cluster ID is not specified.<br/>subnet-id -> (string)<br/>Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet<br/>tls-mode -> (struct)<br/>TLS settings for server connection. Disabled by default.<br/>tls-mode -> (oneof<disabled\|enabled>)<br/>Oneof tls-mode field<br/>disabled -> (struct)<br/>Empty block designating that the connection is not secured, i.e. plaintext connection<br/>enabled -> (struct)<br/>TLS is used for the server connection<br/>ca-certificate -> (string)<br/>CA certificate X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified, TLS is used to connect to the server. If CA certificate is empty, the server's certificate must be signed by a well-known CA<br/>connection-manager-connection -> (struct)<br/>Get Postgres installation params and credentials from Connection Manager<br/>connection-id -> (string)<br/>ID of connection in Connection Manager with installation params and credetials<br/>subnet-id -> (string)<br/>Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet<br/>database -> (string)<br/>Name of the database to transfer<br/>exclude-tables -> ([]string)<br/>List of tables which will not be transfered, formatted as 'schemaname.tablename' If omitted or empty list is specified, all tables are replicated. Can contain schema_name.* patterns.<br/>include-tables -> ([]string)<br/>List of tables to transfer, formatted as 'schemaname.tablename'. If omitted or an empty list is specified, all tables will be transferred. Can contain schema_name.* patterns.<br/>object-transfer-settings -> (struct)<br/>Defines which database schema objects should be transferred, e.g. views, functions, etc. All of the attributes in this block are optional and should be either 'BEFORE_DATA', 'AFTER_DATA' or 'NEVER'<br/>cast -> (enum<AFTER_DATA\|BEFORE_DATA\|NEVER>)<br/>Casts CREATE CAST ...<br/>collation -> (enum<AFTER_DATA\|BEFORE_DATA\|NEVER>)<br/>Collations CREATE COLLATION ...<br/>constraint -> (enum<AFTER_DATA\|BEFORE_DATA\|NEVER>)<br/>Constraints ALTER TABLE ... ADD CONSTRAINT ...<br/>default-values -> (enum<AFTER_DATA\|BEFORE_DATA\|NEVER>)<br/>Default values ALTER TABLE ... ALTER COLUMN ... SET DEFAULT ...<br/>fk-constraint -> (enum<AFTER_DATA\|BEFORE_DATA\|NEVER>)<br/>Foreign keys ALTER TABLE ... ADD FOREIGN KEY ...<br/>function -> (enum<AFTER_DATA\|BEFORE_DATA\|NEVER>)<br/>Functions CREATE FUNCTION ...<br/>index -> (enum<AFTER_DATA\|BEFORE_DATA\|NEVER>)<br/>Indexes CREATE INDEX ...<br/>materialized-view -> (enum<AFTER_DATA\|BEFORE_DATA\|NEVER>)<br/>Materialized views CREATE MATERIALIZED VIEW ...<br/>policy -> (enum<AFTER_DATA\|BEFORE_DATA\|NEVER>)<br/>Policies CREATE POLICY ...<br/>primary-key -> (enum<AFTER_DATA\|BEFORE_DATA\|NEVER>)<br/>Primary keys ALTER TABLE ... ADD PRIMARY KEY ...<br/>rule -> (enum<AFTER_DATA\|BEFORE_DATA\|NEVER>)<br/>Rules CREATE RULE ...<br/>sequence -> (enum<AFTER_DATA\|BEFORE_DATA\|NEVER>)<br/>Sequences CREATE SEQUENCE ...<br/>sequence-owned-by -> (enum<AFTER_DATA\|BEFORE_DATA\|NEVER>)<br/>Owned sequences CREATE SEQUENCE ... OWNED BY ...<br/>sequence-set -> (enum<AFTER_DATA\|BEFORE_DATA\|NEVER>)<br/>table -> (enum<AFTER_DATA\|BEFORE_DATA\|NEVER>)<br/>Tables CREATE TABLE ...<br/>trigger -> (enum<AFTER_DATA\|BEFORE_DATA\|NEVER>)<br/>Triggers CREATE TRIGGER ...<br/>type -> (enum<AFTER_DATA\|BEFORE_DATA\|NEVER>)<br/>Types CREATE TYPE ...<br/>view -> (enum<AFTER_DATA\|BEFORE_DATA\|NEVER>)<br/>Views CREATE VIEW ...<br/>password -> (struct)<br/>Password for database access.<br/>value -> (oneof\<raw\>)<br/>Oneof value field<br/>raw -> (string)<br/>Raw secret value<br/>security-groups -> ([]string)<br/>List of security groups that the transfer associated with this endpoint should use<br/>service-schema -> (string)<br/>Name of the database schema in which auxiliary tables needed for the transfer will be created (__consumer_keeper, __data_transfer_mole_finder). Empty 'service_schema' implies schema 'public'<br/>slot-byte-lag-limit -> (int)<br/>Maximum WAL size held by the replication slot (API - in bytes, terraform - in gigabytes); Exceeding this limit will result in a replication failure and deletion of the replication slot. Default is 50 gigabytes<br/>user -> (string)<br/>User for database access. Required unless Connection Manager connection is used.<br/>ydb-source -> (struct)<br/>changefeed-custom-consumer-name -> (string)<br/>Consumer for pre-created change feed if any<br/>changefeed-custom-name -> (string)<br/>Pre-created change feed if any<br/>database -> (string)<br/>Database path in YDB where tables are stored. Example: '/ru/transfer_manager/prod/data-transfer-yt'<br/>instance -> (string)<br/>Instance of YDB. example: ydb-ru-prestable.yandex.net:2135. If not specified, will be determined by database<br/>paths -> ([]string)<br/>A list of paths which should be uploaded. When not specified, all available tables are uploaded<br/>sa-key-content -> (string)<br/>Authorization Key<br/>security-groups -> ([]string)<br/>List of security groups that the transfer associated with this endpoint should use<br/>service-account-id -> (string)<br/>Service account ID for interaction with database<br/>subnet-id -> (string)<br/>Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet<br/>yds-source -> (struct)<br/>allow-ttl-rewind -> (bool)<br/>Should continue working, if consumer read lag exceed TTL of topic False: stop the transfer in error state, if detected lost data. True: continue working with losing part of data<br/>consumer -> (string)<br/>Custom consumer - for important streams<br/>database -> (string)<br/>Database path in YDB for streams Example: '/ru/transfer_manager/prod/data-transfer'<br/>endpoint -> (string)<br/>YDS Endpoint for dedicated db<br/>parser -> (struct)<br/>Data parsing rules<br/>parser -> (oneof<audit-trails-v1-parser\|cloud-logging-parser\|json-parser\|tskv-parser>)<br/>Oneof parser field<br/>json-parser -> (struct)<br/>Parse data in json format<br/>add-rest-column -> (bool)<br/>Will add _rest column for all unknown fields<br/>data-schema -> (struct)<br/>Data parsing scheme<br/>schema -> (oneof<fields\|json-fields>)<br/>Oneof schema field<br/>json-fields -> (string)<br/>Description of the data schema as JSON specification<br/>fields -> (struct)<br/>Description of the data schema in the array of 'fields' structure<br/>fields -> ([]struct)<br/>Description of the column schema in the array of 'fields' structure<br/>key -> (bool)<br/>Mark field as Primary Key<br/>name -> (string)<br/>Field name<br/>path -> (string)<br/>Path to the field<br/>required -> (bool)<br/>Mark field as required<br/>type -> (enum<ANY\|BOOLEAN\|DATETIME\|DOUBLE\|INT16\|INT32\|INT64\|INT8\|STRING\|UINT16\|UINT32\|UINT64\|UINT8\|UTF8>)<br/>Field type, one of: 'INT64', 'INT32', 'INT16', 'INT8', 'UINT64', 'UINT32', 'UINT16', 'UINT8', 'DOUBLE', 'BOOLEAN', 'STRING', 'UTF8', 'ANY', 'DATETIME'.<br/>null-keys-allowed -> (bool)<br/>Allow null keys, if no - null keys will be putted to unparsed data<br/>unescape-string-values -> (bool)<br/>Unescape string values<br/>audit-trails-v1-parser -> (struct)<br/>Parse Audit Trails data. Empty struct<br/>cloud-logging-parser -> (struct)<br/>Parse Cloud Logging data. Empty struct<br/>tskv-parser -> (struct)<br/>Parse data in tskv format<br/>add-rest-column -> (bool)<br/>Will add _rest column for all unknown fields<br/>data-schema -> (struct)<br/>Data parsing scheme<br/>schema -> (oneof<fields\|json-fields>)<br/>Oneof schema field<br/>json-fields -> (string)<br/>Description of the data schema as JSON specification<br/>fields -> (struct)<br/>Description of the data schema in the array of 'fields' structure<br/>fields -> ([]struct)<br/>Description of the column schema in the array of 'fields' structure<br/>key -> (bool)<br/>Mark field as Primary Key<br/>name -> (string)<br/>Field name<br/>path -> (string)<br/>Path to the field<br/>required -> (bool)<br/>Mark field as required<br/>type -> (enum<ANY\|BOOLEAN\|DATETIME\|DOUBLE\|INT16\|INT32\|INT64\|INT8\|STRING\|UINT16\|UINT32\|UINT64\|UINT8\|UTF8>)<br/>Field type, one of: 'INT64', 'INT32', 'INT16', 'INT8', 'UINT64', 'UINT32', 'UINT16', 'UINT8', 'DOUBLE', 'BOOLEAN', 'STRING', 'UTF8', 'ANY', 'DATETIME'.<br/>null-keys-allowed -> (bool)<br/>Allow null keys, if no - null keys will be putted to unparsed data<br/>unescape-string-values -> (bool)<br/>Unescape string values<br/>security-groups -> ([]string)<br/>List of security groups that the transfer associated with this endpoint should use<br/>service-account-id -> (string)<br/>Service account ID which has read access to the stream.<br/>stream -> (string)<br/>Stream to read<br/>subnet-id -> (string)<br/>Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet<br/>supported-codecs -> ([]int)<br/>List of supported compression codecs Options: YDS_COMPRESSION_CODEC_RAW, YDS_COMPRESSION_CODEC_ZSTD, YDS_COMPRESSION_CODEC_GZIP<br/>kafka-source -> (struct)<br/>auth -> (struct)<br/>Authentication settings<br/>security -> (oneof<no-auth\|sasl>)<br/>Oneof security field<br/>sasl -> (struct)<br/>Authentication with SASL<br/>mechanism -> (enum<KAFKA_MECHANISM_SHA256\|KAFKA_MECHANISM_SHA512>)<br/>SASL mechanism for authentication, use one of: KAFKA_MECHANISM_SHA256, KAFKA_MECHANISM_SHA512<br/>password -> (struct)<br/>Password for user<br/>value -> (oneof\<raw\>)<br/>Oneof value field<br/>raw -> (string)<br/>Raw secret value<br/>user -> (string)<br/>User name<br/>no-auth -> (struct)<br/>No authentication<br/>connection -> (struct)<br/>Connection settings<br/>connection -> (oneof<cluster-id\|connection-manager-connection\|on-premise>)<br/>Oneof connection field<br/>cluster-id -> (string)<br/>Managed Service for Kafka cluster ID. Set only one of: cluster_id/on_premise/connection_manager_connection<br/>on-premise -> (struct)<br/>Connection options for on-premise Kafka Set only one of: cluster_id/on_premise/connection_manager_connection<br/>broker-urls -> ([]string)<br/>Kafka broker URLs<br/>subnet-id -> (string)<br/>Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet<br/>tls-mode -> (struct)<br/>TLS settings for broker connection. Disabled by default.<br/>tls-mode -> (oneof<disabled\|enabled>)<br/>Oneof tls-mode field<br/>disabled -> (struct)<br/>Empty block designating that the connection is not secured, i.e. plaintext connection<br/>enabled -> (struct)<br/>TLS is used for the server connection<br/>ca-certificate -> (string)<br/>CA certificate X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified, TLS is used to connect to the server. If CA certificate is empty, the server's certificate must be signed by a well-known CA<br/>connection-manager-connection -> (struct)<br/>Get Kafka installation params and credentials from Connection Manager Set only one of: cluster_id/on_premise/connection_manager_connection<br/>connection-id -> (string)<br/>ID of connection in Connection Manager with installation params and credetials<br/>subnet-id -> (string)<br/>Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet<br/>parser -> (struct)<br/>Data parsing parameters. If not set, the source messages are read in raw<br/>parser -> (oneof<audit-trails-v1-parser\|cloud-logging-parser\|json-parser\|tskv-parser>)<br/>Oneof parser field<br/>json-parser -> (struct)<br/>Parse data in json format<br/>add-rest-column -> (bool)<br/>Will add _rest column for all unknown fields<br/>data-schema -> (struct)<br/>Data parsing scheme<br/>schema -> (oneof<fields\|json-fields>)<br/>Oneof schema field<br/>json-fields -> (string)<br/>Description of the data schema as JSON specification<br/>fields -> (struct)<br/>Description of the data schema in the array of 'fields' structure<br/>fields -> ([]struct)<br/>Description of the column schema in the array of 'fields' structure<br/>key -> (bool)<br/>Mark field as Primary Key<br/>name -> (string)<br/>Field name<br/>path -> (string)<br/>Path to the field<br/>required -> (bool)<br/>Mark field as required<br/>type -> (enum<ANY\|BOOLEAN\|DATETIME\|DOUBLE\|INT16\|INT32\|INT64\|INT8\|STRING\|UINT16\|UINT32\|UINT64\|UINT8\|UTF8>)<br/>Field type, one of: 'INT64', 'INT32', 'INT16', 'INT8', 'UINT64', 'UINT32', 'UINT16', 'UINT8', 'DOUBLE', 'BOOLEAN', 'STRING', 'UTF8', 'ANY', 'DATETIME'.<br/>null-keys-allowed -> (bool)<br/>Allow null keys, if no - null keys will be putted to unparsed data<br/>unescape-string-values -> (bool)<br/>Unescape string values<br/>audit-trails-v1-parser -> (struct)<br/>Parse Audit Trails data. Empty struct<br/>cloud-logging-parser -> (struct)<br/>Parse Cloud Logging data. Empty struct<br/>tskv-parser -> (struct)<br/>Parse data in tskv format<br/>add-rest-column -> (bool)<br/>Will add _rest column for all unknown fields<br/>data-schema -> (struct)<br/>Data parsing scheme<br/>schema -> (oneof<fields\|json-fields>)<br/>Oneof schema field<br/>json-fields -> (string)<br/>Description of the data schema as JSON specification<br/>fields -> (struct)<br/>Description of the data schema in the array of 'fields' structure<br/>fields -> ([]struct)<br/>Description of the column schema in the array of 'fields' structure<br/>key -> (bool)<br/>Mark field as Primary Key<br/>name -> (string)<br/>Field name<br/>path -> (string)<br/>Path to the field<br/>required -> (bool)<br/>Mark field as required<br/>type -> (enum<ANY\|BOOLEAN\|DATETIME\|DOUBLE\|INT16\|INT32\|INT64\|INT8\|STRING\|UINT16\|UINT32\|UINT64\|UINT8\|UTF8>)<br/>Field type, one of: 'INT64', 'INT32', 'INT16', 'INT8', 'UINT64', 'UINT32', 'UINT16', 'UINT8', 'DOUBLE', 'BOOLEAN', 'STRING', 'UTF8', 'ANY', 'DATETIME'.<br/>null-keys-allowed -> (bool)<br/>Allow null keys, if no - null keys will be putted to unparsed data<br/>unescape-string-values -> (bool)<br/>Unescape string values<br/>security-groups -> ([]string)<br/>List of security groups that the transfer associated with this endpoint should use<br/>topic-name -> (string)<br/>**Deprecated**. Please use 'topic_names' instead Full source topic name<br/>topic-names -> ([]string)<br/>List of full source topic names to read<br/>transformer -> (struct)<br/>Transform data with a custom Cloud Function<br/>buffer-flush-interval -> (string)<br/>Flush interval<br/>buffer-size -> (string)<br/>Buffer size for function. Maximum 4 GB. Use value with units, i.e. 10 B, 20 kB, 2.0 MB, 30 MB, 1.0 GB<br/>cloud-function -> (string)<br/>Cloud function<br/>invocation-timeout -> (string)<br/>Invocation timeout<br/>number-of-retries -> (int)<br/>Number of retries<br/>service-account-id -> (string)<br/>Service account<br/>mongo-source -> (struct)<br/>collections -> ([]struct)<br/>List of collections for replication. Empty list implies replication of all tables on the deployment. Allowed to use * as collection name.<br/>collection-name -> (string)<br/>database-name -> (string)<br/>connection -> (struct)<br/>Connection settings<br/>connection -> (oneof\<connection-options\>)<br/>Oneof connection field<br/>connection-options -> (struct)<br/>auth-source -> (string)<br/>Database name associated with the credentials<br/>password -> (struct)<br/>Password for user<br/>value -> (oneof\<raw\>)<br/>Oneof value field<br/>raw -> (string)<br/>Raw secret value<br/>user -> (string)<br/>User name, required unless connection_manager_connection is used<br/>address -> (oneof<connection-manager-connection\|mdb-cluster-id\|on-premise>)<br/>Oneof address field<br/>mdb-cluster-id -> (string)<br/>Identifier of the Yandex StoreDoc cluster Use one of: mdb_cluster_id/on_premise/connection_manager_connection<br/>on-premise -> (struct)<br/>Connection settings of the on-premise MongoDB server Use one of: mdb_cluster_id/on_premise/connection_manager_connection<br/>hosts -> ([]string)<br/>Host names of the replica set<br/>port -> (int)<br/>TCP Port number<br/>replica-set -> (string)<br/>Replica set name<br/>tls-mode -> (struct)<br/>TLS settings for the server connection. Empty implies plaintext connection<br/>tls-mode -> (oneof<disabled\|enabled>)<br/>Oneof tls-mode field<br/>disabled -> (struct)<br/>Empty block designating that the connection is not secured, i.e. plaintext connection<br/>enabled -> (struct)<br/>TLS is used for the server connection<br/>ca-certificate -> (string)<br/>CA certificate X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified, TLS is used to connect to the server. If CA certificate is empty, the server's certificate must be signed by a well-known CA<br/>connection-manager-connection -> (struct)<br/>Get StoreDoc/MongoDB installation params and credentials from Connection Manager Use one of: mdb_cluster_id/on_premise/connection_manager_connection<br/>connection-id -> (string)<br/>ID of connectionmanager connection with mongodb/Yandex Storedoc installation parameters and credentials<br/>replica-set -> (string)<br/>Replica set name, used only for on-premise mongodb installations<br/>excluded-collections -> ([]struct)<br/>List of forbidden collections for replication. Allowed to use * as collection name for forbid all collections of concrete schema.<br/>collection-name -> (string)<br/>database-name -> (string)<br/>secondary-preferred-mode -> (bool)<br/>Read mode for mongo client: whether the secondary server should be preferred to the primary when copying data<br/>security-groups -> ([]string)<br/>List of security groups that the transfer associated with this endpoint should use<br/>subnet-id -> (string)<br/>Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet<br/>clickhouse-source -> (struct)<br/>clickhouse-cluster-name -> (string)<br/>Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup or managed cluster ID by default<br/>connection -> (struct)<br/>Connection settings<br/>connection -> (oneof\<connection-options\>)<br/>Oneof connection field<br/>connection-options -> (struct)<br/>database -> (string)<br/>Database name<br/>password -> (struct)<br/>Password for the database access<br/>value -> (oneof\<raw\>)<br/>Oneof value field<br/>raw -> (string)<br/>Raw secret value<br/>user -> (string)<br/>User for database access. Required unless connection_manager_connection is used<br/>address -> (oneof<connection-manager-connection\|mdb-cluster-id\|on-premise>)<br/>Oneof address field<br/>on-premise -> (struct)<br/>Connection settings of the on-premise ClickHouse server<br/>http-port -> (int)<br/>native-port -> (int)<br/>shards -> ([]struct)<br/>hosts -> ([]string)<br/>name -> (string)<br/>tls-mode -> (struct)<br/>TLS settings for server connection. Disabled by default<br/>tls-mode -> (oneof<disabled\|enabled>)<br/>Oneof tls-mode field<br/>disabled -> (struct)<br/>Empty block designating that the connection is not secured, i.e. plaintext connection<br/>enabled -> (struct)<br/>TLS is used for the server connection<br/>ca-certificate -> (string)<br/>CA certificate X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified, TLS is used to connect to the server. If CA certificate is empty, the server's certificate must be signed by a well-known CA<br/>connection-manager-connection -> (struct)<br/>Get ClickHouse installation params and credentials from Connection Manager<br/>connection-id -> (string)<br/>ID of connection in Connection Manager with installation params and credetials<br/>subnet-id -> (string)<br/>Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet<br/>mdb-cluster-id -> (string)<br/>Identifier of the Managed ClickHouse cluster<br/>exclude-tables -> ([]string)<br/>Exclude list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns.<br/>include-tables -> ([]string)<br/>White list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns.<br/>security-groups -> ([]string)<br/>List of security groups that the transfer associated with this endpoint should use<br/>subnet-id -> (string)<br/>Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet<br/>mysql-target -> (struct)<br/>cleanup-policy -> (enum<DISABLED\|DROP\|TRUNCATE>)<br/>Cleanup policy for activate, reactivate and reupload processes. One of 'DISABLED', 'DROP' or 'TRUNCATE' Default is 'DISABLED'.<br/>connection -> (struct)<br/>Database connection settings<br/>connection -> (oneof<connection-manager-connection\|mdb-cluster-id\|on-premise>)<br/>Oneof connection field<br/>mdb-cluster-id -> (string)<br/>Managed Service for MySQL cluster ID<br/>on-premise -> (struct)<br/>Connection options for on-premise MySQL<br/>hosts -> ([]string)<br/>List of host names of the MySQL server. Exactly one host is expected<br/>port -> (int)<br/>Port for the database connection<br/>subnet-id -> (string)<br/>Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet<br/>tls-mode -> (struct)<br/>TLS settings for server connection. Disabled by default.<br/>tls-mode -> (oneof<disabled\|enabled>)<br/>Oneof tls-mode field<br/>disabled -> (struct)<br/>Empty block designating that the connection is not secured, i.e. plaintext connection<br/>enabled -> (struct)<br/>TLS is used for the server connection<br/>ca-certificate -> (string)<br/>CA certificate X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified, TLS is used to connect to the server. If CA certificate is empty, the server's certificate must be signed by a well-known CA<br/>connection-manager-connection -> (struct)<br/>Get Mysql installation params and credentials from Connection Manager<br/>connection-id -> (string)<br/>ID of connection in Connection Manager with installation params and credetials<br/>subnet-id -> (string)<br/>Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet<br/>database -> (string)<br/>Database name Allowed to leave it empty, then the tables will be created in databases with the same names as on the source. If this field is empty, then you must fill below db schema for service table.<br/>is-schema-migration-disabled -> (bool)<br/>Whether can change table schema if schema changed on source<br/>password -> (struct)<br/>Password for database access.<br/>value -> (oneof\<raw\>)<br/>Oneof value field<br/>raw -> (string)<br/>Raw secret value<br/>security-groups -> ([]string)<br/>List of security groups that the transfer associated with this endpoint should use<br/>service-database -> (string)<br/>Database schema for service table Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper).<br/>skip-constraint-checks -> (bool)<br/>Disable constraints checks When 'true', disables foreign key checks and unique checks. 'False' by default. See foreign_key_checks. Recommend to disable for increase replication speed unless schema contains cascading operations<br/>sql-mode -> (string)<br/>sql_mode to use when interacting with the server. Defaults to 'NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION'<br/>timezone -> (string)<br/>Database timezone Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone.<br/>user -> (string)<br/>User for database access. Required unless connection manager connection is used<br/>postgres-target -> (struct)<br/>cleanup-policy -> (enum<DISABLED\|DROP\|TRUNCATE>)<br/>Cleanup policy for activate, reactivate and reupload processes. One of: DISABLED, DROP, TRUNCATE. Default is TRUNCATE<br/>connection -> (struct)<br/>Database connection settings<br/>connection -> (oneof<connection-manager-connection\|mdb-cluster-id\|on-premise>)<br/>Oneof connection field<br/>mdb-cluster-id -> (string)<br/>Managed Service for PostgreSQL cluster ID<br/>on-premise -> (struct)<br/>Connection options for on-premise PostgreSQL<br/>hosts -> ([]string)<br/>PG installation hosts<br/>port -> (int)<br/>PG port. Will be used if the cluster ID is not specified.<br/>subnet-id -> (string)<br/>Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet<br/>tls-mode -> (struct)<br/>TLS settings for server connection. Disabled by default.<br/>tls-mode -> (oneof<disabled\|enabled>)<br/>Oneof tls-mode field<br/>disabled -> (struct)<br/>Empty block designating that the connection is not secured, i.e. plaintext connection<br/>enabled -> (struct)<br/>TLS is used for the server connection<br/>ca-certificate -> (string)<br/>CA certificate X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified, TLS is used to connect to the server. If CA certificate is empty, the server's certificate must be signed by a well-known CA<br/>connection-manager-connection -> (struct)<br/>Get Postgres installation params and credentials from Connection Manager<br/>connection-id -> (string)<br/>ID of connection in Connection Manager with installation params and credetials<br/>subnet-id -> (string)<br/>Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet<br/>database -> (string)<br/>Target database name<br/>is-schema-migration-disabled -> (bool)<br/>Whether can change table schema if schema changed on source<br/>password -> (struct)<br/>Password for database access.<br/>value -> (oneof\<raw\>)<br/>Oneof value field<br/>raw -> (string)<br/>Raw secret value<br/>security-groups -> ([]string)<br/>List of security groups that the transfer associated with this endpoint should use<br/>user -> (string)<br/>User for database access. Required unless Connection Manager connection is used<br/>clickhouse-target -> (struct)<br/>alt-names -> ([]struct)<br/>Table renaming rules in target<br/>from-name -> (string)<br/>Source table name<br/>to-name -> (string)<br/>Target table name<br/>cleanup-policy -> (enum<CLICKHOUSE_CLEANUP_POLICY_DISABLED\|CLICKHOUSE_CLEANUP_POLICY_DROP\|CLICKHOUSE_CLEANUP_POLICY_TRUNCATE>)<br/>How to clean collections when activating the transfer. One of 'CLICKHOUSE_CLEANUP_POLICY_DISABLED' or 'CLICKHOUSE_CLEANUP_POLICY_DROP'<br/>clickhouse-cluster-name -> (string)<br/>Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup or managed cluster ID by default.<br/>connection -> (struct)<br/>Connection settings<br/>connection -> (oneof\<connection-options\>)<br/>Oneof connection field<br/>connection-options -> (struct)<br/>database -> (string)<br/>Database name<br/>password -> (struct)<br/>Password for the database access<br/>value -> (oneof\<raw\>)<br/>Oneof value field<br/>raw -> (string)<br/>Raw secret value<br/>user -> (string)<br/>User for database access. Required unless connection_manager_connection is used<br/>address -> (oneof<connection-manager-connection\|mdb-cluster-id\|on-premise>)<br/>Oneof address field<br/>on-premise -> (struct)<br/>Connection settings of the on-premise ClickHouse server<br/>http-port -> (int)<br/>native-port -> (int)<br/>shards -> ([]struct)<br/>hosts -> ([]string)<br/>name -> (string)<br/>tls-mode -> (struct)<br/>TLS settings for server connection. Disabled by default<br/>tls-mode -> (oneof<disabled\|enabled>)<br/>Oneof tls-mode field<br/>disabled -> (struct)<br/>Empty block designating that the connection is not secured, i.e. plaintext connection<br/>enabled -> (struct)<br/>TLS is used for the server connection<br/>ca-certificate -> (string)<br/>CA certificate X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified, TLS is used to connect to the server. If CA certificate is empty, the server's certificate must be signed by a well-known CA<br/>connection-manager-connection -> (struct)<br/>Get ClickHouse installation params and credentials from Connection Manager<br/>connection-id -> (string)<br/>ID of connection in Connection Manager with installation params and credetials<br/>subnet-id -> (string)<br/>Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet<br/>mdb-cluster-id -> (string)<br/>Identifier of the Managed ClickHouse cluster<br/>is-schema-migration-disabled -> (bool)<br/>Whether can change table schema if schema changed on source<br/>security-groups -> ([]string)<br/>List of security groups that the transfer associated with this endpoint should use<br/>sharding -> (struct)<br/>Shard selection rules for the data being transferred<br/>sharding -> (oneof<column-value-hash\|custom-mapping\|round-robin\|transfer-id>)<br/>Oneof sharding field<br/>column-value-hash -> (struct)<br/>Shard data by the hash value of the specified column<br/>column-name -> (string)<br/>The name of the column to calculate hash from<br/>custom-mapping -> (struct)<br/>A custom shard mapping by the value of the specified column<br/>column-name -> (string)<br/>The name of the column to inspect when deciding the shard to chose for an incoming row<br/>mapping -> ([]struct)<br/>The mapping of the specified column values to the shard names<br/>column-value -> (struct)<br/>The value of the column. Currently only the string columns are supported<br/>value -> (oneof\<string-value\>)<br/>Oneof value field<br/>string-value -> (string)<br/>shard-name -> (string)<br/>The name of the shard into which all the rows with the specified 'column_value' will be written<br/>transfer-id -> (struct)<br/>Shard data by ID of the transfer<br/>round-robin -> (struct)<br/>Distribute incoming rows between ClickHouse shards in a round-robin manner. Specify as an empty block to enable<br/>subnet-id -> (string)<br/>Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet<br/>ydb-target -> (struct)<br/>cleanup-policy -> (enum<YDB_CLEANUP_POLICY_DISABLED\|YDB_CLEANUP_POLICY_DROP>)<br/>Cleanup policy determine how to clean collections when activating the transfer. One of 'YDB_CLEANUP_POLICY_DISABLED' or 'YDB_CLEANUP_POLICY_DROP'<br/>database -> (string)<br/>Database path in YDB where tables are stored. Example: '/ru/transfer_manager/prod/data-transfer'<br/>default-compression -> (enum<YDB_DEFAULT_COMPRESSION_DISABLED\|YDB_DEFAULT_COMPRESSION_LZ4>)<br/>Compression that will be used for default columns family on YDB table creation. One of 'YDB_DEFAULT_COMPRESSION_UNSPECIFIED', 'YDB_DEFAULT_COMPRESSION_DISABLED', 'YDB_DEFAULT_COMPRESSION_LZ4'<br/>instance -> (string)<br/>Instance of YDB. example: ydb-ru-prestable.yandex.net:2135. If not specified, will be determined by database<br/>is-schema-migration-disabled -> (bool)<br/>Whether can change table schema if schema changed on source<br/>is-table-column-oriented -> (bool)<br/>Whether a column-oriented (i.e. OLAP) tables should be created. Default is 'false' (create row-oriented OLTP tables)<br/>path -> (string)<br/>Path extension for database, each table will be layouted into this path<br/>sa-key-content -> (string)<br/>Authentication key<br/>security-groups -> ([]string)<br/>List of security groups that the transfer associated with this endpoint should use<br/>service-account-id -> (string)<br/>Service account ID for interaction with database<br/>subnet-id -> (string)<br/>Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet<br/>kafka-target -> (struct)<br/>auth -> (struct)<br/>Authentication settings<br/>security -> (oneof<no-auth\|sasl>)<br/>Oneof security field<br/>sasl -> (struct)<br/>Authentication with SASL<br/>mechanism -> (enum<KAFKA_MECHANISM_SHA256\|KAFKA_MECHANISM_SHA512>)<br/>SASL mechanism for authentication, use one of: KAFKA_MECHANISM_SHA256, KAFKA_MECHANISM_SHA512<br/>password -> (struct)<br/>Password for user<br/>value -> (oneof\<raw\>)<br/>Oneof value field<br/>raw -> (string)<br/>Raw secret value<br/>user -> (string)<br/>User name<br/>no-auth -> (struct)<br/>No authentication<br/>connection -> (struct)<br/>Connection settings<br/>connection -> (oneof<cluster-id\|connection-manager-connection\|on-premise>)<br/>Oneof connection field<br/>cluster-id -> (string)<br/>Managed Service for Kafka cluster ID. Set only one of: cluster_id/on_premise/connection_manager_connection<br/>on-premise -> (struct)<br/>Connection options for on-premise Kafka Set only one of: cluster_id/on_premise/connection_manager_connection<br/>broker-urls -> ([]string)<br/>Kafka broker URLs<br/>subnet-id -> (string)<br/>Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet<br/>tls-mode -> (struct)<br/>TLS settings for broker connection. Disabled by default.<br/>tls-mode -> (oneof<disabled\|enabled>)<br/>Oneof tls-mode field<br/>disabled -> (struct)<br/>Empty block designating that the connection is not secured, i.e. plaintext connection<br/>enabled -> (struct)<br/>TLS is used for the server connection<br/>ca-certificate -> (string)<br/>CA certificate X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified, TLS is used to connect to the server. If CA certificate is empty, the server's certificate must be signed by a well-known CA<br/>connection-manager-connection -> (struct)<br/>Get Kafka installation params and credentials from Connection Manager Set only one of: cluster_id/on_premise/connection_manager_connection<br/>connection-id -> (string)<br/>ID of connection in Connection Manager with installation params and credetials<br/>subnet-id -> (string)<br/>Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet<br/>security-groups -> ([]string)<br/>List of security groups that the transfer associated with this endpoint should use<br/>serializer -> (struct)<br/>Data serialization format settings<br/>serializer -> (oneof<serializer-auto\|serializer-debezium\|serializer-json>)<br/>Oneof serializer field<br/>serializer-auto -> (struct)<br/>Empty block. Select the serialization format automatically<br/>serializer-json -> (struct)<br/>Empty block. Serialize data in json format<br/>serializer-debezium -> (struct)<br/>Serialize data in debezium json format<br/>serializer-parameters -> ([]struct)<br/>A list of Debezium parameters set by the structure of the 'key' and 'value' string fields<br/>key -> (string)<br/>Name of the serializer parameter<br/>value -> (string)<br/>Value of the serializer parameter<br/>topic-settings -> (struct)<br/>Target topic settings<br/>topic-settings -> (oneof<topic\|topic-prefix>)<br/>Oneof topic-settings field<br/>topic -> (struct)<br/>All messages will be sent to one topic<br/>save-tx-order -> (bool)<br/>Save transactions order Not to split events queue into separate per-table queues.<br/>topic-name -> (string)<br/>Full topic name<br/>topic-prefix -> (string)<br/>Topic prefix Messages will be sent to topic with name <topic_prefix>.\<schema\>.<table_name>. Analogue of the Debezium setting database.server.name.<br/>mongo-target -> (struct)<br/>cleanup-policy -> (enum<DISABLED\|DROP\|TRUNCATE>)<br/>How to clean collections when activating the transfer. One of 'DISABLED', 'DROP' or 'TRUNCATE'<br/>connection -> (struct)<br/>Connection settings<br/>connection -> (oneof\<connection-options\>)<br/>Oneof connection field<br/>connection-options -> (struct)<br/>auth-source -> (string)<br/>Database name associated with the credentials<br/>password -> (struct)<br/>Password for user<br/>value -> (oneof\<raw\>)<br/>Oneof value field<br/>raw -> (string)<br/>Raw secret value<br/>user -> (string)<br/>User name, required unless connection_manager_connection is used<br/>address -> (oneof<connection-manager-connection\|mdb-cluster-id\|on-premise>)<br/>Oneof address field<br/>mdb-cluster-id -> (string)<br/>Identifier of the Yandex StoreDoc cluster Use one of: mdb_cluster_id/on_premise/connection_manager_connection<br/>on-premise -> (struct)<br/>Connection settings of the on-premise MongoDB server Use one of: mdb_cluster_id/on_premise/connection_manager_connection<br/>hosts -> ([]string)<br/>Host names of the replica set<br/>port -> (int)<br/>TCP Port number<br/>replica-set -> (string)<br/>Replica set name<br/>tls-mode -> (struct)<br/>TLS settings for the server connection. Empty implies plaintext connection<br/>tls-mode -> (oneof<disabled\|enabled>)<br/>Oneof tls-mode field<br/>disabled -> (struct)<br/>Empty block designating that the connection is not secured, i.e. plaintext connection<br/>enabled -> (struct)<br/>TLS is used for the server connection<br/>ca-certificate -> (string)<br/>CA certificate X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified, TLS is used to connect to the server. If CA certificate is empty, the server's certificate must be signed by a well-known CA<br/>connection-manager-connection -> (struct)<br/>Get StoreDoc/MongoDB installation params and credentials from Connection Manager Use one of: mdb_cluster_id/on_premise/connection_manager_connection<br/>connection-id -> (string)<br/>ID of connectionmanager connection with mongodb/Yandex Storedoc installation parameters and credentials<br/>replica-set -> (string)<br/>Replica set name, used only for on-premise mongodb installations<br/>database -> (string)<br/>Database name. If not empty, then all the data will be written to the database with the specified name; otherwise the database name is the same as in the source endpoint<br/>security-groups -> ([]string)<br/>List of security groups that the transfer associated with this endpoint should use<br/>subnet-id -> (string)<br/>Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet<br/>metrika-source -> (struct)<br/>counter-ids -> ([]int)<br/>Counter IDs<br/>streams -> ([]struct)<br/>Streams<br/>columns -> ([]string)<br/>Column names<br/>type -> (enum<METRIKA_STREAM_TYPE_HITS\|METRIKA_STREAM_TYPE_HITS_V2\|METRIKA_STREAM_TYPE_VISITS>)<br/>Stream type, one of: METRIKA_STREAM_TYPE_HITS, METRIKA_STREAM_TYPE_VISITS, METRIKA_STREAM_TYPE_HITS_V2<br/>token -> (struct)<br/>Authentication token<br/>value -> (oneof\<raw\>)<br/>Oneof value field<br/>raw -> (string)<br/>Raw secret value<br/>yds-target -> (struct)<br/>compression-codec -> (enum<YDS_COMPRESSION_CODEC_GZIP\|YDS_COMPRESSION_CODEC_RAW\|YDS_COMPRESSION_CODEC_ZSTD>)<br/>Codec to use for output data compression. If not specified, no compression will be done Options: YDS_COMPRESSION_CODEC_RAW, YDS_COMPRESSION_CODEC_ZSTD, YDS_COMPRESSION_CODEC_GZIP<br/>database -> (string)<br/>Database path in YDB for streams Example: '/ru/transfer_manager/prod/data-transfer'<br/>endpoint -> (string)<br/>YDS Endpoint for dedicated db<br/>save-tx-order -> (bool)<br/>Save transaction order Not to split events queue into separate per-table queues. Incompatible with setting Topic prefix, only with Topic full name.<br/>security-groups -> ([]string)<br/>List of security groups that the transfer associated with this endpoint should use<br/>serializer -> (struct)<br/>Data serialization format<br/>serializer -> (oneof<serializer-auto\|serializer-debezium\|serializer-json>)<br/>Oneof serializer field<br/>serializer-auto -> (struct)<br/>Empty block. Select the serialization format automatically<br/>serializer-json -> (struct)<br/>Empty block. Serialize data in json format<br/>serializer-debezium -> (struct)<br/>Serialize data in debezium json format<br/>serializer-parameters -> ([]struct)<br/>A list of Debezium parameters set by the structure of the 'key' and 'value' string fields<br/>key -> (string)<br/>Name of the serializer parameter<br/>value -> (string)<br/>Value of the serializer parameter<br/>service-account-id -> (string)<br/>Service account ID which has read access to the stream<br/>stream -> (string)<br/>Stream to write to<br/>subnet-id -> (string)<br/>Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `--description` | `string`
+
+The new description for the endpoint. ||
+|| `--endpoint-id` | `string`
+
+Identifier of the endpoint to be updated. ||
+|| `--labels` | `stringToString`
+
+Endpoint labels as 'key:value' pairs. For details about the concept, see [documentation]({{ api-url-prefix }}/resource-manager/concepts/labels). ||
+|| `--name` | `string`
+
+The new endpoint name. Must be unique within the folder. ||
+|| `--settings` | `shorthand/json`
+
+The new endpoint settings.
+
+Shorthand Syntax:
+
+```hcl
+{
+  settings = clickhouse-source={
+    clickhouse-cluster-name = str,
+    connection = {
+      connection = connection-options={
+        address = connection-manager-connection={
+          connection-id = str,
+          subnet-id = str
+        } | mdb-cluster-id=str | on-premise={
+          http-port = int,
+          native-port = int,
+          shards = [
+            {
+              hosts = str,...,
+              name = str
+            }, ...
+          ],
+          tls-mode = {
+            tls-mode = disabled={} | enabled={
+              ca-certificate = str
+            }
+          }
+        },
+        database = str,
+        password = {
+          value = raw=str
+        },
+        user = str
+      }
+    },
+    exclude-tables = str,...,
+    include-tables = str,...,
+    security-groups = str,...,
+    subnet-id = str
+  } | clickhouse-target={
+    alt-names = [
+      {
+        from-name = str,
+        to-name = str
+      }, ...
+    ],
+    cleanup-policy = CLICKHOUSE_CLEANUP_POLICY_DISABLED|CLICKHOUSE_CLEANUP_POLICY_DROP|CLICKHOUSE_CLEANUP_POLICY_TRUNCATE,
+    clickhouse-cluster-name = str,
+    connection = {
+      connection = connection-options={
+        address = connection-manager-connection={
+          connection-id = str,
+          subnet-id = str
+        } | mdb-cluster-id=str | on-premise={
+          http-port = int,
+          native-port = int,
+          shards = [
+            {
+              hosts = str,...,
+              name = str
+            }, ...
+          ],
+          tls-mode = {
+            tls-mode = disabled={} | enabled={
+              ca-certificate = str
+            }
+          }
+        },
+        database = str,
+        password = {
+          value = raw=str
+        },
+        user = str
+      }
+    },
+    is-schema-migration-disabled = bool,
+    security-groups = str,...,
+    sharding = {
+      sharding = column-value-hash={
+        column-name = str
+      } | custom-mapping={
+        column-name = str,
+        mapping = [
+          {
+            column-value = {
+              value = string-value=str
+            },
+            shard-name = str
+          }, ...
+        ]
+      } | round-robin={} | transfer-id={}
+    },
+    subnet-id = str
+  } | kafka-source={
+    auth = {
+      security = no-auth={} | sasl={
+        mechanism = KAFKA_MECHANISM_SHA256|KAFKA_MECHANISM_SHA512,
+        password = {
+          value = raw=str
+        },
+        user = str
+      }
+    },
+    connection = {
+      connection = cluster-id=str | connection-manager-connection={
+        connection-id = str,
+        subnet-id = str
+      } | on-premise={
+        broker-urls = str,...,
+        subnet-id = str,
+        tls-mode = {
+          tls-mode = disabled={} | enabled={
+            ca-certificate = str
+          }
+        }
+      }
+    },
+    parser = {
+      parser = audit-trails-v1-parser={} | cloud-logging-parser={} | json-parser={
+        add-rest-column = bool,
+        data-schema = {
+          schema = fields={
+            fields = [
+              {
+                key = bool,
+                name = str,
+                path = str,
+                required = bool,
+                type = INT32|INT16|INT8|UINT64|UINT32|UINT16|UINT8|DOUBLE|BOOLEAN|STRING|UTF8|ANY|DATETIME|INT64
+              }, ...
+            ]
+          } | json-fields=str
+        },
+        null-keys-allowed = bool,
+        unescape-string-values = bool
+      } | tskv-parser={
+        add-rest-column = bool,
+        data-schema = {
+          schema = fields={
+            fields = [
+              {
+                key = bool,
+                name = str,
+                path = str,
+                required = bool,
+                type = INT32|INT16|INT8|UINT64|UINT32|UINT16|UINT8|DOUBLE|BOOLEAN|STRING|UTF8|ANY|DATETIME|INT64
+              }, ...
+            ]
+          } | json-fields=str
+        },
+        null-keys-allowed = bool,
+        unescape-string-values = bool
+      }
+    },
+    security-groups = str,...,
+    topic-name = str,
+    topic-names = str,...,
+    transformer = {
+      buffer-flush-interval = str,
+      buffer-size = str,
+      cloud-function = str,
+      invocation-timeout = str,
+      number-of-retries = int,
+      service-account-id = str
+    }
+  } | kafka-target={
+    auth = {
+      security = no-auth={} | sasl={
+        mechanism = KAFKA_MECHANISM_SHA256|KAFKA_MECHANISM_SHA512,
+        password = {
+          value = raw=str
+        },
+        user = str
+      }
+    },
+    connection = {
+      connection = cluster-id=str | connection-manager-connection={
+        connection-id = str,
+        subnet-id = str
+      } | on-premise={
+        broker-urls = str,...,
+        subnet-id = str,
+        tls-mode = {
+          tls-mode = disabled={} | enabled={
+            ca-certificate = str
+          }
+        }
+      }
+    },
+    security-groups = str,...,
+    serializer = {
+      serializer = serializer-auto={} | serializer-debezium={
+        serializer-parameters = [
+          {
+            key = str,
+            value = str
+          }, ...
+        ]
+      } | serializer-json={}
+    },
+    topic-settings = {
+      topic-settings = topic={
+        save-tx-order = bool,
+        topic-name = str
+      } | topic-prefix=str
+    }
+  } | metrika-source={
+    counter-ids = int,...,
+    streams = [
+      {
+        columns = str,...,
+        type = METRIKA_STREAM_TYPE_HITS|METRIKA_STREAM_TYPE_VISITS|METRIKA_STREAM_TYPE_HITS_V2
+      }, ...
+    ],
+    token = {
+      value = raw=str
+    }
+  } | mongo-source={
+    collections = [
+      {
+        collection-name = str,
+        database-name = str
+      }, ...
+    ],
+    connection = {
+      connection = connection-options={
+        address = connection-manager-connection={
+          connection-id = str,
+          replica-set = str
+        } | mdb-cluster-id=str | on-premise={
+          hosts = str,...,
+          port = int,
+          replica-set = str,
+          tls-mode = {
+            tls-mode = disabled={} | enabled={
+              ca-certificate = str
+            }
+          }
+        },
+        auth-source = str,
+        password = {
+          value = raw=str
+        },
+        user = str
+      }
+    },
+    excluded-collections = [
+      {
+        collection-name = str,
+        database-name = str
+      }, ...
+    ],
+    secondary-preferred-mode = bool,
+    security-groups = str,...,
+    subnet-id = str
+  } | mongo-target={
+    cleanup-policy = DISABLED|DROP|TRUNCATE,
+    connection = {
+      connection = connection-options={
+        address = connection-manager-connection={
+          connection-id = str,
+          replica-set = str
+        } | mdb-cluster-id=str | on-premise={
+          hosts = str,...,
+          port = int,
+          replica-set = str,
+          tls-mode = {
+            tls-mode = disabled={} | enabled={
+              ca-certificate = str
+            }
+          }
+        },
+        auth-source = str,
+        password = {
+          value = raw=str
+        },
+        user = str
+      }
+    },
+    database = str,
+    security-groups = str,...,
+    subnet-id = str
+  } | mysql-source={
+    connection = {
+      connection = connection-manager-connection={
+        connection-id = str,
+        subnet-id = str
+      } | mdb-cluster-id=str | on-premise={
+        hosts = str,...,
+        port = int,
+        subnet-id = str,
+        tls-mode = {
+          tls-mode = disabled={} | enabled={
+            ca-certificate = str
+          }
+        }
+      }
+    },
+    database = str,
+    exclude-tables-regex = str,...,
+    include-tables-regex = str,...,
+    object-transfer-settings = {
+      routine = BEFORE_DATA|AFTER_DATA|NEVER,
+      tables = BEFORE_DATA|AFTER_DATA|NEVER,
+      trigger = BEFORE_DATA|AFTER_DATA|NEVER,
+      view = BEFORE_DATA|AFTER_DATA|NEVER
+    },
+    password = {
+      value = raw=str
+    },
+    security-groups = str,...,
+    service-database = str,
+    timezone = str,
+    user = str
+  } | mysql-target={
+    cleanup-policy = DISABLED|DROP|TRUNCATE,
+    connection = {
+      connection = connection-manager-connection={
+        connection-id = str,
+        subnet-id = str
+      } | mdb-cluster-id=str | on-premise={
+        hosts = str,...,
+        port = int,
+        subnet-id = str,
+        tls-mode = {
+          tls-mode = disabled={} | enabled={
+            ca-certificate = str
+          }
+        }
+      }
+    },
+    database = str,
+    is-schema-migration-disabled = bool,
+    password = {
+      value = raw=str
+    },
+    security-groups = str,...,
+    service-database = str,
+    skip-constraint-checks = bool,
+    sql-mode = str,
+    timezone = str,
+    user = str
+  } | postgres-source={
+    connection = {
+      connection = connection-manager-connection={
+        connection-id = str,
+        subnet-id = str
+      } | mdb-cluster-id=str | on-premise={
+        hosts = str,...,
+        port = int,
+        subnet-id = str,
+        tls-mode = {
+          tls-mode = disabled={} | enabled={
+            ca-certificate = str
+          }
+        }
+      }
+    },
+    database = str,
+    exclude-tables = str,...,
+    include-tables = str,...,
+    object-transfer-settings = {
+      cast = BEFORE_DATA|AFTER_DATA|NEVER,
+      collation = BEFORE_DATA|AFTER_DATA|NEVER,
+      constraint = BEFORE_DATA|AFTER_DATA|NEVER,
+      default-values = BEFORE_DATA|AFTER_DATA|NEVER,
+      fk-constraint = BEFORE_DATA|AFTER_DATA|NEVER,
+      function = BEFORE_DATA|AFTER_DATA|NEVER,
+      index = BEFORE_DATA|AFTER_DATA|NEVER,
+      materialized-view = BEFORE_DATA|AFTER_DATA|NEVER,
+      policy = BEFORE_DATA|AFTER_DATA|NEVER,
+      primary-key = BEFORE_DATA|AFTER_DATA|NEVER,
+      rule = BEFORE_DATA|AFTER_DATA|NEVER,
+      sequence = BEFORE_DATA|AFTER_DATA|NEVER,
+      sequence-owned-by = BEFORE_DATA|AFTER_DATA|NEVER,
+      sequence-set = BEFORE_DATA|AFTER_DATA|NEVER,
+      table = BEFORE_DATA|AFTER_DATA|NEVER,
+      trigger = BEFORE_DATA|AFTER_DATA|NEVER,
+      type = BEFORE_DATA|AFTER_DATA|NEVER,
+      view = BEFORE_DATA|AFTER_DATA|NEVER
+    },
+    password = {
+      value = raw=str
+    },
+    security-groups = str,...,
+    service-schema = str,
+    slot-byte-lag-limit = int,
+    user = str
+  } | postgres-target={
+    cleanup-policy = DISABLED|DROP|TRUNCATE,
+    connection = {
+      connection = connection-manager-connection={
+        connection-id = str,
+        subnet-id = str
+      } | mdb-cluster-id=str | on-premise={
+        hosts = str,...,
+        port = int,
+        subnet-id = str,
+        tls-mode = {
+          tls-mode = disabled={} | enabled={
+            ca-certificate = str
+          }
+        }
+      }
+    },
+    database = str,
+    is-schema-migration-disabled = bool,
+    password = {
+      value = raw=str
+    },
+    security-groups = str,...,
+    user = str
+  } | ydb-source={
+    changefeed-custom-consumer-name = str,
+    changefeed-custom-name = str,
+    database = str,
+    instance = str,
+    paths = str,...,
+    sa-key-content = str,
+    security-groups = str,...,
+    service-account-id = str,
+    subnet-id = str
+  } | ydb-target={
+    cleanup-policy = YDB_CLEANUP_POLICY_DISABLED|YDB_CLEANUP_POLICY_DROP,
+    database = str,
+    default-compression = YDB_DEFAULT_COMPRESSION_DISABLED|YDB_DEFAULT_COMPRESSION_LZ4,
+    instance = str,
+    is-schema-migration-disabled = bool,
+    is-table-column-oriented = bool,
+    path = str,
+    sa-key-content = str,
+    security-groups = str,...,
+    service-account-id = str,
+    subnet-id = str
+  } | yds-source={
+    allow-ttl-rewind = bool,
+    consumer = str,
+    database = str,
+    endpoint = str,
+    parser = {
+      parser = audit-trails-v1-parser={} | cloud-logging-parser={} | json-parser={
+        add-rest-column = bool,
+        data-schema = {
+          schema = fields={
+            fields = [
+              {
+                key = bool,
+                name = str,
+                path = str,
+                required = bool,
+                type = INT32|INT16|INT8|UINT64|UINT32|UINT16|UINT8|DOUBLE|BOOLEAN|STRING|UTF8|ANY|DATETIME|INT64
+              }, ...
+            ]
+          } | json-fields=str
+        },
+        null-keys-allowed = bool,
+        unescape-string-values = bool
+      } | tskv-parser={
+        add-rest-column = bool,
+        data-schema = {
+          schema = fields={
+            fields = [
+              {
+                key = bool,
+                name = str,
+                path = str,
+                required = bool,
+                type = INT32|INT16|INT8|UINT64|UINT32|UINT16|UINT8|DOUBLE|BOOLEAN|STRING|UTF8|ANY|DATETIME|INT64
+              }, ...
+            ]
+          } | json-fields=str
+        },
+        null-keys-allowed = bool,
+        unescape-string-values = bool
+      }
+    },
+    security-groups = str,...,
+    service-account-id = str,
+    stream = str,
+    subnet-id = str,
+    supported-codecs = [
+      YDS_COMPRESSION_CODEC_RAW|YDS_COMPRESSION_CODEC_GZIP|YDS_COMPRESSION_CODEC_ZSTD, ...
+    ]
+  } | yds-target={
+    compression-codec = YDS_COMPRESSION_CODEC_RAW|YDS_COMPRESSION_CODEC_GZIP|YDS_COMPRESSION_CODEC_ZSTD,
+    database = str,
+    endpoint = str,
+    save-tx-order = bool,
+    security-groups = str,...,
+    serializer = {
+      serializer = serializer-auto={} | serializer-debezium={
+        serializer-parameters = [
+          {
+            key = str,
+            value = str
+          }, ...
+        ]
+      } | serializer-json={}
+    },
+    service-account-id = str,
+    stream = str,
+    subnet-id = str
+  }
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "settings": {
+    "clickhouse-source": {
+      "clickhouse-cluster-name": "str",
+      "connection": {
+        "connection": {
+          "connection-options": {
+            "address": {
+              "connection-manager-connection": {
+                "connection-id": "str",
+                "subnet-id": "str"
+              },
+              "mdb-cluster-id": "str",
+              "on-premise": {
+                "http-port": "int",
+                "native-port": "int",
+                "shards": [
+                  {
+                    "hosts": [
+                      "str", ...
+                    ],
+                    "name": "str"
+                  }, ...
+                ],
+                "tls-mode": {
+                  "tls-mode": {
+                    "disabled": {},
+                    "enabled": {
+                      "ca-certificate": "str"
+                    }
+                  }
+                }
+              }
+            },
+            "database": "str",
+            "password": {
+              "value": {
+                "raw": "str"
+              }
+            },
+            "user": "str"
+          }
+        }
+      },
+      "exclude-tables": [
+        "str", ...
+      ],
+      "include-tables": [
+        "str", ...
+      ],
+      "security-groups": [
+        "str", ...
+      ],
+      "subnet-id": "str"
+    },
+    "clickhouse-target": {
+      "alt-names": [
+        {
+          "from-name": "str",
+          "to-name": "str"
+        }, ...
+      ],
+      "cleanup-policy": "CLICKHOUSE_CLEANUP_POLICY_DISABLED|CLICKHOUSE_CLEANUP_POLICY_DROP|CLICKHOUSE_CLEANUP_POLICY_TRUNCATE",
+      "clickhouse-cluster-name": "str",
+      "connection": {
+        "connection": {
+          "connection-options": {
+            "address": {
+              "connection-manager-connection": {
+                "connection-id": "str",
+                "subnet-id": "str"
+              },
+              "mdb-cluster-id": "str",
+              "on-premise": {
+                "http-port": "int",
+                "native-port": "int",
+                "shards": [
+                  {
+                    "hosts": [
+                      "str", ...
+                    ],
+                    "name": "str"
+                  }, ...
+                ],
+                "tls-mode": {
+                  "tls-mode": {
+                    "disabled": {},
+                    "enabled": {
+                      "ca-certificate": "str"
+                    }
+                  }
+                }
+              }
+            },
+            "database": "str",
+            "password": {
+              "value": {
+                "raw": "str"
+              }
+            },
+            "user": "str"
+          }
+        }
+      },
+      "is-schema-migration-disabled": "bool",
+      "security-groups": [
+        "str", ...
+      ],
+      "sharding": {
+        "sharding": {
+          "column-value-hash": {
+            "column-name": "str"
+          },
+          "custom-mapping": {
+            "column-name": "str",
+            "mapping": [
+              {
+                "column-value": {
+                  "value": {
+                    "string-value": "str"
+                  }
+                },
+                "shard-name": "str"
+              }, ...
+            ]
+          },
+          "round-robin": {},
+          "transfer-id": {}
+        }
+      },
+      "subnet-id": "str"
+    },
+    "kafka-source": {
+      "auth": {
+        "security": {
+          "no-auth": {},
+          "sasl": {
+            "mechanism": "KAFKA_MECHANISM_SHA256|KAFKA_MECHANISM_SHA512",
+            "password": {
+              "value": {
+                "raw": "str"
+              }
+            },
+            "user": "str"
+          }
+        }
+      },
+      "connection": {
+        "connection": {
+          "cluster-id": "str",
+          "connection-manager-connection": {
+            "connection-id": "str",
+            "subnet-id": "str"
+          },
+          "on-premise": {
+            "broker-urls": [
+              "str", ...
+            ],
+            "subnet-id": "str",
+            "tls-mode": {
+              "tls-mode": {
+                "disabled": {},
+                "enabled": {
+                  "ca-certificate": "str"
+                }
+              }
+            }
+          }
+        }
+      },
+      "parser": {
+        "parser": {
+          "audit-trails-v1-parser": {},
+          "cloud-logging-parser": {},
+          "json-parser": {
+            "add-rest-column": "bool",
+            "data-schema": {
+              "schema": {
+                "fields": {
+                  "fields": [
+                    {
+                      "key": "bool",
+                      "name": "str",
+                      "path": "str",
+                      "required": "bool",
+                      "type": "INT32|INT16|INT8|UINT64|UINT32|UINT16|UINT8|DOUBLE|BOOLEAN|STRING|UTF8|ANY|DATETIME|INT64"
+                    }, ...
+                  ]
+                },
+                "json-fields": "str"
+              }
+            },
+            "null-keys-allowed": "bool",
+            "unescape-string-values": "bool"
+          },
+          "tskv-parser": {
+            "add-rest-column": "bool",
+            "data-schema": {
+              "schema": {
+                "fields": {
+                  "fields": [
+                    {
+                      "key": "bool",
+                      "name": "str",
+                      "path": "str",
+                      "required": "bool",
+                      "type": "INT32|INT16|INT8|UINT64|UINT32|UINT16|UINT8|DOUBLE|BOOLEAN|STRING|UTF8|ANY|DATETIME|INT64"
+                    }, ...
+                  ]
+                },
+                "json-fields": "str"
+              }
+            },
+            "null-keys-allowed": "bool",
+            "unescape-string-values": "bool"
+          }
+        }
+      },
+      "security-groups": [
+        "str", ...
+      ],
+      "topic-name": "str",
+      "topic-names": [
+        "str", ...
+      ],
+      "transformer": {
+        "buffer-flush-interval": "str",
+        "buffer-size": "str",
+        "cloud-function": "str",
+        "invocation-timeout": "str",
+        "number-of-retries": "int",
+        "service-account-id": "str"
+      }
+    },
+    "kafka-target": {
+      "auth": {
+        "security": {
+          "no-auth": {},
+          "sasl": {
+            "mechanism": "KAFKA_MECHANISM_SHA256|KAFKA_MECHANISM_SHA512",
+            "password": {
+              "value": {
+                "raw": "str"
+              }
+            },
+            "user": "str"
+          }
+        }
+      },
+      "connection": {
+        "connection": {
+          "cluster-id": "str",
+          "connection-manager-connection": {
+            "connection-id": "str",
+            "subnet-id": "str"
+          },
+          "on-premise": {
+            "broker-urls": [
+              "str", ...
+            ],
+            "subnet-id": "str",
+            "tls-mode": {
+              "tls-mode": {
+                "disabled": {},
+                "enabled": {
+                  "ca-certificate": "str"
+                }
+              }
+            }
+          }
+        }
+      },
+      "security-groups": [
+        "str", ...
+      ],
+      "serializer": {
+        "serializer": {
+          "serializer-auto": {},
+          "serializer-debezium": {
+            "serializer-parameters": [
+              {
+                "key": "str",
+                "value": "str"
+              }, ...
+            ]
+          },
+          "serializer-json": {}
+        }
+      },
+      "topic-settings": {
+        "topic-settings": {
+          "topic": {
+            "save-tx-order": "bool",
+            "topic-name": "str"
+          },
+          "topic-prefix": "str"
+        }
+      }
+    },
+    "metrika-source": {
+      "counter-ids": [
+        "int", ...
+      ],
+      "streams": [
+        {
+          "columns": [
+            "str", ...
+          ],
+          "type": "METRIKA_STREAM_TYPE_HITS|METRIKA_STREAM_TYPE_VISITS|METRIKA_STREAM_TYPE_HITS_V2"
+        }, ...
+      ],
+      "token": {
+        "value": {
+          "raw": "str"
+        }
+      }
+    },
+    "mongo-source": {
+      "collections": [
+        {
+          "collection-name": "str",
+          "database-name": "str"
+        }, ...
+      ],
+      "connection": {
+        "connection": {
+          "connection-options": {
+            "address": {
+              "connection-manager-connection": {
+                "connection-id": "str",
+                "replica-set": "str"
+              },
+              "mdb-cluster-id": "str",
+              "on-premise": {
+                "hosts": [
+                  "str", ...
+                ],
+                "port": "int",
+                "replica-set": "str",
+                "tls-mode": {
+                  "tls-mode": {
+                    "disabled": {},
+                    "enabled": {
+                      "ca-certificate": "str"
+                    }
+                  }
+                }
+              }
+            },
+            "auth-source": "str",
+            "password": {
+              "value": {
+                "raw": "str"
+              }
+            },
+            "user": "str"
+          }
+        }
+      },
+      "excluded-collections": [
+        {
+          "collection-name": "str",
+          "database-name": "str"
+        }, ...
+      ],
+      "secondary-preferred-mode": "bool",
+      "security-groups": [
+        "str", ...
+      ],
+      "subnet-id": "str"
+    },
+    "mongo-target": {
+      "cleanup-policy": "DISABLED|DROP|TRUNCATE",
+      "connection": {
+        "connection": {
+          "connection-options": {
+            "address": {
+              "connection-manager-connection": {
+                "connection-id": "str",
+                "replica-set": "str"
+              },
+              "mdb-cluster-id": "str",
+              "on-premise": {
+                "hosts": [
+                  "str", ...
+                ],
+                "port": "int",
+                "replica-set": "str",
+                "tls-mode": {
+                  "tls-mode": {
+                    "disabled": {},
+                    "enabled": {
+                      "ca-certificate": "str"
+                    }
+                  }
+                }
+              }
+            },
+            "auth-source": "str",
+            "password": {
+              "value": {
+                "raw": "str"
+              }
+            },
+            "user": "str"
+          }
+        }
+      },
+      "database": "str",
+      "security-groups": [
+        "str", ...
+      ],
+      "subnet-id": "str"
+    },
+    "mysql-source": {
+      "connection": {
+        "connection": {
+          "connection-manager-connection": {
+            "connection-id": "str",
+            "subnet-id": "str"
+          },
+          "mdb-cluster-id": "str",
+          "on-premise": {
+            "hosts": [
+              "str", ...
+            ],
+            "port": "int",
+            "subnet-id": "str",
+            "tls-mode": {
+              "tls-mode": {
+                "disabled": {},
+                "enabled": {
+                  "ca-certificate": "str"
+                }
+              }
+            }
+          }
+        }
+      },
+      "database": "str",
+      "exclude-tables-regex": [
+        "str", ...
+      ],
+      "include-tables-regex": [
+        "str", ...
+      ],
+      "object-transfer-settings": {
+        "routine": "BEFORE_DATA|AFTER_DATA|NEVER",
+        "tables": "BEFORE_DATA|AFTER_DATA|NEVER",
+        "trigger": "BEFORE_DATA|AFTER_DATA|NEVER",
+        "view": "BEFORE_DATA|AFTER_DATA|NEVER"
+      },
+      "password": {
+        "value": {
+          "raw": "str"
+        }
+      },
+      "security-groups": [
+        "str", ...
+      ],
+      "service-database": "str",
+      "timezone": "str",
+      "user": "str"
+    },
+    "mysql-target": {
+      "cleanup-policy": "DISABLED|DROP|TRUNCATE",
+      "connection": {
+        "connection": {
+          "connection-manager-connection": {
+            "connection-id": "str",
+            "subnet-id": "str"
+          },
+          "mdb-cluster-id": "str",
+          "on-premise": {
+            "hosts": [
+              "str", ...
+            ],
+            "port": "int",
+            "subnet-id": "str",
+            "tls-mode": {
+              "tls-mode": {
+                "disabled": {},
+                "enabled": {
+                  "ca-certificate": "str"
+                }
+              }
+            }
+          }
+        }
+      },
+      "database": "str",
+      "is-schema-migration-disabled": "bool",
+      "password": {
+        "value": {
+          "raw": "str"
+        }
+      },
+      "security-groups": [
+        "str", ...
+      ],
+      "service-database": "str",
+      "skip-constraint-checks": "bool",
+      "sql-mode": "str",
+      "timezone": "str",
+      "user": "str"
+    },
+    "postgres-source": {
+      "connection": {
+        "connection": {
+          "connection-manager-connection": {
+            "connection-id": "str",
+            "subnet-id": "str"
+          },
+          "mdb-cluster-id": "str",
+          "on-premise": {
+            "hosts": [
+              "str", ...
+            ],
+            "port": "int",
+            "subnet-id": "str",
+            "tls-mode": {
+              "tls-mode": {
+                "disabled": {},
+                "enabled": {
+                  "ca-certificate": "str"
+                }
+              }
+            }
+          }
+        }
+      },
+      "database": "str",
+      "exclude-tables": [
+        "str", ...
+      ],
+      "include-tables": [
+        "str", ...
+      ],
+      "object-transfer-settings": {
+        "cast": "BEFORE_DATA|AFTER_DATA|NEVER",
+        "collation": "BEFORE_DATA|AFTER_DATA|NEVER",
+        "constraint": "BEFORE_DATA|AFTER_DATA|NEVER",
+        "default-values": "BEFORE_DATA|AFTER_DATA|NEVER",
+        "fk-constraint": "BEFORE_DATA|AFTER_DATA|NEVER",
+        "function": "BEFORE_DATA|AFTER_DATA|NEVER",
+        "index": "BEFORE_DATA|AFTER_DATA|NEVER",
+        "materialized-view": "BEFORE_DATA|AFTER_DATA|NEVER",
+        "policy": "BEFORE_DATA|AFTER_DATA|NEVER",
+        "primary-key": "BEFORE_DATA|AFTER_DATA|NEVER",
+        "rule": "BEFORE_DATA|AFTER_DATA|NEVER",
+        "sequence": "BEFORE_DATA|AFTER_DATA|NEVER",
+        "sequence-owned-by": "BEFORE_DATA|AFTER_DATA|NEVER",
+        "sequence-set": "BEFORE_DATA|AFTER_DATA|NEVER",
+        "table": "BEFORE_DATA|AFTER_DATA|NEVER",
+        "trigger": "BEFORE_DATA|AFTER_DATA|NEVER",
+        "type": "BEFORE_DATA|AFTER_DATA|NEVER",
+        "view": "BEFORE_DATA|AFTER_DATA|NEVER"
+      },
+      "password": {
+        "value": {
+          "raw": "str"
+        }
+      },
+      "security-groups": [
+        "str", ...
+      ],
+      "service-schema": "str",
+      "slot-byte-lag-limit": "int",
+      "user": "str"
+    },
+    "postgres-target": {
+      "cleanup-policy": "DISABLED|DROP|TRUNCATE",
+      "connection": {
+        "connection": {
+          "connection-manager-connection": {
+            "connection-id": "str",
+            "subnet-id": "str"
+          },
+          "mdb-cluster-id": "str",
+          "on-premise": {
+            "hosts": [
+              "str", ...
+            ],
+            "port": "int",
+            "subnet-id": "str",
+            "tls-mode": {
+              "tls-mode": {
+                "disabled": {},
+                "enabled": {
+                  "ca-certificate": "str"
+                }
+              }
+            }
+          }
+        }
+      },
+      "database": "str",
+      "is-schema-migration-disabled": "bool",
+      "password": {
+        "value": {
+          "raw": "str"
+        }
+      },
+      "security-groups": [
+        "str", ...
+      ],
+      "user": "str"
+    },
+    "ydb-source": {
+      "changefeed-custom-consumer-name": "str",
+      "changefeed-custom-name": "str",
+      "database": "str",
+      "instance": "str",
+      "paths": [
+        "str", ...
+      ],
+      "sa-key-content": "str",
+      "security-groups": [
+        "str", ...
+      ],
+      "service-account-id": "str",
+      "subnet-id": "str"
+    },
+    "ydb-target": {
+      "cleanup-policy": "YDB_CLEANUP_POLICY_DISABLED|YDB_CLEANUP_POLICY_DROP",
+      "database": "str",
+      "default-compression": "YDB_DEFAULT_COMPRESSION_DISABLED|YDB_DEFAULT_COMPRESSION_LZ4",
+      "instance": "str",
+      "is-schema-migration-disabled": "bool",
+      "is-table-column-oriented": "bool",
+      "path": "str",
+      "sa-key-content": "str",
+      "security-groups": [
+        "str", ...
+      ],
+      "service-account-id": "str",
+      "subnet-id": "str"
+    },
+    "yds-source": {
+      "allow-ttl-rewind": "bool",
+      "consumer": "str",
+      "database": "str",
+      "endpoint": "str",
+      "parser": {
+        "parser": {
+          "audit-trails-v1-parser": {},
+          "cloud-logging-parser": {},
+          "json-parser": {
+            "add-rest-column": "bool",
+            "data-schema": {
+              "schema": {
+                "fields": {
+                  "fields": [
+                    {
+                      "key": "bool",
+                      "name": "str",
+                      "path": "str",
+                      "required": "bool",
+                      "type": "INT32|INT16|INT8|UINT64|UINT32|UINT16|UINT8|DOUBLE|BOOLEAN|STRING|UTF8|ANY|DATETIME|INT64"
+                    }, ...
+                  ]
+                },
+                "json-fields": "str"
+              }
+            },
+            "null-keys-allowed": "bool",
+            "unescape-string-values": "bool"
+          },
+          "tskv-parser": {
+            "add-rest-column": "bool",
+            "data-schema": {
+              "schema": {
+                "fields": {
+                  "fields": [
+                    {
+                      "key": "bool",
+                      "name": "str",
+                      "path": "str",
+                      "required": "bool",
+                      "type": "INT32|INT16|INT8|UINT64|UINT32|UINT16|UINT8|DOUBLE|BOOLEAN|STRING|UTF8|ANY|DATETIME|INT64"
+                    }, ...
+                  ]
+                },
+                "json-fields": "str"
+              }
+            },
+            "null-keys-allowed": "bool",
+            "unescape-string-values": "bool"
+          }
+        }
+      },
+      "security-groups": [
+        "str", ...
+      ],
+      "service-account-id": "str",
+      "stream": "str",
+      "subnet-id": "str",
+      "supported-codecs": [
+        "YDS_COMPRESSION_CODEC_RAW|YDS_COMPRESSION_CODEC_GZIP|YDS_COMPRESSION_CODEC_ZSTD", ...
+      ]
+    },
+    "yds-target": {
+      "compression-codec": "YDS_COMPRESSION_CODEC_RAW|YDS_COMPRESSION_CODEC_GZIP|YDS_COMPRESSION_CODEC_ZSTD",
+      "database": "str",
+      "endpoint": "str",
+      "save-tx-order": "bool",
+      "security-groups": [
+        "str", ...
+      ],
+      "serializer": {
+        "serializer": {
+          "serializer-auto": {},
+          "serializer-debezium": {
+            "serializer-parameters": [
+              {
+                "key": "str",
+                "value": "str"
+              }, ...
+            ]
+          },
+          "serializer-json": {}
+        }
+      },
+      "service-account-id": "str",
+      "stream": "str",
+      "subnet-id": "str"
+    }
+  }
+}
+```
+
+Fields:
+
+```
+settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target|metrika-source|mongo-source|mongo-target|mysql-source|mysql-target|postgres-source|postgres-target|ydb-source|ydb-target|yds-source|yds-target>)
+  Oneof settings field
+  mysql-source -> (struct)
+    connection -> (struct)
+      Database connection settings
+      connection -> (oneof<connection-manager-connection|mdb-cluster-id|on-premise>)
+        Oneof connection field
+        mdb-cluster-id -> (string)
+          Managed Service for MySQL cluster ID
+        on-premise -> (struct)
+          Connection options for on-premise MySQL
+          hosts -> ([]string)
+            List of host names of the MySQL server. Exactly one host is expected
+          port -> (int)
+            Port for the database connection
+          subnet-id -> (string)
+            Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
+          tls-mode -> (struct)
+            TLS settings for server connection. Disabled by default.
+            tls-mode -> (oneof<disabled|enabled>)
+              Oneof tls-mode field
+              disabled -> (struct)
+                Empty block designating that the connection is not secured, i.e. plaintext connection
+              enabled -> (struct)
+                TLS is used for the server connection
+                ca-certificate -> (string)
+                  CA certificate X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified, TLS is used to connect to the server. If CA certificate is empty, the server's certificate must be signed by a well-known CA
+        connection-manager-connection -> (struct)
+          Get Mysql installation params and credentials from Connection Manager
+          connection-id -> (string)
+            ID of connection in Connection Manager with installation params and credetials
+          subnet-id -> (string)
+            Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
+    database -> (string)
+      Name of the database to transfer You can leave it empty, then it will be possible to transfer tables from several databases at the same time from this source.
+    exclude-tables-regex -> ([]string)
+      Opposite of 'include_table_regex'. The tables matching the specified regular expressions will not be transferred
+    include-tables-regex -> ([]string)
+      List of regular expressions of table names which should be transferred. A table name is formatted as schemaname.tablename. For example, a single regular expression may look like '^mydb.employees$'
+    object-transfer-settings -> (struct)
+      Schema migration Defines which database schema objects should be transferred, e.g. views, routines, etc. All of the attrubutes in the block are optional and should be either 'BEFORE_DATA', 'AFTER_DATA' or 'NEVER'."
+      routine -> (struct)
+        Routines CREATE PROCEDURE ... ; CREATE FUNCTION ... ;
+      tables -> (struct)
+      trigger -> (struct)
+        Triggers CREATE TRIGGER ...
+      view -> (struct)
+        Views CREATE VIEW ...
+    password -> (struct)
+      Password for database access.
+      value -> (oneof<raw>)
+        Oneof value field
+        raw -> (string)
+          Raw secret value
+    security-groups -> ([]string)
+      List of security groups that the transfer associated with this endpoint should use
+    service-database -> (string)
+      Database for service tables Default: data source database. Here created technical tables (__tm_keeper, __tm_gtid_keeper).
+    timezone -> (string)
+      Database timezone Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone.
+    user -> (string)
+      User for database access. Required unless connection manager connection is used
+  postgres-source -> (struct)
+    connection -> (struct)
+      Database connection settings
+      connection -> (oneof<connection-manager-connection|mdb-cluster-id|on-premise>)
+        Oneof connection field
+        mdb-cluster-id -> (string)
+          Managed Service for PostgreSQL cluster ID
+        on-premise -> (struct)
+          Connection options for on-premise PostgreSQL
+          hosts -> ([]string)
+            PG installation hosts
+          port -> (int)
+            PG port. Will be used if the cluster ID is not specified.
+          subnet-id -> (string)
+            Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
+          tls-mode -> (struct)
+            TLS settings for server connection. Disabled by default.
+            tls-mode -> (oneof<disabled|enabled>)
+              Oneof tls-mode field
+              disabled -> (struct)
+                Empty block designating that the connection is not secured, i.e. plaintext connection
+              enabled -> (struct)
+                TLS is used for the server connection
+                ca-certificate -> (string)
+                  CA certificate X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified, TLS is used to connect to the server. If CA certificate is empty, the server's certificate must be signed by a well-known CA
+        connection-manager-connection -> (struct)
+          Get Postgres installation params and credentials from Connection Manager
+          connection-id -> (string)
+            ID of connection in Connection Manager with installation params and credetials
+          subnet-id -> (string)
+            Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
+    database -> (string)
+      Name of the database to transfer
+    exclude-tables -> ([]string)
+      List of tables which will not be transfered, formatted as 'schemaname.tablename' If omitted or empty list is specified, all tables are replicated. Can contain schema_name.* patterns.
+    include-tables -> ([]string)
+      List of tables to transfer, formatted as 'schemaname.tablename'. If omitted or an empty list is specified, all tables will be transferred. Can contain schema_name.* patterns.
+    object-transfer-settings -> (struct)
+      Defines which database schema objects should be transferred, e.g. views, functions, etc. All of the attributes in this block are optional and should be either 'BEFORE_DATA', 'AFTER_DATA' or 'NEVER'
+      cast -> (struct)
+        Casts CREATE CAST ...
+      collation -> (struct)
+        Collations CREATE COLLATION ...
+      constraint -> (struct)
+        Constraints ALTER TABLE ... ADD CONSTRAINT ...
+      default-values -> (struct)
+        Default values ALTER TABLE ... ALTER COLUMN ... SET DEFAULT ...
+      fk-constraint -> (struct)
+        Foreign keys ALTER TABLE ... ADD FOREIGN KEY ...
+      function -> (struct)
+        Functions CREATE FUNCTION ...
+      index -> (struct)
+        Indexes CREATE INDEX ...
+      materialized-view -> (struct)
+        Materialized views CREATE MATERIALIZED VIEW ...
+      policy -> (struct)
+        Policies CREATE POLICY ...
+      primary-key -> (struct)
+        Primary keys ALTER TABLE ... ADD PRIMARY KEY ...
+      rule -> (struct)
+        Rules CREATE RULE ...
+      sequence -> (struct)
+        Sequences CREATE SEQUENCE ...
+      sequence-owned-by -> (struct)
+        Owned sequences CREATE SEQUENCE ... OWNED BY ...
+      sequence-set -> (struct)
+      table -> (struct)
+        Tables CREATE TABLE ...
+      trigger -> (struct)
+        Triggers CREATE TRIGGER ...
+      type -> (struct)
+        Types CREATE TYPE ...
+      view -> (struct)
+        Views CREATE VIEW ...
+    password -> (struct)
+      Password for database access.
+      value -> (oneof<raw>)
+        Oneof value field
+        raw -> (string)
+          Raw secret value
+    security-groups -> ([]string)
+      List of security groups that the transfer associated with this endpoint should use
+    service-schema -> (string)
+      Name of the database schema in which auxiliary tables needed for the transfer will be created (__consumer_keeper, __data_transfer_mole_finder). Empty 'service_schema' implies schema 'public'
+    slot-byte-lag-limit -> (int)
+      Maximum WAL size held by the replication slot (API - in bytes, terraform - in gigabytes); Exceeding this limit will result in a replication failure and deletion of the replication slot. Default is 50 gigabytes
+    user -> (string)
+      User for database access. Required unless Connection Manager connection is used.
+  ydb-source -> (struct)
+    changefeed-custom-consumer-name -> (string)
+      Consumer for pre-created change feed if any
+    changefeed-custom-name -> (string)
+      Pre-created change feed if any
+    database -> (string)
+      Database path in YDB where tables are stored. Example: '/ru/transfer_manager/prod/data-transfer-yt'
+    instance -> (string)
+      Instance of YDB. example: ydb-ru-prestable.yandex.net:2135. If not specified, will be determined by database
+    paths -> ([]string)
+      A list of paths which should be uploaded. When not specified, all available tables are uploaded
+    sa-key-content -> (string)
+      Authorization Key
+    security-groups -> ([]string)
+      List of security groups that the transfer associated with this endpoint should use
+    service-account-id -> (string)
+      Service account ID for interaction with database
+    subnet-id -> (string)
+      Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
+  yds-source -> (struct)
+    allow-ttl-rewind -> (bool)
+      Should continue working, if consumer read lag exceed TTL of topic False: stop the transfer in error state, if detected lost data. True: continue working with losing part of data
+    consumer -> (string)
+      Custom consumer - for important streams
+    database -> (string)
+      Database path in YDB for streams Example: '/ru/transfer_manager/prod/data-transfer'
+    endpoint -> (string)
+      YDS Endpoint for dedicated db
+    parser -> (struct)
+      Data parsing rules
+      parser -> (oneof<audit-trails-v1-parser|cloud-logging-parser|json-parser|tskv-parser>)
+        Oneof parser field
+        json-parser -> (struct)
+          Parse data in json format
+          add-rest-column -> (bool)
+            Will add _rest column for all unknown fields
+          data-schema -> (struct)
+            Data parsing scheme
+            schema -> (oneof<fields|json-fields>)
+              Oneof schema field
+              json-fields -> (string)
+                Description of the data schema as JSON specification
+              fields -> (struct)
+                Description of the data schema in the array of 'fields' structure
+                fields -> ([]struct)
+                  Description of the column schema in the array of 'fields' structure
+                  key -> (bool)
+                    Mark field as Primary Key
+                  name -> (string)
+                    Field name
+                  path -> (string)
+                    Path to the field
+                  required -> (bool)
+                    Mark field as required
+                  type -> (struct)
+                    Field type, one of: 'INT64', 'INT32', 'INT16', 'INT8', 'UINT64', 'UINT32', 'UINT16', 'UINT8', 'DOUBLE', 'BOOLEAN', 'STRING', 'UTF8', 'ANY', 'DATETIME'.
+          null-keys-allowed -> (bool)
+            Allow null keys, if no - null keys will be putted to unparsed data
+          unescape-string-values -> (bool)
+            Unescape string values
+        audit-trails-v1-parser -> (struct)
+          Parse Audit Trails data. Empty struct
+        cloud-logging-parser -> (struct)
+          Parse Cloud Logging data. Empty struct
+        tskv-parser -> (struct)
+          Parse data in tskv format
+          add-rest-column -> (bool)
+            Will add _rest column for all unknown fields
+          data-schema -> (struct)
+            Data parsing scheme
+            schema -> (oneof<fields|json-fields>)
+              Oneof schema field
+              json-fields -> (string)
+                Description of the data schema as JSON specification
+              fields -> (struct)
+                Description of the data schema in the array of 'fields' structure
+                fields -> ([]struct)
+                  Description of the column schema in the array of 'fields' structure
+                  key -> (bool)
+                    Mark field as Primary Key
+                  name -> (string)
+                    Field name
+                  path -> (string)
+                    Path to the field
+                  required -> (bool)
+                    Mark field as required
+                  type -> (struct)
+                    Field type, one of: 'INT64', 'INT32', 'INT16', 'INT8', 'UINT64', 'UINT32', 'UINT16', 'UINT8', 'DOUBLE', 'BOOLEAN', 'STRING', 'UTF8', 'ANY', 'DATETIME'.
+          null-keys-allowed -> (bool)
+            Allow null keys, if no - null keys will be putted to unparsed data
+          unescape-string-values -> (bool)
+            Unescape string values
+    security-groups -> ([]string)
+      List of security groups that the transfer associated with this endpoint should use
+    service-account-id -> (string)
+      Service account ID which has read access to the stream.
+    stream -> (string)
+      Stream to read
+    subnet-id -> (string)
+      Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
+    supported-codecs -> ([]struct)
+      List of supported compression codecs Options: YDS_COMPRESSION_CODEC_RAW, YDS_COMPRESSION_CODEC_ZSTD, YDS_COMPRESSION_CODEC_GZIP
+  kafka-source -> (struct)
+    auth -> (struct)
+      Authentication settings
+      security -> (oneof<no-auth|sasl>)
+        Oneof security field
+        sasl -> (struct)
+          Authentication with SASL
+          mechanism -> (struct)
+            SASL mechanism for authentication, use one of: KAFKA_MECHANISM_SHA256, KAFKA_MECHANISM_SHA512
+          password -> (struct)
+            Password for user
+            value -> (oneof<raw>)
+              Oneof value field
+              raw -> (string)
+                Raw secret value
+          user -> (string)
+            User name
+        no-auth -> (struct)
+          No authentication
+    connection -> (struct)
+      Connection settings
+      connection -> (oneof<cluster-id|connection-manager-connection|on-premise>)
+        Oneof connection field
+        cluster-id -> (string)
+          Managed Service for Kafka cluster ID. Set only one of: cluster_id/on_premise/connection_manager_connection
+        on-premise -> (struct)
+          Connection options for on-premise Kafka Set only one of: cluster_id/on_premise/connection_manager_connection
+          broker-urls -> ([]string)
+            Kafka broker URLs
+          subnet-id -> (string)
+            Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
+          tls-mode -> (struct)
+            TLS settings for broker connection. Disabled by default.
+            tls-mode -> (oneof<disabled|enabled>)
+              Oneof tls-mode field
+              disabled -> (struct)
+                Empty block designating that the connection is not secured, i.e. plaintext connection
+              enabled -> (struct)
+                TLS is used for the server connection
+                ca-certificate -> (string)
+                  CA certificate X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified, TLS is used to connect to the server. If CA certificate is empty, the server's certificate must be signed by a well-known CA
+        connection-manager-connection -> (struct)
+          Get Kafka installation params and credentials from Connection Manager Set only one of: cluster_id/on_premise/connection_manager_connection
+          connection-id -> (string)
+            ID of connection in Connection Manager with installation params and credetials
+          subnet-id -> (string)
+            Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
+    parser -> (struct)
+      Data parsing parameters. If not set, the source messages are read in raw
+      parser -> (oneof<audit-trails-v1-parser|cloud-logging-parser|json-parser|tskv-parser>)
+        Oneof parser field
+        json-parser -> (struct)
+          Parse data in json format
+          add-rest-column -> (bool)
+            Will add _rest column for all unknown fields
+          data-schema -> (struct)
+            Data parsing scheme
+            schema -> (oneof<fields|json-fields>)
+              Oneof schema field
+              json-fields -> (string)
+                Description of the data schema as JSON specification
+              fields -> (struct)
+                Description of the data schema in the array of 'fields' structure
+                fields -> ([]struct)
+                  Description of the column schema in the array of 'fields' structure
+                  key -> (bool)
+                    Mark field as Primary Key
+                  name -> (string)
+                    Field name
+                  path -> (string)
+                    Path to the field
+                  required -> (bool)
+                    Mark field as required
+                  type -> (struct)
+                    Field type, one of: 'INT64', 'INT32', 'INT16', 'INT8', 'UINT64', 'UINT32', 'UINT16', 'UINT8', 'DOUBLE', 'BOOLEAN', 'STRING', 'UTF8', 'ANY', 'DATETIME'.
+          null-keys-allowed -> (bool)
+            Allow null keys, if no - null keys will be putted to unparsed data
+          unescape-string-values -> (bool)
+            Unescape string values
+        audit-trails-v1-parser -> (struct)
+          Parse Audit Trails data. Empty struct
+        cloud-logging-parser -> (struct)
+          Parse Cloud Logging data. Empty struct
+        tskv-parser -> (struct)
+          Parse data in tskv format
+          add-rest-column -> (bool)
+            Will add _rest column for all unknown fields
+          data-schema -> (struct)
+            Data parsing scheme
+            schema -> (oneof<fields|json-fields>)
+              Oneof schema field
+              json-fields -> (string)
+                Description of the data schema as JSON specification
+              fields -> (struct)
+                Description of the data schema in the array of 'fields' structure
+                fields -> ([]struct)
+                  Description of the column schema in the array of 'fields' structure
+                  key -> (bool)
+                    Mark field as Primary Key
+                  name -> (string)
+                    Field name
+                  path -> (string)
+                    Path to the field
+                  required -> (bool)
+                    Mark field as required
+                  type -> (struct)
+                    Field type, one of: 'INT64', 'INT32', 'INT16', 'INT8', 'UINT64', 'UINT32', 'UINT16', 'UINT8', 'DOUBLE', 'BOOLEAN', 'STRING', 'UTF8', 'ANY', 'DATETIME'.
+          null-keys-allowed -> (bool)
+            Allow null keys, if no - null keys will be putted to unparsed data
+          unescape-string-values -> (bool)
+            Unescape string values
+    security-groups -> ([]string)
+      List of security groups that the transfer associated with this endpoint should use
+    topic-name -> (string)
+      **Deprecated**. Please use 'topic_names' instead Full source topic name
+    topic-names -> ([]string)
+      List of full source topic names to read
+    transformer -> (struct)
+      Transform data with a custom Cloud Function
+      buffer-flush-interval -> (string)
+        Flush interval
+      buffer-size -> (string)
+        Buffer size for function. Maximum 4 GB. Use value with units, i.e. 10 B, 20 kB, 2.0 MB, 30 MB, 1.0 GB
+      cloud-function -> (string)
+        Cloud function
+      invocation-timeout -> (string)
+        Invocation timeout
+      number-of-retries -> (int)
+        Number of retries
+      service-account-id -> (string)
+        Service account
+  mongo-source -> (struct)
+    collections -> ([]struct)
+      List of collections for replication. Empty list implies replication of all tables on the deployment. Allowed to use * as collection name.
+      collection-name -> (string)
+      database-name -> (string)
+    connection -> (struct)
+      Connection settings
+      connection -> (oneof<connection-options>)
+        Oneof connection field
+        connection-options -> (struct)
+          auth-source -> (string)
+            Database name associated with the credentials
+          password -> (struct)
+            Password for user
+            value -> (oneof<raw>)
+              Oneof value field
+              raw -> (string)
+                Raw secret value
+          user -> (string)
+            User name, required unless connection_manager_connection is used
+          address -> (oneof<connection-manager-connection|mdb-cluster-id|on-premise>)
+            Oneof address field
+            mdb-cluster-id -> (string)
+              Identifier of the Yandex StoreDoc cluster Use one of: mdb_cluster_id/on_premise/connection_manager_connection
+            on-premise -> (struct)
+              Connection settings of the on-premise MongoDB server Use one of: mdb_cluster_id/on_premise/connection_manager_connection
+              hosts -> ([]string)
+                Host names of the replica set
+              port -> (int)
+                TCP Port number
+              replica-set -> (string)
+                Replica set name
+              tls-mode -> (struct)
+                TLS settings for the server connection. Empty implies plaintext connection
+                tls-mode -> (oneof<disabled|enabled>)
+                  Oneof tls-mode field
+                  disabled -> (struct)
+                    Empty block designating that the connection is not secured, i.e. plaintext connection
+                  enabled -> (struct)
+                    TLS is used for the server connection
+                    ca-certificate -> (string)
+                      CA certificate X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified, TLS is used to connect to the server. If CA certificate is empty, the server's certificate must be signed by a well-known CA
+            connection-manager-connection -> (struct)
+              Get StoreDoc/MongoDB installation params and credentials from Connection Manager Use one of: mdb_cluster_id/on_premise/connection_manager_connection
+              connection-id -> (string)
+                ID of connectionmanager connection with mongodb/Yandex Storedoc installation parameters and credentials
+              replica-set -> (string)
+                Replica set name, used only for on-premise mongodb installations
+    excluded-collections -> ([]struct)
+      List of forbidden collections for replication. Allowed to use * as collection name for forbid all collections of concrete schema.
+      collection-name -> (string)
+      database-name -> (string)
+    secondary-preferred-mode -> (bool)
+      Read mode for mongo client: whether the secondary server should be preferred to the primary when copying data
+    security-groups -> ([]string)
+      List of security groups that the transfer associated with this endpoint should use
+    subnet-id -> (string)
+      Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
+  clickhouse-source -> (struct)
+    clickhouse-cluster-name -> (string)
+      Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup or managed cluster ID by default
+    connection -> (struct)
+      Connection settings
+      connection -> (oneof<connection-options>)
+        Oneof connection field
+        connection-options -> (struct)
+          database -> (string)
+            Database name
+          password -> (struct)
+            Password for the database access
+            value -> (oneof<raw>)
+              Oneof value field
+              raw -> (string)
+                Raw secret value
+          user -> (string)
+            User for database access. Required unless connection_manager_connection is used
+          address -> (oneof<connection-manager-connection|mdb-cluster-id|on-premise>)
+            Oneof address field
+            on-premise -> (struct)
+              Connection settings of the on-premise ClickHouse server
+              http-port -> (int)
+              native-port -> (int)
+              shards -> ([]struct)
+                hosts -> ([]string)
+                name -> (string)
+              tls-mode -> (struct)
+                TLS settings for server connection. Disabled by default
+                tls-mode -> (oneof<disabled|enabled>)
+                  Oneof tls-mode field
+                  disabled -> (struct)
+                    Empty block designating that the connection is not secured, i.e. plaintext connection
+                  enabled -> (struct)
+                    TLS is used for the server connection
+                    ca-certificate -> (string)
+                      CA certificate X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified, TLS is used to connect to the server. If CA certificate is empty, the server's certificate must be signed by a well-known CA
+            connection-manager-connection -> (struct)
+              Get ClickHouse installation params and credentials from Connection Manager
+              connection-id -> (string)
+                ID of connection in Connection Manager with installation params and credetials
+              subnet-id -> (string)
+                Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
+            mdb-cluster-id -> (string)
+              Identifier of the Managed ClickHouse cluster
+    exclude-tables -> ([]string)
+      Exclude list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns.
+    include-tables -> ([]string)
+      White list of tables for replication. If none or empty list is presented - will replicate all tables. Can contain * patterns.
+    security-groups -> ([]string)
+      List of security groups that the transfer associated with this endpoint should use
+    subnet-id -> (string)
+      Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
+  mysql-target -> (struct)
+    cleanup-policy -> (struct)
+      Cleanup policy for activate, reactivate and reupload processes. One of 'DISABLED', 'DROP' or 'TRUNCATE' Default is 'DISABLED'.
+    connection -> (struct)
+      Database connection settings
+      connection -> (oneof<connection-manager-connection|mdb-cluster-id|on-premise>)
+        Oneof connection field
+        mdb-cluster-id -> (string)
+          Managed Service for MySQL cluster ID
+        on-premise -> (struct)
+          Connection options for on-premise MySQL
+          hosts -> ([]string)
+            List of host names of the MySQL server. Exactly one host is expected
+          port -> (int)
+            Port for the database connection
+          subnet-id -> (string)
+            Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
+          tls-mode -> (struct)
+            TLS settings for server connection. Disabled by default.
+            tls-mode -> (oneof<disabled|enabled>)
+              Oneof tls-mode field
+              disabled -> (struct)
+                Empty block designating that the connection is not secured, i.e. plaintext connection
+              enabled -> (struct)
+                TLS is used for the server connection
+                ca-certificate -> (string)
+                  CA certificate X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified, TLS is used to connect to the server. If CA certificate is empty, the server's certificate must be signed by a well-known CA
+        connection-manager-connection -> (struct)
+          Get Mysql installation params and credentials from Connection Manager
+          connection-id -> (string)
+            ID of connection in Connection Manager with installation params and credetials
+          subnet-id -> (string)
+            Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
+    database -> (string)
+      Database name Allowed to leave it empty, then the tables will be created in databases with the same names as on the source. If this field is empty, then you must fill below db schema for service table.
+    is-schema-migration-disabled -> (bool)
+      Whether can change table schema if schema changed on source
+    password -> (struct)
+      Password for database access.
+      value -> (oneof<raw>)
+        Oneof value field
+        raw -> (string)
+          Raw secret value
+    security-groups -> ([]string)
+      List of security groups that the transfer associated with this endpoint should use
+    service-database -> (string)
+      Database schema for service table Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper).
+    skip-constraint-checks -> (bool)
+      Disable constraints checks When 'true', disables foreign key checks and unique checks. 'False' by default. See foreign_key_checks. Recommend to disable for increase replication speed unless schema contains cascading operations
+    sql-mode -> (string)
+      sql_mode to use when interacting with the server. Defaults to 'NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION'
+    timezone -> (string)
+      Database timezone Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone.
+    user -> (string)
+      User for database access. Required unless connection manager connection is used
+  postgres-target -> (struct)
+    cleanup-policy -> (struct)
+      Cleanup policy for activate, reactivate and reupload processes. One of: DISABLED, DROP, TRUNCATE. Default is TRUNCATE
+    connection -> (struct)
+      Database connection settings
+      connection -> (oneof<connection-manager-connection|mdb-cluster-id|on-premise>)
+        Oneof connection field
+        mdb-cluster-id -> (string)
+          Managed Service for PostgreSQL cluster ID
+        on-premise -> (struct)
+          Connection options for on-premise PostgreSQL
+          hosts -> ([]string)
+            PG installation hosts
+          port -> (int)
+            PG port. Will be used if the cluster ID is not specified.
+          subnet-id -> (string)
+            Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
+          tls-mode -> (struct)
+            TLS settings for server connection. Disabled by default.
+            tls-mode -> (oneof<disabled|enabled>)
+              Oneof tls-mode field
+              disabled -> (struct)
+                Empty block designating that the connection is not secured, i.e. plaintext connection
+              enabled -> (struct)
+                TLS is used for the server connection
+                ca-certificate -> (string)
+                  CA certificate X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified, TLS is used to connect to the server. If CA certificate is empty, the server's certificate must be signed by a well-known CA
+        connection-manager-connection -> (struct)
+          Get Postgres installation params and credentials from Connection Manager
+          connection-id -> (string)
+            ID of connection in Connection Manager with installation params and credetials
+          subnet-id -> (string)
+            Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
+    database -> (string)
+      Target database name
+    is-schema-migration-disabled -> (bool)
+      Whether can change table schema if schema changed on source
+    password -> (struct)
+      Password for database access.
+      value -> (oneof<raw>)
+        Oneof value field
+        raw -> (string)
+          Raw secret value
+    security-groups -> ([]string)
+      List of security groups that the transfer associated with this endpoint should use
+    user -> (string)
+      User for database access. Required unless Connection Manager connection is used
+  clickhouse-target -> (struct)
+    alt-names -> ([]struct)
+      Table renaming rules in target
+      from-name -> (string)
+        Source table name
+      to-name -> (string)
+        Target table name
+    cleanup-policy -> (struct)
+      How to clean collections when activating the transfer. One of 'CLICKHOUSE_CLEANUP_POLICY_DISABLED' or 'CLICKHOUSE_CLEANUP_POLICY_DROP'
+    clickhouse-cluster-name -> (string)
+      Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup or managed cluster ID by default.
+    connection -> (struct)
+      Connection settings
+      connection -> (oneof<connection-options>)
+        Oneof connection field
+        connection-options -> (struct)
+          database -> (string)
+            Database name
+          password -> (struct)
+            Password for the database access
+            value -> (oneof<raw>)
+              Oneof value field
+              raw -> (string)
+                Raw secret value
+          user -> (string)
+            User for database access. Required unless connection_manager_connection is used
+          address -> (oneof<connection-manager-connection|mdb-cluster-id|on-premise>)
+            Oneof address field
+            on-premise -> (struct)
+              Connection settings of the on-premise ClickHouse server
+              http-port -> (int)
+              native-port -> (int)
+              shards -> ([]struct)
+                hosts -> ([]string)
+                name -> (string)
+              tls-mode -> (struct)
+                TLS settings for server connection. Disabled by default
+                tls-mode -> (oneof<disabled|enabled>)
+                  Oneof tls-mode field
+                  disabled -> (struct)
+                    Empty block designating that the connection is not secured, i.e. plaintext connection
+                  enabled -> (struct)
+                    TLS is used for the server connection
+                    ca-certificate -> (string)
+                      CA certificate X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified, TLS is used to connect to the server. If CA certificate is empty, the server's certificate must be signed by a well-known CA
+            connection-manager-connection -> (struct)
+              Get ClickHouse installation params and credentials from Connection Manager
+              connection-id -> (string)
+                ID of connection in Connection Manager with installation params and credetials
+              subnet-id -> (string)
+                Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
+            mdb-cluster-id -> (string)
+              Identifier of the Managed ClickHouse cluster
+    is-schema-migration-disabled -> (bool)
+      Whether can change table schema if schema changed on source
+    security-groups -> ([]string)
+      List of security groups that the transfer associated with this endpoint should use
+    sharding -> (struct)
+      Shard selection rules for the data being transferred
+      sharding -> (oneof<column-value-hash|custom-mapping|round-robin|transfer-id>)
+        Oneof sharding field
+        column-value-hash -> (struct)
+          Shard data by the hash value of the specified column
+          column-name -> (string)
+            The name of the column to calculate hash from
+        custom-mapping -> (struct)
+          A custom shard mapping by the value of the specified column
+          column-name -> (string)
+            The name of the column to inspect when deciding the shard to chose for an incoming row
+          mapping -> ([]struct)
+            The mapping of the specified column values to the shard names
+            column-value -> (struct)
+              The value of the column. Currently only the string columns are supported
+              value -> (oneof<string-value>)
+                Oneof value field
+                string-value -> (string)
+            shard-name -> (string)
+              The name of the shard into which all the rows with the specified 'column_value' will be written
+        transfer-id -> (struct)
+          Shard data by ID of the transfer
+        round-robin -> (struct)
+          Distribute incoming rows between ClickHouse shards in a round-robin manner. Specify as an empty block to enable
+    subnet-id -> (string)
+      Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
+  ydb-target -> (struct)
+    cleanup-policy -> (struct)
+      Cleanup policy determine how to clean collections when activating the transfer. One of 'YDB_CLEANUP_POLICY_DISABLED' or 'YDB_CLEANUP_POLICY_DROP'
+    database -> (string)
+      Database path in YDB where tables are stored. Example: '/ru/transfer_manager/prod/data-transfer'
+    default-compression -> (struct)
+      Compression that will be used for default columns family on YDB table creation. One of 'YDB_DEFAULT_COMPRESSION_UNSPECIFIED', 'YDB_DEFAULT_COMPRESSION_DISABLED', 'YDB_DEFAULT_COMPRESSION_LZ4'
+    instance -> (string)
+      Instance of YDB. example: ydb-ru-prestable.yandex.net:2135. If not specified, will be determined by database
+    is-schema-migration-disabled -> (bool)
+      Whether can change table schema if schema changed on source
+    is-table-column-oriented -> (bool)
+      Whether a column-oriented (i.e. OLAP) tables should be created. Default is 'false' (create row-oriented OLTP tables)
+    path -> (string)
+      Path extension for database, each table will be layouted into this path
+    sa-key-content -> (string)
+      Authentication key
+    security-groups -> ([]string)
+      List of security groups that the transfer associated with this endpoint should use
+    service-account-id -> (string)
+      Service account ID for interaction with database
+    subnet-id -> (string)
+      Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
+  kafka-target -> (struct)
+    auth -> (struct)
+      Authentication settings
+      security -> (oneof<no-auth|sasl>)
+        Oneof security field
+        sasl -> (struct)
+          Authentication with SASL
+          mechanism -> (struct)
+            SASL mechanism for authentication, use one of: KAFKA_MECHANISM_SHA256, KAFKA_MECHANISM_SHA512
+          password -> (struct)
+            Password for user
+            value -> (oneof<raw>)
+              Oneof value field
+              raw -> (string)
+                Raw secret value
+          user -> (string)
+            User name
+        no-auth -> (struct)
+          No authentication
+    connection -> (struct)
+      Connection settings
+      connection -> (oneof<cluster-id|connection-manager-connection|on-premise>)
+        Oneof connection field
+        cluster-id -> (string)
+          Managed Service for Kafka cluster ID. Set only one of: cluster_id/on_premise/connection_manager_connection
+        on-premise -> (struct)
+          Connection options for on-premise Kafka Set only one of: cluster_id/on_premise/connection_manager_connection
+          broker-urls -> ([]string)
+            Kafka broker URLs
+          subnet-id -> (string)
+            Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
+          tls-mode -> (struct)
+            TLS settings for broker connection. Disabled by default.
+            tls-mode -> (oneof<disabled|enabled>)
+              Oneof tls-mode field
+              disabled -> (struct)
+                Empty block designating that the connection is not secured, i.e. plaintext connection
+              enabled -> (struct)
+                TLS is used for the server connection
+                ca-certificate -> (string)
+                  CA certificate X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified, TLS is used to connect to the server. If CA certificate is empty, the server's certificate must be signed by a well-known CA
+        connection-manager-connection -> (struct)
+          Get Kafka installation params and credentials from Connection Manager Set only one of: cluster_id/on_premise/connection_manager_connection
+          connection-id -> (string)
+            ID of connection in Connection Manager with installation params and credetials
+          subnet-id -> (string)
+            Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
+    security-groups -> ([]string)
+      List of security groups that the transfer associated with this endpoint should use
+    serializer -> (struct)
+      Data serialization format settings
+      serializer -> (oneof<serializer-auto|serializer-debezium|serializer-json>)
+        Oneof serializer field
+        serializer-auto -> (struct)
+          Empty block. Select the serialization format automatically
+        serializer-json -> (struct)
+          Empty block. Serialize data in json format
+        serializer-debezium -> (struct)
+          Serialize data in debezium json format
+          serializer-parameters -> ([]struct)
+            A list of Debezium parameters set by the structure of the 'key' and 'value' string fields
+            key -> (string)
+              Name of the serializer parameter
+            value -> (string)
+              Value of the serializer parameter
+    topic-settings -> (struct)
+      Target topic settings
+      topic-settings -> (oneof<topic|topic-prefix>)
+        Oneof topic-settings field
+        topic -> (struct)
+          All messages will be sent to one topic
+          save-tx-order -> (bool)
+            Save transactions order Not to split events queue into separate per-table queues.
+          topic-name -> (string)
+            Full topic name
+        topic-prefix -> (string)
+          Topic prefix Messages will be sent to topic with name <topic_prefix>.<schema>.<table_name>. Analogue of the Debezium setting database.server.name.
+  mongo-target -> (struct)
+    cleanup-policy -> (struct)
+      How to clean collections when activating the transfer. One of 'DISABLED', 'DROP' or 'TRUNCATE'
+    connection -> (struct)
+      Connection settings
+      connection -> (oneof<connection-options>)
+        Oneof connection field
+        connection-options -> (struct)
+          auth-source -> (string)
+            Database name associated with the credentials
+          password -> (struct)
+            Password for user
+            value -> (oneof<raw>)
+              Oneof value field
+              raw -> (string)
+                Raw secret value
+          user -> (string)
+            User name, required unless connection_manager_connection is used
+          address -> (oneof<connection-manager-connection|mdb-cluster-id|on-premise>)
+            Oneof address field
+            mdb-cluster-id -> (string)
+              Identifier of the Yandex StoreDoc cluster Use one of: mdb_cluster_id/on_premise/connection_manager_connection
+            on-premise -> (struct)
+              Connection settings of the on-premise MongoDB server Use one of: mdb_cluster_id/on_premise/connection_manager_connection
+              hosts -> ([]string)
+                Host names of the replica set
+              port -> (int)
+                TCP Port number
+              replica-set -> (string)
+                Replica set name
+              tls-mode -> (struct)
+                TLS settings for the server connection. Empty implies plaintext connection
+                tls-mode -> (oneof<disabled|enabled>)
+                  Oneof tls-mode field
+                  disabled -> (struct)
+                    Empty block designating that the connection is not secured, i.e. plaintext connection
+                  enabled -> (struct)
+                    TLS is used for the server connection
+                    ca-certificate -> (string)
+                      CA certificate X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified, TLS is used to connect to the server. If CA certificate is empty, the server's certificate must be signed by a well-known CA
+            connection-manager-connection -> (struct)
+              Get StoreDoc/MongoDB installation params and credentials from Connection Manager Use one of: mdb_cluster_id/on_premise/connection_manager_connection
+              connection-id -> (string)
+                ID of connectionmanager connection with mongodb/Yandex Storedoc installation parameters and credentials
+              replica-set -> (string)
+                Replica set name, used only for on-premise mongodb installations
+    database -> (string)
+      Database name. If not empty, then all the data will be written to the database with the specified name; otherwise the database name is the same as in the source endpoint
+    security-groups -> ([]string)
+      List of security groups that the transfer associated with this endpoint should use
+    subnet-id -> (string)
+      Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
+  metrika-source -> (struct)
+    counter-ids -> ([]int)
+      Counter IDs
+    streams -> ([]struct)
+      Streams
+      columns -> ([]string)
+        Column names
+      type -> (struct)
+        Stream type, one of: METRIKA_STREAM_TYPE_HITS, METRIKA_STREAM_TYPE_VISITS, METRIKA_STREAM_TYPE_HITS_V2
+    token -> (struct)
+      Authentication token
+      value -> (oneof<raw>)
+        Oneof value field
+        raw -> (string)
+          Raw secret value
+  yds-target -> (struct)
+    compression-codec -> (struct)
+      Codec to use for output data compression. If not specified, no compression will be done Options: YDS_COMPRESSION_CODEC_RAW, YDS_COMPRESSION_CODEC_ZSTD, YDS_COMPRESSION_CODEC_GZIP
+    database -> (string)
+      Database path in YDB for streams Example: '/ru/transfer_manager/prod/data-transfer'
+    endpoint -> (string)
+      YDS Endpoint for dedicated db
+    save-tx-order -> (bool)
+      Save transaction order Not to split events queue into separate per-table queues. Incompatible with setting Topic prefix, only with Topic full name.
+    security-groups -> ([]string)
+      List of security groups that the transfer associated with this endpoint should use
+    serializer -> (struct)
+      Data serialization format
+      serializer -> (oneof<serializer-auto|serializer-debezium|serializer-json>)
+        Oneof serializer field
+        serializer-auto -> (struct)
+          Empty block. Select the serialization format automatically
+        serializer-json -> (struct)
+          Empty block. Serialize data in json format
+        serializer-debezium -> (struct)
+          Serialize data in debezium json format
+          serializer-parameters -> ([]struct)
+            A list of Debezium parameters set by the structure of the 'key' and 'value' string fields
+            key -> (string)
+              Name of the serializer parameter
+            value -> (string)
+              Value of the serializer parameter
+    service-account-id -> (string)
+      Service account ID which has read access to the stream
+    stream -> (string)
+      Stream to write to
+    subnet-id -> (string)
+      Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
+``` ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

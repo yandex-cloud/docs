@@ -1,8 +1,8 @@
 ---
 title: '{{ PG }} backups'
-description: '{{ mpg-short-name }} supports automatic and manual {{ PG }} database backups. Backups take up space in the storage allocated to the cluster. A backup is automatically created every day.'
+description: '{{ mpg-short-name }} supports automatic and manual {{ PG }} database backups. Backups take up space in the storage allocated to the cluster. A backup is automatically created once a day.'
 keywords:
-  - backup
+  - backups
   - back up
   - backup
   - backing up
@@ -29,26 +29,28 @@ When creating backups and restoring data from them to a given point in time, kee
 
 You can learn more about PITR in the [{{ PG }} documentation](https://www.postgresql.org/docs/current/continuous-archiving.html).
 
+{% include [deprecated-note](../../_includes/mdb/backups/deprecated-note.md) %}
+
 To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md#restore).
 
 ## Creating a backup {#size}
 
-The first and every seventh automatic backups as well as all manually created backups are full backups of all databases. Other backups are incremental and store only the data that has changed since the previous backup to save space.
+The first and every seventh automatic backups as well as all manually created backups are full backups of all databases. To save space, other backups are incremental and only store the data that has changed since the previous backup.
 
 All cluster data is automatically backed up every day. You cannot disable automatic backups. However, when [creating](../operations/cluster-create.md) or [editing](../operations/update.md#change-additional-settings) a cluster, you can set the following parameters for automatic backups:
 
 * [Retention time](#storage).
-* Time interval during which the backup starts. Default time: `22:00 - 23:00` UTC (Coordinated Universal Time).
+* Time interval during which the backup starts. The default value is `22:00 - 23:00` UTC (Coordinated Universal Time).
 
 After a backup is created, it is compressed for storage. The exact backup size is not displayed.
 
 Backups are only created on running clusters. If you are not using your {{ mpg-short-name }} cluster 24/7, check the [settings of backup start time](../operations/update.md#change-additional-settings). A cluster that has no backups cannot be [stopped](../operations/cluster-stop.md#stop-cluster).
 
-For more information about creating a backup manually, see [Managing backups](../operations/cluster-backups.md).
+Learn about creating manual backups in [Managing backups](../operations/cluster-backups.md).
 
 {% include [manual-backup-restore](../../_includes/mdb/mpg/note-warn-restore-manual-backup.md) %}
 
-## Storing backups {#storage}
+## Storing a backup {#storage}
 
 Storing backups in {{ mpg-name }}:
 
@@ -56,11 +58,11 @@ Storing backups in {{ mpg-name }}:
 
 * {% include [backup-wal](../../_includes/mdb/mpg/backup-wal.md) %}
 
-* The retention time for backups of an existing cluster depends on the method used to create such backups:
+* The retention time for backups of an existing cluster depends on the way they were created:
 
-   * Automatic backups are stored for 7 days by default. When [creating](../operations/cluster-create.md) a cluster or [editing](../operations/update.md#change-additional-settings) its settings, you can specify a different retention period of between 7 and 60 days.
+    * Automatic backups are stored for 7 days by default. When [creating](../operations/cluster-create.md) or [reconfiguring](../operations/update.md#change-additional-settings) a cluster, you can specify a different retention period between 7 and 60 days.
 
-   * Manually created backups are stored with no time limit.
+    * Manual backups are stored with no time limit.
 
 * After you delete a cluster, all its backups are kept for seven days.
 
@@ -70,6 +72,6 @@ Storing backups in {{ mpg-name }}:
 
    For more information, see the [{{ mpg-name }} pricing policy](../pricing.md#rules-storage).
 
-## Checking backup recovery {#capabilities}
+## Testing recovery from a backup {#capabilities}
 
-To test how backup works, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.
+To test how backup works, [restore a cluster from a backup](../operations/cluster-backups.md) and check your data for integrity.

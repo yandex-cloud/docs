@@ -1,24 +1,24 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/database/delete.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/database/delete.md
 ---
 
-# yc managed-postgresql database delete
+# yc managed-sharded-postgresql database delete
 
-Delete the specified PostgreSQL database
+Delete the specified Sharded PostgreSQL database
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-postgresql database delete <DATABASE_NAME> [<DATABASE_NAME>...] [Flags...] [Global Flags...]`
+`yc managed-sharded-postgresql database delete <DATABASE_NAME> [<DATABASE_NAME>...] [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>PostgreSQL cluster id.|
-|`--cluster-name`|<b>`string`</b><br/>PostgreSQL cluster name.|
+|`--cluster-id`|<b>`string`</b><br/>Sharded PostgreSQL cluster id.|
+|`--cluster-name`|<b>`string`</b><br/>Sharded PostgreSQL cluster name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

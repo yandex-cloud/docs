@@ -3,7 +3,7 @@ title: Adding invoking a {{ serverless-containers-name }} container to a {{ sw-n
 description: Follow this guide to add invoking a {{ serverless-containers-full-name }} container to a {{ sw-full-name }} workflow using the workflow step constructor.
 ---
 
-# Invoking a container {{ serverless-containers-full-name }}
+# Invoking a {{ serverless-containers-full-name }} container
 
 {% list tabs %}
 

@@ -1,28 +1,28 @@
 ---
-title: Configuring access to {{ objstorage-full-name }} from a {{ OS }} cluster
-description: In this tutorial, you will learn how to configure access to {{ objstorage-name }} to use it as an {{ OS }} snapshot repository.
+title: Configuring access to {{ objstorage-full-name }} from an {{ OS }} cluster
+description: In this article, you will learn how to configure access to {{ objstorage-name }} to use it as an {{ OS }} snapshot repository.
 ---
 
 # Configuring access to {{ objstorage-name }} from an {{ OS }} cluster
 
 
-{{ mos-name }} supports using {{ objstorage-full-name }} as an {{ OS }} snapshot repository. This allows you to use {{ objstorage-name }} to [store backups](cluster-backups.md). For more information about snapshot repositories, see the [{{ OS }} documentation]({{ os.docs }}/opensearch/snapshots/snapshot-restore/).
+{{ mos-name }} supports using {{ objstorage-full-name }} as an {{ OS }} snapshot repository. This allows you to use {{ objstorage-name }} to [store backups](cluster-backups.md). For more information about snapshot repositories, see [this {{ OS }} guide]({{ os.docs }}/opensearch/snapshots/snapshot-restore/).
 
 
 To access {{ objstorage-name }} bucket data from a cluster:
 
 1. [Attach the service account to the cluster](#connect-service-account).
 1. [Configure access permissions](#configure-acl).
-1. [Connect a snapshot repository](#register-snapshot-repository).
+1. [Add a snapshot repository](#register-snapshot-repository).
 
 
 Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account. You will need this role in the following cases:
 
 
-* To create or update a cluster and link it to a service account.
-* To restore a cluster linked to a service account from its backup.
+* To create or update a cluster and attach a service account to it.
+* To restore a cluster attached to a service account from its backup.
 
-## Assign the service account to the cluster {#connect-service-account}
+## Attach the service account to the cluster {#connect-service-account}
 
 
 1. When [creating](cluster-create.md) or [updating](update.md) a cluster, either select an existing [service account](../../iam/concepts/users/service-accounts.md) or [create a new one](../../iam/operations/sa/create.md).
@@ -37,19 +37,19 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.service
 - Management console {#console}
 
     
-    1. In the [management console]({{ link-console-main }}), select the folder with the appropriate bucket. If there is no such bucket, [create](../../storage/operations/buckets/create.md) one.
+    1. In the [management console]({{ link-console-main }}), select the folder with the bucket you need. If there is no such bucket, [create](../../storage/operations/buckets/create.md) one.
 
 
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** service.
     1. Select the **{{ ui-key.yacloud.storage.buckets.label_title }}** tab.
     1. Set up the [bucket ACL](../../storage/operations/buckets/edit-acl.md):
-        1. In the **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** drop-down list, specify the service account [assigned to the cluster](#connect-service-account).
+        1. In the **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** drop-down list, specify the service account [attached to the cluster](#connect-service-account).
         1. Set the `READ and WRITE` permissions for this service account.
         1. Click **{{ ui-key.yacloud.common.add }}** and **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
-## Connect a snapshot repository {#register-snapshot-repository}
+## Add a snapshot repository {#register-snapshot-repository}
 
 {% note alert %}
 

@@ -14,7 +14,7 @@ To mount buckets to a function:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select a function.
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** section, select or create a new [service account](../../../iam/concepts/users/service-accounts) with one of these roles:
@@ -24,7 +24,7 @@ To mount buckets to a function:
   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.title_mount-files }}**:
   
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.label_add-folder }}**.
-      1. Specify the following in the field:
+      1. In the field, specify the following:
 
           * **{{ ui-key.yacloud.serverless-functions.item.editor.label_mount-point-name }}**: Name of the mount point. Use this path to access the directory the bucket will be mounted to: `/function/storage/<mount_point>`.
           * **{{ ui-key.yacloud.serverless-functions.item.editor.label_bucket }}**: Bucket you want to mount. If necessary, [create](../../../storage/operations/buckets/create.md) a new bucket.
@@ -58,9 +58,9 @@ To mount buckets to a function:
 
   * `--function-name`: Function name.
   * `--runtime`: Function [runtime environment](../../concepts/runtime/index.md#runtimes).
-  * `--entrypoint`: Entry point in the following format: `<file_name_without_extension>.<listener_name>`, e.g., `index.handler`.
+  * `--entrypoint`: Entry point in the following format: `<file_name_without_extension>.<listener_name>`. For example, `index.handler`.
   * `--memory`: Amount of RAM.
-  * `--execution-timeout`: Maximum running time of the function until timeout.
+  * `--execution-timeout`: Maximum function running time before timeout.
   * `--source-path`: Path to the ZIP archive containing the function code and relevant dependencies.
   * `--service-account-id`: Service account [ID](../../../iam/operations/sa/get-id.md). The service account needs the `storage.viewer` [role](../../../storage/security/index.md#storage-viewer) to read from the bucket or the `storage.uploader` [role](../../../storage/security/index.md#storage-uploader) to both read and write.
   * `--mount`: {{ objstorage-name }} [bucket](../../../storage/concepts/bucket.md) mounting parameters:
@@ -107,7 +107,7 @@ To mount buckets to a function:
 
           To mount several buckets to a function at the same time, set the `mounts` section as many times as you need.
 
-      For more information about the `yandex_function` resource parameters, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
+      For more information about `yandex_function` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function).
 
   1. Apply the changes:
 

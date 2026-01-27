@@ -22,24 +22,8 @@ The AI agent you create in this tutorial will be deployed in {{ yandex-cloud }} 
 
 You can create these resources [automatically](#automatic-setup) or [manually](#manual-setup).
 
-## What an AI agent is and how to use it {#ai-agent-definition}
+{% include [ai-agent-about](../_tutorials_includes/ai-agent-about.md) %}
 
-An AI agent is an AI-powered software assistant which can follow instructions, give answers to questions, and interact with users or other systems within a given context. Unlike standard generative models, AI agents can:
-
-* Support personalized instructions and have a personality.
-* Use external sources and third-party tools to gather information.
-* Maintain conversation context.
-* Perform multi-step actions to solve complex tasks.
-
-### Why use serverless functions to work with AI agents {#why-serverless}
-
-Functions offered by {{ sf-name }} provide multiple benefits when deploying AI agents:
-
-* Scalability: Automatic scaling to accommodate the load.
-* Cost-effectiveness: You only pay for the actual execution time.
-* No infrastructure management required: You do not need to configure or maintain servers.
-* Fast deployment: AI agents are easy to create and update.
-* Multiple integration options: Simple connection to APIs and other {{ yandex-cloud }} services.
 
 ## Get your cloud ready {#before-begin}
 
@@ -372,7 +356,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}** and then select the secret named `api-key-secret` you created earlier.
-  1. On the left-hand panel, select ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**. In the window that opens, do the following:
+  1. On the left-hand panel, select ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**. In the window that opens:
 
       1. In the search bar, enter the name of the `function-sa` service account you created and select it.
       1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select [`lockbox.payloadViewer`](../../lockbox/security/index.md#lockbox-payloadViewer).

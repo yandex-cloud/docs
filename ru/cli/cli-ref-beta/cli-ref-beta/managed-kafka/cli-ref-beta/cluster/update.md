@@ -10,41 +10,570 @@ Updates the specified Apache Kafka® cluster.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta managed-kafka cluster update <CLUSTER-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the Apache Kafka® cluster to update. To get the Apache Kafka® cluster ID, make a [ClusterService.List] request.|
-|`--config-spec`|<b>`shorthand/json`</b><br/>New configuration and resources for hosts in the Apache Kafka® cluster. Use [update_mask] to prevent reverting all cluster settings that are not listed in [config_spec] to their default values.<br/>Shorthand Syntax:<br/>{<br/>access = {<br/>data-transfer = bool<br/>},<br/>assign-public-ip = bool,<br/>brokers-count = int,<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>kafka = {<br/>kafka-config = kafka-config-2-8={<br/>auto-create-topics-enable = bool,<br/>compression-type = COMPRESSION_TYPE_UNCOMPRESSED\|COMPRESSION_TYPE_ZSTD\|COMPRESSION_TYPE_LZ4\|COMPRESSION_TYPE_SNAPPY\|COMPRESSION_TYPE_GZIP\|COMPRESSION_TYPE_PRODUCER,<br/>default-replication-factor = int,<br/>log-flush-interval-messages = int,<br/>log-flush-interval-ms = int,<br/>log-flush-scheduler-interval-ms = int,<br/>log-preallocate = bool,<br/>log-retention-bytes = int,<br/>log-retention-hours = int,<br/>log-retention-minutes = int,<br/>log-retention-ms = int,<br/>log-segment-bytes = int,<br/>message-max-bytes = int,<br/>num-partitions = int,<br/>offsets-retention-minutes = int,<br/>replica-fetch-max-bytes = int,<br/>sasl-enabled-mechanisms = SASL_MECHANISM_SCRAM_SHA_256\|SASL_MECHANISM_SCRAM_SHA_512,...,<br/>socket-receive-buffer-bytes = int,<br/>socket-send-buffer-bytes = int,<br/>ssl-cipher-suites = str,...<br/>} \| kafka-config-3={<br/>auto-create-topics-enable = bool,<br/>compression-type = COMPRESSION_TYPE_UNCOMPRESSED\|COMPRESSION_TYPE_ZSTD\|COMPRESSION_TYPE_LZ4\|COMPRESSION_TYPE_SNAPPY\|COMPRESSION_TYPE_GZIP\|COMPRESSION_TYPE_PRODUCER,<br/>default-replication-factor = int,<br/>log-flush-interval-messages = int,<br/>log-flush-interval-ms = int,<br/>log-flush-scheduler-interval-ms = int,<br/>log-preallocate = bool,<br/>log-retention-bytes = int,<br/>log-retention-hours = int,<br/>log-retention-minutes = int,<br/>log-retention-ms = int,<br/>log-segment-bytes = int,<br/>message-max-bytes = int,<br/>num-partitions = int,<br/>offsets-retention-minutes = int,<br/>replica-fetch-max-bytes = int,<br/>sasl-enabled-mechanisms = SASL_MECHANISM_SCRAM_SHA_256\|SASL_MECHANISM_SCRAM_SHA_512,...,<br/>socket-receive-buffer-bytes = int,<br/>socket-send-buffer-bytes = int,<br/>ssl-cipher-suites = str,...<br/>} \| kafka-config-4={<br/>auto-create-topics-enable = bool,<br/>compression-type = COMPRESSION_TYPE_UNCOMPRESSED\|COMPRESSION_TYPE_ZSTD\|COMPRESSION_TYPE_LZ4\|COMPRESSION_TYPE_SNAPPY\|COMPRESSION_TYPE_GZIP\|COMPRESSION_TYPE_PRODUCER,<br/>default-replication-factor = int,<br/>log-flush-interval-messages = int,<br/>log-flush-interval-ms = int,<br/>log-flush-scheduler-interval-ms = int,<br/>log-retention-bytes = int,<br/>log-retention-hours = int,<br/>log-retention-minutes = int,<br/>log-retention-ms = int,<br/>log-segment-bytes = int,<br/>message-max-bytes = int,<br/>num-partitions = int,<br/>offsets-retention-minutes = int,<br/>replica-fetch-max-bytes = int,<br/>sasl-enabled-mechanisms = SASL_MECHANISM_SCRAM_SHA_256\|SASL_MECHANISM_SCRAM_SHA_512,...,<br/>socket-receive-buffer-bytes = int,<br/>socket-send-buffer-bytes = int,<br/>ssl-cipher-suites = str,...<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>kafka-ui-config = {<br/>enabled = bool<br/>},<br/>kraft = {<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>patch-version = str,<br/>rest-api-config = {<br/>enabled = bool<br/>},<br/>schema-registry = bool,<br/>unmanaged-topics = bool,<br/>version = str,<br/>zone-id = str,...,<br/>zookeeper = {<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"access": {<br/>"data-transfer": "bool"<br/>},<br/>"assign-public-ip": "bool",<br/>"brokers-count": "int",<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"kafka": {<br/>"kafka-config": {<br/>"kafka-config-2-8": {<br/>"auto-create-topics-enable": "bool",<br/>"compression-type": "COMPRESSION_TYPE_UNCOMPRESSED\|COMPRESSION_TYPE_ZSTD\|COMPRESSION_TYPE_LZ4\|COMPRESSION_TYPE_SNAPPY\|COMPRESSION_TYPE_GZIP\|COMPRESSION_TYPE_PRODUCER",<br/>"default-replication-factor": "int",<br/>"log-flush-interval-messages": "int",<br/>"log-flush-interval-ms": "int",<br/>"log-flush-scheduler-interval-ms": "int",<br/>"log-preallocate": "bool",<br/>"log-retention-bytes": "int",<br/>"log-retention-hours": "int",<br/>"log-retention-minutes": "int",<br/>"log-retention-ms": "int",<br/>"log-segment-bytes": "int",<br/>"message-max-bytes": "int",<br/>"num-partitions": "int",<br/>"offsets-retention-minutes": "int",<br/>"replica-fetch-max-bytes": "int",<br/>"sasl-enabled-mechanisms": [<br/>"SASL_MECHANISM_SCRAM_SHA_256\|SASL_MECHANISM_SCRAM_SHA_512", ...<br/>],<br/>"socket-receive-buffer-bytes": "int",<br/>"socket-send-buffer-bytes": "int",<br/>"ssl-cipher-suites": [<br/>"str", ...<br/>]<br/>},<br/>"kafka-config-3": {<br/>"auto-create-topics-enable": "bool",<br/>"compression-type": "COMPRESSION_TYPE_UNCOMPRESSED\|COMPRESSION_TYPE_ZSTD\|COMPRESSION_TYPE_LZ4\|COMPRESSION_TYPE_SNAPPY\|COMPRESSION_TYPE_GZIP\|COMPRESSION_TYPE_PRODUCER",<br/>"default-replication-factor": "int",<br/>"log-flush-interval-messages": "int",<br/>"log-flush-interval-ms": "int",<br/>"log-flush-scheduler-interval-ms": "int",<br/>"log-preallocate": "bool",<br/>"log-retention-bytes": "int",<br/>"log-retention-hours": "int",<br/>"log-retention-minutes": "int",<br/>"log-retention-ms": "int",<br/>"log-segment-bytes": "int",<br/>"message-max-bytes": "int",<br/>"num-partitions": "int",<br/>"offsets-retention-minutes": "int",<br/>"replica-fetch-max-bytes": "int",<br/>"sasl-enabled-mechanisms": [<br/>"SASL_MECHANISM_SCRAM_SHA_256\|SASL_MECHANISM_SCRAM_SHA_512", ...<br/>],<br/>"socket-receive-buffer-bytes": "int",<br/>"socket-send-buffer-bytes": "int",<br/>"ssl-cipher-suites": [<br/>"str", ...<br/>]<br/>},<br/>"kafka-config-4": {<br/>"auto-create-topics-enable": "bool",<br/>"compression-type": "COMPRESSION_TYPE_UNCOMPRESSED\|COMPRESSION_TYPE_ZSTD\|COMPRESSION_TYPE_LZ4\|COMPRESSION_TYPE_SNAPPY\|COMPRESSION_TYPE_GZIP\|COMPRESSION_TYPE_PRODUCER",<br/>"default-replication-factor": "int",<br/>"log-flush-interval-messages": "int",<br/>"log-flush-interval-ms": "int",<br/>"log-flush-scheduler-interval-ms": "int",<br/>"log-retention-bytes": "int",<br/>"log-retention-hours": "int",<br/>"log-retention-minutes": "int",<br/>"log-retention-ms": "int",<br/>"log-segment-bytes": "int",<br/>"message-max-bytes": "int",<br/>"num-partitions": "int",<br/>"offsets-retention-minutes": "int",<br/>"replica-fetch-max-bytes": "int",<br/>"sasl-enabled-mechanisms": [<br/>"SASL_MECHANISM_SCRAM_SHA_256\|SASL_MECHANISM_SCRAM_SHA_512", ...<br/>],<br/>"socket-receive-buffer-bytes": "int",<br/>"socket-send-buffer-bytes": "int",<br/>"ssl-cipher-suites": [<br/>"str", ...<br/>]<br/>}<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"kafka-ui-config": {<br/>"enabled": "bool"<br/>},<br/>"kraft": {<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"patch-version": "str",<br/>"rest-api-config": {<br/>"enabled": "bool"<br/>},<br/>"schema-registry": "bool",<br/>"unmanaged-topics": "bool",<br/>"version": "str",<br/>"zone-id": [<br/>"str", ...<br/>],<br/>"zookeeper": {<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>}<br/>}"<br/>Fields:<br/>access -> (struct)<br/>Access policy for external services.<br/>data-transfer -> (bool)<br/>Allow access for DataTransfer.<br/>assign-public-ip -> (bool)<br/>The flag that defines whether a public IP address is assigned to the cluster. If the value is 'true', then Apache Kafka® cluster is available on the Internet via it's public IP address.<br/>brokers-count -> (int)<br/>The number of Kafka brokers deployed in each availability zone.<br/>disk-size-autoscaling -> (struct)<br/>DiskSizeAutoscaling settings<br/>disk-size-limit -> (int)<br/>New storage size (in bytes) that is set when one of the thresholds is achieved.<br/>emergency-usage-threshold -> (int)<br/>Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.<br/>planned-usage-threshold -> (int)<br/>Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.<br/>kafka -> (struct)<br/>Configuration and resource allocation for Kafka brokers.<br/>resources -> (struct)<br/>Resources allocated to Kafka brokers.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the documentation.<br/>kafka-config -> (oneof<kafka-config-2-8\|kafka-config-3\|kafka-config-4>)<br/>Oneof kafka-config field<br/>kafka-config-2-8 -> (struct)<br/>Configuration of an Apache Kafka® 2.8 broker.<br/>auto-create-topics-enable -> (bool)<br/>Enable auto creation of topic on the server<br/>compression-type -> (enum<COMPRESSION_TYPE_GZIP\|COMPRESSION_TYPE_LZ4\|COMPRESSION_TYPE_PRODUCER\|COMPRESSION_TYPE_SNAPPY\|COMPRESSION_TYPE_UNCOMPRESSED\|COMPRESSION_TYPE_ZSTD>)<br/>Cluster topics compression type.<br/>default-replication-factor -> (int)<br/>Default replication factor of the topic on the whole cluster<br/>log-flush-interval-messages -> (int)<br/>The number of messages accumulated on a log partition before messages are flushed to disk. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_messages] setting.<br/>log-flush-interval-ms -> (int)<br/>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of [log_flush_scheduler_interval_ms] is used. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_ms] setting.<br/>log-flush-scheduler-interval-ms -> (int)<br/>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher.<br/>log-preallocate -> (bool)<br/>Should pre allocate file when create new segment? This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate] setting. Deprecated. Feature useless for Yandex Cloud.<br/>log-retention-bytes -> (int)<br/>Partition size limit; Kafka will discard old log segments to free up space if 'delete' [TopicConfig2_8.cleanup_policy] is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_bytes] setting.<br/>log-retention-hours -> (int)<br/>The number of hours to keep a log segment file before deleting it.<br/>log-retention-minutes -> (int)<br/>The number of minutes to keep a log segment file before deleting it. If not set, the value of [log_retention_hours] is used.<br/>log-retention-ms -> (int)<br/>The number of milliseconds to keep a log segment file before deleting it. If not set, the value of [log_retention_minutes] is used. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_ms] setting.<br/>log-segment-bytes -> (int)<br/>The maximum size of a single log file. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.segment_bytes] setting.<br/>message-max-bytes -> (int)<br/>The largest record batch size allowed by Kafka. Default value: 1048588.<br/>num-partitions -> (int)<br/>Default number of partitions per topic on the whole cluster<br/>offsets-retention-minutes -> (int)<br/>Offset storage time after a consumer group loses all its consumers. Default: 10080.<br/>replica-fetch-max-bytes -> (int)<br/>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576.<br/>sasl-enabled-mechanisms -> ([]int)<br/>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].<br/>socket-receive-buffer-bytes -> (int)<br/>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.<br/>socket-send-buffer-bytes -> (int)<br/>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.<br/>ssl-cipher-suites -> ([]string)<br/>A list of cipher suites.<br/>kafka-config-3 -> (struct)<br/>Configuration of an Apache Kafka® 3.x broker.<br/>auto-create-topics-enable -> (bool)<br/>Enable auto creation of topic on the server<br/>compression-type -> (enum<COMPRESSION_TYPE_GZIP\|COMPRESSION_TYPE_LZ4\|COMPRESSION_TYPE_PRODUCER\|COMPRESSION_TYPE_SNAPPY\|COMPRESSION_TYPE_UNCOMPRESSED\|COMPRESSION_TYPE_ZSTD>)<br/>Cluster topics compression type.<br/>default-replication-factor -> (int)<br/>Default replication factor of the topic on the whole cluster<br/>log-flush-interval-messages -> (int)<br/>The number of messages accumulated on a log partition before messages are flushed to disk. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_messages] setting.<br/>log-flush-interval-ms -> (int)<br/>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of [log_flush_scheduler_interval_ms] is used. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_ms] setting.<br/>log-flush-scheduler-interval-ms -> (int)<br/>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher.<br/>log-preallocate -> (bool)<br/>Should pre allocate file when create new segment? This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate] setting. Deprecated. Feature useless for Yandex Cloud.<br/>log-retention-bytes -> (int)<br/>Partition size limit; Kafka will discard old log segments to free up space if 'delete' [TopicConfig3.cleanup_policy] is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_bytes] setting.<br/>log-retention-hours -> (int)<br/>The number of hours to keep a log segment file before deleting it.<br/>log-retention-minutes -> (int)<br/>The number of minutes to keep a log segment file before deleting it. If not set, the value of [log_retention_hours] is used.<br/>log-retention-ms -> (int)<br/>The number of milliseconds to keep a log segment file before deleting it. If not set, the value of [log_retention_minutes] is used. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_ms] setting.<br/>log-segment-bytes -> (int)<br/>The maximum size of a single log file. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.segment_bytes] setting.<br/>message-max-bytes -> (int)<br/>The largest record batch size allowed by Kafka. Default value: 1048588.<br/>num-partitions -> (int)<br/>Default number of partitions per topic on the whole cluster<br/>offsets-retention-minutes -> (int)<br/>Offset storage time after a consumer group loses all its consumers. Default: 10080.<br/>replica-fetch-max-bytes -> (int)<br/>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576.<br/>sasl-enabled-mechanisms -> ([]int)<br/>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].<br/>socket-receive-buffer-bytes -> (int)<br/>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.<br/>socket-send-buffer-bytes -> (int)<br/>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.<br/>ssl-cipher-suites -> ([]string)<br/>A list of cipher suites.<br/>kafka-config-4 -> (struct)<br/>Configuration of an Apache Kafka® 4.x broker.<br/>auto-create-topics-enable -> (bool)<br/>Enable auto creation of topic on the server<br/>compression-type -> (enum<COMPRESSION_TYPE_GZIP\|COMPRESSION_TYPE_LZ4\|COMPRESSION_TYPE_PRODUCER\|COMPRESSION_TYPE_SNAPPY\|COMPRESSION_TYPE_UNCOMPRESSED\|COMPRESSION_TYPE_ZSTD>)<br/>Cluster topics compression type.<br/>default-replication-factor -> (int)<br/>Default replication factor of the topic on the whole cluster<br/>log-flush-interval-messages -> (int)<br/>The number of messages accumulated on a log partition before messages are flushed to disk. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_messages] setting.<br/>log-flush-interval-ms -> (int)<br/>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of [log_flush_scheduler_interval_ms] is used. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.flush_ms] setting.<br/>log-flush-scheduler-interval-ms -> (int)<br/>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher.<br/>log-retention-bytes -> (int)<br/>Partition size limit; Kafka will discard old log segments to free up space if 'delete' [TopicConfig4.cleanup_policy] is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_bytes] setting.<br/>log-retention-hours -> (int)<br/>The number of hours to keep a log segment file before deleting it.<br/>log-retention-minutes -> (int)<br/>The number of minutes to keep a log segment file before deleting it. If not set, the value of [log_retention_hours] is used.<br/>log-retention-ms -> (int)<br/>The number of milliseconds to keep a log segment file before deleting it. If not set, the value of [log_retention_minutes] is used. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.retention_ms] setting.<br/>log-segment-bytes -> (int)<br/>The maximum size of a single log file. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.segment_bytes] setting.<br/>message-max-bytes -> (int)<br/>The largest record batch size allowed by Kafka. Default value: 1048588.<br/>num-partitions -> (int)<br/>Default number of partitions per topic on the whole cluster<br/>offsets-retention-minutes -> (int)<br/>Offset storage time after a consumer group loses all its consumers. Default: 10080.<br/>replica-fetch-max-bytes -> (int)<br/>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576.<br/>sasl-enabled-mechanisms -> ([]int)<br/>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].<br/>socket-receive-buffer-bytes -> (int)<br/>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.<br/>socket-send-buffer-bytes -> (int)<br/>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.<br/>ssl-cipher-suites -> ([]string)<br/>A list of cipher suites.<br/>kafka-ui-config -> (struct)<br/>Configuration of Kafka UI.<br/>enabled -> (bool)<br/>Is Kafka UI enabled for this cluster.<br/>kraft -> (struct)<br/>Configuration and resource allocation for KRaft-controller hosts.<br/>resources -> (struct)<br/>Resources allocated to KRaft controller hosts.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the documentation.<br/>patch-version -> (string)<br/>Patch or release version ex. 3.9.1, 4.0.1 etc<br/>rest-api-config -> (struct)<br/>Configuration of REST API.<br/>enabled -> (bool)<br/>Is REST API enabled for this cluster.<br/>schema-registry -> (bool)<br/>Enables managed schema registry on cluster<br/>unmanaged-topics -> (bool)<br/>Allows to manage topics via AdminAPI Deprecated. Feature enabled permanently.<br/>version -> (string)<br/>Version of Apache Kafka® used in the cluster. Possible values: '2.8', '3.0', '3.1', '3.2', '3.3', '3.4', '3.5', '3.6'.<br/>zone-id -> ([]string)<br/>IDs of availability zones where Kafka brokers reside.<br/>zookeeper -> (struct)<br/>Configuration and resource allocation for ZooKeeper hosts.<br/>resources -> (struct)<br/>Resources allocated to ZooKeeper hosts.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the documentation.|
-|`--deletion-protection`|Deletion Protection inhibits deletion of the cluster|
-|`--description`|<b>`string`</b><br/>New description of the Apache Kafka® cluster.|
-|`--labels`|<b>`stringToString`</b><br/>Custom labels for the Apache Kafka® cluster as 'key:value' pairs. For example, "project": "mvp" or "source": "dictionary". The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get] method, then send an [ClusterService.Update] request with the new label added to the set.|
-|`--maintenance-window`|<b>`shorthand/json`</b><br/>New maintenance window settings for the cluster.<br/>Shorthand Syntax:<br/>{<br/>policy = anytime={} \| weekly-maintenance-window={<br/>day = MON\|TUE\|WED\|THU\|FRI\|SAT\|SUN,<br/>hour = int<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"policy": {<br/>"anytime": {},<br/>"weekly-maintenance-window": {<br/>"day": "MON\|TUE\|WED\|THU\|FRI\|SAT\|SUN",<br/>"hour": "int"<br/>}<br/>}<br/>}"<br/>Fields:<br/>policy -> (oneof<anytime\|weekly-maintenance-window>)<br/>Oneof policy field<br/>anytime -> (struct)<br/>weekly-maintenance-window -> (struct)<br/>day -> (enum<FRI\|MON\|SAT\|SUN\|THU\|TUE\|WED>)<br/>hour -> (int)<br/>Hour of the day in UTC.|
-|`--name`|<b>`string`</b><br/>New name for the Apache Kafka® cluster.|
-|`--network-id`|<b>`string`</b><br/>ID of the network to move the cluster to.|
-|`--security-group-ids`|<b>`strings`</b><br/>User security groups|
-|`--subnet-ids`|<b>`strings`</b><br/>IDs of subnets where the hosts are located or a new host is being created|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `--cluster-id` | `string`
+
+ID of the Apache Kafka® cluster to update. To get the Apache Kafka® cluster ID, make a [ClusterService.List] request. ||
+|| `--config-spec` | `shorthand/json`
+
+New configuration and resources for hosts in the Apache Kafka® cluster. Use [update_mask] to prevent reverting all cluster settings that are not listed in [config_spec] to their default values.
+
+Shorthand Syntax:
+
+```hcl
+{
+  access = {
+    data-transfer = bool
+  },
+  assign-public-ip = bool,
+  brokers-count = int,
+  disk-size-autoscaling = {
+    disk-size-limit = int,
+    emergency-usage-threshold = int,
+    planned-usage-threshold = int
+  },
+  kafka = {
+    kafka-config = kafka-config-2-8={
+      auto-create-topics-enable = bool,
+      compression-type = COMPRESSION_TYPE_UNCOMPRESSED|COMPRESSION_TYPE_ZSTD|COMPRESSION_TYPE_LZ4|COMPRESSION_TYPE_SNAPPY|COMPRESSION_TYPE_GZIP|COMPRESSION_TYPE_PRODUCER,
+      default-replication-factor = int,
+      log-flush-interval-messages = int,
+      log-flush-interval-ms = int,
+      log-flush-scheduler-interval-ms = int,
+      log-preallocate = bool,
+      log-retention-bytes = int,
+      log-retention-hours = int,
+      log-retention-minutes = int,
+      log-retention-ms = int,
+      log-segment-bytes = int,
+      message-max-bytes = int,
+      num-partitions = int,
+      offsets-retention-minutes = int,
+      replica-fetch-max-bytes = int,
+      sasl-enabled-mechanisms = [
+        SASL_MECHANISM_SCRAM_SHA_256|SASL_MECHANISM_SCRAM_SHA_512, ...
+      ],
+      socket-receive-buffer-bytes = int,
+      socket-send-buffer-bytes = int,
+      ssl-cipher-suites = str,...
+    } | kafka-config-3={
+      auto-create-topics-enable = bool,
+      compression-type = COMPRESSION_TYPE_UNCOMPRESSED|COMPRESSION_TYPE_ZSTD|COMPRESSION_TYPE_LZ4|COMPRESSION_TYPE_SNAPPY|COMPRESSION_TYPE_GZIP|COMPRESSION_TYPE_PRODUCER,
+      default-replication-factor = int,
+      log-flush-interval-messages = int,
+      log-flush-interval-ms = int,
+      log-flush-scheduler-interval-ms = int,
+      log-preallocate = bool,
+      log-retention-bytes = int,
+      log-retention-hours = int,
+      log-retention-minutes = int,
+      log-retention-ms = int,
+      log-segment-bytes = int,
+      message-max-bytes = int,
+      num-partitions = int,
+      offsets-retention-minutes = int,
+      replica-fetch-max-bytes = int,
+      sasl-enabled-mechanisms = [
+        SASL_MECHANISM_SCRAM_SHA_256|SASL_MECHANISM_SCRAM_SHA_512, ...
+      ],
+      socket-receive-buffer-bytes = int,
+      socket-send-buffer-bytes = int,
+      ssl-cipher-suites = str,...
+    } | kafka-config-4={
+      auto-create-topics-enable = bool,
+      compression-type = COMPRESSION_TYPE_UNCOMPRESSED|COMPRESSION_TYPE_ZSTD|COMPRESSION_TYPE_LZ4|COMPRESSION_TYPE_SNAPPY|COMPRESSION_TYPE_GZIP|COMPRESSION_TYPE_PRODUCER,
+      default-replication-factor = int,
+      log-flush-interval-messages = int,
+      log-flush-interval-ms = int,
+      log-flush-scheduler-interval-ms = int,
+      log-retention-bytes = int,
+      log-retention-hours = int,
+      log-retention-minutes = int,
+      log-retention-ms = int,
+      log-segment-bytes = int,
+      message-max-bytes = int,
+      num-partitions = int,
+      offsets-retention-minutes = int,
+      replica-fetch-max-bytes = int,
+      sasl-enabled-mechanisms = [
+        SASL_MECHANISM_SCRAM_SHA_256|SASL_MECHANISM_SCRAM_SHA_512, ...
+      ],
+      socket-receive-buffer-bytes = int,
+      socket-send-buffer-bytes = int,
+      ssl-cipher-suites = str,...
+    },
+    resources = {
+      disk-size = int,
+      disk-type-id = str,
+      resource-preset-id = str
+    }
+  },
+  kafka-ui-config = {
+    enabled = bool
+  },
+  kraft = {
+    resources = {
+      disk-size = int,
+      disk-type-id = str,
+      resource-preset-id = str
+    }
+  },
+  patch-version = str,
+  rest-api-config = {
+    enabled = bool
+  },
+  schema-registry = bool,
+  unmanaged-topics = bool,
+  version = str,
+  zone-id = str,...,
+  zookeeper = {
+    resources = {
+      disk-size = int,
+      disk-type-id = str,
+      resource-preset-id = str
+    }
+  }
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "access": {
+    "data-transfer": "bool"
+  },
+  "assign-public-ip": "bool",
+  "brokers-count": "int",
+  "disk-size-autoscaling": {
+    "disk-size-limit": "int",
+    "emergency-usage-threshold": "int",
+    "planned-usage-threshold": "int"
+  },
+  "kafka": {
+    "kafka-config": {
+      "kafka-config-2-8": {
+        "auto-create-topics-enable": "bool",
+        "compression-type": "COMPRESSION_TYPE_UNCOMPRESSED|COMPRESSION_TYPE_ZSTD|COMPRESSION_TYPE_LZ4|COMPRESSION_TYPE_SNAPPY|COMPRESSION_TYPE_GZIP|COMPRESSION_TYPE_PRODUCER",
+        "default-replication-factor": "int",
+        "log-flush-interval-messages": "int",
+        "log-flush-interval-ms": "int",
+        "log-flush-scheduler-interval-ms": "int",
+        "log-preallocate": "bool",
+        "log-retention-bytes": "int",
+        "log-retention-hours": "int",
+        "log-retention-minutes": "int",
+        "log-retention-ms": "int",
+        "log-segment-bytes": "int",
+        "message-max-bytes": "int",
+        "num-partitions": "int",
+        "offsets-retention-minutes": "int",
+        "replica-fetch-max-bytes": "int",
+        "sasl-enabled-mechanisms": [
+          "SASL_MECHANISM_SCRAM_SHA_256|SASL_MECHANISM_SCRAM_SHA_512", ...
+        ],
+        "socket-receive-buffer-bytes": "int",
+        "socket-send-buffer-bytes": "int",
+        "ssl-cipher-suites": [
+          "str", ...
+        ]
+      },
+      "kafka-config-3": {
+        "auto-create-topics-enable": "bool",
+        "compression-type": "COMPRESSION_TYPE_UNCOMPRESSED|COMPRESSION_TYPE_ZSTD|COMPRESSION_TYPE_LZ4|COMPRESSION_TYPE_SNAPPY|COMPRESSION_TYPE_GZIP|COMPRESSION_TYPE_PRODUCER",
+        "default-replication-factor": "int",
+        "log-flush-interval-messages": "int",
+        "log-flush-interval-ms": "int",
+        "log-flush-scheduler-interval-ms": "int",
+        "log-preallocate": "bool",
+        "log-retention-bytes": "int",
+        "log-retention-hours": "int",
+        "log-retention-minutes": "int",
+        "log-retention-ms": "int",
+        "log-segment-bytes": "int",
+        "message-max-bytes": "int",
+        "num-partitions": "int",
+        "offsets-retention-minutes": "int",
+        "replica-fetch-max-bytes": "int",
+        "sasl-enabled-mechanisms": [
+          "SASL_MECHANISM_SCRAM_SHA_256|SASL_MECHANISM_SCRAM_SHA_512", ...
+        ],
+        "socket-receive-buffer-bytes": "int",
+        "socket-send-buffer-bytes": "int",
+        "ssl-cipher-suites": [
+          "str", ...
+        ]
+      },
+      "kafka-config-4": {
+        "auto-create-topics-enable": "bool",
+        "compression-type": "COMPRESSION_TYPE_UNCOMPRESSED|COMPRESSION_TYPE_ZSTD|COMPRESSION_TYPE_LZ4|COMPRESSION_TYPE_SNAPPY|COMPRESSION_TYPE_GZIP|COMPRESSION_TYPE_PRODUCER",
+        "default-replication-factor": "int",
+        "log-flush-interval-messages": "int",
+        "log-flush-interval-ms": "int",
+        "log-flush-scheduler-interval-ms": "int",
+        "log-retention-bytes": "int",
+        "log-retention-hours": "int",
+        "log-retention-minutes": "int",
+        "log-retention-ms": "int",
+        "log-segment-bytes": "int",
+        "message-max-bytes": "int",
+        "num-partitions": "int",
+        "offsets-retention-minutes": "int",
+        "replica-fetch-max-bytes": "int",
+        "sasl-enabled-mechanisms": [
+          "SASL_MECHANISM_SCRAM_SHA_256|SASL_MECHANISM_SCRAM_SHA_512", ...
+        ],
+        "socket-receive-buffer-bytes": "int",
+        "socket-send-buffer-bytes": "int",
+        "ssl-cipher-suites": [
+          "str", ...
+        ]
+      }
+    },
+    "resources": {
+      "disk-size": "int",
+      "disk-type-id": "str",
+      "resource-preset-id": "str"
+    }
+  },
+  "kafka-ui-config": {
+    "enabled": "bool"
+  },
+  "kraft": {
+    "resources": {
+      "disk-size": "int",
+      "disk-type-id": "str",
+      "resource-preset-id": "str"
+    }
+  },
+  "patch-version": "str",
+  "rest-api-config": {
+    "enabled": "bool"
+  },
+  "schema-registry": "bool",
+  "unmanaged-topics": "bool",
+  "version": "str",
+  "zone-id": [
+    "str", ...
+  ],
+  "zookeeper": {
+    "resources": {
+      "disk-size": "int",
+      "disk-type-id": "str",
+      "resource-preset-id": "str"
+    }
+  }
+}
+```
+
+Fields:
+
+```
+access -> (struct)
+  Access policy for external services.
+  data-transfer -> (bool)
+    Allow access for DataTransfer.
+assign-public-ip -> (bool)
+  The flag that defines whether a public IP address is assigned to the cluster. If the value is 'true', then Apache Kafka® cluster is available on the Internet via it's public IP address.
+brokers-count -> (int)
+  The number of Kafka brokers deployed in each availability zone.
+disk-size-autoscaling -> (struct)
+  DiskSizeAutoscaling settings
+  disk-size-limit -> (int)
+    New storage size (in bytes) that is set when one of the thresholds is achieved.
+  emergency-usage-threshold -> (int)
+    Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
+  planned-usage-threshold -> (int)
+    Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
+kafka -> (struct)
+  Configuration and resource allocation for Kafka brokers.
+  resources -> (struct)
+    Resources allocated to Kafka brokers.
+    disk-size -> (int)
+      Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted.
+    disk-type-id -> (string)
+      Type of the storage environment for the host.
+    resource-preset-id -> (string)
+      ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the documentation.
+  kafka-config -> (oneof<kafka-config-2-8|kafka-config-3|kafka-config-4>)
+    Oneof kafka-config field
+    kafka-config-2-8 -> (struct)
+      Configuration of an Apache Kafka® 2.8 broker.
+      auto-create-topics-enable -> (bool)
+        Enable auto creation of topic on the server
+      compression-type -> (struct)
+        Cluster topics compression type.
+      default-replication-factor -> (int)
+        Default replication factor of the topic on the whole cluster
+      log-flush-interval-messages -> (int)
+        The number of messages accumulated on a log partition before messages are flushed to disk. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_messages] setting.
+      log-flush-interval-ms -> (int)
+        The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of [log_flush_scheduler_interval_ms] is used. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_ms] setting.
+      log-flush-scheduler-interval-ms -> (int)
+        The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher.
+      log-preallocate -> (bool)
+        Should pre allocate file when create new segment? This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate] setting. Deprecated. Feature useless for Yandex Cloud.
+      log-retention-bytes -> (int)
+        Partition size limit; Kafka will discard old log segments to free up space if 'delete' [TopicConfig2_8.cleanup_policy] is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_bytes] setting.
+      log-retention-hours -> (int)
+        The number of hours to keep a log segment file before deleting it.
+      log-retention-minutes -> (int)
+        The number of minutes to keep a log segment file before deleting it. If not set, the value of [log_retention_hours] is used.
+      log-retention-ms -> (int)
+        The number of milliseconds to keep a log segment file before deleting it. If not set, the value of [log_retention_minutes] is used. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_ms] setting.
+      log-segment-bytes -> (int)
+        The maximum size of a single log file. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.segment_bytes] setting.
+      message-max-bytes -> (int)
+        The largest record batch size allowed by Kafka. Default value: 1048588.
+      num-partitions -> (int)
+        Default number of partitions per topic on the whole cluster
+      offsets-retention-minutes -> (int)
+        Offset storage time after a consumer group loses all its consumers. Default: 10080.
+      replica-fetch-max-bytes -> (int)
+        The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576.
+      sasl-enabled-mechanisms -> ([]struct)
+        The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
+      socket-receive-buffer-bytes -> (int)
+        The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.
+      socket-send-buffer-bytes -> (int)
+        The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.
+      ssl-cipher-suites -> ([]string)
+        A list of cipher suites.
+    kafka-config-3 -> (struct)
+      Configuration of an Apache Kafka® 3.x broker.
+      auto-create-topics-enable -> (bool)
+        Enable auto creation of topic on the server
+      compression-type -> (struct)
+        Cluster topics compression type.
+      default-replication-factor -> (int)
+        Default replication factor of the topic on the whole cluster
+      log-flush-interval-messages -> (int)
+        The number of messages accumulated on a log partition before messages are flushed to disk. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_messages] setting.
+      log-flush-interval-ms -> (int)
+        The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of [log_flush_scheduler_interval_ms] is used. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_ms] setting.
+      log-flush-scheduler-interval-ms -> (int)
+        The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher.
+      log-preallocate -> (bool)
+        Should pre allocate file when create new segment? This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate] setting. Deprecated. Feature useless for Yandex Cloud.
+      log-retention-bytes -> (int)
+        Partition size limit; Kafka will discard old log segments to free up space if 'delete' [TopicConfig3.cleanup_policy] is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_bytes] setting.
+      log-retention-hours -> (int)
+        The number of hours to keep a log segment file before deleting it.
+      log-retention-minutes -> (int)
+        The number of minutes to keep a log segment file before deleting it. If not set, the value of [log_retention_hours] is used.
+      log-retention-ms -> (int)
+        The number of milliseconds to keep a log segment file before deleting it. If not set, the value of [log_retention_minutes] is used. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_ms] setting.
+      log-segment-bytes -> (int)
+        The maximum size of a single log file. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.segment_bytes] setting.
+      message-max-bytes -> (int)
+        The largest record batch size allowed by Kafka. Default value: 1048588.
+      num-partitions -> (int)
+        Default number of partitions per topic on the whole cluster
+      offsets-retention-minutes -> (int)
+        Offset storage time after a consumer group loses all its consumers. Default: 10080.
+      replica-fetch-max-bytes -> (int)
+        The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576.
+      sasl-enabled-mechanisms -> ([]struct)
+        The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
+      socket-receive-buffer-bytes -> (int)
+        The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.
+      socket-send-buffer-bytes -> (int)
+        The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.
+      ssl-cipher-suites -> ([]string)
+        A list of cipher suites.
+    kafka-config-4 -> (struct)
+      Configuration of an Apache Kafka® 4.x broker.
+      auto-create-topics-enable -> (bool)
+        Enable auto creation of topic on the server
+      compression-type -> (struct)
+        Cluster topics compression type.
+      default-replication-factor -> (int)
+        Default replication factor of the topic on the whole cluster
+      log-flush-interval-messages -> (int)
+        The number of messages accumulated on a log partition before messages are flushed to disk. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_messages] setting.
+      log-flush-interval-ms -> (int)
+        The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of [log_flush_scheduler_interval_ms] is used. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.flush_ms] setting.
+      log-flush-scheduler-interval-ms -> (int)
+        The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher.
+      log-retention-bytes -> (int)
+        Partition size limit; Kafka will discard old log segments to free up space if 'delete' [TopicConfig4.cleanup_policy] is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_bytes] setting.
+      log-retention-hours -> (int)
+        The number of hours to keep a log segment file before deleting it.
+      log-retention-minutes -> (int)
+        The number of minutes to keep a log segment file before deleting it. If not set, the value of [log_retention_hours] is used.
+      log-retention-ms -> (int)
+        The number of milliseconds to keep a log segment file before deleting it. If not set, the value of [log_retention_minutes] is used. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.retention_ms] setting.
+      log-segment-bytes -> (int)
+        The maximum size of a single log file. This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.segment_bytes] setting.
+      message-max-bytes -> (int)
+        The largest record batch size allowed by Kafka. Default value: 1048588.
+      num-partitions -> (int)
+        Default number of partitions per topic on the whole cluster
+      offsets-retention-minutes -> (int)
+        Offset storage time after a consumer group loses all its consumers. Default: 10080.
+      replica-fetch-max-bytes -> (int)
+        The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576.
+      sasl-enabled-mechanisms -> ([]struct)
+        The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
+      socket-receive-buffer-bytes -> (int)
+        The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.
+      socket-send-buffer-bytes -> (int)
+        The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.
+      ssl-cipher-suites -> ([]string)
+        A list of cipher suites.
+kafka-ui-config -> (struct)
+  Configuration of Kafka UI.
+  enabled -> (bool)
+    Is Kafka UI enabled for this cluster.
+kraft -> (struct)
+  Configuration and resource allocation for KRaft-controller hosts.
+  resources -> (struct)
+    Resources allocated to KRaft controller hosts.
+    disk-size -> (int)
+      Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted.
+    disk-type-id -> (string)
+      Type of the storage environment for the host.
+    resource-preset-id -> (string)
+      ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the documentation.
+patch-version -> (string)
+  Patch or release version ex. 3.9.1, 4.0.1 etc
+rest-api-config -> (struct)
+  Configuration of REST API.
+  enabled -> (bool)
+    Is REST API enabled for this cluster.
+schema-registry -> (bool)
+  Enables managed schema registry on cluster
+unmanaged-topics -> (bool)
+  Allows to manage topics via AdminAPI Deprecated. Feature enabled permanently.
+version -> (string)
+  Version of Apache Kafka® used in the cluster. Possible values: '2.8', '3.0', '3.1', '3.2', '3.3', '3.4', '3.5', '3.6'.
+zone-id -> ([]string)
+  IDs of availability zones where Kafka brokers reside.
+zookeeper -> (struct)
+  Configuration and resource allocation for ZooKeeper hosts.
+  resources -> (struct)
+    Resources allocated to ZooKeeper hosts.
+    disk-size -> (int)
+      Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted.
+    disk-type-id -> (string)
+      Type of the storage environment for the host.
+    resource-preset-id -> (string)
+      ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the documentation.
+``` ||
+|| `--deletion-protection` | Deletion Protection inhibits deletion of the cluster ||
+|| `--description` | `string`
+
+New description of the Apache Kafka® cluster. ||
+|| `--labels` | `stringToString`
+
+Custom labels for the Apache Kafka® cluster as 'key:value' pairs. For example, "project": "mvp" or "source": "dictionary". The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get] method, then send an [ClusterService.Update] request with the new label added to the set. ||
+|| `--maintenance-window` | `shorthand/json`
+
+New maintenance window settings for the cluster.
+
+Shorthand Syntax:
+
+```hcl
+{
+  policy = anytime={} | weekly-maintenance-window={
+    day = MON|TUE|WED|THU|FRI|SAT|SUN,
+    hour = int
+  }
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "policy": {
+    "anytime": {},
+    "weekly-maintenance-window": {
+      "day": "MON|TUE|WED|THU|FRI|SAT|SUN",
+      "hour": "int"
+    }
+  }
+}
+```
+
+Fields:
+
+```
+policy -> (oneof<anytime|weekly-maintenance-window>)
+  Oneof policy field
+  anytime -> (struct)
+  weekly-maintenance-window -> (struct)
+    day -> (struct)
+    hour -> (int)
+      Hour of the day in UTC.
+``` ||
+|| `--name` | `string`
+
+New name for the Apache Kafka® cluster. ||
+|| `--network-id` | `string`
+
+ID of the network to move the cluster to. ||
+|| `--security-group-ids` | `strings`
+
+User security groups ||
+|| `--subnet-ids` | `strings`
+
+IDs of subnets where the hosts are located or a new host is being created ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

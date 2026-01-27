@@ -1,6 +1,6 @@
 ---
 title: Viewing monitoring charts in {{ serverless-containers-full-name }}
-description: You can view a monitoring chart in {{ serverless-containers-full-name }} using the management console by selecting {{ serverless-containers-name }} and clicking the trigger of interest.
+description: You can view a monitoring chart in {{ serverless-containers-full-name }} using the management console by navigating to {{ serverless-containers-name }} and clicking the trigger of interest.
 ---
 
 # Viewing trigger monitoring charts in {{ serverless-containers-name }}
@@ -15,9 +15,9 @@ The chart update period is 15 seconds.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder containing your trigger.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the trigger.
 
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
     1. Select a trigger to view its monitoring charts.
 
@@ -26,7 +26,7 @@ The chart update period is 15 seconds.
     1. The following charts will open on the page:
 
         * **Request latency**: Average time it takes a trigger to process a request.
-        * **Read events**: Number of events causing a trigger to fire.
+        * **Read events**: Number of events that have set off a trigger.
         * **Function access errors**: Number of access errors when calling a container.
         * **Function call errors**: Number of errors when calling a container.
         * **DLQ access errors**: Number of errors when accessing the [Dead Letter Queue](../../serverless-containers/concepts/dlq.md).

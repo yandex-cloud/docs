@@ -6,7 +6,7 @@ description: This page provides a reference for {{ mrd-name }} events tracked in
 
 # {{ at-full-name }} event reference
 
-{{ at-name }} supports tracking control plane events for {{ mrd-full-name }}. For more information, see [{#T}](../audit-trails/concepts/format.md).
+{{ at-name }} supports tracking [control plane](../audit-trails/concepts/format.md) and [data plane](../audit-trails/concepts/format-data-plane.md) events for {{ mrd-full-name }}.
 
 The general format of the `event_type` field value is as follows:
 

@@ -11,7 +11,7 @@ If you cannot configure access to {{ mpg-full-name }} and {{ mch-full-name }} cl
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create your connection.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-mdb-proxy }}**.
     1. Click **{{ ui-key.yacloud.serverless-mdb-proxy.list.button_create }}**.
     1. Enter a connection name and description. Follow these naming requirements:

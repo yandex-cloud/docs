@@ -10,7 +10,7 @@ description: Follow this guide to update a function description.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), go to the folder where you want to update a [function](../../concepts/function.md) description.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select a function.
     1. In the top-right corner, click **{{ ui-key.yacloud.serverless-functions.list.button_action-edit }}**.
     1. In the window that opens, enter the description of the function.
@@ -92,7 +92,7 @@ description: Follow this guide to update a function description.
        terraform plan
        ```
         
-       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them. 
          
     1. Apply the changes:
 

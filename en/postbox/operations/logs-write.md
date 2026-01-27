@@ -14,7 +14,7 @@ You can set up logging when or after [creating](create-address.md) an address. T
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the address.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. Select the address for which you want to configure logging.
     1. Under **{{ ui-key.yacloud.logging.label_title }}**, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.  
     1. In the **{{ ui-key.yacloud.logging.label_destination }}** field, select:

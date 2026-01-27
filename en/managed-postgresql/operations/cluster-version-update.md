@@ -1,4 +1,4 @@
-# Upgrading {{ PG }} version
+# {{ PG }} version upgrade
 
 You can upgrade a {{ mpg-name }} cluster to any version up to and including version 17.
 
@@ -14,28 +14,28 @@ To upgrade the version, the cluster storage must have at least 10% free space, w
 
 {% endnote %}
 
-You can only upgrade to the next sequential version, e.g., from 14 to 15. Upgrading to later versions is performed in stages. For example, to upgrade {{ PG }} from version 13 to 15, follow this sequence: 13 → 14 → 15.
+You can only upgrade to the next sequential version, e.g., from 14 to 15. Upgrading to later versions is performed in stages. For example, to upgrade {{ PG }} from version 14 to 16, follow this sequence: 14 → 15 → 16.
 
 In single-host clusters, only the master host is taken offline for upgrades. Such clusters are unavailable for reading and writing during upgrades.
 
 In multi-host clusters, upgrades follow the procedure below:
 
 1. The master host is taken offline for an upgrade. During this time, replicas operate in read-only mode. No [failover](../concepts/replication.md#replication-auto) occurs. After the upgrade, the master host stays offline, even for reads, until all replicas are upgraded.
-1. Replicas are taken offline for an upgrade, one by one. Replicas are queued in a random order. Once upgraded, replicas resume operation in read-only mode.
+1. Replicas are taken offline for an upgrade, one by one. The replicas are queued randomly. Once upgraded, replicas resume operation in read-only mode.
 
     A two-host cluster will be unavailable during the upgrade of its replica. In a cluster of three or more hosts, at least one replica will be always available for reading.
 
 1. The master host resumes its operation.
 
-For information on minor version upgrades and host maintenance, see [Maintenance](../concepts/maintenance.md).
+To learn about upgrades within the same version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
-## Pre-upgrade steps {#before-update}
+## Before a version upgrade {#before-update}
 
 Make sure the upgrade will not disrupt your applications:
 
-1. Check the [{{ PG }} changelog](https://www.postgresql.org/docs/release/) to see how upgrades might affect your applications or installed [extensions](./extensions/cluster-extensions.md).
-1. Try upgrading a test cluster. You can [deploy](cluster-backups.md#restore) it from the main cluster’s backup.
-1. [Back up](cluster-backups.md) the main cluster immediately before upgrading.
+1. Check the {{ PG }} [release notes](https://www.postgresql.org/docs/release/) to learn how upgrades may affect your applications or installed [extensions](./extensions/cluster-extensions.md).
+1. Try upgrading a test cluster. You can [deploy](cluster-backups.md#restore) it from a backup of the main cluster.
+1. [Create a backup](cluster-backups.md) of the main cluster immediately before upgrading.
 
 ## Upgrading a cluster {#start-update}
 
@@ -86,9 +86,9 @@ Make sure the upgrade will not disrupt your applications:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-       To learn how to create this file, see [Creating clusters](cluster-create.md).
+       To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-       For a complete list of configurable {{ mpg-name }} cluster fields, refer to the [{{ TF }} provider guides]({{ tf-provider-mpg }}).
+       For a complete list of {{ mpg-name }} cluster configuration fields you can update, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
 
     1. Add the `version` field to the `cluster_config` section of the target {{ mpg-name }} cluster, or update its value if it already exists:
 
@@ -101,11 +101,11 @@ Make sure the upgrade will not disrupt your applications:
        }
        ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -113,11 +113,11 @@ Make sure the upgrade will not disrupt your applications:
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
+  1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -137,24 +137,24 @@ Make sure the upgrade will not disrupt your applications:
 
      Where:
 
-     * `updateMask`: Comma-separated list of settings you want to update.
+     * `updateMask`: Comma-separated string of settings you want to update.
 
        Here, we provide only one setting.
 
      * `configSpec.version`: New {{ PG }} version.
 
-     You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
+  1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -182,19 +182,19 @@ Make sure the upgrade will not disrupt your applications:
 
      Where:
 
-     * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+     * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
 
        Here, we provide only one setting.
 
      * `config_spec.version`: New {{ PG }} version.
 
-     You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
-Once you run the upgrade, the cluster status will change to **UPDATING**. Wait for the upgrade to complete and then check the cluster version.
+Once you launch the upgrade, the cluster status changes to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
 Cluster upgrade time depends on the database size.
 

@@ -22,7 +22,7 @@ You can use the Foreach control step to set a sequence of steps to apply to each
       1. In the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_foreach-step-concurrency-field }}** field, set the number of input data items the specified sequence of steps will be performed on simultaneously.
   1. {% include [integrations-step-input-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-input-tab.md) %}
   1. {% include [integrations-step-output-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-output-tab.md) %}
-  1. To add a new step to the sequence, drag it to the area marked by the dotted line under **Integration steps** or **Control steps**.
+  1. To add a new step to a sequence, drag the step to the area marked by the dotted line from **Integration steps** or **Control steps**.
 
 {% endlist %}
 

@@ -2,14 +2,15 @@
 
 When creating a cluster in {{ mos-short-name }}, you can specify a list of required plugins and they will be installed in the cluster automatically. For a full list of available plugins, see [Additional plugins](../concepts/plugins.md#opensearch).
 
-## Retrieving a list of installed plugins {#list}
+## Getting a list of installed plugins {#list}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Click the cluster name.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+    1. Click the name of your cluster.
 
 - CLI {#cli}
 
@@ -17,7 +18,7 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get a list of installed plugins, request information about an {{ OS }} cluster:
+    To get a list of installed plugins, get information about your {{ OS }} cluster:
 
     ```bash
     {{ yc-mdb-os }} cluster get <cluster_name_or_ID>
@@ -25,15 +26,15 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
 
     You can find a list of plugins in the `config.opensearch.plugins` parameter.
 
-    You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Get](../api-ref/Cluster/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Get](../api-ref/Cluster/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -42,20 +43,20 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
             --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<cluster_ID>'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure the request was successful.
+    1. Check the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
 
-        Enabled plugins will be on the `config.opensearch.plugins` list.
+        You will see enabled plugins on the `config.opensearch.plugins` list.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Use the [ClusterService.Get](../api-ref/grpc/Cluster/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Get](../api-ref/grpc/Cluster/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -71,11 +72,11 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
             yandex.cloud.mdb.opensearch.v1.ClusterService.Get
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure the request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
 
-        Enabled plugins will be on the `config.opensearch.plugins` list.
+        You will see enabled plugins on the `config.opensearch.plugins` list.
 
 {% endlist %}
 
@@ -85,9 +86,10 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
     1. Select the cluster and click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
-    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify the plugins you want to install.
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify the plugins to install.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -96,7 +98,7 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To change the list of installed {{ OS }} plugins, run the command:
+    To edit a list of installed {{ OS }} plugins, run this command:
 
     ```bash
     {{ yc-mdb-os }} cluster update <cluster_name_or_ID> \
@@ -105,17 +107,17 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
 
     In the `--plugins` parameter, list the required plugins separated by commas. To keep the previously installed plugins, specify them in the `--plugins` parameter as well.
 
-    You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
+        For a complete list of adjustable configuration fields for a {{ mos-name }} cluster, see the [{{ TF }} provider guide]({{ tf-provider-mos }}).
 
-    1. In the cluster description, change the list of clusters for the `plugins` parameter under `config`. If there is no such parameter, add it.
+    1. In the cluster description, edit the list of clusters for the `plugins` parameter under `config`. If there is no such parameter, add it.
 
         ```hcl
         resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
@@ -137,7 +139,7 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -156,10 +158,10 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
                         "configSpec": {
                             "opensearchSpec": {
                                 "plugins": [
-                                    "<{{ OS }}_pugin_1>",
-                                    "<{{ OS }}_pugin_2>",
+                                    "<{{ OS }}_plugin_1>",
+                                    "<{{ OS }}_plugin_2>",
                                     ...
-                                    "<{{ OS }}_pugin_N>"
+                                    "<{{ OS }}_plugin_N>"
                                 ]
                             }
                         }
@@ -168,19 +170,19 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
 
         Where:
 
-        * `updateMask`: List of parameters to update as a single string, separated by commas.
+        * `updateMask`: Comma-separated string of settings you want to update.
 
-            Only one parameter is provided in this case.
+            Here, we provide only one setting.
 
         * `configSpec.opensearchSpec.plugins`: New list of [{{ OS }} plugins](../concepts/plugins.md).
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -206,10 +208,10 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
                     "config_spec": {
                         "opensearch_spec": {
                             "plugins": [
-                                "<{{ OS }}_pugin_1>",
-                                "<{{ OS }}_pugin_2>",
+                                "<{{ OS }}_plugin_1>",
+                                "<{{ OS }}_plugin_2>",
                                 ...
-                                "<{{ OS }}_pugin_N>"
+                                "<{{ OS }}_plugin_N>"
                             ]
                         }
                     }
@@ -220,14 +222,14 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
 
-            Only one parameter is provided in this case.
+            Here, we provide only one setting.
 
         * `config_spec.opensearch_spec.plugins`: New list of [{{ OS }} plugins](../concepts/plugins.md).
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

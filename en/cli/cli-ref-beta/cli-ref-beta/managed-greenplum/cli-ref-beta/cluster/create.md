@@ -10,58 +10,745 @@ Creates a Greenplum® cluster in the specified folder.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta managed-greenplum cluster create <FOLDER-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--cloud-storage`|<b>`shorthand/json`</b><br/>Cloud storage settings<br/>Shorthand Syntax:<br/>{<br/>enable = bool<br/>}<br/>JSON Syntax:<br/>"{<br/>"enable": "bool"<br/>}"<br/>Fields:<br/>enable -> (bool)<br/>enable Cloud Storage for cluster|
-|`--config`|<b>`shorthand/json`</b><br/>Greenplum® cluster configuration.<br/>Shorthand Syntax:<br/>{<br/>access = {<br/>data-lens = bool,<br/>data-transfer = bool,<br/>web-sql = bool,<br/>yandex-query = bool<br/>},<br/>assign-public-ip = bool,<br/>backup-retain-period-days = int,<br/>backup-window-start = timeofday,<br/>full-version = str,<br/>subnet-id = str,<br/>version = str,<br/>zone-id = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"access": {<br/>"data-lens": "bool",<br/>"data-transfer": "bool",<br/>"web-sql": "bool",<br/>"yandex-query": "bool"<br/>},<br/>"assign-public-ip": "bool",<br/>"backup-retain-period-days": "int",<br/>"backup-window-start": "timeofday",<br/>"full-version": "str",<br/>"subnet-id": "str",<br/>"version": "str",<br/>"zone-id": "str"<br/>}"<br/>Fields:<br/>access -> (struct)<br/>Access policy for external services.<br/>data-lens -> (bool)<br/>Allows data export from the cluster to DataLens.<br/>data-transfer -> (bool)<br/>Allows access for DataTransfer.<br/>web-sql -> (bool)<br/>Allows SQL queries to the cluster databases from the management console.<br/>yandex-query -> (bool)<br/>Allow access for YandexQuery.<br/>assign-public-ip -> (bool)<br/>Determines whether the cluster has a public IP address. After the cluster has been created, this setting cannot be changed.<br/>backup-retain-period-days -> (int)<br/>Retention policy of automated backups.<br/>backup-window-start -> (timeofday)<br/>Time to start the daily backup, in the UTC timezone.<br/>full-version -> (string)<br/>Full version<br/>subnet-id -> (string)<br/>ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id]).<br/>version -> (string)<br/>Version of the Greenplum® server software.<br/>zone-id -> (string)<br/>ID of the availability zone the cluster belongs to. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List] request.|
-|`--config-spec`|<b>`shorthand/json`</b><br/>Configuration of Greenplum® and Odyssey®.<br/>Shorthand Syntax:<br/>{<br/>background-activities = {<br/>analyze-and-vacuum = {<br/>analyze-timeout = int,<br/>start = {<br/>hours = int,<br/>minutes = int<br/>},<br/>vacuum-timeout = int<br/>},<br/>query-killer-scripts = {<br/>idle = {<br/>enable = bool,<br/>ignore-users = str,...,<br/>max-age = int<br/>},<br/>idle-in-transaction = {<br/>enable = bool,<br/>ignore-users = str,...,<br/>max-age = int<br/>},<br/>long-running = {<br/>enable = bool,<br/>ignore-users = str,...,<br/>max-age = int<br/>}<br/>},<br/>table-sizes = {<br/>starts = [<br/>{<br/>hours = int,<br/>minutes = int<br/>}, ...<br/>]<br/>}<br/>},<br/>greenplum-config = greenplum-config-6={<br/>gp-add-column-inherits-table-setting = bool,<br/>gp-autostats-mode = GP_AUTOSTATS_MODE_NONE\|GP_AUTOSTATS_MODE_ON_CHANGE\|GP_AUTOSTATS_MODE_ON_NO_STATS,<br/>gp-autostats-on-change-threshold = int,<br/>gp-cached-segworkers-threshold = int,<br/>gp-enable-global-deadlock-detector = bool,<br/>gp-enable-zstd-memory-accounting = bool,<br/>gp-global-deadlock-detector-period = int,<br/>gp-max-plan-size = int,<br/>gp-max-slices = int,<br/>gp-resource-group-memory-limit = double,<br/>gp-vmem-protect-segworker-cache-limit = int,<br/>gp-workfile-compression = bool,<br/>gp-workfile-limit-files-per-query = int,<br/>gp-workfile-limit-per-query = int,<br/>gp-workfile-limit-per-segment = int,<br/>idle-in-transaction-session-timeout = int,<br/>lock-timeout = int,<br/>log-connections = bool,<br/>log-disconnections = bool,<br/>log-error-verbosity = TERSE\|DEFAULT\|VERBOSE,<br/>log-hostname = bool,<br/>log-min-duration-statement = int,<br/>log-min-messages = DEBUG5\|DEBUG4\|DEBUG3\|DEBUG2\|DEBUG1\|INFO\|NOTICE\|WARNING\|ERROR\|FATAL\|PANIC,<br/>log-statement = NONE\|DDL\|MOD\|ALL,<br/>log-statement-stats = bool,<br/>master-shared-buffers = int,<br/>max-connections = int,<br/>max-locks-per-transaction = int,<br/>max-prepared-transactions = int,<br/>max-slot-wal-keep-size = int,<br/>max-statement-mem = int,<br/>runaway-detector-activation-percent = int,<br/>segment-shared-buffers = int<br/>},<br/>pool = {<br/>client-idle-timeout = int,<br/>idle-in-transaction-timeout = int,<br/>mode = SESSION\|TRANSACTION,<br/>size = int<br/>},<br/>pxf-config = {<br/>connection-timeout = int,<br/>max-threads = int,<br/>pool-allow-core-thread-timeout = bool,<br/>pool-core-size = int,<br/>pool-max-size = int,<br/>pool-queue-capacity = int,<br/>upload-timeout = int,<br/>xms = int,<br/>xmx = int<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"background-activities": {<br/>"analyze-and-vacuum": {<br/>"analyze-timeout": "int",<br/>"start": {<br/>"hours": "int",<br/>"minutes": "int"<br/>},<br/>"vacuum-timeout": "int"<br/>},<br/>"query-killer-scripts": {<br/>"idle": {<br/>"enable": "bool",<br/>"ignore-users": [<br/>"str", ...<br/>],<br/>"max-age": "int"<br/>},<br/>"idle-in-transaction": {<br/>"enable": "bool",<br/>"ignore-users": [<br/>"str", ...<br/>],<br/>"max-age": "int"<br/>},<br/>"long-running": {<br/>"enable": "bool",<br/>"ignore-users": [<br/>"str", ...<br/>],<br/>"max-age": "int"<br/>}<br/>},<br/>"table-sizes": {<br/>"starts": [<br/>{<br/>"hours": "int",<br/>"minutes": "int"<br/>}, ...<br/>]<br/>}<br/>},<br/>"greenplum-config": {<br/>"greenplum-config-6": {<br/>"gp-add-column-inherits-table-setting": "bool",<br/>"gp-autostats-mode": "GP_AUTOSTATS_MODE_NONE\|GP_AUTOSTATS_MODE_ON_CHANGE\|GP_AUTOSTATS_MODE_ON_NO_STATS",<br/>"gp-autostats-on-change-threshold": "int",<br/>"gp-cached-segworkers-threshold": "int",<br/>"gp-enable-global-deadlock-detector": "bool",<br/>"gp-enable-zstd-memory-accounting": "bool",<br/>"gp-global-deadlock-detector-period": "int",<br/>"gp-max-plan-size": "int",<br/>"gp-max-slices": "int",<br/>"gp-resource-group-memory-limit": "double",<br/>"gp-vmem-protect-segworker-cache-limit": "int",<br/>"gp-workfile-compression": "bool",<br/>"gp-workfile-limit-files-per-query": "int",<br/>"gp-workfile-limit-per-query": "int",<br/>"gp-workfile-limit-per-segment": "int",<br/>"idle-in-transaction-session-timeout": "int",<br/>"lock-timeout": "int",<br/>"log-connections": "bool",<br/>"log-disconnections": "bool",<br/>"log-error-verbosity": "TERSE\|DEFAULT\|VERBOSE",<br/>"log-hostname": "bool",<br/>"log-min-duration-statement": "int",<br/>"log-min-messages": "DEBUG5\|DEBUG4\|DEBUG3\|DEBUG2\|DEBUG1\|INFO\|NOTICE\|WARNING\|ERROR\|FATAL\|PANIC",<br/>"log-statement": "NONE\|DDL\|MOD\|ALL",<br/>"log-statement-stats": "bool",<br/>"master-shared-buffers": "int",<br/>"max-connections": "int",<br/>"max-locks-per-transaction": "int",<br/>"max-prepared-transactions": "int",<br/>"max-slot-wal-keep-size": "int",<br/>"max-statement-mem": "int",<br/>"runaway-detector-activation-percent": "int",<br/>"segment-shared-buffers": "int"<br/>}<br/>},<br/>"pool": {<br/>"client-idle-timeout": "int",<br/>"idle-in-transaction-timeout": "int",<br/>"mode": "SESSION\|TRANSACTION",<br/>"size": "int"<br/>},<br/>"pxf-config": {<br/>"connection-timeout": "int",<br/>"max-threads": "int",<br/>"pool-allow-core-thread-timeout": "bool",<br/>"pool-core-size": "int",<br/>"pool-max-size": "int",<br/>"pool-queue-capacity": "int",<br/>"upload-timeout": "int",<br/>"xms": "int",<br/>"xmx": "int"<br/>}<br/>}"<br/>Fields:<br/>background-activities -> (struct)<br/>Managed Greenplum® background tasks configuration.<br/>analyze-and-vacuum -> (struct)<br/>Configuration for 'ANALYZE' and 'VACUUM' operations.<br/>analyze-timeout -> (int)<br/>Maximum duration of the 'ANALYZE' operation, in seconds. The default value is '36000'. As soon as this period expires, the 'ANALYZE' operation will be forced to terminate.<br/>start -> (struct)<br/>Time when analyze will start<br/>hours -> (int)<br/>hours<br/>minutes -> (int)<br/>minutes<br/>vacuum-timeout -> (int)<br/>Maximum duration of the 'VACUUM' operation, in seconds. The default value is '36000'. As soon as this period expires, the 'VACUUM' operation will be forced to terminate.<br/>query-killer-scripts -> (struct)<br/>Configuration for long running queries killer.<br/>idle -> (struct)<br/>Configuration of script that kills long running queries that are in 'idle' state.<br/>enable -> (bool)<br/>Use query killer or not<br/>ignore-users -> ([]string)<br/>Ignore these users when considering queries to terminate<br/>max-age -> (int)<br/>Maximum duration for this type of queries (in seconds).<br/>idle-in-transaction -> (struct)<br/>Configuration of script that kills long running queries that are in 'idle in transaction' state.<br/>enable -> (bool)<br/>Use query killer or not<br/>ignore-users -> ([]string)<br/>Ignore these users when considering queries to terminate<br/>max-age -> (int)<br/>Maximum duration for this type of queries (in seconds).<br/>long-running -> (struct)<br/>Configuration of script that kills long running queries (in any state).<br/>enable -> (bool)<br/>Use query killer or not<br/>ignore-users -> ([]string)<br/>Ignore these users when considering queries to terminate<br/>max-age -> (int)<br/>Maximum duration for this type of queries (in seconds).<br/>table-sizes -> (struct)<br/>Enables scripts that collects tables sizes to '*_sizes' tables in 'mdb_toolkit' schema.<br/>starts -> ([]struct)<br/>Time when start "table_sizes" script<br/>hours -> (int)<br/>hours<br/>minutes -> (int)<br/>minutes<br/>pool -> (struct)<br/>Odyssey® pool settings.<br/>client-idle-timeout -> (int)<br/>Client pool idle timeout, in seconds. Drop stale client connection after this much seconds of idleness, which is not in transaction. Set to zero to disable.<br/>idle-in-transaction-timeout -> (int)<br/>Client pool idle in transaction timeout, in seconds. Drop client connection in transaction after this much seconds of idleness. Set to zero to disable.<br/>mode -> (enum<SESSION\|TRANSACTION>)<br/>Route server pool mode.<br/>size -> (int)<br/>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy. Set to zero to disable the limit.<br/>pxf-config -> (struct)<br/>connection-timeout -> (int)<br/>Timeout for connection to the Apache Tomcat® server when making read requests. Specify values in seconds.<br/>max-threads -> (int)<br/>Maximum number of the Apache Tomcat® threads. To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the VMware Greenplum® Platform Extension Framework documentation.<br/>pool-allow-core-thread-timeout -> (bool)<br/>Determines whether the timeout for core streaming threads is permitted.<br/>pool-core-size -> (int)<br/>Number of core streaming threads per pool.<br/>pool-max-size -> (int)<br/>Maximum allowed number of core streaming threads.<br/>pool-queue-capacity -> (int)<br/>Maximum number of requests you can add to a pool queue for core streaming threads. If '0', no pool queue is generated.<br/>upload-timeout -> (int)<br/>Timeout for connection to the Apache Tomcat® server when making write requests. Specify the values in seconds.<br/>xms -> (int)<br/>Maximum size, in megabytes, of the JVM heap for the PXF daemon.<br/>xmx -> (int)<br/>Initial size, in megabytes, of the JVM heap for the PXF daemon.<br/>greenplum-config -> (oneof\<greenplum-config-6\>)<br/>Oneof greenplum-config field<br/>greenplum-config-6 -> (struct)<br/>gp-add-column-inherits-table-setting -> (bool)<br/>https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting<br/>gp-autostats-mode -> (enum<GP_AUTOSTATS_MODE_NONE\|GP_AUTOSTATS_MODE_ON_CHANGE\|GP_AUTOSTATS_MODE_ON_NO_STATS>)<br/>Specifies the mode for triggering automatic statistics collection after DML. https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_autostats_mode<br/>gp-autostats-on-change-threshold -> (int)<br/>Specifies the threshold for automatic statistics collection when gp_autostats_mode is set to on_change. https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_autostats_on_change_threshold<br/>gp-cached-segworkers-threshold -> (int)<br/>Define amount of working processes in segment, that keeping in warm cash after end of query for usage again in next queries. https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_cached_segworkers_threshold<br/>gp-enable-global-deadlock-detector -> (bool)<br/>Controls whether the Greenplum Database Global Deadlock Detector is enabled to manage concurrent UPDATE and DELETE operations on heap tables to improve performance. See Inserting, Updating, and Deleting Datain the Greenplum Database Administrator Guide. The default is off, the Global Deadlock Detector is deactivated. If the Global Deadlock Detector is deactivated (the default), Greenplum Database runs concurrent update and delete operations on a heap table serially. If the Global Deadlock Detector is enabled, concurrent updates are permitted and the Global Deadlock Detector determines when a deadlock exists, and breaks the deadlock by cancelling one or more backend processes associated with the youngest transaction(s) involved. https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_enable_global_deadlock_detector<br/>gp-enable-zstd-memory-accounting -> (bool)<br/>Forces ZSTD lib use Greenplum memory allocation system.<br/>gp-global-deadlock-detector-period -> (int)<br/>Specifies the executing interval (in seconds) of the global deadlock detector background worker process. https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_global_deadlock_detector_period<br/>gp-max-plan-size -> (int)<br/>Specifies the total maximum uncompressed size of a query execution plan multiplied by the number of Motion operators (slices) in the plan. https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_max_plan_size<br/>gp-max-slices -> (int)<br/>Max amount of slice-processes for one query in one segment. https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_max_slices<br/>gp-resource-group-memory-limit -> (double)<br/>Identifies the maximum percentage of system memory resources to allocate to resource groups on each Greenplum Database segment node. https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_resource_group_memory_limit<br/>gp-vmem-protect-segworker-cache-limit -> (int)<br/>Set memory limit (in MB) for working process. If a query executor process consumes more than this configured amount, then the process will not be cached for use in subsequent queries after the process completes. https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_vmem_protect_segworker_cache_limit<br/>gp-workfile-compression -> (bool)<br/>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression<br/>gp-workfile-limit-files-per-query -> (int)<br/>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000<br/>gp-workfile-limit-per-query -> (int)<br/>Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query<br/>gp-workfile-limit-per-segment -> (int)<br/>Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment<br/>idle-in-transaction-session-timeout -> (int)<br/>Max time (in ms) which session can idle in open transaction https://postgrespro.ru/docs/postgrespro/current/runtime-config-client#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT<br/>lock-timeout -> (int)<br/>Max time (in ms) which query will wait lock free on object https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#lock_timeout<br/>log-connections -> (bool)<br/>This outputs a line to the server log detailing each successful connection. Some client programs, like psql, attempt to connect twice while determining if a password is required, so duplicate "connection received" messages do not always indicate a problem. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_connections<br/>log-disconnections -> (bool)<br/>This outputs a line in the server log at termination of a client session, and includes the duration of the session. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_disconnections<br/>log-error-verbosity -> (enum<DEFAULT\|TERSE\|VERBOSE>)<br/>Controls the amount of detail written in the server log for each message that is logged. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_error_verbosity<br/>log-hostname -> (bool)<br/>By default, connection log messages only show the IP address of the connecting host. Turning on this option causes logging of the host name as well. Note that depending on your host name resolution setup this might impose a non-negligible performance penalty. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_hostname<br/>log-min-duration-statement -> (int)<br/>Logs the statement and its duration on a single log line if its duration is greater than or equal to the specified number of milliseconds. Setting this to 0 will print all statements and their durations. -1 deactivates the feature. For example, if you set it to 250 then all SQL statements that run 250ms or longer will be logged. Enabling this option can be useful in tracking down unoptimized queries in your applications. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_min_duration_statement<br/>log-min-messages -> (enum<DEBUG1\|DEBUG2\|DEBUG3\|DEBUG4\|DEBUG5\|ERROR\|FATAL\|INFO\|NOTICE\|PANIC\|WARNING>)<br/>Controls which message levels are written to the server log. Each level includes all the levels that follow it. The later the level, the fewer messages are sent to the log. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_min_messages<br/>log-statement -> (enum<ALL\|DDL\|MOD\|NONE>)<br/>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl<br/>log-statement-stats -> (bool)<br/>For each query, write total performance statistics of the query parser, planner, and executor to the server log. This is a crude profiling instrument. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_statement_stats<br/>master-shared-buffers -> (int)<br/>Sets the amount of memory a Greenplum Database master instance uses for shared memory buffers. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#shared_buffers<br/>max-connections -> (int)<br/>Maximum number of inbound connections on master segment<br/>max-locks-per-transaction -> (int)<br/>The shared lock table is created with room to describe locks on max_locks_per_transaction * (max_connections + max_prepared_transactions) objects, so no more than this many distinct objects can be locked at any one time. This is not a hard limit on the number of locks taken by any one transaction, but rather a maximum average value. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#max_locks_per_transaction<br/>max-prepared-transactions -> (int)<br/>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html<br/>max-slot-wal-keep-size -> (int)<br/>Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time. https://www.postgresql.org/docs/current/runtime-config-replication.html<br/>max-statement-mem -> (int)<br/>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB)<br/>runaway-detector-activation-percent -> (int)<br/>Percent of utilized Greenplum Database vmem that triggers the termination of queries. https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#runaway_detector_activation_percent<br/>segment-shared-buffers -> (int)<br/>Sets the amount of memory a Greenplum Database segment instance uses for shared memory buffers. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#shared_buffers|
-|`--deletion-protection`|Determines whether the cluster is protected from being deleted.|
-|`--description`|<b>`string`</b><br/>Description of the Greenplum® cluster.|
-|`--environment`|<b>`enum`</b><br/>Deployment environment of the Greenplum® cluster. Possible Values: 'production', 'prestable'|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to create the Greenplum® cluster in.|
-|`--host-group-ids`|<b>`strings`</b><br/>Host groups to place VMs of the cluster in.|
-|`--labels`|<b>`stringToString`</b><br/>Custom labels for the Greenplum® cluster as 'key:value' pairs. For example, '"project":"mvp"' or '"source":"dictionary"'.|
-|`--logging`|<b>`shorthand/json`</b><br/>Cloud logging configuration<br/>Shorthand Syntax:<br/>{<br/>command-center-enabled = bool,<br/>destination = folder-id=str \| log-group-id=str,<br/>enabled = bool,<br/>greenplum-enabled = bool,<br/>pooler-enabled = bool<br/>}<br/>JSON Syntax:<br/>"{<br/>"command-center-enabled": "bool",<br/>"destination": {<br/>"folder-id": "str",<br/>"log-group-id": "str"<br/>},<br/>"enabled": "bool",<br/>"greenplum-enabled": "bool",<br/>"pooler-enabled": "bool"<br/>}"<br/>Fields:<br/>command-center-enabled -> (bool)<br/>send Yandex Command Center logs<br/>enabled -> (bool)<br/>greenplum-enabled -> (bool)<br/>send Greenplum logs<br/>pooler-enabled -> (bool)<br/>send Pooler logs<br/>destination -> (oneof<folder-id\|log-group-id>)<br/>Oneof destination field<br/>folder-id -> (string)<br/>log-group-id -> (string)|
-|`--maintenance-window`|<b>`shorthand/json`</b><br/>A Greenplum® cluster maintenance window. Should be defined by either one of the two options.<br/>Shorthand Syntax:<br/>{<br/>policy = anytime={} \| weekly-maintenance-window={<br/>day = MON\|TUE\|WED\|THU\|FRI\|SAT\|SUN,<br/>hour = int<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"policy": {<br/>"anytime": {},<br/>"weekly-maintenance-window": {<br/>"day": "MON\|TUE\|WED\|THU\|FRI\|SAT\|SUN",<br/>"hour": "int"<br/>}<br/>}<br/>}"<br/>Fields:<br/>policy -> (oneof<anytime\|weekly-maintenance-window>)<br/>Oneof policy field<br/>anytime -> (struct)<br/>An any-time maintenance window.<br/>weekly-maintenance-window -> (struct)<br/>A weekly maintenance window.<br/>day -> (enum<FRI\|MON\|SAT\|SUN\|THU\|TUE\|WED>)<br/>Day of the week.<br/>hour -> (int)<br/>Hour of the day in the UTC timezone.|
-|`--master-config`|<b>`shorthand/json`</b><br/>Configuration of the Greenplum® master subcluster.<br/>Shorthand Syntax:<br/>{<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>}"<br/>Fields:<br/>resources -> (struct)<br/>Resources allocated to Greenplum® master subcluster hosts.<br/>disk-size -> (int)<br/>Volume of the storage used by the host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage used by the host: 'network-hdd', 'network-ssd' or 'local-ssd'.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources allocated to a host. Available presets are listed in the documentation.|
-|`--master-host-count`|<b>`int`</b><br/>Number of hosts in the master subcluster.|
-|`--master-host-group-ids`|<b>`strings`</b><br/>Host groups hosting VMs of the master subcluster.|
-|`--name`|<b>`string`</b><br/>Name of the Greenplum® cluster. The name must be unique within the folder.|
-|`--network-id`|<b>`string`</b><br/>ID of the network to create the cluster in.|
-|`--security-group-ids`|<b>`strings`</b><br/>User security groups.|
-|`--segment-config`|<b>`shorthand/json`</b><br/>Configuration of the Greenplum® segment subcluster.<br/>Shorthand Syntax:<br/>{<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>}"<br/>Fields:<br/>resources -> (struct)<br/>Resources allocated to Greenplum® segment subcluster hosts.<br/>disk-size -> (int)<br/>Volume of the storage used by the host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage used by the host: 'network-hdd', 'network-ssd' or 'local-ssd'.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources allocated to a host. Available presets are listed in the documentation.|
-|`--segment-host-count`|<b>`int`</b><br/>Number of hosts in the segment subcluster.|
-|`--segment-host-group-ids`|<b>`strings`</b><br/>Host groups hosting VMs of the segment subcluster.|
-|`--segment-in-host`|<b>`int`</b><br/>Number of segments per host.|
-|`--service-account-id`|<b>`string`</b><br/>ID of the service account used for access Yandex Cloud resources.|
-|`--user-name`|<b>`string`</b><br/>Owner user name.|
-|`--user-password`|<b>`string`</b><br/>Owner user password.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-json > request.json
+2. Edit the template: vim request.json
+3. Run with template: yc beta compute instance create -r request.json ||
+|| `--example-yaml` | Generates a YAML template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-yaml > request.yaml
+2. Edit the template: vim request.yaml
+3. Run with template: yc beta compute instance create -r request.yaml ||
+|| `--cloud-storage` | `shorthand/json`
+
+Cloud storage settings
+
+Shorthand Syntax:
+
+```hcl
+{
+  enable = bool
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "enable": "bool"
+}
+```
+
+Fields:
+
+```
+enable -> (bool)
+  enable Cloud Storage for cluster
+``` ||
+|| `--config` | `shorthand/json`
+
+Greenplum® cluster configuration.
+
+Shorthand Syntax:
+
+```hcl
+{
+  access = {
+    data-lens = bool,
+    data-transfer = bool,
+    web-sql = bool,
+    yandex-query = bool
+  },
+  assign-public-ip = bool,
+  backup-retain-period-days = int,
+  backup-window-start = timeofday,
+  full-version = str,
+  subnet-id = str,
+  version = str,
+  zone-id = str
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "access": {
+    "data-lens": "bool",
+    "data-transfer": "bool",
+    "web-sql": "bool",
+    "yandex-query": "bool"
+  },
+  "assign-public-ip": "bool",
+  "backup-retain-period-days": "int",
+  "backup-window-start": "timeofday",
+  "full-version": "str",
+  "subnet-id": "str",
+  "version": "str",
+  "zone-id": "str"
+}
+```
+
+Fields:
+
+```
+access -> (struct)
+  Access policy for external services.
+  data-lens -> (bool)
+    Allows data export from the cluster to DataLens.
+  data-transfer -> (bool)
+    Allows access for DataTransfer.
+  web-sql -> (bool)
+    Allows SQL queries to the cluster databases from the management console.
+  yandex-query -> (bool)
+    Allow access for YandexQuery.
+assign-public-ip -> (bool)
+  Determines whether the cluster has a public IP address. After the cluster has been created, this setting cannot be changed.
+backup-retain-period-days -> (int)
+  Retention policy of automated backups.
+backup-window-start -> (timeofday)
+  Time to start the daily backup, in the UTC timezone.
+full-version -> (string)
+  Full version
+subnet-id -> (string)
+  ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id]).
+version -> (string)
+  Version of the Greenplum® server software.
+zone-id -> (string)
+  ID of the availability zone the cluster belongs to. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List] request.
+``` ||
+|| `--config-spec` | `shorthand/json`
+
+Configuration of Greenplum® and Odyssey®.
+
+Shorthand Syntax:
+
+```hcl
+{
+  background-activities = {
+    analyze-and-vacuum = {
+      analyze-timeout = int,
+      start = {
+        hours = int,
+        minutes = int
+      },
+      vacuum-timeout = int
+    },
+    query-killer-scripts = {
+      idle = {
+        enable = bool,
+        ignore-users = str,...,
+        max-age = int
+      },
+      idle-in-transaction = {
+        enable = bool,
+        ignore-users = str,...,
+        max-age = int
+      },
+      long-running = {
+        enable = bool,
+        ignore-users = str,...,
+        max-age = int
+      }
+    },
+    table-sizes = {
+      starts = [
+        {
+          hours = int,
+          minutes = int
+        }, ...
+      ]
+    }
+  },
+  greenplum-config = greenplum-config-6={
+    gp-add-column-inherits-table-setting = bool,
+    gp-autostats-mode = GP_AUTOSTATS_MODE_NONE|GP_AUTOSTATS_MODE_ON_CHANGE|GP_AUTOSTATS_MODE_ON_NO_STATS,
+    gp-autostats-on-change-threshold = int,
+    gp-cached-segworkers-threshold = int,
+    gp-enable-global-deadlock-detector = bool,
+    gp-enable-zstd-memory-accounting = bool,
+    gp-global-deadlock-detector-period = int,
+    gp-max-plan-size = int,
+    gp-max-slices = int,
+    gp-resource-group-memory-limit = double,
+    gp-vmem-protect-segworker-cache-limit = int,
+    gp-workfile-compression = bool,
+    gp-workfile-limit-files-per-query = int,
+    gp-workfile-limit-per-query = int,
+    gp-workfile-limit-per-segment = int,
+    idle-in-transaction-session-timeout = int,
+    lock-timeout = int,
+    log-connections = bool,
+    log-disconnections = bool,
+    log-error-verbosity = TERSE|DEFAULT|VERBOSE,
+    log-hostname = bool,
+    log-min-duration-statement = int,
+    log-min-messages = DEBUG5|DEBUG4|DEBUG3|DEBUG2|DEBUG1|INFO|NOTICE|WARNING|ERROR|FATAL|PANIC,
+    log-statement = NONE|DDL|MOD|ALL,
+    log-statement-stats = bool,
+    master-shared-buffers = int,
+    max-connections = int,
+    max-locks-per-transaction = int,
+    max-prepared-transactions = int,
+    max-slot-wal-keep-size = int,
+    max-statement-mem = int,
+    runaway-detector-activation-percent = int,
+    segment-shared-buffers = int
+  },
+  pool = {
+    client-idle-timeout = int,
+    idle-in-transaction-timeout = int,
+    mode = SESSION|TRANSACTION,
+    size = int
+  },
+  pxf-config = {
+    connection-timeout = int,
+    max-threads = int,
+    pool-allow-core-thread-timeout = bool,
+    pool-core-size = int,
+    pool-max-size = int,
+    pool-queue-capacity = int,
+    upload-timeout = int,
+    xms = int,
+    xmx = int
+  }
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "background-activities": {
+    "analyze-and-vacuum": {
+      "analyze-timeout": "int",
+      "start": {
+        "hours": "int",
+        "minutes": "int"
+      },
+      "vacuum-timeout": "int"
+    },
+    "query-killer-scripts": {
+      "idle": {
+        "enable": "bool",
+        "ignore-users": [
+          "str", ...
+        ],
+        "max-age": "int"
+      },
+      "idle-in-transaction": {
+        "enable": "bool",
+        "ignore-users": [
+          "str", ...
+        ],
+        "max-age": "int"
+      },
+      "long-running": {
+        "enable": "bool",
+        "ignore-users": [
+          "str", ...
+        ],
+        "max-age": "int"
+      }
+    },
+    "table-sizes": {
+      "starts": [
+        {
+          "hours": "int",
+          "minutes": "int"
+        }, ...
+      ]
+    }
+  },
+  "greenplum-config": {
+    "greenplum-config-6": {
+      "gp-add-column-inherits-table-setting": "bool",
+      "gp-autostats-mode": "GP_AUTOSTATS_MODE_NONE|GP_AUTOSTATS_MODE_ON_CHANGE|GP_AUTOSTATS_MODE_ON_NO_STATS",
+      "gp-autostats-on-change-threshold": "int",
+      "gp-cached-segworkers-threshold": "int",
+      "gp-enable-global-deadlock-detector": "bool",
+      "gp-enable-zstd-memory-accounting": "bool",
+      "gp-global-deadlock-detector-period": "int",
+      "gp-max-plan-size": "int",
+      "gp-max-slices": "int",
+      "gp-resource-group-memory-limit": "double",
+      "gp-vmem-protect-segworker-cache-limit": "int",
+      "gp-workfile-compression": "bool",
+      "gp-workfile-limit-files-per-query": "int",
+      "gp-workfile-limit-per-query": "int",
+      "gp-workfile-limit-per-segment": "int",
+      "idle-in-transaction-session-timeout": "int",
+      "lock-timeout": "int",
+      "log-connections": "bool",
+      "log-disconnections": "bool",
+      "log-error-verbosity": "TERSE|DEFAULT|VERBOSE",
+      "log-hostname": "bool",
+      "log-min-duration-statement": "int",
+      "log-min-messages": "DEBUG5|DEBUG4|DEBUG3|DEBUG2|DEBUG1|INFO|NOTICE|WARNING|ERROR|FATAL|PANIC",
+      "log-statement": "NONE|DDL|MOD|ALL",
+      "log-statement-stats": "bool",
+      "master-shared-buffers": "int",
+      "max-connections": "int",
+      "max-locks-per-transaction": "int",
+      "max-prepared-transactions": "int",
+      "max-slot-wal-keep-size": "int",
+      "max-statement-mem": "int",
+      "runaway-detector-activation-percent": "int",
+      "segment-shared-buffers": "int"
+    }
+  },
+  "pool": {
+    "client-idle-timeout": "int",
+    "idle-in-transaction-timeout": "int",
+    "mode": "SESSION|TRANSACTION",
+    "size": "int"
+  },
+  "pxf-config": {
+    "connection-timeout": "int",
+    "max-threads": "int",
+    "pool-allow-core-thread-timeout": "bool",
+    "pool-core-size": "int",
+    "pool-max-size": "int",
+    "pool-queue-capacity": "int",
+    "upload-timeout": "int",
+    "xms": "int",
+    "xmx": "int"
+  }
+}
+```
+
+Fields:
+
+```
+background-activities -> (struct)
+  Managed Greenplum® background tasks configuration.
+  analyze-and-vacuum -> (struct)
+    Configuration for 'ANALYZE' and 'VACUUM' operations.
+    analyze-timeout -> (int)
+      Maximum duration of the 'ANALYZE' operation, in seconds. The default value is '36000'. As soon as this period expires, the 'ANALYZE' operation will be forced to terminate.
+    start -> (struct)
+      Time when analyze will start
+      hours -> (int)
+        hours
+      minutes -> (int)
+        minutes
+    vacuum-timeout -> (int)
+      Maximum duration of the 'VACUUM' operation, in seconds. The default value is '36000'. As soon as this period expires, the 'VACUUM' operation will be forced to terminate.
+  query-killer-scripts -> (struct)
+    Configuration for long running queries killer.
+    idle -> (struct)
+      Configuration of script that kills long running queries that are in 'idle' state.
+      enable -> (bool)
+        Use query killer or not
+      ignore-users -> ([]string)
+        Ignore these users when considering queries to terminate
+      max-age -> (int)
+        Maximum duration for this type of queries (in seconds).
+    idle-in-transaction -> (struct)
+      Configuration of script that kills long running queries that are in 'idle in transaction' state.
+      enable -> (bool)
+        Use query killer or not
+      ignore-users -> ([]string)
+        Ignore these users when considering queries to terminate
+      max-age -> (int)
+        Maximum duration for this type of queries (in seconds).
+    long-running -> (struct)
+      Configuration of script that kills long running queries (in any state).
+      enable -> (bool)
+        Use query killer or not
+      ignore-users -> ([]string)
+        Ignore these users when considering queries to terminate
+      max-age -> (int)
+        Maximum duration for this type of queries (in seconds).
+  table-sizes -> (struct)
+    Enables scripts that collects tables sizes to '*_sizes' tables in 'mdb_toolkit' schema.
+    starts -> ([]struct)
+      Time when start "table_sizes" script
+      hours -> (int)
+        hours
+      minutes -> (int)
+        minutes
+pool -> (struct)
+  Odyssey® pool settings.
+  client-idle-timeout -> (int)
+    Client pool idle timeout, in seconds. Drop stale client connection after this much seconds of idleness, which is not in transaction. Set to zero to disable.
+  idle-in-transaction-timeout -> (int)
+    Client pool idle in transaction timeout, in seconds. Drop client connection in transaction after this much seconds of idleness. Set to zero to disable.
+  mode -> (struct)
+    Route server pool mode.
+  size -> (int)
+    The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy. Set to zero to disable the limit.
+pxf-config -> (struct)
+  connection-timeout -> (int)
+    Timeout for connection to the Apache Tomcat® server when making read requests. Specify values in seconds.
+  max-threads -> (int)
+    Maximum number of the Apache Tomcat® threads. To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the VMware Greenplum® Platform Extension Framework documentation.
+  pool-allow-core-thread-timeout -> (bool)
+    Determines whether the timeout for core streaming threads is permitted.
+  pool-core-size -> (int)
+    Number of core streaming threads per pool.
+  pool-max-size -> (int)
+    Maximum allowed number of core streaming threads.
+  pool-queue-capacity -> (int)
+    Maximum number of requests you can add to a pool queue for core streaming threads. If '0', no pool queue is generated.
+  upload-timeout -> (int)
+    Timeout for connection to the Apache Tomcat® server when making write requests. Specify the values in seconds.
+  xms -> (int)
+    Maximum size, in megabytes, of the JVM heap for the PXF daemon.
+  xmx -> (int)
+    Initial size, in megabytes, of the JVM heap for the PXF daemon.
+greenplum-config -> (oneof<greenplum-config-6>)
+  Oneof greenplum-config field
+  greenplum-config-6 -> (struct)
+    gp-add-column-inherits-table-setting -> (bool)
+      https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting
+    gp-autostats-mode -> (struct)
+      Specifies the mode for triggering automatic statistics collection after DML. https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_autostats_mode
+    gp-autostats-on-change-threshold -> (int)
+      Specifies the threshold for automatic statistics collection when gp_autostats_mode is set to on_change. https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_autostats_on_change_threshold
+    gp-cached-segworkers-threshold -> (int)
+      Define amount of working processes in segment, that keeping in warm cash after end of query for usage again in next queries. https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_cached_segworkers_threshold
+    gp-enable-global-deadlock-detector -> (bool)
+      Controls whether the Greenplum Database Global Deadlock Detector is enabled to manage concurrent UPDATE and DELETE operations on heap tables to improve performance. See Inserting, Updating, and Deleting Datain the Greenplum Database Administrator Guide. The default is off, the Global Deadlock Detector is deactivated. If the Global Deadlock Detector is deactivated (the default), Greenplum Database runs concurrent update and delete operations on a heap table serially. If the Global Deadlock Detector is enabled, concurrent updates are permitted and the Global Deadlock Detector determines when a deadlock exists, and breaks the deadlock by cancelling one or more backend processes associated with the youngest transaction(s) involved. https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_enable_global_deadlock_detector
+    gp-enable-zstd-memory-accounting -> (bool)
+      Forces ZSTD lib use Greenplum memory allocation system.
+    gp-global-deadlock-detector-period -> (int)
+      Specifies the executing interval (in seconds) of the global deadlock detector background worker process. https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_global_deadlock_detector_period
+    gp-max-plan-size -> (int)
+      Specifies the total maximum uncompressed size of a query execution plan multiplied by the number of Motion operators (slices) in the plan. https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_max_plan_size
+    gp-max-slices -> (int)
+      Max amount of slice-processes for one query in one segment. https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_max_slices
+    gp-resource-group-memory-limit -> (double)
+      Identifies the maximum percentage of system memory resources to allocate to resource groups on each Greenplum Database segment node. https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_resource_group_memory_limit
+    gp-vmem-protect-segworker-cache-limit -> (int)
+      Set memory limit (in MB) for working process. If a query executor process consumes more than this configured amount, then the process will not be cached for use in subsequent queries after the process completes. https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_vmem_protect_segworker_cache_limit
+    gp-workfile-compression -> (bool)
+      Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression
+    gp-workfile-limit-files-per-query -> (int)
+      Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000
+    gp-workfile-limit-per-query -> (int)
+      Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query
+    gp-workfile-limit-per-segment -> (int)
+      Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment
+    idle-in-transaction-session-timeout -> (int)
+      Max time (in ms) which session can idle in open transaction https://postgrespro.ru/docs/postgrespro/current/runtime-config-client#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT
+    lock-timeout -> (int)
+      Max time (in ms) which query will wait lock free on object https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#lock_timeout
+    log-connections -> (bool)
+      This outputs a line to the server log detailing each successful connection. Some client programs, like psql, attempt to connect twice while determining if a password is required, so duplicate "connection received" messages do not always indicate a problem. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_connections
+    log-disconnections -> (bool)
+      This outputs a line in the server log at termination of a client session, and includes the duration of the session. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_disconnections
+    log-error-verbosity -> (struct)
+      Controls the amount of detail written in the server log for each message that is logged. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_error_verbosity
+    log-hostname -> (bool)
+      By default, connection log messages only show the IP address of the connecting host. Turning on this option causes logging of the host name as well. Note that depending on your host name resolution setup this might impose a non-negligible performance penalty. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_hostname
+    log-min-duration-statement -> (int)
+      Logs the statement and its duration on a single log line if its duration is greater than or equal to the specified number of milliseconds. Setting this to 0 will print all statements and their durations. -1 deactivates the feature. For example, if you set it to 250 then all SQL statements that run 250ms or longer will be logged. Enabling this option can be useful in tracking down unoptimized queries in your applications. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_min_duration_statement
+    log-min-messages -> (struct)
+      Controls which message levels are written to the server log. Each level includes all the levels that follow it. The later the level, the fewer messages are sent to the log. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_min_messages
+    log-statement -> (struct)
+      Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl
+    log-statement-stats -> (bool)
+      For each query, write total performance statistics of the query parser, planner, and executor to the server log. This is a crude profiling instrument. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_statement_stats
+    master-shared-buffers -> (int)
+      Sets the amount of memory a Greenplum Database master instance uses for shared memory buffers. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#shared_buffers
+    max-connections -> (int)
+      Maximum number of inbound connections on master segment
+    max-locks-per-transaction -> (int)
+      The shared lock table is created with room to describe locks on max_locks_per_transaction * (max_connections + max_prepared_transactions) objects, so no more than this many distinct objects can be locked at any one time. This is not a hard limit on the number of locks taken by any one transaction, but rather a maximum average value. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#max_locks_per_transaction
+    max-prepared-transactions -> (int)
+      Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html
+    max-slot-wal-keep-size -> (int)
+      Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time. https://www.postgresql.org/docs/current/runtime-config-replication.html
+    max-statement-mem -> (int)
+      Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB)
+    runaway-detector-activation-percent -> (int)
+      Percent of utilized Greenplum Database vmem that triggers the termination of queries. https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#runaway_detector_activation_percent
+    segment-shared-buffers -> (int)
+      Sets the amount of memory a Greenplum Database segment instance uses for shared memory buffers. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#shared_buffers
+``` ||
+|| `--deletion-protection` | Determines whether the cluster is protected from being deleted. ||
+|| `--description` | `string`
+
+Description of the Greenplum® cluster. ||
+|| `--environment` | `enum`
+
+Deployment environment of the Greenplum® cluster. Possible Values: 'production', 'prestable' ||
+|| `--folder-id` | `string`
+
+ID of the folder to create the Greenplum® cluster in. ||
+|| `--host-group-ids` | `strings`
+
+Host groups to place VMs of the cluster in. ||
+|| `--labels` | `stringToString`
+
+Custom labels for the Greenplum® cluster as 'key:value' pairs. For example, '"project":"mvp"' or '"source":"dictionary"'. ||
+|| `--logging` | `shorthand/json`
+
+Cloud logging configuration
+
+Shorthand Syntax:
+
+```hcl
+{
+  command-center-enabled = bool,
+  destination = folder-id=str | log-group-id=str,
+  enabled = bool,
+  greenplum-enabled = bool,
+  pooler-enabled = bool
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "command-center-enabled": "bool",
+  "destination": {
+    "folder-id": "str",
+    "log-group-id": "str"
+  },
+  "enabled": "bool",
+  "greenplum-enabled": "bool",
+  "pooler-enabled": "bool"
+}
+```
+
+Fields:
+
+```
+command-center-enabled -> (bool)
+  send Yandex Command Center logs
+enabled -> (bool)
+greenplum-enabled -> (bool)
+  send Greenplum logs
+pooler-enabled -> (bool)
+  send Pooler logs
+destination -> (oneof<folder-id|log-group-id>)
+  Oneof destination field
+  folder-id -> (string)
+  log-group-id -> (string)
+``` ||
+|| `--maintenance-window` | `shorthand/json`
+
+A Greenplum® cluster maintenance window. Should be defined by either one of the two options.
+
+Shorthand Syntax:
+
+```hcl
+{
+  policy = anytime={} | weekly-maintenance-window={
+    day = MON|TUE|WED|THU|FRI|SAT|SUN,
+    hour = int
+  }
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "policy": {
+    "anytime": {},
+    "weekly-maintenance-window": {
+      "day": "MON|TUE|WED|THU|FRI|SAT|SUN",
+      "hour": "int"
+    }
+  }
+}
+```
+
+Fields:
+
+```
+policy -> (oneof<anytime|weekly-maintenance-window>)
+  Oneof policy field
+  anytime -> (struct)
+    An any-time maintenance window.
+  weekly-maintenance-window -> (struct)
+    A weekly maintenance window.
+    day -> (struct)
+      Day of the week.
+    hour -> (int)
+      Hour of the day in the UTC timezone.
+``` ||
+|| `--master-config` | `shorthand/json`
+
+Configuration of the Greenplum® master subcluster.
+
+Shorthand Syntax:
+
+```hcl
+{
+  resources = {
+    disk-size = int,
+    disk-type-id = str,
+    resource-preset-id = str
+  }
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "resources": {
+    "disk-size": "int",
+    "disk-type-id": "str",
+    "resource-preset-id": "str"
+  }
+}
+```
+
+Fields:
+
+```
+resources -> (struct)
+  Resources allocated to Greenplum® master subcluster hosts.
+  disk-size -> (int)
+    Volume of the storage used by the host, in bytes.
+  disk-type-id -> (string)
+    Type of the storage used by the host: 'network-hdd', 'network-ssd' or 'local-ssd'.
+  resource-preset-id -> (string)
+    ID of the preset for computational resources allocated to a host. Available presets are listed in the documentation.
+``` ||
+|| `--master-host-count` | `int`
+
+Number of hosts in the master subcluster. ||
+|| `--master-host-group-ids` | `strings`
+
+Host groups hosting VMs of the master subcluster. ||
+|| `--name` | `string`
+
+Name of the Greenplum® cluster. The name must be unique within the folder. ||
+|| `--network-id` | `string`
+
+ID of the network to create the cluster in. ||
+|| `--security-group-ids` | `strings`
+
+User security groups. ||
+|| `--segment-config` | `shorthand/json`
+
+Configuration of the Greenplum® segment subcluster.
+
+Shorthand Syntax:
+
+```hcl
+{
+  resources = {
+    disk-size = int,
+    disk-type-id = str,
+    resource-preset-id = str
+  }
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "resources": {
+    "disk-size": "int",
+    "disk-type-id": "str",
+    "resource-preset-id": "str"
+  }
+}
+```
+
+Fields:
+
+```
+resources -> (struct)
+  Resources allocated to Greenplum® segment subcluster hosts.
+  disk-size -> (int)
+    Volume of the storage used by the host, in bytes.
+  disk-type-id -> (string)
+    Type of the storage used by the host: 'network-hdd', 'network-ssd' or 'local-ssd'.
+  resource-preset-id -> (string)
+    ID of the preset for computational resources allocated to a host. Available presets are listed in the documentation.
+``` ||
+|| `--segment-host-count` | `int`
+
+Number of hosts in the segment subcluster. ||
+|| `--segment-host-group-ids` | `strings`
+
+Host groups hosting VMs of the segment subcluster. ||
+|| `--segment-in-host` | `int`
+
+Number of segments per host. ||
+|| `--service-account-id` | `string`
+
+ID of the service account used for access Yandex Cloud resources. ||
+|| `--user-name` | `string`
+
+Owner user name. ||
+|| `--user-password` | `string`
+
+Owner user password. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

@@ -1,17 +1,17 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/database/index.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/database/index.md
 ---
 
-# yc managed-postgresql database
+# yc managed-sharded-postgresql database
 
-Manage PostgreSQL databases
+Manage Sharded PostgreSQL databases
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-postgresql database <command>`
+`yc managed-sharded-postgresql database <command>`
 
 Aliases: 
 
@@ -19,11 +19,10 @@ Aliases:
 
 #### Command Tree
 
-- [yc managed-postgresql database create](create.md) — Create PostgreSQL database
-- [yc managed-postgresql database delete](delete.md) — Delete the specified PostgreSQL database
-- [yc managed-postgresql database get](get.md) — Show information about the specified PostgreSQL database
-- [yc managed-postgresql database list](list.md) — List PostgreSQL databases
-- [yc managed-postgresql database update](update.md) — Update the specified PostgreSQL database
+- [yc managed-sharded-postgresql database create](create.md) — Create Sharded PostgreSQL database
+- [yc managed-sharded-postgresql database delete](delete.md) — Delete the specified Sharded PostgreSQL database
+- [yc managed-sharded-postgresql database get](get.md) — Show information about the specified Sharded PostgreSQL database
+- [yc managed-sharded-postgresql database list](list.md) — List Sharded PostgreSQL databases
 
 #### Global Flags
 

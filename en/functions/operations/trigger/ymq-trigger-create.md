@@ -6,9 +6,9 @@ Create a [trigger](../../concepts/trigger/ymq-trigger.md) for a [message queue](
 
 ## Getting started {#before-begin}
 
-To create a trigger, you will need:
+To create a trigger, you will need: 
 
-* A function to be invoked by the trigger. If you do not have a function:
+* Function the trigger will invoke. If you do not have a function:
 
     * [Create a function](../function/function-create.md).
     * [Create a function version](../function/version-manage.md).
@@ -32,7 +32,7 @@ To create a trigger, you will need:
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -86,7 +86,7 @@ To create a trigger, you will need:
         To find out the queue ID:
 
         1. In the [management console]({{ link-console-main }}), navigate to the folder containing the queue.
-        1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+        1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
         1. Select the queue.
         1. You can see the queue ID under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** in the **{{ ui-key.yacloud.ymq.queue.overview.label_queue-arn }}** field.
 
@@ -162,7 +162,7 @@ To create a trigger, you will need:
            To find out the queue ID:
 
            1. In the [management console]({{ link-console-main }}), navigate to the folder containing the queue.
-           1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+           1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
            1. Select the queue.
            1. You can see the queue ID under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** in the **{{ ui-key.yacloud.ymq.queue.overview.label_queue-arn }}** field.
 
@@ -200,7 +200,7 @@ To create a trigger, you will need:
 
     Check that the number of enqueued messages is decreasing. To do this, view the queue statistics:
 
-    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+    1. In the [management console]({{ link-console-main }}), [go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
     1. Select the queue for which you created the trigger.
     1. Go to **{{ ui-key.yacloud.common.monitoring }}**. Check the **{{ ui-key.yacloud.ymq.queue.overview.label_msg-count }}** chart.
 

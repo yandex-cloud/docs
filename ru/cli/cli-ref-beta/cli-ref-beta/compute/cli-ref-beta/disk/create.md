@@ -7,51 +7,185 @@ sourcePath: en/_cli-ref-beta/cli-ref-beta/compute/cli-ref-beta/disk/create.md
 # yc beta compute disk create
 
 Creates a disk in the specified folder.
+You can create an empty disk or restore it from a snapshot or an image.
+Method starts an asynchronous operation that can be cancelled while it is in progress.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta compute disk create <FOLDER-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--block-size`|<b>`int`</b><br/>Block size used for disk, specified in bytes. The default is 4096.|
-|`--description`|<b>`string`</b><br/>Description of the disk.|
-|`--disk-placement-policy`|<b>`shorthand/json`</b><br/>Placement policy configuration.<br/>Shorthand Syntax:<br/>{<br/>placement-group-id = str,<br/>placement-group-partition = int<br/>}<br/>JSON Syntax:<br/>"{<br/>"placement-group-id": "str",<br/>"placement-group-partition": "int"<br/>}"<br/>Fields:<br/>placement-group-id -> (string)<br/>Placement group ID.<br/>placement-group-partition -> (int)|
-|`--folder-id`|<b>`string`</b><br/>ID of the folder to create a disk in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.|
-|`--hardware-generation`|<b>`shorthand/json`</b><br/>Specify the overrides to hardware_generation of a source disk, image or snapshot, or to the default values if the source does not define it.<br/>Shorthand Syntax:<br/>{<br/>features = generation2-features={} \| legacy-features={<br/>pci-topology = PCI_TOPOLOGY_V1\|PCI_TOPOLOGY_V2<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"features": {<br/>"generation2-features": {},<br/>"legacy-features": {<br/>"pci-topology": "PCI_TOPOLOGY_V1\|PCI_TOPOLOGY_V2"<br/>}<br/>}<br/>}"<br/>Fields:<br/>features -> (oneof<generation2-features\|legacy-features>)<br/>Oneof features field<br/>legacy-features -> (struct)<br/>pci-topology -> (enum<PCI_TOPOLOGY_V1\|PCI_TOPOLOGY_V2>)<br/>generation2-features -> (struct)|
-|`--kms-key-id`|<b>`string`</b><br/>ID of KMS key for disk encryption.|
-|`--labels`|<b>`stringToString`</b><br/>Resource labels as 'key:value' pairs.|
-|`--name`|<b>`string`</b><br/>Name of the disk.|
-|`--size`|<b>`int`</b><br/>Size of the disk, specified in bytes. If the disk was created from a image, this value should be more than the [yandex.cloud.compute.v1.Image.min_disk_size] value.|
-|`--snapshot-schedule-ids`|<b>`strings`</b><br/>List of IDs of the snapshot schedules to attach the disk to.|
-|`--type-id`|<b>`string`</b><br/>ID of the disk type. To get a list of available disk types use the [yandex.cloud.compute.v1.DiskTypeService.List] request.|
-|`--zone-id`|<b>`string`</b><br/>ID of the availability zone where the disk resides. To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.List] request.|
-|`--image-id`|<b>`string`</b><br/>ID of the image to create the disk from.|
-|`--snapshot-id`|<b>`string`</b><br/>ID of the snapshot to restore the disk from.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-json > request.json
+2. Edit the template: vim request.json
+3. Run with template: yc beta compute instance create -r request.json ||
+|| `--example-yaml` | Generates a YAML template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-yaml > request.yaml
+2. Edit the template: vim request.yaml
+3. Run with template: yc beta compute instance create -r request.yaml ||
+|| `--block-size` | `int`
+
+Block size used for disk, specified in bytes. The default is 4096. ||
+|| `--description` | `string`
+
+Description of the disk. ||
+|| `--disk-placement-policy` | `shorthand/json`
+
+Placement policy configuration.
+
+Shorthand Syntax:
+
+```hcl
+{
+  placement-group-id = str,
+  placement-group-partition = int
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "placement-group-id": "str",
+  "placement-group-partition": "int"
+}
+```
+
+Fields:
+
+```
+placement-group-id -> (string)
+  Placement group ID.
+placement-group-partition -> (int)
+``` ||
+|| `--folder-id` | `string`
+
+ID of the folder to create a disk in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List] request. ||
+|| `--hardware-generation` | `shorthand/json`
+
+Specify the overrides to hardware_generation of a source disk, image or snapshot, or to the default values if the source does not define it.
+
+Shorthand Syntax:
+
+```hcl
+{
+  features = generation2-features={} | legacy-features={
+    pci-topology = PCI_TOPOLOGY_V1|PCI_TOPOLOGY_V2
+  }
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "features": {
+    "generation2-features": {},
+    "legacy-features": {
+      "pci-topology": "PCI_TOPOLOGY_V1|PCI_TOPOLOGY_V2"
+    }
+  }
+}
+```
+
+Fields:
+
+```
+features -> (oneof<generation2-features|legacy-features>)
+  Oneof features field
+  legacy-features -> (struct)
+    pci-topology -> (struct)
+  generation2-features -> (struct)
+``` ||
+|| `--kms-key-id` | `string`
+
+ID of KMS key for disk encryption. ||
+|| `--labels` | `stringToString`
+
+Resource labels as 'key:value' pairs. ||
+|| `--name` | `string`
+
+Name of the disk. ||
+|| `--size` | `int`
+
+Size of the disk, specified in bytes. If the disk was created from a image, this value should be more than the [yandex.cloud.compute.v1.Image.min_disk_size] value. ||
+|| `--snapshot-schedule-ids` | `strings`
+
+List of IDs of the snapshot schedules to attach the disk to. ||
+|| `--type-id` | `string`
+
+ID of the disk type. To get a list of available disk types use the [yandex.cloud.compute.v1.DiskTypeService.List] request. ||
+|| `--zone-id` | `string`
+
+ID of the availability zone where the disk resides. To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.List] request. ||
+|| `--image-id` | `string`
+
+ID of the image to create the disk from. ||
+|| `--snapshot-id` | `string`
+
+ID of the snapshot to restore the disk from. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

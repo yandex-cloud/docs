@@ -1,24 +1,24 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/cluster/list-operations.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/cluster/list-operations.md
 ---
 
-# yc managed-postgresql cluster list-operations
+# yc managed-sharded-postgresql cluster list-operations
 
-List operations for the specified PostgreSQL cluster
+List operations for the specified Sharded PostgreSQL cluster
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-postgresql cluster list-operations <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
+`yc managed-sharded-postgresql cluster list-operations <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>PostgreSQL cluster id.|
-|`--name`|<b>`string`</b><br/>PostgreSQL cluster name.|
+|`--id`|<b>`string`</b><br/>Sharded PostgreSQL cluster id.|
+|`--name`|<b>`string`</b><br/>Sharded PostgreSQL cluster name.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
 
 #### Global Flags

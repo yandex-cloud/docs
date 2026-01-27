@@ -1,17 +1,17 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/backup/get.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/backup/get.md
 ---
 
-# yc managed-postgresql backup get
+# yc managed-sharded-postgresql backup get
 
-Show information about the specified PostgreSQL backup
+Show information about the specified Sharded PostgreSQL backup
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-postgresql backup get <BACKUP-ID> [<BACKUP-ID>...] [Global Flags...]`
+`yc managed-sharded-postgresql backup get <BACKUP-ID> [<BACKUP-ID>...] [Global Flags...]`
 
 #### Global Flags
 

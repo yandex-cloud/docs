@@ -26,6 +26,8 @@ items:
         href: concepts/sharding.md
       - name: Sharding keys
         href: concepts/sharding-keys.md
+      - name: Selecting a sharding strategy
+        href: concepts/sharding-method.md
       - name: Host classes
         href: concepts/instance-types.md
       - name: Storage in {{ SPQR }}
@@ -52,24 +54,14 @@ items:
             href: cli-ref/backup/get.md
           - name: list
             href: cli-ref/backup/list.md
-      - name: backup-retention-policy
-        items:
-          - name: Overview
-            href: cli-ref/backup-retention-policy/index.md
-          - name: create
-            href: cli-ref/backup-retention-policy/create.md
-          - name: delete
-            href: cli-ref/backup-retention-policy/delete.md
-          - name: list
-            href: cli-ref/backup-retention-policy/list.md
       - name: cluster
         items:
           - name: Overview
             href: cli-ref/cluster/index.md
-          - name: add-access-binding
-            href: cli-ref/cluster/add-access-binding.md
           - name: add-labels
             href: cli-ref/cluster/add-labels.md
+          - name: add-subcluster
+            href: cli-ref/cluster/add-subcluster.md
           - name: backup
             href: cli-ref/cluster/backup.md
           - name: create
@@ -80,38 +72,22 @@ items:
             href: cli-ref/cluster/get.md
           - name: list
             href: cli-ref/cluster/list.md
-          - name: list-access-bindings
-            href: cli-ref/cluster/list-access-bindings.md
           - name: list-backups
             href: cli-ref/cluster/list-backups.md
           - name: list-logs
             href: cli-ref/cluster/list-logs.md
           - name: list-operations
             href: cli-ref/cluster/list-operations.md
-          - name: move
-            href: cli-ref/cluster/move.md
-          - name: remove-access-binding
-            href: cli-ref/cluster/remove-access-binding.md
           - name: remove-labels
             href: cli-ref/cluster/remove-labels.md
           - name: reschedule-maintenance
             href: cli-ref/cluster/reschedule-maintenance.md
           - name: restore
             href: cli-ref/cluster/restore.md
-          - name: set-access-bindings
-            href: cli-ref/cluster/set-access-bindings.md
-          - name: start
-            href: cli-ref/cluster/start.md
-          - name: start-failover
-            href: cli-ref/cluster/start-failover.md
-          - name: stop
-            href: cli-ref/cluster/stop.md
           - name: update
             href: cli-ref/cluster/update.md
           - name: update-config
             href: cli-ref/cluster/update-config.md
-      - name: connect
-        href: cli-ref/connect.md
       - name: database
         items:
           - name: Overview
@@ -124,8 +100,6 @@ items:
             href: cli-ref/database/get.md
           - name: list
             href: cli-ref/database/list.md
-          - name: update
-            href: cli-ref/database/update.md
       - name: hosts
         items:
           - name: Overview
@@ -138,16 +112,8 @@ items:
             href: cli-ref/hosts/list.md
           - name: update
             href: cli-ref/hosts/update.md
-          - name: update-config
-            href: cli-ref/hosts/update-config.md
       - name: resource-preset
-        items:
-          - name: Overview
-            href: cli-ref/resource-preset/index.md
-          - name: get
-            href: cli-ref/resource-preset/get.md
-          - name: list
-            href: cli-ref/resource-preset/list.md
+        href: cli-ref/resource-preset.md
       - name: user
         items:
           - name: Overview
@@ -158,12 +124,8 @@ items:
             href: cli-ref/user/delete.md
           - name: get
             href: cli-ref/user/get.md
-          - name: grant-permission
-            href: cli-ref/user/grant-permission.md
           - name: list
             href: cli-ref/user/list.md
-          - name: revoke-permission
-            href: cli-ref/user/revoke-permission.md
           - name: update
             href: cli-ref/user/update.md
   - name: '{{ TF }} reference'
@@ -404,7 +366,7 @@ items:
                 href: api-ref/User/update.md
               - name: Delete
                 href: api-ref/User/delete.md
-  - name: Metrics {{ monitoring-name }}
+  - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: Public materials
     href: public-talks.md

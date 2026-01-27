@@ -14,9 +14,9 @@ You can specify a [cloud network](../../../vpc/concepts/network.md#network) wher
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select a function.
-    1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
+    1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, in the **{{ ui-key.yacloud.vpc.label_network }}** field, choose a network for function execution.
     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
     
@@ -44,7 +44,7 @@ You can specify a [cloud network](../../../vpc/concepts/network.md#network) wher
     * `--runtime`: Runtime environment.
     * `--entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
     * `--memory`: Amount of RAM.
-    * `--execution-timeout`: Maximum function running time before the timeout is reached.
+    * `--execution-timeout`: Maximum function running time before timeout.
     * `--source-version-id`: ID of the function version from which you want to copy the code.
     * `--network-id`: ID of a cloud network where the function will be executed.
 
@@ -56,4 +56,4 @@ You can specify a [cloud network](../../../vpc/concepts/network.md#network) wher
 
 ## See also
 
-* [Networking in {{ sf-name }}](../../concepts/networking.md).
+* [Networking in {{ sf-name }}](../../concepts/networking.md)

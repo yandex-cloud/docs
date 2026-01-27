@@ -10,7 +10,7 @@ description: Follow this guide to delete a function.
 - Management console {#console}
   
     1. In the [management console]({{ link-console-main }}), select the folder to delete the function from.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. In the function row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.serverless-functions.list.button_action-delete }}**.
     1. In the window that opens, click **{{ ui-key.yacloud.serverless-functions.list.popup-confirm_button_delete }}**.
   
@@ -88,7 +88,7 @@ description: Follow this guide to delete a function.
        terraform plan
        ```
         
-       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them. 
          
     1. Apply the changes:
 

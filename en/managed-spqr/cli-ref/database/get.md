@@ -1,24 +1,24 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/database/get.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/database/get.md
 ---
 
-# yc managed-postgresql database get
+# yc managed-sharded-postgresql database get
 
-Show information about the specified PostgreSQL database
+Show information about the specified Sharded PostgreSQL database
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-postgresql database get <DATABASE_NAME> [<DATABASE_NAME>...] [Flags...] [Global Flags...]`
+`yc managed-sharded-postgresql database get <DATABASE_NAME> [<DATABASE_NAME>...] [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>PostgreSQL cluster id.|
-|`--cluster-name`|<b>`string`</b><br/>PostgreSQL cluster name.|
+|`--cluster-id`|<b>`string`</b><br/>Sharded PostgreSQL cluster id.|
+|`--cluster-name`|<b>`string`</b><br/>Sharded PostgreSQL cluster name.|
 
 #### Global Flags
 

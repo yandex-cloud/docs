@@ -10,49 +10,5212 @@ Creates a new MongoDB cluster using the specified backup.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc beta managed-mongodb cluster restore <BACKUP-ID>`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`-r`,`--request-file`|<b>`string`</b><br/>Path to a request file.|
-|`--example-json`|Generates a JSON template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-json > request.json<br/>2. Edit the template: vim request.json<br/>3. Run with template: yc beta compute instance create -r request.json|
-|`--example-yaml`|Generates a YAML template of the request.<br/>The template can be customized and used as input for the command.<br/>Usage example:<br/><br/>1. Generate template: yc beta compute instance create --example-yaml > request.yaml<br/>2. Edit the template: vim request.yaml<br/>3. Run with template: yc beta compute instance create -r request.yaml|
-|`--backup-id`|<b>`string`</b><br/>ID of the backup to create a cluster from. To get the backup ID, use a [ClusterService.ListBackups] request.|
-|`--config-spec`|<b>`shorthand/json`</b><br/>Configuration for the MongoDB cluster to be created.<br/>Shorthand Syntax:<br/>{<br/>access = {<br/>data-lens = bool,<br/>data-transfer = bool,<br/>web-sql = bool<br/>},<br/>backup-retain-period-days = int,<br/>backup-window-start = timeofday,<br/>feature-compatibility-version = str,<br/>mongodb = {<br/>mongocfg = {<br/>config = {<br/>audit-log = {<br/>filter = str<br/>},<br/>chaining-allowed = bool,<br/>net = {<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-threshold = int<br/>},<br/>oplog = {<br/>max-size-percent = int,<br/>min-retention-hours = double<br/>},<br/>set-parameter = {<br/>audit-authorization-success = bool,<br/>enable-flow-control = bool<br/>},<br/>storage = {<br/>wired-tiger = {<br/>engine-config = {<br/>cache-size = double,<br/>cache-size-gb = double<br/>}<br/>}<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongod = {<br/>config = {<br/>audit-log = {<br/>filter = str,<br/>runtime-configuration = bool<br/>},<br/>chaining-allowed = bool,<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-sample-rate = double,<br/>slow-op-threshold = int<br/>},<br/>oplog = {<br/>max-size-percent = int,<br/>min-retention-hours = double<br/>},<br/>security = {<br/>enable-encryption = bool,<br/>kmip = {<br/>client-certificate = str,<br/>key-identifier = str,<br/>port = int,<br/>server-ca = str,<br/>server-name = str<br/>}<br/>},<br/>set-parameter = {<br/>audit-authorization-success = bool,<br/>enable-flow-control = bool,<br/>flow-control-target-lag-seconds = int,<br/>flow-control-warn-threshold-seconds = int,<br/>migrate-clone-insertion-batch-delay-ms = int,<br/>migrate-clone-insertion-batch-size = int,<br/>min-snapshot-history-window-in-seconds = int,<br/>mirror-reads = {<br/>max-time-ms = int,<br/>sampling-rate = double<br/>},<br/>orphan-cleanup-delay-secs = int,<br/>persisted-chunk-cache-update-max-batch-size = int,<br/>range-deleter-batch-delay-ms = int,<br/>range-deleter-batch-size = int<br/>},<br/>storage = {<br/>journal = {<br/>commit-interval = int<br/>},<br/>wired-tiger = {<br/>collection-config = {<br/>block-compressor = NONE\|SNAPPY\|ZLIB\|ZSTD<br/>},<br/>engine-config = {<br/>cache-size = double,<br/>cache-size-gb = double<br/>},<br/>index-config = {<br/>prefix-compression = bool<br/>}<br/>}<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongoinfra = {<br/>config-mongocfg = {<br/>audit-log = {<br/>filter = str<br/>},<br/>chaining-allowed = bool,<br/>net = {<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-threshold = int<br/>},<br/>oplog = {<br/>max-size-percent = int,<br/>min-retention-hours = double<br/>},<br/>set-parameter = {<br/>audit-authorization-success = bool,<br/>enable-flow-control = bool<br/>},<br/>storage = {<br/>wired-tiger = {<br/>engine-config = {<br/>cache-size = double,<br/>cache-size-gb = double<br/>}<br/>}<br/>}<br/>},<br/>config-mongos = {<br/>audit-log = {<br/>filter = str<br/>},<br/>chunk-size = int,<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>},<br/>set-parameter = {<br/>audit-authorization-success = bool,<br/>read-hedging-mode = str,<br/>sharding-task-executor-pool-host-timeout-ms = int,<br/>sharding-task-executor-pool-max-connecting = int,<br/>sharding-task-executor-pool-max-size = int,<br/>sharding-task-executor-pool-max-size-for-config-servers = int,<br/>sharding-task-executor-pool-min-size = int,<br/>sharding-task-executor-pool-min-size-for-config-servers = int,<br/>sharding-task-executor-pool-refresh-requirement-ms = int,<br/>sharding-task-executor-pool-refresh-timeout-ms = int,<br/>sharding-task-executor-pool-replica-set-matching = str,<br/>warm-min-connections-in-sharding-task-executor-pool-on-startup = bool,<br/>warm-min-connections-in-sharding-task-executor-pool-on-startup-wait-ms = int<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongos = {<br/>config = {<br/>audit-log = {<br/>filter = str<br/>},<br/>chunk-size = int,<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>},<br/>set-parameter = {<br/>audit-authorization-success = bool,<br/>read-hedging-mode = str,<br/>sharding-task-executor-pool-host-timeout-ms = int,<br/>sharding-task-executor-pool-max-connecting = int,<br/>sharding-task-executor-pool-max-size = int,<br/>sharding-task-executor-pool-max-size-for-config-servers = int,<br/>sharding-task-executor-pool-min-size = int,<br/>sharding-task-executor-pool-min-size-for-config-servers = int,<br/>sharding-task-executor-pool-refresh-requirement-ms = int,<br/>sharding-task-executor-pool-refresh-timeout-ms = int,<br/>sharding-task-executor-pool-replica-set-matching = str,<br/>warm-min-connections-in-sharding-task-executor-pool-on-startup = bool,<br/>warm-min-connections-in-sharding-task-executor-pool-on-startup-wait-ms = int<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>}<br/>},<br/>mongodb-spec = mongodb-spec-3-6={<br/>mongocfg = {<br/>config = {<br/>net = {<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-threshold = int<br/>},<br/>storage = {<br/>wired-tiger = {<br/>engine-config = {<br/>cache-size-gb = double<br/>}<br/>}<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongod = {<br/>config = {<br/>net = {<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-threshold = int<br/>},<br/>storage = {<br/>journal = {<br/>commit-interval = int,<br/>enabled = bool<br/>},<br/>wired-tiger = {<br/>collection-config = {<br/>block-compressor = NONE\|SNAPPY\|ZLIB<br/>},<br/>engine-config = {<br/>cache-size-gb = double<br/>}<br/>}<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongoinfra = {<br/>config-mongocfg = {<br/>net = {<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-threshold = int<br/>},<br/>storage = {<br/>wired-tiger = {<br/>engine-config = {<br/>cache-size-gb = double<br/>}<br/>}<br/>}<br/>},<br/>config-mongos = {<br/>net = {<br/>max-incoming-connections = int<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongos = {<br/>config = {<br/>net = {<br/>max-incoming-connections = int<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>}<br/>} \| mongodb-spec-4-0={<br/>mongocfg = {<br/>config = {<br/>net = {<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-threshold = int<br/>},<br/>storage = {<br/>wired-tiger = {<br/>engine-config = {<br/>cache-size-gb = double<br/>}<br/>}<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongod = {<br/>config = {<br/>net = {<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-threshold = int<br/>},<br/>storage = {<br/>journal = {<br/>commit-interval = int<br/>},<br/>wired-tiger = {<br/>collection-config = {<br/>block-compressor = NONE\|SNAPPY\|ZLIB<br/>},<br/>engine-config = {<br/>cache-size-gb = double<br/>}<br/>}<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongoinfra = {<br/>config-mongocfg = {<br/>net = {<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-threshold = int<br/>},<br/>storage = {<br/>wired-tiger = {<br/>engine-config = {<br/>cache-size-gb = double<br/>}<br/>}<br/>}<br/>},<br/>config-mongos = {<br/>net = {<br/>max-incoming-connections = int<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongos = {<br/>config = {<br/>net = {<br/>max-incoming-connections = int<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>}<br/>} \| mongodb-spec-4-2={<br/>mongocfg = {<br/>config = {<br/>net = {<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-threshold = int<br/>},<br/>storage = {<br/>wired-tiger = {<br/>engine-config = {<br/>cache-size-gb = double<br/>}<br/>}<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongod = {<br/>config = {<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-sample-rate = double,<br/>slow-op-threshold = int<br/>},<br/>set-parameter = {<br/>enable-flow-control = bool<br/>},<br/>storage = {<br/>journal = {<br/>commit-interval = int<br/>},<br/>wired-tiger = {<br/>collection-config = {<br/>block-compressor = NONE\|SNAPPY\|ZLIB\|ZSTD<br/>},<br/>engine-config = {<br/>cache-size-gb = double<br/>},<br/>index-config = {<br/>prefix-compression = bool<br/>}<br/>}<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongoinfra = {<br/>config-mongocfg = {<br/>net = {<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-threshold = int<br/>},<br/>storage = {<br/>wired-tiger = {<br/>engine-config = {<br/>cache-size-gb = double<br/>}<br/>}<br/>}<br/>},<br/>config-mongos = {<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongos = {<br/>config = {<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>}<br/>} \| mongodb-spec-4-4={<br/>mongocfg = {<br/>config = {<br/>net = {<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-threshold = int<br/>},<br/>storage = {<br/>wired-tiger = {<br/>engine-config = {<br/>cache-size-gb = double<br/>}<br/>}<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongod = {<br/>config = {<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-sample-rate = double,<br/>slow-op-threshold = int<br/>},<br/>set-parameter = {<br/>enable-flow-control = bool<br/>},<br/>storage = {<br/>journal = {<br/>commit-interval = int<br/>},<br/>wired-tiger = {<br/>collection-config = {<br/>block-compressor = NONE\|SNAPPY\|ZLIB\|ZSTD<br/>},<br/>engine-config = {<br/>cache-size-gb = double<br/>},<br/>index-config = {<br/>prefix-compression = bool<br/>}<br/>}<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongoinfra = {<br/>config-mongocfg = {<br/>net = {<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-threshold = int<br/>},<br/>storage = {<br/>wired-tiger = {<br/>engine-config = {<br/>cache-size-gb = double<br/>}<br/>}<br/>}<br/>},<br/>config-mongos = {<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongos = {<br/>config = {<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>}<br/>} \| mongodb-spec-4-4-enterprise={<br/>mongocfg = {<br/>config = {<br/>net = {<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-threshold = int<br/>},<br/>storage = {<br/>wired-tiger = {<br/>engine-config = {<br/>cache-size-gb = double<br/>}<br/>}<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongod = {<br/>config = {<br/>audit-log = {<br/>filter = str<br/>},<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-sample-rate = double,<br/>slow-op-threshold = int<br/>},<br/>security = {<br/>enable-encryption = bool,<br/>kmip = {<br/>client-certificate = str,<br/>key-identifier = str,<br/>port = int,<br/>server-ca = str,<br/>server-name = str<br/>}<br/>},<br/>set-parameter = {<br/>audit-authorization-success = bool,<br/>enable-flow-control = bool<br/>},<br/>storage = {<br/>journal = {<br/>commit-interval = int<br/>},<br/>wired-tiger = {<br/>collection-config = {<br/>block-compressor = NONE\|SNAPPY\|ZLIB\|ZSTD<br/>},<br/>engine-config = {<br/>cache-size-gb = double<br/>},<br/>index-config = {<br/>prefix-compression = bool<br/>}<br/>}<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongoinfra = {<br/>config-mongocfg = {<br/>net = {<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-threshold = int<br/>},<br/>storage = {<br/>wired-tiger = {<br/>engine-config = {<br/>cache-size-gb = double<br/>}<br/>}<br/>}<br/>},<br/>config-mongos = {<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongos = {<br/>config = {<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>}<br/>} \| mongodb-spec-5-0={<br/>mongocfg = {<br/>config = {<br/>net = {<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-threshold = int<br/>},<br/>storage = {<br/>wired-tiger = {<br/>engine-config = {<br/>cache-size-gb = double<br/>}<br/>}<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongod = {<br/>config = {<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-sample-rate = double,<br/>slow-op-threshold = int<br/>},<br/>set-parameter = {<br/>enable-flow-control = bool,<br/>min-snapshot-history-window-in-seconds = int<br/>},<br/>storage = {<br/>journal = {<br/>commit-interval = int<br/>},<br/>wired-tiger = {<br/>collection-config = {<br/>block-compressor = NONE\|SNAPPY\|ZLIB\|ZSTD<br/>},<br/>engine-config = {<br/>cache-size-gb = double<br/>},<br/>index-config = {<br/>prefix-compression = bool<br/>}<br/>}<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongoinfra = {<br/>config-mongocfg = {<br/>net = {<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-threshold = int<br/>},<br/>storage = {<br/>wired-tiger = {<br/>engine-config = {<br/>cache-size-gb = double<br/>}<br/>}<br/>}<br/>},<br/>config-mongos = {<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongos = {<br/>config = {<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>}<br/>} \| mongodb-spec-5-0-enterprise={<br/>mongocfg = {<br/>config = {<br/>net = {<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-threshold = int<br/>},<br/>storage = {<br/>wired-tiger = {<br/>engine-config = {<br/>cache-size-gb = double<br/>}<br/>}<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongod = {<br/>config = {<br/>audit-log = {<br/>filter = str,<br/>runtime-configuration = bool<br/>},<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-sample-rate = double,<br/>slow-op-threshold = int<br/>},<br/>security = {<br/>enable-encryption = bool,<br/>kmip = {<br/>client-certificate = str,<br/>key-identifier = str,<br/>port = int,<br/>server-ca = str,<br/>server-name = str<br/>}<br/>},<br/>set-parameter = {<br/>audit-authorization-success = bool,<br/>enable-flow-control = bool,<br/>min-snapshot-history-window-in-seconds = int<br/>},<br/>storage = {<br/>journal = {<br/>commit-interval = int<br/>},<br/>wired-tiger = {<br/>collection-config = {<br/>block-compressor = NONE\|SNAPPY\|ZLIB\|ZSTD<br/>},<br/>engine-config = {<br/>cache-size-gb = double<br/>},<br/>index-config = {<br/>prefix-compression = bool<br/>}<br/>}<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongoinfra = {<br/>config-mongocfg = {<br/>net = {<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-threshold = int<br/>},<br/>storage = {<br/>wired-tiger = {<br/>engine-config = {<br/>cache-size-gb = double<br/>}<br/>}<br/>}<br/>},<br/>config-mongos = {<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongos = {<br/>config = {<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>}<br/>} \| mongodb-spec-6-0={<br/>mongocfg = {<br/>config = {<br/>net = {<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-threshold = int<br/>},<br/>storage = {<br/>wired-tiger = {<br/>engine-config = {<br/>cache-size-gb = double<br/>}<br/>}<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongod = {<br/>config = {<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-sample-rate = double,<br/>slow-op-threshold = int<br/>},<br/>set-parameter = {<br/>enable-flow-control = bool,<br/>min-snapshot-history-window-in-seconds = int<br/>},<br/>storage = {<br/>journal = {<br/>commit-interval = int<br/>},<br/>wired-tiger = {<br/>collection-config = {<br/>block-compressor = NONE\|SNAPPY\|ZLIB\|ZSTD<br/>},<br/>engine-config = {<br/>cache-size-gb = double<br/>},<br/>index-config = {<br/>prefix-compression = bool<br/>}<br/>}<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongoinfra = {<br/>config-mongocfg = {<br/>net = {<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-threshold = int<br/>},<br/>storage = {<br/>wired-tiger = {<br/>engine-config = {<br/>cache-size-gb = double<br/>}<br/>}<br/>}<br/>},<br/>config-mongos = {<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongos = {<br/>config = {<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>}<br/>} \| mongodb-spec-6-0-enterprise={<br/>mongocfg = {<br/>config = {<br/>net = {<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-threshold = int<br/>},<br/>storage = {<br/>wired-tiger = {<br/>engine-config = {<br/>cache-size-gb = double<br/>}<br/>}<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongod = {<br/>config = {<br/>audit-log = {<br/>filter = str,<br/>runtime-configuration = bool<br/>},<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-sample-rate = double,<br/>slow-op-threshold = int<br/>},<br/>security = {<br/>enable-encryption = bool,<br/>kmip = {<br/>client-certificate = str,<br/>key-identifier = str,<br/>port = int,<br/>server-ca = str,<br/>server-name = str<br/>}<br/>},<br/>set-parameter = {<br/>audit-authorization-success = bool,<br/>enable-flow-control = bool,<br/>min-snapshot-history-window-in-seconds = int<br/>},<br/>storage = {<br/>journal = {<br/>commit-interval = int<br/>},<br/>wired-tiger = {<br/>collection-config = {<br/>block-compressor = NONE\|SNAPPY\|ZLIB\|ZSTD<br/>},<br/>engine-config = {<br/>cache-size-gb = double<br/>},<br/>index-config = {<br/>prefix-compression = bool<br/>}<br/>}<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongoinfra = {<br/>config-mongocfg = {<br/>net = {<br/>max-incoming-connections = int<br/>},<br/>operation-profiling = {<br/>mode = OFF\|SLOW_OP\|ALL,<br/>slow-op-threshold = int<br/>},<br/>storage = {<br/>wired-tiger = {<br/>engine-config = {<br/>cache-size-gb = double<br/>}<br/>}<br/>}<br/>},<br/>config-mongos = {<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>},<br/>mongos = {<br/>config = {<br/>net = {<br/>compression = {<br/>compressors = SNAPPY\|ZLIB\|ZSTD\|DISABLED,...<br/>},<br/>max-incoming-connections = int<br/>}<br/>},<br/>disk-size-autoscaling = {<br/>disk-size-limit = int,<br/>emergency-usage-threshold = int,<br/>planned-usage-threshold = int<br/>},<br/>resources = {<br/>disk-size = int,<br/>disk-type-id = str,<br/>resource-preset-id = str<br/>}<br/>}<br/>},<br/>performance-diagnostics = {<br/>profiling-enabled = bool<br/>},<br/>version = str<br/>}<br/>JSON Syntax:<br/>"{<br/>"access": {<br/>"data-lens": "bool",<br/>"data-transfer": "bool",<br/>"web-sql": "bool"<br/>},<br/>"backup-retain-period-days": "int",<br/>"backup-window-start": "timeofday",<br/>"feature-compatibility-version": "str",<br/>"mongodb": {<br/>"mongocfg": {<br/>"config": {<br/>"audit-log": {<br/>"filter": "str"<br/>},<br/>"chaining-allowed": "bool",<br/>"net": {<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-threshold": "int"<br/>},<br/>"oplog": {<br/>"max-size-percent": "int",<br/>"min-retention-hours": "double"<br/>},<br/>"set-parameter": {<br/>"audit-authorization-success": "bool",<br/>"enable-flow-control": "bool"<br/>},<br/>"storage": {<br/>"wired-tiger": {<br/>"engine-config": {<br/>"cache-size": "double",<br/>"cache-size-gb": "double"<br/>}<br/>}<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongod": {<br/>"config": {<br/>"audit-log": {<br/>"filter": "str",<br/>"runtime-configuration": "bool"<br/>},<br/>"chaining-allowed": "bool",<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-sample-rate": "double",<br/>"slow-op-threshold": "int"<br/>},<br/>"oplog": {<br/>"max-size-percent": "int",<br/>"min-retention-hours": "double"<br/>},<br/>"security": {<br/>"enable-encryption": "bool",<br/>"kmip": {<br/>"client-certificate": "str",<br/>"key-identifier": "str",<br/>"port": "int",<br/>"server-ca": "str",<br/>"server-name": "str"<br/>}<br/>},<br/>"set-parameter": {<br/>"audit-authorization-success": "bool",<br/>"enable-flow-control": "bool",<br/>"flow-control-target-lag-seconds": "int",<br/>"flow-control-warn-threshold-seconds": "int",<br/>"migrate-clone-insertion-batch-delay-ms": "int",<br/>"migrate-clone-insertion-batch-size": "int",<br/>"min-snapshot-history-window-in-seconds": "int",<br/>"mirror-reads": {<br/>"max-time-ms": "int",<br/>"sampling-rate": "double"<br/>},<br/>"orphan-cleanup-delay-secs": "int",<br/>"persisted-chunk-cache-update-max-batch-size": "int",<br/>"range-deleter-batch-delay-ms": "int",<br/>"range-deleter-batch-size": "int"<br/>},<br/>"storage": {<br/>"journal": {<br/>"commit-interval": "int"<br/>},<br/>"wired-tiger": {<br/>"collection-config": {<br/>"block-compressor": "NONE\|SNAPPY\|ZLIB\|ZSTD"<br/>},<br/>"engine-config": {<br/>"cache-size": "double",<br/>"cache-size-gb": "double"<br/>},<br/>"index-config": {<br/>"prefix-compression": "bool"<br/>}<br/>}<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongoinfra": {<br/>"config-mongocfg": {<br/>"audit-log": {<br/>"filter": "str"<br/>},<br/>"chaining-allowed": "bool",<br/>"net": {<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-threshold": "int"<br/>},<br/>"oplog": {<br/>"max-size-percent": "int",<br/>"min-retention-hours": "double"<br/>},<br/>"set-parameter": {<br/>"audit-authorization-success": "bool",<br/>"enable-flow-control": "bool"<br/>},<br/>"storage": {<br/>"wired-tiger": {<br/>"engine-config": {<br/>"cache-size": "double",<br/>"cache-size-gb": "double"<br/>}<br/>}<br/>}<br/>},<br/>"config-mongos": {<br/>"audit-log": {<br/>"filter": "str"<br/>},<br/>"chunk-size": "int",<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>},<br/>"set-parameter": {<br/>"audit-authorization-success": "bool",<br/>"read-hedging-mode": "str",<br/>"sharding-task-executor-pool-host-timeout-ms": "int",<br/>"sharding-task-executor-pool-max-connecting": "int",<br/>"sharding-task-executor-pool-max-size": "int",<br/>"sharding-task-executor-pool-max-size-for-config-servers": "int",<br/>"sharding-task-executor-pool-min-size": "int",<br/>"sharding-task-executor-pool-min-size-for-config-servers": "int",<br/>"sharding-task-executor-pool-refresh-requirement-ms": "int",<br/>"sharding-task-executor-pool-refresh-timeout-ms": "int",<br/>"sharding-task-executor-pool-replica-set-matching": "str",<br/>"warm-min-connections-in-sharding-task-executor-pool-on-startup": "bool",<br/>"warm-min-connections-in-sharding-task-executor-pool-on-startup-wait-ms": "int"<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongos": {<br/>"config": {<br/>"audit-log": {<br/>"filter": "str"<br/>},<br/>"chunk-size": "int",<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>},<br/>"set-parameter": {<br/>"audit-authorization-success": "bool",<br/>"read-hedging-mode": "str",<br/>"sharding-task-executor-pool-host-timeout-ms": "int",<br/>"sharding-task-executor-pool-max-connecting": "int",<br/>"sharding-task-executor-pool-max-size": "int",<br/>"sharding-task-executor-pool-max-size-for-config-servers": "int",<br/>"sharding-task-executor-pool-min-size": "int",<br/>"sharding-task-executor-pool-min-size-for-config-servers": "int",<br/>"sharding-task-executor-pool-refresh-requirement-ms": "int",<br/>"sharding-task-executor-pool-refresh-timeout-ms": "int",<br/>"sharding-task-executor-pool-replica-set-matching": "str",<br/>"warm-min-connections-in-sharding-task-executor-pool-on-startup": "bool",<br/>"warm-min-connections-in-sharding-task-executor-pool-on-startup-wait-ms": "int"<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>}<br/>},<br/>"mongodb-spec": {<br/>"mongodb-spec-3-6": {<br/>"mongocfg": {<br/>"config": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-threshold": "int"<br/>},<br/>"storage": {<br/>"wired-tiger": {<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>}<br/>}<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongod": {<br/>"config": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-threshold": "int"<br/>},<br/>"storage": {<br/>"journal": {<br/>"commit-interval": "int",<br/>"enabled": "bool"<br/>},<br/>"wired-tiger": {<br/>"collection-config": {<br/>"block-compressor": "NONE\|SNAPPY\|ZLIB"<br/>},<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>}<br/>}<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongoinfra": {<br/>"config-mongocfg": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-threshold": "int"<br/>},<br/>"storage": {<br/>"wired-tiger": {<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>}<br/>}<br/>}<br/>},<br/>"config-mongos": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongos": {<br/>"config": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>}<br/>},<br/>"mongodb-spec-4-0": {<br/>"mongocfg": {<br/>"config": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-threshold": "int"<br/>},<br/>"storage": {<br/>"wired-tiger": {<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>}<br/>}<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongod": {<br/>"config": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-threshold": "int"<br/>},<br/>"storage": {<br/>"journal": {<br/>"commit-interval": "int"<br/>},<br/>"wired-tiger": {<br/>"collection-config": {<br/>"block-compressor": "NONE\|SNAPPY\|ZLIB"<br/>},<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>}<br/>}<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongoinfra": {<br/>"config-mongocfg": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-threshold": "int"<br/>},<br/>"storage": {<br/>"wired-tiger": {<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>}<br/>}<br/>}<br/>},<br/>"config-mongos": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongos": {<br/>"config": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>}<br/>},<br/>"mongodb-spec-4-2": {<br/>"mongocfg": {<br/>"config": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-threshold": "int"<br/>},<br/>"storage": {<br/>"wired-tiger": {<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>}<br/>}<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongod": {<br/>"config": {<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-sample-rate": "double",<br/>"slow-op-threshold": "int"<br/>},<br/>"set-parameter": {<br/>"enable-flow-control": "bool"<br/>},<br/>"storage": {<br/>"journal": {<br/>"commit-interval": "int"<br/>},<br/>"wired-tiger": {<br/>"collection-config": {<br/>"block-compressor": "NONE\|SNAPPY\|ZLIB\|ZSTD"<br/>},<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>},<br/>"index-config": {<br/>"prefix-compression": "bool"<br/>}<br/>}<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongoinfra": {<br/>"config-mongocfg": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-threshold": "int"<br/>},<br/>"storage": {<br/>"wired-tiger": {<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>}<br/>}<br/>}<br/>},<br/>"config-mongos": {<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongos": {<br/>"config": {<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>}<br/>},<br/>"mongodb-spec-4-4": {<br/>"mongocfg": {<br/>"config": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-threshold": "int"<br/>},<br/>"storage": {<br/>"wired-tiger": {<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>}<br/>}<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongod": {<br/>"config": {<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-sample-rate": "double",<br/>"slow-op-threshold": "int"<br/>},<br/>"set-parameter": {<br/>"enable-flow-control": "bool"<br/>},<br/>"storage": {<br/>"journal": {<br/>"commit-interval": "int"<br/>},<br/>"wired-tiger": {<br/>"collection-config": {<br/>"block-compressor": "NONE\|SNAPPY\|ZLIB\|ZSTD"<br/>},<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>},<br/>"index-config": {<br/>"prefix-compression": "bool"<br/>}<br/>}<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongoinfra": {<br/>"config-mongocfg": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-threshold": "int"<br/>},<br/>"storage": {<br/>"wired-tiger": {<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>}<br/>}<br/>}<br/>},<br/>"config-mongos": {<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongos": {<br/>"config": {<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>}<br/>},<br/>"mongodb-spec-4-4-enterprise": {<br/>"mongocfg": {<br/>"config": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-threshold": "int"<br/>},<br/>"storage": {<br/>"wired-tiger": {<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>}<br/>}<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongod": {<br/>"config": {<br/>"audit-log": {<br/>"filter": "str"<br/>},<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-sample-rate": "double",<br/>"slow-op-threshold": "int"<br/>},<br/>"security": {<br/>"enable-encryption": "bool",<br/>"kmip": {<br/>"client-certificate": "str",<br/>"key-identifier": "str",<br/>"port": "int",<br/>"server-ca": "str",<br/>"server-name": "str"<br/>}<br/>},<br/>"set-parameter": {<br/>"audit-authorization-success": "bool",<br/>"enable-flow-control": "bool"<br/>},<br/>"storage": {<br/>"journal": {<br/>"commit-interval": "int"<br/>},<br/>"wired-tiger": {<br/>"collection-config": {<br/>"block-compressor": "NONE\|SNAPPY\|ZLIB\|ZSTD"<br/>},<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>},<br/>"index-config": {<br/>"prefix-compression": "bool"<br/>}<br/>}<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongoinfra": {<br/>"config-mongocfg": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-threshold": "int"<br/>},<br/>"storage": {<br/>"wired-tiger": {<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>}<br/>}<br/>}<br/>},<br/>"config-mongos": {<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongos": {<br/>"config": {<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>}<br/>},<br/>"mongodb-spec-5-0": {<br/>"mongocfg": {<br/>"config": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-threshold": "int"<br/>},<br/>"storage": {<br/>"wired-tiger": {<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>}<br/>}<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongod": {<br/>"config": {<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-sample-rate": "double",<br/>"slow-op-threshold": "int"<br/>},<br/>"set-parameter": {<br/>"enable-flow-control": "bool",<br/>"min-snapshot-history-window-in-seconds": "int"<br/>},<br/>"storage": {<br/>"journal": {<br/>"commit-interval": "int"<br/>},<br/>"wired-tiger": {<br/>"collection-config": {<br/>"block-compressor": "NONE\|SNAPPY\|ZLIB\|ZSTD"<br/>},<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>},<br/>"index-config": {<br/>"prefix-compression": "bool"<br/>}<br/>}<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongoinfra": {<br/>"config-mongocfg": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-threshold": "int"<br/>},<br/>"storage": {<br/>"wired-tiger": {<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>}<br/>}<br/>}<br/>},<br/>"config-mongos": {<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongos": {<br/>"config": {<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>}<br/>},<br/>"mongodb-spec-5-0-enterprise": {<br/>"mongocfg": {<br/>"config": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-threshold": "int"<br/>},<br/>"storage": {<br/>"wired-tiger": {<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>}<br/>}<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongod": {<br/>"config": {<br/>"audit-log": {<br/>"filter": "str",<br/>"runtime-configuration": "bool"<br/>},<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-sample-rate": "double",<br/>"slow-op-threshold": "int"<br/>},<br/>"security": {<br/>"enable-encryption": "bool",<br/>"kmip": {<br/>"client-certificate": "str",<br/>"key-identifier": "str",<br/>"port": "int",<br/>"server-ca": "str",<br/>"server-name": "str"<br/>}<br/>},<br/>"set-parameter": {<br/>"audit-authorization-success": "bool",<br/>"enable-flow-control": "bool",<br/>"min-snapshot-history-window-in-seconds": "int"<br/>},<br/>"storage": {<br/>"journal": {<br/>"commit-interval": "int"<br/>},<br/>"wired-tiger": {<br/>"collection-config": {<br/>"block-compressor": "NONE\|SNAPPY\|ZLIB\|ZSTD"<br/>},<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>},<br/>"index-config": {<br/>"prefix-compression": "bool"<br/>}<br/>}<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongoinfra": {<br/>"config-mongocfg": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-threshold": "int"<br/>},<br/>"storage": {<br/>"wired-tiger": {<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>}<br/>}<br/>}<br/>},<br/>"config-mongos": {<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongos": {<br/>"config": {<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>}<br/>},<br/>"mongodb-spec-6-0": {<br/>"mongocfg": {<br/>"config": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-threshold": "int"<br/>},<br/>"storage": {<br/>"wired-tiger": {<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>}<br/>}<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongod": {<br/>"config": {<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-sample-rate": "double",<br/>"slow-op-threshold": "int"<br/>},<br/>"set-parameter": {<br/>"enable-flow-control": "bool",<br/>"min-snapshot-history-window-in-seconds": "int"<br/>},<br/>"storage": {<br/>"journal": {<br/>"commit-interval": "int"<br/>},<br/>"wired-tiger": {<br/>"collection-config": {<br/>"block-compressor": "NONE\|SNAPPY\|ZLIB\|ZSTD"<br/>},<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>},<br/>"index-config": {<br/>"prefix-compression": "bool"<br/>}<br/>}<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongoinfra": {<br/>"config-mongocfg": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-threshold": "int"<br/>},<br/>"storage": {<br/>"wired-tiger": {<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>}<br/>}<br/>}<br/>},<br/>"config-mongos": {<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongos": {<br/>"config": {<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>}<br/>},<br/>"mongodb-spec-6-0-enterprise": {<br/>"mongocfg": {<br/>"config": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-threshold": "int"<br/>},<br/>"storage": {<br/>"wired-tiger": {<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>}<br/>}<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongod": {<br/>"config": {<br/>"audit-log": {<br/>"filter": "str",<br/>"runtime-configuration": "bool"<br/>},<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-sample-rate": "double",<br/>"slow-op-threshold": "int"<br/>},<br/>"security": {<br/>"enable-encryption": "bool",<br/>"kmip": {<br/>"client-certificate": "str",<br/>"key-identifier": "str",<br/>"port": "int",<br/>"server-ca": "str",<br/>"server-name": "str"<br/>}<br/>},<br/>"set-parameter": {<br/>"audit-authorization-success": "bool",<br/>"enable-flow-control": "bool",<br/>"min-snapshot-history-window-in-seconds": "int"<br/>},<br/>"storage": {<br/>"journal": {<br/>"commit-interval": "int"<br/>},<br/>"wired-tiger": {<br/>"collection-config": {<br/>"block-compressor": "NONE\|SNAPPY\|ZLIB\|ZSTD"<br/>},<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>},<br/>"index-config": {<br/>"prefix-compression": "bool"<br/>}<br/>}<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongoinfra": {<br/>"config-mongocfg": {<br/>"net": {<br/>"max-incoming-connections": "int"<br/>},<br/>"operation-profiling": {<br/>"mode": "OFF\|SLOW_OP\|ALL",<br/>"slow-op-threshold": "int"<br/>},<br/>"storage": {<br/>"wired-tiger": {<br/>"engine-config": {<br/>"cache-size-gb": "double"<br/>}<br/>}<br/>}<br/>},<br/>"config-mongos": {<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>},<br/>"mongos": {<br/>"config": {<br/>"net": {<br/>"compression": {<br/>"compressors": [<br/>"SNAPPY\|ZLIB\|ZSTD\|DISABLED", ...<br/>]<br/>},<br/>"max-incoming-connections": "int"<br/>}<br/>},<br/>"disk-size-autoscaling": {<br/>"disk-size-limit": "int",<br/>"emergency-usage-threshold": "int",<br/>"planned-usage-threshold": "int"<br/>},<br/>"resources": {<br/>"disk-size": "int",<br/>"disk-type-id": "str",<br/>"resource-preset-id": "str"<br/>}<br/>}<br/>}<br/>},<br/>"performance-diagnostics": {<br/>"profiling-enabled": "bool"<br/>},<br/>"version": "str"<br/>}"<br/>Fields:<br/>access -> (struct)<br/>Access policy to DB<br/>data-lens -> (bool)<br/>Allow access for DataLens.<br/>data-transfer -> (bool)<br/>Allow access for DataTransfer.<br/>web-sql -> (bool)<br/>Allow access for Web SQL.<br/>backup-retain-period-days -> (int)<br/>Retain period of automatically created backup in days<br/>backup-window-start -> (timeofday)<br/>Time to start the daily backup, in the UTC timezone.<br/>feature-compatibility-version -> (string)<br/>MongoDB feature compatibility version. See usage details in MongoDB documentation. Possible values: * '3.6' - persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older. * '4.0' - persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older. * '4.2' - persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older. * '4.4' - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or older. * '5.0' - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 4.4 or older. * '6.0' - persist data compatibility for version 6.0. After setting this option the data will not be compatible with 5.0 or older.<br/>mongodb -> (struct)<br/>Configuration and resource allocation for a MongoDB 7.0 Enterprise cluster.<br/>mongocfg -> (struct)<br/>Configuration and resource allocation for mongocfg hosts.<br/>config -> (struct)<br/>Configuration for mongocfg hosts.<br/>audit-log -> (struct)<br/>'AuditLog' section of mongocfg configuration.<br/>filter -> (string)<br/>Audit filter, should be valid JSON object string<br/>chaining-allowed -> (bool)<br/>Chained replication setting<br/>net -> (struct)<br/>'net' section of mongocfg configuration.<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongocfg will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongocfg configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.<br/>oplog -> (struct)<br/>'Oplog' section of mongod configuration.<br/>max-size-percent -> (int)<br/>Oplog maxsize in percents.<br/>min-retention-hours -> (double)<br/>The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour.<br/>set-parameter -> (struct)<br/>'setParameter' section of mongocfg configuration.<br/>audit-authorization-success -> (bool)<br/>Enables the auditing of authorization successes https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess<br/>enable-flow-control -> (bool)<br/>Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members majority committed lag under a configurable maximum value.<br/>storage -> (struct)<br/>'storage' section of mongocfg configuration.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data in percents.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongocfg host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongod -> (struct)<br/>Configuration and resource allocation for mongod hosts.<br/>config -> (struct)<br/>audit-log -> (struct)<br/>'AuditLog' section of mongod configuration.<br/>filter -> (string)<br/>Audit filter<br/>runtime-configuration -> (bool)<br/>Allows runtime configuration of audit filter and auditAuthorizationSuccess<br/>chaining-allowed -> (bool)<br/>Chained replication setting<br/>net -> (struct)<br/>'net' section of mongod configuration.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongod will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongod configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-sample-rate -> (double)<br/>The fraction of slow operations that should be profiled or logged. operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.<br/>oplog -> (struct)<br/>'Oplog' section of mongod configuration.<br/>max-size-percent -> (int)<br/>Oplog maxsize in percents.<br/>min-retention-hours -> (double)<br/>The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour.<br/>security -> (struct)<br/>'security' section of mongod configuration.<br/>enable-encryption -> (bool)<br/>If encryption at rest should be enabled or not<br/>kmip -> (struct)<br/>'kmip' section of mongod security config<br/>client-certificate -> (string)<br/>KMIP client certificate + private key (unencrypted)<br/>key-identifier -> (string)<br/>KMIP Key identifier (if any)<br/>port -> (int)<br/>KMIP server port<br/>server-ca -> (string)<br/>KMIP Server CA<br/>server-name -> (string)<br/>KMIP server name<br/>set-parameter -> (struct)<br/>'SetParameter' section of mongod configuration.<br/>audit-authorization-success -> (bool)<br/>Enables the auditing of authorization successes<br/>enable-flow-control -> (bool)<br/>Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members majority committed lag under a configurable maximum value.<br/>flow-control-target-lag-seconds -> (int)<br/>The target maximum majority committed lag when running with flow control<br/>flow-control-warn-threshold-seconds -> (int)<br/>The amount of time to wait to log a warning once the flow control mechanism detects the majority commit point has not moved.<br/>migrate-clone-insertion-batch-delay-ms -> (int)<br/>Time in milliseconds to wait between batches of insertions during cloning step of the migration process.<br/>migrate-clone-insertion-batch-size -> (int)<br/>The maximum number of documents to insert in a single batch during the cloning step of the migration process.<br/>min-snapshot-history-window-in-seconds -> (int)<br/>The minimum time window in seconds for which the storage engine keeps the snapshot history.<br/>mirror-reads -> (struct)<br/>Specifies the settings for mirrored reads for the mongod instance<br/>max-time-ms -> (int)<br/>The maximum time in milliseconds for the mirrored reads.<br/>sampling-rate -> (double)<br/>The sampling rate used to mirror a subset of operations that support mirroring.<br/>orphan-cleanup-delay-secs -> (int)<br/>Minimum delay before a migrated chunk is deleted from the source shard.<br/>persisted-chunk-cache-update-max-batch-size -> (int)<br/>Specifies the maximum batch size used for updating the persisted chunk cache.<br/>range-deleter-batch-delay-ms -> (int)<br/>The amount of time in milliseconds to wait before the next batch of deletion during the cleanup stage of chunk migration (or the cleanupOrphaned command).<br/>range-deleter-batch-size -> (int)<br/>The maximum number of documents in each batch to delete during the cleanup stage of chunk migration (or the cleanupOrphaned command).<br/>storage -> (struct)<br/>'storage' section of mongod configuration.<br/>journal -> (struct)<br/>Configuration of the MongoDB journal.<br/>commit-interval -> (int)<br/>Commit interval between journal operations, in milliseconds. Default: 100.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>collection-config -> (struct)<br/>Collection configuration for WiredTiger.<br/>block-compressor -> (enum<NONE\|SNAPPY\|ZLIB\|ZSTD>)<br/>Default type of compression to use for collection data.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data in percents.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>index-config -> (struct)<br/>Index configuration for WiredTiger<br/>prefix-compression -> (bool)<br/>Enables or disables prefix compression<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongod host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongoinfra -> (struct)<br/>Configuration and resource allocation for mongoinfra (mongos+mongocfg) hosts.<br/>config-mongocfg -> (struct)<br/>audit-log -> (struct)<br/>'AuditLog' section of mongocfg configuration.<br/>filter -> (string)<br/>Audit filter, should be valid JSON object string<br/>chaining-allowed -> (bool)<br/>Chained replication setting<br/>net -> (struct)<br/>'net' section of mongocfg configuration.<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongocfg will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongocfg configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.<br/>oplog -> (struct)<br/>'Oplog' section of mongod configuration.<br/>max-size-percent -> (int)<br/>Oplog maxsize in percents.<br/>min-retention-hours -> (double)<br/>The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour.<br/>set-parameter -> (struct)<br/>'setParameter' section of mongocfg configuration.<br/>audit-authorization-success -> (bool)<br/>Enables the auditing of authorization successes https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess<br/>enable-flow-control -> (bool)<br/>Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members majority committed lag under a configurable maximum value.<br/>storage -> (struct)<br/>'storage' section of mongocfg configuration.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data in percents.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>config-mongos -> (struct)<br/>Configuration for mongoinfra hosts.<br/>audit-log -> (struct)<br/>'AuditLog' section of mongos configuration.<br/>filter -> (string)<br/>Audit filter, should be valid JSON object string<br/>chunk-size -> (int)<br/>'ChunkSize' parameter of mongos configuration.<br/>net -> (struct)<br/>Network settings for mongos.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongos will accept.<br/>set-parameter -> (struct)<br/>'setParameter' section of mongos configuration.<br/>audit-authorization-success -> (bool)<br/>Enables the auditing of authorization successes https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess<br/>read-hedging-mode -> (str)<br/>Specifies whether mongos supports hedged reads for those read operations whose read preference have enabled the hedged read option.<br/>sharding-task-executor-pool-host-timeout-ms -> (int)<br/>Maximum time that mongos goes without communication to a host before mongos drops all connections to the host.<br/>sharding-task-executor-pool-max-connecting -> (int)<br/>Maximum number of simultaneous initiating connections (including pending connections in setup/refresh state) each TaskExecutor connection pool can have to a mongod instance.<br/>sharding-task-executor-pool-max-size -> (int)<br/>Maximum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance.<br/>sharding-task-executor-pool-max-size-for-config-servers -> (int)<br/>Optional override for ShardingTaskExecutorPoolMaxSize to set the maximum number of outbound connections each TaskExecutor connection pool can open to a configuration server.<br/>sharding-task-executor-pool-min-size -> (int)<br/>Minimum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance.<br/>sharding-task-executor-pool-min-size-for-config-servers -> (int)<br/>Optional override for ShardingTaskExecutorPoolMinSize to set the minimum number of outbound connections each TaskExecutor connection pool can open to a configuration server.<br/>sharding-task-executor-pool-refresh-requirement-ms -> (int)<br/>Maximum time the mongos waits before attempting to heartbeat an idle connection in the pool.<br/>sharding-task-executor-pool-refresh-timeout-ms -> (int)<br/>Maximum time the mongos waits for a heartbeat before timing out the heartbeat.<br/>sharding-task-executor-pool-replica-set-matching -> (str)<br/>On a mongos instance, this parameter sets the policy that determines the minimum size limit of its connection pools to nodes within replica sets.<br/>warm-min-connections-in-sharding-task-executor-pool-on-startup -> (bool)<br/>Configures a mongos instance to prewarm its connection pool on startup.<br/>warm-min-connections-in-sharding-task-executor-pool-on-startup-wait-ms -> (int)<br/>Sets the timeout threshold in milliseconds for a mongos to wait for ShardingTaskExecutorPoolMinSize connections to be established per shard host when using the warmMinConnectionsInShardingTaskExecutorPoolOnStartup parameter.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongoinfra (mongos+mongocfg) host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongos -> (struct)<br/>Configuration and resource allocation for mongos hosts.<br/>config -> (struct)<br/>Configuration for mongos hosts.<br/>audit-log -> (struct)<br/>'AuditLog' section of mongos configuration.<br/>filter -> (string)<br/>Audit filter, should be valid JSON object string<br/>chunk-size -> (int)<br/>'ChunkSize' parameter of mongos configuration.<br/>net -> (struct)<br/>Network settings for mongos.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongos will accept.<br/>set-parameter -> (struct)<br/>'setParameter' section of mongos configuration.<br/>audit-authorization-success -> (bool)<br/>Enables the auditing of authorization successes https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess<br/>read-hedging-mode -> (str)<br/>Specifies whether mongos supports hedged reads for those read operations whose read preference have enabled the hedged read option.<br/>sharding-task-executor-pool-host-timeout-ms -> (int)<br/>Maximum time that mongos goes without communication to a host before mongos drops all connections to the host.<br/>sharding-task-executor-pool-max-connecting -> (int)<br/>Maximum number of simultaneous initiating connections (including pending connections in setup/refresh state) each TaskExecutor connection pool can have to a mongod instance.<br/>sharding-task-executor-pool-max-size -> (int)<br/>Maximum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance.<br/>sharding-task-executor-pool-max-size-for-config-servers -> (int)<br/>Optional override for ShardingTaskExecutorPoolMaxSize to set the maximum number of outbound connections each TaskExecutor connection pool can open to a configuration server.<br/>sharding-task-executor-pool-min-size -> (int)<br/>Minimum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance.<br/>sharding-task-executor-pool-min-size-for-config-servers -> (int)<br/>Optional override for ShardingTaskExecutorPoolMinSize to set the minimum number of outbound connections each TaskExecutor connection pool can open to a configuration server.<br/>sharding-task-executor-pool-refresh-requirement-ms -> (int)<br/>Maximum time the mongos waits before attempting to heartbeat an idle connection in the pool.<br/>sharding-task-executor-pool-refresh-timeout-ms -> (int)<br/>Maximum time the mongos waits for a heartbeat before timing out the heartbeat.<br/>sharding-task-executor-pool-replica-set-matching -> (str)<br/>On a mongos instance, this parameter sets the policy that determines the minimum size limit of its connection pools to nodes within replica sets.<br/>warm-min-connections-in-sharding-task-executor-pool-on-startup -> (bool)<br/>Configures a mongos instance to prewarm its connection pool on startup.<br/>warm-min-connections-in-sharding-task-executor-pool-on-startup-wait-ms -> (int)<br/>Sets the timeout threshold in milliseconds for a mongos to wait for ShardingTaskExecutorPoolMinSize connections to be established per shard host when using the warmMinConnectionsInShardingTaskExecutorPoolOnStartup parameter.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongos host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>performance-diagnostics -> (struct)<br/>Performance Diagnosics configuration<br/>profiling-enabled -> (bool)<br/>version -> (string)<br/>Version of MongoDB used in the cluster. Possible values: '3.6', '4.0', '4.2', '4.4', '4.4-enterprise', '5.0', '5.0-enterprise', '6.0', '6.0-enterprise'.<br/>mongodb-spec -> (oneof<mongodb-spec-3-6\|mongodb-spec-4-0\|mongodb-spec-4-2\|mongodb-spec-4-4\|mongodb-spec-4-4-enterprise\|mongodb-spec-5-0\|mongodb-spec-5-0-enterprise\|mongodb-spec-6-0\|mongodb-spec-6-0-enterprise>)<br/>Oneof mongodb-spec field<br/>mongodb-spec-3-6 -> (struct)<br/>Configuration and resource allocation for a MongoDB 3.6 cluster.<br/>mongocfg -> (struct)<br/>Configuration and resource allocation for mongocfg 3.6 hosts.<br/>config -> (struct)<br/>Configuration for mongocfg 3.6 hosts.<br/>net -> (struct)<br/>'net' section of mongocfg configuration.<br/>max-incoming-connections -> (int)<br/>The maximum number of incoming connections.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongocfg configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Operation profiling level. For details, see MongoDB documentation.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.<br/>storage -> (struct)<br/>'storage' section of mongocfg configuration.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongocfg host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongod -> (struct)<br/>Configuration and resource allocation for mongod 3.6 hosts.<br/>config -> (struct)<br/>Configuration for mongod 3.6 hosts.<br/>net -> (struct)<br/>'net' section of mongod configuration.<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongod will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongod configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.<br/>storage -> (struct)<br/>'storage' section of mongod configuration.<br/>journal -> (struct)<br/>Configuration of the MongoDB journal.<br/>commit-interval -> (int)<br/>Commit interval between journal operations, in milliseconds. Default: 100.<br/>enabled -> (bool)<br/>Whether the journal is enabled or disabled. Possible values: * true (default) - the journal is enabled. * false - the journal is disabled.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>collection-config -> (struct)<br/>Collection configuration for WiredTiger.<br/>block-compressor -> (enum<NONE\|SNAPPY\|ZLIB>)<br/>Default type of compression to use for collection data.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongod host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongoinfra -> (struct)<br/>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts.<br/>config-mongocfg -> (struct)<br/>net -> (struct)<br/>'net' section of mongocfg configuration.<br/>max-incoming-connections -> (int)<br/>The maximum number of incoming connections.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongocfg configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Operation profiling level. For details, see MongoDB documentation.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.<br/>storage -> (struct)<br/>'storage' section of mongocfg configuration.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>config-mongos -> (struct)<br/>Configuration for mongoinfra 3.6 hosts.<br/>net -> (struct)<br/>Network settings for mongos.<br/>max-incoming-connections -> (int)<br/>The maximum number of incoming connections.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongoinfra (mongos+mongocfg) host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongos -> (struct)<br/>Configuration and resource allocation for mongos 3.6 hosts.<br/>config -> (struct)<br/>Configuration for mongos 3.6 hosts.<br/>net -> (struct)<br/>Network settings for mongos.<br/>max-incoming-connections -> (int)<br/>The maximum number of incoming connections.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongos host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongodb-spec-4-0 -> (struct)<br/>Configuration and resource allocation for a MongoDB 4.0 cluster.<br/>mongocfg -> (struct)<br/>Configuration and resource allocation for mongocfg 4.0 hosts.<br/>config -> (struct)<br/>Configuration for mongocfg 4.0 hosts.<br/>net -> (struct)<br/>'net' section of mongocfg configuration.<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongocfg will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongocfg configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.<br/>storage -> (struct)<br/>'storage' section of mongocfg configuration.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongocfg host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongod -> (struct)<br/>Configuration and resource allocation for mongod 4.0 hosts.<br/>config -> (struct)<br/>Configuration for mongod 4.0 hosts.<br/>net -> (struct)<br/>'net' section of mongod configuration.<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongod will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongod configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.<br/>storage -> (struct)<br/>'storage' section of mongod configuration.<br/>journal -> (struct)<br/>Configuration of the MongoDB journal.<br/>commit-interval -> (int)<br/>Commit interval between journal operations, in milliseconds. Default: 100.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>collection-config -> (struct)<br/>Collection configuration for WiredTiger.<br/>block-compressor -> (enum<NONE\|SNAPPY\|ZLIB>)<br/>Default type of compression to use for collection data.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongod host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongoinfra -> (struct)<br/>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts.<br/>config-mongocfg -> (struct)<br/>net -> (struct)<br/>'net' section of mongocfg configuration.<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongocfg will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongocfg configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.<br/>storage -> (struct)<br/>'storage' section of mongocfg configuration.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>config-mongos -> (struct)<br/>Configuration for mongoinfra 4.0 hosts.<br/>net -> (struct)<br/>Network settings for mongos.<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongos will accept.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongoinfra (mongos+mongocfg) host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongos -> (struct)<br/>Configuration and resource allocation for mongos 4.0 hosts.<br/>config -> (struct)<br/>Configuration for mongos 4.0 hosts.<br/>net -> (struct)<br/>Network settings for mongos.<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongos will accept.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongos host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongodb-spec-4-2 -> (struct)<br/>Configuration and resource allocation for a MongoDB 4.2 cluster.<br/>mongocfg -> (struct)<br/>Configuration and resource allocation for mongocfg 4.2 hosts.<br/>config -> (struct)<br/>Configuration for mongocfg 4.2 hosts.<br/>net -> (struct)<br/>'net' section of mongocfg configuration.<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongocfg will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongocfg configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.<br/>storage -> (struct)<br/>'storage' section of mongocfg configuration.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongocfg host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongod -> (struct)<br/>Configuration and resource allocation for mongod 4.2 hosts.<br/>config -> (struct)<br/>Configuration for mongod 4.2 hosts.<br/>net -> (struct)<br/>'net' section of mongod configuration.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongod will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongod configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-sample-rate -> (double)<br/>The fraction of slow operations that should be profiled or logged. operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.<br/>set-parameter -> (struct)<br/>'replication' section of mongod configuration.<br/>enable-flow-control -> (bool)<br/>Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members majority committed lag under a configurable maximum value.<br/>storage -> (struct)<br/>'storage' section of mongod configuration.<br/>journal -> (struct)<br/>Configuration of the MongoDB journal.<br/>commit-interval -> (int)<br/>Commit interval between journal operations, in milliseconds. Default: 100.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>collection-config -> (struct)<br/>Collection configuration for WiredTiger.<br/>block-compressor -> (enum<NONE\|SNAPPY\|ZLIB\|ZSTD>)<br/>Default type of compression to use for collection data.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>index-config -> (struct)<br/>Index configuration for WiredTiger<br/>prefix-compression -> (bool)<br/>Enables or disables prefix compression<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongod host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongoinfra -> (struct)<br/>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts.<br/>config-mongocfg -> (struct)<br/>net -> (struct)<br/>'net' section of mongocfg configuration.<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongocfg will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongocfg configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.<br/>storage -> (struct)<br/>'storage' section of mongocfg configuration.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>config-mongos -> (struct)<br/>Configuration for mongoinfra 4.2 hosts.<br/>net -> (struct)<br/>Network settings for mongos.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongos will accept.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongoinfra (mongos+mongocfg) host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongos -> (struct)<br/>Configuration and resource allocation for mongos 4.2 hosts.<br/>config -> (struct)<br/>Configuration for mongos 4.2 hosts.<br/>net -> (struct)<br/>Network settings for mongos.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongos will accept.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongos host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongodb-spec-4-4 -> (struct)<br/>Configuration and resource allocation for a MongoDB 4.4 cluster.<br/>mongocfg -> (struct)<br/>Configuration and resource allocation for mongocfg 4.4 hosts.<br/>config -> (struct)<br/>Configuration for mongocfg 4.4 hosts.<br/>net -> (struct)<br/>'net' section of mongocfg configuration.<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongocfg will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongocfg configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.<br/>storage -> (struct)<br/>'storage' section of mongocfg configuration.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongocfg host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongod -> (struct)<br/>Configuration and resource allocation for mongod 4.4 hosts.<br/>config -> (struct)<br/>Configuration for mongod 4.4 hosts.<br/>net -> (struct)<br/>'net' section of mongod configuration.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongod will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongod configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-sample-rate -> (double)<br/>The fraction of slow operations that should be profiled or logged. operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.<br/>set-parameter -> (struct)<br/>'replication' section of mongod configuration.<br/>enable-flow-control -> (bool)<br/>Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members majority committed lag under a configurable maximum value.<br/>storage -> (struct)<br/>'storage' section of mongod configuration.<br/>journal -> (struct)<br/>Configuration of the MongoDB journal.<br/>commit-interval -> (int)<br/>Commit interval between journal operations, in milliseconds. Default: 100.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>collection-config -> (struct)<br/>Collection configuration for WiredTiger.<br/>block-compressor -> (enum<NONE\|SNAPPY\|ZLIB\|ZSTD>)<br/>Default type of compression to use for collection data.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>index-config -> (struct)<br/>Index configuration for WiredTiger<br/>prefix-compression -> (bool)<br/>Enables or disables prefix compression<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongod host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongoinfra -> (struct)<br/>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts.<br/>config-mongocfg -> (struct)<br/>net -> (struct)<br/>'net' section of mongocfg configuration.<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongocfg will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongocfg configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.<br/>storage -> (struct)<br/>'storage' section of mongocfg configuration.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>config-mongos -> (struct)<br/>Configuration for mongoinfra 4.4 hosts.<br/>net -> (struct)<br/>Network settings for mongos.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongos will accept.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongoinfra (mongos+mongocfg) host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongos -> (struct)<br/>Configuration and resource allocation for mongos 4.4 hosts.<br/>config -> (struct)<br/>Configuration for mongos 4.4 hosts.<br/>net -> (struct)<br/>Network settings for mongos.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongos will accept.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongos host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongodb-spec-5-0 -> (struct)<br/>Configuration and resource allocation for a MongoDB 5.0 cluster.<br/>mongocfg -> (struct)<br/>Configuration and resource allocation for mongocfg 5.0 hosts.<br/>config -> (struct)<br/>Configuration for mongocfg 5.0 hosts.<br/>net -> (struct)<br/>'net' section of mongocfg configuration.<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongocfg will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongocfg configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.<br/>storage -> (struct)<br/>'storage' section of mongocfg configuration.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongocfg host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongod -> (struct)<br/>Configuration and resource allocation for mongod 5.0 hosts.<br/>config -> (struct)<br/>Configuration for mongod 5.0 hosts.<br/>net -> (struct)<br/>'net' section of mongod configuration.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongod will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongod configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-sample-rate -> (double)<br/>The fraction of slow operations that should be profiled or logged. operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.<br/>set-parameter -> (struct)<br/>'SetParameter' section of mongod configuration.<br/>enable-flow-control -> (bool)<br/>Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members majority committed lag under a configurable maximum value.<br/>min-snapshot-history-window-in-seconds -> (int)<br/>The minimum time window in seconds for which the storage engine keeps the snapshot history.<br/>storage -> (struct)<br/>'storage' section of mongod configuration.<br/>journal -> (struct)<br/>Configuration of the MongoDB journal.<br/>commit-interval -> (int)<br/>Commit interval between journal operations, in milliseconds. Default: 100.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>collection-config -> (struct)<br/>Collection configuration for WiredTiger.<br/>block-compressor -> (enum<NONE\|SNAPPY\|ZLIB\|ZSTD>)<br/>Default type of compression to use for collection data.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>index-config -> (struct)<br/>Index configuration for WiredTiger<br/>prefix-compression -> (bool)<br/>Enables or disables prefix compression<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongod host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongoinfra -> (struct)<br/>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 5.0 hosts.<br/>config-mongocfg -> (struct)<br/>net -> (struct)<br/>'net' section of mongocfg configuration.<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongocfg will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongocfg configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.<br/>storage -> (struct)<br/>'storage' section of mongocfg configuration.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>config-mongos -> (struct)<br/>Configuration for mongoinfra 5.0 hosts.<br/>net -> (struct)<br/>Network settings for mongos.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongos will accept.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongoinfra (mongos+mongocfg) host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongos -> (struct)<br/>Configuration and resource allocation for mongos 5.0 hosts.<br/>config -> (struct)<br/>Configuration for mongos 5.0 hosts.<br/>net -> (struct)<br/>Network settings for mongos.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongos will accept.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongos host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongodb-spec-6-0 -> (struct)<br/>Configuration and resource allocation for a MongoDB 6.0 cluster.<br/>mongocfg -> (struct)<br/>Configuration and resource allocation for mongocfg 6.0 hosts.<br/>config -> (struct)<br/>Configuration for mongocfg 6.0 hosts.<br/>net -> (struct)<br/>'net' section of mongocfg configuration.<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongocfg will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongocfg configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.<br/>storage -> (struct)<br/>'storage' section of mongocfg configuration.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongocfg host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongod -> (struct)<br/>Configuration and resource allocation for mongod 6.0 hosts.<br/>config -> (struct)<br/>Configuration for mongod 6.0 hosts.<br/>net -> (struct)<br/>'net' section of mongod configuration.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongod will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongod configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-sample-rate -> (double)<br/>The fraction of slow operations that should be profiled or logged. operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.<br/>set-parameter -> (struct)<br/>'SetParameter' section of mongod configuration.<br/>enable-flow-control -> (bool)<br/>Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members majority committed lag under a configurable maximum value.<br/>min-snapshot-history-window-in-seconds -> (int)<br/>The minimum time window in seconds for which the storage engine keeps the snapshot history.<br/>storage -> (struct)<br/>'storage' section of mongod configuration.<br/>journal -> (struct)<br/>Configuration of the MongoDB journal.<br/>commit-interval -> (int)<br/>Commit interval between journal operations, in milliseconds. Default: 100.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>collection-config -> (struct)<br/>Collection configuration for WiredTiger.<br/>block-compressor -> (enum<NONE\|SNAPPY\|ZLIB\|ZSTD>)<br/>Default type of compression to use for collection data.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>index-config -> (struct)<br/>Index configuration for WiredTiger<br/>prefix-compression -> (bool)<br/>Enables or disables prefix compression<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongod host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongoinfra -> (struct)<br/>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 6.0 hosts.<br/>config-mongocfg -> (struct)<br/>net -> (struct)<br/>'net' section of mongocfg configuration.<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongocfg will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongocfg configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.<br/>storage -> (struct)<br/>'storage' section of mongocfg configuration.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>config-mongos -> (struct)<br/>Configuration for mongoinfra 6.0 hosts.<br/>net -> (struct)<br/>Network settings for mongos.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongos will accept.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongoinfra (mongos+mongocfg) host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongos -> (struct)<br/>Configuration and resource allocation for mongos 6.0 hosts.<br/>config -> (struct)<br/>Configuration for mongos 6.0 hosts.<br/>net -> (struct)<br/>Network settings for mongos.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongos will accept.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongos host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongodb-spec-4-4-enterprise -> (struct)<br/>Configuration and resource allocation for a MongoDB 4.4 Enterprise cluster.<br/>mongocfg -> (struct)<br/>Configuration and resource allocation for mongocfg 4.4 hosts.<br/>config -> (struct)<br/>Configuration for mongocfg 4.4 hosts.<br/>net -> (struct)<br/>'net' section of mongocfg configuration.<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongocfg will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongocfg configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.<br/>storage -> (struct)<br/>'storage' section of mongocfg configuration.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongocfg host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongod -> (struct)<br/>Configuration and resource allocation for mongod 4.4 hosts.<br/>config -> (struct)<br/>Configuration for mongod 4.4 hosts.<br/>audit-log -> (struct)<br/>'AuditLog' section of mongod configuration.<br/>filter -> (string)<br/>Audit filter<br/>net -> (struct)<br/>'net' section of mongod configuration.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongod will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongod configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-sample-rate -> (double)<br/>The fraction of slow operations that should be profiled or logged. operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.<br/>security -> (struct)<br/>'security' section of mongod configuration.<br/>enable-encryption -> (bool)<br/>If encryption at rest should be enabled or not<br/>kmip -> (struct)<br/>'kmip' section of mongod security config<br/>client-certificate -> (string)<br/>KMIP client certificate + private key (unencrypted)<br/>key-identifier -> (string)<br/>KMIP Key identifier (if any)<br/>port -> (int)<br/>KMIP server port<br/>server-ca -> (string)<br/>KMIP Server CA<br/>server-name -> (string)<br/>KMIP server name<br/>set-parameter -> (struct)<br/>'SetParameter' section of mongod configuration.<br/>audit-authorization-success -> (bool)<br/>Enables the auditing of authorization successes<br/>enable-flow-control -> (bool)<br/>Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members majority committed lag under a configurable maximum value.<br/>storage -> (struct)<br/>'storage' section of mongod configuration.<br/>journal -> (struct)<br/>Configuration of the MongoDB journal.<br/>commit-interval -> (int)<br/>Commit interval between journal operations, in milliseconds. Default: 100.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>collection-config -> (struct)<br/>Collection configuration for WiredTiger.<br/>block-compressor -> (enum<NONE\|SNAPPY\|ZLIB\|ZSTD>)<br/>Default type of compression to use for collection data.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>index-config -> (struct)<br/>Index configuration for WiredTiger<br/>prefix-compression -> (bool)<br/>Enables or disables prefix compression<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongod host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongoinfra -> (struct)<br/>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts.<br/>config-mongocfg -> (struct)<br/>net -> (struct)<br/>'net' section of mongocfg configuration.<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongocfg will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongocfg configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.<br/>storage -> (struct)<br/>'storage' section of mongocfg configuration.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>config-mongos -> (struct)<br/>Configuration for mongoinfra 4.4 hosts.<br/>net -> (struct)<br/>Network settings for mongos.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongos will accept.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongoinfra (mongos+mongocfg) host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongos -> (struct)<br/>Configuration and resource allocation for mongos 4.4 hosts.<br/>config -> (struct)<br/>Configuration for mongos 4.4 hosts.<br/>net -> (struct)<br/>Network settings for mongos.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongos will accept.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongos host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongodb-spec-5-0-enterprise -> (struct)<br/>Configuration and resource allocation for a MongoDB 5.0 Enterprise cluster.<br/>mongocfg -> (struct)<br/>Configuration and resource allocation for mongocfg 5.0 hosts.<br/>config -> (struct)<br/>Configuration for mongocfg 5.0 hosts.<br/>net -> (struct)<br/>'net' section of mongocfg configuration.<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongocfg will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongocfg configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.<br/>storage -> (struct)<br/>'storage' section of mongocfg configuration.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongocfg host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongod -> (struct)<br/>Configuration and resource allocation for mongod 5.0 hosts.<br/>config -> (struct)<br/>Configuration for mongod 5.0 hosts.<br/>audit-log -> (struct)<br/>'AuditLog' section of mongod configuration.<br/>filter -> (string)<br/>Audit filter<br/>runtime-configuration -> (bool)<br/>Allows runtime configuration of audit filter and auditAuthorizationSuccess<br/>net -> (struct)<br/>'net' section of mongod configuration.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongod will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongod configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-sample-rate -> (double)<br/>The fraction of slow operations that should be profiled or logged. operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.<br/>security -> (struct)<br/>'security' section of mongod configuration.<br/>enable-encryption -> (bool)<br/>If encryption at rest should be enabled or not<br/>kmip -> (struct)<br/>'kmip' section of mongod security config<br/>client-certificate -> (string)<br/>KMIP client certificate + private key (unencrypted)<br/>key-identifier -> (string)<br/>KMIP Key identifier (if any)<br/>port -> (int)<br/>KMIP server port<br/>server-ca -> (string)<br/>KMIP Server CA<br/>server-name -> (string)<br/>KMIP server name<br/>set-parameter -> (struct)<br/>'SetParameter' section of mongod configuration.<br/>audit-authorization-success -> (bool)<br/>Enables the auditing of authorization successes<br/>enable-flow-control -> (bool)<br/>Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members majority committed lag under a configurable maximum value.<br/>min-snapshot-history-window-in-seconds -> (int)<br/>The minimum time window in seconds for which the storage engine keeps the snapshot history.<br/>storage -> (struct)<br/>'storage' section of mongod configuration.<br/>journal -> (struct)<br/>Configuration of the MongoDB journal.<br/>commit-interval -> (int)<br/>Commit interval between journal operations, in milliseconds. Default: 100.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>collection-config -> (struct)<br/>Collection configuration for WiredTiger.<br/>block-compressor -> (enum<NONE\|SNAPPY\|ZLIB\|ZSTD>)<br/>Default type of compression to use for collection data.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>index-config -> (struct)<br/>Index configuration for WiredTiger<br/>prefix-compression -> (bool)<br/>Enables or disables prefix compression<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongod host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongoinfra -> (struct)<br/>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 5.0 hosts.<br/>config-mongocfg -> (struct)<br/>net -> (struct)<br/>'net' section of mongocfg configuration.<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongocfg will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongocfg configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.<br/>storage -> (struct)<br/>'storage' section of mongocfg configuration.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>config-mongos -> (struct)<br/>Configuration for mongoinfra 5.0 hosts.<br/>net -> (struct)<br/>Network settings for mongos.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongos will accept.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongoinfra (mongos+mongocfg) host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongos -> (struct)<br/>Configuration and resource allocation for mongos 5.0 hosts.<br/>config -> (struct)<br/>Configuration for mongos 5.0 hosts.<br/>net -> (struct)<br/>Network settings for mongos.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongos will accept.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongos host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongodb-spec-6-0-enterprise -> (struct)<br/>Configuration and resource allocation for a MongoDB 6.0 Enterprise cluster.<br/>mongocfg -> (struct)<br/>Configuration and resource allocation for mongocfg 6.0 hosts.<br/>config -> (struct)<br/>Configuration for mongocfg 6.0 hosts.<br/>net -> (struct)<br/>'net' section of mongocfg configuration.<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongocfg will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongocfg configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.<br/>storage -> (struct)<br/>'storage' section of mongocfg configuration.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongocfg host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongod -> (struct)<br/>Configuration and resource allocation for mongod 6.0 hosts.<br/>config -> (struct)<br/>Configuration for mongod 6.0 hosts.<br/>audit-log -> (struct)<br/>'AuditLog' section of mongod configuration.<br/>filter -> (string)<br/>Audit filter<br/>runtime-configuration -> (bool)<br/>Allows runtime configuration of audit filter and auditAuthorizationSuccess<br/>net -> (struct)<br/>'net' section of mongod configuration.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongod will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongod configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-sample-rate -> (double)<br/>The fraction of slow operations that should be profiled or logged. operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.<br/>security -> (struct)<br/>'security' section of mongod configuration.<br/>enable-encryption -> (bool)<br/>If encryption at rest should be enabled or not<br/>kmip -> (struct)<br/>'kmip' section of mongod security config<br/>client-certificate -> (string)<br/>KMIP client certificate + private key (unencrypted)<br/>key-identifier -> (string)<br/>KMIP Key identifier (if any)<br/>port -> (int)<br/>KMIP server port<br/>server-ca -> (string)<br/>KMIP Server CA<br/>server-name -> (string)<br/>KMIP server name<br/>set-parameter -> (struct)<br/>'SetParameter' section of mongod configuration.<br/>audit-authorization-success -> (bool)<br/>Enables the auditing of authorization successes<br/>enable-flow-control -> (bool)<br/>Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members majority committed lag under a configurable maximum value.<br/>min-snapshot-history-window-in-seconds -> (int)<br/>The minimum time window in seconds for which the storage engine keeps the snapshot history.<br/>storage -> (struct)<br/>'storage' section of mongod configuration.<br/>journal -> (struct)<br/>Configuration of the MongoDB journal.<br/>commit-interval -> (int)<br/>Commit interval between journal operations, in milliseconds. Default: 100.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>collection-config -> (struct)<br/>Collection configuration for WiredTiger.<br/>block-compressor -> (enum<NONE\|SNAPPY\|ZLIB\|ZSTD>)<br/>Default type of compression to use for collection data.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>index-config -> (struct)<br/>Index configuration for WiredTiger<br/>prefix-compression -> (bool)<br/>Enables or disables prefix compression<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongod host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongoinfra -> (struct)<br/>Configuration and resource allocation for mongoinfra (mongos+mongocfg) 6.0 hosts.<br/>config-mongocfg -> (struct)<br/>net -> (struct)<br/>'net' section of mongocfg configuration.<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongocfg will accept.<br/>operation-profiling -> (struct)<br/>'operationProfiling' section of mongocfg configuration.<br/>mode -> (enum<ALL\|OFF\|SLOW_OP>)<br/>Mode which specifies operations that should be profiled.<br/>slow-op-threshold -> (int)<br/>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.<br/>storage -> (struct)<br/>'storage' section of mongocfg configuration.<br/>wired-tiger -> (struct)<br/>Configuration of the WiredTiger storage engine.<br/>engine-config -> (struct)<br/>Engine configuration for WiredTiger.<br/>cache-size-gb -> (double)<br/>The maximum size of the internal cache that WiredTiger will use for all data.<br/>config-mongos -> (struct)<br/>Configuration for mongoinfra 6.0 hosts.<br/>net -> (struct)<br/>Network settings for mongos.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongos will accept.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongoinfra (mongos+mongocfg) host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.<br/>mongos -> (struct)<br/>Configuration and resource allocation for mongos 6.0 hosts.<br/>config -> (struct)<br/>Configuration for mongos 6.0 hosts.<br/>net -> (struct)<br/>Network settings for mongos.<br/>compression -> (struct)<br/>Compression settings<br/>compressors -> ([]int)<br/>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:<br/>max-incoming-connections -> (int)<br/>The maximum number of simultaneous connections that mongos will accept.<br/>disk-size-autoscaling -> (struct)<br/>Disk size autoscaling settings<br/>disk-size-limit -> (int)<br/>Limit on how large the storage for database instances can automatically grow, in bytes.<br/>emergency-usage-threshold -> (int)<br/>Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.<br/>planned-usage-threshold -> (int)<br/>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.<br/>resources -> (struct)<br/>Resources allocated to each mongos host.<br/>disk-size -> (int)<br/>Volume of the storage available to a host, in bytes.<br/>disk-type-id -> (string)<br/>Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.<br/>resource-preset-id -> (string)<br/>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.|
-|`--deletion-protection`|Deletion Protection inhibits deletion of the cluster|
-|`--description`|<b>`string`</b><br/>Description of the new MongoDB cluster.|
-|`--disk-encryption-key-id`|<b>`string`</b><br/>ID of the key to encrypt cluster disks.|
-|`--environment`|<b>`enum`</b><br/>Deployment environment of the new MongoDB cluster. Possible Values: 'production', 'prestable'|
-|`--folder-id`|<b>`string`</b><br/>Required. ID of the folder to create the MongoDB cluster in.|
-|`--host-specs`|<b>`shorthand/json`</b><br/>Configurations for MongoDB hosts that should be created for the cluster that is being created from the backup.<br/>Shorthand Syntax:<br/>[<br/>{<br/>assign-public-ip = bool,<br/>hidden = bool,<br/>priority = double,<br/>secondary-delay-secs = int,<br/>shard-name = str,<br/>subnet-id = str,<br/>tags = {key=str, key=...},<br/>type = MONGOD\|MONGOS\|MONGOCFG\|MONGOINFRA,<br/>zone-id = str<br/>}, ...<br/>]<br/>JSON Syntax:<br/>"[<br/>{<br/>"assign-public-ip": "bool",<br/>"hidden": "bool",<br/>"priority": "double",<br/>"secondary-delay-secs": "int",<br/>"shard-name": "str",<br/>"subnet-id": "str",<br/>"tags": {<br/>"\<key\>": "str", ...<br/>},<br/>"type": "MONGOD\|MONGOS\|MONGOCFG\|MONGOINFRA",<br/>"zone-id": "str"<br/>}, ...<br/>]"<br/>Fields:<br/>assign-public-ip -> (bool)<br/>Whether the host should get a public IP address on creation. After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with [assign_public_ip] set as needed. Possible values: * false - don't assign a public IP to the host. * true - the host should have a public IP address.<br/>hidden -> (bool)<br/>Is host hidden in replSet<br/>priority -> (double)<br/>Priority of host for the election in replSet<br/>secondary-delay-secs -> (int)<br/>The number of seconds "behind" the primary that this replica set member should "lag"<br/>shard-name -> (string)<br/>Name of the shard that the host belongs to.<br/>subnet-id -> (string)<br/>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The network ID is set in the [Cluster.network_id] field.<br/>tags -> (map[string,string])<br/>Host tags<br/>type -> (enum<MONGOCFG\|MONGOD\|MONGOINFRA\|MONGOS>)<br/>Type of the host to be deployed.<br/>zone-id -> (string)<br/>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List] request.|
-|`--labels`|<b>`stringToString`</b><br/>Custom labels for the MongoDB cluster as '' key:value '' pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary".|
-|`--maintenance-window`|<b>`shorthand/json`</b><br/>Maintenance window settings for the cluster.<br/>Shorthand Syntax:<br/>{<br/>policy = anytime={} \| weekly-maintenance-window={<br/>day = MON\|TUE\|WED\|THU\|FRI\|SAT\|SUN,<br/>hour = int<br/>}<br/>}<br/>JSON Syntax:<br/>"{<br/>"policy": {<br/>"anytime": {},<br/>"weekly-maintenance-window": {<br/>"day": "MON\|TUE\|WED\|THU\|FRI\|SAT\|SUN",<br/>"hour": "int"<br/>}<br/>}<br/>}"<br/>Fields:<br/>policy -> (oneof<anytime\|weekly-maintenance-window>)<br/>Oneof policy field<br/>anytime -> (struct)<br/>Maintenance operation can be scheduled anytime.<br/>weekly-maintenance-window -> (struct)<br/>Maintenance operation can be scheduled on a weekly basis.<br/>day -> (enum<FRI\|MON\|SAT\|SUN\|THU\|TUE\|WED>)<br/>Day of the week (in 'DDD' format).<br/>hour -> (int)<br/>Hour of the day in UTC (in 'HH' format).|
-|`--name`|<b>`string`</b><br/>Name of the new MongoDB cluster. The name must be unique within the folder. The name can't be changed after the MongoDB cluster is created.|
-|`--network-id`|<b>`string`</b><br/>ID of the network to create the MongoDB cluster in.|
-|`--partial-restore-spec`|<b>`shorthand/json`</b><br/>Specification of the list of cluster namespaces, which should be restored.<br/>Shorthand Syntax:<br/>{<br/>blacklist = str,...,<br/>whitelist = str,...<br/>}<br/>JSON Syntax:<br/>"{<br/>"blacklist": [<br/>"str", ...<br/>],<br/>"whitelist": [<br/>"str", ...<br/>]<br/>}"<br/>Fields:<br/>blacklist -> ([]string)<br/>List of MongoDB namespaces not restore to<br/>whitelist -> ([]string)<br/>List of MongoDB namespaces restore to|
-|`--recovery-target-spec`|<b>`shorthand/json`</b><br/>Specification of the moment to which the MongoDB cluster should be restored.<br/>Shorthand Syntax:<br/>{<br/>timestamp = int<br/>}<br/>JSON Syntax:<br/>"{<br/>"timestamp": "int"<br/>}"<br/>Fields:<br/>timestamp -> (int)<br/>Timestamp of the recovery target|
-|`--security-group-ids`|<b>`strings`</b><br/>User security groups|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-json > request.json
+2. Edit the template: vim request.json
+3. Run with template: yc beta compute instance create -r request.json ||
+|| `--example-yaml` | Generates a YAML template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-yaml > request.yaml
+2. Edit the template: vim request.yaml
+3. Run with template: yc beta compute instance create -r request.yaml ||
+|| `--backup-id` | `string`
+
+ID of the backup to create a cluster from. To get the backup ID, use a [ClusterService.ListBackups] request. ||
+|| `--config-spec` | `shorthand/json`
+
+Configuration for the MongoDB cluster to be created.
+
+Shorthand Syntax:
+
+```hcl
+{
+  access = {
+    data-lens = bool,
+    data-transfer = bool,
+    web-sql = bool
+  },
+  backup-retain-period-days = int,
+  backup-window-start = timeofday,
+  feature-compatibility-version = str,
+  mongodb = {
+    mongocfg = {
+      config = {
+        audit-log = {
+          filter = str
+        },
+        chaining-allowed = bool,
+        net = {
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-threshold = int
+        },
+        oplog = {
+          max-size-percent = int,
+          min-retention-hours = double
+        },
+        set-parameter = {
+          audit-authorization-success = bool,
+          enable-flow-control = bool
+        },
+        storage = {
+          wired-tiger = {
+            engine-config = {
+              cache-size = double,
+              cache-size-gb = double
+            }
+          }
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongod = {
+      config = {
+        audit-log = {
+          filter = str,
+          runtime-configuration = bool
+        },
+        chaining-allowed = bool,
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-sample-rate = double,
+          slow-op-threshold = int
+        },
+        oplog = {
+          max-size-percent = int,
+          min-retention-hours = double
+        },
+        security = {
+          enable-encryption = bool,
+          kmip = {
+            client-certificate = str,
+            key-identifier = str,
+            port = int,
+            server-ca = str,
+            server-name = str
+          }
+        },
+        set-parameter = {
+          audit-authorization-success = bool,
+          enable-flow-control = bool,
+          flow-control-target-lag-seconds = int,
+          flow-control-warn-threshold-seconds = int,
+          migrate-clone-insertion-batch-delay-ms = int,
+          migrate-clone-insertion-batch-size = int,
+          min-snapshot-history-window-in-seconds = int,
+          mirror-reads = {
+            max-time-ms = int,
+            sampling-rate = double
+          },
+          orphan-cleanup-delay-secs = int,
+          persisted-chunk-cache-update-max-batch-size = int,
+          range-deleter-batch-delay-ms = int,
+          range-deleter-batch-size = int
+        },
+        storage = {
+          journal = {
+            commit-interval = int
+          },
+          wired-tiger = {
+            collection-config = {
+              block-compressor = NONE|SNAPPY|ZLIB|ZSTD
+            },
+            engine-config = {
+              cache-size = double,
+              cache-size-gb = double
+            },
+            index-config = {
+              prefix-compression = bool
+            }
+          }
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongoinfra = {
+      config-mongocfg = {
+        audit-log = {
+          filter = str
+        },
+        chaining-allowed = bool,
+        net = {
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-threshold = int
+        },
+        oplog = {
+          max-size-percent = int,
+          min-retention-hours = double
+        },
+        set-parameter = {
+          audit-authorization-success = bool,
+          enable-flow-control = bool
+        },
+        storage = {
+          wired-tiger = {
+            engine-config = {
+              cache-size = double,
+              cache-size-gb = double
+            }
+          }
+        }
+      },
+      config-mongos = {
+        audit-log = {
+          filter = str
+        },
+        chunk-size = int,
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        },
+        set-parameter = {
+          audit-authorization-success = bool,
+          read-hedging-mode = str,
+          sharding-task-executor-pool-host-timeout-ms = int,
+          sharding-task-executor-pool-max-connecting = int,
+          sharding-task-executor-pool-max-size = int,
+          sharding-task-executor-pool-max-size-for-config-servers = int,
+          sharding-task-executor-pool-min-size = int,
+          sharding-task-executor-pool-min-size-for-config-servers = int,
+          sharding-task-executor-pool-refresh-requirement-ms = int,
+          sharding-task-executor-pool-refresh-timeout-ms = int,
+          sharding-task-executor-pool-replica-set-matching = str,
+          warm-min-connections-in-sharding-task-executor-pool-on-startup = bool,
+          warm-min-connections-in-sharding-task-executor-pool-on-startup-wait-ms = int
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongos = {
+      config = {
+        audit-log = {
+          filter = str
+        },
+        chunk-size = int,
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        },
+        set-parameter = {
+          audit-authorization-success = bool,
+          read-hedging-mode = str,
+          sharding-task-executor-pool-host-timeout-ms = int,
+          sharding-task-executor-pool-max-connecting = int,
+          sharding-task-executor-pool-max-size = int,
+          sharding-task-executor-pool-max-size-for-config-servers = int,
+          sharding-task-executor-pool-min-size = int,
+          sharding-task-executor-pool-min-size-for-config-servers = int,
+          sharding-task-executor-pool-refresh-requirement-ms = int,
+          sharding-task-executor-pool-refresh-timeout-ms = int,
+          sharding-task-executor-pool-replica-set-matching = str,
+          warm-min-connections-in-sharding-task-executor-pool-on-startup = bool,
+          warm-min-connections-in-sharding-task-executor-pool-on-startup-wait-ms = int
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    }
+  },
+  mongodb-spec = mongodb-spec-3-6={
+    mongocfg = {
+      config = {
+        net = {
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-threshold = int
+        },
+        storage = {
+          wired-tiger = {
+            engine-config = {
+              cache-size-gb = double
+            }
+          }
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongod = {
+      config = {
+        net = {
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-threshold = int
+        },
+        storage = {
+          journal = {
+            commit-interval = int,
+            enabled = bool
+          },
+          wired-tiger = {
+            collection-config = {
+              block-compressor = NONE|SNAPPY|ZLIB
+            },
+            engine-config = {
+              cache-size-gb = double
+            }
+          }
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongoinfra = {
+      config-mongocfg = {
+        net = {
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-threshold = int
+        },
+        storage = {
+          wired-tiger = {
+            engine-config = {
+              cache-size-gb = double
+            }
+          }
+        }
+      },
+      config-mongos = {
+        net = {
+          max-incoming-connections = int
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongos = {
+      config = {
+        net = {
+          max-incoming-connections = int
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    }
+  } | mongodb-spec-4-0={
+    mongocfg = {
+      config = {
+        net = {
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-threshold = int
+        },
+        storage = {
+          wired-tiger = {
+            engine-config = {
+              cache-size-gb = double
+            }
+          }
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongod = {
+      config = {
+        net = {
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-threshold = int
+        },
+        storage = {
+          journal = {
+            commit-interval = int
+          },
+          wired-tiger = {
+            collection-config = {
+              block-compressor = NONE|SNAPPY|ZLIB
+            },
+            engine-config = {
+              cache-size-gb = double
+            }
+          }
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongoinfra = {
+      config-mongocfg = {
+        net = {
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-threshold = int
+        },
+        storage = {
+          wired-tiger = {
+            engine-config = {
+              cache-size-gb = double
+            }
+          }
+        }
+      },
+      config-mongos = {
+        net = {
+          max-incoming-connections = int
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongos = {
+      config = {
+        net = {
+          max-incoming-connections = int
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    }
+  } | mongodb-spec-4-2={
+    mongocfg = {
+      config = {
+        net = {
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-threshold = int
+        },
+        storage = {
+          wired-tiger = {
+            engine-config = {
+              cache-size-gb = double
+            }
+          }
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongod = {
+      config = {
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-sample-rate = double,
+          slow-op-threshold = int
+        },
+        set-parameter = {
+          enable-flow-control = bool
+        },
+        storage = {
+          journal = {
+            commit-interval = int
+          },
+          wired-tiger = {
+            collection-config = {
+              block-compressor = NONE|SNAPPY|ZLIB|ZSTD
+            },
+            engine-config = {
+              cache-size-gb = double
+            },
+            index-config = {
+              prefix-compression = bool
+            }
+          }
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongoinfra = {
+      config-mongocfg = {
+        net = {
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-threshold = int
+        },
+        storage = {
+          wired-tiger = {
+            engine-config = {
+              cache-size-gb = double
+            }
+          }
+        }
+      },
+      config-mongos = {
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongos = {
+      config = {
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    }
+  } | mongodb-spec-4-4={
+    mongocfg = {
+      config = {
+        net = {
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-threshold = int
+        },
+        storage = {
+          wired-tiger = {
+            engine-config = {
+              cache-size-gb = double
+            }
+          }
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongod = {
+      config = {
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-sample-rate = double,
+          slow-op-threshold = int
+        },
+        set-parameter = {
+          enable-flow-control = bool
+        },
+        storage = {
+          journal = {
+            commit-interval = int
+          },
+          wired-tiger = {
+            collection-config = {
+              block-compressor = NONE|SNAPPY|ZLIB|ZSTD
+            },
+            engine-config = {
+              cache-size-gb = double
+            },
+            index-config = {
+              prefix-compression = bool
+            }
+          }
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongoinfra = {
+      config-mongocfg = {
+        net = {
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-threshold = int
+        },
+        storage = {
+          wired-tiger = {
+            engine-config = {
+              cache-size-gb = double
+            }
+          }
+        }
+      },
+      config-mongos = {
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongos = {
+      config = {
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    }
+  } | mongodb-spec-4-4-enterprise={
+    mongocfg = {
+      config = {
+        net = {
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-threshold = int
+        },
+        storage = {
+          wired-tiger = {
+            engine-config = {
+              cache-size-gb = double
+            }
+          }
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongod = {
+      config = {
+        audit-log = {
+          filter = str
+        },
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-sample-rate = double,
+          slow-op-threshold = int
+        },
+        security = {
+          enable-encryption = bool,
+          kmip = {
+            client-certificate = str,
+            key-identifier = str,
+            port = int,
+            server-ca = str,
+            server-name = str
+          }
+        },
+        set-parameter = {
+          audit-authorization-success = bool,
+          enable-flow-control = bool
+        },
+        storage = {
+          journal = {
+            commit-interval = int
+          },
+          wired-tiger = {
+            collection-config = {
+              block-compressor = NONE|SNAPPY|ZLIB|ZSTD
+            },
+            engine-config = {
+              cache-size-gb = double
+            },
+            index-config = {
+              prefix-compression = bool
+            }
+          }
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongoinfra = {
+      config-mongocfg = {
+        net = {
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-threshold = int
+        },
+        storage = {
+          wired-tiger = {
+            engine-config = {
+              cache-size-gb = double
+            }
+          }
+        }
+      },
+      config-mongos = {
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongos = {
+      config = {
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    }
+  } | mongodb-spec-5-0={
+    mongocfg = {
+      config = {
+        net = {
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-threshold = int
+        },
+        storage = {
+          wired-tiger = {
+            engine-config = {
+              cache-size-gb = double
+            }
+          }
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongod = {
+      config = {
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-sample-rate = double,
+          slow-op-threshold = int
+        },
+        set-parameter = {
+          enable-flow-control = bool,
+          min-snapshot-history-window-in-seconds = int
+        },
+        storage = {
+          journal = {
+            commit-interval = int
+          },
+          wired-tiger = {
+            collection-config = {
+              block-compressor = NONE|SNAPPY|ZLIB|ZSTD
+            },
+            engine-config = {
+              cache-size-gb = double
+            },
+            index-config = {
+              prefix-compression = bool
+            }
+          }
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongoinfra = {
+      config-mongocfg = {
+        net = {
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-threshold = int
+        },
+        storage = {
+          wired-tiger = {
+            engine-config = {
+              cache-size-gb = double
+            }
+          }
+        }
+      },
+      config-mongos = {
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongos = {
+      config = {
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    }
+  } | mongodb-spec-5-0-enterprise={
+    mongocfg = {
+      config = {
+        net = {
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-threshold = int
+        },
+        storage = {
+          wired-tiger = {
+            engine-config = {
+              cache-size-gb = double
+            }
+          }
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongod = {
+      config = {
+        audit-log = {
+          filter = str,
+          runtime-configuration = bool
+        },
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-sample-rate = double,
+          slow-op-threshold = int
+        },
+        security = {
+          enable-encryption = bool,
+          kmip = {
+            client-certificate = str,
+            key-identifier = str,
+            port = int,
+            server-ca = str,
+            server-name = str
+          }
+        },
+        set-parameter = {
+          audit-authorization-success = bool,
+          enable-flow-control = bool,
+          min-snapshot-history-window-in-seconds = int
+        },
+        storage = {
+          journal = {
+            commit-interval = int
+          },
+          wired-tiger = {
+            collection-config = {
+              block-compressor = NONE|SNAPPY|ZLIB|ZSTD
+            },
+            engine-config = {
+              cache-size-gb = double
+            },
+            index-config = {
+              prefix-compression = bool
+            }
+          }
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongoinfra = {
+      config-mongocfg = {
+        net = {
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-threshold = int
+        },
+        storage = {
+          wired-tiger = {
+            engine-config = {
+              cache-size-gb = double
+            }
+          }
+        }
+      },
+      config-mongos = {
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongos = {
+      config = {
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    }
+  } | mongodb-spec-6-0={
+    mongocfg = {
+      config = {
+        net = {
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-threshold = int
+        },
+        storage = {
+          wired-tiger = {
+            engine-config = {
+              cache-size-gb = double
+            }
+          }
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongod = {
+      config = {
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-sample-rate = double,
+          slow-op-threshold = int
+        },
+        set-parameter = {
+          enable-flow-control = bool,
+          min-snapshot-history-window-in-seconds = int
+        },
+        storage = {
+          journal = {
+            commit-interval = int
+          },
+          wired-tiger = {
+            collection-config = {
+              block-compressor = NONE|SNAPPY|ZLIB|ZSTD
+            },
+            engine-config = {
+              cache-size-gb = double
+            },
+            index-config = {
+              prefix-compression = bool
+            }
+          }
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongoinfra = {
+      config-mongocfg = {
+        net = {
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-threshold = int
+        },
+        storage = {
+          wired-tiger = {
+            engine-config = {
+              cache-size-gb = double
+            }
+          }
+        }
+      },
+      config-mongos = {
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongos = {
+      config = {
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    }
+  } | mongodb-spec-6-0-enterprise={
+    mongocfg = {
+      config = {
+        net = {
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-threshold = int
+        },
+        storage = {
+          wired-tiger = {
+            engine-config = {
+              cache-size-gb = double
+            }
+          }
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongod = {
+      config = {
+        audit-log = {
+          filter = str,
+          runtime-configuration = bool
+        },
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-sample-rate = double,
+          slow-op-threshold = int
+        },
+        security = {
+          enable-encryption = bool,
+          kmip = {
+            client-certificate = str,
+            key-identifier = str,
+            port = int,
+            server-ca = str,
+            server-name = str
+          }
+        },
+        set-parameter = {
+          audit-authorization-success = bool,
+          enable-flow-control = bool,
+          min-snapshot-history-window-in-seconds = int
+        },
+        storage = {
+          journal = {
+            commit-interval = int
+          },
+          wired-tiger = {
+            collection-config = {
+              block-compressor = NONE|SNAPPY|ZLIB|ZSTD
+            },
+            engine-config = {
+              cache-size-gb = double
+            },
+            index-config = {
+              prefix-compression = bool
+            }
+          }
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongoinfra = {
+      config-mongocfg = {
+        net = {
+          max-incoming-connections = int
+        },
+        operation-profiling = {
+          mode = OFF|SLOW_OP|ALL,
+          slow-op-threshold = int
+        },
+        storage = {
+          wired-tiger = {
+            engine-config = {
+              cache-size-gb = double
+            }
+          }
+        }
+      },
+      config-mongos = {
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    },
+    mongos = {
+      config = {
+        net = {
+          compression = {
+            compressors = [
+              SNAPPY|ZLIB|ZSTD|DISABLED, ...
+            ]
+          },
+          max-incoming-connections = int
+        }
+      },
+      disk-size-autoscaling = {
+        disk-size-limit = int,
+        emergency-usage-threshold = int,
+        planned-usage-threshold = int
+      },
+      resources = {
+        disk-size = int,
+        disk-type-id = str,
+        resource-preset-id = str
+      }
+    }
+  },
+  performance-diagnostics = {
+    profiling-enabled = bool
+  },
+  version = str
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "access": {
+    "data-lens": "bool",
+    "data-transfer": "bool",
+    "web-sql": "bool"
+  },
+  "backup-retain-period-days": "int",
+  "backup-window-start": "timeofday",
+  "feature-compatibility-version": "str",
+  "mongodb": {
+    "mongocfg": {
+      "config": {
+        "audit-log": {
+          "filter": "str"
+        },
+        "chaining-allowed": "bool",
+        "net": {
+          "max-incoming-connections": "int"
+        },
+        "operation-profiling": {
+          "mode": "OFF|SLOW_OP|ALL",
+          "slow-op-threshold": "int"
+        },
+        "oplog": {
+          "max-size-percent": "int",
+          "min-retention-hours": "double"
+        },
+        "set-parameter": {
+          "audit-authorization-success": "bool",
+          "enable-flow-control": "bool"
+        },
+        "storage": {
+          "wired-tiger": {
+            "engine-config": {
+              "cache-size": "double",
+              "cache-size-gb": "double"
+            }
+          }
+        }
+      },
+      "disk-size-autoscaling": {
+        "disk-size-limit": "int",
+        "emergency-usage-threshold": "int",
+        "planned-usage-threshold": "int"
+      },
+      "resources": {
+        "disk-size": "int",
+        "disk-type-id": "str",
+        "resource-preset-id": "str"
+      }
+    },
+    "mongod": {
+      "config": {
+        "audit-log": {
+          "filter": "str",
+          "runtime-configuration": "bool"
+        },
+        "chaining-allowed": "bool",
+        "net": {
+          "compression": {
+            "compressors": [
+              "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+            ]
+          },
+          "max-incoming-connections": "int"
+        },
+        "operation-profiling": {
+          "mode": "OFF|SLOW_OP|ALL",
+          "slow-op-sample-rate": "double",
+          "slow-op-threshold": "int"
+        },
+        "oplog": {
+          "max-size-percent": "int",
+          "min-retention-hours": "double"
+        },
+        "security": {
+          "enable-encryption": "bool",
+          "kmip": {
+            "client-certificate": "str",
+            "key-identifier": "str",
+            "port": "int",
+            "server-ca": "str",
+            "server-name": "str"
+          }
+        },
+        "set-parameter": {
+          "audit-authorization-success": "bool",
+          "enable-flow-control": "bool",
+          "flow-control-target-lag-seconds": "int",
+          "flow-control-warn-threshold-seconds": "int",
+          "migrate-clone-insertion-batch-delay-ms": "int",
+          "migrate-clone-insertion-batch-size": "int",
+          "min-snapshot-history-window-in-seconds": "int",
+          "mirror-reads": {
+            "max-time-ms": "int",
+            "sampling-rate": "double"
+          },
+          "orphan-cleanup-delay-secs": "int",
+          "persisted-chunk-cache-update-max-batch-size": "int",
+          "range-deleter-batch-delay-ms": "int",
+          "range-deleter-batch-size": "int"
+        },
+        "storage": {
+          "journal": {
+            "commit-interval": "int"
+          },
+          "wired-tiger": {
+            "collection-config": {
+              "block-compressor": "NONE|SNAPPY|ZLIB|ZSTD"
+            },
+            "engine-config": {
+              "cache-size": "double",
+              "cache-size-gb": "double"
+            },
+            "index-config": {
+              "prefix-compression": "bool"
+            }
+          }
+        }
+      },
+      "disk-size-autoscaling": {
+        "disk-size-limit": "int",
+        "emergency-usage-threshold": "int",
+        "planned-usage-threshold": "int"
+      },
+      "resources": {
+        "disk-size": "int",
+        "disk-type-id": "str",
+        "resource-preset-id": "str"
+      }
+    },
+    "mongoinfra": {
+      "config-mongocfg": {
+        "audit-log": {
+          "filter": "str"
+        },
+        "chaining-allowed": "bool",
+        "net": {
+          "max-incoming-connections": "int"
+        },
+        "operation-profiling": {
+          "mode": "OFF|SLOW_OP|ALL",
+          "slow-op-threshold": "int"
+        },
+        "oplog": {
+          "max-size-percent": "int",
+          "min-retention-hours": "double"
+        },
+        "set-parameter": {
+          "audit-authorization-success": "bool",
+          "enable-flow-control": "bool"
+        },
+        "storage": {
+          "wired-tiger": {
+            "engine-config": {
+              "cache-size": "double",
+              "cache-size-gb": "double"
+            }
+          }
+        }
+      },
+      "config-mongos": {
+        "audit-log": {
+          "filter": "str"
+        },
+        "chunk-size": "int",
+        "net": {
+          "compression": {
+            "compressors": [
+              "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+            ]
+          },
+          "max-incoming-connections": "int"
+        },
+        "set-parameter": {
+          "audit-authorization-success": "bool",
+          "read-hedging-mode": "str",
+          "sharding-task-executor-pool-host-timeout-ms": "int",
+          "sharding-task-executor-pool-max-connecting": "int",
+          "sharding-task-executor-pool-max-size": "int",
+          "sharding-task-executor-pool-max-size-for-config-servers": "int",
+          "sharding-task-executor-pool-min-size": "int",
+          "sharding-task-executor-pool-min-size-for-config-servers": "int",
+          "sharding-task-executor-pool-refresh-requirement-ms": "int",
+          "sharding-task-executor-pool-refresh-timeout-ms": "int",
+          "sharding-task-executor-pool-replica-set-matching": "str",
+          "warm-min-connections-in-sharding-task-executor-pool-on-startup": "bool",
+          "warm-min-connections-in-sharding-task-executor-pool-on-startup-wait-ms": "int"
+        }
+      },
+      "disk-size-autoscaling": {
+        "disk-size-limit": "int",
+        "emergency-usage-threshold": "int",
+        "planned-usage-threshold": "int"
+      },
+      "resources": {
+        "disk-size": "int",
+        "disk-type-id": "str",
+        "resource-preset-id": "str"
+      }
+    },
+    "mongos": {
+      "config": {
+        "audit-log": {
+          "filter": "str"
+        },
+        "chunk-size": "int",
+        "net": {
+          "compression": {
+            "compressors": [
+              "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+            ]
+          },
+          "max-incoming-connections": "int"
+        },
+        "set-parameter": {
+          "audit-authorization-success": "bool",
+          "read-hedging-mode": "str",
+          "sharding-task-executor-pool-host-timeout-ms": "int",
+          "sharding-task-executor-pool-max-connecting": "int",
+          "sharding-task-executor-pool-max-size": "int",
+          "sharding-task-executor-pool-max-size-for-config-servers": "int",
+          "sharding-task-executor-pool-min-size": "int",
+          "sharding-task-executor-pool-min-size-for-config-servers": "int",
+          "sharding-task-executor-pool-refresh-requirement-ms": "int",
+          "sharding-task-executor-pool-refresh-timeout-ms": "int",
+          "sharding-task-executor-pool-replica-set-matching": "str",
+          "warm-min-connections-in-sharding-task-executor-pool-on-startup": "bool",
+          "warm-min-connections-in-sharding-task-executor-pool-on-startup-wait-ms": "int"
+        }
+      },
+      "disk-size-autoscaling": {
+        "disk-size-limit": "int",
+        "emergency-usage-threshold": "int",
+        "planned-usage-threshold": "int"
+      },
+      "resources": {
+        "disk-size": "int",
+        "disk-type-id": "str",
+        "resource-preset-id": "str"
+      }
+    }
+  },
+  "mongodb-spec": {
+    "mongodb-spec-3-6": {
+      "mongocfg": {
+        "config": {
+          "net": {
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-threshold": "int"
+          },
+          "storage": {
+            "wired-tiger": {
+              "engine-config": {
+                "cache-size-gb": "double"
+              }
+            }
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongod": {
+        "config": {
+          "net": {
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-threshold": "int"
+          },
+          "storage": {
+            "journal": {
+              "commit-interval": "int",
+              "enabled": "bool"
+            },
+            "wired-tiger": {
+              "collection-config": {
+                "block-compressor": "NONE|SNAPPY|ZLIB"
+              },
+              "engine-config": {
+                "cache-size-gb": "double"
+              }
+            }
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongoinfra": {
+        "config-mongocfg": {
+          "net": {
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-threshold": "int"
+          },
+          "storage": {
+            "wired-tiger": {
+              "engine-config": {
+                "cache-size-gb": "double"
+              }
+            }
+          }
+        },
+        "config-mongos": {
+          "net": {
+            "max-incoming-connections": "int"
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongos": {
+        "config": {
+          "net": {
+            "max-incoming-connections": "int"
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      }
+    },
+    "mongodb-spec-4-0": {
+      "mongocfg": {
+        "config": {
+          "net": {
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-threshold": "int"
+          },
+          "storage": {
+            "wired-tiger": {
+              "engine-config": {
+                "cache-size-gb": "double"
+              }
+            }
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongod": {
+        "config": {
+          "net": {
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-threshold": "int"
+          },
+          "storage": {
+            "journal": {
+              "commit-interval": "int"
+            },
+            "wired-tiger": {
+              "collection-config": {
+                "block-compressor": "NONE|SNAPPY|ZLIB"
+              },
+              "engine-config": {
+                "cache-size-gb": "double"
+              }
+            }
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongoinfra": {
+        "config-mongocfg": {
+          "net": {
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-threshold": "int"
+          },
+          "storage": {
+            "wired-tiger": {
+              "engine-config": {
+                "cache-size-gb": "double"
+              }
+            }
+          }
+        },
+        "config-mongos": {
+          "net": {
+            "max-incoming-connections": "int"
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongos": {
+        "config": {
+          "net": {
+            "max-incoming-connections": "int"
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      }
+    },
+    "mongodb-spec-4-2": {
+      "mongocfg": {
+        "config": {
+          "net": {
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-threshold": "int"
+          },
+          "storage": {
+            "wired-tiger": {
+              "engine-config": {
+                "cache-size-gb": "double"
+              }
+            }
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongod": {
+        "config": {
+          "net": {
+            "compression": {
+              "compressors": [
+                "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+              ]
+            },
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-sample-rate": "double",
+            "slow-op-threshold": "int"
+          },
+          "set-parameter": {
+            "enable-flow-control": "bool"
+          },
+          "storage": {
+            "journal": {
+              "commit-interval": "int"
+            },
+            "wired-tiger": {
+              "collection-config": {
+                "block-compressor": "NONE|SNAPPY|ZLIB|ZSTD"
+              },
+              "engine-config": {
+                "cache-size-gb": "double"
+              },
+              "index-config": {
+                "prefix-compression": "bool"
+              }
+            }
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongoinfra": {
+        "config-mongocfg": {
+          "net": {
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-threshold": "int"
+          },
+          "storage": {
+            "wired-tiger": {
+              "engine-config": {
+                "cache-size-gb": "double"
+              }
+            }
+          }
+        },
+        "config-mongos": {
+          "net": {
+            "compression": {
+              "compressors": [
+                "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+              ]
+            },
+            "max-incoming-connections": "int"
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongos": {
+        "config": {
+          "net": {
+            "compression": {
+              "compressors": [
+                "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+              ]
+            },
+            "max-incoming-connections": "int"
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      }
+    },
+    "mongodb-spec-4-4": {
+      "mongocfg": {
+        "config": {
+          "net": {
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-threshold": "int"
+          },
+          "storage": {
+            "wired-tiger": {
+              "engine-config": {
+                "cache-size-gb": "double"
+              }
+            }
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongod": {
+        "config": {
+          "net": {
+            "compression": {
+              "compressors": [
+                "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+              ]
+            },
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-sample-rate": "double",
+            "slow-op-threshold": "int"
+          },
+          "set-parameter": {
+            "enable-flow-control": "bool"
+          },
+          "storage": {
+            "journal": {
+              "commit-interval": "int"
+            },
+            "wired-tiger": {
+              "collection-config": {
+                "block-compressor": "NONE|SNAPPY|ZLIB|ZSTD"
+              },
+              "engine-config": {
+                "cache-size-gb": "double"
+              },
+              "index-config": {
+                "prefix-compression": "bool"
+              }
+            }
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongoinfra": {
+        "config-mongocfg": {
+          "net": {
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-threshold": "int"
+          },
+          "storage": {
+            "wired-tiger": {
+              "engine-config": {
+                "cache-size-gb": "double"
+              }
+            }
+          }
+        },
+        "config-mongos": {
+          "net": {
+            "compression": {
+              "compressors": [
+                "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+              ]
+            },
+            "max-incoming-connections": "int"
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongos": {
+        "config": {
+          "net": {
+            "compression": {
+              "compressors": [
+                "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+              ]
+            },
+            "max-incoming-connections": "int"
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      }
+    },
+    "mongodb-spec-4-4-enterprise": {
+      "mongocfg": {
+        "config": {
+          "net": {
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-threshold": "int"
+          },
+          "storage": {
+            "wired-tiger": {
+              "engine-config": {
+                "cache-size-gb": "double"
+              }
+            }
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongod": {
+        "config": {
+          "audit-log": {
+            "filter": "str"
+          },
+          "net": {
+            "compression": {
+              "compressors": [
+                "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+              ]
+            },
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-sample-rate": "double",
+            "slow-op-threshold": "int"
+          },
+          "security": {
+            "enable-encryption": "bool",
+            "kmip": {
+              "client-certificate": "str",
+              "key-identifier": "str",
+              "port": "int",
+              "server-ca": "str",
+              "server-name": "str"
+            }
+          },
+          "set-parameter": {
+            "audit-authorization-success": "bool",
+            "enable-flow-control": "bool"
+          },
+          "storage": {
+            "journal": {
+              "commit-interval": "int"
+            },
+            "wired-tiger": {
+              "collection-config": {
+                "block-compressor": "NONE|SNAPPY|ZLIB|ZSTD"
+              },
+              "engine-config": {
+                "cache-size-gb": "double"
+              },
+              "index-config": {
+                "prefix-compression": "bool"
+              }
+            }
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongoinfra": {
+        "config-mongocfg": {
+          "net": {
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-threshold": "int"
+          },
+          "storage": {
+            "wired-tiger": {
+              "engine-config": {
+                "cache-size-gb": "double"
+              }
+            }
+          }
+        },
+        "config-mongos": {
+          "net": {
+            "compression": {
+              "compressors": [
+                "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+              ]
+            },
+            "max-incoming-connections": "int"
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongos": {
+        "config": {
+          "net": {
+            "compression": {
+              "compressors": [
+                "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+              ]
+            },
+            "max-incoming-connections": "int"
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      }
+    },
+    "mongodb-spec-5-0": {
+      "mongocfg": {
+        "config": {
+          "net": {
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-threshold": "int"
+          },
+          "storage": {
+            "wired-tiger": {
+              "engine-config": {
+                "cache-size-gb": "double"
+              }
+            }
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongod": {
+        "config": {
+          "net": {
+            "compression": {
+              "compressors": [
+                "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+              ]
+            },
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-sample-rate": "double",
+            "slow-op-threshold": "int"
+          },
+          "set-parameter": {
+            "enable-flow-control": "bool",
+            "min-snapshot-history-window-in-seconds": "int"
+          },
+          "storage": {
+            "journal": {
+              "commit-interval": "int"
+            },
+            "wired-tiger": {
+              "collection-config": {
+                "block-compressor": "NONE|SNAPPY|ZLIB|ZSTD"
+              },
+              "engine-config": {
+                "cache-size-gb": "double"
+              },
+              "index-config": {
+                "prefix-compression": "bool"
+              }
+            }
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongoinfra": {
+        "config-mongocfg": {
+          "net": {
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-threshold": "int"
+          },
+          "storage": {
+            "wired-tiger": {
+              "engine-config": {
+                "cache-size-gb": "double"
+              }
+            }
+          }
+        },
+        "config-mongos": {
+          "net": {
+            "compression": {
+              "compressors": [
+                "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+              ]
+            },
+            "max-incoming-connections": "int"
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongos": {
+        "config": {
+          "net": {
+            "compression": {
+              "compressors": [
+                "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+              ]
+            },
+            "max-incoming-connections": "int"
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      }
+    },
+    "mongodb-spec-5-0-enterprise": {
+      "mongocfg": {
+        "config": {
+          "net": {
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-threshold": "int"
+          },
+          "storage": {
+            "wired-tiger": {
+              "engine-config": {
+                "cache-size-gb": "double"
+              }
+            }
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongod": {
+        "config": {
+          "audit-log": {
+            "filter": "str",
+            "runtime-configuration": "bool"
+          },
+          "net": {
+            "compression": {
+              "compressors": [
+                "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+              ]
+            },
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-sample-rate": "double",
+            "slow-op-threshold": "int"
+          },
+          "security": {
+            "enable-encryption": "bool",
+            "kmip": {
+              "client-certificate": "str",
+              "key-identifier": "str",
+              "port": "int",
+              "server-ca": "str",
+              "server-name": "str"
+            }
+          },
+          "set-parameter": {
+            "audit-authorization-success": "bool",
+            "enable-flow-control": "bool",
+            "min-snapshot-history-window-in-seconds": "int"
+          },
+          "storage": {
+            "journal": {
+              "commit-interval": "int"
+            },
+            "wired-tiger": {
+              "collection-config": {
+                "block-compressor": "NONE|SNAPPY|ZLIB|ZSTD"
+              },
+              "engine-config": {
+                "cache-size-gb": "double"
+              },
+              "index-config": {
+                "prefix-compression": "bool"
+              }
+            }
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongoinfra": {
+        "config-mongocfg": {
+          "net": {
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-threshold": "int"
+          },
+          "storage": {
+            "wired-tiger": {
+              "engine-config": {
+                "cache-size-gb": "double"
+              }
+            }
+          }
+        },
+        "config-mongos": {
+          "net": {
+            "compression": {
+              "compressors": [
+                "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+              ]
+            },
+            "max-incoming-connections": "int"
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongos": {
+        "config": {
+          "net": {
+            "compression": {
+              "compressors": [
+                "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+              ]
+            },
+            "max-incoming-connections": "int"
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      }
+    },
+    "mongodb-spec-6-0": {
+      "mongocfg": {
+        "config": {
+          "net": {
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-threshold": "int"
+          },
+          "storage": {
+            "wired-tiger": {
+              "engine-config": {
+                "cache-size-gb": "double"
+              }
+            }
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongod": {
+        "config": {
+          "net": {
+            "compression": {
+              "compressors": [
+                "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+              ]
+            },
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-sample-rate": "double",
+            "slow-op-threshold": "int"
+          },
+          "set-parameter": {
+            "enable-flow-control": "bool",
+            "min-snapshot-history-window-in-seconds": "int"
+          },
+          "storage": {
+            "journal": {
+              "commit-interval": "int"
+            },
+            "wired-tiger": {
+              "collection-config": {
+                "block-compressor": "NONE|SNAPPY|ZLIB|ZSTD"
+              },
+              "engine-config": {
+                "cache-size-gb": "double"
+              },
+              "index-config": {
+                "prefix-compression": "bool"
+              }
+            }
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongoinfra": {
+        "config-mongocfg": {
+          "net": {
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-threshold": "int"
+          },
+          "storage": {
+            "wired-tiger": {
+              "engine-config": {
+                "cache-size-gb": "double"
+              }
+            }
+          }
+        },
+        "config-mongos": {
+          "net": {
+            "compression": {
+              "compressors": [
+                "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+              ]
+            },
+            "max-incoming-connections": "int"
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongos": {
+        "config": {
+          "net": {
+            "compression": {
+              "compressors": [
+                "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+              ]
+            },
+            "max-incoming-connections": "int"
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      }
+    },
+    "mongodb-spec-6-0-enterprise": {
+      "mongocfg": {
+        "config": {
+          "net": {
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-threshold": "int"
+          },
+          "storage": {
+            "wired-tiger": {
+              "engine-config": {
+                "cache-size-gb": "double"
+              }
+            }
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongod": {
+        "config": {
+          "audit-log": {
+            "filter": "str",
+            "runtime-configuration": "bool"
+          },
+          "net": {
+            "compression": {
+              "compressors": [
+                "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+              ]
+            },
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-sample-rate": "double",
+            "slow-op-threshold": "int"
+          },
+          "security": {
+            "enable-encryption": "bool",
+            "kmip": {
+              "client-certificate": "str",
+              "key-identifier": "str",
+              "port": "int",
+              "server-ca": "str",
+              "server-name": "str"
+            }
+          },
+          "set-parameter": {
+            "audit-authorization-success": "bool",
+            "enable-flow-control": "bool",
+            "min-snapshot-history-window-in-seconds": "int"
+          },
+          "storage": {
+            "journal": {
+              "commit-interval": "int"
+            },
+            "wired-tiger": {
+              "collection-config": {
+                "block-compressor": "NONE|SNAPPY|ZLIB|ZSTD"
+              },
+              "engine-config": {
+                "cache-size-gb": "double"
+              },
+              "index-config": {
+                "prefix-compression": "bool"
+              }
+            }
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongoinfra": {
+        "config-mongocfg": {
+          "net": {
+            "max-incoming-connections": "int"
+          },
+          "operation-profiling": {
+            "mode": "OFF|SLOW_OP|ALL",
+            "slow-op-threshold": "int"
+          },
+          "storage": {
+            "wired-tiger": {
+              "engine-config": {
+                "cache-size-gb": "double"
+              }
+            }
+          }
+        },
+        "config-mongos": {
+          "net": {
+            "compression": {
+              "compressors": [
+                "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+              ]
+            },
+            "max-incoming-connections": "int"
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      },
+      "mongos": {
+        "config": {
+          "net": {
+            "compression": {
+              "compressors": [
+                "SNAPPY|ZLIB|ZSTD|DISABLED", ...
+              ]
+            },
+            "max-incoming-connections": "int"
+          }
+        },
+        "disk-size-autoscaling": {
+          "disk-size-limit": "int",
+          "emergency-usage-threshold": "int",
+          "planned-usage-threshold": "int"
+        },
+        "resources": {
+          "disk-size": "int",
+          "disk-type-id": "str",
+          "resource-preset-id": "str"
+        }
+      }
+    }
+  },
+  "performance-diagnostics": {
+    "profiling-enabled": "bool"
+  },
+  "version": "str"
+}
+```
+
+Fields:
+
+```
+access -> (struct)
+  Access policy to DB
+  data-lens -> (bool)
+    Allow access for DataLens.
+  data-transfer -> (bool)
+    Allow access for DataTransfer.
+  web-sql -> (bool)
+    Allow access for Web SQL.
+backup-retain-period-days -> (int)
+  Retain period of automatically created backup in days
+backup-window-start -> (timeofday)
+  Time to start the daily backup, in the UTC timezone.
+feature-compatibility-version -> (string)
+  MongoDB feature compatibility version. See usage details in MongoDB documentation. Possible values: * '3.6' - persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older. * '4.0' - persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older. * '4.2' - persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older. * '4.4' - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or older. * '5.0' - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 4.4 or older. * '6.0' - persist data compatibility for version 6.0. After setting this option the data will not be compatible with 5.0 or older.
+mongodb -> (struct)
+  Configuration and resource allocation for a MongoDB 7.0 Enterprise cluster.
+  mongocfg -> (struct)
+    Configuration and resource allocation for mongocfg hosts.
+    config -> (struct)
+      Configuration for mongocfg hosts.
+      audit-log -> (struct)
+        'AuditLog' section of mongocfg configuration.
+        filter -> (string)
+          Audit filter, should be valid JSON object string
+      chaining-allowed -> (bool)
+        Chained replication setting
+      net -> (struct)
+        'net' section of mongocfg configuration.
+        max-incoming-connections -> (int)
+          The maximum number of simultaneous connections that mongocfg will accept.
+      operation-profiling -> (struct)
+        'operationProfiling' section of mongocfg configuration.
+        mode -> (struct)
+          Mode which specifies operations that should be profiled.
+        slow-op-threshold -> (int)
+          The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.
+      oplog -> (struct)
+        'Oplog' section of mongod configuration.
+        max-size-percent -> (int)
+          Oplog maxsize in percents.
+        min-retention-hours -> (double)
+          The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour.
+      set-parameter -> (struct)
+        'setParameter' section of mongocfg configuration.
+        audit-authorization-success -> (bool)
+          Enables the auditing of authorization successes https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess
+        enable-flow-control -> (bool)
+          Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members majority committed lag under a configurable maximum value.
+      storage -> (struct)
+        'storage' section of mongocfg configuration.
+        wired-tiger -> (struct)
+          Configuration of the WiredTiger storage engine.
+          engine-config -> (struct)
+            Engine configuration for WiredTiger.
+            cache-size -> (double)
+              The maximum size of the internal cache that WiredTiger will use for all data in percents.
+            cache-size-gb -> (double)
+              The maximum size of the internal cache that WiredTiger will use for all data.
+    disk-size-autoscaling -> (struct)
+      Disk size autoscaling settings
+      disk-size-limit -> (int)
+        Limit on how large the storage for database instances can automatically grow, in bytes.
+      emergency-usage-threshold -> (int)
+        Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+      planned-usage-threshold -> (int)
+        Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+    resources -> (struct)
+      Resources allocated to each mongocfg host.
+      disk-size -> (int)
+        Volume of the storage available to a host, in bytes.
+      disk-type-id -> (string)
+        Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+      resource-preset-id -> (string)
+        ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+  mongod -> (struct)
+    Configuration and resource allocation for mongod hosts.
+    config -> (struct)
+      audit-log -> (struct)
+        'AuditLog' section of mongod configuration.
+        filter -> (string)
+          Audit filter
+        runtime-configuration -> (bool)
+          Allows runtime configuration of audit filter and auditAuthorizationSuccess
+      chaining-allowed -> (bool)
+        Chained replication setting
+      net -> (struct)
+        'net' section of mongod configuration.
+        compression -> (struct)
+          Compression settings
+          compressors -> ([]struct)
+            Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+        max-incoming-connections -> (int)
+          The maximum number of simultaneous connections that mongod will accept.
+      operation-profiling -> (struct)
+        'operationProfiling' section of mongod configuration.
+        mode -> (struct)
+          Mode which specifies operations that should be profiled.
+        slow-op-sample-rate -> (double)
+          The fraction of slow operations that should be profiled or logged. operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+        slow-op-threshold -> (int)
+          The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.
+      oplog -> (struct)
+        'Oplog' section of mongod configuration.
+        max-size-percent -> (int)
+          Oplog maxsize in percents.
+        min-retention-hours -> (double)
+          The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour.
+      security -> (struct)
+        'security' section of mongod configuration.
+        enable-encryption -> (bool)
+          If encryption at rest should be enabled or not
+        kmip -> (struct)
+          'kmip' section of mongod security config
+          client-certificate -> (string)
+            KMIP client certificate + private key (unencrypted)
+          key-identifier -> (string)
+            KMIP Key identifier (if any)
+          port -> (int)
+            KMIP server port
+          server-ca -> (string)
+            KMIP Server CA
+          server-name -> (string)
+            KMIP server name
+      set-parameter -> (struct)
+        'SetParameter' section of mongod configuration.
+        audit-authorization-success -> (bool)
+          Enables the auditing of authorization successes
+        enable-flow-control -> (bool)
+          Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members majority committed lag under a configurable maximum value.
+        flow-control-target-lag-seconds -> (int)
+          The target maximum majority committed lag when running with flow control
+        flow-control-warn-threshold-seconds -> (int)
+          The amount of time to wait to log a warning once the flow control mechanism detects the majority commit point has not moved.
+        migrate-clone-insertion-batch-delay-ms -> (int)
+          Time in milliseconds to wait between batches of insertions during cloning step of the migration process.
+        migrate-clone-insertion-batch-size -> (int)
+          The maximum number of documents to insert in a single batch during the cloning step of the migration process.
+        min-snapshot-history-window-in-seconds -> (int)
+          The minimum time window in seconds for which the storage engine keeps the snapshot history.
+        mirror-reads -> (struct)
+          Specifies the settings for mirrored reads for the mongod instance
+          max-time-ms -> (int)
+            The maximum time in milliseconds for the mirrored reads.
+          sampling-rate -> (double)
+            The sampling rate used to mirror a subset of operations that support mirroring.
+        orphan-cleanup-delay-secs -> (int)
+          Minimum delay before a migrated chunk is deleted from the source shard.
+        persisted-chunk-cache-update-max-batch-size -> (int)
+          Specifies the maximum batch size used for updating the persisted chunk cache.
+        range-deleter-batch-delay-ms -> (int)
+          The amount of time in milliseconds to wait before the next batch of deletion during the cleanup stage of chunk migration (or the cleanupOrphaned command).
+        range-deleter-batch-size -> (int)
+          The maximum number of documents in each batch to delete during the cleanup stage of chunk migration (or the cleanupOrphaned command).
+      storage -> (struct)
+        'storage' section of mongod configuration.
+        journal -> (struct)
+          Configuration of the MongoDB journal.
+          commit-interval -> (int)
+            Commit interval between journal operations, in milliseconds. Default: 100.
+        wired-tiger -> (struct)
+          Configuration of the WiredTiger storage engine.
+          collection-config -> (struct)
+            Collection configuration for WiredTiger.
+            block-compressor -> (struct)
+              Default type of compression to use for collection data.
+          engine-config -> (struct)
+            Engine configuration for WiredTiger.
+            cache-size -> (double)
+              The maximum size of the internal cache that WiredTiger will use for all data in percents.
+            cache-size-gb -> (double)
+              The maximum size of the internal cache that WiredTiger will use for all data.
+          index-config -> (struct)
+            Index configuration for WiredTiger
+            prefix-compression -> (bool)
+              Enables or disables prefix compression
+    disk-size-autoscaling -> (struct)
+      Disk size autoscaling settings
+      disk-size-limit -> (int)
+        Limit on how large the storage for database instances can automatically grow, in bytes.
+      emergency-usage-threshold -> (int)
+        Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+      planned-usage-threshold -> (int)
+        Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+    resources -> (struct)
+      Resources allocated to each mongod host.
+      disk-size -> (int)
+        Volume of the storage available to a host, in bytes.
+      disk-type-id -> (string)
+        Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+      resource-preset-id -> (string)
+        ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+  mongoinfra -> (struct)
+    Configuration and resource allocation for mongoinfra (mongos+mongocfg) hosts.
+    config-mongocfg -> (struct)
+      audit-log -> (struct)
+        'AuditLog' section of mongocfg configuration.
+        filter -> (string)
+          Audit filter, should be valid JSON object string
+      chaining-allowed -> (bool)
+        Chained replication setting
+      net -> (struct)
+        'net' section of mongocfg configuration.
+        max-incoming-connections -> (int)
+          The maximum number of simultaneous connections that mongocfg will accept.
+      operation-profiling -> (struct)
+        'operationProfiling' section of mongocfg configuration.
+        mode -> (struct)
+          Mode which specifies operations that should be profiled.
+        slow-op-threshold -> (int)
+          The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.
+      oplog -> (struct)
+        'Oplog' section of mongod configuration.
+        max-size-percent -> (int)
+          Oplog maxsize in percents.
+        min-retention-hours -> (double)
+          The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour.
+      set-parameter -> (struct)
+        'setParameter' section of mongocfg configuration.
+        audit-authorization-success -> (bool)
+          Enables the auditing of authorization successes https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess
+        enable-flow-control -> (bool)
+          Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members majority committed lag under a configurable maximum value.
+      storage -> (struct)
+        'storage' section of mongocfg configuration.
+        wired-tiger -> (struct)
+          Configuration of the WiredTiger storage engine.
+          engine-config -> (struct)
+            Engine configuration for WiredTiger.
+            cache-size -> (double)
+              The maximum size of the internal cache that WiredTiger will use for all data in percents.
+            cache-size-gb -> (double)
+              The maximum size of the internal cache that WiredTiger will use for all data.
+    config-mongos -> (struct)
+      Configuration for mongoinfra hosts.
+      audit-log -> (struct)
+        'AuditLog' section of mongos configuration.
+        filter -> (string)
+          Audit filter, should be valid JSON object string
+      chunk-size -> (int)
+        'ChunkSize' parameter of mongos configuration.
+      net -> (struct)
+        Network settings for mongos.
+        compression -> (struct)
+          Compression settings
+          compressors -> ([]struct)
+            Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+        max-incoming-connections -> (int)
+          The maximum number of simultaneous connections that mongos will accept.
+      set-parameter -> (struct)
+        'setParameter' section of mongos configuration.
+        audit-authorization-success -> (bool)
+          Enables the auditing of authorization successes https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess
+        read-hedging-mode -> (str)
+          Specifies whether mongos supports hedged reads for those read operations whose read preference have enabled the hedged read option.
+        sharding-task-executor-pool-host-timeout-ms -> (int)
+          Maximum time that mongos goes without communication to a host before mongos drops all connections to the host.
+        sharding-task-executor-pool-max-connecting -> (int)
+          Maximum number of simultaneous initiating connections (including pending connections in setup/refresh state) each TaskExecutor connection pool can have to a mongod instance.
+        sharding-task-executor-pool-max-size -> (int)
+          Maximum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance.
+        sharding-task-executor-pool-max-size-for-config-servers -> (int)
+          Optional override for ShardingTaskExecutorPoolMaxSize to set the maximum number of outbound connections each TaskExecutor connection pool can open to a configuration server.
+        sharding-task-executor-pool-min-size -> (int)
+          Minimum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance.
+        sharding-task-executor-pool-min-size-for-config-servers -> (int)
+          Optional override for ShardingTaskExecutorPoolMinSize to set the minimum number of outbound connections each TaskExecutor connection pool can open to a configuration server.
+        sharding-task-executor-pool-refresh-requirement-ms -> (int)
+          Maximum time the mongos waits before attempting to heartbeat an idle connection in the pool.
+        sharding-task-executor-pool-refresh-timeout-ms -> (int)
+          Maximum time the mongos waits for a heartbeat before timing out the heartbeat.
+        sharding-task-executor-pool-replica-set-matching -> (str)
+          On a mongos instance, this parameter sets the policy that determines the minimum size limit of its connection pools to nodes within replica sets.
+        warm-min-connections-in-sharding-task-executor-pool-on-startup -> (bool)
+          Configures a mongos instance to prewarm its connection pool on startup.
+        warm-min-connections-in-sharding-task-executor-pool-on-startup-wait-ms -> (int)
+          Sets the timeout threshold in milliseconds for a mongos to wait for ShardingTaskExecutorPoolMinSize connections to be established per shard host when using the warmMinConnectionsInShardingTaskExecutorPoolOnStartup parameter.
+    disk-size-autoscaling -> (struct)
+      Disk size autoscaling settings
+      disk-size-limit -> (int)
+        Limit on how large the storage for database instances can automatically grow, in bytes.
+      emergency-usage-threshold -> (int)
+        Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+      planned-usage-threshold -> (int)
+        Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+    resources -> (struct)
+      Resources allocated to each mongoinfra (mongos+mongocfg) host.
+      disk-size -> (int)
+        Volume of the storage available to a host, in bytes.
+      disk-type-id -> (string)
+        Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+      resource-preset-id -> (string)
+        ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+  mongos -> (struct)
+    Configuration and resource allocation for mongos hosts.
+    config -> (struct)
+      Configuration for mongos hosts.
+      audit-log -> (struct)
+        'AuditLog' section of mongos configuration.
+        filter -> (string)
+          Audit filter, should be valid JSON object string
+      chunk-size -> (int)
+        'ChunkSize' parameter of mongos configuration.
+      net -> (struct)
+        Network settings for mongos.
+        compression -> (struct)
+          Compression settings
+          compressors -> ([]struct)
+            Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+        max-incoming-connections -> (int)
+          The maximum number of simultaneous connections that mongos will accept.
+      set-parameter -> (struct)
+        'setParameter' section of mongos configuration.
+        audit-authorization-success -> (bool)
+          Enables the auditing of authorization successes https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess
+        read-hedging-mode -> (str)
+          Specifies whether mongos supports hedged reads for those read operations whose read preference have enabled the hedged read option.
+        sharding-task-executor-pool-host-timeout-ms -> (int)
+          Maximum time that mongos goes without communication to a host before mongos drops all connections to the host.
+        sharding-task-executor-pool-max-connecting -> (int)
+          Maximum number of simultaneous initiating connections (including pending connections in setup/refresh state) each TaskExecutor connection pool can have to a mongod instance.
+        sharding-task-executor-pool-max-size -> (int)
+          Maximum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance.
+        sharding-task-executor-pool-max-size-for-config-servers -> (int)
+          Optional override for ShardingTaskExecutorPoolMaxSize to set the maximum number of outbound connections each TaskExecutor connection pool can open to a configuration server.
+        sharding-task-executor-pool-min-size -> (int)
+          Minimum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance.
+        sharding-task-executor-pool-min-size-for-config-servers -> (int)
+          Optional override for ShardingTaskExecutorPoolMinSize to set the minimum number of outbound connections each TaskExecutor connection pool can open to a configuration server.
+        sharding-task-executor-pool-refresh-requirement-ms -> (int)
+          Maximum time the mongos waits before attempting to heartbeat an idle connection in the pool.
+        sharding-task-executor-pool-refresh-timeout-ms -> (int)
+          Maximum time the mongos waits for a heartbeat before timing out the heartbeat.
+        sharding-task-executor-pool-replica-set-matching -> (str)
+          On a mongos instance, this parameter sets the policy that determines the minimum size limit of its connection pools to nodes within replica sets.
+        warm-min-connections-in-sharding-task-executor-pool-on-startup -> (bool)
+          Configures a mongos instance to prewarm its connection pool on startup.
+        warm-min-connections-in-sharding-task-executor-pool-on-startup-wait-ms -> (int)
+          Sets the timeout threshold in milliseconds for a mongos to wait for ShardingTaskExecutorPoolMinSize connections to be established per shard host when using the warmMinConnectionsInShardingTaskExecutorPoolOnStartup parameter.
+    disk-size-autoscaling -> (struct)
+      Disk size autoscaling settings
+      disk-size-limit -> (int)
+        Limit on how large the storage for database instances can automatically grow, in bytes.
+      emergency-usage-threshold -> (int)
+        Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+      planned-usage-threshold -> (int)
+        Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+    resources -> (struct)
+      Resources allocated to each mongos host.
+      disk-size -> (int)
+        Volume of the storage available to a host, in bytes.
+      disk-type-id -> (string)
+        Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+      resource-preset-id -> (string)
+        ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+performance-diagnostics -> (struct)
+  Performance Diagnosics configuration
+  profiling-enabled -> (bool)
+version -> (string)
+  Version of MongoDB used in the cluster. Possible values: '3.6', '4.0', '4.2', '4.4', '4.4-enterprise', '5.0', '5.0-enterprise', '6.0', '6.0-enterprise'.
+mongodb-spec -> (oneof<mongodb-spec-3-6|mongodb-spec-4-0|mongodb-spec-4-2|mongodb-spec-4-4|mongodb-spec-4-4-enterprise|mongodb-spec-5-0|mongodb-spec-5-0-enterprise|mongodb-spec-6-0|mongodb-spec-6-0-enterprise>)
+  Oneof mongodb-spec field
+  mongodb-spec-3-6 -> (struct)
+    Configuration and resource allocation for a MongoDB 3.6 cluster.
+    mongocfg -> (struct)
+      Configuration and resource allocation for mongocfg 3.6 hosts.
+      config -> (struct)
+        Configuration for mongocfg 3.6 hosts.
+        net -> (struct)
+          'net' section of mongocfg configuration.
+          max-incoming-connections -> (int)
+            The maximum number of incoming connections.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongocfg configuration.
+          mode -> (struct)
+            Operation profiling level. For details, see MongoDB documentation.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.
+        storage -> (struct)
+          'storage' section of mongocfg configuration.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongocfg host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongod -> (struct)
+      Configuration and resource allocation for mongod 3.6 hosts.
+      config -> (struct)
+        Configuration for mongod 3.6 hosts.
+        net -> (struct)
+          'net' section of mongod configuration.
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongod will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongod configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.
+        storage -> (struct)
+          'storage' section of mongod configuration.
+          journal -> (struct)
+            Configuration of the MongoDB journal.
+            commit-interval -> (int)
+              Commit interval between journal operations, in milliseconds. Default: 100.
+            enabled -> (bool)
+              Whether the journal is enabled or disabled. Possible values: * true (default) - the journal is enabled. * false - the journal is disabled.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            collection-config -> (struct)
+              Collection configuration for WiredTiger.
+              block-compressor -> (struct)
+                Default type of compression to use for collection data.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongod host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongoinfra -> (struct)
+      Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts.
+      config-mongocfg -> (struct)
+        net -> (struct)
+          'net' section of mongocfg configuration.
+          max-incoming-connections -> (int)
+            The maximum number of incoming connections.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongocfg configuration.
+          mode -> (struct)
+            Operation profiling level. For details, see MongoDB documentation.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.
+        storage -> (struct)
+          'storage' section of mongocfg configuration.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+      config-mongos -> (struct)
+        Configuration for mongoinfra 3.6 hosts.
+        net -> (struct)
+          Network settings for mongos.
+          max-incoming-connections -> (int)
+            The maximum number of incoming connections.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongoinfra (mongos+mongocfg) host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongos -> (struct)
+      Configuration and resource allocation for mongos 3.6 hosts.
+      config -> (struct)
+        Configuration for mongos 3.6 hosts.
+        net -> (struct)
+          Network settings for mongos.
+          max-incoming-connections -> (int)
+            The maximum number of incoming connections.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongos host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+  mongodb-spec-4-0 -> (struct)
+    Configuration and resource allocation for a MongoDB 4.0 cluster.
+    mongocfg -> (struct)
+      Configuration and resource allocation for mongocfg 4.0 hosts.
+      config -> (struct)
+        Configuration for mongocfg 4.0 hosts.
+        net -> (struct)
+          'net' section of mongocfg configuration.
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongocfg will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongocfg configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.
+        storage -> (struct)
+          'storage' section of mongocfg configuration.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongocfg host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongod -> (struct)
+      Configuration and resource allocation for mongod 4.0 hosts.
+      config -> (struct)
+        Configuration for mongod 4.0 hosts.
+        net -> (struct)
+          'net' section of mongod configuration.
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongod will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongod configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.
+        storage -> (struct)
+          'storage' section of mongod configuration.
+          journal -> (struct)
+            Configuration of the MongoDB journal.
+            commit-interval -> (int)
+              Commit interval between journal operations, in milliseconds. Default: 100.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            collection-config -> (struct)
+              Collection configuration for WiredTiger.
+              block-compressor -> (struct)
+                Default type of compression to use for collection data.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongod host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongoinfra -> (struct)
+      Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts.
+      config-mongocfg -> (struct)
+        net -> (struct)
+          'net' section of mongocfg configuration.
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongocfg will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongocfg configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.
+        storage -> (struct)
+          'storage' section of mongocfg configuration.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+      config-mongos -> (struct)
+        Configuration for mongoinfra 4.0 hosts.
+        net -> (struct)
+          Network settings for mongos.
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongos will accept.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongoinfra (mongos+mongocfg) host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongos -> (struct)
+      Configuration and resource allocation for mongos 4.0 hosts.
+      config -> (struct)
+        Configuration for mongos 4.0 hosts.
+        net -> (struct)
+          Network settings for mongos.
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongos will accept.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongos host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+  mongodb-spec-4-2 -> (struct)
+    Configuration and resource allocation for a MongoDB 4.2 cluster.
+    mongocfg -> (struct)
+      Configuration and resource allocation for mongocfg 4.2 hosts.
+      config -> (struct)
+        Configuration for mongocfg 4.2 hosts.
+        net -> (struct)
+          'net' section of mongocfg configuration.
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongocfg will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongocfg configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.
+        storage -> (struct)
+          'storage' section of mongocfg configuration.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongocfg host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongod -> (struct)
+      Configuration and resource allocation for mongod 4.2 hosts.
+      config -> (struct)
+        Configuration for mongod 4.2 hosts.
+        net -> (struct)
+          'net' section of mongod configuration.
+          compression -> (struct)
+            Compression settings
+            compressors -> ([]struct)
+              Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongod will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongod configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-sample-rate -> (double)
+            The fraction of slow operations that should be profiled or logged. operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.
+        set-parameter -> (struct)
+          'replication' section of mongod configuration.
+          enable-flow-control -> (bool)
+            Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members majority committed lag under a configurable maximum value.
+        storage -> (struct)
+          'storage' section of mongod configuration.
+          journal -> (struct)
+            Configuration of the MongoDB journal.
+            commit-interval -> (int)
+              Commit interval between journal operations, in milliseconds. Default: 100.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            collection-config -> (struct)
+              Collection configuration for WiredTiger.
+              block-compressor -> (struct)
+                Default type of compression to use for collection data.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+            index-config -> (struct)
+              Index configuration for WiredTiger
+              prefix-compression -> (bool)
+                Enables or disables prefix compression
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongod host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongoinfra -> (struct)
+      Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts.
+      config-mongocfg -> (struct)
+        net -> (struct)
+          'net' section of mongocfg configuration.
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongocfg will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongocfg configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.
+        storage -> (struct)
+          'storage' section of mongocfg configuration.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+      config-mongos -> (struct)
+        Configuration for mongoinfra 4.2 hosts.
+        net -> (struct)
+          Network settings for mongos.
+          compression -> (struct)
+            Compression settings
+            compressors -> ([]struct)
+              Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongos will accept.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongoinfra (mongos+mongocfg) host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongos -> (struct)
+      Configuration and resource allocation for mongos 4.2 hosts.
+      config -> (struct)
+        Configuration for mongos 4.2 hosts.
+        net -> (struct)
+          Network settings for mongos.
+          compression -> (struct)
+            Compression settings
+            compressors -> ([]struct)
+              Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongos will accept.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongos host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+  mongodb-spec-4-4 -> (struct)
+    Configuration and resource allocation for a MongoDB 4.4 cluster.
+    mongocfg -> (struct)
+      Configuration and resource allocation for mongocfg 4.4 hosts.
+      config -> (struct)
+        Configuration for mongocfg 4.4 hosts.
+        net -> (struct)
+          'net' section of mongocfg configuration.
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongocfg will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongocfg configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.
+        storage -> (struct)
+          'storage' section of mongocfg configuration.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongocfg host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongod -> (struct)
+      Configuration and resource allocation for mongod 4.4 hosts.
+      config -> (struct)
+        Configuration for mongod 4.4 hosts.
+        net -> (struct)
+          'net' section of mongod configuration.
+          compression -> (struct)
+            Compression settings
+            compressors -> ([]struct)
+              Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongod will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongod configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-sample-rate -> (double)
+            The fraction of slow operations that should be profiled or logged. operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.
+        set-parameter -> (struct)
+          'replication' section of mongod configuration.
+          enable-flow-control -> (bool)
+            Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members majority committed lag under a configurable maximum value.
+        storage -> (struct)
+          'storage' section of mongod configuration.
+          journal -> (struct)
+            Configuration of the MongoDB journal.
+            commit-interval -> (int)
+              Commit interval between journal operations, in milliseconds. Default: 100.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            collection-config -> (struct)
+              Collection configuration for WiredTiger.
+              block-compressor -> (struct)
+                Default type of compression to use for collection data.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+            index-config -> (struct)
+              Index configuration for WiredTiger
+              prefix-compression -> (bool)
+                Enables or disables prefix compression
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongod host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongoinfra -> (struct)
+      Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts.
+      config-mongocfg -> (struct)
+        net -> (struct)
+          'net' section of mongocfg configuration.
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongocfg will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongocfg configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.
+        storage -> (struct)
+          'storage' section of mongocfg configuration.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+      config-mongos -> (struct)
+        Configuration for mongoinfra 4.4 hosts.
+        net -> (struct)
+          Network settings for mongos.
+          compression -> (struct)
+            Compression settings
+            compressors -> ([]struct)
+              Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongos will accept.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongoinfra (mongos+mongocfg) host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongos -> (struct)
+      Configuration and resource allocation for mongos 4.4 hosts.
+      config -> (struct)
+        Configuration for mongos 4.4 hosts.
+        net -> (struct)
+          Network settings for mongos.
+          compression -> (struct)
+            Compression settings
+            compressors -> ([]struct)
+              Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongos will accept.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongos host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+  mongodb-spec-5-0 -> (struct)
+    Configuration and resource allocation for a MongoDB 5.0 cluster.
+    mongocfg -> (struct)
+      Configuration and resource allocation for mongocfg 5.0 hosts.
+      config -> (struct)
+        Configuration for mongocfg 5.0 hosts.
+        net -> (struct)
+          'net' section of mongocfg configuration.
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongocfg will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongocfg configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.
+        storage -> (struct)
+          'storage' section of mongocfg configuration.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongocfg host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongod -> (struct)
+      Configuration and resource allocation for mongod 5.0 hosts.
+      config -> (struct)
+        Configuration for mongod 5.0 hosts.
+        net -> (struct)
+          'net' section of mongod configuration.
+          compression -> (struct)
+            Compression settings
+            compressors -> ([]struct)
+              Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongod will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongod configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-sample-rate -> (double)
+            The fraction of slow operations that should be profiled or logged. operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.
+        set-parameter -> (struct)
+          'SetParameter' section of mongod configuration.
+          enable-flow-control -> (bool)
+            Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members majority committed lag under a configurable maximum value.
+          min-snapshot-history-window-in-seconds -> (int)
+            The minimum time window in seconds for which the storage engine keeps the snapshot history.
+        storage -> (struct)
+          'storage' section of mongod configuration.
+          journal -> (struct)
+            Configuration of the MongoDB journal.
+            commit-interval -> (int)
+              Commit interval between journal operations, in milliseconds. Default: 100.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            collection-config -> (struct)
+              Collection configuration for WiredTiger.
+              block-compressor -> (struct)
+                Default type of compression to use for collection data.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+            index-config -> (struct)
+              Index configuration for WiredTiger
+              prefix-compression -> (bool)
+                Enables or disables prefix compression
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongod host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongoinfra -> (struct)
+      Configuration and resource allocation for mongoinfra (mongos+mongocfg) 5.0 hosts.
+      config-mongocfg -> (struct)
+        net -> (struct)
+          'net' section of mongocfg configuration.
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongocfg will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongocfg configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.
+        storage -> (struct)
+          'storage' section of mongocfg configuration.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+      config-mongos -> (struct)
+        Configuration for mongoinfra 5.0 hosts.
+        net -> (struct)
+          Network settings for mongos.
+          compression -> (struct)
+            Compression settings
+            compressors -> ([]struct)
+              Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongos will accept.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongoinfra (mongos+mongocfg) host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongos -> (struct)
+      Configuration and resource allocation for mongos 5.0 hosts.
+      config -> (struct)
+        Configuration for mongos 5.0 hosts.
+        net -> (struct)
+          Network settings for mongos.
+          compression -> (struct)
+            Compression settings
+            compressors -> ([]struct)
+              Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongos will accept.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongos host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+  mongodb-spec-6-0 -> (struct)
+    Configuration and resource allocation for a MongoDB 6.0 cluster.
+    mongocfg -> (struct)
+      Configuration and resource allocation for mongocfg 6.0 hosts.
+      config -> (struct)
+        Configuration for mongocfg 6.0 hosts.
+        net -> (struct)
+          'net' section of mongocfg configuration.
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongocfg will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongocfg configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.
+        storage -> (struct)
+          'storage' section of mongocfg configuration.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongocfg host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongod -> (struct)
+      Configuration and resource allocation for mongod 6.0 hosts.
+      config -> (struct)
+        Configuration for mongod 6.0 hosts.
+        net -> (struct)
+          'net' section of mongod configuration.
+          compression -> (struct)
+            Compression settings
+            compressors -> ([]struct)
+              Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongod will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongod configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-sample-rate -> (double)
+            The fraction of slow operations that should be profiled or logged. operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.
+        set-parameter -> (struct)
+          'SetParameter' section of mongod configuration.
+          enable-flow-control -> (bool)
+            Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members majority committed lag under a configurable maximum value.
+          min-snapshot-history-window-in-seconds -> (int)
+            The minimum time window in seconds for which the storage engine keeps the snapshot history.
+        storage -> (struct)
+          'storage' section of mongod configuration.
+          journal -> (struct)
+            Configuration of the MongoDB journal.
+            commit-interval -> (int)
+              Commit interval between journal operations, in milliseconds. Default: 100.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            collection-config -> (struct)
+              Collection configuration for WiredTiger.
+              block-compressor -> (struct)
+                Default type of compression to use for collection data.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+            index-config -> (struct)
+              Index configuration for WiredTiger
+              prefix-compression -> (bool)
+                Enables or disables prefix compression
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongod host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongoinfra -> (struct)
+      Configuration and resource allocation for mongoinfra (mongos+mongocfg) 6.0 hosts.
+      config-mongocfg -> (struct)
+        net -> (struct)
+          'net' section of mongocfg configuration.
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongocfg will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongocfg configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.
+        storage -> (struct)
+          'storage' section of mongocfg configuration.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+      config-mongos -> (struct)
+        Configuration for mongoinfra 6.0 hosts.
+        net -> (struct)
+          Network settings for mongos.
+          compression -> (struct)
+            Compression settings
+            compressors -> ([]struct)
+              Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongos will accept.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongoinfra (mongos+mongocfg) host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongos -> (struct)
+      Configuration and resource allocation for mongos 6.0 hosts.
+      config -> (struct)
+        Configuration for mongos 6.0 hosts.
+        net -> (struct)
+          Network settings for mongos.
+          compression -> (struct)
+            Compression settings
+            compressors -> ([]struct)
+              Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongos will accept.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongos host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+  mongodb-spec-4-4-enterprise -> (struct)
+    Configuration and resource allocation for a MongoDB 4.4 Enterprise cluster.
+    mongocfg -> (struct)
+      Configuration and resource allocation for mongocfg 4.4 hosts.
+      config -> (struct)
+        Configuration for mongocfg 4.4 hosts.
+        net -> (struct)
+          'net' section of mongocfg configuration.
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongocfg will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongocfg configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.
+        storage -> (struct)
+          'storage' section of mongocfg configuration.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongocfg host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongod -> (struct)
+      Configuration and resource allocation for mongod 4.4 hosts.
+      config -> (struct)
+        Configuration for mongod 4.4 hosts.
+        audit-log -> (struct)
+          'AuditLog' section of mongod configuration.
+          filter -> (string)
+            Audit filter
+        net -> (struct)
+          'net' section of mongod configuration.
+          compression -> (struct)
+            Compression settings
+            compressors -> ([]struct)
+              Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongod will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongod configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-sample-rate -> (double)
+            The fraction of slow operations that should be profiled or logged. operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.
+        security -> (struct)
+          'security' section of mongod configuration.
+          enable-encryption -> (bool)
+            If encryption at rest should be enabled or not
+          kmip -> (struct)
+            'kmip' section of mongod security config
+            client-certificate -> (string)
+              KMIP client certificate + private key (unencrypted)
+            key-identifier -> (string)
+              KMIP Key identifier (if any)
+            port -> (int)
+              KMIP server port
+            server-ca -> (string)
+              KMIP Server CA
+            server-name -> (string)
+              KMIP server name
+        set-parameter -> (struct)
+          'SetParameter' section of mongod configuration.
+          audit-authorization-success -> (bool)
+            Enables the auditing of authorization successes
+          enable-flow-control -> (bool)
+            Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members majority committed lag under a configurable maximum value.
+        storage -> (struct)
+          'storage' section of mongod configuration.
+          journal -> (struct)
+            Configuration of the MongoDB journal.
+            commit-interval -> (int)
+              Commit interval between journal operations, in milliseconds. Default: 100.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            collection-config -> (struct)
+              Collection configuration for WiredTiger.
+              block-compressor -> (struct)
+                Default type of compression to use for collection data.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+            index-config -> (struct)
+              Index configuration for WiredTiger
+              prefix-compression -> (bool)
+                Enables or disables prefix compression
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongod host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongoinfra -> (struct)
+      Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts.
+      config-mongocfg -> (struct)
+        net -> (struct)
+          'net' section of mongocfg configuration.
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongocfg will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongocfg configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.
+        storage -> (struct)
+          'storage' section of mongocfg configuration.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+      config-mongos -> (struct)
+        Configuration for mongoinfra 4.4 hosts.
+        net -> (struct)
+          Network settings for mongos.
+          compression -> (struct)
+            Compression settings
+            compressors -> ([]struct)
+              Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongos will accept.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongoinfra (mongos+mongocfg) host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongos -> (struct)
+      Configuration and resource allocation for mongos 4.4 hosts.
+      config -> (struct)
+        Configuration for mongos 4.4 hosts.
+        net -> (struct)
+          Network settings for mongos.
+          compression -> (struct)
+            Compression settings
+            compressors -> ([]struct)
+              Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongos will accept.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongos host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+  mongodb-spec-5-0-enterprise -> (struct)
+    Configuration and resource allocation for a MongoDB 5.0 Enterprise cluster.
+    mongocfg -> (struct)
+      Configuration and resource allocation for mongocfg 5.0 hosts.
+      config -> (struct)
+        Configuration for mongocfg 5.0 hosts.
+        net -> (struct)
+          'net' section of mongocfg configuration.
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongocfg will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongocfg configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.
+        storage -> (struct)
+          'storage' section of mongocfg configuration.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongocfg host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongod -> (struct)
+      Configuration and resource allocation for mongod 5.0 hosts.
+      config -> (struct)
+        Configuration for mongod 5.0 hosts.
+        audit-log -> (struct)
+          'AuditLog' section of mongod configuration.
+          filter -> (string)
+            Audit filter
+          runtime-configuration -> (bool)
+            Allows runtime configuration of audit filter and auditAuthorizationSuccess
+        net -> (struct)
+          'net' section of mongod configuration.
+          compression -> (struct)
+            Compression settings
+            compressors -> ([]struct)
+              Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongod will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongod configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-sample-rate -> (double)
+            The fraction of slow operations that should be profiled or logged. operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.
+        security -> (struct)
+          'security' section of mongod configuration.
+          enable-encryption -> (bool)
+            If encryption at rest should be enabled or not
+          kmip -> (struct)
+            'kmip' section of mongod security config
+            client-certificate -> (string)
+              KMIP client certificate + private key (unencrypted)
+            key-identifier -> (string)
+              KMIP Key identifier (if any)
+            port -> (int)
+              KMIP server port
+            server-ca -> (string)
+              KMIP Server CA
+            server-name -> (string)
+              KMIP server name
+        set-parameter -> (struct)
+          'SetParameter' section of mongod configuration.
+          audit-authorization-success -> (bool)
+            Enables the auditing of authorization successes
+          enable-flow-control -> (bool)
+            Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members majority committed lag under a configurable maximum value.
+          min-snapshot-history-window-in-seconds -> (int)
+            The minimum time window in seconds for which the storage engine keeps the snapshot history.
+        storage -> (struct)
+          'storage' section of mongod configuration.
+          journal -> (struct)
+            Configuration of the MongoDB journal.
+            commit-interval -> (int)
+              Commit interval between journal operations, in milliseconds. Default: 100.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            collection-config -> (struct)
+              Collection configuration for WiredTiger.
+              block-compressor -> (struct)
+                Default type of compression to use for collection data.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+            index-config -> (struct)
+              Index configuration for WiredTiger
+              prefix-compression -> (bool)
+                Enables or disables prefix compression
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongod host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongoinfra -> (struct)
+      Configuration and resource allocation for mongoinfra (mongos+mongocfg) 5.0 hosts.
+      config-mongocfg -> (struct)
+        net -> (struct)
+          'net' section of mongocfg configuration.
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongocfg will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongocfg configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.
+        storage -> (struct)
+          'storage' section of mongocfg configuration.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+      config-mongos -> (struct)
+        Configuration for mongoinfra 5.0 hosts.
+        net -> (struct)
+          Network settings for mongos.
+          compression -> (struct)
+            Compression settings
+            compressors -> ([]struct)
+              Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongos will accept.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongoinfra (mongos+mongocfg) host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongos -> (struct)
+      Configuration and resource allocation for mongos 5.0 hosts.
+      config -> (struct)
+        Configuration for mongos 5.0 hosts.
+        net -> (struct)
+          Network settings for mongos.
+          compression -> (struct)
+            Compression settings
+            compressors -> ([]struct)
+              Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongos will accept.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongos host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+  mongodb-spec-6-0-enterprise -> (struct)
+    Configuration and resource allocation for a MongoDB 6.0 Enterprise cluster.
+    mongocfg -> (struct)
+      Configuration and resource allocation for mongocfg 6.0 hosts.
+      config -> (struct)
+        Configuration for mongocfg 6.0 hosts.
+        net -> (struct)
+          'net' section of mongocfg configuration.
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongocfg will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongocfg configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.
+        storage -> (struct)
+          'storage' section of mongocfg configuration.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongocfg host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongod -> (struct)
+      Configuration and resource allocation for mongod 6.0 hosts.
+      config -> (struct)
+        Configuration for mongod 6.0 hosts.
+        audit-log -> (struct)
+          'AuditLog' section of mongod configuration.
+          filter -> (string)
+            Audit filter
+          runtime-configuration -> (bool)
+            Allows runtime configuration of audit filter and auditAuthorizationSuccess
+        net -> (struct)
+          'net' section of mongod configuration.
+          compression -> (struct)
+            Compression settings
+            compressors -> ([]struct)
+              Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongod will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongod configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-sample-rate -> (double)
+            The fraction of slow operations that should be profiled or logged. operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.
+        security -> (struct)
+          'security' section of mongod configuration.
+          enable-encryption -> (bool)
+            If encryption at rest should be enabled or not
+          kmip -> (struct)
+            'kmip' section of mongod security config
+            client-certificate -> (string)
+              KMIP client certificate + private key (unencrypted)
+            key-identifier -> (string)
+              KMIP Key identifier (if any)
+            port -> (int)
+              KMIP server port
+            server-ca -> (string)
+              KMIP Server CA
+            server-name -> (string)
+              KMIP server name
+        set-parameter -> (struct)
+          'SetParameter' section of mongod configuration.
+          audit-authorization-success -> (bool)
+            Enables the auditing of authorization successes
+          enable-flow-control -> (bool)
+            Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members majority committed lag under a configurable maximum value.
+          min-snapshot-history-window-in-seconds -> (int)
+            The minimum time window in seconds for which the storage engine keeps the snapshot history.
+        storage -> (struct)
+          'storage' section of mongod configuration.
+          journal -> (struct)
+            Configuration of the MongoDB journal.
+            commit-interval -> (int)
+              Commit interval between journal operations, in milliseconds. Default: 100.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            collection-config -> (struct)
+              Collection configuration for WiredTiger.
+              block-compressor -> (struct)
+                Default type of compression to use for collection data.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+            index-config -> (struct)
+              Index configuration for WiredTiger
+              prefix-compression -> (bool)
+                Enables or disables prefix compression
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongod host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongoinfra -> (struct)
+      Configuration and resource allocation for mongoinfra (mongos+mongocfg) 6.0 hosts.
+      config-mongocfg -> (struct)
+        net -> (struct)
+          'net' section of mongocfg configuration.
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongocfg will accept.
+        operation-profiling -> (struct)
+          'operationProfiling' section of mongocfg configuration.
+          mode -> (struct)
+            Mode which specifies operations that should be profiled.
+          slow-op-threshold -> (int)
+            The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode. For details see MongoDB documentation.
+        storage -> (struct)
+          'storage' section of mongocfg configuration.
+          wired-tiger -> (struct)
+            Configuration of the WiredTiger storage engine.
+            engine-config -> (struct)
+              Engine configuration for WiredTiger.
+              cache-size-gb -> (double)
+                The maximum size of the internal cache that WiredTiger will use for all data.
+      config-mongos -> (struct)
+        Configuration for mongoinfra 6.0 hosts.
+        net -> (struct)
+          Network settings for mongos.
+          compression -> (struct)
+            Compression settings
+            compressors -> ([]struct)
+              Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongos will accept.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongoinfra (mongos+mongocfg) host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+    mongos -> (struct)
+      Configuration and resource allocation for mongos 6.0 hosts.
+      config -> (struct)
+        Configuration for mongos 6.0 hosts.
+        net -> (struct)
+          Network settings for mongos.
+          compression -> (struct)
+            Compression settings
+            compressors -> ([]struct)
+              Specifies the default compressor(s) to use for communication between this mongod or mongos instance and: - other members of the deployment if the instance is part of a replica set or a sharded cluster - mongosh - drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:
+          max-incoming-connections -> (int)
+            The maximum number of simultaneous connections that mongos will accept.
+      disk-size-autoscaling -> (struct)
+        Disk size autoscaling settings
+        disk-size-limit -> (int)
+          Limit on how large the storage for database instances can automatically grow, in bytes.
+        emergency-usage-threshold -> (int)
+          Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
+        planned-usage-threshold -> (int)
+          Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+      resources -> (struct)
+        Resources allocated to each mongos host.
+        disk-size -> (int)
+          Volume of the storage available to a host, in bytes.
+        disk-type-id -> (string)
+          Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
+        resource-preset-id -> (string)
+          ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the documentation.
+``` ||
+|| `--deletion-protection` | Deletion Protection inhibits deletion of the cluster ||
+|| `--description` | `string`
+
+Description of the new MongoDB cluster. ||
+|| `--disk-encryption-key-id` | `string`
+
+ID of the key to encrypt cluster disks. ||
+|| `--environment` | `enum`
+
+Deployment environment of the new MongoDB cluster. Possible Values: 'production', 'prestable' ||
+|| `--folder-id` | `string`
+
+Required. ID of the folder to create the MongoDB cluster in. ||
+|| `--host-specs` | `shorthand/json`
+
+Configurations for MongoDB hosts that should be created for the cluster that is being created from the backup.
+
+Shorthand Syntax:
+
+```hcl
+[
+  {
+    assign-public-ip = bool,
+    hidden = bool,
+    priority = double,
+    secondary-delay-secs = int,
+    shard-name = str,
+    subnet-id = str,
+    tags = {key=str, key=...},
+    type = MONGOD|MONGOS|MONGOCFG|MONGOINFRA,
+    zone-id = str
+  }, ...
+]
+```
+
+JSON Syntax:
+
+```json
+[
+  {
+    "assign-public-ip": "bool",
+    "hidden": "bool",
+    "priority": "double",
+    "secondary-delay-secs": "int",
+    "shard-name": "str",
+    "subnet-id": "str",
+    "tags": {
+      "<key>": "str", ...
+    },
+    "type": "MONGOD|MONGOS|MONGOCFG|MONGOINFRA",
+    "zone-id": "str"
+  }, ...
+]
+```
+
+Fields:
+
+```
+assign-public-ip -> (bool)
+  Whether the host should get a public IP address on creation. After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with [assign_public_ip] set as needed. Possible values: * false - don't assign a public IP to the host. * true - the host should have a public IP address.
+hidden -> (bool)
+  Is host hidden in replSet
+priority -> (double)
+  Priority of host for the election in replSet
+secondary-delay-secs -> (int)
+  The number of seconds "behind" the primary that this replica set member should "lag"
+shard-name -> (string)
+  Name of the shard that the host belongs to.
+subnet-id -> (string)
+  ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The network ID is set in the [Cluster.network_id] field.
+tags -> (map[string,string])
+  Host tags
+type -> (struct)
+  Type of the host to be deployed.
+zone-id -> (string)
+  ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List] request.
+``` ||
+|| `--labels` | `stringToString`
+
+Custom labels for the MongoDB cluster as '' key:value '' pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". ||
+|| `--maintenance-window` | `shorthand/json`
+
+Maintenance window settings for the cluster.
+
+Shorthand Syntax:
+
+```hcl
+{
+  policy = anytime={} | weekly-maintenance-window={
+    day = MON|TUE|WED|THU|FRI|SAT|SUN,
+    hour = int
+  }
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "policy": {
+    "anytime": {},
+    "weekly-maintenance-window": {
+      "day": "MON|TUE|WED|THU|FRI|SAT|SUN",
+      "hour": "int"
+    }
+  }
+}
+```
+
+Fields:
+
+```
+policy -> (oneof<anytime|weekly-maintenance-window>)
+  Oneof policy field
+  anytime -> (struct)
+    Maintenance operation can be scheduled anytime.
+  weekly-maintenance-window -> (struct)
+    Maintenance operation can be scheduled on a weekly basis.
+    day -> (struct)
+      Day of the week (in 'DDD' format).
+    hour -> (int)
+      Hour of the day in UTC (in 'HH' format).
+``` ||
+|| `--name` | `string`
+
+Name of the new MongoDB cluster. The name must be unique within the folder. The name can't be changed after the MongoDB cluster is created. ||
+|| `--network-id` | `string`
+
+ID of the network to create the MongoDB cluster in. ||
+|| `--partial-restore-spec` | `shorthand/json`
+
+Specification of the list of cluster namespaces, which should be restored.
+
+Shorthand Syntax:
+
+```hcl
+{
+  blacklist = str,...,
+  whitelist = str,...
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "blacklist": [
+    "str", ...
+  ],
+  "whitelist": [
+    "str", ...
+  ]
+}
+```
+
+Fields:
+
+```
+blacklist -> ([]string)
+  List of MongoDB namespaces not restore to
+whitelist -> ([]string)
+  List of MongoDB namespaces restore to
+``` ||
+|| `--recovery-target-spec` | `shorthand/json`
+
+Specification of the moment to which the MongoDB cluster should be restored.
+
+Shorthand Syntax:
+
+```hcl
+{
+  timestamp = int
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "timestamp": "int"
+}
+```
+
+Fields:
+
+```
+timestamp -> (int)
+  Timestamp of the recovery target
+``` ||
+|| `--security-group-ids` | `strings`
+
+User security groups ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom profile.|
-|`--region`|<b>`string`</b><br/>Set the region.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--pager`|<b>`string`</b><br/>Set the custom pager.|
-|`--format`|<b>`string`</b><br/>Set the output format: text, yaml, json, table, json-rest.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--timeout`|<b>`string`</b><br/>Set the timeout.|
-|`--token`|<b>`string`</b><br/>Set the IAM token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--query`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

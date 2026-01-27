@@ -3,7 +3,7 @@ title: Adding invoking a function in {{ sf-short-name }} to a {{ sw-name }} work
 description: Follow this guide to add invocation of a function from {{ sf-full-name }} to a {{ sw-full-name }} workflow using the workflow step constructor.
 ---
 
-# Invoking a function {{ sf-full-name }}
+# Calling a function in {{ sf-full-name }}
 
 {% list tabs %}
 

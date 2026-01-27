@@ -10,11 +10,11 @@ description: Follow this guide to add a function label.
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select a function.
     1. In the top-right corner, click **{{ ui-key.yacloud.serverless-functions.list.button_action-edit }}**.
     1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-    1. Specify the key and value and press **Enter**.
+    1. Enter the key and the value, and press **Enter**.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -53,9 +53,9 @@ description: Follow this guide to add a function label.
 
     To add a function label:
 
-    1. In the {{ TF }} configuration file, add the `labels` section and specify a list of labels in it in `<key>:"<value>"` format.
+    1. In the {{ TF }} configuration file, add the `labels` section to list labels in `<key>:"<value>"` format.
 
-        Example function description in the {{ TF }} configuration:
+        Example of a function description in the {{ TF }} configuration:
       
         ```
         resource "yandex_function" "test-function" {
@@ -78,7 +78,7 @@ description: Follow this guide to add a function label.
         }
         ``` 
 
-        For more information about the `yandex_function` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
 
     1. Check the configuration using this command:
         
@@ -98,14 +98,14 @@ description: Follow this guide to add a function label.
        terraform plan
        ```
         
-       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
          
-    1. Apply the configuration changes:
+    1. Apply the changes:
 
        ```
        terraform apply
        ```
-    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+    1. Type `yes` and press **Enter** to confirm the changes.
       
     You can check the addition of function labels using this [CLI](../../../cli/quickstart.md) command:
 

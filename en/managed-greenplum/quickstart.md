@@ -39,8 +39,8 @@ Create a {{ GP }} cluster with public access. You can [connect](./operations/con
 
 To create a cluster:
 
-1. In the management console, select the folder where you want to create a DB cluster.
-1. Select **Yandex MPP Analytics for PostgreSQL**.
+1. In the management console, select the folder where you want to create your database cluster.
+1. [Navigate to](../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 
 
@@ -78,7 +78,7 @@ To create a cluster:
 1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 
-1. Wait until the cluster is ready: its status on the {{ mgp-short-name }} dashboard will switch to **Running** and its state, to **Alive**. This may take a while.
+1. Wait until the cluster is ready: its status on the {{ mgp-short-name }} dashboard will change to **Running** and its state, to **Alive**. This may take a while.
 
 For more information about creating a cluster, see [{#T}](./operations/cluster-create.md).
 
@@ -86,8 +86,9 @@ For more information about creating a cluster, see [{#T}](./operations/cluster-c
 
 Get the cluster ID required to [connect](#connect) to the cluster:
 
-1. In the management console, navigate to the folder dashboard and select **Yandex MPP Analytics for PostgreSQL**.
-1. Click the name of your cluster and open the ![image](../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.common.overview }}** tab.
+1. In the [management console]({{ link-console-main }}), navigate to the folder page.
+1. [Navigate to](../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+1. Click the name of your cluster and select the ![image](../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.common.overview }}** tab.
 1. Copy the cluster ID specified under **{{ ui-key.yacloud.common.section-base }}**.
 
 ## Connect to the cluster {#connect}
@@ -107,8 +108,8 @@ Connect to the cluster you [created](#create-cluster):
         {% endnote %}
 
     1. Launch DBeaver.
-    1. From the **Database** menu, select **New connection**.
-    1. Select **{{ GP }}** from the DB list.
+    1. In the **Database** menu, select **New connection**.
+    1. Select **{{ GP }}** from the database list.
     1. Click **Next**.
     1. Specify the main connection properties on the **Main** tab:
 
@@ -198,7 +199,7 @@ Connect to the cluster you [created](#create-cluster):
 
         Cluster ID [you got earlier](#get-cluster-id).
 
-        After running the command, enter the user password to complete the connection process.
+        After you run this command, enter the user password to complete the connection procedure.
 
         {% note warning %}
 
@@ -216,7 +217,7 @@ Connect to the cluster you [created](#create-cluster):
 
 {% endlist %}
 
-If the connection to the cluster and the test query are successful, you will see the {{ GP }} version.
+If your cluster connection and test query are successful, you will see the {{ GP }} version.
 
 ## Create a database {#create-db}
 

@@ -1,9 +1,9 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/hosts/update.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/hosts/update.md
 ---
 
-# yc managed-postgresql hosts update
+# yc managed-sharded-postgresql hosts update
 
 Update the specified hosts
 
@@ -11,17 +11,15 @@ Update the specified hosts
 
 Syntax: 
 
-`yc managed-postgresql hosts update <HOST-NAME> [<HOST-NAME>...] [Flags...] [Global Flags...]`
+`yc managed-sharded-postgresql hosts update <HOST-NAME> [<HOST-NAME>...] [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>PostgreSQL cluster id.|
-|`--cluster-name`|<b>`string`</b><br/>PostgreSQL cluster name.|
+|`--cluster-id`|<b>`string`</b><br/>Sharded PostgreSQL cluster id.|
+|`--cluster-name`|<b>`string`</b><br/>Sharded PostgreSQL cluster name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--replication-source`|<b>`string`</b><br/>Host name of the host to be used as the replication source (for cascading replication).|
-|`--priority`|<b>`int`</b><br/>Priority of the host as a replica.|
 |`--assign-public-ip`|Whether the host should get a public IP address.|
 
 #### Global Flags

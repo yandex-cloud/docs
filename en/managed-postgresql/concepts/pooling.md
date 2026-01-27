@@ -52,7 +52,7 @@ TTL of the longest active session/transaction is set in the cluster-level [Sessi
 
 ## Odyssey features {#features}
 
-Integrating {{ mpg-name }} with the Odyssey connection pooler has several advantages, e.g., if compared to the [PgBouncer](https://www.pgbouncer.org/) connection pooler:
+Integrating {{ mpg-name }} with the Odyssey connection pooler has several advantages, e.g., compared to the [PgBouncer](https://www.pgbouncer.org/) connection pooler:
 
 | Comparison criterion | Odyssey | PgBouncer |
 |------------------------|---------|-----------|
@@ -60,7 +60,7 @@ Integrating {{ mpg-name }} with the Odyssey connection pooler has several advant
 | Supporting client connections | Odyssey strives to keep the client connection alive as long as possible after the transaction ends in order to re-use it if this client returns with a new transaction. | PgBouncer seeks to return such kind of connection to the pool as quickly as possible. |
 | Handling errors | {{ mpg-name }} clusters provide improved error handling capabilities, thus ensuring that errors on the {{ PG }} side are sent to the client application without any changes. | PgBouncer hides {{ PG }} error messages. As a result, all errors look like a PgBouncer connection error to the client. |
 
-In addition, thanks to its integrated with Odyssey, a {{ mpg-name }} cluster:
+In addition, thanks to its integration with Odyssey, a {{ mpg-name }} cluster:
 
 * Supports numerous client connections without affecting the DBMS performance.
 * Requires no extra connection pooler configuration effort or additional infrastructure for it to operate.

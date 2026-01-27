@@ -1,17 +1,17 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/user/index.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/user/index.md
 ---
 
-# yc managed-postgresql user
+# yc managed-sharded-postgresql user
 
-Manage PostgreSQL users
+Manage Sharded PostgreSQL users
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-postgresql user <command>`
+`yc managed-sharded-postgresql user <command>`
 
 Aliases: 
 
@@ -19,13 +19,11 @@ Aliases:
 
 #### Command Tree
 
-- [yc managed-postgresql user create](create.md) — Create a PostgreSQL user
-- [yc managed-postgresql user delete](delete.md) — Delete the specified PostgreSQL user
-- [yc managed-postgresql user get](get.md) — Show information about the specified PostgreSQL user
-- [yc managed-postgresql user grant-permission](grant-permission.md) — Grant permission to the specified PostgreSQL user
-- [yc managed-postgresql user list](list.md) — List users for the specified PostgreSQL cluster
-- [yc managed-postgresql user revoke-permission](revoke-permission.md) — Revoke permission from the specified PostgreSQL user
-- [yc managed-postgresql user update](update.md) — Update the specified PostgreSQL user
+- [yc managed-sharded-postgresql user create](create.md) — Create a Sharded PostgreSQL user
+- [yc managed-sharded-postgresql user delete](delete.md) — Delete the specified Sharded PostgreSQL user
+- [yc managed-sharded-postgresql user get](get.md) — Show information about the specified Sharded PostgreSQL user
+- [yc managed-sharded-postgresql user list](list.md) — List users for the specified Sharded PostgreSQL cluster
+- [yc managed-sharded-postgresql user update](update.md) — Update the specified Sharded PostgreSQL user
 
 #### Global Flags
 

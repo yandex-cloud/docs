@@ -1,25 +1,24 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/cluster/get.md
+sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/cluster/get.md
 ---
 
-# yc managed-postgresql cluster get
+# yc managed-sharded-postgresql cluster get
 
-Show information about the specified PostgreSQL cluster
+Show information about the specified Sharded PostgreSQL cluster
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-postgresql cluster get <CLUSTER-NAME>|<CLUSTER-ID> [<CLUSTER-NAME>|<CLUSTER-ID>...] [Global Flags...]`
+`yc managed-sharded-postgresql cluster get <CLUSTER-NAME>|<CLUSTER-ID> [<CLUSTER-NAME>|<CLUSTER-ID>...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>PostgreSQL cluster id.|
-|`--name`|<b>`string`</b><br/>PostgreSQL cluster name.|
-|`--full`|Also show default and effective postgresql configs.|
+|`--id`|<b>`string`</b><br/>Sharded PostgreSQL cluster id.|
+|`--name`|<b>`string`</b><br/>Sharded PostgreSQL cluster name.|
 
 #### Global Flags
 

@@ -10,7 +10,7 @@ description: Follow this guide to update a function name.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), go to the folder where you want to update a [function](../../concepts/function.md) name.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select a function.
     1. In the top-right corner, click **{{ ui-key.yacloud.serverless-functions.list.button_action-edit }}**.
     1. In the window that opens, enter the desired function name.
@@ -29,7 +29,7 @@ description: Follow this guide to update a function name.
     ```
 
     Result:
-    ```
+    ```    
     id: b097d9ous3ge********
     folder_id: aoek49ghmknn********
     created_at: "2019-06-06T11:36:48.688Z"

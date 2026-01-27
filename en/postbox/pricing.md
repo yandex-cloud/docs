@@ -12,7 +12,7 @@ editable: false
 
 
 
-For a cost calculation, use our [calculator](https://yandex.cloud/en/prices?state=d41eb2e392e8#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=d41eb2e392e8#calculator) on our website or check out the pricing below.
 
 
 {% endnote %}
@@ -46,7 +46,6 @@ Calculating cost of 65,500 emails per month:
 
 
 ## Prices for the Russia region {#prices}
-
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
