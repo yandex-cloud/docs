@@ -3,3 +3,25 @@
 *.iml
 *.un~
 *.swp
+
+# Claude Code Skill - Temporary files
+.claude/bus/*.jsonl
+.claude/bus/*.db
+.claude/bus/*.db-*
+.claude/context/events/*.jsonl
+.env
+.env.local
+
+# Node modules (if any)
+node_modules/
+
+# Python cache (if any)
+__pycache__/
+*.pyc
+*.pyo
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
