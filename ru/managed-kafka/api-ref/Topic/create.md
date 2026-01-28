@@ -138,6 +138,17 @@ apiPlayground:
               True if we should preallocate the file on disk when creating a new log segment.
               This setting overrides the cluster-level [KafkaConfig2_8.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level.
             type: boolean
+          messageTimestampType:
+            description: |-
+              **enum** (MessageTimestampType)
+              Define whether the timestamp in the message is message create time or log append time.
+              - `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+              - `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time.
+            type: string
+            enum:
+              - MESSAGE_TIMESTAMP_TYPE_UNSPECIFIED
+              - MESSAGE_TIMESTAMP_TYPE_CREATE_TIME
+              - MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME
       TopicConfig3:
         type: object
         properties:
@@ -247,6 +258,17 @@ apiPlayground:
               True if we should preallocate the file on disk when creating a new log segment.
               This setting overrides the cluster-level [KafkaConfig3.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level.
             type: boolean
+          messageTimestampType:
+            description: |-
+              **enum** (MessageTimestampType)
+              Define whether the timestamp in the message is message create time or log append time.
+              - `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+              - `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time.
+            type: string
+            enum:
+              - MESSAGE_TIMESTAMP_TYPE_UNSPECIFIED
+              - MESSAGE_TIMESTAMP_TYPE_CREATE_TIME
+              - MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME
       TopicConfig4:
         type: object
         properties:
@@ -356,6 +378,17 @@ apiPlayground:
               True if we should preallocate the file on disk when creating a new log segment.
               This setting overrides the cluster-level [KafkaConfig4.log_preallocate] setting on the topic level.
             type: boolean
+          messageTimestampType:
+            description: |-
+              **enum** (MessageTimestampType)
+              Define whether the timestamp in the message is message create time or log append time.
+              - `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+              - `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time.
+            type: string
+            enum:
+              - MESSAGE_TIMESTAMP_TYPE_UNSPECIFIED
+              - MESSAGE_TIMESTAMP_TYPE_CREATE_TIME
+              - MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME
       TopicSpec:
         type: object
         properties:
@@ -379,18 +412,21 @@ apiPlayground:
           topicConfig_2_8:
             description: |-
               **[TopicConfig2_8](#yandex.cloud.mdb.kafka.v1.TopicConfig2_8)**
+              Configuration of the Apache Kafka® 2.8 topic.
               Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`.
               User-defined settings for the topic.
             $ref: '#/definitions/TopicConfig2_8'
           topicConfig_3:
             description: |-
               **[TopicConfig3](#yandex.cloud.mdb.kafka.v1.TopicConfig3)**
+              Configuration of the Apache Kafka® 3.x topic.
               Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`.
               User-defined settings for the topic.
             $ref: '#/definitions/TopicConfig3'
           topicConfig_4:
             description: |-
               **[TopicConfig4](#yandex.cloud.mdb.kafka.v1.TopicConfig4)**
+              Configuration of the Apache Kafka® 4.x topic.
               Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`.
               User-defined settings for the topic.
             $ref: '#/definitions/TopicConfig4'
@@ -449,7 +485,8 @@ The maximum string length in characters is 50. ||
       "maxMessageBytes": "string",
       "minInsyncReplicas": "string",
       "segmentBytes": "string",
-      "preallocate": "boolean"
+      "preallocate": "boolean",
+      "messageTimestampType": "string"
     },
     "topicConfig_3": {
       "cleanupPolicy": "string",
@@ -464,7 +501,8 @@ The maximum string length in characters is 50. ||
       "maxMessageBytes": "string",
       "minInsyncReplicas": "string",
       "segmentBytes": "string",
-      "preallocate": "boolean"
+      "preallocate": "boolean",
+      "messageTimestampType": "string"
     },
     "topicConfig_4": {
       "cleanupPolicy": "string",
@@ -479,7 +517,8 @@ The maximum string length in characters is 50. ||
       "maxMessageBytes": "string",
       "minInsyncReplicas": "string",
       "segmentBytes": "string",
-      "preallocate": "boolean"
+      "preallocate": "boolean",
+      "messageTimestampType": "string"
     }
     // end of the list of possible fields
   }
@@ -508,15 +547,21 @@ The number of the topic's partitions. ||
 Amount of copies of a topic data kept in the cluster. ||
 || topicConfig_2_8 | **[TopicConfig2_8](#yandex.cloud.mdb.kafka.v1.TopicConfig2_8)**
 
+Configuration of the Apache Kafka® 2.8 topic.
+
 Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`.
 
 User-defined settings for the topic. ||
 || topicConfig_3 | **[TopicConfig3](#yandex.cloud.mdb.kafka.v1.TopicConfig3)**
 
+Configuration of the Apache Kafka® 3.x topic.
+
 Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`.
 
 User-defined settings for the topic. ||
 || topicConfig_4 | **[TopicConfig4](#yandex.cloud.mdb.kafka.v1.TopicConfig4)**
+
+Configuration of the Apache Kafka® 4.x topic.
 
 Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`.
 
@@ -594,6 +639,12 @@ This setting overrides the cluster-level [KafkaConfig2_8.logSegmentBytes](/docs/
 True if we should preallocate the file on disk when creating a new log segment.
 
 This setting overrides the cluster-level [KafkaConfig2_8.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
+|| messageTimestampType | **enum** (MessageTimestampType)
+
+Define whether the timestamp in the message is message create time or log append time.
+
+- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time. ||
 |#
 
 ## TopicConfig3 {#yandex.cloud.mdb.kafka.v1.TopicConfig3}
@@ -667,6 +718,12 @@ This setting overrides the cluster-level [KafkaConfig3.logSegmentBytes](/docs/ma
 True if we should preallocate the file on disk when creating a new log segment.
 
 This setting overrides the cluster-level [KafkaConfig3.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
+|| messageTimestampType | **enum** (MessageTimestampType)
+
+Define whether the timestamp in the message is message create time or log append time.
+
+- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time. ||
 |#
 
 ## TopicConfig4 {#yandex.cloud.mdb.kafka.v1.TopicConfig4}
@@ -740,6 +797,12 @@ This setting overrides the cluster-level [KafkaConfig4.logSegmentBytes](/docs/ma
 True if we should preallocate the file on disk when creating a new log segment.
 
 This setting overrides the cluster-level [KafkaConfig4.log_preallocate] setting on the topic level. ||
+|| messageTimestampType | **enum** (MessageTimestampType)
+
+Define whether the timestamp in the message is message create time or log append time.
+
+- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -785,7 +848,8 @@ This setting overrides the cluster-level [KafkaConfig4.log_preallocate] setting 
       "maxMessageBytes": "string",
       "minInsyncReplicas": "string",
       "segmentBytes": "string",
-      "preallocate": "boolean"
+      "preallocate": "boolean",
+      "messageTimestampType": "string"
     },
     "topicConfig_3": {
       "cleanupPolicy": "string",
@@ -800,7 +864,8 @@ This setting overrides the cluster-level [KafkaConfig4.log_preallocate] setting 
       "maxMessageBytes": "string",
       "minInsyncReplicas": "string",
       "segmentBytes": "string",
-      "preallocate": "boolean"
+      "preallocate": "boolean",
+      "messageTimestampType": "string"
     },
     "topicConfig_4": {
       "cleanupPolicy": "string",
@@ -815,7 +880,8 @@ This setting overrides the cluster-level [KafkaConfig4.log_preallocate] setting 
       "maxMessageBytes": "string",
       "minInsyncReplicas": "string",
       "segmentBytes": "string",
-      "preallocate": "boolean"
+      "preallocate": "boolean",
+      "messageTimestampType": "string"
     }
     // end of the list of possible fields
   }
@@ -946,15 +1012,21 @@ The number of the topic's partitions. ||
 Amount of data copies (replicas) for the topic in the cluster. ||
 || topicConfig_2_8 | **[TopicConfig2_8](#yandex.cloud.mdb.kafka.v1.TopicConfig2_82)**
 
+Configuration of the Apache Kafka® 2.8 topic.
+
 Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`.
 
 User-defined settings for the topic. ||
 || topicConfig_3 | **[TopicConfig3](#yandex.cloud.mdb.kafka.v1.TopicConfig32)**
 
+Configuration of the Apache Kafka® 3.x topic.
+
 Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`.
 
 User-defined settings for the topic. ||
 || topicConfig_4 | **[TopicConfig4](#yandex.cloud.mdb.kafka.v1.TopicConfig42)**
+
+Configuration of the Apache Kafka® 4.x topic.
 
 Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`, `topicConfig_4`.
 
@@ -1032,6 +1104,12 @@ This setting overrides the cluster-level [KafkaConfig2_8.logSegmentBytes](/docs/
 True if we should preallocate the file on disk when creating a new log segment.
 
 This setting overrides the cluster-level [KafkaConfig2_8.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
+|| messageTimestampType | **enum** (MessageTimestampType)
+
+Define whether the timestamp in the message is message create time or log append time.
+
+- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time. ||
 |#
 
 ## TopicConfig3 {#yandex.cloud.mdb.kafka.v1.TopicConfig32}
@@ -1105,6 +1183,12 @@ This setting overrides the cluster-level [KafkaConfig3.logSegmentBytes](/docs/ma
 True if we should preallocate the file on disk when creating a new log segment.
 
 This setting overrides the cluster-level [KafkaConfig3.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
+|| messageTimestampType | **enum** (MessageTimestampType)
+
+Define whether the timestamp in the message is message create time or log append time.
+
+- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time. ||
 |#
 
 ## TopicConfig4 {#yandex.cloud.mdb.kafka.v1.TopicConfig42}
@@ -1178,4 +1262,10 @@ This setting overrides the cluster-level [KafkaConfig4.logSegmentBytes](/docs/ma
 True if we should preallocate the file on disk when creating a new log segment.
 
 This setting overrides the cluster-level [KafkaConfig4.log_preallocate] setting on the topic level. ||
+|| messageTimestampType | **enum** (MessageTimestampType)
+
+Define whether the timestamp in the message is message create time or log append time.
+
+- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time. ||
 |#

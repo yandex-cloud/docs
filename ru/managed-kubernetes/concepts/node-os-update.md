@@ -1,12 +1,8 @@
 # Обновление операционной системы в группе узлов
 
-Начиная с версии {{ k8s }} 1.30 операционная система узлов изменилась с Ubuntu 20.04 на Ubuntu 22.04. При [обновлении групп узлов](../operations/node-group/node-group-update.md) в этих версиях новые узлы автоматически создаются из [образа](../../compute/concepts/image.md) [виртуальной машины](../../compute/concepts/vm.md) с Ubuntu 22.04.
+Начиная с {{ k8s }} версии 1.30 во всех [релизных каналах](../../managed-kubernetes/concepts/release-channels-and-updates.md) операционная система узлов кластера {{ managed-k8s-name }} изменилась с Ubuntu 20.04 на Ubuntu 22.04.
 
-{% note info %}
-
-Обновление версии ОС доступно в [релизном канале](release-channels-and-updates.md) `RAPID`. Позже обновление станет доступно в релизных каналах `REGULAR` и `STABLE`.
-
-{% endnote %}
+При [обновлении групп узлов](../operations/node-group/node-group-update.md) в этих кластерах новые узлы автоматически создаются из [образа](../../compute/concepts/image.md) виртуальной машины с Ubuntu 22.04.
 
 ## Изменения пользовательских ресурсов {#user-resources-update}
 
@@ -36,9 +32,9 @@
 
 Перед миграцией кластера {{ k8s }} на новую версию ОС протестируйте обновление на новом кластере:
 
-1. [Создайте кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md) и укажите для него релизный канал `RAPID`.
-1. [Создайте группу узлов](../operations/node-group/node-group-create.md) в созданном кластере.
-1. Протестируйте работу ваших приложений, у которых могут быть зависимости от версии ОС, в созданном кластере.
+1. [Создайте кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md).
+1. [Создайте группу узлов](../operations/node-group/node-group-create.md) в кластере.
+1. В созданном кластере протестируйте работу ваших приложений, у которых могут быть зависимости от версии ОС.
 
    Проверьте ключевые показатели нагрузки:
 

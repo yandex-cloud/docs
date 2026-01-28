@@ -83,7 +83,7 @@ Create a virtual network segment (VRF) and a private subnet in the `{{ region-id
   1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
   1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}** and, in the window that opens, select `{{ ui-key.yacloud.baremetal.servers.ServerConfigPage.ready-configs_ibA3Y }}` and a suitable {{ baremetal-name }} server [configuration](../../baremetal/concepts/server-configurations.md) in the `{{ region-id }}-m3` server pool.
 
-      Do it by selecting the `{{ region-id }}-m3` server pool in the filter on the right side of the window, under **{{ ui-key.yacloud.baremetal.servers.Filters.poolFilter_tVgg5 }}**.
+      Do it by selecting the `{{ region-id }}-m3` server pool in the filter on the right side of the window, under **{{ ui-key.yacloud_components.baremetal.poolFilter }}**.
 
       To select the suitable server configuration, click the section with its name in the central part of the screen.
   1. In the server configuration window that opens:

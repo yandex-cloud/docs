@@ -26,10 +26,12 @@ Request to delete a domain from a userpool.
 ||Field | Description ||
 || userpool_id | **string**
 
-ID of the userpool to delete a domain from. ||
+Required field. ID of the userpool to delete a domain from.
+
+The maximum string length in characters is 50. ||
 || domain | **string**
 
-Domain name to delete. ||
+Required field. Domain name to delete. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

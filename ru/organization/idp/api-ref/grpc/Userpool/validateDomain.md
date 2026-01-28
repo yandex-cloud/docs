@@ -26,10 +26,12 @@ Request to validate a domain for a userpool.
 ||Field | Description ||
 || userpool_id | **string**
 
-ID of the userpool to validate a domain for. ||
+Required field. ID of the userpool to validate a domain for.
+
+The maximum string length in characters is 50. ||
 || domain | **string**
 
-Domain name to validate. ||
+Required field. Domain name to validate. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

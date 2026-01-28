@@ -637,8 +637,8 @@ Offset storage time after a consumer group loses all its consumers. Default: 100
 
 The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
 
-- `SASL_MECHANISM_SCRAM_SHA_256`
-- `SASL_MECHANISM_SCRAM_SHA_512` ||
+- `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
+- `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
 |#
 
 ## KafkaConfig3 {#yandex.cloud.mdb.kafka.v1.KafkaConfig3}
@@ -735,8 +735,8 @@ Offset storage time after a consumer group loses all its consumers. Default: 100
 
 The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
 
-- `SASL_MECHANISM_SCRAM_SHA_256`
-- `SASL_MECHANISM_SCRAM_SHA_512` ||
+- `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
+- `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
 |#
 
 ## KafkaConfig4 {#yandex.cloud.mdb.kafka.v1.KafkaConfig4}
@@ -827,8 +827,8 @@ Offset storage time after a consumer group loses all its consumers. Default: 100
 
 The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
 
-- `SASL_MECHANISM_SCRAM_SHA_256`
-- `SASL_MECHANISM_SCRAM_SHA_512` ||
+- `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
+- `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
 |#
 
 ## Zookeeper {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Zookeeper}

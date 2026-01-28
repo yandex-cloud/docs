@@ -38,7 +38,7 @@ Field mask that specifies which fields of the Group resource are going to be upd
 Name of the group.
 The name must be unique within the organization.
 
-Value must match the regular expression ` \|[a-zA-Z]([-a-zA-Z0-9._-]{0,61}[a-zA-Z0-9])? `. ||
+Value must match the regular expression ``` |[a-zA-Z]([-a-zA-Z0-9._-]{0,61}[a-zA-Z0-9])? ```. ||
 || description | **string**
 
 Description of the group.

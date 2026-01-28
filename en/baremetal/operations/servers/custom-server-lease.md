@@ -21,22 +21,22 @@ You can [configure](../../concepts/server-configurations.md#custom) your server 
   1. {% include [server-lease-step2](../../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
   1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}** and, in the window that opens, select `{{ ui-key.yacloud.baremetal.servers.ServerConfigPage.custom-configs_b5Ab9 }}`. In the window that opens, set up the server configuration:
 
-      1. Under **{{ ui-key.yacloud.baremetal.customConfig.CustomConfigForm.cpu_s3pPr }}**, select the CPU that suits you best.
+      1. Under **{{ ui-key.yacloud_components.baremetal.cpuTitle }}**, select the CPU that suits you best.
 
           Filter by manufacturer, number of cores, and clock frequency as needed.
-      1. Under **{{ ui-key.yacloud.baremetal.customConfig.CustomConfigForm.ram_1vn53 }}**, specify the type and amount of RAM available on the server.
-      1. Under **{{ ui-key.yacloud.baremetal.customConfig.CustomConfigForm.disks_sZbyA }}**, add to the server a disk group of the form factor you choose:
+      1. Under **{{ ui-key.yacloud_components.baremetal.ramLabel }}**, specify the type and amount of RAM available on the server.
+      1. Under **{{ ui-key.yacloud_components.baremetal.disks }}**, add to the server a disk group of the form factor you choose:
 
-          1. In the **{{ ui-key.yacloud.baremetal.customConfig.DiskField.type_g1iH9 }}** field, select disk type.
-          1. In the **{{ ui-key.yacloud.baremetal.customConfig.DiskField.size_59KKi }}** field that appears, select disk size.
-          1. In the **{{ ui-key.yacloud.baremetal.customConfig.DiskField.amount_kBdTj }}** field that appears, select the number of disks in the group.
+          1. In the **{{ ui-key.yacloud_components.baremetal.type }}** field, select disk type.
+          1. In the **{{ ui-key.yacloud_components.baremetal.size }}** field that appears, select disk size.
+          1. In the **{{ ui-key.yacloud_components.baremetal.amount }}** field that appears, select the number of disks in the group.
 
           There must be at least one group consisting of at least two disks on the server.
 
-          You can add more disk groups of other form factors. Do it by clicking ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.customConfig.DisksField.addDiskButton_77P9P }}**.
-      1. Under **{{ ui-key.yacloud.baremetal.customConfig.CustomConfigForm.network_b7gsC }}**, select the server's network card connection speed for [public](../../concepts/network.md#public-network) and [private](../../concepts/network.md#private-network) networks, and whether MC-LAG [aggregation groups](../../concepts/mc-lag.md) must be provided on the server.
+          You can add more disk groups of other form factors. Do it by clicking ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.baremetal.addDiskButton }}**.
+      1. Under **{{ ui-key.yacloud_components.baremetal.networkLabel }}**, select the server's network card connection speed for [public](../../concepts/network.md#public-network) and [private](../../concepts/network.md#private-network) networks, and whether MC-LAG [aggregation groups](../../concepts/mc-lag.md) must be provided on the server.
       1. Select the [server pool](../../concepts/servers.md#server-pools) the server will be in under **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}**.
-      1. Under **{{ ui-key.yacloud.baremetal.customConfig.PsuField.withReserve_3DjVq }}**, specify whether [redundant power supply](../../concepts/servers.md#server-power-supply) is required.
+      1. Under **{{ ui-key.yacloud_components.baremetal.withReserve }}**, specify whether [redundant power supply](../../concepts/servers.md#server-power-supply) is required.
       1. Click **{{ ui-key.yacloud.common.continue }}**.
   1. In the window that opens, set the server up as follows:
 

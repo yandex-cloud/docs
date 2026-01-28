@@ -183,7 +183,7 @@
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
 1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
-1. [Подключитесь к базе данных в кластере-приемнике {{ mmy-name }}](../../managed-mysql/operations/connect.md).
+1. [Подключитесь к базе данных в кластере-приемнике {{ mmy-name }}](../../managed-mysql/operations/connect/index.md).
 1. Чтобы убедиться, что данные успешно перенесены, выполните запрос:
 
     ```sql

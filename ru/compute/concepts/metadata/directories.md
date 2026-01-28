@@ -24,7 +24,7 @@ description: Из этой статьи вы узнаете о каталога�
 || instance/description | Описание ВМ. | `VM description` ||
 || instance/hostname | Полное внутренне имя ВМ ([FQDN](../network.md#hostname)). | `my-vm.{{ region-id }}.internal` ||
 || instance/id | Идентификатор ВМ. | `epdhfouo8bgq********` ||
-|| instance/maintenance-event | Ключ, указывающий, наступило ли событие по [обслуживанию ВМ](../vm-policies.md). | `NONE` ||
+|| instance/maintenance-event | Ключ, указывающий, наступило ли событие по [обслуживанию ВМ](../maintenance-policies.md). | `NONE` ||
 || instance/name | Имя ВМ. | `my-vm-name` ||
 || instance/zone | Идентификатор [зоны доступности](../../../overview/concepts/geo-scope.md) в формате `projects/<cloud-id>/zones/<zone-id>`. | `projects/b1g3o1qx3ra2********/zones/{{ region-id }}-d` ||
 || instance/disks/ | Список индексов [дисков](../disk.md) ВМ. | `0/` ||

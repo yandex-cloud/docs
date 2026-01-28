@@ -20,7 +20,7 @@ title: How to view quotas
      * A single number is a non-adjustable `limit`.
 
   1. To estimate resource consumption, at the top right, select:
-     * **{{ ui-key.yacloud.iam.cloud.quotas.value_status-warning }}**: Resources consuming over a half of the quota.
+     * **Actively used**: Resources consuming over a half of the quota.
      * **{{ ui-key.yacloud.iam.cloud.quotas.value_status-error }}**: Resources that are almost exhausted.
 
 - CLI {#cli}

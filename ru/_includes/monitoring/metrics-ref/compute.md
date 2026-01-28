@@ -197,7 +197,7 @@
 - *disk* — имя или идентификатор диска. ||
 || `maintenance_event`
 |
-`1`, если на ВМ активно [событие обслуживания](../../../compute/concepts/vm-policies).
+`1`, если на ВМ активно [событие обслуживания](../../../compute/concepts/maintenance-policies.md).
 Метки:
 - *resource_id* — имя или идентификатор ВМ.
 - *resource_type* — тип ресурса. Единственное значение — `vm`.

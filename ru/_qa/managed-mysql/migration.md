@@ -18,7 +18,7 @@ Got fatal error 1236 from source when reading data from binary log:
 'Could not find first log file name in binary log index file'
 ```
 
-Ошибка может возникать в ходе внешней репликации с использованием [особого FQDN хоста-мастера](../../managed-mysql/operations/connect.md#fqdn-master), если в кластере-источнике сменился хост-мастер.
+Ошибка может возникать в ходе внешней репликации с использованием [особого FQDN хоста-мастера](../../managed-mysql/operations/connect/fqdn.md#fqdn-master), если в кластере-источнике сменился хост-мастер.
 
 **Решение:**
 

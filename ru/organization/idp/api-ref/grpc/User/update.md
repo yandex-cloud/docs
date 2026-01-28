@@ -42,7 +42,7 @@ Field mask that specifies which fields of the user are going to be updated. ||
 
 New username for the user.
 
-The maximum string length in characters is 254. Value must match the regular expression ` \|[a-z0-9A-Z\._-]{1,64}@.{1,256} `. ||
+The maximum string length in characters is 254. Value must match the regular expression ``` |[a-z0-9A-Z\._-]{1,64}@.{1,256} ```. ||
 || full_name | **string**
 
 New full name for the user.
@@ -62,7 +62,7 @@ The maximum string length in characters is 256. ||
 
 New email address for the user.
 
-The maximum string length in characters is 254. Value must match the regular expression ` \|(.{3,254}) `. ||
+The maximum string length in characters is 254. Value must match the regular expression ``` |(.{3,254}) ```. ||
 || phone_number | **string**
 
 New phone number for the user.

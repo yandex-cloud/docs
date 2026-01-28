@@ -9,52 +9,114 @@ Update API Gateway
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc serverless api-gateway update <API-GATEWAY-NAME>|<API-GATEWAY-ID> [Flags...] [Global Flags...]`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`--id`|<b>`string`</b><br/>Api-gateway id.|
-|`--name`|<b>`string`</b><br/>Api-gateway name.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--new-name`|<b>`string`</b><br/>New api-gateway name.|
-|`--description`|<b>`string`</b><br/>New api-gateway description.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>New list of label KEY=VALUE pairs to replace existing list.|
-|`--spec`|<b>`string`</b><br/>New api-gateway specification file name.|
-|`--network-name`|<b>`string`</b><br/>New api-gateway network name.|
-|`--network-id`|<b>`string`</b><br/>New api-gateway network id.|
-|`--subnet-name`|<b>`value[,value]`</b><br/>New api-gateway subnet names.|
-|`--subnet-id`|<b>`value[,value]`</b><br/>New api-gateway subnet ids.|
-|`--no-logging`|Disable logging from api-gateway.|
-|`--log-group-id`|<b>`string`</b><br/>Send logs to custom log group by id.|
-|`--log-group-name`|<b>`string`</b><br/>Send logs to custom log group by name.|
-|`--log-folder-id`|<b>`string`</b><br/>Send logs to default log group of custom folder by id.|
-|`--log-folder-name`|<b>`string`</b><br/>Send logs to default log group of custom folder by name.|
-|`--min-log-level`|<b>`string`</b><br/>Min log level. Values: 'trace', 'debug', 'info', 'warn', 'error', 'fatal'|
-|`--variables`|<b>`key=value[,key=value...]`</b><br/>A list of values for variables in gateway specification.|
-|`--canary-weight`|<b>`int`</b><br/>Percentage of requests, which will be processed by canary release.|
-|`--canary-variables`|<b>`key=value[,key=value...]`</b><br/>A list of values for variables in gateway specification of canary release.|
-|`--execution-timeout`|<b>`duration`</b><br/>Execution timeout.|
+#|
+||Flag | Description ||
+|| `--id` | `string`
+
+Api-gateway id. ||
+|| `--name` | `string`
+
+Api-gateway name. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|| `--new-name` | `string`
+
+New api-gateway name. ||
+|| `--description` | `string`
+
+New api-gateway description. ||
+|| `--labels` | `key=value[,key=value...]`
+
+New list of label KEY=VALUE pairs to replace existing list. ||
+|| `--spec` | `string`
+
+New api-gateway specification file name. ||
+|| `--network-name` | `string`
+
+New api-gateway network name. ||
+|| `--network-id` | `string`
+
+New api-gateway network id. ||
+|| `--subnet-name` | `value[,value]`
+
+New api-gateway subnet names. ||
+|| `--subnet-id` | `value[,value]`
+
+New api-gateway subnet ids. ||
+|| `--no-logging` | Disable logging from api-gateway. ||
+|| `--log-group-id` | `string`
+
+Send logs to custom log group by id. ||
+|| `--log-group-name` | `string`
+
+Send logs to custom log group by name. ||
+|| `--log-folder-id` | `string`
+
+Send logs to default log group of custom folder by id. ||
+|| `--log-folder-name` | `string`
+
+Send logs to default log group of custom folder by name. ||
+|| `--min-log-level` | `string`
+
+Min log level. Values: 'trace', 'debug', 'info', 'warn', 'error', 'fatal' ||
+|| `--variables` | `key=value[,key=value...]`
+
+A list of values for variables in gateway specification. ||
+|| `--canary-weight` | `int`
+
+Percentage of requests, which will be processed by canary release. ||
+|| `--canary-variables` | `key=value[,key=value...]`
+
+A list of values for variables in gateway specification of canary release. ||
+|| `--execution-timeout` | `duration`
+
+Execution timeout. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom configuration file.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--cloud-id`|<b>`string`</b><br/>Set the ID of the cloud to use.|
-|`--folder-id`|<b>`string`</b><br/>Set the ID of the folder to use.|
-|`--folder-name`|<b>`string`</b><br/>Set the name of the folder to use (will be resolved to id).|
-|`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
-|`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
-|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom configuration file. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
+|| `--token` | `string`
+
+Set the OAuth token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

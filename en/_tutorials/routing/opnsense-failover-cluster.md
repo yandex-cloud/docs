@@ -116,7 +116,7 @@ Upload the OPNsense and ESXi installation images to your [{{ objstorage-name }}]
   1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
   1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}** and, in the window that opens, select `{{ ui-key.yacloud.baremetal.servers.ServerConfigPage.ready-configs_ibA3Y }}` and a suitable {{ baremetal-name }} server [configuration](../../baremetal/concepts/server-configurations.md) in the `{{ region-id }}-m4` server pool.
 
-      Do it by selecting the `{{ region-id }}-m4` server pool in the filter on the right side of the window, under **{{ ui-key.yacloud.baremetal.servers.Filters.poolFilter_tVgg5 }}**.
+      Do it by selecting the `{{ region-id }}-m4` server pool in the filter on the right side of the window, under **{{ ui-key.yacloud_components.baremetal.poolFilter }}**.
 
       To test the solution, a configuration with minimum hardware specifications will be enough. To select the server configuration that suits you best, click the section with its name in the central part of your screen.
   1. In the server configuration window that opens:

@@ -26,10 +26,12 @@ Request to get a domain for a userpool.
 ||Field | Description ||
 || userpool_id | **string**
 
-ID of the userpool to get a domain for. ||
+Required field. ID of the userpool to get a domain for.
+
+The maximum string length in characters is 50. ||
 || domain | **string**
 
-Domain name. ||
+Required field. Domain name. ||
 |#
 
 ## Domain {#yandex.cloud.organizationmanager.v1.idp.Domain}

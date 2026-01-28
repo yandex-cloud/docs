@@ -59,7 +59,7 @@
             * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` или один адрес из списка зарезервированных IP-адресов.
 
     
-    1. Если вы используете группы безопасности для промежуточной виртуальной машины и кластера {{ mmy-name }}, [настройте их](../../managed-mysql/operations/connect.md#configure-security-groups).
+    1. Если вы используете группы безопасности для промежуточной виртуальной машины и кластера {{ mmy-name }}, [настройте их](../../managed-mysql/operations/connect/index.md#configure-security-groups).
 
 
 - {{ TF }} {#tf}
@@ -264,7 +264,7 @@
                 <имя_БД> < ~/db_dump.sql
             ```
 
-        * Если вы восстанавливаете дамп с хоста, подключающегося к {{ yandex-cloud }} из интернета, [получите SSL-сертификат](../../managed-mysql/operations/connect.md#get-ssl-cert) и передайте параметры `--ssl-ca` и `--ssl-mode` в команде восстановления:
+        * Если вы восстанавливаете дамп с хоста, подключающегося к {{ yandex-cloud }} из интернета, [получите SSL-сертификат](../../managed-mysql/operations/connect/index.md#get-ssl-cert) и передайте параметры `--ssl-ca` и `--ssl-mode` в команде восстановления:
 
             ```bash
             mysql \

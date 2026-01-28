@@ -23,6 +23,8 @@ items:
             href: operations/cluster-stop.md
           - name: Получение списка хостов кластера
             href: operations/cluster-hosts.md
+          - name: Получение патч-версии {{ KF }}
+            href: operations/cluster-patch-version.md
           - name: Миграция хостов в другую зону доступности
             href: operations/host-migration.md
           - name: Техническое обслуживание

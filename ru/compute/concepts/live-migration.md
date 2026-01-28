@@ -16,7 +16,7 @@
 Динамическая миграция не поддерживается для:
 
 * ВМ с [GPU](../concepts/gpus.md) ^1^.
-* ВМ с [политикой обслуживания](../concepts/vm-policies.md) `RESTART` ^1^.
+* ВМ с [политикой обслуживания](../concepts/maintenance-policies.md) `RESTART` ^1^.
 * [Прерываемых](../concepts/preemptible-vm.md) ВМ ^2^.
 * ВМ управляемых СУБД с локальными SSD-дисками.
 * ВМ на выделенных хостах с [локальными SSD-дисками](../concepts/dedicated-host.md#resource-disks).
@@ -28,7 +28,7 @@
 
 ## Смотрите также {#see-also}
 
-* [Политики обслуживания виртуальных машин](./vm-policies.md).
+* [Политики обслуживания виртуальных машин](./maintenance-policies.md).
 * [Как перенести виртуальную машину в другую зону доступности](../operations/vm-control/vm-change-zone.md).
 * [Как перенести виртуальную машину в другой каталог](../operations/vm-control/vm-change-folder.md).
 * [Как перенести виртуальную машину в другое облако](../operations/vm-control/vm-change-cloud.md).

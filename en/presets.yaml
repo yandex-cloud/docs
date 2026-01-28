@@ -271,7 +271,7 @@ default:
   k8s-hpa: Horizontal Pod Autoscaler
   k8s-versions-rapid: 1.30, 1.31, 1.32, 1.33, 1.34
   k8s-versions-regular: 1.30, 1.31, 1.32, 1.33
-  k8s-versions-stable: 1.30, 1.31, 1.32
+  k8s-versions-stable: 1.30, 1.31, 1.32, 1.33
   k8s-vpa: Vertical Pod Autoscaler
   kafka-ui: Kafka UI
   kafka-ui-kafbat: https://ui.docs.kafbat.io/
@@ -3744,48 +3744,48 @@ default:
           view:
             label_metric: Indicator
     sourcecraft:
-      ui_lib:
-        home: Home
-        organizations: Organizations
-        repositories: Repositories
-        settings: Settings
-        value_role-org-owner: Organization owner
-      ui_modules_cicd:
-        value_status-created: Queued
-        value_succeeded: Success
-      ui_modules_mainApp:
-        route_create-repository: Create repository
-        route_service-connections: Service connections
-      ui_modules_orgCommon:
-        link_your-craftspace: Your craftspace
-      ui_modules_repo:
-        action_cicd: CI/CD
-        action_commit: Commit changes
-        button_commit: Commit changes
-        button_use-template: Use template
-        field_after-commit-action: After commit action
-        field_commit-branch: Commit branch
-        field_text_commit-directly-to-the-branch: 'Commit directly to the branch:'
-        option_just-commit: Just commit
-        title_navigation-code: Code
-      ui_modules_repoCreate:
-        button_browse-templates: Browse templates
-        button_create-repo: Create repository
-        button_preview-template: Preview
-        section_template: Repository template
-        title_create-blank: Blank repository
-        title_new-repo-details: Your new repository details
-        title_owner-field: Owner
-        title_repo-field: Name
-      ui_modules_repoSettings:
-        field_description: Description
-      ui_modules_serviceConnections:
-        button_add-connection: New service connection
-        button_create-connection: Create service connection
-        section_basic: Basic information
-        section_cloud-settings: Yandex Cloud settings
-        section_scope: Scope
-        title_oidc-federation: Workload identity federation
+      cicd:
+        value_status-created_9AAET: Queued
+        value_succeeded_3Dd8C: Success
+      lib:
+        home_t2KmK: Home
+        organizations_5CjkW: Organizations
+        repositories_vLJYc: Repositories
+        settings_cwUYS: Settings
+        value_role-org-owner_f9UaR: Organization owner
+      mainApp:
+        route_create-repository_4e8Ef: Create repository
+        route_service-connections_2PPgz: Service connections
+      orgCommon:
+        link_your-craftspace_bHYz8: Your craftspace
+      repo:
+        action_cicd_4jypo: CI/CD
+        action_commit_brj4B: Commit changes
+        button_commit_si86H: Commit changes
+        button_use-template_ttBnP: Use template
+        field_after-commit-action_mKjo4: After commit action
+        field_commit-branch_d1Mzi: Commit branch
+        field_text_commit-directly-to-the-branch_mBfk8: 'Commit directly to the branch:'
+        option_just-commit_to5sC: Just commit
+        title_navigation-code_8bgjg: Code
+      repoCreate:
+        button_browse-templates_bP3xB: Browse templates
+        button_create-repo_nMrwv: Create repository
+        button_preview-template_2WJAq: Preview
+        section_template_vc5Jc: Repository template
+        title_create-blank_2CxnQ: Blank repository
+        title_new-repo-details_riAaE: Your new repository details
+        title_owner-field_7gbCn: Owner
+        title_repo-field_p5MD3: Name
+      repoSettings:
+        field_description_1274t: Description
+      serviceConnections:
+        button_add-connection_6Bj7i: New service connection
+        button_create-connection_uyK29: Create service connection
+        section_basic_wmaiy: Basic information
+        section_cloud-settings_tDMfn: Yandex Cloud settings
+        section_scope_9gXcu: Scope
+        title_oidc-federation_eC6Jw: Workload identity federation
     support-center:
       billing-account:
         common:
@@ -4032,6 +4032,17 @@ default:
           service-accounts: Service accounts
           title: Configuring access bindings
           user-accounts: User accounts
+      baremetal:
+        addDiskButton: Add
+        amount: Number
+        cpuTitle: CPU
+        disks: Disks
+        networkLabel: Network
+        poolFilter: Pool
+        ramLabel: RAM
+        size: Size
+        type: Type
+        withReserve: Enable
       cloud-center:
         action_more: More
       cloud:
@@ -4857,7 +4868,7 @@ default:
             scope_filter_header_7CrSm: Configuration controls
           ControlsPage:
             exceptions_kw1u7: Exceptions
-            kubernetes_jRCmt: Kubernetes®
+            kubernetes_jRCmt: Kubernetes{trademark}
             security_control_r4yn7: Security control rules
           ControlsPageLayout:
             configuration_w7Kw7: Configuration
@@ -4901,7 +4912,7 @@ default:
             labelNameField: Name
             labelServiceAccountField: Service account
           module-cspm_gozhj: Configuration Monitoring (CSPM)
-          module-kspm_n9o93: Kubernetes® Security Posture Management (KSPM)
+          module-kspm_n9o93: Kubernetes{trademark} Security Posture Management (KSPM)
           ServiceAccountResourceSelectDialog:
             action_save: Save selection
           WorkspaceEditPageLayout:
@@ -5397,20 +5408,6 @@ default:
         action_stop-prolongation-server: Disable autorenewal
         action_stop-prolongation-server-dialog: Disable
         actions_add-partition: Add partition
-        customConfig:
-          CustomConfigForm:
-            cpu_s3pPr: CPU
-            disks_sZbyA: Disks
-            network_b7gsC: Network
-            ram_1vn53: RAM
-          DiskField:
-            amount_kBdTj: Number
-            size_59KKi: Size
-            type_g1iH9: Type
-          DisksField:
-            addDiskButton_77P9P: Add
-          PsuField:
-            withReserve_3DjVq: Enable
         field_choose-marketplace-os: Marketplace
         field_choose-no-os: No OS
         field_CIDR_rwYMi: CIDR
@@ -5465,8 +5462,6 @@ default:
             bandwidthTitle_wvZra: Bandwidth
             plan100Tb_4AB2b: 100 TB per day, connection capacity, 10 Gbit/s
             plan10Tb_2BFQU: 10 TB per day, connection capacity, 1 Gbit/s
-          Filters:
-            poolFilter_tVgg5: Pool
           ServerConfigPage:
             custom-configs_b5Ab9: Custom configuration
             ready-configs_ibA3Y: Preset configurations
@@ -6035,6 +6030,8 @@ default:
             button_attach-to-pool_ak57z: Attach to VM reserve pool
             button_confirm-detach-vm-from-pool_8dze2: Detach
             button_detach-from-pool_wEiB2: Detach from VM reserve pool
+          MaintenanceRescheduleDialog:
+            button_reschedule_3SHfY: Reschedule
           PlatformField:
             value_platform-tab-gpu_hGyQ8: With GPU
           SshViaPrivateKeyDialog:
@@ -6269,6 +6266,14 @@ default:
           popup-confirm_button_restart: Restart
           popup-confirm_button_start: Start
           popup-confirm_button_stop: Stop
+        maintenance_js7p4: Maintenance
+        maintenance:
+          MaintenanceActions:
+            perform-now_m8iqx: Perform now
+            reschedule_rDGt3: Reschedule
+          resource_pZ1gY: Resource
+          status_pZ1gY: Status
+          task_pZ1gY: Task
         nfs:
           button_attach-instance-to-the-filesystem: Attach to VM
           button_create-filesystem: Create file storage
@@ -6834,7 +6839,6 @@ default:
               subnets:
                 count: Number of subnets
             value_status-error: Almost exhausted
-            value_status-warning: Actively used
           switch_overview: Overview
           switch_quotas: Quotas
         connected-federation:
@@ -7411,6 +7415,9 @@ default:
         label_tariff-type: Pricing type
         section_tariff-section: Pricing method
       mdb:
+        AuthMethodColumn:
+          value_iam_boWet: IAM
+          value_password_gbuZC: Password
         cluster:
           backups:
             action_delete-backup: Delete
@@ -7520,6 +7527,7 @@ default:
             label_services: Services
             label_status: Status
             label_title: Overview
+            label_version: Version
             section_additional: Advanced settings
             section_configuration: Configuration
             section_resource: Resources
@@ -7661,6 +7669,7 @@ default:
           label_disk-size: Size
           label_diskTypeId: Disk type
           label_greenplum_pool_client-idle-timeout: Client Idle Timeout
+          label_greenplum_pool_idle-in-transaction-timeout: Transaction idle timeout
           label_greenplum_pool_mode: Mode
           label_greenplum_pool_size: Size
           label_master-subcluster: Master
@@ -7838,9 +7847,6 @@ default:
           switch_logs: Logs
           switch_monitoring: Monitoring
           switch_users: Users
-        common:
-          label_iam_iq9BP: IAM
-          label_password_srTqe: Password
         databases:
           dialog:
             button_submit: Configure

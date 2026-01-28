@@ -101,7 +101,7 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
 
      * [Облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера.
-     * [Группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups), чтобы можно было подключаться к кластеру {{ mmy-name }}.
+     * [Группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](./connect/index.md#configure-security-groups), чтобы можно было подключаться к кластеру {{ mmy-name }}.
 
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите на значок ![image](../../_assets/console-icons/pencil.svg) и выберите параметры хостов БД, создаваемых вместе с кластером {{ mmy-name }}:
@@ -614,7 +614,7 @@ description: Следуя данной инструкции, вы сможете
 
           * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md);
           * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
-          * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета: `true` или `false`.
+          * `assignPublicIp` — разрешение на [подключение](./connect/index.md) к хосту из интернета: `true` или `false`.
       
       {% include [maintenance-window-rest](../../_includes/mdb/mmy/maintenance-window-rest.md) %}
 
@@ -781,7 +781,7 @@ description: Следуя данной инструкции, вы сможете
 
           * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md);
           * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
-          * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета: `true` или `false`.
+          * `assign_public_ip` — разрешение на [подключение](./connect/index.md) к хосту из интернета: `true` или `false`.
 
       {% include [maintenance-window-grpc](../../_includes/mdb/mmy/maintenance-window-grpc.md) %}    
 
@@ -807,7 +807,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% note warning %}
 
-Если вы указали идентификаторы групп безопасности при создании кластера {{ mmy-name }}, для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect.md#configure-security-groups).
+Если вы указали идентификаторы групп безопасности при создании кластера {{ mmy-name }}, для подключения к нему может потребоваться дополнительная [настройка групп безопасности](./connect/index.md#configure-security-groups).
 
 {% endnote %}
 

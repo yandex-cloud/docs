@@ -313,7 +313,7 @@ sudo apt update && sudo apt install --yes postgresql-client
   1. Создайте пользователя {{ PG }}:
      1. Выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
-     1. Выберите способ аутентификации **{{ ui-key.yacloud.postgresql.common.label_iam_iq9BP }}**.
+     1. Выберите способ аутентификации **{{ ui-key.yacloud.mdb.AuthMethodColumn.value_iam_boWet }}**.
      1. Выберите аккаунт, которому была назначена роль `managed-postgresql.clusters.connector`.
      1. В поле **{{ ui-key.yacloud.mdb.dialogs.popup_field_permissions }}** нажмите значок ![image](../../_assets/console-icons/plus.svg).
      1. Выберите базу данных из выпадающего списка.

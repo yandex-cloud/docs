@@ -9,8 +9,11 @@ apiPlayground:
         userpoolId:
           description: |-
             **string**
-            ID of the userpool to add a domain to.
+            Required field. ID of the userpool to add a domain to.
+            The maximum string length in characters is 50.
           type: string
+      required:
+        - userpoolId
       additionalProperties: false
     query: null
     body:
@@ -19,8 +22,10 @@ apiPlayground:
         domain:
           description: |-
             **string**
-            Domain name to add.
+            Required field. Domain name to add.
           type: string
+      required:
+        - domain
       additionalProperties: false
     definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/idp/api-ref/Userpool/addDomain.md
@@ -44,7 +49,9 @@ Request to add a domain to a userpool.
 ||Field | Description ||
 || userpoolId | **string**
 
-Required field. ID of the userpool to add a domain to. ||
+Required field. ID of the userpool to add a domain to.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.idp.AddUserpoolDomainRequest}
@@ -61,7 +68,7 @@ Request to add a domain to a userpool.
 ||Field | Description ||
 || domain | **string**
 
-Domain name to add. ||
+Required field. Domain name to add. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

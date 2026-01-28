@@ -87,26 +87,26 @@
 - Интерфейс {{ src-name }} {#src}
 
   1. Откройте [главную страницу сервиса]({{ link-src-main }}).
-  1. На панели слева нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.sourcecraft.ui_modules_mainApp.route_create-repository }}**.
-  1. В открывшемся окне выберите **{{ ui-key.sourcecraft.ui_modules_repoCreate.title_create-blank }}**.
-  1. В блоке **{{ ui-key.sourcecraft.ui_modules_repoCreate.title_new-repo-details }}**:
-      * В поле **{{ ui-key.sourcecraft.ui_modules_repoCreate.title_owner-field }}** выберите [организацию]({{ link-src-docs }}/sourcecraft/concepts/#org), в которой вы создали сервисный аккаунт в {{ yandex-cloud }}.
-      * В поле **{{ ui-key.sourcecraft.ui_modules_repoCreate.title_repo-field }}** укажите название репозитория. 
+  1. На панели слева нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.sourcecraft.mainApp.route_create-repository_4e8Ef }}**.
+  1. В открывшемся окне выберите **{{ ui-key.sourcecraft.repoCreate.title_create-blank_2CxnQ }}**.
+  1. В блоке **{{ ui-key.sourcecraft.repoCreate.title_new-repo-details_riAaE }}**:
+      * В поле **{{ ui-key.sourcecraft.repoCreate.title_owner-field_7gbCn }}** выберите [организацию]({{ link-src-docs }}/sourcecraft/concepts/#org), в которой вы создали сервисный аккаунт в {{ yandex-cloud }}.
+      * В поле **{{ ui-key.sourcecraft.repoCreate.title_repo-field_p5MD3 }}** укажите название репозитория. 
 
         Название должно быть уникальным в пределах организации и может содержать следующие [ASCII-символы](https://ru.wikipedia.org/wiki/ASCII): строчные и заглавные буквы латинского алфавита, цифры, запятые, дефисы и подчеркивания.
 
         Под названием отображается адрес, по которому репозиторий будет доступен.
 
-      * (опционально) В поле **{{ ui-key.sourcecraft.ui_modules_repoSettings.field_description }}** укажите описание репозитория.
+      * (опционально) В поле **{{ ui-key.sourcecraft.repoSettings.field_description_1274t }}** укажите описание репозитория.
 
-  1. В блоке **{{ ui-key.sourcecraft.ui_modules_repoCreate.section_template }}** нажмите **{{ ui-key.sourcecraft.ui_modules_repoCreate.button_browse-templates }}**, выберите шаблон [yc-cloud-functions-template]({{ link-src-main }}/sourcecraft/yc-cloud-functions-template) и нажмите **{{ ui-key.sourcecraft.ui_modules_repo.button_use-template }}**.
+  1. В блоке **{{ ui-key.sourcecraft.repoCreate.section_template_vc5Jc }}** нажмите **{{ ui-key.sourcecraft.repoCreate.button_browse-templates_bP3xB }}**, выберите шаблон [yc-cloud-functions-template]({{ link-src-main }}/sourcecraft/yc-cloud-functions-template) и нажмите **{{ ui-key.sourcecraft.repo.button_use-template_ttBnP }}**.
 
-      Чтобы посмотреть содержимое шаблона, нажмите **{{ ui-key.sourcecraft.ui_modules_repoCreate.button_preview-template }}**.
+      Чтобы посмотреть содержимое шаблона, нажмите **{{ ui-key.sourcecraft.repoCreate.button_preview-template_2WJAq }}**.
 
       В шаблоне содержатся:
       * файл [.sourcecraft/ci.yaml]({{ link-src-main }}/sourcecraft/yc-cloud-functions-template/browse/.sourcecraft/ci.yaml) с предустановленной конфигурацией CI/CD-процесса, который может быть запущен [вручную]({{ link-src-docs }}/sourcecraft/operations/run-workflow-manually) для публикации функции в конкретной [среде выполнения](../../functions/concepts/runtime/index.md#runtimes) или автоматически для среды выполнения `nodejs22` при создании коммита в основную ветку репозитория.
       * директории с примерами кода функций для разных языков программирования и фреймворков.
-  1. Нажмите **{{ ui-key.sourcecraft.ui_modules_repoCreate.button_create-repo }}**.
+  1. Нажмите **{{ ui-key.sourcecraft.repoCreate.button_create-repo_nMrwv }}**.
 
 {% endlist %}
 
@@ -117,14 +117,14 @@
 - Интерфейс {{ src-name }} {#src}
 
   1. Откройте [главную страницу]({{ link-src-main }}) {{ src-name }}.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/briefcase.svg) **{{ ui-key.sourcecraft.ui_lib.organizations }}**.
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/briefcase.svg) **{{ ui-key.sourcecraft.lib.organizations_5CjkW }}**.
   1. Выберите организацию, в которой вы создали сервисный аккаунт в {{ yandex-cloud }}.
-  1. На странице организации в разделе ![image](../../_assets/console-icons/gear.svg) **{{ ui-key.sourcecraft.ui_lib.settings }}** перейдите в секцию ![image](../../_assets/console-icons/cloud-nut-hex.svg) **{{ ui-key.sourcecraft.ui_modules_mainApp.route_service-connections }}**.
-  1. Нажмите **{{ ui-key.sourcecraft.ui_modules_serviceConnections.button_add-connection }}**.
+  1. На странице организации в разделе ![image](../../_assets/console-icons/gear.svg) **{{ ui-key.sourcecraft.lib.settings_cwUYS }}** перейдите в секцию ![image](../../_assets/console-icons/cloud-nut-hex.svg) **{{ ui-key.sourcecraft.mainApp.route_service-connections_2PPgz }}**.
+  1. Нажмите **{{ ui-key.sourcecraft.serviceConnections.button_add-connection_6Bj7i }}**.
   1. В открывшемся окне:
-      * В блоке **{{ ui-key.sourcecraft.ui_modules_serviceConnections.section_basic }}** укажите имя сервисного подключения, например `default-service-connection`, опционально добавьте описание.
-      * В блоке **{{ ui-key.sourcecraft.ui_modules_serviceConnections.section_scope }}** выберите, для каких репозиториев и веток будет доступно сервисное подключение, например, выберите репозиторий, созданный ранее.
-      * В блоке **{{ ui-key.sourcecraft.ui_modules_serviceConnections.section_cloud-settings }}** выберите:
+      * В блоке **{{ ui-key.sourcecraft.serviceConnections.section_basic_wmaiy }}** укажите имя сервисного подключения, например `default-service-connection`, опционально добавьте описание.
+      * В блоке **{{ ui-key.sourcecraft.serviceConnections.section_scope_9gXcu }}** выберите, для каких репозиториев и веток будет доступно сервисное подключение, например, выберите репозиторий, созданный ранее.
+      * В блоке **{{ ui-key.sourcecraft.serviceConnections.section_cloud-settings_tDMfn }}** выберите:
         * Каталог, на который вы назначили роль сервисному аккаунту.
         * Сервисный аккаунт, созданный ранее.
 
@@ -134,13 +134,13 @@
 
         {% endnote %}
 
-  1. Нажмите **{{ ui-key.sourcecraft.ui_modules_serviceConnections.button_create-connection }}**.
+  1. Нажмите **{{ ui-key.sourcecraft.serviceConnections.button_create-connection_uyK29 }}**.
 
       Дождитесь окончания операции. На открывшейся странице будут представлены детали сервисного подключения.
 
       В {{ yandex-cloud }} будет автоматически создана [федерация сервисных аккаунтов](../../iam/concepts/workload-identity.md) {{ iam-full-name }}.
 
-      Чтобы посмотреть параметры созданного OIDC-провайдера, в блоке ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.sourcecraft.ui_modules_serviceConnections.title_oidc-federation }}** нажмите на имя федерации.
+      Чтобы посмотреть параметры созданного OIDC-провайдера, в блоке ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.sourcecraft.serviceConnections.title_oidc-federation_eC6Jw }}** нажмите на имя федерации.
 
 {% endlist %}
 
@@ -151,7 +151,7 @@
 - Интерфейс {{ src-name }} {#src}
 
   1. Откройте [главную страницу]({{ link-src-main }}) {{ src-name }}.
-  1. На вкладке ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.ui_lib.home }}** в секции ![image](../../_assets/console-icons/layout-tabs.svg) **{{ ui-key.sourcecraft.ui_modules_orgCommon.link_your-craftspace }}** перейдите в раздел ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.ui_lib.repositories }}**.
+  1. На вкладке ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.lib.home_t2KmK }}** в секции ![image](../../_assets/console-icons/layout-tabs.svg) **{{ ui-key.sourcecraft.orgCommon.link_your-craftspace_bHYz8 }}** перейдите в раздел ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.lib.repositories_vLJYc }}**.
   1. Выберите созданный ранее репозиторий.
   1. Выберите файл `.sourcecraft/ci.yaml`.
   1. В правом верхнем углу нажмите ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
@@ -165,13 +165,13 @@
       * `ENVIRONMENT` — переменные окружения для функции, например `MY_ENV=SOURCECRAFT`. Аналог параметра `--environment` для команды {{ yandex-cloud }} CLI [yc serverless function version create](../../cli/cli-ref/serverless/cli-ref/function/version/create.md).
       * `PUBLIC` — сделать функцию доступной публично. Значение — `true`. Аналог команды {{ yandex-cloud }} CLI [yc serverless function allow-unauthenticated-invoke](../../cli/cli-ref/serverless/cli-ref/function/allow-unauthenticated-invoke.md).
 
-  1. В правом верхнем углу нажмите **{{ ui-key.sourcecraft.ui_modules_repo.action_commit }}**.
+  1. В правом верхнем углу нажмите **{{ ui-key.sourcecraft.repo.action_commit_brj4B }}**.
   1. Сделайте коммит:
 
       1. Введите сообщение об изменениях.
-      1. В блоке **{{ ui-key.sourcecraft.ui_modules_repo.field_commit-branch }}** выберите **{{ ui-key.sourcecraft.ui_modules_repo.field_text_commit-directly-to-the-branch }} main**.
-      1. В блоке **{{ ui-key.sourcecraft.ui_modules_repo.field_after-commit-action }}** выберите **{{ ui-key.sourcecraft.ui_modules_repo.option_just-commit }}**.
-      1. Нажмите **{{ ui-key.sourcecraft.ui_modules_repo.button_commit }}**.
+      1. В блоке **{{ ui-key.sourcecraft.repo.field_commit-branch_d1Mzi }}** выберите **{{ ui-key.sourcecraft.repo.field_text_commit-directly-to-the-branch_mBfk8 }} main**.
+      1. В блоке **{{ ui-key.sourcecraft.repo.field_after-commit-action_mKjo4 }}** выберите **{{ ui-key.sourcecraft.repo.option_just-commit_to5sC }}**.
+      1. Нажмите **{{ ui-key.sourcecraft.repo.button_commit_si86H }}**.
 
 {% endlist %}
 
@@ -295,10 +295,10 @@ workflows:
 - Интерфейс {{ src-name }} {#src}
 
   1. Откройте [главную страницу]({{ link-src-main }}) {{ src-name }}.
-  1. На вкладке ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.ui_lib.home }}** в секции ![image](../../_assets/console-icons/layout-tabs.svg) **{{ ui-key.sourcecraft.ui_modules_orgCommon.link_your-craftspace }}** перейдите в раздел ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.ui_lib.repositories }}**.
+  1. На вкладке ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.lib.home_t2KmK }}** в секции ![image](../../_assets/console-icons/layout-tabs.svg) **{{ ui-key.sourcecraft.orgCommon.link_your-craftspace_bHYz8 }}** перейдите в раздел ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.lib.repositories_vLJYc }}**.
   1. Выберите созданный ранее репозиторий.
-  1. На странице репозитория в разделе ![image](../../_assets/console-icons/code.svg) **{{ ui-key.sourcecraft.ui_modules_repo.title_navigation-code }}** перейдите в секцию ![image](../../_assets/console-icons/arrows-3-rotate-right.svg) **{{ ui-key.sourcecraft.ui_modules_repo.action_cicd }}**.
-  1. В списке запусков автоматизаций вы увидите новый запуск со статусом ![image](../../_assets/console-icons/circle.svg) **{{ ui-key.sourcecraft.ui_modules_cicd.value_status-created }}**. Дождитесь, когда статус изменится на ![image](../../_assets/console-icons/circle-check.svg) **{{ ui-key.sourcecraft.ui_modules_cicd.value_succeeded }}**.
+  1. На странице репозитория в разделе ![image](../../_assets/console-icons/code.svg) **{{ ui-key.sourcecraft.repo.title_navigation-code_8bgjg }}** перейдите в секцию ![image](../../_assets/console-icons/arrows-3-rotate-right.svg) **{{ ui-key.sourcecraft.repo.action_cicd_4jypo }}**.
+  1. В списке запусков автоматизаций вы увидите новый запуск со статусом ![image](../../_assets/console-icons/circle.svg) **{{ ui-key.sourcecraft.cicd.value_status-created_9AAET }}**. Дождитесь, когда статус изменится на ![image](../../_assets/console-icons/circle-check.svg) **{{ ui-key.sourcecraft.cicd.value_succeeded_3Dd8C }}**.
 
 {% endlist %}
 

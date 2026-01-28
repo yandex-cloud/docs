@@ -26,10 +26,12 @@ Request to add a domain to a userpool.
 ||Field | Description ||
 || userpool_id | **string**
 
-ID of the userpool to add a domain to. ||
+Required field. ID of the userpool to add a domain to.
+
+The maximum string length in characters is 50. ||
 || domain | **string**
 
-Domain name to add. ||
+Required field. Domain name to add. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

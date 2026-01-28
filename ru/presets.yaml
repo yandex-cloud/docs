@@ -272,7 +272,7 @@ default:
   k8s-hpa: Horizontal Pod Autoscaler
   k8s-versions-rapid: 1.30, 1.31, 1.32, 1.33, 1.34
   k8s-versions-regular: 1.30, 1.31, 1.32, 1.33
-  k8s-versions-stable: 1.30, 1.31, 1.32
+  k8s-versions-stable: 1.30, 1.31, 1.32, 1.33
   k8s-vpa: Vertical Pod Autoscaler
   kafka-ui: Kafka UI
   kafka-ui-kafbat: https://ui.docs.kafbat.io/
@@ -3750,48 +3750,48 @@ default:
           view:
             label_metric: Индикатор
     sourcecraft:
-      ui_lib:
-        home: Домой
-        organizations: Организации
-        repositories: Репозитории
-        settings: Настройки
-        value_role-org-owner: Владелец организации
-      ui_modules_cicd:
-        value_status-created: В очереди
-        value_succeeded: Успех
-      ui_modules_mainApp:
-        route_create-repository: Создать репозиторий
-        route_service-connections: Сервисные подключения
-      ui_modules_orgCommon:
-        link_your-craftspace: Ваша мастерская
-      ui_modules_repo:
-        action_cicd: CI/CD
-        action_commit: Сохранить изменения
-        button_commit: Сохранить изменения
-        button_use-template: Использовать шаблон
-        field_after-commit-action: Действие после сохранения изменений
-        field_commit-branch: Ветка изменений
-        field_text_commit-directly-to-the-branch: 'Сохранить непосредственно в ветку:'
-        option_just-commit: Просто сохранить
-        title_navigation-code: Код
-      ui_modules_repoCreate:
-        button_browse-templates: Просмотр шаблонов
-        button_create-repo: Создать репозиторий
-        button_preview-template: Предварительный просмотр
-        section_template: Шаблон репозитория
-        title_create-blank: Пустой репозиторий
-        title_new-repo-details: Сведения о новом репозитории
-        title_owner-field: Владелец
-        title_repo-field: Название
-      ui_modules_repoSettings:
-        field_description: Описание
-      ui_modules_serviceConnections:
-        button_add-connection: Новое сервисное подключение
-        button_create-connection: Создать сервисное подключение
-        section_basic: Базовая информация
-        section_cloud-settings: Настройки Yandex Cloud
-        section_scope: Область применения
-        title_oidc-federation: Федерация cервисных аккаунтов
+      cicd:
+        value_status-created_9AAET: В очереди
+        value_succeeded_3Dd8C: Успех
+      lib:
+        home_t2KmK: Домой
+        organizations_5CjkW: Организации
+        repositories_vLJYc: Репозитории
+        settings_cwUYS: Настройки
+        value_role-org-owner_f9UaR: Владелец организации
+      mainApp:
+        route_create-repository_4e8Ef: Создать репозиторий
+        route_service-connections_2PPgz: Сервисные подключения
+      orgCommon:
+        link_your-craftspace_bHYz8: Ваша мастерская
+      repo:
+        action_cicd_4jypo: CI/CD
+        action_commit_brj4B: Сохранить изменения
+        button_commit_si86H: Сохранить изменения
+        button_use-template_ttBnP: Использовать шаблон
+        field_after-commit-action_mKjo4: Действие после сохранения изменений
+        field_commit-branch_d1Mzi: Ветка изменений
+        field_text_commit-directly-to-the-branch_mBfk8: 'Сохранить непосредственно в ветку:'
+        option_just-commit_to5sC: Просто сохранить
+        title_navigation-code_8bgjg: Код
+      repoCreate:
+        button_browse-templates_bP3xB: Просмотр шаблонов
+        button_create-repo_nMrwv: Создать репозиторий
+        button_preview-template_2WJAq: Предварительный просмотр
+        section_template_vc5Jc: Шаблон репозитория
+        title_create-blank_2CxnQ: Пустой репозиторий
+        title_new-repo-details_riAaE: Сведения о новом репозитории
+        title_owner-field_7gbCn: Владелец
+        title_repo-field_p5MD3: Название
+      repoSettings:
+        field_description_1274t: Описание
+      serviceConnections:
+        button_add-connection_6Bj7i: Новое сервисное подключение
+        button_create-connection_uyK29: Создать сервисное подключение
+        section_basic_wmaiy: Базовая информация
+        section_cloud-settings_tDMfn: Настройки Yandex Cloud
+        section_scope_9gXcu: Область применения
+        title_oidc-federation_eC6Jw: Федерация cервисных аккаунтов
     support-center:
       billing-account:
         common:
@@ -4038,6 +4038,17 @@ default:
           service-accounts: Сервисные аккаунты
           title: Настройка прав доступа
           user-accounts: Пользовательские аккаунты
+      baremetal:
+        addDiskButton: Добавить
+        amount: Количество
+        cpuTitle: Процессор
+        disks: Диски
+        networkLabel: Сеть
+        poolFilter: Пул
+        ramLabel: Оперативная память
+        size: Размер
+        type: Тип
+        withReserve: Есть
       cloud-center:
         action_more: Ещё
       cloud:
@@ -4834,7 +4845,7 @@ default:
           title_clusters: Кластеры
           title_dashboard: Дашборд
         label_comp: Соответствие требованиям
-        label_kspm: Контроль Kubernetes®
+        label_kspm: Контроль Kubernetes{trademark}
         label_settings: Параметры Security Deck
       security:
         comp:
@@ -4858,12 +4869,12 @@ default:
             selectResources_bD5MC: Выбрать ресурсы
           ControlsExceptionsPage:
             action_create: Создать исключение
-            exceptions_header_qJD5D: Контроль Kubernetes®
-            exceptions_header_vqsTb: Контроль Kubernetes®
+            exceptions_header_qJD5D: Контроль Kubernetes{trademark}
+            exceptions_header_vqsTb: Контроль Kubernetes{trademark}
             scope_filter_header_7CrSm: Контроль конфигурации
           ControlsPage:
             exceptions_kw1u7: Исключения
-            kubernetes_jRCmt: Kubernetes®
+            kubernetes_jRCmt: Kubernetes{trademark}
             security_control_r4yn7: Правила контроля безопасности
           ControlsPageLayout:
             configuration_w7Kw7: Конфигурация
@@ -4907,12 +4918,12 @@ default:
             labelNameField: Имя
             labelServiceAccountField: Сервисный аккаунт
           module-cspm_gozhj: Контроль конфигурации (CSPM)
-          module-kspm_n9o93: Контроль Kubernetes® (KSPM)
+          module-kspm_n9o93: Контроль Kubernetes{trademark} (KSPM)
           ServiceAccountResourceSelectDialog:
             action_save: Сохранить выбор
           WorkspaceEditPageLayout:
             tabGeneralParams_xc2v2: Основные параметры
-            tabKubernetes_rC2uU: Контроль Kubernetes®
+            tabKubernetes_rC2uU: Контроль Kubernetes{trademark}
             tabResources_vJuSN: Ресурсы
             tabStandards_wSeaW: Соответствие требованиям
           WorkspaceGeneralParamsForm:
@@ -5407,20 +5418,6 @@ default:
         action_stop-prolongation-server: Выключить автопродление
         action_stop-prolongation-server-dialog: Выключить
         actions_add-partition: Добавить раздел
-        customConfig:
-          CustomConfigForm:
-            cpu_s3pPr: Процессор
-            disks_sZbyA: Диски
-            network_b7gsC: Сеть
-            ram_1vn53: Оперативная память
-          DiskField:
-            amount_kBdTj: Количество
-            size_59KKi: Размер
-            type_g1iH9: Тип
-          DisksField:
-            addDiskButton_77P9P: Добавить
-          PsuField:
-            withReserve_3DjVq: Есть
         field_choose-marketplace-os: Marketplace
         field_choose-no-os: Без операционной системы
         field_CIDR_rwYMi: CIDR
@@ -5475,8 +5472,6 @@ default:
             bandwidthTitle_wvZra: Объём данных
             plan100Tb_4AB2b: 100 ТБ в сутки, ёмкость подключения — 10 Гбит/с
             plan10Tb_2BFQU: 10 ТБ в сутки, ёмкость подключения — 1 Гбит/с
-          Filters:
-            poolFilter_tVgg5: Пул
           ServerConfigPage:
             custom-configs_b5Ab9: Своя конфигурация
             ready-configs_ibA3Y: Готовые конфигурации
@@ -6045,6 +6040,8 @@ default:
             button_attach-to-pool_ak57z: Привязать к пулу резервов ВМ
             button_confirm-detach-vm-from-pool_8dze2: Отвязать
             button_detach-from-pool_wEiB2: Отвязать от пула резервов ВМ
+          MaintenanceRescheduleDialog:
+            button_reschedule_3SHfY: Перенести
           PlatformField:
             value_platform-tab-gpu_hGyQ8: Есть GPU
           SshViaPrivateKeyDialog:
@@ -6281,6 +6278,14 @@ default:
           popup-confirm_button_restart: Перезапустить
           popup-confirm_button_start: Запустить
           popup-confirm_button_stop: Остановить
+        maintenance_js7p4: Техническое обслуживание
+        maintenance:
+          MaintenanceActions:
+            perform-now_m8iqx: Провести сейчас
+            reschedule_rDGt3: Перенести
+          resource_pZ1gY: Ресурс
+          status_pZ1gY: Статус
+          task_pZ1gY: Задание
         nfs:
           button_attach-instance-to-the-filesystem: Подключить к ВМ
           button_create-filesystem: Создать файловое хранилище
@@ -6846,7 +6851,6 @@ default:
               subnets:
                 count: Количество подсетей
             value_status-error: Почти израсходованы
-            value_status-warning: Активно используются
           switch_overview: Обзор
           switch_quotas: Квоты
         connected-federation:
@@ -7423,6 +7427,9 @@ default:
         label_tariff-type: Тип тарификации
         section_tariff-section: Способ тарификации
       mdb:
+        AuthMethodColumn:
+          value_iam_boWet: IAM
+          value_password_gbuZC: Пароль
         cluster:
           backups:
             action_delete-backup: Удалить
@@ -7532,6 +7539,7 @@ default:
             label_services: Сервисы
             label_status: Статус
             label_title: Обзор
+            label_version: Версия
             section_additional: Дополнительные настройки
             section_configuration: Настройки
             section_resource: Ресурсы
@@ -7673,6 +7681,7 @@ default:
           label_disk-size: Размер
           label_diskTypeId: Тип диска
           label_greenplum_pool_client-idle-timeout: Тайм-аут ожидания клиента
+          label_greenplum_pool_idle-in-transaction-timeout: Тайм-аут простоя в транзакции
           label_greenplum_pool_mode: Режим
           label_greenplum_pool_size: Размер
           label_master-subcluster: Мастер
@@ -7850,9 +7859,6 @@ default:
           switch_logs: Логи
           switch_monitoring: Мониторинг
           switch_users: Пользователи
-        common:
-          label_iam_iq9BP: IAM
-          label_password_srTqe: Пароль
         databases:
           dialog:
             button_submit: Изменить

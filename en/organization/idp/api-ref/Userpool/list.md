@@ -279,9 +279,7 @@ Maximum password length. Zero means no maximum length is enforced.
 The minimum value is 0. ||
 || minLength | **string** (int64)
 
-Minimum password length.
-
-The minimum value is 0. ||
+Deprecated. Use Fixed instead. ||
 || matchLength | **string** (int64)
 
 Minimum length of substrings to check for similarity to vulnerable sequences.
@@ -289,11 +287,10 @@ Minimum length of substrings to check for similarity to vulnerable sequences.
 The minimum value is 0. ||
 || requiredClasses | **[RequiredClasses](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.RequiredClasses)**
 
-Character classes required in passwords. ||
+Deprecated. Use Fixed instead. ||
 || minLengthByClassSettings | **[MinLengthByClassSettings](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.MinLengthByClassSettings)**
 
-Minimum length requirements based on character class diversity.
-If not specified, these checks are disabled. ||
+Deprecated. Use Smart instead. ||
 || fixed | **[Fixed](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Fixed)**
 
 Fixed complexity requirements. Exactly one of complexity requirements must be specified.
@@ -312,7 +309,7 @@ Defines password complexity policy. ||
 
 ## RequiredClasses {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.RequiredClasses}
 
-Character classes that can be required in passwords.
+Deprecated. Use Fixed instead.
 
 #|
 ||Field | Description ||
@@ -332,7 +329,7 @@ Whether special characters are required. ||
 
 ## MinLengthByClassSettings {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.MinLengthByClassSettings}
 
-Minimum password length requirements based on character class diversity.
+Deprecated. Use Smart instead.
 
 #|
 ||Field | Description ||

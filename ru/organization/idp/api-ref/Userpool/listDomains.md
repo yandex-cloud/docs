@@ -9,8 +9,11 @@ apiPlayground:
         userpoolId:
           description: |-
             **string**
-            ID of the userpool to list domains for.
+            Required field. ID of the userpool to list domains for.
+            The maximum string length in characters is 50.
           type: string
+      required:
+        - userpoolId
       additionalProperties: false
     query:
       type: object
@@ -58,7 +61,9 @@ Request to list domains for a userpool.
 ||Field | Description ||
 || userpoolId | **string**
 
-Required field. ID of the userpool to list domains for. ||
+Required field. ID of the userpool to list domains for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.organizationmanager.v1.idp.ListUserpoolDomainsRequest}

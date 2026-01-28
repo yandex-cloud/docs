@@ -43,7 +43,7 @@ description: Следуя данной инструкции, вы сможете
     jdbc:mysql://<адрес_сервера_базы_данных>:3306/<имя_базы_данных>
     ```
 
-    Для {{ mmy-full-name }} используйте строку с [особым FQDN](../../managed-mysql/operations/connect.md#fqdn-master), который указывает на хост-мастер:
+    Для {{ mmy-full-name }} используйте строку с [особым FQDN](../../managed-mysql/operations/connect/fqdn.md#fqdn-master), который указывает на хост-мастер:
 
     ```http
     jdbc:mysql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mmy }}/<имя_базы_данных>

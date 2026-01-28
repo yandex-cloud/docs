@@ -53,7 +53,7 @@ description: В этой инструкции вы научитесь созда
 
 ## Подключитесь к БД {#connect}
 
-1. Если вы используете [группы безопасности](../vpc/concepts/security-groups.md) для облачной сети, [настройте их](operations/connect.md#configuring-security-groups), чтобы был разрешен весь необходимый трафик между кластером {{ mmy-name }} и хостом, с которого выполняется подключение.
+1. Если вы используете [группы безопасности](../vpc/concepts/security-groups.md) для облачной сети, [настройте их](operations/connect/index.md#configure-security-groups), чтобы был разрешен весь необходимый трафик между кластером {{ mmy-name }} и хостом, с которого выполняется подключение.
 
 1. Для подключения к серверу БД получите SSL-сертификат:
 
@@ -67,5 +67,5 @@ description: В этой инструкции вы научитесь созда
 ## Что дальше {#whats-next}
 
 * Изучите [концепции сервиса](concepts/index.md).
-* Узнайте подробнее о [создании кластера {{ mmy-name }}](operations/cluster-create.md) и [подключении к БД](operations/connect.md).
+* Узнайте подробнее о [создании кластера {{ mmy-name }}](operations/cluster-create.md) и [подключении к БД](operations/connect/index.md).
 * Ознакомьтесь с [вопросами и ответами](qa/general.md).

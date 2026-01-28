@@ -129,7 +129,7 @@ The rest of the fields will be reset to the default. ||
 
 New username for the user.
 
-The maximum string length in characters is 254. Value must match the regular expression ` \|[a-z0-9A-Z\._-]{1,64}@.{1,256} `. ||
+The maximum string length in characters is 254. Value must match the regular expression ``` |[a-z0-9A-Z\._-]{1,64}@.{1,256} ```. ||
 || fullName | **string**
 
 New full name for the user.
@@ -149,7 +149,7 @@ The maximum string length in characters is 256. ||
 
 New email address for the user.
 
-The maximum string length in characters is 254. Value must match the regular expression ` \|(.{3,254}) `. ||
+The maximum string length in characters is 254. Value must match the regular expression ``` |(.{3,254}) ```. ||
 || phoneNumber | **string**
 
 New phone number for the user.

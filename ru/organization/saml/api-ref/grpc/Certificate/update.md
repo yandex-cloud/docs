@@ -39,7 +39,7 @@ Field mask that specifies which fields of the certificate are going to be update
 Name of the certificate.
 The name must be unique within the federation.
 
-Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 Description of the certificate.
@@ -163,7 +163,7 @@ The maximum string length in characters is 50. ||
 
 Name of the certificate.
 
-Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
 Description of the certificate.
