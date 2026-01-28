@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways/{mcpGatewayId}
+  - url: https://ai.api.cloud.yandex.net/mcpgateway/v1/mcpGateways/{mcpGatewayId}
     method: patch
     path:
       type: object
@@ -521,7 +521,7 @@ Updates the specified MCP Gateway.
 ## HTTP request
 
 ```
-PATCH https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways/{mcpGatewayId}
+PATCH https://ai.api.cloud.yandex.net/mcpgateway/v1/mcpGateways/{mcpGatewayId}
 ```
 
 ## Path parameters

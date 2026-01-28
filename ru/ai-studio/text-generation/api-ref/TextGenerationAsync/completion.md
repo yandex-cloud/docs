@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://llm.{{ api-host }}/foundationModels/v1/completionAsync
+  - url: https://ai.api.cloud.yandex.net/foundationModels/v1/completionAsync
     method: post
     path: null
     query: null
@@ -309,7 +309,7 @@ A method for generating text completions in [asynchronous mode](/docs/foundation
 ## HTTP request
 
 ```
-POST https://llm.{{ api-host }}/foundationModels/v1/completionAsync
+POST https://ai.api.cloud.yandex.net/foundationModels/v1/completionAsync
 ```
 
 ## Body parameters {#yandex.cloud.ai.foundation_models.v1.CompletionRequest}

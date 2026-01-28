@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways/{mcpGatewayId}/operations
+  - url: https://ai.api.cloud.yandex.net/mcpgateway/v1/mcpGateways/{mcpGatewayId}/operations
     method: get
     path:
       type: object
@@ -59,7 +59,7 @@ Lists operations for the specified MCP Gateway.
 ## HTTP request
 
 ```
-GET https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways/{mcpGatewayId}/operations
+GET https://ai.api.cloud.yandex.net/mcpgateway/v1/mcpGateways/{mcpGatewayId}/operations
 ```
 
 ## Path parameters

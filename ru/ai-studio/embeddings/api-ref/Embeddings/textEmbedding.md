@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://llm.{{ api-host }}/foundationModels/v1/textEmbedding
+  - url: https://ai.api.cloud.yandex.net/foundationModels/v1/textEmbedding
     method: post
     path: null
     query: null
@@ -36,7 +36,7 @@ A method for obtaining embeddings from text data.
 ## HTTP request
 
 ```
-POST https://llm.{{ api-host }}/foundationModels/v1/textEmbedding
+POST https://ai.api.cloud.yandex.net/foundationModels/v1/textEmbedding
 ```
 
 ## Body parameters {#yandex.cloud.ai.foundation_models.v1.TextEmbeddingRequest}

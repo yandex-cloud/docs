@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://llm.{{ api-host }}/foundationModels/v1/fewShotTextClassification
+  - url: https://ai.api.cloud.yandex.net/foundationModels/v1/fewShotTextClassification
     method: post
     path: null
     query: null
@@ -67,7 +67,7 @@ with optional examples.
 ## HTTP request
 
 ```
-POST https://llm.{{ api-host }}/foundationModels/v1/fewShotTextClassification
+POST https://ai.api.cloud.yandex.net/foundationModels/v1/fewShotTextClassification
 ```
 
 ## Body parameters {#yandex.cloud.ai.foundation_models.v1.text_classification.FewShotTextClassificationRequest}

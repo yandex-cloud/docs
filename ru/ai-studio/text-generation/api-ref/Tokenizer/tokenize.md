@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://llm.{{ api-host }}/foundationModels/v1/tokenize
+  - url: https://ai.api.cloud.yandex.net/foundationModels/v1/tokenize
     method: post
     path: null
     query: null
@@ -30,7 +30,7 @@ RPC method for tokenizing text.
 ## HTTP request
 
 ```
-POST https://llm.{{ api-host }}/foundationModels/v1/tokenize
+POST https://ai.api.cloud.yandex.net/foundationModels/v1/tokenize
 ```
 
 ## Body parameters {#yandex.cloud.ai.foundation_models.v1.TokenizeRequest}

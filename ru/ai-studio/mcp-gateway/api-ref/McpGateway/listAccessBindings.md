@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways/{resourceId}:listAccessBindings
+  - url: https://ai.api.cloud.yandex.net/mcpgateway/v1/mcpGateways/{resourceId}:listAccessBindings
     method: get
     path:
       type: object
@@ -53,7 +53,7 @@ Lists access bindings for the specified MCP Gateway.
 ## HTTP request
 
 ```
-GET https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways/{resourceId}:listAccessBindings
+GET https://ai.api.cloud.yandex.net/mcpgateway/v1/mcpGateways/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

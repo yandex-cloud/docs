@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://rest-assistant.{{ api-host }}/files/v1/files/{fileId}
+  - url: https://ai.api.cloud.yandex.net/files/v1/files/{fileId}
     method: get
     path:
       type: object
@@ -27,7 +27,7 @@ Retrieve details of a specific file by its ID.
 ## HTTP request
 
 ```
-GET https://rest-assistant.{{ api-host }}/files/v1/files/{fileId}
+GET https://ai.api.cloud.yandex.net/files/v1/files/{fileId}
 ```
 
 ## Path parameters

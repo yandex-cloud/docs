@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://rest-assistant.{{ api-host }}/files/v1/files/{fileId}
+  - url: https://ai.api.cloud.yandex.net/files/v1/files/{fileId}
     method: patch
     path:
       type: object
@@ -84,7 +84,7 @@ Update an existing file.
 ## HTTP request
 
 ```
-PATCH https://rest-assistant.{{ api-host }}/files/v1/files/{fileId}
+PATCH https://ai.api.cloud.yandex.net/files/v1/files/{fileId}
 ```
 
 ## Path parameters

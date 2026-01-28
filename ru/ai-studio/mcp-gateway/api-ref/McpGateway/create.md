@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways
+  - url: https://ai.api.cloud.yandex.net/mcpgateway/v1/mcpGateways
     method: post
     path: null
     query: null
@@ -508,7 +508,7 @@ Creates an MCP Gateway in the specified folder.
 ## HTTP request
 
 ```
-POST https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways
+POST https://ai.api.cloud.yandex.net/mcpgateway/v1/mcpGateways
 ```
 
 ## Body parameters {#yandex.cloud.serverless.mcpgateway.v1.CreateMcpGatewayRequest}

@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways/{resourceId}:setAccessBindings
+  - url: https://ai.api.cloud.yandex.net/mcpgateway/v1/mcpGateways/{resourceId}:setAccessBindings
     method: post
     path:
       type: object
@@ -94,7 +94,7 @@ Sets access bindings for the specified MCP Gateway.
 ## HTTP request
 
 ```
-POST https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways/{resourceId}:setAccessBindings
+POST https://ai.api.cloud.yandex.net/mcpgateway/v1/mcpGateways/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters
