@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways
+  - url: https://ai.api.cloud.yandex.net/mcpgateway/v1/mcpGateways
     method: get
     path: null
     query:
@@ -53,7 +53,7 @@ Retrieves the list of MCP Gateways in the specified folder.
 ## HTTP request
 
 ```
-GET https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways
+GET https://ai.api.cloud.yandex.net/mcpgateway/v1/mcpGateways
 ```
 
 ## Query parameters {#yandex.cloud.serverless.mcpgateway.v1.ListMcpGatewayRequest}

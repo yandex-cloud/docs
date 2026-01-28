@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://llm.{{ api-host }}/foundationModels/v1/textClassification
+  - url: https://ai.api.cloud.yandex.net/foundationModels/v1/textClassification
     method: post
     path: null
     query: null
@@ -33,7 +33,7 @@ must be specified during model tuning and are not provided in the request.
 ## HTTP request
 
 ```
-POST https://llm.{{ api-host }}/foundationModels/v1/textClassification
+POST https://ai.api.cloud.yandex.net/foundationModels/v1/textClassification
 ```
 
 ## Body parameters {#yandex.cloud.ai.foundation_models.v1.text_classification.TextClassificationRequest}

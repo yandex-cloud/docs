@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://rest-assistant.{{ api-host }}/files/v1/files:getUrl
+  - url: https://ai.api.cloud.yandex.net/files/v1/files:getUrl
     method: get
     path: null
     query:
@@ -27,7 +27,7 @@ Retrieve a URL for accessing or downloading a specific file.
 ## HTTP request
 
 ```
-GET https://rest-assistant.{{ api-host }}/files/v1/files:getUrl
+GET https://ai.api.cloud.yandex.net/files/v1/files:getUrl
 ```
 
 ## Query parameters {#yandex.cloud.ai.files.v1.GetFileUrlRequest}

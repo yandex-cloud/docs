@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://rest-assistant.{{ api-host }}/files/v1/files/{fileId}
+  - url: https://ai.api.cloud.yandex.net/files/v1/files/{fileId}
     method: delete
     path:
       type: object
@@ -27,7 +27,7 @@ Delete a file by its ID.
 ## HTTP request
 
 ```
-DELETE https://rest-assistant.{{ api-host }}/files/v1/files/{fileId}
+DELETE https://ai.api.cloud.yandex.net/files/v1/files/{fileId}
 ```
 
 ## Path parameters

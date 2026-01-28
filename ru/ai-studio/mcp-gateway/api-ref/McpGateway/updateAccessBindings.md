@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways/{resourceId}:updateAccessBindings
+  - url: https://ai.api.cloud.yandex.net/mcpgateway/v1/mcpGateways/{resourceId}:updateAccessBindings
     method: patch
     path:
       type: object
@@ -115,7 +115,7 @@ Updates access bindings for the specified MCP Gateway.
 ## HTTP request
 
 ```
-PATCH https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways/{resourceId}:updateAccessBindings
+PATCH https://ai.api.cloud.yandex.net/mcpgateway/v1/mcpGateways/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

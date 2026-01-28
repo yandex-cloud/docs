@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways/{mcpGatewayId}
+  - url: https://ai.api.cloud.yandex.net/mcpgateway/v1/mcpGateways/{mcpGatewayId}
     method: delete
     path:
       type: object
@@ -27,7 +27,7 @@ Deletes the specified MCP Gateway.
 ## HTTP request
 
 ```
-DELETE https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways/{mcpGatewayId}
+DELETE https://ai.api.cloud.yandex.net/mcpgateway/v1/mcpGateways/{mcpGatewayId}
 ```
 
 ## Path parameters

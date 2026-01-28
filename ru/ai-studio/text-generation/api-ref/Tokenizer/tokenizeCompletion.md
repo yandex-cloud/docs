@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://llm.{{ api-host }}/foundationModels/v1/tokenizeCompletion
+  - url: https://ai.api.cloud.yandex.net/foundationModels/v1/tokenizeCompletion
     method: post
     path: null
     query: null
@@ -309,7 +309,7 @@ RPC method for tokenizing content of CompletionRequest
 ## HTTP request
 
 ```
-POST https://llm.{{ api-host }}/foundationModels/v1/tokenizeCompletion
+POST https://ai.api.cloud.yandex.net/foundationModels/v1/tokenizeCompletion
 ```
 
 ## Body parameters {#yandex.cloud.ai.foundation_models.v1.CompletionRequest}

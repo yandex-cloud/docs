@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://rest-assistant.{{ api-host }}/files/v1/files
+  - url: https://ai.api.cloud.yandex.net/files/v1/files
     method: post
     path: null
     query: null
@@ -80,7 +80,7 @@ Create a new file.
 ## HTTP request
 
 ```
-POST https://rest-assistant.{{ api-host }}/files/v1/files
+POST https://ai.api.cloud.yandex.net/files/v1/files
 ```
 
 ## Body parameters {#yandex.cloud.ai.files.v1.CreateFileRequest}

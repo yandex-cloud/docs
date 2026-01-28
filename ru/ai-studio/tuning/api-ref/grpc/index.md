@@ -9,7 +9,7 @@ Actions are performed by making RPC calls. For more information about API archit
 
 **Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/ai/tuning/v1).
 
-**Service URL**: `https://llm.{{ api-host }}`
+**Service URL**: `https://ai.api.cloud.yandex.net`
 
 #|
 ||Service | Description ||

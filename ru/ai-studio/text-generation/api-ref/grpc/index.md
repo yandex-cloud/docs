@@ -9,7 +9,7 @@ The service does not operate with resources.
 
 **Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/ai/foundation_models/v1/text_generation).
 
-**Service URL**: `https://llm.{{ api-host }}`
+**Service URL**: `https://ai.api.cloud.yandex.net`
 
 #|
 ||Service | Description ||

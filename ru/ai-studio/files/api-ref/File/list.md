@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://rest-assistant.{{ api-host }}/files/v1/files
+  - url: https://ai.api.cloud.yandex.net/files/v1/files
     method: get
     path: null
     query:
@@ -38,7 +38,7 @@ List files in a specific folder.
 ## HTTP request
 
 ```
-GET https://rest-assistant.{{ api-host }}/files/v1/files
+GET https://ai.api.cloud.yandex.net/files/v1/files
 ```
 
 ## Query parameters {#yandex.cloud.ai.files.v1.ListFilesRequest}
