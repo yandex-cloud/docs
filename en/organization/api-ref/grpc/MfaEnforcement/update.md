@@ -63,7 +63,7 @@ field mask to specify which fields of the MFA enforcement resource should be upd
 
 the MFA enforcement name
 
-Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 the MFA enforcement description

@@ -4,6 +4,9 @@
 `CreateFormatSchema` | Создание схемы формата данных
 `CreateMlModel` | Создание модели машинного обучения
 `CreateUser` | Создание пользователя базы данных
+`DatabaseUserLogin` | Подключение пользователя к базе данных
+`DatabaseUserLogout` | Отключение пользователя от базы данных
+`DatabaseUserSQLRequest` | SQL-запрос пользователя к базе данных
 `DeleteDatabase` | Удаление базы данных
 `DeleteFormatSchema` | Удаление схемы формата данных
 `DeleteMlModel` | Удаление модели машинного обучения

@@ -29,7 +29,7 @@
 1. Если вы используете группы безопасности, настройте их так, чтобы к кластерам можно было подключаться из интернета и созданной виртуальной машины, а к ней — из интернета по [SSH](../../glossary/ssh-keygen.md):
 
     * [Настройка групп безопасности кластера {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-    * [Настройка групп безопасности кластера {{ mmy-name }}](../../managed-mysql/operations/connect.md#configure-security-groups).
+    * [Настройка групп безопасности кластера {{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configure-security-groups).
 
 
 1. [Подключитесь к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) и выполните ее предварительную настройку:
@@ -61,7 +61,7 @@
     1. Установите на виртуальную машину сертификаты и убедитесь в доступности кластеров:
 
         * [{{ mkf-name }}](../../managed-kafka/operations/connect/clients.md) (используйте утилиту `kafkacat`).
-        * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#get-ssl-cert) (используйте утилиту `mysql`).
+        * [{{ mmy-name }}](../../managed-mysql/operations/connect/index.md#get-ssl-cert) (используйте утилиту `mysql`).
 
     1. Создайте директорию, в которой будут храниться файлы, необходимые для работы коннектора Debezium:
 
@@ -84,7 +84,7 @@
 
 1. [Назначьте пользователю](../../managed-mysql/operations/cluster-users.md#update-settings) `user1` глобальные привилегии `REPLICATION CLIENT` и `REPLICATION SLAVE`.
 
-1. [Подключитесь к базе данных](../../managed-mysql/operations/connect.md) `db1` от имени пользователя `user1`.
+1. [Подключитесь к базе данных](../../managed-mysql/operations/connect/index.md) `db1` от имени пользователя `user1`.
 
 1. Наполните базу тестовыми данными. В качестве примера используется простая таблица, содержащая информацию с некоторых датчиков автомобиля.
 
@@ -168,7 +168,7 @@
     Где:
 
     * `name` — логическое имя коннектора Debezium. Используется для внутренних нужд коннектора.
-    * `database.hostname` — [особый FQDN](../../managed-mysql/operations/connect.md#fqdn-master) для подключения к хосту-мастеру кластера-источника.
+    * `database.hostname` — [особый FQDN](../../managed-mysql/operations/connect/fqdn.md#fqdn-master) для подключения к хосту-мастеру кластера-источника.
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](../../managed-mysql/operations/cluster-list.md#list-clusters).
 
@@ -320,7 +320,7 @@
 
     {% endcut %}
 
-1. [Подключитесь к кластеру-источнику](../../managed-mysql/operations/connect.md) и добавьте еще одну строку в таблицу `measurements`:
+1. [Подключитесь к кластеру-источнику](../../managed-mysql/operations/connect/index.md) и добавьте еще одну строку в таблицу `measurements`:
 
     ```sql
     INSERT INTO measurements VALUES ('iv7b74th678t********', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);

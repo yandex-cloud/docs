@@ -174,7 +174,7 @@ The rest of the fields will be reset to the default. ||
 
 the MFA enforcement name
 
-Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 the MFA enforcement description

@@ -581,7 +581,7 @@ description: Вы можете создавать резервные копии 
 
           * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md);
           * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
-          * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета: `true` или `false`.
+          * `assignPublicIp` — разрешение на [подключение](./connect/index.md) к хосту из интернета: `true` или `false`.
 
   1. Воспользуйтесь методом [Cluster.restore](../api-ref/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
@@ -656,7 +656,7 @@ description: Вы можете создавать резервные копии 
 
           * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md);
           * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
-          * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета: `true` или `false`.
+          * `assign_public_ip` — разрешение на [подключение](./connect/index.md) к хосту из интернета: `true` или `false`.
 
   1. Воспользуйтесь вызовом [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
@@ -1043,7 +1043,7 @@ description: Вы можете создавать резервные копии 
       Где `updateHostSpecs` — массив хостов, которым вы задаете приоритет. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
 
       * `updateMask` — перечень изменяемых параметров в одну строку через запятую;
-      * `hostName` — [FQDN изменяемого хоста](connect.md#fqdn);
+      * `hostName` — [FQDN изменяемого хоста](./connect/fqdn.md);
       * `backupPriority` — [приоритет хоста при резервном копировании](../concepts/backup.md#size): от `0` до `100`.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -1087,7 +1087,7 @@ description: Вы можете создавать резервные копии 
       Где `update_host_specs` — массив хостов, которым вы задаете приоритет. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
 
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`;
-      * `host_name` — [FQDN изменяемого хоста](connect.md#fqdn);
+      * `host_name` — [FQDN изменяемого хоста](./connect/fqdn.md);
       * `backup_priority` — [приоритет хоста при резервном копировании](../concepts/backup.md#size): от `0` до `100`.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).

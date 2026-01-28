@@ -70,7 +70,7 @@ The maximum string length in characters is 256. ||
 
 Email address of the user.
 
-The maximum string length in characters is 254. Value must match the regular expression ` \|(.{3,254}) `. ||
+The maximum string length in characters is 254. Value must match the regular expression ``` |(.{3,254}) ```. ||
 || phone_number | **string**
 
 Phone number of the user.

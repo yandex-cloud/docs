@@ -33,7 +33,7 @@
 
 1. Если вы используете группы безопасности, настройте их так, чтобы к кластерам можно было подключаться из интернета:
 
-    * [Инструкция для {{ mmy-name }}](../../managed-mysql/operations/connect.md#configuring-security-groups).
+    * [Инструкция для {{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configuring-security-groups).
     * [Инструкция для {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
 
 
@@ -49,7 +49,7 @@
 
 1. Чтобы сервис {{ data-transfer-name }} мог получать от кластера {{ mmy-name }} уведомления об изменениях в данных, в кластере-источнике необходимо настроить внешнюю репликацию. Чтобы пользователь `my-user` мог выполнять репликацию, [назначьте ему роль](../../managed-mysql/operations/grant.md) `ALL_PRIVILEGES` для базы данных `db1` и [выдайте глобальные привилегии](../../managed-mysql/operations/cluster-users.md#update-settings) `REPLICATION CLIENT` и `REPLICATION SLAVE`.
 
-1. [Подключитесь к базе данных](../../managed-mysql/operations/connect.md) `db1` от имени пользователя `my-user`.
+1. [Подключитесь к базе данных](../../managed-mysql/operations/connect/index.md) `db1` от имени пользователя `my-user`.
 
 1. Наполните базу тестовыми данными. В качестве примера используется простая таблица, содержащая информацию, поступающую от некоторых датчиков автомобиля.
 

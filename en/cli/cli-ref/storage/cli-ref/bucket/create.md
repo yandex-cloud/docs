@@ -9,41 +9,85 @@ Create new bucket
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc storage bucket create <BUCKET-NAME> [Flags...] [Global Flags...]`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`--name`|<b>`string`</b><br/>A name of the bucket|
-|`--default-storage-class`|<b>`string`</b><br/>Default storage class of the bucket|
-|`--max-size`|<b>`int`</b><br/>Sets maximum size of the bucket, 0 for unlimimted|
-|`--public-read`|Opens bucket for public read|
-|`--public-list`|Opens bucket for public listing|
-|`--public-config-read`|Opens bucket for public config|
-|`--acl`|<b>`string`</b><br/>Setup bucket with predefined ACL. Conflicts with grants|
-|`--grants`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Sets bucket ACL more precisely. Conflicts with acl<br/><br/>Possible property names:<br/><ul> <li><code>grantee-id</code>:     Sets grantee id used for grant type account</li> <li><code>grant-type</code>:     Sets grant type Values: 'grant-type-account', 'grant-type-all-authenticated-users', 'grant-type-all-users'</li> <li><code>permission</code>:     Sets permission for the grant Values: 'permission-full-control', 'permission-write', 'permission-write-acp', 'permission-read', 'permission-read-acp'</li> </ul>|
-|`--tags`|<b>`key=value[,key=value...]`</b><br/>A list of tags (or labels) KEY=VALUE pairs to add. For example, to add two tags named 'foo' and 'bar', both with the value 'baz', use '--tags foo=baz,bar=baz'.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `--name` | `string`
+
+A name of the bucket ||
+|| `--default-storage-class` | `string`
+
+Default storage class of the bucket ||
+|| `--max-size` | `int`
+
+Sets maximum size of the bucket, 0 for unlimimted ||
+|| `--public-read` | Opens bucket for public read ||
+|| `--public-list` | Opens bucket for public listing ||
+|| `--public-config-read` | Opens bucket for public config ||
+|| `--acl` | `string`
+
+Setup bucket with predefined ACL. Conflicts with grants ||
+|| `--grants` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Sets bucket ACL more precisely. Conflicts with acl
+
+Possible property names:
+
+- `grantee-id`: Sets grantee id used for grant type account
+
+- `grant-type`: Sets grant type Values: 'grant-type-account', 'grant-type-all-authenticated-users', 'grant-type-all-users'
+
+- `permission`: Sets permission for the grant Values: 'permission-full-control', 'permission-write', 'permission-write-acp', 'permission-read', 'permission-read-acp' ||
+|| `--tags` | `key=value[,key=value...]`
+
+A list of tags (or labels) KEY=VALUE pairs to add. For example, to add two tags named 'foo' and 'bar', both with the value 'baz', use '--tags foo=baz,bar=baz'. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom configuration file.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--cloud-id`|<b>`string`</b><br/>Set the ID of the cloud to use.|
-|`--folder-id`|<b>`string`</b><br/>Set the ID of the folder to use.|
-|`--folder-name`|<b>`string`</b><br/>Set the name of the folder to use (will be resolved to id).|
-|`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
-|`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
-|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom configuration file. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
+|| `--token` | `string`
+
+Set the OAuth token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

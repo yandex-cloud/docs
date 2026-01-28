@@ -87,26 +87,26 @@ The repository will be created from the [yc-cloud-functions-template]({{ link-sr
 - {{ src-name }} UI {#src}
 
   1. Open the {{ src-name }} [home page]({{ link-src-main }}).
-  1. In the left-hand panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.sourcecraft.ui_modules_mainApp.route_create-repository }}**.
-  1. In the window that opens, select **{{ ui-key.sourcecraft.ui_modules_repoCreate.title_create-blank }}**.
-  1. Under **{{ ui-key.sourcecraft.ui_modules_repoCreate.title_new-repo-details }}**:
-      * In the **{{ ui-key.sourcecraft.ui_modules_repoCreate.title_owner-field }}** field, select the [organization]({{ link-src-docs }}/sourcecraft/concepts/#org) in which you created the {{ yandex-cloud }} service account.
-      * In the **{{ ui-key.sourcecraft.ui_modules_repoCreate.title_repo-field }}** field, specify a name for the repository. 
+  1. In the left-hand panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.sourcecraft.mainApp.route_create-repository_4e8Ef }}**.
+  1. In the window that opens, select **{{ ui-key.sourcecraft.repoCreate.title_create-blank_2CxnQ }}**.
+  1. Under **{{ ui-key.sourcecraft.repoCreate.title_new-repo-details_riAaE }}**:
+      * In the **{{ ui-key.sourcecraft.repoCreate.title_owner-field_7gbCn }}** field, select the [organization]({{ link-src-docs }}/sourcecraft/concepts/#org) in which you created the {{ yandex-cloud }} service account.
+      * In the **{{ ui-key.sourcecraft.repoCreate.title_repo-field_p5MD3 }}** field, specify a name for the repository. 
 
         The name must be unique within the organization. The name may contain the following [ASCII characters](https://en.wikipedia.org/wiki/ASCII): lowercase and uppercase Latin letters, numbers, commas, hyphens, and underscores.
 
         The address to access the repository at is displayed below the name.
 
-      * Optionally, in the **{{ ui-key.sourcecraft.ui_modules_repoSettings.field_description }}** field, enter a description for the repository.
+      * Optionally, in the **{{ ui-key.sourcecraft.repoSettings.field_description_1274t }}** field, enter a description for the repository.
 
-  1. Under **{{ ui-key.sourcecraft.ui_modules_repoCreate.section_template }}**, click **{{ ui-key.sourcecraft.ui_modules_repoCreate.button_browse-templates }}**. Select [yc-cloud-functions-template]({{ link-src-main }}/sourcecraft/yc-cloud-functions-template) and click **{{ ui-key.sourcecraft.ui_modules_repo.button_use-template }}**.
+  1. Under **{{ ui-key.sourcecraft.repoCreate.section_template_vc5Jc }}**, click **{{ ui-key.sourcecraft.repoCreate.button_browse-templates_bP3xB }}**. Select [yc-cloud-functions-template]({{ link-src-main }}/sourcecraft/yc-cloud-functions-template) and click **{{ ui-key.sourcecraft.repo.button_use-template_ttBnP }}**.
 
-      To view the template contents, click **{{ ui-key.sourcecraft.ui_modules_repoCreate.button_preview-template }}**.
+      To view the template contents, click **{{ ui-key.sourcecraft.repoCreate.button_preview-template_2WJAq }}**.
 
       The template contains:
       * [.sourcecraft/ci.yaml]({{ link-src-main }}/sourcecraft/yc-cloud-functions-template/browse/.sourcecraft/ci.yaml) file with a pre-installed configuration of a CI/CD process you can run [manually]({{ link-src-docs }}/sourcecraft/operations/run-workflow-manually) to publish your function to a specific [runtime](../../functions/concepts/runtime/index.md#runtimes) or automatically for the `nodejs22` runtime when creating a commit to the repository main branch.
       * Directories with function code examples for different programming languages and frameworks.
-  1. Click **{{ ui-key.sourcecraft.ui_modules_repoCreate.button_create-repo }}**.
+  1. Click **{{ ui-key.sourcecraft.repoCreate.button_create-repo_nMrwv }}**.
 
 {% endlist %}
 
@@ -117,14 +117,14 @@ The repository will be created from the [yc-cloud-functions-template]({{ link-sr
 - {{ src-name }} UI {#src}
 
   1. Open the {{ src-name }} [home page]({{ link-src-main }}).
-  1. Navigate to the ![image](../../_assets/console-icons/briefcase.svg) **{{ ui-key.sourcecraft.ui_lib.organizations }}** tab.
+  1. Navigate to the ![image](../../_assets/console-icons/briefcase.svg) **{{ ui-key.sourcecraft.lib.organizations_5CjkW }}** tab.
   1. Select the organization where you created the {{ yandex-cloud }} service account.
-  1. On the organization page, in the ![image](../../_assets/console-icons/gear.svg) **{{ ui-key.sourcecraft.ui_lib.settings }}** section, go to the ![image](../../_assets/console-icons/cloud-nut-hex.svg) **{{ ui-key.sourcecraft.ui_modules_mainApp.route_service-connections }}** section.
-  1. Click **{{ ui-key.sourcecraft.ui_modules_serviceConnections.button_add-connection }}**.
+  1. On the organization page, in the ![image](../../_assets/console-icons/gear.svg) **{{ ui-key.sourcecraft.lib.settings_cwUYS }}** section, go to the ![image](../../_assets/console-icons/cloud-nut-hex.svg) **{{ ui-key.sourcecraft.mainApp.route_service-connections_2PPgz }}** section.
+  1. Click **{{ ui-key.sourcecraft.serviceConnections.button_add-connection_6Bj7i }}**.
   1. In the window that opens, do the following:
-      * Under **{{ ui-key.sourcecraft.ui_modules_serviceConnections.section_basic }}**, give the connection a name, e.g., `default-service-connection`, and add an optional description.
-      * Under **{{ ui-key.sourcecraft.ui_modules_serviceConnections.section_scope }}**, select the repositories and branches the service connection will be available to, e.g., the repository you created earlier.
-      * Under **{{ ui-key.sourcecraft.ui_modules_serviceConnections.section_cloud-settings }}**, select:
+      * Under **{{ ui-key.sourcecraft.serviceConnections.section_basic_wmaiy }}**, give the connection a name, e.g., `default-service-connection`, and add an optional description.
+      * Under **{{ ui-key.sourcecraft.serviceConnections.section_scope_9gXcu }}**, select the repositories and branches the service connection will be available to, e.g., the repository you created earlier.
+      * Under **{{ ui-key.sourcecraft.serviceConnections.section_cloud-settings_tDMfn }}**, select:
         * Folder for which you have assigned a role to the service account.
         * Service account you created earlier.
 
@@ -134,13 +134,13 @@ The repository will be created from the [yc-cloud-functions-template]({{ link-sr
 
         {% endnote %}
 
-  1. Click **{{ ui-key.sourcecraft.ui_modules_serviceConnections.button_create-connection }}**.
+  1. Click **{{ ui-key.sourcecraft.serviceConnections.button_create-connection_uyK29 }}**.
 
       Wait for the operation to complete. The page that opens will display the service connection details.
 
       A {{ iam-full-name }} [workload identity federation](../../iam/concepts/workload-identity.md) will be automatically created in {{ yandex-cloud }}.
 
-      To view the parameters of the new OIDC provider, click the federation name under ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.sourcecraft.ui_modules_serviceConnections.title_oidc-federation }}**.
+      To view the parameters of the new OIDC provider, click the federation name under ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.sourcecraft.serviceConnections.title_oidc-federation_eC6Jw }}**.
 
 {% endlist %}
 
@@ -151,7 +151,7 @@ The repository will be created from the [yc-cloud-functions-template]({{ link-sr
 - {{ src-name }} UI {#src}
 
   1. Open the {{ src-name }} [home page]({{ link-src-main }}).
-  1. On the ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.ui_lib.home }}** tab, under ![image](../../_assets/console-icons/layout-tabs.svg) **{{ ui-key.sourcecraft.ui_modules_orgCommon.link_your-craftspace }}**, navigate to ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.ui_lib.repositories }}**.
+  1. On the ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.lib.home_t2KmK }}** tab, under ![image](../../_assets/console-icons/layout-tabs.svg) **{{ ui-key.sourcecraft.orgCommon.link_your-craftspace_bHYz8 }}**, navigate to ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.lib.repositories_vLJYc }}**.
   1. Select the repository you created earlier.
   1. Select `.sourcecraft/ci.yaml`.
   1. In the top-right corner, click ![image](../../_assets/console-icons/pencil.svg) **Edit**.
@@ -165,13 +165,13 @@ The repository will be created from the [yc-cloud-functions-template]({{ link-sr
       * `ENVIRONMENT`: Environment variables for the function, e.g., `MY_ENV=SOURCECRAFT`. This is an equivalent of the `--environment` parameter in the [yc serverless function version create](../../cli/cli-ref/serverless/cli-ref/function/version/create.md) {{ yandex-cloud }} CLI command.
       * `PUBLIC`: Make the function publicly available. This parameter takes the `true` value. This is an equivalent of the [yc serverless function allow-unauthenticated-invoke](../../cli/cli-ref/serverless/cli-ref/function/allow-unauthenticated-invoke.md) {{ yandex-cloud }} CLI command.
 
-  1. In the top-right corner, click **{{ ui-key.sourcecraft.ui_modules_repo.action_commit }}**.
+  1. In the top-right corner, click **{{ ui-key.sourcecraft.repo.action_commit_brj4B }}**.
   1. Commit:
 
       1. Enter a message about the changes.
-      1. Under **{{ ui-key.sourcecraft.ui_modules_repo.field_commit-branch }}**, select **{{ ui-key.sourcecraft.ui_modules_repo.field_text_commit-directly-to-the-branch }} main**.
-      1. Under **{{ ui-key.sourcecraft.ui_modules_repo.field_after-commit-action }}**, select **{{ ui-key.sourcecraft.ui_modules_repo.option_just-commit }}**.
-      1. Click **{{ ui-key.sourcecraft.ui_modules_repo.button_commit }}**.
+      1. Under **{{ ui-key.sourcecraft.repo.field_commit-branch_d1Mzi }}**, select **{{ ui-key.sourcecraft.repo.field_text_commit-directly-to-the-branch_mBfk8 }} main**.
+      1. Under **{{ ui-key.sourcecraft.repo.field_after-commit-action_mKjo4 }}**, select **{{ ui-key.sourcecraft.repo.option_just-commit_to5sC }}**.
+      1. Click **{{ ui-key.sourcecraft.repo.button_commit_si86H }}**.
 
 {% endlist %}
 
@@ -295,10 +295,10 @@ workflows:
 - {{ src-name }} UI {#src}
 
   1. Open the {{ src-name }} [home page]({{ link-src-main }}).
-  1. On the ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.ui_lib.home }}** tab, under ![image](../../_assets/console-icons/layout-tabs.svg) **{{ ui-key.sourcecraft.ui_modules_orgCommon.link_your-craftspace }}**, navigate to ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.ui_lib.repositories }}**.
+  1. On the ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.lib.home_t2KmK }}** tab, under ![image](../../_assets/console-icons/layout-tabs.svg) **{{ ui-key.sourcecraft.orgCommon.link_your-craftspace_bHYz8 }}**, navigate to ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.lib.repositories_vLJYc }}**.
   1. Select the repository you created earlier.
-  1. Under ![image](../../_assets/console-icons/code.svg) **{{ ui-key.sourcecraft.ui_modules_repo.title_navigation-code }}** on the repository page, go to ![image](../../_assets/console-icons/arrows-3-rotate-right.svg) **{{ ui-key.sourcecraft.ui_modules_repo.action_cicd }}**.
-  1. In the automation executions list, you will see a new execution with the ![image](../../_assets/console-icons/circle.svg) **{{ ui-key.sourcecraft.ui_modules_cicd.value_status-created }}** status. Wait for the status to change to ![image](../../_assets/console-icons/circle-check.svg) **{{ ui-key.sourcecraft.ui_modules_cicd.value_succeeded }}**.
+  1. Under ![image](../../_assets/console-icons/code.svg) **{{ ui-key.sourcecraft.repo.title_navigation-code_8bgjg }}** on the repository page, go to ![image](../../_assets/console-icons/arrows-3-rotate-right.svg) **{{ ui-key.sourcecraft.repo.action_cicd_4jypo }}**.
+  1. In the automation executions list, you will see a new execution with the ![image](../../_assets/console-icons/circle.svg) **{{ ui-key.sourcecraft.cicd.value_status-created_9AAET }}** status. Wait for the status to change to ![image](../../_assets/console-icons/circle-check.svg) **{{ ui-key.sourcecraft.cicd.value_succeeded_3Dd8C }}**.
 
 {% endlist %}
 

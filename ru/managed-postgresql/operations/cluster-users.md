@@ -101,7 +101,7 @@ description: Из статьи вы узнаете, как добавлять и
   
   1. Выберите способ аутентификации:
 
-     * **{{ ui-key.yacloud.postgresql.common.label_password_srTqe }}** — аутентификация по имени пользователя и паролю.
+     * **{{ ui-key.yacloud.mdb.AuthMethodColumn.value_password_gbuZC }}** — аутентификация по имени пользователя и паролю.
 
        1. Введите имя пользователя базы данных.
 
@@ -117,7 +117,7 @@ description: Из статьи вы узнаете, как добавлять и
            Чтобы увидеть пароль, на странице кластера выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
 
-     * **{{ ui-key.yacloud.postgresql.common.label_iam_iq9BP }}** — аутентификация с помощью [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративного аккаунта](../../iam/concepts/users/accounts.md#saml-federation) или [локального пользователя](../../iam/concepts/users/accounts.md#local).
+     * **{{ ui-key.yacloud.mdb.AuthMethodColumn.value_iam_boWet }}** — аутентификация с помощью [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративного аккаунта](../../iam/concepts/users/accounts.md#saml-federation) или [локального пользователя](../../iam/concepts/users/accounts.md#local).
 
        В поле **{{ ui-key.yacloud.common.user }}** откройте список доступных аккаунтов пользователей и выберите нужный аккаунт. Чтобы найти нужный аккаунт, используйте строку поиска над списком.
 

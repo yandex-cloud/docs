@@ -38,7 +38,7 @@ Field mask that specifies which fields of the certificate are going to be update
 
 New name for the signature certificate.
 
-Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 New description for the signature certificate.

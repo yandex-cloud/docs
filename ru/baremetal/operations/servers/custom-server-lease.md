@@ -21,22 +21,22 @@ description: Следуя данной инструкции, вы сможете
   1. {% include [server-lease-step2](../../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
   1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}** и в открывшемся окне выберите вариант `{{ ui-key.yacloud.baremetal.servers.ServerConfigPage.custom-configs_b5Ab9 }}`. В открывшемся окне настройте конфигурацию сервера:
 
-      1. В блоке **{{ ui-key.yacloud.baremetal.customConfig.CustomConfigForm.cpu_s3pPr }}** выберите устраивающий вас CPU.
+      1. В блоке **{{ ui-key.yacloud_components.baremetal.cpuTitle }}** выберите устраивающий вас CPU.
 
           При необходимости воспользуйтесь фильтром по производителю, количеству ядер и тактовой частоте доступных процессоров.
-      1. В блоке **{{ ui-key.yacloud.baremetal.customConfig.CustomConfigForm.ram_1vn53 }}** укажите тип и объем доступной на сервере памяти RAM.
-      1. В блоке **{{ ui-key.yacloud.baremetal.customConfig.CustomConfigForm.disks_sZbyA }}** добавьте на сервер группу дисковых устройств определенного типоразмера:
+      1. В блоке **{{ ui-key.yacloud_components.baremetal.ramLabel }}** укажите тип и объем доступной на сервере памяти RAM.
+      1. В блоке **{{ ui-key.yacloud_components.baremetal.disks }}** добавьте на сервер группу дисковых устройств определенного типоразмера:
 
-          1. В поле **{{ ui-key.yacloud.baremetal.customConfig.DiskField.type_g1iH9 }}** выберите тип дискового устройства.
-          1. В появившемся поле **{{ ui-key.yacloud.baremetal.customConfig.DiskField.size_59KKi }}** выберите размер дисков в создаваемой группе.
-          1. В появившемся поле **{{ ui-key.yacloud.baremetal.customConfig.DiskField.amount_kBdTj }}** выберите количество дисков в группе.
+          1. В поле **{{ ui-key.yacloud_components.baremetal.type }}** выберите тип дискового устройства.
+          1. В появившемся поле **{{ ui-key.yacloud_components.baremetal.size }}** выберите размер дисков в создаваемой группе.
+          1. В появившемся поле **{{ ui-key.yacloud_components.baremetal.amount }}** выберите количество дисков в группе.
 
           На сервере должна быть как минимум одна группа, состоящая не менее чем из двух дисков.
 
-          Вы можете добавить на сервер дополнительные группы дисков других типоразмеров. Для этого нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.customConfig.DisksField.addDiskButton_77P9P }}**.
-      1. В блоке **{{ ui-key.yacloud.baremetal.customConfig.CustomConfigForm.network_b7gsC }}** выберите скорость соединения сетевых карт сервера в [публичной](../../concepts/network.md#public-network) и [приватной](../../concepts/network.md#private-network) сетях, а также наличие на сервере [групп агрегирования](../../concepts/mc-lag.md) MC-LAG.
+          Вы можете добавить на сервер дополнительные группы дисков других типоразмеров. Для этого нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.baremetal.addDiskButton }}**.
+      1. В блоке **{{ ui-key.yacloud_components.baremetal.networkLabel }}** выберите скорость соединения сетевых карт сервера в [публичной](../../concepts/network.md#public-network) и [приватной](../../concepts/network.md#private-network) сетях, а также наличие на сервере [групп агрегирования](../../concepts/mc-lag.md) MC-LAG.
       1. В блоке **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}** выберите [пул серверов](../../concepts/servers.md#server-pools), в котором будет расположен сервер.
-      1. В блоке **{{ ui-key.yacloud.baremetal.customConfig.PsuField.withReserve_3DjVq }}** выберите, будет ли на сервере [резервирование питания](../../concepts/servers.md#server-power-supply).
+      1. В блоке **{{ ui-key.yacloud_components.baremetal.withReserve }}** выберите, будет ли на сервере [резервирование питания](../../concepts/servers.md#server-power-supply).
       1. Нажмите кнопку **{{ ui-key.yacloud.common.continue }}**.
   1. В открывшемся окне настройте параметры сервера:
 

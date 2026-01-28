@@ -183,7 +183,7 @@ images:
             ru: <Описание_на_русском>
       ```
 
-   * `mandatory` (опционально) — флаг *Обязательно для заполнения*. Может быть установлен в любом типе переменной, кроме `boolean_value`. Доступны значения `true` и `false`.
+   * `required` (опционально) — флаг *Обязательно для заполнения*. Может быть установлен в любом типе переменной, кроме `boolean_value`. Доступны значения `true` и `false`.
 
    * Тип переменной. Доступны значения:
       * `simple_disabled`. Может содержать значение по умолчанию и флаг включения.
@@ -194,7 +194,7 @@ images:
             disabled: true
             title: <Заголовок>
             simple_disabled:
-              mandatory: true
+              required: true
               default_value: "simple_string_value"
         ```
 
@@ -207,7 +207,7 @@ images:
             description: <Описание>
             integer_value:
               default_value: <целое_число_по_умолчанию>
-              mandatory: true
+              required: true
               restrictions:
                 min: <целое_число_1>
                 max: <целое_число_2>
@@ -233,7 +233,7 @@ images:
             description: <Описание>
             string_selector_value:
               default_value: <значение_1>
-              mandatory: true
+              required: true
               values:
                 - <значение_1>
                 - <значение_2>
@@ -249,7 +249,7 @@ images:
             description: <Описание>
             integer_selector_value:
               default_value: <целое_число_1>
-              mandatory: true
+              required: true
               values:
                 - <целое_число_1>
                 - <целое_число_2>
@@ -264,7 +264,7 @@ images:
             title: <Заголовок>
             description: <Описание>
             string_value:
-              mandatory: true
+              required: true
               secret: true
               length_restrictions:
                 min: <минимальная_длина_строки>
@@ -281,7 +281,7 @@ images:
             list_value:
               item:
                <тип_элемента_списка>: 
-                 mandatory: true
+                 required: true
               min_items: <минимальная_длина_списка>
               max_items: <максимальная_длина_списка>
         ```
@@ -293,7 +293,7 @@ images:
           - name: <название>
             title: <Заголовок>
             cloud_id_value:
-              mandatory: true
+              required: true
         ```
 
       * `cloudid` — идентификатор облака в {{ yandex-cloud }}, который можно выбрать из консоли управления.
@@ -303,7 +303,7 @@ images:
           - name: <название>
             title: <Заголовок>
             cloud_id_value:
-              mandatory: true
+              required: true
         ```
 
       * `folderid` — идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).
@@ -313,7 +313,7 @@ images:
           - name: <название>
             title: <Заголовок>
             folder_id_value:
-              mandatory: true
+              required: true
         ```
 
       * `clusterid` — идентификатор [кластера {{ k8s }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
@@ -323,7 +323,7 @@ images:
           - name: <название>
             title: <Заголовок>
             cluster_id_value:
-              mandatory: true
+              required: true
         ```
 
       * `networkid` — идентификатор [сети](../../vpc/concepts/network.md#network) {{ vpc-full-name }}.
@@ -333,7 +333,7 @@ images:
           - name: <название>
             title: <Заголовок>
             network_id_value:
-              mandatory: true
+              required: true
         ```
 
       * `subnetid` — идентификатор [подсети](../../vpc/concepts/network.md#subnet) {{ vpc-name }}.
@@ -343,7 +343,7 @@ images:
           - name: <название>
             title: <Заголовок>
             subnet_id_value:
-              mandatory: true
+              required: true
         ```
 
       * `serviceaccountid` — идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
@@ -353,7 +353,7 @@ images:
           - name: <название>
             title: <Заголовок>
             service_account_id_value:
-              mandatory: true
+              required: true
         ```
 
       * `serviceaccountkey` — [авторизованный ключ](../../iam/concepts/authorization/key.md) сервисного аккаунта.
@@ -363,7 +363,7 @@ images:
           - name: <название>
             title: <Заголовок>
             service_account_key_value:
-              mandatory: true
+              required: true
         ```
 
       * `service_account_aws_key_value` — [статический ключ](../../iam/concepts/authorization/access-key.md) сервисного аккаунта для доступа к {{ objstorage-name }}. Передается в формате JSON.
@@ -374,7 +374,7 @@ images:
             title: <Заголовок>
             description: <Описание>
             service_account_aws_key_value:
-              mandatory: true
+              required: true
         ```
 
         Чтобы использовать значение этого поля в Helm-чарте или передавать его в файле при ручной установке, необходимо добавить в конец шаблона `templates/_helpers.tpl` следующий код:
@@ -445,7 +445,7 @@ images:
           - name: <название>
             title: <Заголовок>
             kube_dns_cluster_ip_value:
-              mandatory: true
+              required: true
         ```
 
       * `kubednsclusteripvalue` — IP-адрес кластера {{ k8s }}.
@@ -455,7 +455,7 @@ images:
           - name: <название>
             title: <Заголовок>
             kube_dns_cluster_ip_value:
-              mandatory: true
+              required: true
         ```
 
       * `loggroupidvalue` — идентификатор [лог-группы](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}.
@@ -465,7 +465,7 @@ images:
           - name: <название>
             title: <Заголовок>
             log_group_id_value:
-              mandatory: true
+              required: true
         ```
 
       * `kmskeyidvalue` — содержимое [ключа {{ kms-full-name }}](../../kms/concepts/key.md).
@@ -475,7 +475,7 @@ images:
           - name: <название>
             title: <Заголовок>
             kms_key_id_value:
-              mandatory: true
+              required: true
         ```
 
       * `domainvalue` — домен, в котором будет расположен кластер {{ k8s }}.
@@ -485,7 +485,7 @@ images:
           - name: <название>
             title: <Заголовок>
             domain_value:
-              mandatory: true
+              required: true
         ```
 
       * `iamapikeyvalue` — значение [API-ключа](../../iam/concepts/authorization/api-key.md) сервисного аккаунта. Передается в формате JSON.
@@ -495,7 +495,7 @@ images:
           - name: <название>
             title: <Заголовок>
             iam_api_key_value:
-              mandatory: true
+              required: true
         ```
 
       * `storagebucketvalue` — [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}.
@@ -505,7 +505,7 @@ images:
           - name: <название>
             title: <Заголовок>
             storage_bucket_value:
-              mandatory: true
+              required: true
         ```
 
       * `prometheusworkspaceidvalue` — название рабочего пространства {{ prometheus-name }}.
@@ -515,7 +515,7 @@ images:
           - name: <название>
             title: <Заголовок>
             prometheus_workspace_id_value:
-              mandatory: false
+              required: false
         ```
 
       * `licenseidvalue` — идентификатор [подписки](license-manager-integration.md) из {{ license-manager }} API.
@@ -525,7 +525,7 @@ images:
           - name: <название>
             title: <Заголовок>
             license_id_value:
-              mandatory: false
+              required: false
         ```
 
 1. `private_artifacts` — необязательный параметр. Позволяет не перемещать все образы, входящие в продукт, из реестра издателя в публично доступный реестр `yc-marketplace`. Доступны значения `true` и `false`, значение по умолчанию — `false`.
@@ -570,7 +570,7 @@ user_values:
       ru: Порт, на котором приложение принимает входящие запросы
     integer_value:
       default_value: 8080
-      mandatory: true
+      required: true
       restrictions:
         min: 8000
         max: 9000
@@ -591,7 +591,7 @@ user_values:
       en: Password of administrator, should be at least 8 symbols
       ru: Пароль администратора, должен быть длиной не менее 8 символов
     string_value:
-      mandatory: true
+      required: true
       secret: true
       length_restrictions:
         min: 8
@@ -605,7 +605,7 @@ user_values:
       ru: Выбор одного строкового значения
     string_selector_value:
       default_value: opt1
-      mandatory: true
+      required: true
       values:
         - opt1
         - opt2
@@ -619,7 +619,7 @@ user_values:
       ru: Выбор одного integer значения
     integer_selector_value:
       default_value: 1
-      mandatory: true
+      required: true
       values:
         - 1
         - 2

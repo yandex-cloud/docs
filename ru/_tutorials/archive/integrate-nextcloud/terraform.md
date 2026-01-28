@@ -156,7 +156,7 @@ terraform output Secret_key
         1. В поле **Database account** введите `user` — имя пользователя БД, созданного в кластере {{ MY }}.
         1. В поле **Database password** введите пароль пользователя БД, который вы задали в файле `nextcloud-integrate-storage.auto.tfvars`.
         1. В поле **Database name** введите `nextcloud` — имя БД, созданной в кластере {{ MY }}.
-        1. В поле **Database host** укажите [FQDN](../../../glossary/fqdn.md) [текущего хост-мастера](../../../managed-mysql/operations/connect.md#fqdn-master) кластера {{ MY }} и порт в формате:
+        1. В поле **Database host** укажите [FQDN](../../../glossary/fqdn.md) [текущего хост-мастера](../../../managed-mysql/operations/connect/fqdn.md#fqdn-master) кластера {{ MY }} и порт в формате:
 
             ```text
             c-<идентификатор_кластера>.rw.{{ dns-zone }}:3306

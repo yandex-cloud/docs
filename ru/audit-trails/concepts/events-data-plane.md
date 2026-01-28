@@ -115,6 +115,12 @@ description: В данном разделе приведены описания 
 
 {% include [mpg-events-dp](../../_includes/audit-trails/events/mpg-events-dp.md) %}
 
+## {{ mspqr-full-name }} {#spqr}
+
+Имя сервиса — `mdb.spqr`.
+
+{% include [mspqr-events-dp](../../_includes/audit-trails/events/mspqr-events-dp.md) %}
+
 ## {{ mrd-full-name }} {#mrd}
 
 Имя сервиса — `mdb.redis`.
@@ -142,6 +148,12 @@ description: В данном разделе приведены описания 
 Имя модуля — `securitydeck.alerts`.
 
 {% include [sd-alerts-events-dp](../../_includes/audit-trails/events/sd-alerts-events-dp.md) %}
+
+### Модуль Контроль конфигурации ({{ cspm-name }}) {#sd-cspm}
+
+Имя модуля — `securitydeck.cspm`.
+
+{% include [sd-cspm-events-dp](../../_includes/audit-trails/events/sd-cspm-events-dp.md) %}
 
 ### Модуль Контроль {{ k8s }}® (KSPM) {#sd-kspm}
 

@@ -33,20 +33,20 @@ FQDN можно использовать для доступа к хосту в 
 
 ## Подключение к хостам кластера {#cluster-connect}
 
-[Подключение к хостам кластера](../operations/connect.md) {{ mmy-short-name }} возможно:
+[Подключение к хостам кластера](../operations/connect/index.md) {{ mmy-short-name }} возможно:
 
 {% include [cluster-connect-note](../../_includes/mdb/mmy/cluster-connect-note.md) %}
 
 Максимальное количество подключений определяется настройкой [max_connections](./settings-list.md#setting-max-connections), которая [зависит от класса хостов](./settings-list.md#settings-instance-dependent).
 
-Помимо имен хостов для подключения к кластеру можно использовать [особые FQDN](../operations/connect.md#special-fqdns), указывающие на текущий хост-мастер и наименее отстающую реплику.
+Помимо имен хостов для подключения к кластеру можно использовать [особые FQDN](../operations/connect/fqdn.md#special-fqdns), указывающие на текущий хост-мастер и наименее отстающую реплику.
 
 
 ## Группы безопасности {#security-groups}
 
 {% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
 
-Подробнее о том, как настроить группы безопасности, читайте в разделе [{#T}](../operations/connect.md#configure-security-groups).
+Подробнее о том, как настроить группы безопасности, читайте в разделе [{#T}](../operations/connect/index.md#configure-security-groups).
 
 {% note tip %}
 

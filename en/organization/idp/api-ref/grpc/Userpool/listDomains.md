@@ -28,7 +28,9 @@ Request to list domains for a userpool.
 ||Field | Description ||
 || userpool_id | **string**
 
-ID of the userpool to list domains for. ||
+Required field. ID of the userpool to list domains for.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return.
