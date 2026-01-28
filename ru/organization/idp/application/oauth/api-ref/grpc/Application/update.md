@@ -50,7 +50,7 @@ Field mask that specifies which fields of the OAuth application are going to be 
 Name of the OAuth application.
 The name must be unique within the organization.
 
-Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 Description of the OAuth application.

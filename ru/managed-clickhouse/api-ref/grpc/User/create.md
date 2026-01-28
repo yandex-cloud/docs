@@ -194,6 +194,7 @@ Creates a ClickHouse user in the specified cluster.
       "s3_use_adaptive_timeouts": "google.protobuf.BoolValue",
       "final": "google.protobuf.BoolValue",
       "use_hive_partitioning": "google.protobuf.BoolValue",
+      "show_data_lake_catalogs_in_system_tables": "google.protobuf.BoolValue",
       "compile": "google.protobuf.BoolValue",
       "min_count_to_compile": "google.protobuf.Int64Value",
       "async_insert_threads": "google.protobuf.Int64Value",
@@ -1821,6 +1822,13 @@ These virtual columns will have the same names as in the partitioned path, but s
 Default value: **true** for versions 25.1 and higher, **false** for versions 24.12 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#use_hive_partitioning). ||
+|| show_data_lake_catalogs_in_system_tables | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables or disables showing data lake catalogs in system tables.
+
+Default value: **false** for versions 25.10 and higher, **true** for versions 25.9 and lower.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#show_data_lake_catalogs_in_system_tables). ||
 || compile | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 The setting is deprecated and has no effect. ||
@@ -2067,6 +2075,7 @@ The minimum value is 0. ||
       "s3_use_adaptive_timeouts": "google.protobuf.BoolValue",
       "final": "google.protobuf.BoolValue",
       "use_hive_partitioning": "google.protobuf.BoolValue",
+      "show_data_lake_catalogs_in_system_tables": "google.protobuf.BoolValue",
       "compile": "google.protobuf.BoolValue",
       "min_count_to_compile": "google.protobuf.Int64Value",
       "async_insert_threads": "google.protobuf.Int64Value",
@@ -3748,6 +3757,13 @@ These virtual columns will have the same names as in the partitioned path, but s
 Default value: **true** for versions 25.1 and higher, **false** for versions 24.12 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#use_hive_partitioning). ||
+|| show_data_lake_catalogs_in_system_tables | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables or disables showing data lake catalogs in system tables.
+
+Default value: **false** for versions 25.10 and higher, **true** for versions 25.9 and lower.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#show_data_lake_catalogs_in_system_tables). ||
 || compile | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 The setting is deprecated and has no effect. ||

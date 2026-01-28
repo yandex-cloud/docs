@@ -9,13 +9,17 @@ apiPlayground:
         userpoolId:
           description: |-
             **string**
-            ID of the userpool to validate a domain for.
+            Required field. ID of the userpool to validate a domain for.
+            The maximum string length in characters is 50.
           type: string
         domain:
           description: |-
             **string**
-            Domain name to validate.
+            Required field. Domain name to validate.
           type: string
+      required:
+        - userpoolId
+        - domain
       additionalProperties: false
     query: null
     body: null
@@ -41,7 +45,9 @@ Request to validate a domain for a userpool.
 ||Field | Description ||
 || userpoolId | **string**
 
-Required field. ID of the userpool to validate a domain for. ||
+Required field. ID of the userpool to validate a domain for.
+
+The maximum string length in characters is 50. ||
 || domain | **string**
 
 Required field. Domain name to validate. ||

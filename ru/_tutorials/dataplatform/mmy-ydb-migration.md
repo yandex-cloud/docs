@@ -86,7 +86,7 @@
 
 1. Если создавали инфраструктуру вручную, [подготовьте кластер-источник](../../data-transfer/operations/prepare.md#source-my).
 
-1. [Подключитесь к кластеру-источнику {{ mmy-name }}](../../managed-mysql/operations/connect.md).
+1. [Подключитесь к кластеру-источнику {{ mmy-name }}](../../managed-mysql/operations/connect/index.md).
 
 1. Наполните базу тестовыми данными. В качестве примера используется простая таблица, содержащая информацию, поступающую от некоторых датчиков автомобиля.
 
@@ -195,7 +195,7 @@
 
     {% endlist %}
 
-1. [Подключитесь к кластеру-источнику {{ mmy-name }}](../../managed-mysql/operations/connect.md) и добавьте данные в таблицу `measurements`:
+1. [Подключитесь к кластеру-источнику {{ mmy-name }}](../../managed-mysql/operations/connect/index.md) и добавьте данные в таблицу `measurements`:
 
     ```sql
     INSERT INTO measurements VALUES

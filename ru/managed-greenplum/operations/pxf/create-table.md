@@ -156,8 +156,8 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
         * **Driver** — `com.mysql.jdbc.Driver`;
         * **Url** — `jdbc:mysql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mmy }}/db1`, где:
 
-            * `c-<идентификатор_кластера>.rw.{{ dns-zone }}` — [особый FQDN](../../../managed-mysql/operations/connect.md#fqdn-master), который всегда указывает на текущий хост-мастер в кластере {{ mmy-name }}.
-            * `{{ port-mmy }}` — порт для [подключения](../../../managed-mysql/operations/connect.md) к кластеру {{ mmy-name }}.
+            * `c-<идентификатор_кластера>.rw.{{ dns-zone }}` — [особый FQDN](../../../managed-mysql/operations/connect/fqdn.md#fqdn-master), который всегда указывает на текущий хост-мастер в кластере {{ mmy-name }}.
+            * `{{ port-mmy }}` — порт для [подключения](../../../managed-mysql/operations/connect/index.md) к кластеру {{ mmy-name }}.
             * `db1` — имя БД в кластере {{ mmy-name }}.
 
         * **User** — `mysqluser`.
@@ -166,7 +166,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
         Если не создать источник данных, параметры подключения к источнику нужно передать в SQL-запросе на создание внешней таблицы.
 
-    1. [Подключитесь к БД {{ MY }}](../../../managed-mysql/operations/connect.md#connection-string) с помощью утилиты `mysql`.
+    1. [Подключитесь к БД {{ MY }}](../../../managed-mysql/operations/connect/index.md#connection-string) с помощью утилиты `mysql`.
     1. Создайте тестовую таблицу и наполните ее данными:
 
         ```sql

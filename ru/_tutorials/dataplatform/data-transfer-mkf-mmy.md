@@ -44,7 +44,7 @@
         1. Для подключения к кластерам с локальной машины пользователя настройте группы безопасности:
 
             * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-            * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#configure-security-groups).
+            * [{{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configure-security-groups).
 
 
     - {{ TF }} {#tf}
@@ -294,7 +294,7 @@
 
 1. Проверьте, что таблица `sensors` кластера {{ mmy-name }} содержит отправленные данные:
 
-    1. [Подключитесь к кластеру {{ mmy-name }}](../../managed-mysql/operations/connect.md).
+    1. [Подключитесь к кластеру {{ mmy-name }}](../../managed-mysql/operations/connect/index.md).
 
     1. Получите содержимое таблицы `sensors` с помощью запроса:
 

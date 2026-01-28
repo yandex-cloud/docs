@@ -41,7 +41,7 @@
     1. [Выдайте пользователю административные привилегии](../../../managed-mysql/concepts/settings-list#setting-administrative-privileges) `REPLICATION CLIENT` и `REPLICATION SLAVE`.
 
     
-    1. Настройте [группы безопасности](../../../managed-mysql/operations/connect.md#configure-security-groups) и убедитесь, что они допускают подключение к кластеру.
+    1. Настройте [группы безопасности](../../../managed-mysql/operations/connect/index.md#configure-security-groups) и убедитесь, что они допускают подключение к кластеру.
 
 
     1. [Создайте базу данных {{ ydb-name }}](../../../ydb/operations/manage-databases.md#create-db) с именем `ydb-example` любой подходящей конфигурации.
@@ -90,7 +90,7 @@
 
 1. [Создайте поток данных {{ yds-name }}](../../../data-streams/operations/aws-cli/create.md) с именем `mpg-stream`.
 
-1. [Подключитесь к кластеру {{ mmy-name }}](../../../managed-mysql/operations/connect.md), создайте в базе данных `db1` таблицу `measurements` и заполните ее данными:
+1. [Подключитесь к кластеру {{ mmy-name }}](../../../managed-mysql/operations/connect/index.md), создайте в базе данных `db1` таблицу `measurements` и заполните ее данными:
 
     ```sql
     CREATE TABLE measurements (

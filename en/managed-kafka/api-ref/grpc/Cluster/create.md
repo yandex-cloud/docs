@@ -164,7 +164,8 @@ Creates a new Apache Kafka® cluster in the specified folder.
         "max_message_bytes": "google.protobuf.Int64Value",
         "min_insync_replicas": "google.protobuf.Int64Value",
         "segment_bytes": "google.protobuf.Int64Value",
-        "preallocate": "google.protobuf.BoolValue"
+        "preallocate": "google.protobuf.BoolValue",
+        "message_timestamp_type": "MessageTimestampType"
       },
       "topic_config_3": {
         "cleanup_policy": "CleanupPolicy",
@@ -179,7 +180,8 @@ Creates a new Apache Kafka® cluster in the specified folder.
         "max_message_bytes": "google.protobuf.Int64Value",
         "min_insync_replicas": "google.protobuf.Int64Value",
         "segment_bytes": "google.protobuf.Int64Value",
-        "preallocate": "google.protobuf.BoolValue"
+        "preallocate": "google.protobuf.BoolValue",
+        "message_timestamp_type": "MessageTimestampType"
       },
       "topic_config_4": {
         "cleanup_policy": "CleanupPolicy",
@@ -194,7 +196,8 @@ Creates a new Apache Kafka® cluster in the specified folder.
         "max_message_bytes": "google.protobuf.Int64Value",
         "min_insync_replicas": "google.protobuf.Int64Value",
         "segment_bytes": "google.protobuf.Int64Value",
-        "preallocate": "google.protobuf.BoolValue"
+        "preallocate": "google.protobuf.BoolValue",
+        "message_timestamp_type": "MessageTimestampType"
       }
       // end of the list of possible fields
     }
@@ -494,8 +497,8 @@ Offset storage time after a consumer group loses all its consumers. Default: 100
 
 The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
 
-- `SASL_MECHANISM_SCRAM_SHA_256`
-- `SASL_MECHANISM_SCRAM_SHA_512` ||
+- `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
+- `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
 |#
 
 ## KafkaConfig3 {#yandex.cloud.mdb.kafka.v1.KafkaConfig3}
@@ -592,8 +595,8 @@ Offset storage time after a consumer group loses all its consumers. Default: 100
 
 The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
 
-- `SASL_MECHANISM_SCRAM_SHA_256`
-- `SASL_MECHANISM_SCRAM_SHA_512` ||
+- `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
+- `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
 |#
 
 ## KafkaConfig4 {#yandex.cloud.mdb.kafka.v1.KafkaConfig4}
@@ -684,8 +687,8 @@ Offset storage time after a consumer group loses all its consumers. Default: 100
 
 The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
 
-- `SASL_MECHANISM_SCRAM_SHA_256`
-- `SASL_MECHANISM_SCRAM_SHA_512` ||
+- `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
+- `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
 |#
 
 ## Zookeeper {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Zookeeper}
@@ -767,15 +770,21 @@ The number of the topic's partitions. ||
 Amount of copies of a topic data kept in the cluster. ||
 || topic_config_2_8 | **[TopicConfig2_8](#yandex.cloud.mdb.kafka.v1.TopicConfig2_8)**
 
+Configuration of the Apache Kafka® 2.8 topic.
+
 Includes only one of the fields `topic_config_2_8`, `topic_config_3`, `topic_config_4`.
 
 User-defined settings for the topic. ||
 || topic_config_3 | **[TopicConfig3](#yandex.cloud.mdb.kafka.v1.TopicConfig3)**
 
+Configuration of the Apache Kafka® 3.x topic.
+
 Includes only one of the fields `topic_config_2_8`, `topic_config_3`, `topic_config_4`.
 
 User-defined settings for the topic. ||
 || topic_config_4 | **[TopicConfig4](#yandex.cloud.mdb.kafka.v1.TopicConfig4)**
+
+Configuration of the Apache Kafka® 4.x topic.
 
 Includes only one of the fields `topic_config_2_8`, `topic_config_3`, `topic_config_4`.
 
@@ -853,6 +862,12 @@ This setting overrides the cluster-level [KafkaConfig2_8.log_segment_bytes](#yan
 True if we should preallocate the file on disk when creating a new log segment.
 
 This setting overrides the cluster-level [KafkaConfig2_8.log_preallocate](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
+|| message_timestamp_type | enum **MessageTimestampType**
+
+Define whether the timestamp in the message is message create time or log append time.
+
+- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time. ||
 |#
 
 ## TopicConfig3 {#yandex.cloud.mdb.kafka.v1.TopicConfig3}
@@ -926,6 +941,12 @@ This setting overrides the cluster-level [KafkaConfig3.log_segment_bytes](#yande
 True if we should preallocate the file on disk when creating a new log segment.
 
 This setting overrides the cluster-level [KafkaConfig3.log_preallocate](#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
+|| message_timestamp_type | enum **MessageTimestampType**
+
+Define whether the timestamp in the message is message create time or log append time.
+
+- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time. ||
 |#
 
 ## TopicConfig4 {#yandex.cloud.mdb.kafka.v1.TopicConfig4}
@@ -999,6 +1020,12 @@ This setting overrides the cluster-level [KafkaConfig4.log_segment_bytes](#yande
 True if we should preallocate the file on disk when creating a new log segment.
 
 This setting overrides the cluster-level [KafkaConfig4.log_preallocate] setting on the topic level. ||
+|| message_timestamp_type | enum **MessageTimestampType**
+
+Define whether the timestamp in the message is message create time or log append time.
+
+- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time. ||
 |#
 
 ## UserSpec {#yandex.cloud.mdb.kafka.v1.UserSpec}
@@ -1638,8 +1665,8 @@ Offset storage time after a consumer group loses all its consumers. Default: 100
 
 The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
 
-- `SASL_MECHANISM_SCRAM_SHA_256`
-- `SASL_MECHANISM_SCRAM_SHA_512` ||
+- `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
+- `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
 |#
 
 ## KafkaConfig3 {#yandex.cloud.mdb.kafka.v1.KafkaConfig32}
@@ -1736,8 +1763,8 @@ Offset storage time after a consumer group loses all its consumers. Default: 100
 
 The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
 
-- `SASL_MECHANISM_SCRAM_SHA_256`
-- `SASL_MECHANISM_SCRAM_SHA_512` ||
+- `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
+- `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
 |#
 
 ## KafkaConfig4 {#yandex.cloud.mdb.kafka.v1.KafkaConfig42}
@@ -1828,8 +1855,8 @@ Offset storage time after a consumer group loses all its consumers. Default: 100
 
 The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
 
-- `SASL_MECHANISM_SCRAM_SHA_256`
-- `SASL_MECHANISM_SCRAM_SHA_512` ||
+- `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
+- `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
 |#
 
 ## Zookeeper {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Zookeeper2}

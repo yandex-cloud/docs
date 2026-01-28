@@ -1,38 +1,3 @@
-### Bash
-
-Перед подключением установите утилиту `mysql`:
-
-```bash
-sudo apt update && sudo apt install --yes mysql-client
-```
-
-{% list tabs group=connection %}
-
-- Подключение с SSL {#with-ssl}
-
-  {% include [default-connstring](default-connstring.md) %}
-
-- Подключение без SSL {#without-ssl}
-
-  ```bash
-  mysql --host=<FQDN_любого_хоста_{{ MY }}> \
-        --port={{ port-mmy }} \
-        --ssl-mode=DISABLED \
-        --user=<имя_пользователя> \
-        --password \
-        <имя_БД>
-  ```
-
-{% endlist %}
-
-{% include [see-fqdn](fqdn-host.md) %}
-
-При выполнении любой из команд введите пароль пользователя БД.
-
-После подключения к СУБД выполните команду `SELECT version();`.
-
-{% include [Successful connection](successful-connect.md) %}
-
 ### Go
 
 Перед подключением установите зависимости:
@@ -554,46 +519,6 @@ sudo apt update && apt install --yes php php-mysql
 ```bash
 php connect.php
 ```
-
-{% include [Successful connection](successful-connect.md) %}
-
-### PowerShell
-
-Перед подключением [скачайте](https://dev.mysql.com/downloads/shell/) и установите утилиту `MySQL Shell`.
-
-{% list tabs group=connection %}
-
-- Подключение с SSL {#with-ssl}
-
-  ```PowerShell
-  mysqlsh --host=<FQDN_любого_хоста_{{ MY }}> `
-          --port={{ port-mmy }} `
-          --ssl-ca=<абсолютный_путь_к_файлу_сертификата> `
-          --ssl-mode=VERIFY_IDENTITY `
-          --user=<имя_пользователя> `
-          --password `
-          --database=<имя_БД> `
-          --sql
-  ```
-
-- Подключение без SSL {#without-ssl}
-
-  ```PowerShell
-  mysqlsh --host=<FQDN_любого_хоста_{{ MY }}> `
-          --port={{ port-mmy }} `
-          --ssl-mode=DISABLED `
-          --user=<имя_пользователя> `
-          --password `
-          --database=<имя_БД>
-  ```
-
-{% endlist %}
-
-{% include [see-fqdn](fqdn-host.md) %}
-
-При выполнении любой из команд введите пароль пользователя БД.
-
-После подключения к СУБД выполните команду `SELECT version();`.
 
 {% include [Successful connection](successful-connect.md) %}
 

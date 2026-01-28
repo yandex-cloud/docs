@@ -109,7 +109,7 @@ The maximum string length in characters is 50. ||
 
 Name of the certificate.
 
-Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
 Description of the certificate.

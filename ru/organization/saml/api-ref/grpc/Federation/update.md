@@ -49,7 +49,7 @@ Field mask that specifies which fields of the federation are going to be updated
 Name of the federation.
 The name must be unique within the organization.
 
-Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 Description of the federation.
@@ -238,7 +238,7 @@ ID of the organization that the federation belongs to. ||
 
 Required field. Name of the federation.
 
-Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
 Description of the federation.

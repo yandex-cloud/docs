@@ -43,7 +43,7 @@
 
     1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
 
-        * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#configure-security-groups).
+        * [{{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configure-security-groups).
         * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
 
 * С помощью {{ TF }} {#tf}
@@ -87,7 +87,7 @@
 
 ## Подготовьте тестовые данные {#prepare-data}
 
-1. [Подключитесь к базе данных](../../managed-mysql/operations/connect.md) `mmy_db` в кластере-источнике {{ mmy-name }}.
+1. [Подключитесь к базе данных](../../managed-mysql/operations/connect/index.md) `mmy_db` в кластере-источнике {{ mmy-name }}.
 
 1. Создайте простую таблицу `table1`:
 
@@ -185,7 +185,7 @@
 
 ### Проверьте работу репликации {#verify-replication}
 
-1. [Подключитесь к базе данных](../../managed-mysql/operations/connect.md) `mmy_db` в кластере-источнике {{ mmy-name }}.
+1. [Подключитесь к базе данных](../../managed-mysql/operations/connect/index.md) `mmy_db` в кластере-источнике {{ mmy-name }}.
 
 1. Добавьте данные в таблицу `table1`:
 

@@ -9,45 +9,93 @@ Remove access binding for the specified cluster
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc dataproc cluster remove-access-binding <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
 #### Flags
 
-| Flag | Description |
-|----|----|
-|`--id`|<b>`string`</b><br/>ID of the cluster.|
-|`--name`|<b>`string`</b><br/>Name of the cluster.|
-|`--role`|<b>`string`</b><br/>Binding role ID.|
-|`--service-account-id`|<b>`string`</b><br/>Service account, whose access will be updated.|
-|`--service-account-name`|<b>`string`</b><br/>Service account, whose access will be updated.|
-|`--user-account-id`|<b>`string`</b><br/>User account, whose access will be updated.|
-|`--user-yandex-login`|<b>`string`</b><br/>User account, whose access will be updated.|
-|`--agent`|<b>`string`</b><br/>Agent service account, whose access will be updated; in SERVICE_ID:MICROSERVICE_ID format.|
-|`--all-authenticated-users`|Access will be updated for all authenticated users|
-|`--group-members`|<b>`string`</b><br/>Update access for members of the group with specified ID|
-|`--organization-users`|<b>`string`</b><br/>Update access for users of organization with specified ID|
-|`--federation-users`|<b>`string`</b><br/>Update access for users of federation with specified ID|
-|`--subject`|<b>`string`</b><br/>Subject whose access will be updated; in TYPE:ID format, e.g. userAccount:\<ID\>, serviceAccount:\<ID\>, system:\<ID\>.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+#|
+||Flag | Description ||
+|| `--id` | `string`
+
+ID of the cluster. ||
+|| `--name` | `string`
+
+Name of the cluster. ||
+|| `--role` | `string`
+
+Binding role ID. ||
+|| `--service-account-id` | `string`
+
+Service account, whose access will be updated. ||
+|| `--service-account-name` | `string`
+
+Service account, whose access will be updated. ||
+|| `--user-account-id` | `string`
+
+User account, whose access will be updated. ||
+|| `--user-yandex-login` | `string`
+
+User account, whose access will be updated. ||
+|| `--agent` | `string`
+
+Agent service account, whose access will be updated; in SERVICE_ID:MICROSERVICE_ID format. ||
+|| `--all-authenticated-users` | Access will be updated for all authenticated users ||
+|| `--group-members` | `string`
+
+Update access for members of the group with specified ID ||
+|| `--organization-users` | `string`
+
+Update access for users of organization with specified ID ||
+|| `--federation-users` | `string`
+
+Update access for users of federation with specified ID ||
+|| `--subject` | `string`
+
+Subject whose access will be updated; in TYPE:ID format, e.g. userAccount:&lt;ID&gt;, serviceAccount:&lt;ID&gt;, system:&lt;ID&gt;. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom configuration file.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--cloud-id`|<b>`string`</b><br/>Set the ID of the cloud to use.|
-|`--folder-id`|<b>`string`</b><br/>Set the ID of the folder to use.|
-|`--folder-name`|<b>`string`</b><br/>Set the name of the folder to use (will be resolved to id).|
-|`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
-|`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
-|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom configuration file. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
+|| `--token` | `string`
+
+Set the OAuth token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

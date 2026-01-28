@@ -175,7 +175,7 @@ The rest of the fields will be reset to the default. ||
 Name of the OAuth application.
 The name must be unique within the organization.
 
-Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 Description of the OAuth application.

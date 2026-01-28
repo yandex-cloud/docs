@@ -266,6 +266,12 @@ description: В данном разделе приведены описания 
 
 {% include [mpg-events](../../_includes/audit-trails/events/managed-postgresql-events.md) %}
 
+## {{ mspqr-full-name }} {#managed-service-for-sharded-postgresql}
+
+Имя сервиса — `mdb.spqr`.
+
+{% include [mspqr-events](../../_includes/audit-trails/events/mspqr-events.md) %}
+
 ## {{ mtr-full-name }} {#managed-service-for-trino}
 
 Имя сервиса — `trino`.

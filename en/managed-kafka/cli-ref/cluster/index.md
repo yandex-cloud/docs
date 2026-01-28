@@ -9,49 +9,87 @@ Manage Kafka clusters.
 
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc managed-kafka cluster <command>`
 
-Aliases: 
+Aliases:
 
 - `clusters`
 
 #### Command Tree
 
 - [yc managed-kafka cluster add-access-binding](add-access-binding.md) — Add access binding for the specified Kafka cluster
+
 - [yc managed-kafka cluster create](create.md) — Create Kafka cluster
+
 - [yc managed-kafka cluster delete](delete.md) — Delete the specified Kafka cluster
+
 - [yc managed-kafka cluster get](get.md) — Show information about the specified Kafka cluster
+
 - [yc managed-kafka cluster list](list.md) — List Kafka clusters
+
 - [yc managed-kafka cluster list-access-bindings](list-access-bindings.md) — List access bindings for the specified Kafka cluster
+
 - [yc managed-kafka cluster list-hosts](list-hosts.md) — List hosts for a cluster.
+
 - [yc managed-kafka cluster list-logs](list-logs.md) — Retrieve logs for a Kafka cluster.
+
 - [yc managed-kafka cluster list-operations](list-operations.md) — List operations for the specified Kafka cluster
+
 - [yc managed-kafka cluster move](move.md) — Move the specified Kafka cluster into the folder
+
 - [yc managed-kafka cluster remove-access-binding](remove-access-binding.md) — Remove access binding for the specified Kafka cluster
+
 - [yc managed-kafka cluster reschedule-maintenance](reschedule-maintenance.md) — Reschedule currently planned maintenance operation.
+
 - [yc managed-kafka cluster set-access-bindings](set-access-bindings.md) — Set access bindings for the specified Kafka cluster and delete all existing access bindings if there were any
+
 - [yc managed-kafka cluster start](start.md) — Start the specified Kafka cluster
+
 - [yc managed-kafka cluster stop](stop.md) — Stop the specified Kafka cluster
+
 - [yc managed-kafka cluster update](update.md) — Modify configuration or attributes of a Kafka cluster.
 
 #### Global Flags
 
-| Flag | Description |
-|----|----|
-|`--profile`|<b>`string`</b><br/>Set the custom configuration file.|
-|`--debug`|Debug logging.|
-|`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
-|`--no-user-output`|Disable printing user intended output to stderr.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
-|`--cloud-id`|<b>`string`</b><br/>Set the ID of the cloud to use.|
-|`--folder-id`|<b>`string`</b><br/>Set the ID of the folder to use.|
-|`--folder-name`|<b>`string`</b><br/>Set the name of the folder to use (will be resolved to id).|
-|`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
-|`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
-|`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
-|`--no-browser`|Disable opening browser for authentication.|
-|`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
-|`--jq`|<b>`string`</b><br/>Query to select values from the response using jq syntax|
-|`-h`,`--help`|Display help for the command.|
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom configuration file. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
+|| `--token` | `string`
+
+Set the OAuth token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

@@ -216,7 +216,7 @@
   1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
   1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}** и в открывшемся окне выберите вариант `{{ ui-key.yacloud.baremetal.servers.ServerConfigPage.ready-configs_ibA3Y }}` и подходящую [конфигурацию](../../baremetal/concepts/server-configurations.md) сервера {{ baremetal-name }} в пуле серверов `{{ region-id }}-m4`.
 
-      Для этого в фильтре в правой части окна в блоке **{{ ui-key.yacloud.baremetal.servers.Filters.poolFilter_tVgg5 }}** выберите пул серверов `{{ region-id }}-m4`.
+      Для этого в фильтре в правой части окна в блоке **{{ ui-key.yacloud_components.baremetal.poolFilter }}** выберите пул серверов `{{ region-id }}-m4`.
 
       Чтобы выбрать подходящую вам конфигурацию сервера, нажмите на блок с именем этой конфигурации в центральной части экрана.
   1. В открывшемся окне с настройками конфигурации сервера:

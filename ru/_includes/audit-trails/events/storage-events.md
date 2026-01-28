@@ -1,5 +1,6 @@
 Имя события | Описание
 --- | ---
+`BucketAccessBindingsUpdate` | Изменение механизма привязки доступа к бакету
 `BucketAclUpdate` | Изменение ACL бакета
 `BucketCorsUpdate` | Изменение конфигурации CORS бакета
 `BucketCreate` | Создание бакета

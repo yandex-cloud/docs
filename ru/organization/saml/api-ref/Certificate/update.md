@@ -105,7 +105,7 @@ The rest of the fields will be reset to the default. ||
 Name of the certificate.
 The name must be unique within the federation.
 
-Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 Description of the certificate.
@@ -268,7 +268,7 @@ The maximum string length in characters is 50. ||
 
 Name of the certificate.
 
-Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
 Description of the certificate.

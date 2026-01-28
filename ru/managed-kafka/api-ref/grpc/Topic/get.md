@@ -62,7 +62,8 @@ The string length in characters must be 1-256. Value must match the regular expr
     "max_message_bytes": "google.protobuf.Int64Value",
     "min_insync_replicas": "google.protobuf.Int64Value",
     "segment_bytes": "google.protobuf.Int64Value",
-    "preallocate": "google.protobuf.BoolValue"
+    "preallocate": "google.protobuf.BoolValue",
+    "message_timestamp_type": "MessageTimestampType"
   },
   "topic_config_3": {
     "cleanup_policy": "CleanupPolicy",
@@ -77,7 +78,8 @@ The string length in characters must be 1-256. Value must match the regular expr
     "max_message_bytes": "google.protobuf.Int64Value",
     "min_insync_replicas": "google.protobuf.Int64Value",
     "segment_bytes": "google.protobuf.Int64Value",
-    "preallocate": "google.protobuf.BoolValue"
+    "preallocate": "google.protobuf.BoolValue",
+    "message_timestamp_type": "MessageTimestampType"
   },
   "topic_config_4": {
     "cleanup_policy": "CleanupPolicy",
@@ -92,7 +94,8 @@ The string length in characters must be 1-256. Value must match the regular expr
     "max_message_bytes": "google.protobuf.Int64Value",
     "min_insync_replicas": "google.protobuf.Int64Value",
     "segment_bytes": "google.protobuf.Int64Value",
-    "preallocate": "google.protobuf.BoolValue"
+    "preallocate": "google.protobuf.BoolValue",
+    "message_timestamp_type": "MessageTimestampType"
   }
   // end of the list of possible fields
 }
@@ -119,15 +122,21 @@ The number of the topic's partitions. ||
 Amount of data copies (replicas) for the topic in the cluster. ||
 || topic_config_2_8 | **[TopicConfig2_8](#yandex.cloud.mdb.kafka.v1.TopicConfig2_8)**
 
+Configuration of the Apache Kafka® 2.8 topic.
+
 Includes only one of the fields `topic_config_2_8`, `topic_config_3`, `topic_config_4`.
 
 User-defined settings for the topic. ||
 || topic_config_3 | **[TopicConfig3](#yandex.cloud.mdb.kafka.v1.TopicConfig3)**
 
+Configuration of the Apache Kafka® 3.x topic.
+
 Includes only one of the fields `topic_config_2_8`, `topic_config_3`, `topic_config_4`.
 
 User-defined settings for the topic. ||
 || topic_config_4 | **[TopicConfig4](#yandex.cloud.mdb.kafka.v1.TopicConfig4)**
+
+Configuration of the Apache Kafka® 4.x topic.
 
 Includes only one of the fields `topic_config_2_8`, `topic_config_3`, `topic_config_4`.
 
@@ -205,6 +214,12 @@ This setting overrides the cluster-level [KafkaConfig2_8.log_segment_bytes](/doc
 True if we should preallocate the file on disk when creating a new log segment.
 
 This setting overrides the cluster-level [KafkaConfig2_8.log_preallocate](/docs/managed-kafka/api-ref/grpc/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
+|| message_timestamp_type | enum **MessageTimestampType**
+
+Define whether the timestamp in the message is message create time or log append time.
+
+- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time. ||
 |#
 
 ## TopicConfig3 {#yandex.cloud.mdb.kafka.v1.TopicConfig3}
@@ -278,6 +293,12 @@ This setting overrides the cluster-level [KafkaConfig3.log_segment_bytes](/docs/
 True if we should preallocate the file on disk when creating a new log segment.
 
 This setting overrides the cluster-level [KafkaConfig3.log_preallocate](/docs/managed-kafka/api-ref/grpc/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
+|| message_timestamp_type | enum **MessageTimestampType**
+
+Define whether the timestamp in the message is message create time or log append time.
+
+- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time. ||
 |#
 
 ## TopicConfig4 {#yandex.cloud.mdb.kafka.v1.TopicConfig4}
@@ -351,4 +372,10 @@ This setting overrides the cluster-level [KafkaConfig4.log_segment_bytes](/docs/
 True if we should preallocate the file on disk when creating a new log segment.
 
 This setting overrides the cluster-level [KafkaConfig4.log_preallocate] setting on the topic level. ||
+|| message_timestamp_type | enum **MessageTimestampType**
+
+Define whether the timestamp in the message is message create time or log append time.
+
+- `MESSAGE_TIMESTAMP_TYPE_CREATE_TIME`: Message timestamp type is create time.
+- `MESSAGE_TIMESTAMP_TYPE_LOG_APPEND_TIME`: Message timestamp type is log append time. ||
 |#

@@ -287,6 +287,7 @@ The maximum string length in characters is 63. Value must match the regular expr
       "s3UseAdaptiveTimeouts": "boolean",
       "final": "boolean",
       "useHivePartitioning": "boolean",
+      "showDataLakeCatalogsInSystemTables": "boolean",
       "compile": "boolean",
       "minCountToCompile": "string",
       "asyncInsertThreads": "string",
@@ -1999,6 +2000,13 @@ These virtual columns will have the same names as in the partitioned path, but s
 Default value: **true** for versions 25.1 and higher, **false** for versions 24.12 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#use_hive_partitioning). ||
+|| showDataLakeCatalogsInSystemTables | **boolean**
+
+Enables or disables showing data lake catalogs in system tables.
+
+Default value: **false** for versions 25.10 and higher, **true** for versions 25.9 and lower.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#show_data_lake_catalogs_in_system_tables). ||
 || compile | **boolean**
 
 The setting is deprecated and has no effect. ||
