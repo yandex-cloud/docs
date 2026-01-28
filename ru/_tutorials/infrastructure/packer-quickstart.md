@@ -139,7 +139,7 @@ Packer создаст и запустит виртуальную машину с
   1. Добавьте Packer в переменную `PATH`: 
 
       ```bash
-      echo 'export PATH="$PATH:$HOME/<имя_пользователя>/packer"' >> ~/.bash_profile
+      echo 'export PATH="$PATH:$HOME/packer"' >> ~/.bash_profile
       source ~/.bash_profile
       ```
 
