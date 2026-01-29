@@ -1,1 +1,1 @@
-Optionally, enable **Specify network** to specify a [cloud network](../../../vpc/concepts/network.md) to host your MCP server instances.
+Optionally, enable **{{ ui-key.yacloud.yagpt.YaGPT.CreateMcpServerForm.newtwork_enable_ndkhL }}** to specify a [cloud network](../../../vpc/concepts/network.md) to host your MCP server instances.

@@ -1,12 +1,106 @@
 ---
 title: '{{ iam-full-name }} release notes'
-description: This section contains {{ iam-name }} release notes.
+description: This section contains the {{ iam-name }} release notes.
 ---
 
 
 # {{ iam-full-name }} release notes
 
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
+
+## December 2025 {#december-2025}
+
+* Added the `yc iam access-key issue-ephemeral` command for issuing ephemeral keys. {{ tag-cli }}
+* Added support for the `yandex_iam_oauth_client_secret` resource to manage OAuth client secrets. {{ tag-tf }}
+* Added the `labels` field to the `yandex_iam_service_account` resource to work with labels. {{ tag-tf }}
+* For the `yandex_iam_oauth_client` resource, changed the `scopes` and `redirect_uris` fields to the _set_ type to prevent comparison collisions. {{ tag-tf }}
+* Added the following [roles](roles-reference.md):
+
+   {% cut "{{ backup-full-name }}" %}
+
+     User role | Description
+     --- | ---
+     `backup.user` | Enables connecting backup providers, connecting VMs and {{ baremetal-full-name }} servers to Cloud Backup, associating and disassociating backup policies with VMs and {{ baremetal-full-name }} servers, and viewing Cloud Backup resource and quota details.
+
+   {% endcut %}
+
+   {% cut "{{ mmy-full-name }}" %}
+
+     User role | Description
+     --- | ---
+     `managed-mysql.clusters.connector` | Enables {{ yandex-cloud }} users to connect to databases in {{ mmy-full-name }} clusters via {{ iam-full-name }}.
+
+   {% endcut %}
+
+   {% cut "{{ mpg-full-name }}" %}
+
+     User role | Description
+     --- | ---
+     `managed-postgresql.clusters.connector` | Enables {{ yandex-cloud }} users to connect to databases in {{ mpg-full-name }} clusters via {{ iam-full-name }}.
+
+   {% endcut %}
+
+   {% cut "{{ monium-full-name }}" %}
+
+     User role | Description
+     --- | ---
+     `monium.admin` | Enables managing {{ monium-name }} resources, viewing and writing all types of telemetry data, and managing projects and access to projects.
+     `monium.editor` | Enables managing {{ monium-name }} resources, viewing and writing all types of telemetry data.
+     `monium.viewer` | Enables viewing details on {{ monium-name }} resources and reading all types of telemetry data.
+     `monium.auditor` | Enables viewing details on {{ monium-name }} resources.
+     `monium.alerts.editor` | Enables viewing the list of alerts, their settings, and trigger history, as well as creating, modifying, and deleting alerts.
+     `monium.alerts.viewer` | Enables viewing the list of alerts, their settings, and trigger history.
+     `monium.channels.editor` | Enables viewing the list of alert notification channels and their details, as well as creating, modifying, and deleting such channels.
+     `monium.channels.viewer` | Enables viewing the list of alert notification channels and their details.
+     `monium.contextLinks.editor` | Enables viewing configured context links on dashboard charts, as well as creating, editing, and deleting such links.
+     `monium.contextLinks.viewer` | Enables viewing configured context links on dashboard charts.
+     `monium.dashboards.editor` | Enables viewing dashboards and their widgets, as well as creating, editing, and deleting dashboards.
+     `monium.dashboards.viewer` | Enables viewing dashboards and their widgets.
+     `monium.escalationPolicies.editor` | Enables viewing the list of alert escalation policies and their settings, as well as creating, updating, and deleting such policies.
+     `monium.escalationPolicies.viewer` | Enables viewing the list of alert escalation policies and their settings.
+     `monium.escalations.editor` | Enables viewing details on alert notifications and escalations, as well as creating, editing, and deleting escalations.
+     `monium.escalations.viewer` | Enables viewing details on alert notifications and escalations.
+     `monium.logErrorLabels.editor` | Enables viewing, editing, and deleting the existing labels as well as adding new ones to errors in logs.
+     `monium.logErrorLabels.viewer` | Enables viewing labels for log errors.
+     `monium.logs.reader` | Enables reading logs and viewing log error statistics.
+     `monium.logs.writer` | Enables writing logs.
+     `monium.metrics.reader` | Enables reading metrics, their values, and labels.
+     `monium.metrics.writer` | Enables writing metrics.
+     `monium.mutes.editor` | Enables viewing, creating, editing, and deleting mutes, i.e., rules for temporarily disabling alert notifications.
+     `monium.mutes.viewer` | Enables viewing mutes, i.e., rules for temporarily disabling alert notifications.
+     `monium.quickLinks.editor` | Enables viewing the list of configured quick links and their details in the project menu, as well as creating, editing, and deleting such links.
+     `monium.quickLinks.viewer` | Enables viewing the list of configured quick links and their details in the project menu.
+     `monium.serviceLevelObjectives.editor` | Enables viewing configured service level objectives (SLOs), as well as creating, editing, and deleting them.
+     `monium.serviceLevelObjectives.viewer` | Enables viewing configured service level objectives (SLOs).
+     `monium.shards.editor` | Enables viewing details on shards, clusters, services and their quotas, as well as creating, updating, and deleting shards.
+     `monium.shards.viewer` | Enables viewing details on shards, clusters, services and their quotas.
+     `monium.telemetry.reader` | Enables reading all types of {{ monium-name }} telemetry data, such as metrics, logs, and distributed tracing data.
+     `monium.telemetry.writer` | Enables writing all types of {{ monium-name }} telemetry data, such as metrics, logs, and distributed tracing data.
+     `monium.traces.reader` | Enables viewing distributed tracing data.
+     `monium.traces.writer` | Enables writing distributed tracing data.
+
+   {% endcut %}
+
+   {% cut "{{ mgp-full-name }}" %}
+
+     User role | Description
+     --- | ---
+     `managed-greenplum.clusters.connector` | Enables {{ yandex-cloud }} users to connect to databases in {{ mgp-full-name }} clusters via {{ iam-full-name }}.
+
+   {% endcut %}
+
+   {% cut "{{ sd-full-name }}" %}
+
+     User role | Description
+     --- | ---
+     `security-deck.alertSinks.admin` | Enables managing alert sinks and alerts, as well as access to them.
+     `security-deck.alertSinks.editor` | Enables managing alert sinks, alerts, and comments in them.
+     `security-deck.alertSinks.user` | Enables viewing details on alert sinks and using them.
+     `security-deck.alertSinks.viewer` | Enables viewing details on alerts and alert sinks as well as on access permissions granted for them.
+     `security-deck.alertSinks.auditor` | Enables viewing details on alert sinks and access permissions granted for them.
+
+   {% endcut %}
+
 
 ## November 2025 {#november-2025}
 
@@ -49,7 +143,7 @@ description: This section contains {{ iam-name }} release notes.
 
      User role | Description
      --- | ---
-     `mdb.restorer` | Allows restoring managed database clusters from backups and grants read access to such clusters and their logs.
+     `mdb.restorer` | Enables restoring managed database clusters from backups and grants read access to such clusters and their logs.
 
    {% endcut %}
 
@@ -57,9 +151,9 @@ description: This section contains {{ iam-name }} release notes.
 
      User role | Description
      --- | ---
-     `organization-manager.groups.externalConverter` | Allows adding an attribute with an external group ID to {{ org-name }} user groups when synchronizing with user groups in Active Directory or another external source.
-     `organization-manager.groups.externalCreator` | Allows creating {{ org-name }} user groups when synchronizing with user groups in Active Directory or another external source.
-     `organization-manager.userpools.syncAgent` | Allows synchronizing {{ org-name }} users and groups with users and groups in Active Directory or another external source.
+     `organization-manager.groups.externalConverter` | Enables adding an attribute with an external group ID to {{ org-name }} user groups when synchronizing with user groups in Active Directory or another external source.
+     `organization-manager.groups.externalCreator` | Enables creating {{ org-name }} user groups when synchronizing with user groups in Active Directory or another external source.
+     `organization-manager.userpools.syncAgent` | Enables synchronizing {{ org-name }} users and groups with users and groups in Active Directory or another external source.
 
    {% endcut %}
 
@@ -67,7 +161,7 @@ description: This section contains {{ iam-name }} release notes.
 
      User role | Description
      --- | ---
-     `managed-kafka.restorer` | Allows restoring {{ KF }} clusters from backups, viewing information about such clusters and their logs, as well as information about quotas and {{ mkf-name }} resource operations.
+     `managed-kafka.restorer` | Enables restoring {{ KF }} clusters from backups, viewing information about such clusters and their logs, as well as information about {{ mkf-name }} quotas and resource operations.
 
    {% endcut %}
 
@@ -75,7 +169,7 @@ description: This section contains {{ iam-name }} release notes.
 
      User role | Description
      --- | ---
-     `managed-clickhouse.restorer` | Allows restoring {{ CH }} clusters from backups, viewing information about {{ CH }} clusters and their logs, as well as information about quotas and {{ mch-name }} resource operations.
+     `managed-clickhouse.restorer` | Enables restoring {{ CH }} clusters from backups, viewing information about {{ CH }} clusters and their logs, as well as information about {{ mch-name }} quotas and resource operations.
 
    {% endcut %}
 
@@ -84,7 +178,7 @@ description: This section contains {{ iam-name }} release notes.
 
      User role | Description
      --- | ---
-     `managed-mysql.restorer` | Allows restoring {{ MY }} clusters from backups, viewing information about {{ MY }} clusters, hosts, databases, and users, cluster logs, as well as information about quotas and {{ mmy-name }} resource operations.
+     `managed-mysql.restorer` | Enables restoring {{ MY }} clusters from backups, viewing information about {{ MY }} clusters, hosts, databases, and users, cluster logs, as well as information about {{ mmy-name }} quotas and resource operations.
 
    {% endcut %}
 
@@ -92,7 +186,7 @@ description: This section contains {{ iam-name }} release notes.
 
      User role | Description
      --- | ---
-     `managed-opensearch.restorer` | Allows restoring {{ OS }} clusters from backups, viewing information about {{ OS }} clusters and their logs, as well as information about quotas and {{ mos-name }} resource operations.
+     `managed-opensearch.restorer` | Enables restoring {{ OS }} clusters from backups, viewing information about {{ OS }} clusters and their logs, as well as information about {{ mos-name }} quotas and resource operations.
 
    {% endcut %}
 
@@ -100,7 +194,7 @@ description: This section contains {{ iam-name }} release notes.
 
      User role | Description
      --- | ---
-     `managed-postgresql.restorer` | Allows restoring {{ PG }} clusters from backups, viewing information about {{ PG }} clusters, hosts, databases, and users, cluster logs, as well as information about quotas and {{ mpg-name }} resource operations.
+     `managed-postgresql.restorer` | Enables restoring {{ PG }} clusters from backups, viewing information about {{ PG }} clusters, hosts, databases, and users, cluster logs, as well as information about {{ mpg-name }} quotas and resource operations.
 
    {% endcut %}
 
@@ -108,7 +202,7 @@ description: This section contains {{ iam-name }} release notes.
 
      User role | Description
      --- | ---
-     `managed-spqr.restorer` | Allows restoring {{ SPQR }} clusters from backups, viewing information about {{ SPQR }} clusters, hosts, databases, and users, cluster logs, as well as information about quotas and {{ mspqr-name }} resource operations.
+     `managed-spqr.restorer` | Enables restoring {{ SPQR }} clusters from backups, viewing information about {{ SPQR }} clusters, hosts, databases, and users, cluster logs, as well as information about {{ mspqr-name }} quotas and resource operations.
 
    {% endcut %}
 
@@ -117,7 +211,7 @@ description: This section contains {{ iam-name }} release notes.
 
      User role | Description
      --- | ---
-     `managed-redis.restorer` | Allows restoring {{ VLK }} clusters from backups, viewing information about {{ VLK }} hosts and clusters, their logs, as well as information about quotas and {{ mrd-name }} resource operations.
+     `managed-redis.restorer` | Enables restoring {{ VLK }} clusters from backups, viewing information about {{ VLK }} hosts and clusters, their logs, as well as information about {{ mrd-name }} quotas and resource operations.
 
    {% endcut %}
 
@@ -125,7 +219,7 @@ description: This section contains {{ iam-name }} release notes.
 
      User role | Description
      --- | ---
-     `managed-greenplum.restorer` | Allows restoring {{ GP }} clusters from backups, viewing information about {{ GP }} clusters and hosts, their logs, as well as information about quotas and {{ mgp-name }} resource operations.
+     `managed-greenplum.restorer` | Enables restoring {{ GP }} clusters from backups, viewing information about {{ GP }} clusters and hosts, their logs, as well as information about {{ mgp-name }} quotas and resource operations.
 
    {% endcut %}
 
@@ -133,7 +227,7 @@ description: This section contains {{ iam-name }} release notes.
 
      User role | Description
      --- | ---
-     `managed-mongodb.restorer` | Allows restoring {{ MG }} clusters from backups, viewing information about {{ MG }} clusters, hosts, shards, databases, and users, cluster logs, as well as information about quotas and {{ mmg-name }} resource operations.
+     `managed-mongodb.restorer` | Enables restoring {{ MG }} clusters from backups, viewing information about {{ MG }} clusters, hosts, shards, databases, and users, cluster logs, as well as information about {{ mmg-name }} quotas and resource operations.
 
    {% endcut %}
 

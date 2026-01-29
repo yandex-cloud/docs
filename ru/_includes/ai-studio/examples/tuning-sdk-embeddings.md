@@ -3,7 +3,7 @@
 
 from __future__ import annotations
 import uuid
-from yandex_cloud_ml_sdk import YCloudML
+from yandex_ai_studio_sdk import AIStudio
 
 # Конфигурация
 folder = "<идентификатор_каталога>"
@@ -13,7 +13,7 @@ dataset_id = "<идентификатор_датасета>"
 
 
 def main():
-    sdk = YCloudML(
+    sdk = AIStudio(
         folder_id=folder,
         auth=token,
     )

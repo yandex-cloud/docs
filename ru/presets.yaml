@@ -436,8 +436,8 @@ default:
   ml-platform-name: DataSphere
   ml-platform-short-name: DataSphere
   ml-project-size: 10 ГБ
-  ml-sdk-full-name: Yandex Cloud ML SDK
-  ml-sdk-name: ML SDK
+  ml-sdk-full-name: Yandex AI Studio SDK
+  ml-sdk-name: AI SDK
   mmg-backup-retention: 7
   mmg-backup-retention-max: 35
   mmg-backup-retention-min: 7
@@ -3078,32 +3078,6 @@ default:
     used_space:
       v1|month|number: 0.0378
       v1|month|string: "0,037800\_$"
-  sku|USD|baremetal:
-    server:
-      bf25_i201_h:
-        1_day|string: "124,147521\_$"
-        1_month|string: "124,147521\_$"
-        12_month|string: "124,147521\_$"
-        3_month|string: "124,147521\_$"
-        6_month|string: "124,147521\_$"
-      bf25_i202_s:
-        1_day|string: "129,999979\_$"
-        1_month|string: "129,999979\_$"
-        12_month|string: "129,999979\_$"
-        3_month|string: "129,999979\_$"
-        6_month|string: "129,999979\_$"
-      bf25_i204_s:
-        1_day|string: "133,122930\_$"
-        1_month|string: "133,122930\_$"
-        12_month|string: "133,122930\_$"
-        3_month|string: "133,122930\_$"
-        6_month|string: "133,122930\_$"
-      bf25_i205_s:
-        1_day|string: "154,532762\_$"
-        1_month|string: "154,532762\_$"
-        12_month|string: "154,532762\_$"
-        3_month|string: "154,532762\_$"
-        6_month|string: "154,532762\_$"
   sku|USD|cloud_desktop:
     hdd:
       v1|month|number: 0.036
@@ -6016,6 +5990,10 @@ default:
         BalancerAllocationDialog:
           AllocationForm:
             form_timezone_0_6LoEf: Отключить блокировку через
+        CloudActions:
+          button_action-delete-cloud_3simi: Удалить облако
+        FolderActions:
+          button_action-delete-folder_mu24C: Удалить каталог
         JsonSchemaField:
           mode_json-schema_5eGi4: JSON-схема
           mode_wysiwyg_v3RqJ: Форма

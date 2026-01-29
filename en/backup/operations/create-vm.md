@@ -47,7 +47,7 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
       1. Enable **{{ backup-name }}**.
       1. Optionally, select a backup policy or click **{{ ui-key.yacloud.common.create }}** to [create](./policy-vm/create.md) a new one.
 
-  1. Specify the other VM parameters as needed. For more information, see [Creating a VM from a public Linux image](../../compute/operations/vm-create/create-linux-vm).
+  1. Specify the other VM parameters as needed. For more information, see [Creating a VM from a public Linux image](../../compute/operations/vm-create/create-linux-vm.md).
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   {% include [agent-installation-timespan](../../_includes/backup/agent-installation-timespan.md) %}

@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. The ID of the created but not activated Certificate Authority.
+            The maximum string length in characters is 50.
           type: string
       required:
         - certificateAuthorityId
@@ -51,7 +52,9 @@ This is used to send back the signed certificate that will finalize the creation
 ||Field | Description ||
 || certificateAuthorityId | **string**
 
-Required field. The ID of the created but not activated Certificate Authority. ||
+Required field. The ID of the created but not activated Certificate Authority.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.certificatemanager.v1.privateca.SendSignedCertificateOfCertificateAuthorityRequest}
@@ -239,7 +242,6 @@ ID of the parent certificate authority that signed this certificate authority if
 
 Status of the certificate authority.
 
-- `STATUS_UNSPECIFIED`
 - `UNSIGNED`: The certificate authority is unsigned and pending signing.
 - `ACTIVE`: The certificate authority is active and can issue certificates. ||
 || issuedAt | **string** (date-time)

@@ -41,6 +41,30 @@ items:
             href: operations/monitoring.md
           - name: Viewing cluster logs
             href: operations/cluster-logs.md
+      - name: Object access rules
+        items:
+          - name: Access management
+            href: operations/access-control.md
+          - name: Getting access rules
+            href: operations/access-control-get.md
+          - name: Assigning rules for catalog objects
+            href: operations/access-control-catalogs.md
+          - name: Assigning rules for schemas
+            href: operations/access-control-schemas.md
+          - name: Assigning rules for tables
+            href: operations/access-control-tables.md
+          - name: Assigning rules for functions
+            href: operations/access-control-functions.md
+          - name: Assigning rules for procedures
+            href: operations/access-control-procedures.md
+          - name: Assigning rules for queries
+            href: operations/access-control-queries.md
+          - name: Assigning rules for system session properties
+            href: operations/access-control-session-properties.md
+          - name: Assigning rules for catalog session properties
+            href: operations/access-control-catalog-properties.md
+          - name: Deleting access rules
+            href: operations/access-control-delete.md
   - name: Concepts
     items:
       - name: Resource relationships

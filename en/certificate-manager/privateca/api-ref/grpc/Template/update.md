@@ -29,13 +29,17 @@ Request message to update an existing template's fields.
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the template to update. ||
+Required field. ID of the template to update.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask specifying which fields of the template will be updated. ||
 || name | **string**
 
-Updated name for the template (if applicable). ||
+Updated name for the template (if applicable).
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || data | **string**
 
 Updated data for the certificate template (if applicable). ||

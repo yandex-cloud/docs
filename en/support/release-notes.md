@@ -1,17 +1,17 @@
 ---
-title: '{{ yandex-cloud }} support release notes'
-description: This document describes the changes made to the {{ yandex-cloud }} support description.
+title: '{{ yandex-cloud }} tech support release notes'
+description: The document describes the changes made to {{ yandex-cloud }} tech support description.
 noIndex: true
 ---
 
-# Support release notes
+# Tech support release notes
 
 ## December 2025 {#december-2025}
 
 1. Updated the support response time table:
-   * Changed the arrangement of priorities for **Issue** type requests in the table.
+   * Changed the display structure for priorities of **Problem** type requests in the table.
    * Added the response time for requests of **Question**, **Suggestion**, and **Quotas** types submitted via the support center.
-   * Moved the response to **Quota** type requests from the management console to a separate row.
+   * Moved the response to **Quota** type requests initiated from the management console to a separate row.
    * Placed the response to email requests in a separate row.
 1. Expanded the table of available request types for the Business and Premium service plans.
    * Business and Premium: 
@@ -23,7 +23,7 @@ noIndex: true
       * Infrastructure checkup.
       * Video calls with support experts upon request.
       * Support during maintenance and updates to cloud resource architecture.
-1. Updated support restrictions. Added sections on services and features:
+1. Clarified support limitations. Added sections on services and features:
    * Third-party software debugging.
    * Support for {{ marketplace-full-name }} products published by vendors other than {{ yandex-cloud }}.
    * Use of {{ adv-ddos-protection }}.

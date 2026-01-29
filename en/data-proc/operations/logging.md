@@ -1,8 +1,8 @@
 # Working with logs
 
-[{{ cloud-logging-full-name }}](../../logging) collects and displays {{ dataproc-name }} cluster logs.
+[{{ cloud-logging-full-name }}](../../logging) collects and displays a {{ dataproc-name }} cluster’s logs.
 
-To monitor the events on the cluster and its individual hosts, specify, in its settings, a relevant [log group](../../logging/concepts/log-group.md). You can do this when [creating](cluster-create.md) or [updating](cluster-update.md) the cluster. If no log group has been selected for the cluster, a default log group in the cluster directory will be used to send and store logs.
+To monitor events on the cluster and its individual hosts, specify the relevant [log group](../../logging/concepts/log-group.md) in its settings. You can do this when [creating](cluster-create.md) or [updating](cluster-update.md) the cluster. If no log group has been selected for the cluster, a default log group in the cluster directory will send and store logs.
 
 For more information, see [Logs](../concepts/logs.md).
 
@@ -12,31 +12,32 @@ For more information, see [Logs](../concepts/logs.md).
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-    1. Click the cluster name.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Click the name of your cluster.
     1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_configuration }}**, click the name of the cluster log group. The {{ cloud-logging-name }} page will open.
-    1. Click the row of the log group. This will open the cluster logs.
-    1. (Optional) Specify the output settings:
+    1. Click the log group row. This will open the cluster logs.
+    1. Optionally, specify the output settings:
         * [Message filter](../concepts/logs.md):
-           * Getting the job start output {{ dataproc-name }}:
+           * Getting the job run output {{ dataproc-name }}:
 
              ```ini
              job_id="<job_ID>"
              ```
 
-           * Getting the stdout output for all YARN application containers:
+           * Getting the `stdout` output for all YARN application containers:
 
              ```ini
              application_id="<YARN_app_ID>" AND yarn_log_type="stdout"
              ```
 
-           * Getting YARN container's stderr output:
+           * Getting a YARN container's `stderr` output:
 
              ```ini
              container_id="<YARN_container_ID>" AND yarn_log_type="stderr"
              ```
 
-           * Getting the YARN Resource Manager service logs from the cluster's master host:
+           * Getting the YARN Resource Manager logs from the cluster's master host:
 
              ```ini
              hostname="<master_host_FQDN>" AND log_type="hadoop-yarn-resourcemanager"
@@ -50,7 +51,7 @@ For more information, see [Logs](../concepts/logs.md).
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  See the description of the CLI command to get logs:
+  See the description of the CLI command for getting logs:
 
     ```bash
     yc logging read --help
@@ -58,7 +59,7 @@ For more information, see [Logs](../concepts/logs.md).
 
   Examples:
 
-    * To get logs of the {{ dataproc-name }} cluster's HDFS NameNode service, run this command:
+    * To get logs of the {{ dataproc-name }} cluster's HDFS NameNode, run this command:
 
       ```bash
       yc logging read \
@@ -67,7 +68,7 @@ For more information, see [Logs](../concepts/logs.md).
          --filter=log_type=hadoop-hdfs-namenode
       ```
 
-    * To get logs for the last two hours from all {{ dataproc-name }} clusters assigned to a specific log group, run the command:
+    * To get logs for the last two hours from all {{ dataproc-name }} clusters assigned to a specific log group, run this command:
 
       ```bash
       yc logging read \
@@ -76,7 +77,7 @@ For more information, see [Logs](../concepts/logs.md).
          --since=2h
       ```
 
-    * To get your cluster's system log for a specific period, run this command:
+    * To get your cluster's system log over a specific period, run this command:
 
       ```bash
       yc logging read \
@@ -108,8 +109,9 @@ For more information, see [Logs](../concepts/logs.md).
 
       To get the host FQDN:
 
-      1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-      1. Click the cluster name.
+      1. Open the [folder dashboard]({{ link-console-main }}).
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+      1. Click the name of your cluster.
       1. Navigate to the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
       1. Copy the host FQDN.
 
@@ -146,6 +148,6 @@ For more information, see [Logs](../concepts/logs.md).
 
 ## Storing logs {#logs-storage}
 
-You pay for receiving and storing your logs based on the {{ cloud-logging-name }} [pricing policy](../../logging/pricing.md). The default log retention period is three days. To update the retention period, [edit the log group settings](../../logging/operations/retention-period.md).
+Log collection and storage are billed according to the {{ cloud-logging-name }} [pricing policy](../../logging/pricing.md). The default log retention period is three days. To update the retention period, [edit the log group settings](../../logging/operations/retention-period.md).
 
-For more information about logs, see the [{{ cloud-logging-name }} documentation](../../logging/operations/index.md).
+For more information about logs, see [this {{ cloud-logging-name }} article](../../logging/operations/index.md).

@@ -192,4 +192,4 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](./create.md)
 * [{#T}](./tune-classifiers.md)
 * [{#T}](../../tutorials/models-fine-tuning.md)
-* Больше примеров SDK доступно в [репозитории на GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/tuning).
+* Больше примеров SDK доступно в [репозитории на GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk/tree/master/examples/sync/tuning).

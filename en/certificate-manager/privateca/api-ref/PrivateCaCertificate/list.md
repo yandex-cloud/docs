@@ -11,17 +11,20 @@ apiPlayground:
           description: |-
             **string**
             Required field. The ID of the Certificate Authority issuing the certificates.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
             **string** (int64)
             Maximum number of certificates to return per page, optional. Default is 100.
+            The maximum value is 100.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token, allows request for the next page of results from a previous list call.
+            The maximum string length in characters is 100.
           type: string
       required:
         - certificateAuthorityId
@@ -49,13 +52,19 @@ Request to list certificates issued by a specific Certificate Authority.
 ||Field | Description ||
 || certificateAuthorityId | **string**
 
-Required field. The ID of the Certificate Authority issuing the certificates. ||
+Required field. The ID of the Certificate Authority issuing the certificates.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
-Maximum number of certificates to return per page, optional. Default is 100. ||
+Maximum number of certificates to return per page, optional. Default is 100.
+
+The maximum value is 100. ||
 || pageToken | **string**
 
-Page token, allows request for the next page of results from a previous list call. ||
+Page token, allows request for the next page of results from a previous list call.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.certificatemanager.v1.privateca.ListCertificatesResponse}

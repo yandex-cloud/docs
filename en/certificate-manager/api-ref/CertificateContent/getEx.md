@@ -10,6 +10,7 @@ apiPlayground:
         certificateId:
           description: |-
             **string**
+            The maximum string length in characters is 50.
             Includes only one of the fields `certificateId`, `folderAndName`.
           type: string
         folderAndName:
@@ -18,12 +19,13 @@ apiPlayground:
             Includes only one of the fields `certificateId`, `folderAndName`.
           $ref: '#/definitions/FolderAndName'
         versionId:
-          description: '**string**'
+          description: |-
+            **string**
+            The maximum string length in characters is 50.
           type: string
         privateKeyFormat:
           description: |-
             **enum** (PrivateKeyFormat)
-            - `PRIVATE_KEY_FORMAT_UNSPECIFIED`
             - `PKCS1`
             - `PKCS8`
           type: string
@@ -45,12 +47,14 @@ apiPlayground:
           folderId:
             description: |-
               **string**
-              Required field. 
+              Required field.
+              The maximum string length in characters is 50.
             type: string
           certificateName:
             description: |-
               **string**
-              Required field. 
+              Required field.
+              The maximum string length in characters is 100.
             type: string
         required:
           - folderId
@@ -72,14 +76,17 @@ GET https://{{ api-host-certmanager-certcontent }}/certificate-manager/v1/certif
 ||Field | Description ||
 || certificateId | **string**
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `certificateId`, `folderAndName`. ||
 || folderAndName | **[FolderAndName](#yandex.cloud.certificatemanager.v1.FolderAndName)**
 
 Includes only one of the fields `certificateId`, `folderAndName`. ||
-|| versionId | **string** ||
+|| versionId | **string**
+
+The maximum string length in characters is 50. ||
 || privateKeyFormat | **enum** (PrivateKeyFormat)
 
-- `PRIVATE_KEY_FORMAT_UNSPECIFIED`
 - `PKCS1`
 - `PKCS8` ||
 |#
@@ -90,10 +97,14 @@ Includes only one of the fields `certificateId`, `folderAndName`. ||
 ||Field | Description ||
 || folderId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || certificateName | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.certificatemanager.v1.GetExCertificateContentResponse}

@@ -17,6 +17,8 @@ items:
             href: operations/cluster-update.md
           - name: Остановка и запуск кластера
             href: operations/cluster-stop.md
+          - name: Управление доступом к кластеру
+            href: operations/cluster-access.md
           - name: Техническое обслуживание
             href: operations/cluster-maintenance.md
           - name: Удаление кластера

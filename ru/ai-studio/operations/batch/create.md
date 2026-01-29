@@ -23,7 +23,7 @@ description: Следуя данной инструкции, вы сможете
   1. С помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/) установите [библиотеку {{ ml-sdk-name }}](../../sdk/index.md):
 
       ```bash
-      pip install yandex-cloud-ml-sdk
+      pip install yandex-ai-studio-sdk
       ```
 
 {% endlist %}

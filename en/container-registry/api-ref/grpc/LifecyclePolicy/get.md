@@ -25,7 +25,9 @@ To get the list of all available lifecycle policies, make a [List](/docs/contain
 ||Field | Description ||
 || lifecycle_policy_id | **string**
 
-Required field. ID of the lifecycle policy. ||
+Required field. ID of the lifecycle policy.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## LifecyclePolicy {#yandex.cloud.containerregistry.v1.LifecyclePolicy}
@@ -70,7 +72,6 @@ The maximum string length in characters is 256. ||
 
 Status of lifecycle policy.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`: Policy is active and regularly deletes Docker images according to the established rules.
 - `DISABLED`: Policy is disabled and does not delete Docker images in the repository.
 Policies in this status can be used for preparing and testing rules. ||
@@ -88,18 +89,24 @@ The rules of lifecycle policy. ||
 ||Field | Description ||
 || description | **string**
 
-Description of the lifecycle policy rule. ||
+Description of the lifecycle policy rule.
+
+The maximum string length in characters is 256. ||
 || expire_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Period of time for automatic deletion.
 Period must be a multiple of 24 hours. ||
 || tag_regexp | **string**
 
-Tag for specifying a filter in the form of a regular expression. ||
+Tag for specifying a filter in the form of a regular expression.
+
+The maximum string length in characters is 256. ||
 || untagged | **bool**
 
 Tag for applying the rule to Docker images without tags. ||
 || retained_top | **int64**
 
-Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired. ||
+Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired.
+
+The minimum value is 0. ||
 |#

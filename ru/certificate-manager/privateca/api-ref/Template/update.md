@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the template to update.
+            The maximum string length in characters is 50.
           type: string
       required:
         - id
@@ -34,6 +35,7 @@ apiPlayground:
           description: |-
             **string**
             Updated name for the template (if applicable).
+            Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
           type: string
         data:
@@ -65,7 +67,9 @@ Request message to update an existing template's fields.
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the template to update. ||
+Required field. ID of the template to update.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.certificatemanager.v1.privateca.UpdateTemplateRequest}
@@ -94,7 +98,9 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
-Updated name for the template (if applicable). ||
+Updated name for the template (if applicable).
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || data | **string**
 
 Updated data for the certificate template (if applicable). ||

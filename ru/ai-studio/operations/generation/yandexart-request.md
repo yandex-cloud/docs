@@ -56,7 +56,7 @@
 
      Созданные диалоги сохраняются на панели **{{ ui-key.yacloud.yagpt.experiments-page-subtitle }}** справа. Нажмите ![image](../../../_assets/console-icons/ellipsis.svg) возле нужного диалога, чтобы переименовать или удалить его.
 
-  1. В блоке **{{ ui-key.yacloud.yagpt.model-using }}** нажмите ![image](../../../_assets/console-icons/code.svg) **Посмотреть код**, чтобы получить код запроса к модели через ML SDK для Python.
+  1. В блоке **{{ ui-key.yacloud.yagpt.model-using }}** нажмите ![image](../../../_assets/console-icons/code.svg) **Посмотреть код**, чтобы получить код запроса к модели через AI Studio SDK для Python.
 
      ![screen02](../../../_assets/ai-studio/quickstart/yandexart/screen02.png)
 
@@ -167,4 +167,4 @@
 #### См. также {#see-also}
 
 * [{#T}](../../concepts/generation/index.md)
-* Примеры работы с {{ ml-sdk-name }} на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/image_generation)
+* Примеры работы с {{ ml-sdk-name }} на [GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk/tree/master/examples/sync/image_generation)

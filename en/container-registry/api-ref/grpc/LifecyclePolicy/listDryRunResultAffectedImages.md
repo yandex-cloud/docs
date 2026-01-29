@@ -27,16 +27,22 @@ Retrieves the list of the affected images.
 ||Field | Description ||
 || dry_run_lifecycle_policy_result_id | **string**
 
-Required field. ID of the dry run result of the lifecycle policy ||
+Required field. ID of the dry run result of the lifecycle policy
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListDryRunLifecyclePolicyResultAffectedImagesResponse.next_page_token](#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultAffectedImagesResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListDryRunLifecyclePolicyResultAffectedImagesResponse.next_page_token](#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultAffectedImagesResponse) returned by a previous list request. ||
+[ListDryRunLifecyclePolicyResultAffectedImagesResponse.next_page_token](#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultAffectedImagesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters affected images listed in the response.
@@ -44,11 +50,15 @@ A filter expression that filters affected images listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on [LifecyclePolicy.name](/docs/container-registry/api-ref/grpc/LifecyclePolicy/get#yandex.cloud.containerregistry.v1.LifecyclePolicy) field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+
+The maximum string length in characters is 1000. ||
 || order_by | **string**
 
 Sorting the list by [LifecyclePolicy.name](/docs/container-registry/api-ref/grpc/LifecyclePolicy/get#yandex.cloud.containerregistry.v1.LifecyclePolicy) and [LifecyclePolicy.created_at](/docs/container-registry/api-ref/grpc/LifecyclePolicy/get#yandex.cloud.containerregistry.v1.LifecyclePolicy) fields.
-The default sorting order is ascending. ||
+The default sorting order is ascending.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListDryRunLifecyclePolicyResultAffectedImagesResponse {#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultAffectedImagesResponse}

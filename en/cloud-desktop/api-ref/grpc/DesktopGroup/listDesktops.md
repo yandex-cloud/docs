@@ -27,29 +27,39 @@ Retrieves the list of desktops resources.
 ||Field | Description ||
 || desktop_group_id | **string**
 
-Required field. ID of the desktop group. ||
+Required field. ID of the desktop group.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListDesktopGroupDesktopsResponse.next_page_token](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupDesktopsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListDesktopGroupDesktopsResponse.next_page_token](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupDesktopsResponse) returned by a previous list request. ||
+[ListDesktopGroupDesktopsResponse.next_page_token](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupDesktopsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on [Desktop.name](#yandex.cloud.clouddesktop.v1.api.Desktop) field.
 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-3. Value or a list of values to compare against the values of the field. ||
+3. Value or a list of values to compare against the values of the field.
+
+The maximum string length in characters is 1000. ||
 || order_by | **string**
 
 Sorting the list by [Desktop.name](#yandex.cloud.clouddesktop.v1.api.Desktop), [Desktop.created_at](#yandex.cloud.clouddesktop.v1.api.Desktop) and [Desktop.status](#yandex.cloud.clouddesktop.v1.api.Desktop) fields.
-The default sorting order is ascending. ||
+The default sorting order is ascending.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListDesktopGroupDesktopsResponse {#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupDesktopsResponse}
@@ -125,7 +135,6 @@ Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text forma
 
 Status of the desktop.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Desktop is being created.
 - `ACTIVE`: Desktop is ready to be used.
 - `DELETING`: Desktop is being deleted.
@@ -154,9 +163,15 @@ Labels of the desktop. ||
 
 #|
 ||Field | Description ||
-|| memory | **int64** ||
-|| cores | **int64** ||
-|| core_fraction | **int64** ||
+|| memory | **int64**
+
+The minimum value is 1. ||
+|| cores | **int64**
+
+The minimum value is 1. ||
+|| core_fraction | **int64**
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## NetworkInterface {#yandex.cloud.clouddesktop.v1.api.NetworkInterface}
@@ -165,10 +180,14 @@ Labels of the desktop. ||
 ||Field | Description ||
 || network_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || subnet_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## User {#yandex.cloud.clouddesktop.v1.api.User}
@@ -177,8 +196,12 @@ Required field.  ||
 ||Field | Description ||
 || subject_id | **string**
 
-Required field. Identity of the access binding. ||
+Required field. Identity of the access binding.
+
+The maximum string length in characters is 100. ||
 || subject_type | **string**
 
-Required field. Type of the access binding, e.g. userAccount, serviceAccount, system. ||
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system.
+
+The maximum string length in characters is 100. ||
 |#

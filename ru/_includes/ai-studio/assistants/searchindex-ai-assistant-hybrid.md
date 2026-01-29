@@ -1,6 +1,6 @@
 ```python
-from yandex_cloud_ml_sdk import YCloudML
-from yandex_cloud_ml_sdk.search_indexes import (
+from yandex_ai_studio_sdk import AIStudio
+from yandex_ai_studio_sdk.search_indexes import (
     HybridSearchIndexType,
     TextSearchIndexType,
     StaticIndexChunkingStrategy,
@@ -15,7 +15,7 @@ queries = [
 
 
 def main():
-    sdk = YCloudML(
+    sdk = AIStudio(
         folder_id="<идентификатор_каталога>",
         auth="<API-ключ>",
     )

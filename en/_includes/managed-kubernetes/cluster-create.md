@@ -3,7 +3,7 @@
 1. Click **{{ ui-key.yacloud.k8s.clusters.button_create }}**.
 1. Enter a name and description for your {{ managed-k8s-name }} cluster. The {{ managed-k8s-name }} cluster name must be unique within {{ yandex-cloud }}.
 1. Specify a **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}** to use to create your resources.
-1. Specify a **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}** the [{{ managed-k8s-name }} nodes](../../managed-kubernetes/concepts/index.md#node-group) will use to access the [Docker image registry](../../container-registry/concepts/registry.md) in [{{ container-registry-full-name }}](../../container-registry/).
+1. Specify the **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}** the [{{ managed-k8s-name }} nodes](../../managed-kubernetes/concepts/index.md#node-group) will use to access the [Docker image](../../container-registry/concepts/docker-image.md) registry in {{ container-registry-full-name }}.
 1. Optionally, specify the **{{ ui-key.yacloud.k8s.clusters.create.field_kms-key }}** for [secret encryption](../../managed-kubernetes/concepts/encryption.md).
 
    {% include [write-once-settings](write-once-setting.md) %}

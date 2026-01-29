@@ -13,7 +13,7 @@ You can [view](#list-data-streams) a list of [streams](../concepts/glossary.md#s
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) for which to get the list of data streams.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**. A list of streams will open.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**. A list of streams will open.
 
 {% endlist %}
 
@@ -24,7 +24,7 @@ You can [view](#list-data-streams) a list of [streams](../concepts/glossary.md#s
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to change the stream settings.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
   1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) in the stream row and select **{{ ui-key.yacloud.common.edit }}**.
   1. Configure the data stream:
 
@@ -66,7 +66,7 @@ You can [view](#list-data-streams) a list of [streams](../concepts/glossary.md#s
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to delete a stream from.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
   1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) in the data stream row and select **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
 

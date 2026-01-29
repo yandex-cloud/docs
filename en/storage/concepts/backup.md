@@ -5,3 +5,8 @@
 To back up your objects, you can regularly download them from {{ objstorage-name }} and store them in your own infrastructure or in another cloud storage.
 
 To automate backups, use the [supported tools](../tools/index.md).
+
+
+#### See also {#see-also}
+
+* [Tutorials on backups in {{ objstorage-name }}](../tutorials/storage-backup-overview.md)

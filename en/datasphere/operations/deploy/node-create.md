@@ -21,7 +21,7 @@ If your project uses packages and libraries that are not included in the [list o
 
    {% note info %}
 
-   When deploying [PyTorch models](../../concepts/models/index.md#supported-types), {{ ml-platform-name }} cannot automatically infer the input and output parameters.
+   When deploying [PyTorch models](../../concepts/models/index.md#supported-types), {{ ml-platform-name }} cannot automatically figure out the input and output parameters.
 
    If you are setting the inputs, make sure to specify the outputs as well. When you set the inputs manually for any model type, {{ ml-platform-name }} cannot automatically infer the outputs.
 
@@ -38,9 +38,9 @@ If your project uses packages and libraries that are not included in the [list o
    {% endnote %}
 
 1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}**, select the folder for the new resources.
-1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**, select the [configuration](../../concepts/configurations.md) of [instance](../../concepts/deploy/index.md) computing resources, [availability zone](../../../overview/concepts/geo-scope.md), and the ID of the [subnet](../../../vpc/concepts/network.md#subnet) to host the instance.
+1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**, select the [configuration](../../concepts/configurations.md) of [instance](../../concepts/deploy/index.md) computing resources, [availability zone](../../../overview/concepts/geo-scope.md), and the ID of the [subnet](../../../vpc/concepts/network.md#subnet) to host the instance. The subnet must be in the same availability zone where you created the community.
 1. In the **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.maintenance-limit }}** field, specify the maximum number of node instances that can be shut down for maintenance at the same time.
-1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.acl }}**, click ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.new-node.add-acl }}** and specify the [IDs of the folders](../../../resource-manager/operations/folder/get-id.md) allowed to connect to the node. The folder ID of the user creating the node is specified by default.
+1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.acl }}**, click ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.new-node.add-acl }}** and specify the [IDs of the folders](../../../resource-manager/operations/folder/get-id.md) from which connections to the node are allowed. The folder ID of the user creating the node is specified by default.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
 To view all created nodes:
@@ -64,7 +64,7 @@ To view all created nodes:
 1. Optionally, under **{{ ui-key.yc-ui-datasphere.new-node.title.runtime-options }}**, set the disk size available in the Docker image.
 
 1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.endpoint }}**:
-   * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.type }}**: Select a node connection protocol, **HTTP** (**HTTP/2**) or **gRPC**.
+   * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.type }}**: Select the node connection protocol, **HTTP** (**HTTP/2**) or **gRPC**.
    * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.port }}**: Specify the port for connecting to the node.
    * **{{ ui-key.yc-ui-datasphere.common.timeout }}**: Set the session timeout, in seconds.
    * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.idle-timeout }}**: Set the idle time before disconnecting from the node, in seconds.
@@ -84,10 +84,10 @@ To view all created nodes:
 1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}**, select the folder for the new resources.
 1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**:
    * **{{ ui-key.yc-ui-datasphere.node-page.instance-spec }}**: Select a [configuration](../../concepts/configurations.md) of the [instance](../../concepts/deploy/index.md) computing resources.
-   * **{{ ui-key.yc-ui-datasphere.node-page.provisioning.distribution-by-zones }}**: Add an [availability zone](../../../overview/concepts/geo-scope.md) and the ID of the [subnet](../../../vpc/concepts/network.md#subnet) to host the instance.
+   * **{{ ui-key.yc-ui-datasphere.node-page.provisioning.distribution-by-zones }}**: Add an [availability zone](../../../overview/concepts/geo-scope.md) and the ID of the [subnet](../../../vpc/concepts/network.md#subnet) to host the instance. The subnet must be in the same availability zone where you created the community.
    * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.maintenance-limit }}**: Specify the maximum number of node instances that can be shut down for maintenance at the same time.
    * **{{ ui-key.yc-ui-datasphere.new-node.additional-disk.title }}**: Optionally, add a secondary disk for the instance. If you selected multiple instances, a disk will be created for each one.
-1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.acl }}**, click ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.new-node.add-acl }}** and specify the [IDs of the folders](../../../resource-manager/operations/folder/get-id.md) allowed to connect to the node. The folder ID of the user creating the node is specified by default.
+1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.acl }}**, click ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.new-node.add-acl }}** and specify the [IDs of the folders](../../../resource-manager/operations/folder/get-id.md) from which connections to the node are allowed. The folder ID of the user creating the node is specified by default.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
 To view all created nodes:

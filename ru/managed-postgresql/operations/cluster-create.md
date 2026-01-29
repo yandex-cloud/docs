@@ -986,6 +986,9 @@ description: Следуя данной инструкции, вы сможете
     cluster_id = yandex_mdb_postgresql_cluster.mypg.id
     name       = "db1"
     owner      = "user1"
+    depends_on = [
+      yandex_mdb_postgresql_user.user1
+    ]
   }
 
   resource "yandex_mdb_postgresql_user" "user1" {

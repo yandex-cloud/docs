@@ -4,10 +4,6 @@ description: Follow this guide to configure an {{ objstorage-full-name }} source
 ---
 # Transferring data from a {{ objstorage-full-name }} source endpoint
 
-
-{% include [storage-preview-disclaimer](../../../../_includes/data-transfer/storage-preview-disclaimer.md) %}
-
-
 {{ data-transfer-full-name }} enables you to migrate data from {{ objstorage-full-name }} storage to {{ yandex-cloud }} managed databases and implement various data processing and transformation scenarios. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
@@ -130,9 +126,10 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}**: Specify a JSON schema in `{"<column>": "<data_type>"}` format or list the fields for the resulting table's schema. If you select `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.infer.title }}`, the schema will be inferred automatically.
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSourceAdvancedSettings.unparsed_mode.title }}**: Specify how to process rows that failed to pass a type check:
-  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.OBJECT_STORAGE_UNPARSED_CONTINUE.title }}**: Continue data transfer.
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.OBJECT_STORAGE_UNPARSED_CONTINUE.title }}**: Proceed with the data transfer.
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.OBJECT_STORAGE_UNPARSED_FAIL.title }}**: Abort.
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.OBJECT_STORAGE_UNPARSED_RETRY.title }}**: Repeat the type check attempt.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.scan_interval.title }}**: Specify the scanning interval for new files during replication.
 
 ## Configuring the data target {#supported-targets}
 

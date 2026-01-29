@@ -23,13 +23,13 @@ This is a service for getting usage and expense reports. It provides methods for
 
 To get the breakdown of costs and resource usage for a [billing account](../concepts/billing-account.md):
 
-* For the billing account, use the [ConsumptionCore/GetBillingAccountUsageReport](../api-ref/grpc/ConsumptionCore/getBillingAccountUsageReport) gRPC API call.
-* For clouds, use the [ConsumptionCore/GetCloudUsageReport](../api-ref/grpc/ConsumptionCore/getCloudUsageReport) gRPC API call.
-* For folders, use the [ConsumptionCore/GetFolderUsageReport](../api-ref/grpc/ConsumptionCore/getFolderUsageReport) gRPC API call.
-* For services, use the [ConsumptionCore/GetServiceUsageReport](../api-ref/grpc/ConsumptionCore/getServiceUsageReport) gRPC API call.
-* For products (SKUs), use the [ConsumptionCore/GetSKUUsageReport](../api-ref/grpc/ConsumptionCore/getSKUUsageReport) gRPC API call.
-* For resources, use the [ConsumptionCore/GetResourceUsageReport](../api-ref/grpc/ConsumptionCore/getResourceUsageReport) gRPC API call.
-* For labels, use the [ConsumptionCore/GetLabelKeyUsageReport](../api-ref/grpc/ConsumptionCore/getLabelKeyUsageReport) gRPC API call.
+* For the billing account, use the [ConsumptionCore/GetBillingAccountUsageReport](../usage/api-ref/grpc/ConsumptionCore/getBillingAccountUsageReport.md) gRPC API call.
+* For clouds, use the [ConsumptionCore/GetCloudUsageReport](../usage/api-ref/grpc/ConsumptionCore/getCloudUsageReport.md) gRPC API call.
+* For folders, use the [ConsumptionCore/GetFolderUsageReport](../usage/api-ref/grpc/ConsumptionCore/getFolderUsageReport.md) gRPC API call.
+* For services, use the [ConsumptionCore/GetServiceUsageReport](../usage/api-ref/grpc/ConsumptionCore/getServiceUsageReport.md) gRPC API call.
+* For products (SKUs), use the [ConsumptionCore/GetSKUUsageReport](../usage/api-ref/grpc/ConsumptionCore/getSKUUsageReport.md) gRPC API call.
+* For resources, use the [ConsumptionCore/GetResourceUsageReport](../usage/api-ref/grpc/ConsumptionCore/getResourceUsageReport.md) gRPC API call.
+* For labels, use the [ConsumptionCore/GetLabelKeyUsageReport](../usage/api-ref/grpc/ConsumptionCore/getLabelKeyUsageReport.md) gRPC API call.
 
 All `ConsumptionCore` methods return data as a three-level structure:
 
@@ -41,7 +41,7 @@ All `ConsumptionCore` methods return data as a three-level structure:
 1. Entity totals, i.e., the aggregate data for each entity of the requested type (cloud, folder, service, etc.).
 1. Time series, i.e., the breakdown of data by `aggregation_period` (day, week, month, quarter, or year).
 
-For more information, see the [ConsumptionCore](../api-ref/grpc/ConsumptionCore/) API reference.
+For more information, see the [ConsumptionCore](../usage/api-ref/grpc/ConsumptionCore/index.md) API reference.
 
 ## Metadata {#metadata}
 
@@ -49,12 +49,12 @@ With `Metadata`, you can obtain the lists of clouds, services, products (SKUs), 
 
 Here is how you can get metadata on the following entities within a billing account:
 
-* Available clouds, services, products (SKUs), label keys, and date ranges: [Metadata/GetUsage](../api-ref/grpc/Metadata/getUsage) gRPC API call.
-* Available label keys and values: [Metadata/GetLabel](../api-ref/grpc/Metadata/getLabel) gRPC API call.
-* Available folders for the specified clouds: [Metadata/GetCloud](../api-ref/grpc/Metadata/getCloud) gRPC API call.
-* Available resource IDs within a date range: [Metadata/GetResourceIDs](../api-ref/grpc/Metadata/getResourceIDs) gRPC API call.
+* Available clouds, services, products (SKUs), label keys, and date ranges: [Metadata/GetUsage](../usage/api-ref/grpc/Metadata/getUsage.md) gRPC API call.
+* Available label keys and values: [Metadata/GetLabel](../usage/api-ref/grpc/Metadata/getLabel.md) gRPC API call.
+* Available folders for the specified clouds: [Metadata/GetCloud](../usage/api-ref/grpc/Metadata/getCloud.md) gRPC API call.
+* Available resource IDs within a date range: [Metadata/GetResourceIDs](../usage/api-ref/grpc/Metadata/getResourceIDs.md) gRPC API call.
 
-For more information, see the [Metadata](../api-ref/grpc/Metadata/) API reference.
+For more information, see the [Metadata](../usage/api-ref/grpc/Metadata/index.md) API reference.
 
 ## Use cases {#examples}
 

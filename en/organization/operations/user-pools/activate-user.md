@@ -107,6 +107,42 @@ To activate a local user account:
      yc organization-manager idp user reactivate <user_ID>
      ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Describe the user parameters in the configuration file:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_user" "example_user" {
+       userpool_id = "<pool_ID>"
+       username    = "<username>"
+       full_name   = "<full_username>"
+       is_active   = true
+     }
+     ```
+
+     Where:
+     
+     * `userpool_id`: ID of the pool the user is in.
+     * `username`: User's name.
+     * `full_name`: User's full name.
+     * `is_active`: Activation flag. Set to `true` to activate the user.
+
+     For more information about `yandex_organizationmanager_idp_user` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
+
+  1. Create the resources:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+
+     ```bash
+     yc organization-manager idp user get <user_ID>
+     ```
+
 - API {#api}
 
   Use the [User.Reactivate](../../idp/api-ref/User/reactivate.md) REST API method for the [User](../../idp/api-ref/User/index.md) resource or the [UserService/Reactivate](../../idp/api-ref/grpc/User/reactivate.md) gRPC API call.

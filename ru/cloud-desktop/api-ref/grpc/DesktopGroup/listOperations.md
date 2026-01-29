@@ -26,22 +26,30 @@ Returns list of the operations for the specified desktop group.
 ||Field | Description ||
 || desktop_group_id | **string**
 
-Required field. ID of the desktop group. ||
+Required field. ID of the desktop group.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListDesktopGroupOperationsResponse.next_page_token](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListDesktopGroupOperationsResponse.next_page_token](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupOperationsResponse) returned by a previous list request. ||
+[ListDesktopGroupOperationsResponse.next_page_token](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 Sorting the list by [DesktopGroup.name](/docs/cloud-desktop/api-ref/grpc/DesktopGroup/get#yandex.cloud.clouddesktop.v1.api.DesktopGroup) field.
-The default sorting order is ascending. ||
+The default sorting order is ascending.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListDesktopGroupOperationsResponse {#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupOperationsResponse}

@@ -183,8 +183,6 @@ items:
                         href: api-ref/javascript/interfaces/PlayerSdkSourceParams.md
                       - name: PlayerSdkState
                         href: api-ref/javascript/interfaces/PlayerSdkState.md
-      - name: Решение проблем
-        href: troubleshooting.md
       - name: Защищенный контент
         hidden: true
         href: troubleshooting-drm.md
@@ -590,3 +588,11 @@ items:
     href: at-ref.md
   - name: История изменений
     href: release-notes.md
+  - name: Решение проблем
+    items:
+      - name: Обзор
+        href: troubleshooting/index.md
+      - name: Видеоплеер
+        href: troubleshooting/player.md
+      - name: Загрузка и обработка видео
+        href: troubleshooting/video-processing.md

@@ -123,7 +123,6 @@ The cost of an empty request to any type of speech recognition is equal to that 
 
 ## Prices for the Russia region {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### Speech synthesis {#prices-tts}

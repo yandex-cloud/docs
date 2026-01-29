@@ -1,5 +1,5 @@
 ---
-title: Creating an {{ SPRK }} cluster
+title: Creating a {{ SPRK }} cluster
 description: Each {{ SPRK }} cluster contains computing resources to run Spark applications.
 keywords:
   - creating an {{ SPRK }} cluster
@@ -7,7 +7,7 @@ keywords:
   - '{{ SPRK }}'
 ---
 
-# Creating an {{ SPRK }} cluster
+# Creating a {{ SPRK }} cluster
 
 Each {{ SPRK }} cluster contains computing resources to run Spark applications.
 
@@ -46,7 +46,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         1. Select an existing [service account](../../iam/concepts/users/service-accounts.md) or [create a new one](../../iam/operations/sa/create.md).
 
-            Make sure to assign the `managed-spark.integrationProvider` role to this service account.
+            Make sure to assign the `managed-spark.integrationProvider` role to this service account:
+
+        1. Select the {{ SPRK }} version.
+
+           {% include [change-version-note](../../_includes/managed-spark/change-version-note.md) %}
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a [network](../../vpc/operations/network-create.md), [subnet](../../vpc/operations/subnet-create.md), and [security group](../../vpc/concepts/security-groups.md) for the cluster.
 
@@ -55,7 +59,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        * Driver configuration: Number of driver hosts and [their class](../concepts/instance-types.md). It can be either fixed or autoscalable.
        * Executor configuration: Number of executor hosts and [their class](../concepts/instance-types.md). It can be either fixed or autoscalable.
 
-    1. Specify additional cluster settings, if required:
+    1. If needed, configure advanced cluster settings:
         
         1. **{{ ui-key.yacloud.mdb.forms.title_pip-packages }}** and **{{ ui-key.yacloud.mdb.forms.title_deb-packages }}**: Pip and deb package names for installing additional libraries and applications.
            
@@ -111,13 +115,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        This will create all the resources you need in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+        This will create all the resources you need in the specified folder. You can verify that the new resources have appeared and check their configuration in the [management console]({{ link-console-main }}).
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-msp }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-msp }}).
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
     
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
     
@@ -149,7 +153,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                    "max_size": "<maximum_number_of_instances>"
                  }
                }
-             }
+             },
+             "spark_version": "<Apache_Spark_version>"
            },
            "history_server": {
              "enabled": <use_of_Apache_Spark_History_Server>
@@ -191,11 +196,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                    * `scale_policy`: Host group scaling policy for the driver:
 
                        * `fixed_scale`: Fixed scaling policy.
-
                            * `size`: Number of driver hosts.
 
                        * `auto_scale`: Automatic scaling policy.
-
                            * `min_size`: Minimum number of driver hosts.
                            * `max_size`: Maximum number of driver hosts.
 
@@ -207,48 +210,46 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                    * `scale_policy`: Host group scaling policy for the executor:
 
                        * `fixed_scale`: Fixed scaling policy.
-
                            * `size`: Number of executor hosts.
 
                        * `auto_scale`: Automatic scaling policy.
-
                            * `min_size`: Minimum number of executor hosts.
                            * `max_size`: Maximum number of executor hosts.
 
                            Specify either `fixed_scale` or `auto_scale`. 
 
-               * `history_server`: History server parameters.
+           * `history_server`: History server parameters.
+              * `enabled`: Flag to enable history server. It allows using the service to monitor Spark History Server applications.
 
-                   * `enabled`: Flag to enable history server. It allows using the service to monitor Spark History Server applications.
+           * `dependencies`: Lists of packages enabling you to install additional libraries and applications on the cluster.
+              * `pip_packages`: List of pip packages.
+              * `deb_packages`: List of deb packages.
 
-               * `dependencies`: Lists of packages enabling you to install additional libraries and applications on the cluster.
+              The package name format and version are defined by the install command: `pip install` for pip packages and `apt install` for deb packages.
 
-                   * `pip_packages`: List of pip packages.
-                   * `deb_packages`: List of deb packages.
+           * `metastore`: Metastore parameters.
+              * `cluster_id`: [{{ metastore-name }}](../../metadata-hub/concepts/metastore.md) cluster ID.
 
-                   The package name format and version are defined by the install command: `pip install` for pip packages and `apt install` for deb packages.
+           * `spark_version`: {{ SPRK }} version.
 
-               * `metastore`: Metastore parameters.
+              {% include [change-version-note](../../_includes/managed-spark/change-version-note.md) %}
 
-                   * `cluster_id`: [{{ metastore-name }}](../../metadata-hub/concepts/metastore.md) cluster ID.
+       * `network`: Network settings:
+          * `subnet_ids`: List of subnet IDs.
+          * `security_group_ids`: List of security group IDs.
 
-           * `network`: Network settings:
+       * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
-               * `subnet_ids`: List of subnet IDs.
-               * `security_group_ids`: List of security group IDs.
+          Even if it is enabled, one can still connect to the cluster manually and delete it.
 
-           * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
+       * `service_account_id`: Service account ID.
 
-              Even if it is enabled, one can still connect to the cluster manually and delete it.
+       * `logging`: Logging parameters:
+          * `enabled`: Enables logging. Logs generated by Spark applications will go to {{ cloud-logging-full-name }}. The possible values are `true` or `false`.
+          * `folder_id`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
+          * `log_group_id`: Custom log group ID. Logs will be written to this group.
 
-           * `service_account_id`: Service account ID.
-
-           * `logging`: Logging parameters:
-               * `enabled`: Enables logging. Logs generated by Spark applications will go to {{ cloud-logging-full-name }}. The possible values are `true` or `false`.
-               * `folder_id`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
-               * `log_group_id`: Custom log group ID. Logs will be written to this group.
-
-               Specify either `folder_id` or `log_group_id`.
+          Specify either `folder_id` or `log_group_id`.
 
     1. Call the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 

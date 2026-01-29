@@ -28,7 +28,9 @@ To get the list of available certificates, make a [List](/docs/certificate-manag
 
 Required field. ID of the certificate to return.
 
-To get the ID of a certificate use a [CertificateService.List](/docs/certificate-manager/api-ref/grpc/Certificate/list#List) request. ||
+To get the ID of a certificate use a [CertificateService.List](/docs/certificate-manager/api-ref/grpc/Certificate/list#List) request.
+
+The maximum string length in characters is 50. ||
 || view | enum **CertificateView**
 
 The output type of the certificate.
@@ -113,7 +115,6 @@ Certificate labels as `key:value` pairs. ||
 
 Type of the certificate.
 
-- `CERTIFICATE_TYPE_UNSPECIFIED`
 - `IMPORTED`: The certificate is imported by user.
 - `MANAGED`: The certificate is created by service. ||
 || domains[] | **string**
@@ -123,7 +124,6 @@ Fully qualified domain names of the certificate. ||
 
 Status of the certificate.
 
-- `STATUS_UNSPECIFIED`
 - `VALIDATING`: The certificate domains validation are required. Used only for managed certificates.
 - `INVALID`: The certificate issuance is failed. Used only for managed certificates.
 - `ISSUED`: The certificate is issued.
@@ -175,7 +175,6 @@ Domain of the challenge. ||
 
 Type of the challenge.
 
-- `CHALLENGE_TYPE_UNSPECIFIED`
 - `DNS`: Domain validation type that using DNS-records.
 - `HTTP`: Domain validation type that using HTTP-files. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
@@ -188,7 +187,6 @@ Time when the challenge is updated. ||
 
 Status of the challenge.
 
-- `STATUS_UNSPECIFIED`
 - `PENDING`: The challenge is waiting to be completed.
 - `PROCESSING`: The challenge is awaiting approval from Let's Encrypt.
 - `VALID`: The challenge is complete.

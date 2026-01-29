@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. The ID of the Certificate Authority to retrieve.
             This must be a valid Certificate Authority ID in your account.
+            The maximum string length in characters is 50.
           type: string
       required:
         - certificateAuthorityId
@@ -40,7 +41,9 @@ Request to get detailed information about an existing Certificate Authority.
 || certificateAuthorityId | **string**
 
 Required field. The ID of the Certificate Authority to retrieve.
-This must be a valid Certificate Authority ID in your account. ||
+This must be a valid Certificate Authority ID in your account.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.certificatemanager.v1.privateca.CertificateAuthority}
@@ -89,7 +92,6 @@ ID of the parent certificate authority that signed this certificate authority if
 
 Status of the certificate authority.
 
-- `STATUS_UNSPECIFIED`
 - `UNSIGNED`: The certificate authority is unsigned and pending signing.
 - `ACTIVE`: The certificate authority is active and can issue certificates. ||
 || issuedAt | **string** (date-time)

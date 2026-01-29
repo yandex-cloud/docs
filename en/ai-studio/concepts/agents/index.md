@@ -17,7 +17,7 @@ Such architecture enables the creation of text and voice agents that behave more
 
 {{ ai-studio-name }} allows you to create agents in various ways:
 
-* In [{{ ai-playground }}]({{ link-console-main }}/link/ml/ai-studio/agents).
+* In the [management console]({{ link-console-main }}/link/ml/ai-studio/agents).
 * Using the {{ sw-full-name }} [specification constructor]({{ link-console-main }}/link/serverless-integrations/workflows/workflows).
 * Using the {{ responses-api }} or {{ realtime-api }}.
 * Via open source frameworks, for example, OpenAI SDK, LangGraph, or LangChain.

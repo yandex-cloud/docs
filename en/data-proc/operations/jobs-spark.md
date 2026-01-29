@@ -5,18 +5,19 @@ description: In this tutorial, you will learn how to manage Spark jobs in {{ dat
 
 # Managing Spark jobs
 
-## Create a job {#create}
+## Creating a job {#create}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
     1. Click **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
-    1. (Optional) Enter a name for the job.
+    1. Optionally, enter a name for the job.
     1. In the **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** field, select `{{ ui-key.yacloud.dataproc.jobs.field_spark-job-type }}`.
-    1. In the **{{ ui-key.yacloud.dataproc.jobs.field_main-jar }}** field, specify the path to the main JAR application file in the following format:
+    1. In the **{{ ui-key.yacloud.dataproc.jobs.field_main-jar }}** field, specify the path to the application's main JAR file in the following format:
 
         {% include [jar-file-path-requirements](../../_includes/data-processing/jar-file-path-requirements.md) %}
 
@@ -25,8 +26,8 @@ description: In this tutorial, you will learn how to manage Spark jobs in {{ dat
 
         {% include [job-properties-requirements](../../_includes/data-processing/job-properties-requirements.md) %}
 
-    1. (Optional) Specify the paths to the JAR files, if any.
-    1. (Optional) Configure advanced settings:
+    1. Optionally, specify the paths to JAR files, if any.
+    1. Optionally, configure advanced settings:
 
         * Specify paths to the required files and archives.
         * In the **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** field, specify [component properties](../concepts/settings-list.md) as `key-value` pairs.
@@ -47,7 +48,7 @@ description: In this tutorial, you will learn how to manage Spark jobs in {{ dat
         {{ yc-dp }} job create-spark --help
         ```
 
-    1. Create a job (the example does not show all the available parameters):
+    1. Create a job (the example does not illustrate all available parameters):
 
         ```bash
         {{ yc-dp }} job create-spark \
@@ -56,7 +57,7 @@ description: In this tutorial, you will learn how to manage Spark jobs in {{ dat
            --main-class=<application_main_class_name> \
            --main-jar-file-uri=<path_to_main_jar_file> \
            --jar-file-uris=<path_to_jar_file> \
-           --file-uris=<path_to_file> \
+           --file-uris=<file_path> \
            --archive-uris=<path_to_archive> \
            --properties=<component_properties> \
            --args=<arguments> \
@@ -68,7 +69,7 @@ description: In this tutorial, you will learn how to manage Spark jobs in {{ dat
         Where: 
         
         * `--properties`: Component properties as `key-value` pairs.
-        * `--args`: Arguments passed to the job.
+        * `--args`: Arguments provided to the job.
         * `--packages`: Maven coordinates of JAR files in `groupId:artifactId:version` format.
         * `--repositories`: Additional repositories to search for `packages`.
         * `--exclude-packages`: Packages to exclude in `groupId:artifactId` format.
@@ -81,7 +82,7 @@ description: In this tutorial, you will learn how to manage Spark jobs in {{ dat
 
 - API {#api}
 
-    Use the [create](../api-ref/Job/create) API method and include the following information in the request:
+    Call the [create](../api-ref/Job/create) API method and provide the following in the request:
 
     * Cluster ID in the `clusterId` parameter.
     * Job name in the `name` parameter.
@@ -99,7 +100,7 @@ description: In this tutorial, you will learn how to manage Spark jobs in {{ dat
 
 {% include [jobs-list](../../_includes/data-processing/jobs-list.md) %}
 
-## Get general information about the job {#get-info}
+## Get general info about a job {#get-info}
 
 {% include [jobs-get-info](../../_includes/data-processing/jobs-get-info.md) %}
 

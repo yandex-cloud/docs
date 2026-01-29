@@ -6,56 +6,51 @@ noIndex: true
 
 Starting January 22, 2026, our {{ cdn-name }} partner, EdgeCenter, will stop providing CDN on the Yandex Cloud platform.
 
-For this reason, you will need to migrate your CDN resources from EdgeCDN to {{ yandex-cloud }}. When switching, the [cost of using the service](../pricing.md) will remain the same. You can either do it on your own or as part of the [partial auto-migration process](#auto) we will complete by January 17, 2026.
+{{ yandex-cloud }} will automatically migrate CDN resources and origin groups from EdgeCDN to {{ cdn-full-name }} by January 17, 2026. After the migration, the service will [cost](../pricing.md) the same.
 
-To migrate your CDN resources and origin groups from the EdgeCDN provider to {{ cdn-full-name }}:
-1. [Migrate the existing resource configuration](#copy-configuration).
+To start using your migrated CDN resources and origin groups:
+1. [Enable access to the content](#content-access).
+1. [Verify your TLS certificate](#tls).
 1. [Edit the CNAME record](#cname).
-1. [Check whether your resource works correctly](#check).
+1. [Check origins for protection against information attacks](#ddos).
+1. [Test the resource](#check).
 
-## Migrating the existing resource configuration {#copy-configuration}
-
-<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplv65sb6shyvchwvqnu?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+## Enable access to the content {#content-access}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) housing your CDN resource managed by the EdgeCDN provider.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) housing your CDN resource from the EdgeCDN provider.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. Click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
-  1. Under **{{ ui-key.yacloud.cdn.label_copy-config }}**, select your CDN resource managed by the EdgeCDN provider (the one you want to migrate to {{ cdn-full-name }}).
+  1. In the list of resources, find your migrated CDN resource. Make sure its provider is `{{ cdn-full-name }}` and its primary domain name is the same as in EdgeCDN. 
+  1. If the **Status** column of the migrated CDN resource says `Not active`, enable access to the content:
+      1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the resource and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+      1. Under **Content**, enable access to the content and click **Save**.
 
-      {% note tip %}
+  {% note info %}
 
-      You can find the provider name under the resource domain name.
+  It may take up to 15 minutes for the new CDN server settings to take effect.
 
-      {% endnote %}
+  {% endnote %}
 
-  1. All settings will get populated automatically as per the original CDN resource configuration. You can adjust them, if required.
+{% endlist %}
 
-      {% note info %}
+## Verify your TLS certificate {#tls}
 
-      When migrating from EdgeCDN to {{ cdn-full-name }}, you can keep your resource’s **{{ ui-key.yacloud.cdn.label_personal-domain }}**. The name must be unique across the resources of a single CDN provider.
+{% list tabs group=instructions %}
 
-      {% endnote %}
+- Management console {#console}
 
-  1. Click **{{ ui-key.yacloud.common.continue }}**.
-  1. If required, adjust the settings under **{{ ui-key.yacloud.cdn.label_resource-cache }}**, **{{ ui-key.yacloud.cdn.label_resource-http-headers }}**, and **{{ ui-key.yacloud.cdn.label_additional }}**, and then click **{{ ui-key.yacloud.common.continue }}**.
-
-      Wait until this new CDN resource appears in the list as managed by {{ cdn-full-name }}.
-
-      Apart from this new CDN resource, the system will also create a copy of your [origin group](../concepts/origins.md).
-
-  1. If you uploaded a TLS certificate for the original CDN resource, select your new CDN resource that has {{ cdn-full-name }} as provider and make sure the **{{ ui-key.yacloud.cdn.label_certificate-type }}** section has your certificate name specified.
+  If a TLS certificate for the original CDN resource was previously uploaded, select the new CDN resource with {{ cdn-full-name }} for provider in the [management console]({{ link-console-main }}) and make sure your certificate is named in the **{{ ui-key.yacloud.cdn.label_certificate-type }}** section.
       
-      {% note warning %}
+  {% note warning %}
 
-      Previously, EdgeCDN supported issuing TLS certificates automatically for CDN resources. In CDN resource settings, such certificate type is shown as **{{ ui-key.yacloud.cdn.md_value_certificate-le }}**. 
+  Previously, EdgeCDN supported issuing TLS certificates automatically for CDN resources. In CDN resource settings, such certificate type is shown as **{{ ui-key.yacloud.cdn.md_value_certificate-le }}**. 
 
-      You cannot migrate such certificates from EdgeCDN to {{ cdn-full-name }}. Instead, [issue](../../certificate-manager/operations/managed/cert-create.md) a new Let's Encrypt^®^ certificate or [upload](../../certificate-manager/operations/import/cert-create.md) a custom one through {{ certificate-manager-full-name }} and specify it when migrating your CDN resource.
+  You cannot migrate such certificates from EdgeCDN to {{ cdn-full-name }}. Instead, [issue](../../certificate-manager/operations/managed/cert-create.md) a new Let's Encrypt^®^ certificate or [upload](../../certificate-manager/operations/import/cert-create.md) a custom one through {{ certificate-manager-full-name }} and specify it when migrating your CDN resource.
 
-      {% endnote %}
+  {% endnote %}
 
 {% endlist %}
 
@@ -98,7 +93,11 @@ The new resource will start running properly after the CNAME record you edited o
 
 {% include [note-dns-aname](../../_includes/cdn/note-dns-aname.md) %}
 
-## Checking whether your resource works correctly {#check}
+## Check origins for protection against information attacks {#ddos}
+
+If the origin you are adding to {{ cdn-full-name }} has information security measures in place, e.g., a firewall or DDoS protection, make sure [{{ cdn-full-name }} addresses](https://tech.cdn.yandex.net/prefixes/yc.json) are whitelisted.
+
+## Test the resource {#check}
 
 Once your CNAME record gets propagated across DNS servers, client requests will start arriving to your new CDN resource.
 
@@ -111,15 +110,9 @@ To check whether your resource works properly:
   1. In the [management console]({{ link-console-main }}), select the folder where the CDN resource was created.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Select the CDN resource you previously created.
-  1. Navigate to **{{ ui-key.yacloud.common.monitoring }}**.
+  1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.
 
 {% endlist %}
-
-## Partial auto-migration {#auto}
-
-By January 17, 2026, we will automatically migrate your CDN resources by copying them with saved settings and transferring to {{ cdn-full-name }}.
-
-All you will need to do is [replace](#cname) the CNAME domain record in your DNS hosting settings.
 
 ### See also {#see-also}
 

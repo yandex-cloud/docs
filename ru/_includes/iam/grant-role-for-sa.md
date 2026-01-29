@@ -271,7 +271,7 @@
 
   1. Выберите роль, которую хотите назначить сервисному аккаунту. Описание ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md).
   1. [Узнайте](../../resource-manager/operations/folder/get-id.md) ID каталога с сервисными аккаунтами.
-  1. [Получите](../../iam/operations/iam-token/create.md) IAM-токен для авторизации в API {{ yandex-cloud }}.
+  1. [Получите](../../iam/operations/iam-token/create.md) IAM-токен для аутентификации в API {{ yandex-cloud }}.
   1. Получите список сервисных аккаунтов в каталоге, чтобы узнать их идентификаторы:
 
       ```bash

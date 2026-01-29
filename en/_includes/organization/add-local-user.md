@@ -34,13 +34,13 @@
      ```bash
      yc organization-manager idp user create \
        --userpool-id <pool_ID> \
-       --username <user_login_and_domain> \
-       --full-name <user_first_and_last_name> \
-       --given-name <username> \
-       --family-name <user_last_name> \
-       --email <user_email> \
-       --phone-number <user_phone_number> \
-       --password <user_password>
+       --username <login_and_domain> \
+       --full-name <name_and_last_name> \
+       --given-name <name> \
+       --family-name <last_name> \
+       --email <email> \
+       --phone-number <phone_number> \
+       --password <password>
      ```
 
      Where:
@@ -53,6 +53,54 @@
      * `--email`: User email. This is an optional parameter.
      * `--phone-number`: User phone number. This is an optional parameter.
      * `--password`: Password. This is an optional parameter. If no password is set, it will be generated automatically. The user must change this password on their first login to {{ yandex-cloud }}.
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+ 
+  {% include [terraform-install](../terraform-install.md) %}
+ 
+  1. Describe the user parameters in the configuration file:
+ 
+     ```hcl
+     resource "yandex_organizationmanager_idp_user" "example_user" {
+       userpool_id  = <pool_ID>
+       username     = "<login_and_domain>"
+       full_name    = "<name_and_last_name>"
+       given_name   = "<name>"
+       family_name  = "<last_name>"
+       email        = "<email>"
+       phone_number = "<phone_number>"
+       is_active    = true
+       password_spec = {
+         password = "<password>"
+       }
+     }
+     ```
+ 
+     Where:
+ 
+     * `userpool_id`: ID of the [user pool](../../organization/concepts/user-pools.md) you need to add the new user to.
+     * `username`: User login and domain in `login@domain` format. The login must be unique for the current user pool.
+     * `full_name`: User first and last name in any format.
+     * `given_name`: Username. This is an optional parameter.
+     * `family_name`: User last name. This is an optional parameter.
+     * `email`: User email. This is an optional parameter.
+     * `phone_number`: User phone number. This is an optional parameter.
+     * `password`: Password. This is an optional parameter. If no password is set, it will be generated automatically. The user must change this password on their first login to {{ yandex-cloud }}.
+     * `is_active`: Activation flag. Set to `true` to activate the user.
+ 
+     For more information about `yandex_organizationmanager_idp_user` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
+ 
+  1. Create the resources:
+ 
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+ 
+     {{ TF }} will create all the required resources. You can check the new resources and their settings either in [{{ org-full-name }}]({{ link-org-cloud-center }}) or using this [CLI](../../cli/) command:
+ 
+     ```bash
+     yc organization-manager idp user list --userpool-id <pool_ID>
+     ```
 
 - API {#api}
 

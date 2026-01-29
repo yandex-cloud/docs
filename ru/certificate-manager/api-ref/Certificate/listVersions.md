@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the certificate to list versions for.
+            The maximum string length in characters is 50.
           type: string
       required:
         - certificateId
@@ -22,6 +23,7 @@ apiPlayground:
             **string** (int64)
             Page token. To get the next page of results, set `page_token` to the
             [ListCertificatesResponse.nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#yandex.cloud.certificatemanager.v1.ListCertificatesResponse) returned by a previous list request.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
@@ -29,6 +31,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `page_token` to the
             [ListCertificatesResponse.nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#yandex.cloud.certificatemanager.v1.ListCertificatesResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -50,7 +53,9 @@ GET https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/{cert
 ||Field | Description ||
 || certificateId | **string**
 
-Required field. ID of the certificate to list versions for. ||
+Required field. ID of the certificate to list versions for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.certificatemanager.v1.ListVersionsRequest}
@@ -60,11 +65,15 @@ Required field. ID of the certificate to list versions for. ||
 || pageSize | **string** (int64)
 
 Page token. To get the next page of results, set `page_token` to the
-[ListCertificatesResponse.nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#yandex.cloud.certificatemanager.v1.ListCertificatesResponse) returned by a previous list request. ||
+[ListCertificatesResponse.nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#yandex.cloud.certificatemanager.v1.ListCertificatesResponse) returned by a previous list request.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListCertificatesResponse.nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#yandex.cloud.certificatemanager.v1.ListCertificatesResponse) returned by a previous list request. ||
+[ListCertificatesResponse.nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#yandex.cloud.certificatemanager.v1.ListCertificatesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.certificatemanager.v1.ListVersionsResponse}

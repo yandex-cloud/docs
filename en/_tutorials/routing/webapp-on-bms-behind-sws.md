@@ -518,7 +518,7 @@ After you create the {{ vpc-name }} and {{ baremetal-name }} infrastructure comp
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the [HTTP router](../../application-load-balancer/concepts/http-router.md): `http-80`.
   1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}** and do the following in the **{{ ui-key.yacloud.alb.label_new-virtual-host }}** form that opens:
 
-      1. In the **{{ ui-key.yacloud.common.name }}** field, enter `http-vh` for the [virtual host](../../application-load-balancer/concepts/http-router.md#virtual-host)'s name and click **{{ ui-key.yacloud.alb.button_add-route }}**.
+      1. In the **{{ ui-key.yacloud.common.name }}** field, enter `http-vh` for the [virtual host](../../application-load-balancer/concepts/http-router.md#virtual-host)‘s name and click **{{ ui-key.yacloud.alb.button_add-route }}**.
       1. In the **{{ ui-key.yacloud.alb.label_new-route }}** form that opens, enter `main-route-80` as the [route](../../application-load-balancer/concepts/http-router.md#routes)'s name in the **{{ ui-key.yacloud.common.name }}** field.
       1. In the **{{ ui-key.yacloud.alb.label_http-methods }}** field, select `GET`.
       1. In the **{{ ui-key.yacloud.alb.label_backend-group }}** field, select the `bms-backend-group` backend group created in the previous step.

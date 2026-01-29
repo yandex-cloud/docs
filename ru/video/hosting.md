@@ -82,4 +82,4 @@ description: Следуя данной инструкции, вы сможете
 * [Загрузить видео](operations/video/upload.md)
 * [Настроить шаблон плеера](operations/style-presets/update.md)
 * [Настроить показ рекламы](operations/channels/settings.md#ad-settings)
-* [{#T}](troubleshooting.md)
+* [{#T}](troubleshooting/index.md)

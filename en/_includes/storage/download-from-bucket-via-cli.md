@@ -46,4 +46,8 @@
     download: s3://my-bucket/object.txt to object.txt
     ```
 
+    {% cut "Configuring parameters for the `yc storage s3 cp` command" %}
+
     {% include [s3-cp-config](s3-cp-config.md) %}
+
+    {% endcut %}

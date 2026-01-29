@@ -49,7 +49,7 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
 
       * `--copy-source`: Name of the source bucket and object [key](../../concepts/object.md#key) you need to copy.
       * `--bucket`: Name of the bucket to copy the object to.
-      * `--key`: Key to use for storing the object in the bucket.
+      * `--key`: Key by which to store the object in the bucket.
 
       Result:
 
@@ -75,7 +75,7 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
       copy: s3://my-bucket/object.txt to s3://new-bucket/object-copy.txt
       ```
 
-      {% include [s3-cp-config](../../../_includes/storage/s3-cp-config.md) %}
+      Learn more about the command configuration [here](#yc-s3-cp-config).
 
 - AWS CLI {#aws-cli}
 
@@ -98,7 +98,7 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
       copy: s3://<source_bucket>/<object_key> to s3://<target_bucket>/<object_key>
       ```
 
-      For more information about the `aws s3 cp` command, see [this article](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html) in the AWS CLI command reference.
+      For more information about the `aws s3 cp` command, see [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
 
 {% endlist %}
 
@@ -139,9 +139,9 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
       copy: s3://my-bucket/object-n.txt to s3://new-bucket/object-n-copy.txt
       ```
 
-      {% include [s3-cp-config](../../../_includes/storage/s3-cp-config.md) %}
+      Learn more about the command configuration [here](#yc-s3-cp-config).
 
-- AWS CLI {#cli}
+- AWS CLI {#aws-cli}
 
   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
   1. Run this command:
@@ -157,7 +157,7 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
       * `s3 cp`: Command to copy objects.
       * `--recursive`: Parameter for copying all objects from the source bucket.
 
-      For more information about the `aws s3 cp` command, see [this article](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html) in the AWS CLI command reference.
+      For more information about the `aws s3 cp` command, see [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
 
   All objects from the source bucket will now appear in the target bucket.
 
@@ -170,3 +170,28 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
 
 {% endlist %}
 
+
+## Configuring parameters for the yc storage s3 cp command {#yc-s3-cp-config}
+
+{% list tabs group=instructions %}
+
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [s3-cp-config](../../../_includes/storage/s3-cp-config.md) %}
+
+{% endlist %}
+
+## Loading error {#errors}
+
+When loading large files using the {{ yandex-cloud }} CLI, you may get this error: `fatal error: runtime: out of memory`. The amount of memory required to load large files is calculated with this formula:
+
+```text
+s3.max-concurrent-requests × s3.multipart-chunksize
+```
+
+Where:
+
+* `s3.max-concurrent-requests`: Maximum number of simultaneous requests. The default value is `10`.
+* `s3.multipart-chunksize`: Size of parts the object will be split into in a multipart upload. The default value is `8 MB`.
+
+Learn more about the command configuration [here](#yc-s3-cp-config).

@@ -1,5 +1,5 @@
 1. In the management console, select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [{{ GL }} instance](../../managed-gitlab/concepts/index.md#instance).
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
 1. Click **{{ ui-key.yacloud.gitlab.button_create-instance }}**.
 1. At the top of the page:
 
@@ -39,4 +39,4 @@
    * **{{ ui-key.yacloud.gitlab.field_admin-login }}**: Administrator login.
 1. (Optional) Under **{{ ui-key.yacloud.gitlab.label_additional-section }}**, enable deletion of untagged images. This setting affects the amount of free disk space on the instance.
 1. Click **{{ ui-key.yacloud.common.create }}**.
-1. Wait for the instance to get ready: its status on the {{ mgl-name }} dashboard will change to **Running**. This may take some time.
+1. Wait for the instance to get ready: its status on the {{ mgl-name }} dashboard will change to **Running**. This may take a while.

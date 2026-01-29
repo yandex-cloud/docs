@@ -25,7 +25,9 @@ Request to delete a certificate, making it inactive or invalid.
 ||Field | Description ||
 || certificate_id | **string**
 
-Required field. The ID of the certificate to be deleted. ||
+Required field. The ID of the certificate to be deleted.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

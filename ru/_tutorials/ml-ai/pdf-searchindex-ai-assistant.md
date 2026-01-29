@@ -30,10 +30,10 @@
     pip install docling
     ```
 
-1. Установите библиотеку [{{ ml-sdk-full-name }}](https://github.com/yandex-cloud/yandex-cloud-ml-sdk) для работы с инструментами {{ foundation-models-full-name }}:
+1. Установите библиотеку [{{ ml-sdk-full-name }}](https://github.com/yandex-cloud/yandex-ai-studio-sdk) для работы с инструментами {{ foundation-models-full-name }}:
 
     ```bash
-    pip install yandex-cloud-ml-sdk
+    pip install yandex-ai-studio-sdk
     ```
 
 1. [Скачайте](https://{{ s3-storage-host-doc-files }}/ml/assistant-example.pdf) файл `assistant-example.pdf` с документом, который будет использоваться в качестве источника информации для AI-ассистента, и преобразуйте его в формат Markdown с помощью установленной ранее библиотеки `docling`:

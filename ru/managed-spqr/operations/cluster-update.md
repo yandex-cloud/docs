@@ -24,7 +24,11 @@ keywords:
         * Измените имя и описание кластера.
         * Удалите или добавьте новые [метки](../../resource-manager/concepts/labels.md).
 
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите группы безопасности для кластера.
+    
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите [группы безопасности](../../vpc/concepts/security-groups.md) для кластера.
+
+        {% include [note-sg](../../_includes/managed-spqr/note-sg.md) %}
+    
 
     1. Измените конфигурацию вычислительных ресурсов:
 
@@ -142,6 +146,8 @@ keywords:
 
      
      * `securityGroupIds` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md).
+        
+        {% include [note-sg](../../_includes/managed-spqr/note-sg.md) %}
 
 
      * `deletionProtection` — защита кластера от удаления: `true` или `false`.
@@ -342,6 +348,8 @@ keywords:
 
      
      * `security_group_ids` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md).
+
+        {% include [note-sg](../../_includes/managed-spqr/note-sg.md) %}
 
 
      * `deletion_protection` — защита кластера от удаления: `true` или `false`.

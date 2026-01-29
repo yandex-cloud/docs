@@ -24,12 +24,16 @@ Returns the specified job.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the cluster to request a job from. ||
+Required field. ID of the cluster to request a job from.
+
+The maximum string length in characters is 50. ||
 || job_id | **string**
 
 Required field. ID of the job to return.
 
-To get a job ID make a [JobService.List](/docs/data-proc/api-ref/grpc/Job/list#List) request. ||
+To get a job ID make a [JobService.List](/docs/data-proc/api-ref/grpc/Job/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Job {#yandex.cloud.dataproc.v1.Job}
@@ -176,7 +180,6 @@ The id of the user who created the job ||
 
 Job status.
 
-- `STATUS_UNSPECIFIED`
 - `PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.
 - `PENDING`: Job is acquired by the agent and is in the queue for execution.
 - `RUNNING`: Job is being run in the cluster.

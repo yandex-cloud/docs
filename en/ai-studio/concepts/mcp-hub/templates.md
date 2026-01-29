@@ -41,11 +41,18 @@ To get access to {{ tracker-name }}, provide authentication credentials to the M
 
 For more information on getting authentication credentials, see {{ tracker-full-name }} [guides](https://yandex.ru/support/tracker/ru/concepts/access).
 
-## {{ search-api-full-name }} {#search-api}
+## Yandex Search {#search-api}
 
-The [{{ search-api-full-name }}](../../../search-api/index.yaml) MCP server enables AI agents, such as {{ foundation-models-name }}, Claude, or Cursor, to use the Yandex [API](../../../search-api/api-ref/authentication.md) for internet search and safely find relevant information using {{ search-api-full-name }}.
+The `Yandex Search` MCP server uses [{{ search-api-full-name }}](../../../search-api/index.yaml) to enable AI agents, such as {{ foundation-models-name }}, Claude, or Cursor, to use the Yandex [API](../../../search-api/api-ref/authentication.md) for safe web search and relevant search results.
 
 To get access to {{ search-api-name }}, you need an [API key](../../../iam/concepts/authorization/api-key.md). For more information, visit [this GitHub repository](https://github.com/yandex/yandex-search-mcp-server).
+
+## {{ src-full-name }} {#sourcecraft}
+
+The MCP server for [{{ src-full-name }}]({{ link-src-docs }}) allows you to manage issues, comments, and labels, and work with repositories, pull requests, and reviewers.
+
+To gain access to {{ src-full-name }}, provide a header with your [personal token]({{ link-src-docs }}/sourcecraft/security/pat).
+
 
 #### See also {#see-also}
 

@@ -28,7 +28,7 @@ keywords:
 
 1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
-   Он нужен для авторизации при отправке запросов к API Amazon. Чтобы хранить ключ безопасно, воспользуйтесь сервисом [{{ lockbox-full-name }}](../../lockbox/tutorials/static-key-in-lockbox/index.md).
+   Он нужен для аутентификации при отправке запросов к API Amazon. Чтобы хранить ключ безопасно, воспользуйтесь сервисом [{{ lockbox-full-name }}](../../lockbox/tutorials/static-key-in-lockbox/index.md).
 
 ## Общий вид запроса к API {#common-request-form}
 

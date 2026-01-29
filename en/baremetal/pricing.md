@@ -24,14 +24,13 @@ The monthly prices are based on 720 hours per month.
 
 All prices are per month.
 
-### Cost of ready-made server configurations {#standard}
+### Cost of stock server configurations {#standard}
 
 {% note info %}
 
-Prices for configurations BA-i100-H, BA-i101-H, BA-i102-S, BA-i104-SH and BA-i105-SH are valid until January 4, 2026. After that, billing will take place at the prices of the LA-i100-H, LA-i101-H, LA-i102-S, LA-i104-SH and LA-i105-SH configurations, respectively.
+Prices for the BA-i100-H, BA-i101-H, BA-i102-S, BA-i104-SH, and BA-i105-SH configurations are valid until January 4, 2026. Afterwards, billing will be based on LA-i100-H, LA-i101-H, LA-i102-S, LA-i104-SH, and LA-i105-SH prices, respectively.
 
 {% endnote %}
-
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
@@ -53,7 +52,7 @@ The funds are debited **monthly**, irrespective of the rent period.
 
 ### Cost of custom server configurations {#custom}
 
-The final cost of a custom configuration depends on the selected server components.
+The final cost of a custom configuration depends on the server components you select.
 
 {% cut "Component prices" %}
 
@@ -79,7 +78,14 @@ You can rent servers with these configuration options until December 29, 2025, o
 
 
 
-{% include [usd-servers.md](../_pricing/baremetal/promo/2025-black-friday/usd-servers-promo.md) %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|baremetal }}']}
+    skuIds={['{{ pc|baremetal.server.bf25_i201_h.1_day }}', '{{ pc|baremetal.server.bf25_i201_h.1_month }}', '{{ pc|baremetal.server.bf25_i201_h.3_month }}', '{{ pc|baremetal.server.bf25_i201_h.6_month }}', '{{ pc|baremetal.server.bf25_i201_h.12_month }}', '{{ pc|baremetal.server.bf25_i202_s.1_day }}', '{{ pc|baremetal.server.bf25_i202_s.1_month }}', '{{ pc|baremetal.server.bf25_i202_s.3_month }}', '{{ pc|baremetal.server.bf25_i202_s.6_month }}', '{{ pc|baremetal.server.bf25_i202_s.12_month }}', '{{ pc|baremetal.server.bf25_i204_s.1_day }}', '{{ pc|baremetal.server.bf25_i204_s.1_month }}', '{{ pc|baremetal.server.bf25_i204_s.3_month }}', '{{ pc|baremetal.server.bf25_i204_s.6_month }}', '{{ pc|baremetal.server.bf25_i204_s.12_month }}', '{{ pc|baremetal.server.bf25_i205_s.1_day }}', '{{ pc|baremetal.server.bf25_i205_s.1_month }}', '{{ pc|baremetal.server.bf25_i205_s.3_month }}', '{{ pc|baremetal.server.bf25_i205_s.6_month }}', '{{ pc|baremetal.server.bf25_i205_s.12_month }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
 
 ##### Reduced prices from 24/09/2025 to 24/10/2025 as part of Yandex Scale 2025 {#scale2025}

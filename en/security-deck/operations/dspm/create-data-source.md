@@ -1,6 +1,6 @@
 ---
 title: Creating a data source in {{ dspm-name }}
-description: Follow this guide to create data sources from {{ objstorage-full-name }} buckets and Yandex Disks in {{ yandex-360 }} using the {{ sd-full-name }} {{ dspm-name }} module.
+description: Follow this guide to create data sources from {{ objstorage-full-name }} buckets and disks in {{ yandex-360 }} using the {{ sd-full-name }} {{ dspm-name }} module.
 ---
 
 # Creating a {{ dspm-name }} data source
@@ -28,7 +28,12 @@ Before you start using {{ dspm-name }}, [set up](../../quickstart-overview.md#co
 
       * To add [clouds](../../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folders](../../../resource-manager/concepts/resources-hierarchy.md#folder) to your data source, click ![circle-plus](../../../_assets/console-icons/circle-plus.svg) **Select cloud or folder** and select all or some of the clouds and/or folders available to you.
 
-          All buckets in the selected clouds and/or folders will be added to the data source. In this case, DSPM will scan both the buckets that already exist in these clouds and folders and any other buckets added to them by the time the scan is run. 
+          After you select clouds and folders under **{{ ui-key.yacloud_org.dspm.scan-resource-group.label_include_in_scan }}**, select the buckets to scan:
+
+          * **{{ ui-key.yacloud_org.dspm.scan-resource-group.title_all_buckets }}**
+             The data source will include all buckets in the selected clouds and folders. In which case the scan will cover not only the buckets existing at the time you create the data source but also those you add to these clouds and folders by the time you run the scan in the future.
+          * **{{ ui-key.yacloud_org.dspm.scan-resource-group.public_buckets }}**
+             The data source will include buckets with [public access](../../../storage/operations/buckets/bucket-availability.md) configured. Only these buckets will be scanned for personal data. Disable public access for these buckets to automatically remove them from the scan.
 
   1. Under **Include in selection**, specify one or more scan scopes:
 
@@ -37,6 +42,8 @@ Before you start using {{ dspm-name }}, [set up](../../quickstart-overview.md#co
   1. If you want to add resources with different scan scope selection settings to the same data source, click **Add resource group** and repeat steps `4` and `5` in the section that appears.
 
       You can add any number of resource groups to a single data source for scanning.
+  1. Under **Information about source**, indicate the data source name you will use to select this source when [creating a scan](./create-scan.md). Follow these naming requirements:
+      {% include [name-format](../../../_includes/name-format.md) %}
 
   1. {% include [source-info](../../../_includes/security-deck/source-info.md) %}
   1. Click **Create source**.

@@ -85,6 +85,120 @@ keywords:
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы создать кластер {{ SPRK }}:
+
+    1. Проверьте, есть ли в каталоге подсети для хостов кластера:
+
+        ```bash
+        yc vpc subnet list
+        ```
+
+        Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
+
+    1. Посмотрите описание команды CLI для создания кластера:
+
+        ```bash
+        {{ yc-mdb-sp }} cluster create --help
+        ```
+
+    1. Укажите параметры кластера в команде создания (в примере приведены не все доступные параметры):
+
+        ```bash
+        {{ yc-mdb-sp }} cluster create \
+           --name <имя_кластера> \
+           --spark-version <<версия_Apache_Spark>> \
+           --service-account-id <идентификатор_сервисного_аккаунта> \
+           --subnet-ids <список_идентификаторов_подсетей> \
+           --security-group-ids <список_идентификаторов_групп_безопасности> \
+           --driver-preset-id=<класс_вычислительных_ресурсов_драйвера> \
+           --driver-fixed-size <количество_хостов_драйвера> \
+           --executor-preset-id <класс_вычислительных_ресурсов_исполнителя> \
+           --executor-min-size <минимальное_количество_хостов_исполнителя> \
+           --executor-max-size <максимальное_количество_хостов_исполнителя> \
+           --pip-packages <список_pip-пакетов> \
+           --deb-packages <список_deb-пакетов>\
+           --history-server-enabled \ 
+           --metastore-cluster-id <идентификатор_кластера> \
+           --deletion-protection
+        ```
+
+        Где:
+
+        * `--name` — имя кластера. Оно должно быть уникальным в рамках каталога.
+        * `--version` — версия {{ SPRK }}.
+
+           {% include [change-version-note](../../_includes/managed-spark/change-version-note.md) %}
+
+        * `--service-account-id` — идентификатор сервисного аккаунта.
+        * `--subnet-ids` — список идентификаторов подсетей.
+        * `--security-group-ids` — список идентификаторов групп безопасности.
+        * `--driver-preset-id` — [класс вычислительных ресурсов](../concepts/instance-types.md) [драйвера](../concepts/index.md#concepts).
+        * `--driver-fixed-size` — фиксированное количество экземпляров драйвера.
+        * `--driver-min-size` — минимальное количество экземпляров драйвера.
+        * `--driver-max-size` — максимальное количество экземпляров драйвера.
+
+           Укажите либо фиксированное количество драйверов, либо минимальное и максимальное количество драйверов для автоматического масштабирования.
+
+        * `--executor-preset-id` — [класс вычислительных ресурсов](../concepts/instance-types.md) исполнителя.
+        * `--executor-fixed-size` — фиксированное количество экземпляров исполнителя.
+        * `--executor-min-size` — минимальное количество экземпляров исполнителя.
+        * `--executor-max-size` — максимальное количество экземпляров исполнителя.
+
+           Укажите либо фиксированное количество исполнителей, либо минимальное и максимальное количество исполнителей для автоматического масштабирования.
+
+        * `--pip-packages` — список pip-пакетов, который позволяет установить в кластер дополнительные библиотеки и приложения.
+
+            Формат названия пакета и выбор версии определены командой установки `pip install`.
+
+        * `--deb-packages` — список deb-пакетов, который позволяет установить в кластер дополнительные библиотеки и приложения.
+
+            Формат названия пакета и выбор версии определены командой установки `apt install`.
+
+        * `--history-server-enabled` — флаг включения сервера истории. Позволяет использовать сервис для мониторинга приложений Spark History Server.
+
+        * `--metastore-cluster-id` — идентификатор кластера [{{ metastore-name }}](../../metadata-hub/concepts/metastore.md) для использования в качестве хранилища метаданных.
+
+        * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+
+            Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
+
+    1. Чтобы включить отправку логов {{ SPRK }} в сервис [{{ cloud-logging-full-name }}](../../logging/), задайте параметры логирования:
+
+        ```bash
+        {{ yc-mdb-sp }} cluster create <имя_кластера> \
+           ...
+           --log-enabled \
+           --log-folder-id <идентификатор_каталога>
+        ```
+
+        Где:
+
+        * `--log-enabled` — включает логирование.
+        * `--log-folder-id` — идентификатор каталога. Логи будут записываться в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для этого каталога.
+        * `--log-group-id` — идентификатор пользовательской лог-группы. Логи будут записываться в нее.
+
+            Укажите либо идентификатор каталога, либо идентификатор пользовательской лог-группы.
+
+    1. Чтобы настроить время технического обслуживания (в т. ч. для выключенных кластеров), передайте нужное значение в параметре `--maintenance-window`:
+
+        ```bash
+        {{ yc-mdb-sp }} cluster create <имя_кластера> \
+           ...
+           --maintenance-window type=<тип_технического_обслуживания>,`
+                               `day=<день_недели>,`
+                               `hour=<час_дня> \
+        ```
+
+        Где `type` — тип технического обслуживания:
+
+        {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
 - {{ TF }} {#tf}
 
     {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -104,7 +218,7 @@ keywords:
         {% include [Terraform cluster parameters description](../../_includes/mdb/msp/terraform/cluster-parameters.md) %}
 
     1. При необходимости задайте дополнительные настройки:
-    
+
         {% include [Terraform cluster additional parameters description](../../_includes/mdb/msp/terraform/cluster-parameters-additional.md) %}
 
     1. Проверьте корректность настроек.
@@ -265,7 +379,101 @@ keywords:
            yandex.cloud.spark.v1.ClusterService.Create \
            < body.json
        ```
-    
+
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+## Примеры {#examples}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    Создайте кластер {{ SPRK }} с тестовыми характеристиками:
+
+    * Имя — `myspark`.
+    * Сервисный аккаунт — `ajev56jp96ji********`.
+    * Подсеть — `{{ subnet-id }}`.
+    * Группа безопасности — `{{ security-group }}`.
+    * 2 драйвера с [классом вычислительных ресурсов](../concepts/instance-types.md) — `c2-m16`.
+    * 4 исполнителя с классом вычислительных ресурсов — `c2-m16`.
+    * Включенный сервер истории.
+    * Защита от непреднамеренного удаления.
+
+    Выполните следующую команду:
+
+    ```bash
+    {{ yc-mdb-sp }} cluster create \
+       --name myspark \
+       --service-account-id ajev56jp96ji******** \
+       --subnet-ids {{ subnet-id }} \
+       --security-group-ids {{ security-group }} \
+       --driver-preset-id c2-m16 \
+       --driver-fixed-size 2 \
+       --executor-preset-id c2-m16 \
+       --executor-fixed-size 4 \
+       --history-server-enabled \
+       --deletion-protection
+    ```
+
+- {{ TF }} {#tf}
+
+    Создайте кластер {{ SPRK }} и сеть для него с тестовыми характеристиками:
+
+    * Имя — `myspark`.
+    * Сервисный аккаунт — `ajev56jp96ji********`.
+    * Сеть — `msp-network`.
+    * Подсеть — `msp-subnet`. Зона доступности подсети — `ru-central1-a`, диапазон — `10.1.0.0/16`.
+    * 2 драйвера с [классом вычислительных ресурсов](../concepts/instance-types.md) — `c2-m16`.
+    * 4 исполнителя с классом вычислительных ресурсов — `c2-m16`.
+    * Включенный сервер истории.
+    * Защита от непреднамеренного удаления.
+    * Отключенное логирование.
+
+    Конфигурационный файл для такого кластера выглядит так:
+
+    ```hcl
+    resource "yandex_spark_cluster" "myspark" {
+      name                = "myspark"
+      service_account_id  = "ajev56jp96ji********"
+      deletion_protection = true
+
+      network = {
+        subnet_ids = [yandex_vpc_subnet.msp-subnet.id]
+      }
+
+      config = {
+        resource_pools = {
+          driver = {
+            resource_preset_id = "c2-m16"
+            size               = 2
+          }
+          executor = {
+            resource_preset_id = "c2-m16"
+            size               = 4
+          }
+        }
+        history_server = {
+          enabled = true
+        }
+      }
+
+      logging = {
+        enabled = false
+      }
+    }
+
+    resource "yandex_vpc_network" "msp-network" {
+      name = "msp-network"
+    }
+
+    resource "yandex_vpc_subnet" "msp-subnet" {
+      name           = "msp-subnet"
+      zone           = "ru-central1-a"
+      network_id     = yandex_vpc_network.msp-network.id
+      v4_cidr_blocks = ["10.1.0.0/16"]
+    }
+    ```
 
 {% endlist %}

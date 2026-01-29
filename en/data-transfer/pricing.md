@@ -43,7 +43,6 @@ Data delivery for transfers that are at the Preview stage is free of charge. For
 
 ## Prices for the Russia region {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 

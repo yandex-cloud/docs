@@ -132,4 +132,4 @@ noIndex: true
 * [{#T}](./create-with-searchindex.md)
 * [{#T}](./create-with-websearch.md)
 * [{#T}](../../concepts/assistant/tools/index.md)
-* Примеры работы с ML SDK на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)
+* Примеры работы с AI Studio SDK на [GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk/tree/master/examples/sync/assistants)

@@ -212,7 +212,7 @@ For a bucket with enabled [versioning](../buckets/versioning.md) and [object loc
        * `GOVERNANCE`: Governance-mode retention.
        * `COMPLIANCE`: Compliance-mode retention.
   
-     * `--object-lock-retain-until-date`: Retention end date and time in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats), such as `2025-01-02T15:04:05Z`. You can only specify it together with the `--object-lock-mode` parameter.
+     * `--object-lock-retain-until-date`: Retention end date and time in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats), e.g., `2025-01-02T15:04:05Z`. You can only specify it together with the `--object-lock-mode` parameter.
   
      * `--object-lock-legal-hold-status`: [Legal hold](../../concepts/object-lock.md#types) status:
   
@@ -367,6 +367,12 @@ If your bucket already has [default retention periods](../../concepts/object-loc
 ## Object conditional writes {#conditional-writes}
 
 You can use [conditions](../../concepts/object.md#conditional-writes) when uploading an object, as well as when [completing a multipart upload](multipart-upload.md#conditional-writes).
+
+{% note tip %}
+
+{% include [use-forced-conditions](../../../_includes/storage/use-forced-conditions.md) %}
+
+{% endnote %}
 
 
 ### Uploading an object with an ETag condition {#if-match}

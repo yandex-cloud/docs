@@ -1,6 +1,6 @@
 ---
 title: '{{ org-full-name }} release notes'
-description: This section contains {{ org-name }} release notes.
+description: This section contains the {{ org-name }} release notes.
 ---
 
 
@@ -8,40 +8,29 @@ description: This section contains {{ org-name }} release notes.
 
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
 
+## December 2025 {#december-2025}
+
+* Added a list of supported values for the `--acr-id` parameter in the `yc organization-manager mfa-enforcement create` and `yc organization-manager mfa-enforcement update` commands. {{ tag-cli }}
+
+
 ## November 2025 {#november-2025}
 
-* Added the ability to manage SAML applications via the [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/application/saml/) and [API](idp/application/saml/api-ref/Application/). {{ tag-cli }} {{ tag-api }}
-* Added support for domain management via the [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/userpool/domain/) and [API](idp/api-ref/Userpool/addDomain.md). {{ tag-cli }} {{ tag-api }}
-* Added the ability to [activate](operations/user-pools/activate-user.md) and [deactivate](operations/user-pools/deactivate-user.md) federated users via the [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/user/suspend.md) and [API](idp/api-ref/User/suspend.md). {{ tag-cli }} {{ tag-api }}
-* Implemented the ability to [reset](operations/user-pools/reset-user-password.md) a user's password via the [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/user/reset-password.md). {{ tag-cli }}
-* Added the ability to automatically generate a password when creating a user via the [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/user/create.md) and [API](idp/api-ref/User/create.md). {{ tag-cli }} {{ tag-api }}
-* Added service plans for {{ org-name }}. {{ tag-center }}
-* Added functionality for [synchronization of users and groups with {{ microsoft-idp.ad-short }}](operations/sync-ad.md).
 * Implemented the [My account](concepts/my-account.md) portal for user account management. {{ tag-con }}
-* Updated password quality policy fields in user pool management commands in the [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/userpool/). {{ tag-cli }}
-* Added support for resources and data sources for SAML applications: `yandex_organizationmanager_idp_saml_application`. {{ tag-tf }}
-* Added support for resources and data sources for OAuth applications: `yandex_organizationmanager_idp_oauth_application`. {{ tag-tf }}
-* Added support for resources and data sources for user pools: `yandex_organizationmanager_idp_userpool`. {{ tag-tf }}
-* Added support for resources and data sources for users: `yandex_organizationmanager_idp_user`. {{ tag-tf }}
+
 
 ## October 2025 {#october-2025}
 
 * Implemented [MFA policy](./concepts/mfa.md#mfa-policies) management in an organization using the [CLI](../cli/cli-ref/organization-manager/cli-ref/mfa-enforcement/) and [API](./api-ref/grpc/MfaEnforcement/). {{ tag-cli }} {{ tag-api }}
 * Added CLI and [API](saml/api-ref/Federation/reactivateUserAccounts.md) commands for [suspending](../cli/cli-ref/organization-manager/cli-ref/federation/saml/suspend-user-accounts.md) and [reactivating](../cli/cli-ref/organization-manager/cli-ref/federation/saml/reactivate-user-accounts.md) SAML federation users. {{ tag-cli }} {{ tag-api }}
-* Added the ability to automatically generate a password when creating a user in the [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/user/create.md) and [API](idp/api-ref/User/create.md) as well as the [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/user/reset-password.md) [password reset](operations/user-pools/reset-user-password.md#cli_1) command. {{ tag-cli }} {{ tag-api }}
 * Now you can use the [CLI](../cli/cli-ref/organization-manager/cli-ref/group/list-effective.md) to [view](operations/get-users-groups.md#cli_1) which groups a given user belongs to within an organization. {{ tag-cli }}
-* Added the ability to manage password policies when [creating](../cli/cli-ref/organization-manager/cli-ref/idp/userpool/create.md) or [updating](../cli/cli-ref/organization-manager/cli-ref/idp/userpool/update.md) a user pool via the CLI and [API](idp/api-ref/Userpool/update.md). {{ tag-cli }} {{ tag-api }}
-* Added commands for managing OAuth applications in the [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/application/oauth/) and [API](idp/application/oauth/api-ref/Application/). {{ tag-cli }} {{ tag-api }}
-* Added support for the `domain` parameter for working with domains when managing user pools in the [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/userpool/domain/) and [API](idp/api-ref/Userpool/addDomain.md). {{ tag-cli }} {{ tag-api }}
+
 
 ## Q3 2025 {#q3-2025}
 
-* Implemented the [user pool](./concepts/user-pools.md) management concept in organizations. {{ tag-con }} {{ tag-cli }}
-* Added command groups for managing [user pools](../cli/cli-ref/organization-manager/cli-ref/idp/userpool/) and [local users](../cli/cli-ref/organization-manager/cli-ref/idp/user/) to the CLI and API. {{ tag-cli }} {{ tag-api }}
 * Added commands for managing SAML federation domains using the [CLI](../cli/cli-ref/organization-manager/cli-ref/federation/saml/) and [API](saml/api-ref/Federation/). {{ tag-cli }} {{ tag-api }}
 * Restored the option to [set up](./operations/federation-group-mapping.md) access permissions to {{ yandex-cloud }} resources using federated user group mapping. {{ tag-con }} {{ tag-tf }}
 * [Added](./operations/enable-2fa-access.md) the option to enforce two-factor authentication for all Yandex account users of an organization. {{ tag-con }}
-* Implemented [reactivation](./operations/user-pools/activate-user) of previously suspended users via the [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/user/reactivate.md) and [API](idp/api-ref/User/reactivate.md). {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
 
 ## Q2 2025 {#q2-2025}
 

@@ -13,7 +13,7 @@ In this section, you can find the {{ mkf-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using {{ mkf-name }}, use [our calculator](https://yandex.cloud/en/prices?state=688ba2e0d05a#calculator) on the {{ yandex-cloud }} website or check the pricing data below.
+For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=688ba2e0d05a#calculator) on our website or check out the pricing below.
 
 
 
@@ -27,7 +27,7 @@ To calculate the cost of using {{ mkf-name }}, use [our calculator](https://yand
 
 ## Cluster status {#running-stopped}
 
-Prices are applied differently depending on the cluster status:
+The prices apply differently depending on the cluster status:
 
 * For a `Running` cluster, you pay for both the computing resources and storage size.
 * For a `Stopped` cluster, you only pay for your storage size.
@@ -42,13 +42,13 @@ The {{ mkf-name }} usage cost includes:
 
 * Computing resources allocated to cluster hosts (including {{ ZK }} hosts) and the type of hosts.
 
-* Egress traffic from {{ yandex-cloud }}.
+* Egress traffic from {{ yandex-cloud }} to the internet.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
 ### Using cluster hosts {#rules-hosts-uptime}
 
-Host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
+The host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
 You can choose the host class for {{ KF }} broker hosts, {{ ZK }} and {{ kraft-short-name }} hosts based on the expected replication load. Adding {{ ZK }} or {{ kraft-short-name }} hosts depends on the cluster configuration:
 
@@ -57,7 +57,7 @@ You can choose the host class for {{ KF }} broker hosts, {{ ZK }} and {{ kraft-s
 * {{ kraft-short-name }} hosts are added to the cluster if its {{ KF }} version is 3.6 or higher and if it contains more than one {{ KF }} host and uses {{ kraft-short-name }} as the coordination service (on separate hosts).
 * {{ kraft-short-name }} hosts are not added to the cluster if its {{ KF }} version is 3.6 or higher and if it uses {{ kraft-short-name }} as the coordination service (combined mode). 
 
-The minimum billing unit is one minute (for example, 90 seconds of host operation count as two minutes). You do not pay for the time when a broker host, {{ ZK }}, or {{ kraft-short-name }} is unable to perform its main functions.
+The minimum billing unit is one minute, e.g., 1.5 minutes of host operation cost the same as two minutes. You do not pay for the time when a broker host, {{ ZK }}, or {{ kraft-short-name }} is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -68,15 +68,15 @@ You pay for the storage allocated for DB clusters.
     * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
 * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) for clusters with three or more broker hosts in increments of 93 GB.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds counts as storing 1 GB for 2 minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes costs the same as for 2 minutes.
 
 ### Example of cluster cost calculation {#example}
 
-Let's calculate the cost of using a cluster with the following properties for 30 days:
+Let's calculate the cost of using a cluster with the following properties for 30 days:
 
-* **{{ KF }} broker hosts**: Three `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
+* **{{ KF }} broker hosts**: Three `s3-c2-m8` hosts, Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
 * **Storage for {{ KF }} broker hosts**: 100 GB of network HDD storage per broker host.
-* **{{ ZK }} hosts** (created automatically): Three `b3-c1-m4` hosts: Intel Ice Lake, 2 × 50% vCPU, 4 GB RAM. 
+* **{{ ZK }} hosts** (created automatically): Three `b3-c1-m4` hosts, Intel Ice Lake, 2 × 50% vCPU, 4 GB RAM. 
 * **Storage for {{ ZK }} hosts**: 10 GB of network SSD storage per host.
 
 
@@ -85,21 +85,20 @@ Let's calculate the cost of using a cluster with the following properties for 30
 {% include [usd-hour](../_pricing_examples/managed-kafka/usd-hour.md) %}
 
 
-## Discount for committed volumes of services (CVoS) {#cvos}
+## Discount for committed volume of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mkf-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you intend to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ mkf-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you intend to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
-CVoS discount is only available for certain types of resources. If the relevant CVoS columns under [Prices for the Russia region](#prices) are blank, this means the resource is not supported. Currently, you cannot order storage or web traffic this way.
+A CVoS discount is only available for certain types of resources. For unsupported resource types, the relevant CVoS columns under [Prices for the Russia region](#prices) are blank. Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 
 
 ## Prices for the Russia region {#prices}
-
 
 
 

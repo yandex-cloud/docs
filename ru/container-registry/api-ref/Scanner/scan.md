@@ -12,6 +12,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the Image to be scanned for vulnerabilities.
+            The maximum string length in characters is 50.
           type: string
       required:
         - imageId
@@ -42,7 +43,9 @@ POST https://container-registry.{{ api-host }}/container-registry/v1/scans
 ||Field | Description ||
 || imageId | **string**
 
-Required field. ID of the Image to be scanned for vulnerabilities. ||
+Required field. ID of the Image to be scanned for vulnerabilities.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -207,7 +210,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Output only. The status of the ScanResult.
 
-- `STATUS_UNSPECIFIED`
 - `RUNNING`: Image scan is in progress.
 - `READY`: Image has been scanned and result is ready.
 - `ERROR`: Image scan is failed. ||

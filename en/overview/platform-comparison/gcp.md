@@ -13,14 +13,14 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | Artifact Registry | [{{ cloud-registry-full-name }}](../../cloud-registry/)<br/>[{{ container-registry-full-name }}](../../container-registry/)  |
 | Backup and DR Service | [{{ backup-full-name }}](../../backup/) |
 | Bare Metal Solution | [{{ baremetal-full-name }}](../../baremetal/) |
-| BigQuery | [{{ yq-full-name }}](../../query/)<br/>[{{ myt-full-name }}](../../managed-ytsaurus/) |
+| BigQuery | [{{ yq-full-name }}](../../query/)<br/>[{{ myt-full-name }}](../../managed-ytsaurus/)<br/>[{{ mgp-full-name }}](../../managed-greenplum/) |
 | Cloud Armor | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) |
 | Cloud Armor,<br/>Cloud Identity | [{{ sws-full-name }}](../../smartwebsecurity/) |
 | Cloud Audit Logs | [{{ at-full-name }}](../../audit-trails/) |
 | Cloud Billing | [{{ billing-name }}](../../billing/) |
 | Cloud CDN | [{{ cdn-full-name }}](../../cdn/) |
 | Cloud Console | [{{ console-full-name }}](../../console/) |
-| Cloud Dataproc | [{{ dataproc-full-name }}](../../data-proc/)<br/>[{{ mch-full-name }}](../../managed-clickhouse/)<br/>[{{ mtr-full-name }}](../../managed-trino/) |
+| Cloud Dataproc | [{{ dataproc-full-name }}](../../data-proc/)<br/>[{{ mch-full-name }}](../../managed-clickhouse/)<br/>[{{ mtr-full-name }}](../../managed-trino/)<br/>[{{ msp-full-name }}](../../managed-spark/) |
 | Cloud DNS | [{{ dns-full-name }}](../../dns/) |
 | Cloud Functions | [{{ sf-full-name }}](../../functions/) |
 | Cloud Interconnect | [{{ interconnect-full-name }}](../../interconnect/) |
@@ -50,11 +50,12 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | Database Migration Service,<br/>Migrate for Compute Engine | [{{ data-transfer-full-name }}](../../data-transfer/) |
 | Dataplex Universal Catalog | [{{ metadata-hub-full-name }}](../../metadata-hub/) |
 | Eventarc | [{{ si-full-name }}: {{ er-name }}](../../serverless-integrations/quickstart/eventrouter.md) |
-| Firebase Cloud Messaging | [{{ cns-full-name }}](../../notifications/) |
 | External Application Load Balancer | [{{ alb-full-name }}](../../application-load-balancer/) |
+| Firebase Cloud Messaging | [{{ cns-full-name }}](../../notifications/) |
+| Google Distributed Cloud | [{{ stackland-full-name }}](../../stackland/) |
 | Identity and Access Management,<br/>Cloud Identity | [{{ iam-full-name }}](../../iam/) |
 | Instance groups | [{{ ig-full-name }}](../../compute/concepts/instance-groups/) |
-| Kubernetes Engine | [{{managed-k8s-full-name}}](../../managed-kubernetes/) |
+| Kubernetes Engine | [{{ managed-k8s-full-name }}](../../managed-kubernetes/) |
 | Looker Studio | [{{ datalens-full-name }}](../../datalens/) |
 | MongoDB Atlas | [{{ mmg-full-name }}](../../storedoc/) |
 | Operations suite | [{{ monitoring-full-name }}](../../monitoring/) |

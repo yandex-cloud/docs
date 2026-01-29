@@ -1,21 +1,46 @@
 ---
 title: About {{ ai-studio-full-name }}
-description: '{{ ai-studio-full-name }} is a platform for building AI solutions. It offers everything you need to build an intelligent agent that will help your business address everyday tasks. {{ gpt-lite }} and {{ gpt-pro }} can generate product descriptions, articles, news stories, newsletters, blog posts, and much more. {{ yandexart-name }} can create an image from a description. The quality of the neural network''s response depends directly on the accuracy of the instructions you provide. With a more specific prompt, you are more likely to get the result you expect.'
+description: '{{ ai-studio-full-name }} is a {{ yandex-cloud }} platform for building AI-based solutions. It has everything you need to build an intelligent agent to help your business deal with its day-to-day challenges: a broad choice of text models, built-in tools for web and file search, MCP servers, and a visual constructor. There are OpenAI-compatible APIs for developers.'
 ---
 
 # About {{ ai-studio-full-name }}
 
-{{ ai-studio-full-name }} is a platform for building AI agents and leveraging large generative models effectively. 
+{{ ai-studio-full-name }} is a {{ yandex-cloud }} platform for creating AI applications and AI agents based on large generative models. {{ ai-studio-name }} provides everything you need through all stages – from experiments and prototyping to production deployment.
 
-[{{ model-gallery-name }}](./generation/index.md) offers a wide range of generative models for working with text and images. You can use them to: 
-Generate product descriptions, articles, news stories, newsletters, blog posts, advertising images, logos, and much more. To access the models running in the _common instance_, use {{ ai-playground }} or integrate them into your apps with {{ ml-sdk-name }} and various APIs. If the model is missing from the common instance or is required for heavy workloads, you can deploy a _[dedicated instance](./generation/dedicated-instance.md)_ right in the management console. For large amounts of homogenous data, you might want to use [batch processing mode](./generation/dedicated-instance.md).
+## Models and basic features {#model-gallery}
 
-In addition to generative models, {{ model-gallery-name }} offers text [classifiers](./classifier/index.md) and [embedding models](./embeddings.md). If you are not satisfied with the response format of generative models or the behavior of classifiers and embeddings, you can [fine-tune](./tuning/index.md) them.
+[{{ model-gallery-name }}](./generation/index.md) offers a broad choice of models for text, voice, and image generation, [text classification](./classifier/index.md), and [embeddings](./embeddings.md). They will help you deal with the application tasks of creating and analyzing content, classifying data, building document search, or processing large arrays of uniform data.
 
-The [{{ agents-atelier-name }}](./agents/index.md) development environment supports building text and voice AI agents that can use ready-made customizable [tools](./agents/index.md#tools). If ready-to-use tools are not enough, you can always build a custom MCP server in {{ mcp-hub-name }} to enable the agent to use any external tools and APIs.
+### Using the models {#model-usage}
 
-For those who prefer creating agents in a graphical editor, {{ ai-studio-name }} offers a {{ sw-full-name }} builder.
+Select an interface and a model – {{ ai-studio-name }} has everything you need:
 
-The {{ ai-studio-name }} API is compatible with the {{ openai }} API: use the {{ responses-api }} to create text agents, the {{ realtime-api }} to create voice agents, and the {{ vector-store-name }} API to search for documents. The APIs support integration with such widely used frameworks as LangChain and LangGraph.
+* [{{ ai-playground }}]({{ link-console-main }}/link/ml/ai-studio/playground): For experiments, model testing, and image generation.
+* [{{ agents-atelier-name }}]({{ link-console-main }}link/ml/ai-studio/agents): For creating and managing agents via the management console.
+* {{ openai }}-compatible APIs, {{ openai }} SDK, and {{ ml-sdk-full-name }}: For integrating models into applications.
+* [Common instance models](./generation/models.md): For most business scenarios.
+* [Dedicated instances](./generation/dedicated-instance.md): To deploy models not included in the common instance.
+* [Batch processing](./generation/batch-processing.md): For asynchronous data processing.
 
-For information on the {{ foundation-models-name }} restrictions, refer to [{#T}](limits.md).
+## AI application development {#ai-apps}
+
+The [{{ agents-atelier-name }}](./agents/index.md) development environment allows you to create text and voice AI agent-based solutions using out-of-the-box and customizable [tools](./agents/index.md#tools). If the out-of-the-box toolkit is not enough, you can always build an MCP server of your own in {{ mcp-hub-name }} for your agent to be able to use any external tools and APIs.
+
+For visual design, {{ ai-studio-name }} provides the {{ sw-full-name }} low-code constructor.
+
+## APIs and integrations {#api}
+
+{{ ai-studio-name }} provides REST APIs compatible with {{ openai }}:
+* {{ responses-api }}: For creating text agents. 
+* {{ realtime-api }}: For voice agents.
+* Files API and {{ vector-store-name }} API: For file uploading and file search. 
+
+{{ openai }}-compatible APIs support integration with the popular LangChain and LangGraph frameworks.
+
+In addition, {{ ai-studio-name }} offers gRPC and REST APIs for specific generation, analysis, and training tasks. 
+
+For more on available APIs, see [{{ ai-studio-full-name }} API overview](./api.md).
+
+## Limitations {#quotas}
+
+For current {{ ai-studio-name }} technical and organizational limitations, see [{#T}](limits.md).

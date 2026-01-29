@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the desktop to delete.
+            The maximum string length in characters is 50.
           type: string
       required:
         - desktopId
@@ -36,7 +37,9 @@ DELETE https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId
 ||Field | Description ||
 || desktopId | **string**
 
-Required field. ID of the desktop to delete. ||
+Required field. ID of the desktop to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

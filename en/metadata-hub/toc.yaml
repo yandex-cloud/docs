@@ -19,7 +19,7 @@ items:
             href: operations/connection-access.md
           - name: Deleting a connection
             href: operations/delete-connection.md
-          - name: Getting operation details
+          - name: Getting operation info
             href: operations/operation-connection.md
           - name: Canceling an operation
             href: operations/cancel-operation.md
@@ -107,7 +107,7 @@ items:
         href: quickstart/metastore.md
       - name: Step-by-step guides
         items:
-          - name: Getting information about clusters
+          - name: Getting cluster info
             href: operations/metastore/cluster-list.md
           - name: Creating a cluster
             href: operations/metastore/cluster-create.md
@@ -283,6 +283,8 @@ items:
             items:
               - name: Creating a namespace
                 href: operations/create-name-space.md
+              - name: Viewing a list of namespaces
+                href: operations/list-name-space.md
               - name: Editing a namespace
                 href: operations/update-name-space.md
               - name: Connecting to a namespace

@@ -25,7 +25,9 @@ Deletes the specified desktop group.
 
 Required field. ID of the desktop group to delete.
 
-To get a desktop group ID make a [DesktopGroupService.List](/docs/cloud-desktop/api-ref/grpc/DesktopGroup/list#List) request. ||
+To get a desktop group ID make a [DesktopGroupService.List](/docs/cloud-desktop/api-ref/grpc/DesktopGroup/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

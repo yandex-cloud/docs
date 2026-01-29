@@ -63,7 +63,7 @@ FQDN можно использовать для подключения к хос
 
 {% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
 
-Подробнее о том, как настроить группы безопасности, читайте в разделе [{#T}](../operations/connect/index.md#configuring-security-groups).
+Подробнее о том, как настроить группы безопасности, читайте в разделе [{#T}](../operations/connect/index.md#configure-security-groups).
 
 {% note tip %}
 

@@ -44,6 +44,7 @@ Cities with at least one PoP:
 | Petrozavodsk | | |
 | Rostov-on-Don | | |
 | Samara | | |
+| Saint Petersburg | | |
 | Simferopol | | |
 | Tambov | | |
 | Tyumen | | |

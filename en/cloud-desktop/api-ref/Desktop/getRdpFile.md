@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the desktop resource to return.
             To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/Desktop/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - desktopId
@@ -33,11 +34,13 @@ apiPlayground:
             description: |-
               **string**
               Required field. Identity of the access binding.
+              The maximum string length in characters is 100.
             type: string
           subjectType:
             description: |-
               **string**
               Required field. Type of the access binding, e.g. userAccount, serviceAccount, system.
+              The maximum string length in characters is 100.
             type: string
         required:
           - subjectId
@@ -63,7 +66,9 @@ GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:g
 
 Required field. ID of the desktop resource to return.
 
-To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/Desktop/list#List) request. ||
+To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/Desktop/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.clouddesktop.v1.api.GetRdpFileRequest}
@@ -81,10 +86,14 @@ User of the desktop. ||
 ||Field | Description ||
 || subjectId | **string**
 
-Required field. Identity of the access binding. ||
+Required field. Identity of the access binding.
+
+The maximum string length in characters is 100. ||
 || subjectType | **string**
 
-Required field. Type of the access binding, e.g. userAccount, serviceAccount, system. ||
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.clouddesktop.v1.api.RdpFileResponse}

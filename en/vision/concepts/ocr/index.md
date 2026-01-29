@@ -104,3 +104,4 @@ To fix this error, do one of the following:
 * [See the list of supported languages](supported-languages.md)
 * [Learn about known issues in the current version](known-issues.md)
 * [Try recognizing text in an image](../../operations/ocr/text-detection-image.md)
+

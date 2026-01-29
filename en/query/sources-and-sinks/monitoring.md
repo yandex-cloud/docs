@@ -24,7 +24,7 @@ WITH (
 ## Setting up a connection {#setup-connection}
 
 To read metrics from {{ monitoring-name }}, do the following:
-1. Go to **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** in the {{ yq-full-name }} interface and click **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** section in **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}** and click **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. In the window that opens, specify a name for a connection to {{ monitoring-name }} in the **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** field.
 1. In the drop-down list under **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}**, select `{{ ui-key.yql.yq-connection.action_monitoring }}`.
 1. In the **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** field, select a service account for metric reads or create a new one with the [`monitoring.viewer`](../../monitoring/security/index.md#monitoring-viewer) role for the cloud.

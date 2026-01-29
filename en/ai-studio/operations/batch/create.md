@@ -16,8 +16,8 @@ description: Follow this guide to process large amounts of data by running a mod
 
 - SDK {#sdk}
 
-  1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md) the `ai.editor` role to it.
-  1. [Get](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) the service account API key and save it.
+  1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md) it the `ai.editor` [role](../../security/index.md#languageModels-user).
+  1. [Get](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) and save the service account's API key.
 
       {% include [sdk-auth-details-paragraph](../../../_includes/ai-studio/sdk-auth-details-paragraph.md) %}
   1. Use the [pip](https://pip.pypa.io/en/stable/) package manager to install the [{{ ml-sdk-name }}](../../sdk/index.md) library:
@@ -40,8 +40,8 @@ description: Follow this guide to process large amounts of data by running a mod
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder for which your account has the `ai.playground.user` and `ai.datasets.editor` [roles](../../security/index.md) or higher.
-  1. In the list of services, select **{{ ui-key.yacloud.dashboard.DashboardPage.AiStudioSection.section_title_1sDGx }}**.
-  1. In the left-hand panel, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/gear-play.svg) **Batch jobs**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ai-studio }}**.
+  1. In the left-hand panel, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **Batch jobs**.
   1. Click **Run**.
   1. Select a model to run.
   1. Add a dataset: select an existing one or upload a new file.

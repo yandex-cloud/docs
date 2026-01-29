@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. Name of the Repository resource to return.
             To get the repository name use a [RepositoryService.List](/docs/container-registry/api-ref/Repository/list#List) request.
+            Value must match the regular expression ` [a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* `.
           pattern: '[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))*'
           type: string
       required:
@@ -42,7 +43,9 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/repositories
 
 Required field. Name of the Repository resource to return.
 
-To get the repository name use a [RepositoryService.List](/docs/container-registry/api-ref/Repository/list#List) request. ||
+To get the repository name use a [RepositoryService.List](/docs/container-registry/api-ref/Repository/list#List) request.
+
+Value must match the regular expression ` [a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* `. ||
 |#
 
 ## Response {#yandex.cloud.containerregistry.v1.Repository}

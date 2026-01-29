@@ -111,6 +111,42 @@ To deactivate a local user account:
 
      Where `--reason` is the reason for deactivation. This is an optional parameter.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Describe the user parameters in the configuration file:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_user" "example_user" {
+       userpool_id = "<pool_ID>"
+       username    = "<username>"
+       full_name   = "<full_username>"
+       is_active   = false
+     }
+     ```
+
+     Where:
+
+     * `userpool_id`: ID of the [pool](../../concepts/user-pools.md) the user is in.
+     * `username`: Username.
+     * `full_name`: User’s full name.
+     * `is_active`: Activation flag. Set to `false` to deactivate the user.
+
+     For more information about `yandex_organizationmanager_idp_user` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
+
+  1. Create the resources:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will create all the required resources. You can check the new resources and their settings either in [{{ org-full-name }}]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
+
+     ```bash
+     yc organization-manager idp user get <user_ID>
+     ```
+
 - API {#api}
 
   Use the [User.Suspend](../../idp/api-ref/User/suspend.md) REST API method for the [User](../../idp/api-ref/User/index.md) resource or the [UserService/Suspend](../../idp/api-ref/grpc/User/suspend.md) gRPC API call.

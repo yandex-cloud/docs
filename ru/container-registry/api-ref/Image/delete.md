@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Docker image to delete.
             To get Docker image ID use a [ImageService.List](/docs/container-registry/api-ref/Image/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - imageId
@@ -39,7 +40,9 @@ DELETE https://container-registry.{{ api-host }}/container-registry/v1/images/{i
 
 Required field. ID of the Docker image to delete.
 
-To get Docker image ID use a [ImageService.List](/docs/container-registry/api-ref/Image/list#List) request. ||
+To get Docker image ID use a [ImageService.List](/docs/container-registry/api-ref/Image/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

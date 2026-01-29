@@ -3,7 +3,7 @@
 
 from __future__ import annotations
 import time
-from yandex_cloud_ml_sdk import YCloudML
+from yandex_ai_studio_sdk import AIStudio
 
 messages_1 = [
     {
@@ -27,7 +27,7 @@ messages_2 = [
 
 def main():
 
-    sdk = YCloudML(
+    sdk = AIStudio(
         folder_id="<идентификатор_каталога>",
         auth="<API-ключ>",
     )

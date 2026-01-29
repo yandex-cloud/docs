@@ -15,7 +15,7 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
 - Management console {#console}
 
   1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ GL }} instance](../../concepts/index.md#instance) is located.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Select the instance and click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** at the top of the page.
   1. At the top of the page:
 
@@ -74,7 +74,7 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
-      * `--resource-preset-id`: Host class. Represents the configuration of the virtual machine to host the {{ GL }} instance. Possible values:
+      * `--resource-preset-id`: Host class. Represents the configuration of the virtual machine to host the {{ GL }} instance. The possible values are:
 
           * `s2.micro`: 2 vCPUs, 8 GB RAM
           * `s2.small`: 4 vCPUs, 16 GB RAM
@@ -90,7 +90,7 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
 
           {% endnote %}
 
-      * `--approval-rules`: [Approval rule](../../concepts/approval-rules.md) configuration. Possible values:
+      * `--approval-rules`: [Approval rule](../../concepts/approval-rules.md) configuration. The possible values are:
 
           * `BASIC`
           * `STANDARD`
@@ -143,14 +143,14 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
 
       Where:
 
-      * `resource_preset_id`: Host class. Represents the configuration of the virtual machine to host the {{ GL }} instance. Possible values:
+      * `resource_preset_id`: Host class. Represents the configuration of the virtual machine to host the {{ GL }} instance. The possible values are:
           * `s2.micro`: 2 vCPUs, 8 GB RAM
           * `s2.small`: 4 vCPUs, 16 GB RAM
           * `s2.medium`: 8 vCPUs, 32 GB RAM
           * `s2.large`: 16 vCPUs, 64 GB RAM
 
       * `disk_size`: Disk size in GB.
-      * `approval_rules_id`: [Approval rule](../../concepts/approval-rules.md) configuration. Possible values:
+      * `approval_rules_id`: [Approval rule](../../concepts/approval-rules.md) configuration. The possible values are:
 
           * `BASIC`
           * `STANDARD`
@@ -163,15 +163,15 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
 
       For more information about `yandex_gitlab_instance` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/gitlab_instance).
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-      {{ TF }} will update all the required resources. You can check the resource update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+      {{ TF }} will update all the required resources. You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
       ```bash
       {{ yc-mdb-gl }} instance list

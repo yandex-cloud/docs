@@ -15,29 +15,31 @@ keywords:
 
 * С виртуальных машин {{ yandex-cloud }}, расположенных в той же [облачной сети](../../vpc/concepts/network.md). Если к хосту нет публичного доступа, для подключения с таких виртуальных машин необязательно использовать SSL-соединение.
 
-Подключение возможно ко всем [типам хостов](../concepts/index.md): `INFRA`, `ROUTER`, `COORDINATOR`, хосты {{ PG }}-кластера. Подключение выполняется через порт {{ port-mpg }}. К хостам типа `COORDINATOR`, а также к консоли администратора {{ SPQR }} необходимо подключаться от имени пользователя `spqr-console` к базе данных `spqr-console`. Консоль администратора позволяет настроить правила шардирования. Подробнее см. в [документации SPQR](https://pg-sharding.tech/welcome/get_started).
+Подключение возможно ко всем [типам хостов](../concepts/index.md): `INFRA`, `ROUTER`, `COORDINATOR`, хосты {{ PG }}-кластера. Подключение выполняется через порт `{{ port-mpg }}`. К хостам типа `COORDINATOR`, а также к консоли администратора {{ SPQR }} необходимо подключаться от имени пользователя `spqr-console` к базе данных `spqr-console`. Консоль администратора позволяет настроить правила шардирования. Подробнее см. в [документации SPQR](https://pg-sharding.tech/welcome/get_started).
 
 
 ## Настройка групп безопасности {#configuring-security-groups}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
-Настройки правил будут различаться в зависимости от выбранного способа подключения:
+Настройки групп безопасности будут различаться в зависимости от выбранного способа подключения:
 
 {% list tabs group=connection_method %}
 
 - Через интернет {#internet}
 
-    [Настройте все группы безопасности](../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик с любых IP-адресов на порт {{ port-mpg }}. Для этого создайте следующее правило для входящего трафика:
+    [Настройте все группы безопасности](../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик с любых IP-адресов на порт `{{ port-mpg }}`. Для этого создайте следующее правило для входящего трафика:
 
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-mpg }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
+    Если в общей группе безопасности кластера и шардов настроены правила для подключения роутера к хостам шарда, дополнительная настройка групп безопасности для доступа к кластеру через интернет не требуется.
+
 - С ВМ в {{ yandex-cloud }} {#cloud}
 
-    1. [Настройте все группы безопасности](../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик из группы безопасности, в которой находится ВМ, на порт {{ port-mpg }}. Для этого в этих группах создайте следующее правило для входящего трафика:
+    1. [Настройте все группы безопасности](../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик из группы безопасности, в которой находится ВМ, на порт `{{ port-mpg }}`. Для этого создайте в этих группах следующее правило для входящего трафика:
 
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-mpg }}`.
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
@@ -60,7 +62,7 @@ keywords:
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+                * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
             Это правило разрешает любой исходящий трафик, что позволяет не только подключаться к кластеру, но и устанавливать на ВМ необходимые для этого сертификаты и утилиты.
 

@@ -90,7 +90,7 @@ Key | Description
 `Content-Length` | Object size in bytes.
 `Last-Modified` | Date the object was created or last modified.
 `Content-MD5` | Object's base64-encoded MD5 hash.
-`Cache-Control` | Value of the `Cache-Control` HTTP header provided by the client when saving the object to the bucket. {{ objstorage-name }} later returns this header to clients when responding to a request for the object or its metadata.<br/><br/>For example, the `Cache-Control: max-age=200` header means the object expires 200 seconds after the client receives it. You can read more about it in [RFC 7234](https://tools.ietf.org/html/rfc7234#section-5.2).
+`Cache-Control` | Value of the `Cache-Control` HTTP header provided by the client when saving the object to the bucket. {{ objstorage-name }} later returns this header to clients when responding to a request for an object or its metadata.<br/><br/>For example, the `Cache-Control: max-age=200` header means the object expires 200 seconds after the client receives it. You can read more about it in [RFC 7234](https://tools.ietf.org/html/rfc7234#section-5.2).
 `Expires` | Value of the `Expires` HTTP header provided by the client when saving the object to the bucket. {{ objstorage-name }} later returns this header to clients when responding to a request for an object or its metadata.<br/><br/>For example, the `Expires: Thu, 15 Apr 2020 20:00:00 GMT` header means the object expires at 20:00:00 GMT on April 15, 2020. You can read more about it in [RFC 7234](https://tools.ietf.org/html/rfc7234#section-5.3).
 
 ### User-defined metadata {#user-meta}
@@ -142,6 +142,9 @@ Response codes:
     Until you interrupt the multipart upload, the uploaded parts remain in the bucket and are subject to [data storage](../pricing.md#prices-storage) charges.
 
     {% endnote %}
+
+{% include [use-forced-conditions](../../_includes/storage/use-forced-conditions.md) %}
+
 
 ## Use cases {#examples}
 

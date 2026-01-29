@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. The ID of the Certificate Authority to update.
+            The maximum string length in characters is 50.
           type: string
       required:
         - certificateAuthorityId
@@ -35,6 +36,7 @@ apiPlayground:
             **string**
             New name of the Certificate Authority (if applicable).
             This field is optional and will only be applied if included in the update mask.
+            Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
@@ -42,6 +44,7 @@ apiPlayground:
             **string**
             New description of the Certificate Authority (if applicable).
             Allows adding or updating the description to clarify the CA's purpose.
+            The maximum string length in characters is 1024.
           type: string
         deletionProtection:
           description: |-
@@ -53,6 +56,7 @@ apiPlayground:
           description: |-
             **string** (int64)
             Update the end-entity TTL limit for certificates issued by this Certificate Authority.
+            The maximum value is 20000.
           type: string
           format: int64
       additionalProperties: false
@@ -80,7 +84,9 @@ Only fields specified in `update_mask` will be updated.
 ||Field | Description ||
 || certificateAuthorityId | **string**
 
-Required field. The ID of the Certificate Authority to update. ||
+Required field. The ID of the Certificate Authority to update.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.certificatemanager.v1.privateca.UpdateCertificateAuthorityRequest}
@@ -113,18 +119,24 @@ The rest of the fields will be reset to the default. ||
 || name | **string**
 
 New name of the Certificate Authority (if applicable).
-This field is optional and will only be applied if included in the update mask. ||
+This field is optional and will only be applied if included in the update mask.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 New description of the Certificate Authority (if applicable).
-Allows adding or updating the description to clarify the CA's purpose. ||
+Allows adding or updating the description to clarify the CA's purpose.
+
+The maximum string length in characters is 1024. ||
 || deletionProtection | **boolean**
 
 Update the deletion protection flag.
 Protects the Certificate Authority from accidental deletion. ||
 || endEntitiesTtlLimitDays | **string** (int64)
 
-Update the end-entity TTL limit for certificates issued by this Certificate Authority. ||
+Update the end-entity TTL limit for certificates issued by this Certificate Authority.
+
+The maximum value is 20000. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -292,7 +304,6 @@ ID of the parent certificate authority that signed this certificate authority if
 
 Status of the certificate authority.
 
-- `STATUS_UNSPECIFIED`
 - `UNSIGNED`: The certificate authority is unsigned and pending signing.
 - `ACTIVE`: The certificate authority is active and can issue certificates. ||
 || issuedAt | **string** (date-time)

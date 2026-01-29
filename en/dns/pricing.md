@@ -19,7 +19,6 @@ editable: false
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
@@ -50,8 +49,8 @@ You will be billed for:
   {% endnote %}
 
 You do not pay for:
-* [Service zones](concepts/dns-zone.md#service-zones).
 * Requests from VMs to [private](concepts/dns-zone.md#private-zones) and [service](concepts/dns-zone.md#service-zones) zones.
+* [Service zones](concepts/dns-zone.md#service-zones).
 
 **Starting December 6, 2021, you get the following free of charge**:
 * The first 1,000,000 recursive requests from VMs each month.

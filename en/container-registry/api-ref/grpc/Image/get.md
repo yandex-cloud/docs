@@ -27,7 +27,9 @@ To get the list of available Image resources, make a [List](/docs/container-regi
 
 Required field. ID of the Docker image resource to return.
 
-To get the Docker image ID use a [ImageService.List](/docs/container-registry/api-ref/grpc/Image/list#List) request. ||
+To get the Docker image ID use a [ImageService.List](/docs/container-registry/api-ref/grpc/Image/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Image {#yandex.cloud.containerregistry.v1.Image}

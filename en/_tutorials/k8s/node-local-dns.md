@@ -1,29 +1,35 @@
-By default, [pods](../../managed-kubernetes/concepts/index.md#pod) send requests to the `kube-dns` [service](../../managed-kubernetes/concepts/service.md). In `/etc/resolv.conf`, the `nameserver` field is set to `ClusterIp` of the `kube-dns` service. To establish a connection to `ClusterIP`, use [iptables](https://en.wikipedia.org/wiki/Iptables) or [IP Virtual Server](https://en.wikipedia.org/wiki/IP_Virtual_Server).
+NodeLocal DNS is a {{ managed-k8s-name }} cluster system component which acts as a local DNS cache on each node.
 
-Enabling NodeLocal DNS Cache in a {{ managed-k8s-name }} cluster deploys a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/). The caching agent (`node-local-dns` pod) runs on each {{ managed-k8s-name }} node. User pods now send requests to the agent running on their {{ managed-k8s-name }} nodes.
+NodeLocal DNS is deployed in a cluster as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) with `node-local-dns` pods in the `kube-system` namespace. NodeLocal DNS configures [iptables](https://en.wikipedia.org/wiki/Iptables) to redirect pod requests to `kube-dns` to the `node-local-dns` pod on the same node (local cache):
+* If there is a valid entry in the cache that has not yet expired, the response is returned without accessing the cluster’s main DNS service.
+* If no entry exists in the cache or if the entry has expired, the request goes to the main DNS service, `kube-dns`.
 
-If the request is in the agent's cache, the agent returns a direct response. Otherwise, the system creates a TCP connection to `kube-dns` `ClusterIP`. By default, the caching agent makes cache-miss requests to `kube-dns` for the `cluster.local` [DNS zone](../../dns/concepts/dns-zone.md) of the {{ managed-k8s-name }} cluster.
+{% note info %}
 
-This helps avoid the DNAT rules, [connection tracking](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#motivation), and restrictions on the [number of connections](../../vpc/concepts/limits.md#vpc-limits). For more information about NodeLocal DNS Cache, see [this article](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md).
+Redirects of DNS requests to the local cache are transparent to the pods: you do not need to modify the pod’s `/etc/resolv.conf` file and restart it. Disabling NodeLocal DNS does not require these actions as well.
 
-To set up DNS request caching:
+{% endnote %}
+
+Using NodeLocal DNS in a {{ managed-k8s-name }} cluster offers the [following benefits](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#motivation):
+* Reduced DNS request processing time.
+* Reduced internal network traffic to avoid limitations on the [number of connections](../../vpc/concepts/limits.md#vpc-limits).
+* Reduced risk of conntrack failure due to fewer UDP requests to the DNS service.
+* Improved resilience and scalability of the cluster DNS subsystem.
+
+Follow this guide to install NodeLocal DNS in a {{ managed-k8s-full-name }} cluster and test it using the `dnsutils` package. To do this, follow these steps:
 
 1. [Install NodeLocal DNS](#install).
-1. [Change the NodeLocal DNS Cache configuration](#configure).
-1. [Run DNS requests](#dns-queries).
-1. [Set up traffic routing through NodeLocal DNS](#dns-traffic).
-1. [Check logs](#check-logs).
+1. [Create a test environment](#create-test-environment).
+1. [Check the NodeLocal DNS functionality](#test-nodelocaldns).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for a public IP address for cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: Use of computing resources and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Public IP addresses for {{ managed-k8s-name }} cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Getting started {#before-you-begin}
@@ -41,7 +47,7 @@ The support cost for this solution includes:
 
       {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-  1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with public internet access and preconfigured security groups.
+  1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with [public internet access](../../managed-kubernetes/operations/node-group/node-group-update.md#node-internet-access) and preconfigured security groups.
 
 - {{ TF }} {#tf}
 
@@ -66,13 +72,13 @@ The support cost for this solution includes:
      * {{ managed-k8s-name }} cluster CIDR.
      * Name of the {{ managed-k8s-name }} cluster service account.
 
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. Validate your {{ TF }} configuration files using this command:
 
      ```bash
      terraform validate
      ```
 
-     {{ TF }} will show any errors found in your configuration files.
+     {{ TF }} will display any configuration errors detected in your files.
 
   1. Create the required infrastructure:
 
@@ -131,7 +137,6 @@ The support cost for this solution includes:
       metadata:
         name: node-local-dns
         namespace: kube-system
-        labels:
       ---
       apiVersion: v1
       kind: Service
@@ -159,7 +164,6 @@ The support cost for this solution includes:
       metadata:
         name: node-local-dns
         namespace: kube-system
-        labels:
       data:
         Corefile: |
           cluster.local:53 {
@@ -295,8 +299,8 @@ The support cost for this solution includes:
                   - key: Corefile
                     path: Corefile.base
       ---
-      # A headless service is a service with a service IP but instead of load-balancing it will return the IPs of our associated Pods.
-      # We use this to expose metrics to Prometheus.
+      # Headless Service has no ClusterIP and returns Pod IPs via DNS.
+      # Used for Prometheus service discovery of node-local-dns metrics.
       apiVersion: v1
       kind: Service
       metadata:
@@ -352,273 +356,169 @@ The support cost for this solution includes:
 
 {% endlist %}
 
-## Change the NodeLocal DNS Cache configuration {#configure}
+## Create a test environment {#create-test-environment}
 
-To change configuration, edit the relevant `configmap`. For example, to enable DNS request logging for the `cluster.local` zone:
+To test the local DNS, the `nettool` pod containing the `dnsutils` network utility suite will be launched in your {{ managed-k8s-name }} cluster.
 
-1. Run this command:
+1. Run the `nettool` pod:
 
-    ```bash
-    kubectl -n kube-system edit configmap node-local-dns
-    ```
+   ```bash
+   kubectl run nettool --image {{ registry }}/yc/demo/network-multitool -- sleep infinity
+   ```
 
-1. Add the `log` line to the `cluster.local` zone configuration:
+1. Make sure the pod has switched to `Running`:
 
-    ```text
-    ...
-    apiVersion: v1
-      data:
-        Corefile: |
-          cluster.local:53 {
-              log
-              errors
-              cache {
-                      success 9984 30
-                      denial 9984 5
-              }
-    ...
-    ```
+   ```bash
+   kubectl get pods
+   ```
 
-1. Save your changes:
+1. Find out which {{ managed-k8s-name }} cluster node is hosting the `nettool` pod:
 
-    Result:
+   ```bash
+   kubectl get pod nettool -o wide
+   ```
 
-    ```text
-    configmap/node-local-dns edited
-    ```
+   You can find the node name in the `NODE` column, for example:
 
-It may take several minutes to update the configuration.
+   ```text
+   NAME     READY  STATUS   RESTARTS  AGE  IP         NODE        NOMINATED NODE  READINESS GATES
+   nettool  1/1    Running  0         23h  10.1.0.68  <node_name>  <none>          <none>
+   ```
 
-## Run DNS requests {#dns-queries}
+1. Get the IP address of the pod running NodeLocal DNS:
 
-To run [test requests](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/#create-a-simple-pod-to-use-as-a-test-environment), use the pod with the DNS diagnostic tools.
+   ```bash
+   kubectl get pod -o wide -n kube-system | grep 'node-local.*<node_name>'
+   ```
 
-1. Run the pod:
+   Result:
 
-    ```bash
-    kubectl apply -f https://k8s.io/examples/admin/dns/dnsutils.yaml
-    ```
+   ```text
+   node-local-dns-gv68c  1/1  Running  0  26m  <pod_IP_address>  <node_name>  <none>  <none>
+   ```
 
-    Result:
+## Check the NodeLocal DNS functionality {#test-nodelocaldns}
 
-    ```text
-    pod/dnsutils created
-    ```
+To test the local DNS, several DNS requests will be made from the `nettool` pod. This will change the metrics for the number of DNS requests on the pod servicing NodeLocal DNS.
 
-1. Make sure the pod status changed to `Running`:
+1. Get the values of the metrics for DNS requests before testing:
 
-    ```bash
-    kubectl get pods dnsutils
-    ```
+   ```bash
+   kubectl exec -ti nettool -- curl http://<pod_IP_address>:9253/metrics | grep coredns_dns_requests_total
+   ```
 
-    Result:
+   Result:
 
-    ```text
-    NAME      READY  STATUS   RESTARTS  AGE
-    dnsutils  1/1    Running  0         26m
-    ```
+   ```text
+   # HELP coredns_dns_requests_total Counter of DNS requests made per zone, protocol and family.
+   # TYPE coredns_dns_requests_total counter
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://10.96.128.2:53",type="A",zone="."} 18
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://10.96.128.2:53",type="A",zone="cluster.local."} 18
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://10.96.128.2:53",type="AAAA",zone="."} 18
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://10.96.128.2:53",type="AAAA",zone="cluster.local."} 18
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://169.254.20.10:53",type="other",zone="."} 1
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://169.254.20.10:53",type="other",zone="cluster.local."} 1
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://169.254.20.10:53",type="other",zone="in-addr.arpa."} 1
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://169.254.20.10:53",type="other",zone="ip6.arpa."} 1
+   ```
 
-1. Connect to the pod:
+   The result demonstrates that NodeLocal DNS receives DNS requests on two IP addresses:
 
-    ```bash
-    kubectl exec -i -t dnsutils -- sh
-    ```
+   * Address matching the `kube-dns` cluster IP. Here, this is `10.96.128.2:53`; the actual value may differ.
 
-1. Get the IP address of the local DNS cache:
+     This is the main address. NodeLocal DNS configures [iptables](https://en.wikipedia.org/wiki/Iptables) to redirect requests to `kube-dns` to the `node-local-dns` pod on the same node.
 
-    ```bash
-    nslookup kubernetes.default
-    ```
+   * NodeLocal DNS local address (`169.254.20.10`).
 
-    Result:
+     This is a fallback address. You can use it to access the `node-local-dns` pod directly.
 
-    ```text
-    Server:         <kube-dns_IP_address>
-    Address:        <kube-dns_IP_address>#53
+1. Run these DNS requests:
 
-    Name:   kubernetes.default.svc.cluster.local
-    Address: 10.96.128.1
-    ```
+   ```bash
+   kubectl exec -ti nettool -- nslookup kubernetes && \
+   kubectl exec -ti nettool -- nslookup kubernetes.default && \
+   kubectl exec -ti nettool -- nslookup ya.ru
+   ```
 
-1. Run the following requests:
+   Result (IP addresses may differ):
 
-    ```bash
-    dig +short @169.254.20.10 www.com
-    dig +short @<kube-dns_IP_address> example.com
-    ```
+   ```text
+   Server:         10.96.128.2
+   Address:        10.96.128.2#53
+   
+   Name:   kubernetes.default.svc.cluster.local
+   Address: 10.96.128.1
+   
+   Server:         10.96.128.2
+   Address:        10.96.128.2#53
+   
+   Name:   kubernetes.default.svc.cluster.local
+   Address: 10.96.128.1
+   
+   Server:         10.96.128.2
+   Address:        10.96.128.2#53
+   
+   Non-authoritative answer:
+   Name:   ya.ru
+   Address: 5.255.255.242
+   Name:   ya.ru
+   Address: 77.88.44.242
+   Name:   ya.ru
+   Address: 77.88.55.242
+   Name:   ya.ru
+   Address: 2a02:6b8::2:242
+   ```
 
-    Result:
+1. Get the DNS request metric values again:
 
-    ```text
-    # dig +short @169.254.20.10 www.com
-    52.128.23.153
-    # dig +short @<kube-dns_IP_address> example.com
-    93.184.216.34
-    ```
+   ```bash
+   kubectl exec -ti nettool -- curl http://<pod_IP_address>:9253/metrics | grep coredns_dns_requests_total
+   ```
 
-    After `node-local-dns` starts, the `iptables` rules will be configured so that the [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack) responds at both addresses (`<kube-dns_IP_address>:53` and `169.254.20.10:53`).
+   Result:
 
-    You can access `kube-dns` using `ClusterIp` of the `kube-dns-upstream` service. You may need this address to configure request forwarding.
+   ```text
+   # HELP coredns_dns_requests_total Counter of DNS requests made per zone, protocol and family.
+   # TYPE coredns_dns_requests_total counter
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://10.96.128.2:53",type="A",zone="."} 27
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://10.96.128.2:53",type="A",zone="cluster.local."} 30
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://10.96.128.2:53",type="AAAA",zone="."} 25
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://10.96.128.2:53",type="AAAA",zone="cluster.local."} 26
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://169.254.20.10:53",type="other",zone="."} 1
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://169.254.20.10:53",type="other",zone="cluster.local."} 1
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://169.254.20.10:53",type="other",zone="in-addr.arpa."} 1
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://169.254.20.10:53",type="other",zone="ip6.arpa."} 1
+   ```
 
-## Set up traffic routing through NodeLocal DNS {#dns-traffic}
+   The result demonstrates that metric values have increased for the `kube-dns` address but remain unchanged for the NodeLocal DNS local address. This means pods continue to send DNS requests to the `kube-dns` address, which are now handled by NodeLocal DNS.
 
-{% list tabs %}
+## Delete NodeLocal DNS {#stop-daemonset}
 
-- All pods
+{% list tabs group=instructions %}
 
-  1. Create a pod for network traffic configuration:
+- {{ marketplace-full-name }} {#marketplace}
 
-      ```bash
-      kubectl apply -f - <<EOF
-      apiVersion: v1
-      kind: Pod
-      metadata:
-        name: dnschange
-        namespace: default
-      spec:
-        priorityClassName: system-node-critical
-        hostNetwork: true
-        dnsPolicy: Default
-        hostPID: true
-        tolerations:
-          - key: "CriticalAddonsOnly"
-            operator: "Exists"
-          - effect: "NoExecute"
-            operator: "Exists"
-          - effect: "NoSchedule"
-            operator: "Exists"
-        containers:
-        - name: dnschange
-          image: registry.k8s.io/e2e-test-images/jessie-dnsutils:1.3
-          tty: true
-          stdin: true
-          securityContext:
-            privileged: true
-          command:
-            - nsenter
-            - --target
-            - "1"
-            - --mount
-            - --uts
-            - --ipc
-            - --net
-            - --pid
-            - --
-            - sleep
-            - "infinity"
-          imagePullPolicy: IfNotPresent
-        restartPolicy: Always
-      EOF
-      ```
+  Delete the [NodeLocal DNS](/marketplace/products/yc/node-local-dns) application as described in [this guide](../../managed-kubernetes/operations/applications/marketplace.md#delete-apps).
 
-  1. Connect to the `dnschange` pod you created:
+- Manually {#manual}
 
-      ```bash
-      kubectl exec -it dnschange -- sh
-      ```
+  Run this command:
 
-  1. Open the `/etc/default/kubelet` file in the container to edit it:
+  ```bash
+  kubectl delete -f node-local-dns.yaml
+  ```
 
-      ```bash
-      vi /etc/default/kubelet
-      ```
+  Result:
 
-  1. In the file, add the `--cluster-dns=169.254.20.10` parameter (NodeLocal DNS cache address) to the `KUBELET_OPTS` variable value:
-
-      ```text
-      KUBELET_OPTS="--bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubeconfig.conf --cert-dir=/var/lib/kubelet/pki/   --cloud-provider=external --config=/home/kubernetes/kubelet-config.yaml --kubeconfig=/etc/kubernetes/  kubelet-kubeconfig.conf --resolv-conf=/run/systemd/resolve/resolv.conf --v=2 --cluster-dns=169.254.20.10"
-      ```
-
-  1. Save the file and run the `kubelet` restart command:
-
-      ```bash
-      systemctl daemon-reload && systemctl restart kubelet
-      ```
-
-      Then, exit container mode by running the `exit` command.
-
-  1. Delete the `dnschange` pod:
-
-      ```bash
-      kubectl delete pod dnschange
-      ```
-
-  1. To make all pods use NodeLocal DNS, restart them, e.g., using this command:
-
-      ```bash
-      kubectl get deployments --all-namespaces | \
-        tail +2 | \
-        awk '{
-          cmd=sprintf("kubectl rollout restart deployment -n %s %s", $1, $2) ;
-          system(cmd)
-        }'
-      ```
-
-- Selected pods
-
-  1. Run this command:
-
-      ```bash
-      kubectl edit deployment <pod_deployment_name>
-      ```
-
-  1. In the pod specification, replace the `dnsPolicy: ClusterFirst` setting in the `spec.template.spec` key with the following section:
-
-      ```yaml
-        dnsPolicy: "None"
-        dnsConfig:
-          nameservers:
-            - 169.254.20.10
-          searches:
-            - default.svc.cluster.local
-            - svc.cluster.local
-            - cluster.local
-            - {{ region-id }}.internal
-            - internal
-            - my.dns.search.suffix
-          options:
-            - name: ndots
-              value: "5"
-      ```
+  ```text
+  serviceaccount "node-local-dns" deleted
+  service "kube-dns-upstream" deleted
+  configmap "node-local-dns" deleted
+  daemonset.apps "node-local-dns" deleted
+  service "node-local-dns" deleted
+  ```
 
 {% endlist %}
-
-## Check logs {#check-logs}
-
-Run this command:
-
-```bash
-kubectl logs --namespace=kube-system -l k8s-app=node-local-dns -f
-```
-
-To stop displaying logs, press **Ctrl** + **C**.
-
-Result:
-
-```text
-...
-[INFO] 10.112.128.7:50527 - 41658 "A IN kubernetes.default.svc.cluster.local. udp 54 false 512" NOERROR qr,aa,rd 106 0.000097538s
-[INFO] 10.112.128.7:44256 - 26847 "AAAA IN kubernetes.default.svc.cluster.local. udp 54 false 512" NOERROR qr,aa,rd 147 0.057075876s
-...
-```
-
-## Stop the DaemonSet {#stop-daemonset}
-
-To disable NodeLocal DNS Cache, i.e., stop the DaemonSet, run this command:
-
-```bash
-kubectl delete -f node-local-dns.yaml
-```
-
-Result:
-
-```text
-serviceaccount "node-local-dns" deleted
-service "kube-dns-upstream" deleted
-configmap "node-local-dns" deleted
-daemonset.apps "node-local-dns" deleted
-service "node-local-dns" deleted
-```
 
 ## Delete the resources you created {#clear-out}
 

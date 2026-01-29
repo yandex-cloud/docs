@@ -29,16 +29,22 @@ Request to update the properties of an existing certificate.
 ||Field | Description ||
 || certificate_id | **string**
 
-Required field. The ID of the certificate to update. ||
+Required field. The ID of the certificate to update.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask to specify fields to be updated. Only fields present in this mask will be updated. ||
 || name | **string**
 
-Updated name for the certificate. ||
+Updated name for the certificate.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-Updated description for the certificate. ||
+Updated description for the certificate.
+
+The maximum string length in characters is 1024. ||
 || deletion_protection | **bool**
 
 Update the deletion protection flag. ||

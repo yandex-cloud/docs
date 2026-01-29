@@ -21,4 +21,7 @@ A set of methods for managing Yandex Data Processing clusters.
 || [ListOperations](listOperations.md) | Lists operations for the specified cluster. ||
 || [ListHosts](listHosts.md) | Retrieves the list of hosts in the specified cluster. ||
 || [ListUILinks](listUILinks.md) | Retrieves a list of links to web interfaces being proxied by Yandex Data Processing UI Proxy. ||
+|| [ListAccessBindings](listAccessBindings.md) | Retrieves a list of access bindings for the specified cluster. ||
+|| [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the specified cluster. ||
+|| [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified cluster. ||
 |#

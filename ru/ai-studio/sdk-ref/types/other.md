@@ -5,45 +5,45 @@ sourcePath: en/_sdk-ref/sdk-ref/types/other.md
 
 ## Settings types
 
-### *class* yandex\_cloud\_ml\_sdk.\_models.completions.config.**ReasoningMode**{#yandex_cloud_ml_sdk._models.completions.config.ReasoningMode}
+### *class* yandex\_ai\_studio\_sdk.\_models.completions.config.**ReasoningMode**{#yandex_ai_studio_sdk._models.completions.config.ReasoningMode}
 
 Enumeration for reasoning modes.
 
 This class defines the various modes of reasoning that can be used in the model’s configurations.
 
-**REASONING\_MODE\_UNSPECIFIED** = *0*{#yandex_cloud_ml_sdk._models.completions.config.ReasoningMode.REASONING_MODE_UNSPECIFIED}
+**REASONING\_MODE\_UNSPECIFIED** = *0*{#yandex_ai_studio_sdk._models.completions.config.ReasoningMode.REASONING_MODE_UNSPECIFIED}
 
 indicates that the reasoning mode is unspecified
 
-**DISABLED** = *1*{#yandex_cloud_ml_sdk._models.completions.config.ReasoningMode.DISABLED}
+**DISABLED** = *1*{#yandex_ai_studio_sdk._models.completions.config.ReasoningMode.DISABLED}
 
 indicates that reasoning is disabled
 
-**ENABLED\_HIDDEN** = *2*{#yandex_cloud_ml_sdk._models.completions.config.ReasoningMode.ENABLED_HIDDEN}
+**ENABLED\_HIDDEN** = *2*{#yandex_ai_studio_sdk._models.completions.config.ReasoningMode.ENABLED_HIDDEN}
 
 indicates that reasoning is enabled but hidden
 
-### *class* yandex\_cloud\_ml\_sdk.\_chat.completions.config.**ChatReasoningMode**{#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode}
+### *class* yandex\_ai\_studio\_sdk.\_chat.completions.config.**ChatReasoningMode**{#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode}
 
 Enumeration for reasoning modes in chat completions.
 
 This enumeration defines the various levels of reasoning effort that can be applied during chat completion generation. Higher reasoning modes allow the model to perform more thorough internal reasoning before responding, potentially improving response quality.
 
-**LOW** = *'low'*{#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.LOW}
+**LOW** = *'low'*{#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.LOW}
 
 Low reasoning effort mode
 
-**MEDIUM** = *'medium'*{#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.MEDIUM}
+**MEDIUM** = *'medium'*{#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.MEDIUM}
 
 Medium reasoning effort mode
 
-**HIGH** = *'high'*{#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.HIGH}
+**HIGH** = *'high'*{#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.HIGH}
 
 High reasoning effort mode
 
-**\_\_new\_\_**(*value*){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.__new__i}
+**\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.__new__i}
 
-**encode**(*encoding='utf-8'*, *errors='strict'*){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.encode}
+**encode**(*encoding='utf-8'*, *errors='strict'*){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.encode}
 
 Encode the string using the codec registered for encoding.
 
@@ -55,7 +55,7 @@ errors
 
   : The error handling scheme to use for encoding errors. The default is ‘strict’ meaning that encoding errors raise a UnicodeEncodeError.  Other possible values are ‘ignore’, ‘replace’ and ‘xmlcharrefreplace’ as well as any other name registered with codecs.register\_error that can handle UnicodeEncodeErrors.
 
-**replace**(*old*, *new*, *count=-1*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.replace}
+**replace**(*old*, *new*, *count=-1*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.replace}
 
 Return a copy with all occurrences of substring old replaced by new.
 
@@ -63,7 +63,7 @@ Return a copy with all occurrences of substring old replaced by new.
 
 If the optional argument count is given, only the first count occurrences are replaced.
 
-**split**(*sep=None*, *maxsplit=-1*){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.split}
+**split**(*sep=None*, *maxsplit=-1*){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.split}
 
 Return a list of the substrings in the string, using sep as the separator string.
 
@@ -73,7 +73,7 @@ Splitting starts at the front of the string and works to the end.
 
 Note, str.split() is mainly useful for data that has been intentionally delimited.  With natural text that includes punctuation, consider using the regular expression module.
 
-**rsplit**(*sep=None*, *maxsplit=-1*){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.rsplit}
+**rsplit**(*sep=None*, *maxsplit=-1*){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.rsplit}
 
 Return a list of the substrings in the string, using sep as the separator string.
 
@@ -81,7 +81,7 @@ Return a list of the substrings in the string, using sep as the separator string
 
 Splitting starts at the end of the string and works to the front.
 
-**join**(*iterable*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.join}
+**join**(*iterable*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.join}
 
 Concatenate any number of strings.
 
@@ -89,45 +89,45 @@ The string whose method is called is inserted in between each given string. The 
 
 Example: ‘.’.join([‘ab’, ‘pq’, ‘rs’]) -> ‘ab.pq.rs’
 
-**capitalize**(){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.capitalize}
+**capitalize**(){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.capitalize}
 
 Return a capitalized version of the string.
 
 More specifically, make the first character have upper case and the rest lower case.
 
-**casefold**(){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.casefold}
+**casefold**(){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.casefold}
 
 Return a version of the string suitable for caseless comparisons.
 
-**title**(){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.title}
+**title**(){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.title}
 
 Return a version of the string where each word is titlecased.
 
 More specifically, words start with uppercased characters and all remaining cased characters have lower case.
 
-**center**(*width*, *fillchar=' '*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.center}
+**center**(*width*, *fillchar=' '*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.center}
 
 Return a centered string of length width.
 
 Padding is done using the specified fill character (default is a space).
 
-**count**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.count}
+**count**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.count}
 
 Return the number of non-overlapping occurrences of substring sub in string S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
-**expandtabs**(*tabsize=8*){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.expandtabs}
+**expandtabs**(*tabsize=8*){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.expandtabs}
 
 Return a copy where all tab characters are expanded using spaces.
 
 If tabsize is not given, a tab size of 8 characters is assumed.
 
-**find**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.find}
+**find**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.find}
 
 Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
 Return -1 on failure.
 
-**partition**(*sep*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.partition}
+**partition**(*sep*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.partition}
 
 Partition the string into three parts using the given separator.
 
@@ -135,53 +135,53 @@ This will search for the separator in the string.  If the separator is found, re
 
 If the separator is not found, returns a 3-tuple containing the original string and two empty strings.
 
-**index**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.index}
+**index**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.index}
 
 Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
 Raises ValueError when the substring is not found.
 
-**ljust**(*width*, *fillchar=' '*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.ljust}
+**ljust**(*width*, *fillchar=' '*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.ljust}
 
 Return a left-justified string of length width.
 
 Padding is done using the specified fill character (default is a space).
 
-**lower**(){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.lower}
+**lower**(){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.lower}
 
 Return a copy of the string converted to lowercase.
 
-**lstrip**(*chars=None*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.lstrip}
+**lstrip**(*chars=None*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.lstrip}
 
 Return a copy of the string with leading whitespace removed.
 
 If chars is given and not None, remove characters in chars instead.
 
-**rfind**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.rfind}
+**rfind**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.rfind}
 
 Return the highest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
 Return -1 on failure.
 
-**rindex**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.rindex}
+**rindex**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.rindex}
 
 Return the highest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
 Raises ValueError when the substring is not found.
 
-**rjust**(*width*, *fillchar=' '*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.rjust}
+**rjust**(*width*, *fillchar=' '*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.rjust}
 
 Return a right-justified string of length width.
 
 Padding is done using the specified fill character (default is a space).
 
-**rstrip**(*chars=None*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.rstrip}
+**rstrip**(*chars=None*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.rstrip}
 
 Return a copy of the string with trailing whitespace removed.
 
 If chars is given and not None, remove characters in chars instead.
 
-**rpartition**(*sep*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.rpartition}
+**rpartition**(*sep*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.rpartition}
 
 Partition the string into three parts using the given separator.
 
@@ -189,23 +189,23 @@ This will search for the separator in the string, starting at the end. If the se
 
 If the separator is not found, returns a 3-tuple containing two empty strings and the original string.
 
-**splitlines**(*keepends=False*){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.splitlines}
+**splitlines**(*keepends=False*){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.splitlines}
 
 Return a list of the lines in the string, breaking at line boundaries.
 
 Line breaks are not included in the resulting list unless keepends is given and true.
 
-**strip**(*chars=None*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.strip}
+**strip**(*chars=None*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.strip}
 
 Return a copy of the string with leading and trailing whitespace removed.
 
 If chars is given and not None, remove characters in chars instead.
 
-**swapcase**(){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.swapcase}
+**swapcase**(){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.swapcase}
 
 Convert uppercase characters to lowercase and lowercase characters to uppercase.
 
-**translate**(*table*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.translate}
+**translate**(*table*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.translate}
 
 Replace each character in the string using the given translation table.
 
@@ -213,117 +213,117 @@ Replace each character in the string using the given translation table.
 
 The table must implement lookup/indexing via \_\_getitem\_\_, for instance a dictionary or list.  If this operation raises LookupError, the character is left untouched.  Characters mapped to None are deleted.
 
-**upper**(){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.upper}
+**upper**(){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.upper}
 
 Return a copy of the string converted to uppercase.
 
-**startswith**(*prefix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/library/functions.html#bool){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.startswith}
+**startswith**(*prefix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/library/functions.html#bool){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.startswith}
 
 Return True if S starts with the specified prefix, False otherwise. With optional start, test S beginning at that position. With optional end, stop comparing S at that position. prefix can also be a tuple of strings to try.
 
-**endswith**(*suffix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/library/functions.html#bool){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.endswith}
+**endswith**(*suffix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/library/functions.html#bool){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.endswith}
 
 Return True if S ends with the specified suffix, False otherwise. With optional start, test S beginning at that position. With optional end, stop comparing S at that position. suffix can also be a tuple of strings to try.
 
-**removeprefix**(*prefix*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.removeprefix}
+**removeprefix**(*prefix*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.removeprefix}
 
 Return a str with the given prefix string removed if present.
 
 If the string starts with the prefix string, return string[len(prefix):]. Otherwise, return a copy of the original string.
 
-**removesuffix**(*suffix*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.removesuffix}
+**removesuffix**(*suffix*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.removesuffix}
 
 Return a str with the given suffix string removed if present.
 
 If the string ends with the suffix string and that suffix is not empty, return string[:-len(suffix)]. Otherwise, return a copy of the original string.
 
-**isascii**(){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.isascii}
+**isascii**(){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.isascii}
 
 Return True if all characters in the string are ASCII, False otherwise.
 
 ASCII characters have code points in the range U+0000-U+007F. Empty string is ASCII too.
 
-**islower**(){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.islower}
+**islower**(){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.islower}
 
 Return True if the string is a lowercase string, False otherwise.
 
 A string is lowercase if all cased characters in the string are lowercase and there is at least one cased character in the string.
 
-**isupper**(){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.isupper}
+**isupper**(){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.isupper}
 
 Return True if the string is an uppercase string, False otherwise.
 
 A string is uppercase if all cased characters in the string are uppercase and there is at least one cased character in the string.
 
-**istitle**(){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.istitle}
+**istitle**(){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.istitle}
 
 Return True if the string is a title-cased string, False otherwise.
 
 In a title-cased string, upper- and title-case characters may only follow uncased characters and lowercase characters only cased ones.
 
-**isspace**(){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.isspace}
+**isspace**(){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.isspace}
 
 Return True if the string is a whitespace string, False otherwise.
 
 A string is whitespace if all characters in the string are whitespace and there is at least one character in the string.
 
-**isdecimal**(){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.isdecimal}
+**isdecimal**(){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.isdecimal}
 
 Return True if the string is a decimal string, False otherwise.
 
 A string is a decimal string if all characters in the string are decimal and there is at least one character in the string.
 
-**isdigit**(){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.isdigit}
+**isdigit**(){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.isdigit}
 
 Return True if the string is a digit string, False otherwise.
 
 A string is a digit string if all characters in the string are digits and there is at least one character in the string.
 
-**isnumeric**(){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.isnumeric}
+**isnumeric**(){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.isnumeric}
 
 Return True if the string is a numeric string, False otherwise.
 
 A string is numeric if all characters in the string are numeric and there is at least one character in the string.
 
-**isalpha**(){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.isalpha}
+**isalpha**(){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.isalpha}
 
 Return True if the string is an alphabetic string, False otherwise.
 
 A string is alphabetic if all characters in the string are alphabetic and there is at least one character in the string.
 
-**isalnum**(){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.isalnum}
+**isalnum**(){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.isalnum}
 
 Return True if the string is an alpha-numeric string, False otherwise.
 
 A string is alpha-numeric if all characters in the string are alpha-numeric and there is at least one character in the string.
 
-**isidentifier**(){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.isidentifier}
+**isidentifier**(){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.isidentifier}
 
 Return True if the string is a valid Python identifier, False otherwise.
 
 Call keyword.iskeyword(s) to test whether string s is a reserved identifier, such as “def” or “class”.
 
-**isprintable**(){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.isprintable}
+**isprintable**(){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.isprintable}
 
 Return True if all characters in the string are printable, False otherwise.
 
 A character is printable if repr() may use it in its output.
 
-**zfill**(*width*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.zfill}
+**zfill**(*width*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.zfill}
 
 Pad a numeric string with zeros on the left, to fill a field of the given width.
 
 The string is never truncated.
 
-**format**(*\*args*, *\*\*kwargs*) → [str](https://docs.python.org/3/library/stdtypes.html#str){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.format}
+**format**(*\*args*, *\*\*kwargs*) → [str](https://docs.python.org/3/library/stdtypes.html#str){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.format}
 
 Return a formatted version of S, using substitutions from args and kwargs. The substitutions are identified by braces (‘{’ and ‘}’).
 
-**format\_map**(*mapping*) → [str](https://docs.python.org/3/library/stdtypes.html#str){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.format_map}
+**format\_map**(*mapping*) → [str](https://docs.python.org/3/library/stdtypes.html#str){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.format_map}
 
 Return a formatted version of S, using substitutions from mapping. The substitutions are identified by braces (‘{’ and ‘}’).
 
-*static* **maketrans**(){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.maketrans}
+*static* **maketrans**(){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.maketrans}
 
 Return a translation table usable for str.translate().
 
@@ -331,107 +331,107 @@ If there is only one argument, it must be a dictionary mapping Unicode ordinals 
 
 ## Generic types
 
-### *class* yandex\_cloud\_ml\_sdk.\_types.model.**ModelTypeT**{#yandex_cloud_ml_sdk._types.model.ModelTypeT}
+### *class* yandex\_ai\_studio\_sdk.\_types.model.**ModelTypeT**{#yandex_ai_studio_sdk._types.model.ModelTypeT}
 
-### *class* yandex\_cloud\_ml\_sdk.\_types.model.**ConfigTypeT**{#yandex_cloud_ml_sdk._types.model.ConfigTypeT}
+### *class* yandex\_ai\_studio\_sdk.\_types.model.**ConfigTypeT**{#yandex_ai_studio_sdk._types.model.ConfigTypeT}
 
-### *class* yandex\_cloud\_ml\_sdk.\_types.batch.domain.**BatchSubdomainTypeT**{#yandex_cloud_ml_sdk._types.batch.domain.BatchSubdomainTypeT}
+### *class* yandex\_ai\_studio\_sdk.\_types.batch.domain.**BatchSubdomainTypeT**{#yandex_ai_studio_sdk._types.batch.domain.BatchSubdomainTypeT}
 
-### *class* yandex\_cloud\_ml\_sdk.\_tools.tool\_call.**ToolCallTypeT**{#yandex_cloud_ml_sdk._tools.tool_call.ToolCallTypeT}
+### *class* yandex\_ai\_studio\_sdk.\_tools.tool\_call.**ToolCallTypeT**{#yandex_ai_studio_sdk._tools.tool_call.ToolCallTypeT}
 
-### *class* yandex\_cloud\_ml\_sdk.\_tools.function.**FunctionToolsTypeT**{#yandex_cloud_ml_sdk._tools.function.FunctionToolsTypeT}
+### *class* yandex\_ai\_studio\_sdk.\_tools.function.**FunctionToolsTypeT**{#yandex_ai_studio_sdk._tools.function.FunctionToolsTypeT}
 
-### *class* yandex\_cloud\_ml\_sdk.\_tools.function\_call.**FunctionCallTypeT**{#yandex_cloud_ml_sdk._tools.function_call.FunctionCallTypeT}
+### *class* yandex\_ai\_studio\_sdk.\_tools.function\_call.**FunctionCallTypeT**{#yandex_ai_studio_sdk._tools.function_call.FunctionCallTypeT}
 
-### *class* yandex\_cloud\_ml\_sdk.\_datasets.draft.**DatasetDraftT**{#yandex_cloud_ml_sdk._datasets.draft.DatasetDraftT}
+### *class* yandex\_ai\_studio\_sdk.\_datasets.draft.**DatasetDraftT**{#yandex_ai_studio_sdk._datasets.draft.DatasetDraftT}
 
-### *class* yandex\_cloud\_ml\_sdk.\_tuning.tuning\_task.**TuningResultTypeT\_co**{#yandex_cloud_ml_sdk._tuning.tuning_task.TuningResultTypeT_co}
+### *class* yandex\_ai\_studio\_sdk.\_tuning.tuning\_task.**TuningResultTypeT\_co**{#yandex_ai_studio_sdk._tuning.tuning_task.TuningResultTypeT_co}
 
-### *class* yandex\_cloud\_ml\_sdk.\_types.operation.**ResultTypeT\_co**{#yandex_cloud_ml_sdk._types.operation.ResultTypeT_co}
+### *class* yandex\_ai\_studio\_sdk.\_types.operation.**ResultTypeT\_co**{#yandex_ai_studio_sdk._types.operation.ResultTypeT_co}
 
-### *class* yandex\_cloud\_ml\_sdk.\_search\_api.generative.generative.**GenerativeSearchTypeT**{#yandex_cloud_ml_sdk._search_api.generative.generative.GenerativeSearchTypeT}
+### *class* yandex\_ai\_studio\_sdk.\_search\_api.generative.generative.**GenerativeSearchTypeT**{#yandex_ai_studio_sdk._search_api.generative.generative.GenerativeSearchTypeT}
 
-### *class* yandex\_cloud\_ml\_sdk.\_runs.result.**StatusTypeT**{#yandex_cloud_ml_sdk._runs.result.StatusTypeT}
+### *class* yandex\_ai\_studio\_sdk.\_runs.result.**StatusTypeT**{#yandex_ai_studio_sdk._runs.result.StatusTypeT}
 
-### *class* yandex\_cloud\_ml\_sdk.\_runs.result.**MessageTypeT**{#yandex_cloud_ml_sdk._runs.result.MessageTypeT}
+### *class* yandex\_ai\_studio\_sdk.\_runs.result.**MessageTypeT**{#yandex_ai_studio_sdk._runs.result.MessageTypeT}
 
-### *class* yandex\_cloud\_ml\_sdk.\_types.operation.**AnyResultTypeT\_co**{#yandex_cloud_ml_sdk._types.operation.AnyResultTypeT_co}
+### *class* yandex\_ai\_studio\_sdk.\_types.operation.**AnyResultTypeT\_co**{#yandex_ai_studio_sdk._types.operation.AnyResultTypeT_co}
 
-### *class* yandex\_cloud\_ml\_sdk.\_types.operation.**OperationStatusTypeT**{#yandex_cloud_ml_sdk._types.operation.OperationStatusTypeT}
+### *class* yandex\_ai\_studio\_sdk.\_types.operation.**OperationStatusTypeT**{#yandex_ai_studio_sdk._types.operation.OperationStatusTypeT}
 
-### *class* yandex\_cloud\_ml\_sdk.\_search\_api.web.web.**WebSearchTypeT**{#yandex_cloud_ml_sdk._search_api.web.web.WebSearchTypeT}
+### *class* yandex\_ai\_studio\_sdk.\_search\_api.web.web.**WebSearchTypeT**{#yandex_ai_studio_sdk._search_api.web.web.WebSearchTypeT}
 
-### *class* yandex\_cloud\_ml\_sdk.\_search\_api.image.image.**ImageSearchTypeT**{#yandex_cloud_ml_sdk._search_api.image.image.ImageSearchTypeT}
+### *class* yandex\_ai\_studio\_sdk.\_search\_api.image.image.**ImageSearchTypeT**{#yandex_ai_studio_sdk._search_api.image.image.ImageSearchTypeT}
 
-### *class* yandex\_cloud\_ml\_sdk.\_search\_api.by\_image.by\_image.**ByImageSearchTypeT**{#yandex_cloud_ml_sdk._search_api.by_image.by_image.ByImageSearchTypeT}
+### *class* yandex\_ai\_studio\_sdk.\_search\_api.by\_image.by\_image.**ByImageSearchTypeT**{#yandex_ai_studio_sdk._search_api.by_image.by_image.ByImageSearchTypeT}
 
-### *class* yandex\_cloud\_ml\_sdk.\_search\_api.types.**XMLSearchDocumentTypeT**{#yandex_cloud_ml_sdk._search_api.types.XMLSearchDocumentTypeT}
+### *class* yandex\_ai\_studio\_sdk.\_search\_api.types.**XMLSearchDocumentTypeT**{#yandex_ai_studio_sdk._search_api.types.XMLSearchDocumentTypeT}
 
-### *class* yandex\_cloud\_ml\_sdk.\_types.model\_config.**ConfigTypeT**{#yandex_cloud_ml_sdk._types.model_config.ConfigTypeT}
+### *class* yandex\_ai\_studio\_sdk.\_types.model\_config.**ConfigTypeT**{#yandex_ai_studio_sdk._types.model_config.ConfigTypeT}
 
-### *class* yandex\_cloud\_ml\_sdk.\_speechkit.text\_to\_speech.tts.**TextToSpeechTypeT**{#yandex_cloud_ml_sdk._speechkit.text_to_speech.tts.TextToSpeechTypeT}
+### *class* yandex\_ai\_studio\_sdk.\_speechkit.text\_to\_speech.tts.**TextToSpeechTypeT**{#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.TextToSpeechTypeT}
 
-### *class* yandex\_cloud\_ml\_sdk.\_types.enum.**ProtoBasedEnumTypeT**{#yandex_cloud_ml_sdk._types.enum.ProtoBasedEnumTypeT}
+### *class* yandex\_ai\_studio\_sdk.\_types.enum.**ProtoBasedEnumTypeT**{#yandex_ai_studio_sdk._types.enum.ProtoBasedEnumTypeT}
 
-### *class* yandex\_cloud\_ml\_sdk.\_speechkit.text\_to\_speech.bistream.**TTSBidirectionalStreamTypeT**{#yandex_cloud_ml_sdk._speechkit.text_to_speech.bistream.TTSBidirectionalStreamTypeT}
+### *class* yandex\_ai\_studio\_sdk.\_speechkit.text\_to\_speech.bistream.**TTSBidirectionalStreamTypeT**{#yandex_ai_studio_sdk._speechkit.text_to_speech.bistream.TTSBidirectionalStreamTypeT}
 
 ## Miscellaneous types
 
-### *class* yandex\_cloud\_ml\_sdk.\_types.misc.**Undefined**{#yandex_cloud_ml_sdk._types.misc.Undefined}
+### *class* yandex\_ai\_studio\_sdk.\_types.misc.**Undefined**{#yandex_ai_studio_sdk._types.misc.Undefined}
 
 Class for making possible to differ None and not-passed default value.
 
 Sentinel until PEP 0661.
 
-### *class* yandex\_cloud\_ml\_sdk.\_types.misc.**UndefinedOr**{#yandex_cloud_ml_sdk._types.misc.UndefinedOr}
+### *class* yandex\_ai\_studio\_sdk.\_types.misc.**UndefinedOr**{#yandex_ai_studio_sdk._types.misc.UndefinedOr}
 
-### *class* yandex\_cloud\_ml\_sdk.\_types.misc.**PathLike**{#yandex_cloud_ml_sdk._types.misc.PathLike}
+### *class* yandex\_ai\_studio\_sdk.\_types.misc.**PathLike**{#yandex_ai_studio_sdk._types.misc.PathLike}
 
-yandex\_cloud\_ml\_sdk.\_types.misc.**UNDEFINED** = *Undefined*{#yandex_cloud_ml_sdk._types.misc.UNDEFINED}
+yandex\_ai\_studio\_sdk.\_types.misc.**UNDEFINED** = *Undefined*{#yandex_ai_studio_sdk._types.misc.UNDEFINED}
 
 Default, non-passed value
 
-yandex\_cloud\_ml\_sdk.\_types.schemas.**LITERAL\_RESPONSE\_FORMATS** = *('json',)*{#yandex_cloud_ml_sdk._types.schemas.LITERAL_RESPONSE_FORMATS}
+yandex\_ai\_studio\_sdk.\_types.schemas.**LITERAL\_RESPONSE\_FORMATS** = *('json',)*{#yandex_ai_studio_sdk._types.schemas.LITERAL_RESPONSE_FORMATS}
 
 Available response formats
 
-yandex\_cloud\_ml\_sdk.\_types.schemas.**StrResponseType**{#yandex_cloud_ml_sdk._types.schemas.StrResponseType}
+yandex\_ai\_studio\_sdk.\_types.schemas.**StrResponseType**{#yandex_ai_studio_sdk._types.schemas.StrResponseType}
 
 Type for string response formats
 
 Alias of [**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[**'json'**]
 
-yandex\_cloud\_ml\_sdk.\_types.schemas.**JsonVal**{#yandex_cloud_ml_sdk._types.schemas.JsonVal}
+yandex\_ai\_studio\_sdk.\_types.schemas.**JsonVal**{#yandex_ai_studio_sdk._types.schemas.JsonVal}
 
 Recurrent json object
 
-Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_cloud_ml_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]
+Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_ai_studio_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]
 
-yandex\_cloud\_ml\_sdk.\_types.schemas.**JsonArray**{#yandex_cloud_ml_sdk._types.schemas.JsonArray}
+yandex\_ai\_studio\_sdk.\_types.schemas.**JsonArray**{#yandex_ai_studio_sdk._types.schemas.JsonArray}
 
 Json array
 
-Alias of [**list**](https://docs.python.org/3/library/stdtypes.html#list)[[**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_cloud_ml_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]]
+Alias of [**list**](https://docs.python.org/3/library/stdtypes.html#list)[[**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_ai_studio_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]]
 
-yandex\_cloud\_ml\_sdk.\_types.schemas.**JsonObject**{#yandex_cloud_ml_sdk._types.schemas.JsonObject}
+yandex\_ai\_studio\_sdk.\_types.schemas.**JsonObject**{#yandex_ai_studio_sdk._types.schemas.JsonObject}
 
 Json object
 
-Alias of [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_cloud_ml_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]]
+Alias of [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_ai_studio_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]]
 
-yandex\_cloud\_ml\_sdk.\_types.schemas.**JsonSchemaType**{#yandex_cloud_ml_sdk._types.schemas.JsonSchemaType}
+yandex\_ai\_studio\_sdk.\_types.schemas.**JsonSchemaType**{#yandex_ai_studio_sdk._types.schemas.JsonSchemaType}
 
 Type for json schema
 
-Alias of [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_cloud_ml_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]]
+Alias of [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_ai_studio_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]]
 
-yandex\_cloud\_ml\_sdk.\_types.schemas.**QueryType**{#yandex_cloud_ml_sdk._types.schemas.QueryType}
+yandex\_ai\_studio\_sdk.\_types.schemas.**QueryType**{#yandex_ai_studio_sdk._types.schemas.QueryType}
 
 Type alias for model arguments
 
-Alias of [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_cloud_ml_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]]
+Alias of [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_ai_studio_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]]
 
-*typeddict* yandex\_cloud\_ml\_sdk.\_types.schemas.**JsonSchemaResponseType**{#yandex_cloud_ml_sdk._types.schemas.JsonSchemaResponseType}
+*typeddict* yandex\_ai\_studio\_sdk.\_types.schemas.**JsonSchemaResponseType**{#yandex_ai_studio_sdk._types.schemas.JsonSchemaResponseType}
 
 Bases: [**TypedDict**](https://docs.python.org/3/library/typing.html#typing.TypedDict)
 
@@ -440,24 +440,24 @@ Dict with json schema response settings
 #|
 || Required Keys | 
 
-- **json\_schema** ([**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]]]]) – Field with json schema which describes response format
+- **json\_schema** ([**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]]]]) – Field with json schema which describes response format
 - **strict** ([**bool**](https://docs.python.org/3/library/functions.html#bool))
 - **name** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) ||
 |#
 
-yandex\_cloud\_ml\_sdk.\_types.schemas.**ResponseType**{#yandex_cloud_ml_sdk._types.schemas.ResponseType}
+yandex\_ai\_studio\_sdk.\_types.schemas.**ResponseType**{#yandex_ai_studio_sdk._types.schemas.ResponseType}
 
 Types availailable for response format
 
-Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[**'json'**], [**JsonSchemaResponseType**](#yandex_cloud_ml_sdk._types.schemas.JsonSchemaResponseType), [**type**](https://docs.python.org/3/library/functions.html#type)]
+Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[**'json'**], [**JsonSchemaResponseType**](#yandex_ai_studio_sdk._types.schemas.JsonSchemaResponseType), [**type**](https://docs.python.org/3/library/functions.html#type)]
 
-yandex\_cloud\_ml\_sdk.\_types.schemas.**ParametersType**{#yandex_cloud_ml_sdk._types.schemas.ParametersType}
+yandex\_ai\_studio\_sdk.\_types.schemas.**ParametersType**{#yandex_ai_studio_sdk._types.schemas.ParametersType}
 
 Types available for function call parameters
 
-Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_cloud_ml_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]], [**type**](https://docs.python.org/3/library/functions.html#type)]
+Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_ai_studio_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]], [**type**](https://docs.python.org/3/library/functions.html#type)]
 
-*typeddict* yandex\_cloud\_ml\_sdk.\_types.schemas.**JsonObjectProtoFormat**{#yandex_cloud_ml_sdk._types.schemas.JsonObjectProtoFormat}
+*typeddict* yandex\_ai\_studio\_sdk.\_types.schemas.**JsonObjectProtoFormat**{#yandex_ai_studio_sdk._types.schemas.JsonObjectProtoFormat}
 
 Bases: [**TypedDict**](https://docs.python.org/3/library/typing.html#typing.TypedDict)
 
@@ -469,7 +469,7 @@ Bases: [**TypedDict**](https://docs.python.org/3/library/typing.html#typing.Type
 - **json\_object** ([**bool**](https://docs.python.org/3/library/functions.html#bool)) ||
 |#
 
-*typeddict* yandex\_cloud\_ml\_sdk.\_types.schemas.**JsonSchemaProtoFormat**{#yandex_cloud_ml_sdk._types.schemas.JsonSchemaProtoFormat}
+*typeddict* yandex\_ai\_studio\_sdk.\_types.schemas.**JsonSchemaProtoFormat**{#yandex_ai_studio_sdk._types.schemas.JsonSchemaProtoFormat}
 
 Bases: [**TypedDict**](https://docs.python.org/3/library/typing.html#typing.TypedDict)
 
@@ -478,16 +478,16 @@ Bases: [**TypedDict**](https://docs.python.org/3/library/typing.html#typing.Type
 #|
 || Required Keys | 
 
-- **json\_schema** ([**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]]]]) – Field with json schema which describes response format ||
+- **json\_schema** ([**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]]]]) – Field with json schema which describes response format ||
 |#
 
-*typeddict* yandex\_cloud\_ml\_sdk.\_types.schemas.**EmptyProtoFormat**{#yandex_cloud_ml_sdk._types.schemas.EmptyProtoFormat}
+*typeddict* yandex\_ai\_studio\_sdk.\_types.schemas.**EmptyProtoFormat**{#yandex_ai_studio_sdk._types.schemas.EmptyProtoFormat}
 
 Bases: [**TypedDict**](https://docs.python.org/3/library/typing.html#typing.TypedDict)
 
 [**typing.TypedDict**](https://docs.python.org/3/library/typing.html#typing.TypedDict).
 
-*typeddict* yandex\_cloud\_ml\_sdk.\_types.schemas.**JsonSchemaResponseFormat**{#yandex_cloud_ml_sdk._types.schemas.JsonSchemaResponseFormat}
+*typeddict* yandex\_ai\_studio\_sdk.\_types.schemas.**JsonSchemaResponseFormat**{#yandex_ai_studio_sdk._types.schemas.JsonSchemaResponseFormat}
 
 Bases: [**TypedDict**](https://docs.python.org/3/library/typing.html#typing.TypedDict)
 
@@ -496,12 +496,12 @@ Bases: [**TypedDict**](https://docs.python.org/3/library/typing.html#typing.Type
 #|
 || Required Keys | 
 
-- **schema** ([**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]]]])
+- **schema** ([**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]]]])
 - **strict** ([**bool**](https://docs.python.org/3/library/functions.html#bool))
 - **name** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) ||
 |#
 
-*typeddict* yandex\_cloud\_ml\_sdk.\_types.schemas.**JsonSchemaParameterType**{#yandex_cloud_ml_sdk._types.schemas.JsonSchemaParameterType}
+*typeddict* yandex\_ai\_studio\_sdk.\_types.schemas.**JsonSchemaParameterType**{#yandex_ai_studio_sdk._types.schemas.JsonSchemaParameterType}
 
 Bases: [**TypedDict**](https://docs.python.org/3/library/typing.html#typing.TypedDict)
 
@@ -511,43 +511,43 @@ Bases: [**TypedDict**](https://docs.python.org/3/library/typing.html#typing.Type
 || Required Keys | 
 
 - **type** ([**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[**'json\_object'**, **'json\_schema'**])
-- **json\_schema** ([**JsonSchemaResponseFormat**](#yandex_cloud_ml_sdk._types.schemas.JsonSchemaResponseFormat)) – Field with json schema which describes response format ||
+- **json\_schema** ([**JsonSchemaResponseFormat**](#yandex_ai_studio_sdk._types.schemas.JsonSchemaResponseFormat)) – Field with json schema which describes response format ||
 |#
 
-yandex\_cloud\_ml\_sdk.\_types.schemas.**make\_response\_format\_kwargs**(*response\_format*){#yandex_cloud_ml_sdk._types.schemas.make_response_format_kwargs}
+yandex\_ai\_studio\_sdk.\_types.schemas.**make\_response\_format\_kwargs**(*response\_format*){#yandex_ai_studio_sdk._types.schemas.make_response_format_kwargs}
 
 Here we are transforming 1) http\_schema <- schema\_from\_response\_format(response\_format) 2) grpc\_schema <- http\_schema
 
 #|
-|| Parameters | **response\_format** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['json'] \| ~yandex\_cloud\_ml\_sdk.\_types.schemas.JsonSchemaResponseType \| type \| None*) ||
-|| Return type | [*JsonObjectProtoFormat*](#yandex_cloud_ml_sdk._types.schemas.JsonObjectProtoFormat) \| [*JsonSchemaProtoFormat*](#yandex_cloud_ml_sdk._types.schemas.JsonSchemaProtoFormat) \| [*EmptyProtoFormat*](#yandex_cloud_ml_sdk._types.schemas.EmptyProtoFormat) ||
+|| Parameters | **response\_format** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['json'] \| ~yandex\_ai\_studio\_sdk.\_types.schemas.JsonSchemaResponseType \| type \| None*) ||
+|| Return type | [*JsonObjectProtoFormat*](#yandex_ai_studio_sdk._types.schemas.JsonObjectProtoFormat) \| [*JsonSchemaProtoFormat*](#yandex_ai_studio_sdk._types.schemas.JsonSchemaProtoFormat) \| [*EmptyProtoFormat*](#yandex_ai_studio_sdk._types.schemas.EmptyProtoFormat) ||
 |#
 
-### *class* yandex\_cloud\_ml\_sdk.\_tools.tool\_call\_list.**HttpToolCallList**{#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._tools.tool_call_list.HttpToolCallList}
+### *class* yandex\_ai\_studio\_sdk.\_tools.tool\_call\_list.**HttpToolCallList**{#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._tools.tool_call_list.HttpToolCallList}
 
-### *class* yandex\_cloud\_ml\_sdk.\_types.enum.**UnknownEnumValue**{#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue}
+### *class* yandex\_ai\_studio\_sdk.\_types.enum.**UnknownEnumValue**{#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue}
 
-### *class* yandex\_cloud\_ml\_sdk.\_search\_api.utils.**NestedDict**{#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._search_api.utils.NestedDict}
+### *class* yandex\_ai\_studio\_sdk.\_search\_api.utils.**NestedDict**{#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._search_api.utils.NestedDict}
 
 ## Completions-related types
 
-### *class* yandex\_cloud\_ml\_sdk.\_chat.completions.config.**ChatReasoningModeType**{#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningModeType}
+### *class* yandex\_ai\_studio\_sdk.\_chat.completions.config.**ChatReasoningModeType**{#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._chat.completions.config.ChatReasoningModeType}
 
-yandex\_cloud\_ml\_sdk.\_chat.completions.config.**ChatReasoningModeType**{#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningModeType}
+yandex\_ai\_studio\_sdk.\_chat.completions.config.**ChatReasoningModeType**{#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningModeType}
 
-alias of [**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[‘low’, ‘medium’, ‘high’] | [**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[‘LOW’, ‘MEDIUM’, ‘HIGH’] | [**ChatReasoningMode**](#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode)
+alias of [**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[‘low’, ‘medium’, ‘high’] | [**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[‘LOW’, ‘MEDIUM’, ‘HIGH’] | [**ChatReasoningMode**](#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode)
 
-### *class* yandex\_cloud\_ml\_sdk.\_chat.text\_embeddings.config.**EncodingFormatType**{#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._chat.text_embeddings.config.EncodingFormatType}
+### *class* yandex\_ai\_studio\_sdk.\_chat.text\_embeddings.config.**EncodingFormatType**{#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._chat.text_embeddings.config.EncodingFormatType}
 
-yandex\_cloud\_ml\_sdk.\_chat.text\_embeddings.config.**EncodingFormatType**{#yandex_cloud_ml_sdk._chat.text_embeddings.config.EncodingFormatType}
+yandex\_ai\_studio\_sdk.\_chat.text\_embeddings.config.**EncodingFormatType**{#yandex_ai_studio_sdk._chat.text_embeddings.config.EncodingFormatType}
 
 alias of [**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[‘float’]
 
-### *class* yandex\_cloud\_ml\_sdk.\_chat.completions.config.**QueryType**{#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._chat.completions.config.QueryType}
+### *class* yandex\_ai\_studio\_sdk.\_chat.completions.config.**QueryType**{#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._chat.completions.config.QueryType}
 
-### *class* yandex\_cloud\_ml\_sdk.\_models.completions.config.**CompletionTool**{#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._models.completions.config.CompletionTool}
+### *class* yandex\_ai\_studio\_sdk.\_models.completions.config.**CompletionTool**{#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._models.completions.config.CompletionTool}
 
-yandex\_cloud\_ml\_sdk.\_models.completions.config.**CompletionTool**\: *[TypeAlias](https://docs.python.org/3/library/typing.html#typing.TypeAlias)* = *<class 'yandex\_cloud\_ml\_sdk.\_tools.tool.FunctionTool'>*{#yandex_cloud_ml_sdk._models.completions.config.CompletionTool}
+yandex\_ai\_studio\_sdk.\_models.completions.config.**CompletionTool**\: *[TypeAlias](https://docs.python.org/3/library/typing.html#typing.TypeAlias)* = *<class 'yandex\_ai\_studio\_sdk.\_tools.tool.FunctionTool'>*{#yandex_ai_studio_sdk._models.completions.config.CompletionTool}
 
 type alias for completion tools
 
@@ -556,18 +556,18 @@ type alias for completion tools
 
 - **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
 - **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\| None*)
-- **parameters** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, None \|* [*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\| TypeAliasForwardRef('yandex\_cloud\_ml\_sdk.\_types.schemas.JsonArray') \|* [*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, None \|* [*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\| TypeAliasForwardRef('yandex\_cloud\_ml\_sdk.\_types.schemas.JsonArray') \| JsonObject]]*)
+- **parameters** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, None \|* [*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\| TypeAliasForwardRef('yandex\_ai\_studio\_sdk.\_types.schemas.JsonArray') \|* [*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, None \|* [*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\| TypeAliasForwardRef('yandex\_ai\_studio\_sdk.\_types.schemas.JsonArray') \| JsonObject]]*)
 - **strict** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\| None*) ||
 || Return type | None ||
 |#
 
-### *class* yandex\_cloud\_ml\_sdk.\_types.tools.tool\_choice.**ToolChoiceType**{#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.tools.tool_choice.ToolChoiceType}
+### *class* yandex\_ai\_studio\_sdk.\_types.tools.tool\_choice.**ToolChoiceType**{#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.tools.tool_choice.ToolChoiceType}
 
-yandex\_cloud\_ml\_sdk.\_types.tools.tool\_choice.**ToolChoiceType**{#yandex_cloud_ml_sdk._types.tools.tool_choice.ToolChoiceType}
+yandex\_ai\_studio\_sdk.\_types.tools.tool\_choice.**ToolChoiceType**{#yandex_ai_studio_sdk._types.tools.tool_choice.ToolChoiceType}
 
-alias of [**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[‘none’, ‘None’, ‘NONE’, ‘auto’, ‘Auto’, ‘AUTO’, ‘required’, ‘Required’, ‘REQUIRED’] | [**FunctionDictType**](message.md#yandex_cloud_ml_sdk._types.tools.function.FunctionDictType) | [**FunctionTool**](tools.md#yandex_cloud_ml_sdk._tools.tool.FunctionTool)
+alias of [**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[‘none’, ‘None’, ‘NONE’, ‘auto’, ‘Auto’, ‘AUTO’, ‘required’, ‘Required’, ‘REQUIRED’] | [**FunctionDictType**](message.md#yandex_ai_studio_sdk._types.tools.function.FunctionDictType) | [**FunctionTool**](tools.md#yandex_ai_studio_sdk._tools.tool.FunctionTool)
 
-*typeddict* yandex\_cloud\_ml\_sdk.\_chat.utils.**ModelFilter**{#yandex_cloud_ml_sdk._chat.utils.ModelFilter}
+*typeddict* yandex\_ai\_studio\_sdk.\_chat.utils.**ModelFilter**{#yandex_ai_studio_sdk._chat.utils.ModelFilter}
 
 Options to filter models by owner, version, or fine-tuned status.
 

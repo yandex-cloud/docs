@@ -297,4 +297,4 @@ description: Следуя данной инструкции, вы сможете
 #### См. также {#see-also}
 
 * [{#T}](../../tutorials/models-fine-tuning.md)
-* Больше примеров доступно в [репозитории на GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/tuning).
+* Больше примеров доступно в [репозитории на GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk/tree/master/examples/sync/tuning).

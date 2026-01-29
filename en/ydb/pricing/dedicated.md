@@ -1,10 +1,10 @@
 ---
-title: Pricing policy for {{ ydb-full-name }} with dedicated instances
-description: "In this tutorial, you will learn about\_the pricing policy for {{ ydb-full-name }} with dedicated instances."
+title: Pricing policy for Dedicated mode in {{ ydb-full-name }}
+description: In this article, you will learn about the pricing policy for Dedicated mode in {{ ydb-full-name }}.
 editable: false
 ---
 
-# Pricing policy for {{ ydb-name }} with dedicated instances
+# Pricing policy for Dedicated mode in {{ ydb-name }}
 
 
 
@@ -13,7 +13,7 @@ editable: false
 
 
 
-To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=02fcbc53c755#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=02fcbc53c755#calculator) on our website or check out the pricing below.
 
 
 {% endnote %}
@@ -28,12 +28,14 @@ To calculate the cost of using the service, use [our calculator](https://yandex.
 
 ## What goes into the cost of using {{ ydb-name }} {#rules}
 
-When using {{ ydb-name }} in dedicated-instance mode, you pay for the following:
+When using {{ ydb-name }} in *Dedicated* mode, you pay for:
+
 * Type and size of [storage groups](../concepts/resources.md#storage-groups) allocated for the DB.
 * [Computing resources](../concepts/resources.md#resource-presets) allocated to the DB.
 * Disk space allocated for [temporary storage (spilling)](../concepts/resources.md#spilling).
 
 The following resources are paid additionally:
+
 * Space used in {{ objstorage-full-name }} to store on-demand backups.
 * Outgoing traffic from {{ yandex-cloud }} to the internet.
 
@@ -48,14 +50,15 @@ The minimum billing unit is one hour; for example, you will be charged for two h
 ### Disk space usage {#rules-storage}
 
 You pay for the following:
+
 * Storage allocated for DB storage groups.
 * Space used by on-demand DB backups saved in {{ objstorage-name }}.
 
-  {% note info %}
+    {% note info %}
 
-  For each DB, {{ ydb-name }} automatically creates and stores two full backups for the last two days for free. No fee is charged for storing automatic backups.
+    For each DB, {{ ydb-name }} automatically creates and stores two full backups for the last two days for free. No fee is charged for storing automatic backups.
 
-  {% endnote %}
+    {% endnote %}
 
 * Temporary storage size (for spilling).
 
@@ -67,11 +70,11 @@ You pay for the following:
 
 The price covers one month of use. The minimum billing unit is 1 GB/hr (e.g., storing 1 GB for 1.5 hours costs the same as for 2 hours).
 
-## Discount for committed volumes of services (CVoS) {#cvos}
+## Discount for committed volume of services (CVoS) {#cvos}
 
 {% include [cvos](../../_includes/mdb/cvos.md) %}
 
-{{ ydb-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
+{{ ydb-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
@@ -80,7 +83,6 @@ Currently, you cannot order storage or web traffic this way.
 {% endnote %}
 
 ## Prices for the Russia region {#prices}
-
 
 {% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
 
@@ -98,7 +100,7 @@ Currently, you cannot order storage or web traffic this way.
 </MDX>
 
 
-{% note info "Minimum group size" %}
+{% note info "Minimum storage group size" %}
 
 A single [storage group](../concepts/resources.md#storage-groups) can store up to 100 GB of user data. The minimum granularity of space allocation for a DB is one storage group.
 

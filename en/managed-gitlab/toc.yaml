@@ -7,7 +7,7 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Getting information about instances
+      - name: Getting instance info
         href: operations/instance/instance-list.md
       - name: Creating and activating an instance
         href: operations/instance/instance-create.md

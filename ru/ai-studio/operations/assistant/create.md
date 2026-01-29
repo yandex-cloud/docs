@@ -101,4 +101,4 @@ noIndex: true
 * [{#T}](./request-chunked-response.md)
 * [{#T}](../../tutorials/pdf-searchindex-ai-assistant.md)
 * [{#T}](../../concepts/assistant/tools/index.md)
-* Примеры работы с {{ ml-sdk-name }} на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)
+* Примеры работы с {{ ml-sdk-name }} на [GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk/tree/master/examples/sync/assistants)

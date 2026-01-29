@@ -1,54 +1,4 @@
-### Bash {#bash}
-
-{% list tabs group=connection %}
-
-- Подключение без SSL {#without-ssl}
-
-    {% include [Install requirements](./connect/bash/install-requirements.md) %}
-
-    **Подключение напрямую к мастеру**:
-
-    Укажите FQDN хоста-мастера в нужном шарде:
-
-    ```bash
-    redis-cli \
-        -c \
-        -h <FQDN_хоста-мастера_в_нужном_шарде> \
-        -a <пароль>
-    ```
-
-- Подключение с SSL {#with-ssl}
-
-    {% include [Install requirements SSL](./connect/bash/install-requirements-ssl.md) %}
-
-    **Подключение напрямую к мастеру**:
-
-    Укажите FQDN хоста-мастера в нужном шарде:
-
-    ```bash
-    redis-cli \
-        -c \
-        -h <FQDN_хоста-мастера_в_нужном_шарде> \
-        -a <пароль> \
-        -p {{ port-mrd-tls }} \
-        --tls \
-        --cacert ~/.redis/{{ crt-local-file }} \
-    ```
-
-{% endlist %}
-
-{% include [see-fqdn](../../../_includes/mdb/mvk/fqdn-host.md) %}
-
-После подключения к кластеру выполните команды:
-
-```bash
-SET foo bar
-GET foo
-```
-
-Если запрос `GET` возвращает значение `nil`, значит, запись для ключа `foo` была перемещена на другой шард. Подключитесь к нему и повторите запрос — он вернет значение `bar`.
-
-### C# {#csharp}
+## C# {#csharp}
 
 {% include [Install requirements](./connect/csharp/install-requirements.md) %}
 
@@ -232,7 +182,7 @@ GET foo
 
 {% include [Подключение к кластеру](./connect/csharp/after-connect.md) %}
 
-### Go {#go}
+## Go {#go}
 
 **Перед подключением установите зависимости**:
 
@@ -395,7 +345,7 @@ go get github.com/redis/go-redis/v9
 
 {% include [Connect to cluster](./connect/go/after-connect.md) %}
 
-### Java {#java}
+## Java {#java}
 
 {% include [Install requirements](./connect/java/install-requirements.md) %}
 
@@ -492,7 +442,7 @@ go get github.com/redis/go-redis/v9
 
 {% include [Connect to cluster](./connect/java/after-connect.md) %}
 
-### Node.js {#nodejs}
+## Node.js {#nodejs}
 
 {% include [Install requirements](./connect/nodejs/install-requirements.md) %}
 
@@ -601,7 +551,7 @@ go get github.com/redis/go-redis/v9
 
 {% include [Connect to cluster](./connect/nodejs/after-connect.md) %}
 
-### PHP {#php}
+## PHP {#php}
 
 {% include [Install requirements](./connect/php/install-requirements.md) %}
 
@@ -677,7 +627,7 @@ go get github.com/redis/go-redis/v9
 
 {% include [Connect to cluster](./connect/php/after-connect.md) %}
 
-### Python {#python}
+## Python {#python}
 
 **Перед подключением установите зависимости**:
 
@@ -750,7 +700,7 @@ pip install pyopenssl redis-py-cluster setuptools_rust
 
 {% include [Connect to cluster](./connect/python/after-connect.md) %}
 
-### Ruby {#ruby}
+## Ruby {#ruby}
 
 {% include [Install requirements](./connect/ruby/install-requirements.md) %}
 

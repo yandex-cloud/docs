@@ -25,7 +25,9 @@ Request message to retrieve details of a template.
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the template to retrieve. ||
+Required field. ID of the template to retrieve.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Template {#yandex.cloud.certificatemanager.v1.privateca.Template}

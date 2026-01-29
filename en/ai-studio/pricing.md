@@ -18,7 +18,6 @@ editable: false
 
 ## Prices for the Russia region {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### {{ model-gallery-name }} {#rules-generating}
@@ -110,7 +109,7 @@ The cost of text [vectorization](./concepts/embeddings.md) (getting text embeddi
 
 {#price-example-embedding}
 
-{% cut "Cost calculation for text vectorization" %}
+{% cut "Example of cost calculation for text vectorization" %}
 
 > The cost of vectorizing a text of 2,000 tokens will be:
 
@@ -164,7 +163,7 @@ The cost of using voice agents consists of your fees for speech recognition (inp
 
 {#price-example-voice-assistant}
 
-{% cut "Cost calculation for a voice agent" %}
+{% cut "Example of cost calculation for a voice agent" %}
 
 > Cost of using a voice agent per a 60-second session, where:
 > * Input audio: 60 seconds
@@ -181,8 +180,6 @@ The cost of using voice agents consists of your fees for speech recognition (inp
 The {{ assistant-api }} tools are free of charge. 
 
 The File Search tool in text and voice agents is free of charge.
-
-The Web Search tool in text and voice agents is free of charge until November 17, 2025. 
 
 
 

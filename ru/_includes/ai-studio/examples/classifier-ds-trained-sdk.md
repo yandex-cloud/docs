@@ -2,13 +2,13 @@
 #!/usr/bin/env python3
 
 from __future__ import annotations
-from yandex_cloud_ml_sdk import YCloudML
+from yandex_ai_studio_sdk import AIStudio
 
 request_text = "Vieta's formulas"
 
 
 def main():
-    sdk = YCloudML(
+    sdk = AIStudio(
         folder_id="<идентификатор_каталога>",
         auth="<API-ключ>",
     )

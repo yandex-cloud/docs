@@ -6,7 +6,7 @@ Different {{ KF }} versions use different tools to store cluster metadata, state
 
 When selecting {{ KF }} version 3.5 and lower, only {{ ZK }} is supported.
 
-If you create a cluster with more than one host, three dedicated {{ ZK }} hosts will be added to the cluster.
+A new multi-host cluster will automatically get three separate {{ ZK }} hosts.
 
 **Hosts with {{ kraft-short-name }}** {#host-kraft}
 

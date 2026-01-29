@@ -1,6 +1,6 @@
 ---
 title: My account portal in {{ org-full-name }}
-description: My account is a user's personal workspace where they can manage their {{ org-name }} account.
+description: '[_My account_]({{ link-my-account }}) is a user''s personal workspace where they can manage their {{ org-name }} account.'
 ---
 
 # My account portal

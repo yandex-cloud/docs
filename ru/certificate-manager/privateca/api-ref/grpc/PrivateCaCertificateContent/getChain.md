@@ -25,7 +25,9 @@ Request message for GetChain.
 ||Field | Description ||
 || certificate_id | **string**
 
-Required field. ID of the certificate to get the chain for. ||
+Required field. ID of the certificate to get the chain for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## GetCertificateChainResponse {#yandex.cloud.certificatemanager.v1.privateca.GetCertificateChainResponse}

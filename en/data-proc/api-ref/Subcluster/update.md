@@ -11,12 +11,14 @@ apiPlayground:
             **string**
             Required field. ID of the cluster to update a subcluster in.
             To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         subclusterId:
           description: |-
             **string**
             Required field. ID of the subcluster to update.
             To get a subcluster ID, make a [SubclusterService.List](/docs/data-proc/api-ref/Subcluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -47,18 +49,21 @@ apiPlayground:
           description: |-
             **string**
             New name for the subcluster. The name must be unique within the cluster.
+            Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
           pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
           type: string
         hostsCount:
           description: |-
             **string** (int64)
             Required field. New number of hosts in the subcluster.
+            The minimum value is 1.
           type: string
           format: int64
         decommissionTimeout:
           description: |-
             **string** (int64)
             Timeout to gracefully decommission nodes. In seconds. Default value: 0
+            Acceptable values are 0 to 86400, inclusive.
           default: '0'
           type: string
           format: int64
@@ -101,6 +106,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Upper limit for total instance subcluster count.
+              Acceptable values are 1 to 100, inclusive.
             type: string
             format: int64
           preemptible:
@@ -136,11 +142,13 @@ apiPlayground:
             description: |-
               **string**
               Defines an autoscaling rule based on the average CPU utilization of the instance group.
+              Acceptable values are 0 to 100, inclusive.
             type: string
           decommissionTimeout:
             description: |-
               **string** (int64)
               Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+              Acceptable values are 0 to 86400, inclusive.
             default: '120'
             type: string
             format: int64
@@ -167,12 +175,16 @@ PATCH https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/subcluste
 
 Required field. ID of the cluster to update a subcluster in.
 
-To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Cluster/list#List) request. ||
+To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || subclusterId | **string**
 
 Required field. ID of the subcluster to update.
 
-To get a subcluster ID, make a [SubclusterService.List](/docs/data-proc/api-ref/Subcluster/list#List) request. ||
+To get a subcluster ID, make a [SubclusterService.List](/docs/data-proc/api-ref/Subcluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.dataproc.v1.UpdateSubclusterRequest}
@@ -217,13 +229,19 @@ The rest of the fields will be reset to the default. ||
 New configuration of resources that should be allocated for each host in the subcluster. ||
 || name | **string**
 
-New name for the subcluster. The name must be unique within the cluster. ||
+New name for the subcluster. The name must be unique within the cluster.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || hostsCount | **string** (int64)
 
-Required field. New number of hosts in the subcluster. ||
+Required field. New number of hosts in the subcluster.
+
+The minimum value is 1. ||
 || decommissionTimeout | **string** (int64)
 
-Timeout to gracefully decommission nodes. In seconds. Default value: 0 ||
+Timeout to gracefully decommission nodes. In seconds. Default value: 0
+
+Acceptable values are 0 to 86400, inclusive. ||
 || autoscalingConfig | **[AutoscalingConfig](#yandex.cloud.dataproc.v1.AutoscalingConfig)**
 
 Configuration for instance group based subclusters ||
@@ -254,7 +272,9 @@ Volume of the storage available to a host, in bytes. ||
 ||Field | Description ||
 || maxHostsCount | **string** (int64)
 
-Upper limit for total instance subcluster count. ||
+Upper limit for total instance subcluster count.
+
+Acceptable values are 1 to 100, inclusive. ||
 || preemptible | **boolean**
 
 Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
@@ -275,10 +295,14 @@ During this time, the group size doesn't decrease, even if the new metric values
 indicate that it should. ||
 || cpuUtilizationTarget | **string**
 
-Defines an autoscaling rule based on the average CPU utilization of the instance group. ||
+Defines an autoscaling rule based on the average CPU utilization of the instance group.
+
+Acceptable values are 0 to 100, inclusive. ||
 || decommissionTimeout | **string** (int64)
 
-Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 ||
+Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+
+Acceptable values are 0 to 86400, inclusive. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -409,10 +433,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || clusterId | **string**
 
-ID of the cluster whose subcluster is being updated. ||
+ID of the cluster whose subcluster is being updated.
+
+The maximum string length in characters is 50. ||
 || subclusterId | **string**
 
-ID of the subcluster that is being updated. ||
+ID of the subcluster that is being updated.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -456,12 +484,13 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || name | **string**
 
-Name of the subcluster. The name is unique within the cluster. ||
+Name of the subcluster. The name is unique within the cluster.
+
+The string length in characters must be 1-63. ||
 || role | **enum** (Role)
 
 Role that is fulfilled by hosts of the subcluster.
 
-- `ROLE_UNSPECIFIED`
 - `MASTERNODE`: The subcluster fulfills the master role.
 
   Master can run the following services, depending on the requested components:
@@ -529,7 +558,9 @@ Volume of the storage available to a host, in bytes. ||
 ||Field | Description ||
 || maxHostsCount | **string** (int64)
 
-Upper limit for total instance subcluster count. ||
+Upper limit for total instance subcluster count.
+
+Acceptable values are 1 to 100, inclusive. ||
 || preemptible | **boolean**
 
 Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
@@ -550,8 +581,12 @@ During this time, the group size doesn't decrease, even if the new metric values
 indicate that it should. ||
 || cpuUtilizationTarget | **string**
 
-Defines an autoscaling rule based on the average CPU utilization of the instance group. ||
+Defines an autoscaling rule based on the average CPU utilization of the instance group.
+
+Acceptable values are 0 to 100, inclusive. ||
 || decommissionTimeout | **string** (int64)
 
-Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 ||
+Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+
+Acceptable values are 0 to 86400, inclusive. ||
 |#

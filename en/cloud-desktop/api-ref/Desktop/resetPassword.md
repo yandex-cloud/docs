@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the desktop.
+            The maximum string length in characters is 50.
           type: string
       required:
         - desktopId
@@ -34,11 +35,13 @@ apiPlayground:
             description: |-
               **string**
               Required field. Identity of the access binding.
+              The maximum string length in characters is 100.
             type: string
           subjectType:
             description: |-
               **string**
               Required field. Type of the access binding, e.g. userAccount, serviceAccount, system.
+              The maximum string length in characters is 100.
             type: string
         required:
           - subjectId
@@ -62,7 +65,9 @@ POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:
 ||Field | Description ||
 || desktopId | **string**
 
-Required field. ID of the desktop. ||
+Required field. ID of the desktop.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.clouddesktop.v1.api.ResetPasswordRequest}
@@ -89,10 +94,14 @@ Required field. User of the desktop. ||
 ||Field | Description ||
 || subjectId | **string**
 
-Required field. Identity of the access binding. ||
+Required field. Identity of the access binding.
+
+The maximum string length in characters is 100. ||
 || subjectType | **string**
 
-Required field. Type of the access binding, e.g. userAccount, serviceAccount, system. ||
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.clouddesktop.v1.api.ResetPasswordResponse}

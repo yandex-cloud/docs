@@ -27,13 +27,19 @@ Deletes the specified subcluster.
 
 Required field. ID of the cluster to remove a subcluster from.
 
-To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/grpc/Cluster/list#List) request. ||
+To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || subcluster_id | **string**
 
-Required field. ID of the subcluster to delete. ||
+Required field. ID of the subcluster to delete.
+
+The maximum string length in characters is 50. ||
 || decommission_timeout | **int64**
 
-Timeout to gracefully decommission nodes. In seconds. Default value: 0 ||
+Timeout to gracefully decommission nodes. In seconds. Default value: 0
+
+Acceptable values are 0 to 86400, inclusive. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -118,8 +124,12 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || cluster_id | **string**
 
-ID of the cluster whose subcluster is being deleted. ||
+ID of the cluster whose subcluster is being deleted.
+
+The maximum string length in characters is 50. ||
 || subcluster_id | **string**
 
-ID of the subcluster that is being deleted. ||
+ID of the subcluster that is being deleted.
+
+The maximum string length in characters is 50. ||
 |#

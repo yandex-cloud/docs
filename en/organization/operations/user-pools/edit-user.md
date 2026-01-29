@@ -1,6 +1,6 @@
 ---
 title: How to update user data in a {{ org-full-name }} pool
-description: Follow this guide to update user data in an {{ org-full-name }} pool.
+description: Follow this guide to update user data in a {{ org-full-name }} pool.
 ---
 
 # Updating user data
@@ -19,8 +19,8 @@ To update local user data:
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
   1. In the left-hand panel, select ![icon-users](../../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}** and find the local user in the list that opens.
 
-        Optionally, use the search bar and filters at the top of the screen.
-  1. In the row with the user, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![person-pencil](../../../_assets/console-icons/person-pencil.svg) **{{ ui-key.yacloud_org.page.user.action_edit-user }}**. In the window that opens, do the following:
+     Optionally, use the search bar and filters at the top of the screen.
+  1. In the row with the user, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![person-pencil](../../../_assets/console-icons/person-pencil.svg) **{{ ui-key.yacloud_org.page.user.action_edit-user }}**. In the window that opens:
 
       1. Update the username, [domain](../../concepts/domains.md), and full name.
       1. Add or update the email address.
@@ -60,6 +60,49 @@ To update local user data:
      * `--family-name`: New user last name.
      * `--email`: New user email address.
      * `--phone-number`: New user phone number.
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  To update user data in the [pool](../../concepts/user-pools.md):
+
+  1. Open the {{ TF }} configuration file and update the user parameters:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_user" "example_user" {
+       userpool_id  = <pool_ID>
+       username     = "<user_login_and_domain>"
+       full_name    = "<user_first_and_last_name>"
+       given_name   = "<username>"
+       family_name  = "<user_last_name>"
+       email        = "<user_email>"
+       phone_number = "<user_phone_number>"
+     }
+     ```
+
+     Where:
+
+     * `username`: New user login and domain in `login@domain` format. The login must be unique within the current [user pool](../../concepts/user-pools.md).
+     * `full_name`: User’s new first and last name.
+     * `given_name`: New user name.
+     * `family_name`: New user last name.
+     * `email`: New user email address.
+     * `phone_number`: New user phone number.
+
+     For more information about `yandex_organizationmanager_idp_user` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will update all the required resources. You can check the changes in [{{ org-full-name }}]({{ link-org-cloud-center }}) or using the [CLI](../../../cli/):
+
+     ```bash
+     yc organization-manager idp user get <user_ID>
+     ```
 
 - API {#api}
 

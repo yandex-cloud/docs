@@ -53,7 +53,7 @@ description: Следуя данной инструкции, вы научите
 
       {% include [sdk-code-legend](../../../_includes/ai-studio/examples/sdk-code-legend.md) %}
 
-      * `model` — URI модели. Подробнее см. в разделе [{#T}](../../sdk-ref/sync/chat/completions#yandex_cloud_ml_sdk._chat.completions.function.ChatCompletions.md).
+      * `model` — URI модели. Подробнее см. в разделе [{#T}](../../sdk-ref/sync/chat/completions#yandex_ai_studio_sdk._chat.completions.function.ChatCompletions.md).
 
   1. Выполните созданный файл:
 
@@ -118,4 +118,4 @@ description: Следуя данной инструкции, вы научите
 
 * [{#T}](../../concepts/generation/tokens.md)
 * [{#T}](../../concepts/generation/index.md)
-* Примеры работы с {{ ml-sdk-name }} на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/completions)
+* Примеры работы с {{ ml-sdk-name }} на [GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk/tree/master/examples/sync/completions)

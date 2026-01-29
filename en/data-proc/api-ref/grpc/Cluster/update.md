@@ -81,22 +81,30 @@ Updates the configuration of the specified cluster.
 
 ID of the cluster to update.
 
-To get the cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which attributes of the cluster should be updated. ||
 || description | **string**
 
-New description for the cluster. ||
+New description for the cluster.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-A new set of cluster labels as `key:value` pairs. ||
+A new set of cluster labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || config_spec | **[UpdateClusterConfigSpec](#yandex.cloud.dataproc.v1.UpdateClusterConfigSpec)**
 
 Configuration and resources for hosts that should be created with the Yandex Data Processing cluster. ||
 || name | **string**
 
-New name for the Yandex Data Processing cluster. The name must be unique within the folder. ||
+New name for the Yandex Data Processing cluster. The name must be unique within the folder.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || service_account_id | **string**
 
 ID of the new service account to be used by the Yandex Data Processing manager agent. ||
@@ -105,7 +113,9 @@ ID of the new service account to be used by the Yandex Data Processing manager a
 Name of the new Object Storage bucket to use for Yandex Data Processing jobs. ||
 || decommission_timeout | **int64**
 
-Timeout to gracefully decommission nodes. In seconds. Default value: 0 ||
+Timeout to gracefully decommission nodes. In seconds. Default value: 0
+
+Acceptable values are 0 to 86400, inclusive. ||
 || ui_proxy | **bool**
 
 Enable UI Proxy feature. ||
@@ -146,13 +156,17 @@ ID of the subcluster to update.
 To get the subcluster ID make a [SubclusterService.List](/docs/data-proc/api-ref/grpc/Subcluster/list#List) request. ||
 || name | **string**
 
-Name of the subcluster. ||
+Name of the subcluster.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || resources | **[Resources](#yandex.cloud.dataproc.v1.Resources)**
 
 Resource configuration for each host in the subcluster. ||
 || hosts_count | **int64**
 
-Number of hosts in the subcluster. ||
+Number of hosts in the subcluster.
+
+The minimum value is 1. ||
 || autoscaling_config | **[AutoscalingConfig](#yandex.cloud.dataproc.v1.AutoscalingConfig)**
 
 Configuration for instance group based subclusters ||
@@ -183,7 +197,9 @@ Volume of the storage available to a host, in bytes. ||
 ||Field | Description ||
 || max_hosts_count | **int64**
 
-Upper limit for total instance subcluster count. ||
+Upper limit for total instance subcluster count.
+
+Acceptable values are 1 to 100, inclusive. ||
 || preemptible | **bool**
 
 Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
@@ -204,10 +220,14 @@ During this time, the group size doesn't decrease, even if the new metric values
 indicate that it should. ||
 || cpu_utilization_target | **double**
 
-Defines an autoscaling rule based on the average CPU utilization of the instance group. ||
+Defines an autoscaling rule based on the average CPU utilization of the instance group.
+
+Acceptable values are 0 to 100, inclusive. ||
 || decommission_timeout | **int64**
 
-Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 ||
+Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+
+Acceptable values are 0 to 86400, inclusive. ||
 |#
 
 ## HadoopConfig {#yandex.cloud.dataproc.v1.HadoopConfig}
@@ -221,7 +241,6 @@ their properties and settings.
 
 Set of services used in the cluster (if empty, the default set is used).
 
-- `SERVICE_UNSPECIFIED`
 - `HDFS`
 - `YARN`
 - `MAPREDUCE`
@@ -421,13 +440,19 @@ ID of the folder that the cluster belongs to. ||
 Creation timestamp. ||
 || name | **string**
 
-Name of the cluster. The name is unique within the folder. ||
+Name of the cluster. The name is unique within the folder.
+
+The string length in characters must be 1-63. ||
 || description | **string**
 
-Description of the cluster. ||
+Description of the cluster.
+
+The string length in characters must be 0-256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Cluster labels as `key:value` pairs. ||
+Cluster labels as `key:value` pairs.
+
+No more than 64 per resource. ||
 || monitoring[] | **[Monitoring](#yandex.cloud.dataproc.v1.Monitoring)**
 
 Monitoring systems relevant to the cluster. ||
@@ -482,7 +507,6 @@ To prevent logs from being sent to the cloud set cluster property dataproc:disab
 
 Environment of the cluster
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`
 - `PRESTABLE` ||
 || autoscaling_service_account_id | **string**
@@ -531,7 +555,6 @@ their properties and settings.
 
 Set of services used in the cluster (if empty, the default set is used).
 
-- `SERVICE_UNSPECIFIED`
 - `HDFS`
 - `YARN`
 - `MAPREDUCE`

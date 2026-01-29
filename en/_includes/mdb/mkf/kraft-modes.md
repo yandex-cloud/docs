@@ -4,7 +4,7 @@
   
   You cannot set the number of broker hosts manually.
 
-* **{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-split-mode_sbrDd }}**: A broker and a {{ kraft-short-name }} metadata controller are on separate hosts. When you create a multiple-host cluster, three dedicated {{ kraft-short-name }} hosts are added to it.
+* **{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-split-mode_sbrDd }}**: Broker and {{ kraft-short-name }} metadata controller are on separate hosts. A new multi-host cluster will automatically get three separate {{ kraft-short-name }} hosts.
 
   The number of broker hosts is set manually.
 

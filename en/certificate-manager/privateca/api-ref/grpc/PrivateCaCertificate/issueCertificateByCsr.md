@@ -32,13 +32,19 @@ Request to issue a new certificate using a CSR (Certificate Signing Request).
 ||Field | Description ||
 || certificate_authority_id | **string**
 
-Required field. The ID of the Certificate Authority (CA) that will issue this certificate. ||
+Required field. The ID of the Certificate Authority (CA) that will issue this certificate.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-The name of the certificate. ||
+The name of the certificate.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-A description of the certificate. ||
+A description of the certificate.
+
+The maximum string length in characters is 1024. ||
 || csr | **string**
 
 Required field. PEM-encoded CSR content. ||
@@ -47,13 +53,17 @@ Required field. PEM-encoded CSR content. ||
 PEM-encoded private key associated with the CSR. CA will generate own key for certificate if absent ||
 || template_id | **string**
 
-Optional certificate template ID. Issue certificate with template's fields if non-empty. ||
+Optional certificate template ID. Issue certificate with template's fields if non-empty.
+
+The maximum string length in characters is 50. ||
 || deletion_protection | **bool**
 
 Flag to protect the certificate from being accidentally deleted. ||
 || desired_ttl_days | **int64**
 
-Desired time-to-live (TTL) of the certificate in days. ||
+Desired time-to-live (TTL) of the certificate in days.
+
+The maximum value is 20000. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

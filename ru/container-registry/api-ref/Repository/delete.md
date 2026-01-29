@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the repository to delete.
+            The maximum string length in characters is 50.
           type: string
       required:
         - repositoryId
@@ -36,7 +37,9 @@ DELETE https://container-registry.{{ api-host }}/container-registry/v1/repositor
 ||Field | Description ||
 || repositoryId | **string**
 
-Required field. ID of the repository to delete. ||
+Required field. ID of the repository to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

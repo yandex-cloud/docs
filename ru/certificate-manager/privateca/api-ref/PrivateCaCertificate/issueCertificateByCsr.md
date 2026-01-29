@@ -12,17 +12,20 @@ apiPlayground:
           description: |-
             **string**
             Required field. The ID of the Certificate Authority (CA) that will issue this certificate.
+            The maximum string length in characters is 50.
           type: string
         name:
           description: |-
             **string**
             The name of the certificate.
+            Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             A description of the certificate.
+            The maximum string length in characters is 1024.
           type: string
         csr:
           description: |-
@@ -38,6 +41,7 @@ apiPlayground:
           description: |-
             **string**
             Optional certificate template ID. Issue certificate with template's fields if non-empty.
+            The maximum string length in characters is 50.
           type: string
         deletionProtection:
           description: |-
@@ -48,6 +52,7 @@ apiPlayground:
           description: |-
             **string** (int64)
             Desired time-to-live (TTL) of the certificate in days.
+            The maximum value is 20000.
           type: string
           format: int64
       required:
@@ -89,13 +94,19 @@ Request to issue a new certificate using a CSR (Certificate Signing Request).
 ||Field | Description ||
 || certificateAuthorityId | **string**
 
-Required field. The ID of the Certificate Authority (CA) that will issue this certificate. ||
+Required field. The ID of the Certificate Authority (CA) that will issue this certificate.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-The name of the certificate. ||
+The name of the certificate.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-A description of the certificate. ||
+A description of the certificate.
+
+The maximum string length in characters is 1024. ||
 || csr | **string**
 
 Required field. PEM-encoded CSR content. ||
@@ -104,13 +115,17 @@ Required field. PEM-encoded CSR content. ||
 PEM-encoded private key associated with the CSR. CA will generate own key for certificate if absent ||
 || templateId | **string**
 
-Optional certificate template ID. Issue certificate with template's fields if non-empty. ||
+Optional certificate template ID. Issue certificate with template's fields if non-empty.
+
+The maximum string length in characters is 50. ||
 || deletionProtection | **boolean**
 
 Flag to protect the certificate from being accidentally deleted. ||
 || desiredTtlDays | **string** (int64)
 
-Desired time-to-live (TTL) of the certificate in days. ||
+Desired time-to-live (TTL) of the certificate in days.
+
+The maximum value is 20000. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

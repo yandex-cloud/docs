@@ -32,7 +32,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
         * [Enable](../../../../managed-postgresql/operations/extensions/cluster-extensions.md) the `pg_tm_aux` extension for it. This will allow replication to continue even after changing the master host. In some cases, a transfer may end in an error after you replace a master in your cluster. For more information, see [Troubleshooting](../../../../data-transfer/troubleshooting/index.md#master-change).
 
-        * In the cluster, specify the `Wal keep size` [setting](../../../../managed-postgresql/concepts/settings-list.md#setting-wal-keep-size) value. When you change the master host, [WAL](https://www.postgresql.org/docs/current/wal-intro.html) should have enough records on the new master to resume replication from the same place. If there are not enough records, the transfer may fail with an [error](../../../../data-transfer/operations/endpoint/source/postgresql.md#no-wal-story). As the minimum `Wal keep size`, use the average value from the **Source Buffer Size** chart in the [{{ data-transfer-name }} monitoring dashboard](../../../../data-transfer/operations/monitoring.md). If disk has enough capacity, specify a value with some margin.
+        * In the cluster, specify the `Wal keep size` [setting](../../../../managed-postgresql/concepts/settings-list.md#setting-wal-keep-size) value. When you change the master host, [WAL](https://www.postgresql.org/docs/current/wal-intro.html) should have enough records on the new master to resume replication from the same place. If there are not enough records, the transfer may fail with an [error](../../../../data-transfer/operations/endpoint/source/postgresql.md#no-wal-story). As the minimum `Wal keep size`, use the average value from the **Source Buffer Size** chart in the [{{ data-transfer-name }} monitoring dashboard](../../../../data-transfer/operations/monitoring.md). If disk space permits, provide a generous safety margin.
 
     1. {% include [Tables without primary keys](../../primary-keys-postgresql.md) %}
     
@@ -48,7 +48,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
         WHERE state != 'idle' ORDER BY 1 DESC;
         ```
     
-       This will return a list of queries running on the server. Pay attention to queries with a high `duration` value.
+       You will see a list of queries running on the server. Look for the queries with a high `duration` value.
     
     1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ PG }} source](../../../../data-transfer/operations/endpoint/source/postgresql.md#additional-settings).
     
@@ -207,7 +207,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
         WHERE state != 'idle' ORDER BY 1 DESC;
         ```
     
-       This will return a list of queries running on the server. Pay attention to queries with a high `duration` value.
+       You will see a list of queries running on the server. Look for the queries with a high `duration` value.
     
     1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ PG }} source](../../../../data-transfer/operations/endpoint/source/postgresql.md#additional-settings).
     

@@ -45,8 +45,9 @@ Creating a {{ ytsaurus-name }} cluster takes a long time.
 
 You can manage {{ ytsaurus-name }} through the web interface. To use the interface, you need the [managed-ytsaurus.user](security/index.md#managed-ytsaurus-user) role or higher. To get started with the {{ ytsaurus-name }} web interface:
 
-1. In the [management console]({{ link-console-main }}), open the cluster page.
-1. Go to the {{ ytsaurus-name }} web interface page.
+1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
+1. Go to the [{{ ytsaurus-name }} web interface](concepts/authentication.md#users) page.
 
 ## What's next {#whats-next}
 

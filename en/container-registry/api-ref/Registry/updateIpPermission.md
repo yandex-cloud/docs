@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the registry for which ip permissions are being updated.
+            The maximum string length in characters is 50.
           type: string
       required:
         - registryId
@@ -33,7 +34,6 @@ apiPlayground:
           action:
             description: |-
               **enum** (Action)
-              - `ACTION_UNSPECIFIED`
               - `PULL`
               - `PUSH`
             type: string
@@ -51,7 +51,6 @@ apiPlayground:
             description: |-
               **enum** (IpPermissionAction)
               Required field. The action that is being performed on an ip permission.
-              - `IP_PERMISSION_ACTION_UNSPECIFIED`
               - `ADD`: Addition of an ip permission.
               - `REMOVE`: Removal of an ip permission.
             type: string
@@ -86,7 +85,9 @@ POST https://container-registry.{{ api-host }}/container-registry/v1/registries/
 ||Field | Description ||
 || registryId | **string**
 
-Required field. ID of the registry for which ip permissions are being updated. ||
+Required field. ID of the registry for which ip permissions are being updated.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.containerregistry.v1.UpdateIpPermissionRequest}
@@ -120,7 +121,6 @@ Updates to IP permissions. ||
 
 Required field. The action that is being performed on an ip permission.
 
-- `IP_PERMISSION_ACTION_UNSPECIFIED`
 - `ADD`: Addition of an ip permission.
 - `REMOVE`: Removal of an ip permission. ||
 || ipPermission | **[IpPermission](#yandex.cloud.containerregistry.v1.IpPermission)**
@@ -134,7 +134,6 @@ Required field. Ip permission. ||
 ||Field | Description ||
 || action | **enum** (Action)
 
-- `ACTION_UNSPECIFIED`
 - `PULL`
 - `PUSH` ||
 || ip | **string** ||

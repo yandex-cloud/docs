@@ -26,17 +26,23 @@ Retrieves a list of subclusters in the specified cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Yandex Data Processing cluster to list subclusters in. ||
+Required field. ID of the Yandex Data Processing cluster to list subclusters in.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListSubclustersResponse.next_page_token](#yandex.cloud.dataproc.v1.ListSubclustersResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListSubclustersResponse.next_page_token](#yandex.cloud.dataproc.v1.ListSubclustersResponse) returned by a previous list request. ||
+[ListSubclustersResponse.next_page_token](#yandex.cloud.dataproc.v1.ListSubclustersResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters subclusters listed in the response.
@@ -45,7 +51,9 @@ The expression must specify:
 1. The field name. Currently you can use filtering only on [Subcluster.name](#yandex.cloud.dataproc.v1.Subcluster) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-Example of a filter: `name=dataproc123_subcluster456`. ||
+Example of a filter: `name=dataproc123_subcluster456`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListSubclustersResponse {#yandex.cloud.dataproc.v1.ListSubclustersResponse}
@@ -114,12 +122,13 @@ ID of the Yandex Data Processing cluster that the subcluster belongs to. ||
 Creation timestamp. ||
 || name | **string**
 
-Name of the subcluster. The name is unique within the cluster. ||
+Name of the subcluster. The name is unique within the cluster.
+
+The string length in characters must be 1-63. ||
 || role | enum **Role**
 
 Role that is fulfilled by hosts of the subcluster.
 
-- `ROLE_UNSPECIFIED`
 - `MASTERNODE`: The subcluster fulfills the master role.
 
   Master can run the following services, depending on the requested components:
@@ -187,7 +196,9 @@ Volume of the storage available to a host, in bytes. ||
 ||Field | Description ||
 || max_hosts_count | **int64**
 
-Upper limit for total instance subcluster count. ||
+Upper limit for total instance subcluster count.
+
+Acceptable values are 1 to 100, inclusive. ||
 || preemptible | **bool**
 
 Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
@@ -208,8 +219,12 @@ During this time, the group size doesn't decrease, even if the new metric values
 indicate that it should. ||
 || cpu_utilization_target | **double**
 
-Defines an autoscaling rule based on the average CPU utilization of the instance group. ||
+Defines an autoscaling rule based on the average CPU utilization of the instance group.
+
+Acceptable values are 0 to 100, inclusive. ||
 || decommission_timeout | **int64**
 
-Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 ||
+Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+
+Acceptable values are 0 to 86400, inclusive. ||
 |#

@@ -27,7 +27,9 @@ Reset password
 ||Field | Description ||
 || desktop_id | **string**
 
-Required field. ID of the desktop. ||
+Required field. ID of the desktop.
+
+The maximum string length in characters is 50. ||
 || user | **[User](#yandex.cloud.clouddesktop.v1.api.User)**
 
 Required field. User of the desktop. ||
@@ -39,10 +41,14 @@ Required field. User of the desktop. ||
 ||Field | Description ||
 || subject_id | **string**
 
-Required field. Identity of the access binding. ||
+Required field. Identity of the access binding.
+
+The maximum string length in characters is 100. ||
 || subject_type | **string**
 
-Required field. Type of the access binding, e.g. userAccount, serviceAccount, system. ||
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ResetPasswordResponse {#yandex.cloud.clouddesktop.v1.api.ResetPasswordResponse}

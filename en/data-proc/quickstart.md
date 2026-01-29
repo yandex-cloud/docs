@@ -51,17 +51,18 @@ To get started:
 
 To create a cluster:
 
-1. In the management console, navigate to the folder where you want to create your cluster, then select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. In the management console, open the folder where you want to create a cluster.
+1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_empty-create }}**.
-1. Specify your cluster settings and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
-1. When the cluster is ready for operation, its status will change to **Alive**. This may take some time.
+1. Configure your cluster and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
+1. When the cluster is ready for operation, its status will change to **Alive**. This may take a while.
 
 ## Connect to the cluster {#connect}
 
 To connect to your cluster:
 
 
-1. If you are using security groups for a cloud network, [configure them](operations/security-groups.md) to enable all required traffic between the cluster and the connecting host.
+1. If you are using security groups for your cloud network, [configure them](operations/security-groups.md) to allow all relevant traffic between the cluster and the connecting host.
 
 
 1. Copy the SSL key you specified during {{ dataproc-name }} cluster creation to the VM.

@@ -26,17 +26,23 @@ Retrieves a list of jobs for a cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the cluster to list jobs for. ||
+Required field. ID of the cluster to list jobs for.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListJobsResponse.next_page_token](#yandex.cloud.dataproc.v1.ListJobsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListJobsResponse.next_page_token](#yandex.cloud.dataproc.v1.ListJobsResponse) returned by a previous list request. ||
+[ListJobsResponse.next_page_token](#yandex.cloud.dataproc.v1.ListJobsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters jobs listed in the response.
@@ -45,7 +51,9 @@ The expression must specify:
 1. The field name. Currently you can use filtering only on [Job.name](#yandex.cloud.dataproc.v1.Job) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-Example of a filter: `name=my-job`. ||
+Example of a filter: `name=my-job`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListJobsResponse {#yandex.cloud.dataproc.v1.ListJobsResponse}
@@ -213,7 +221,6 @@ The id of the user who created the job ||
 
 Job status.
 
-- `STATUS_UNSPECIFIED`
 - `PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.
 - `PENDING`: Job is acquired by the agent and is in the queue for execution.
 - `RUNNING`: Job is being run in the cluster.

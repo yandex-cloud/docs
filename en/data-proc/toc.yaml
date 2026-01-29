@@ -311,6 +311,12 @@ items:
                 href: api-ref/grpc/Cluster/listHosts.md
               - name: ListUILinks
                 href: api-ref/grpc/Cluster/listUILinks.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Cluster/updateAccessBindings.md
           - name: Job
             items:
               - name: Overview
@@ -383,6 +389,12 @@ items:
                 href: api-ref/Cluster/listHosts.md
               - name: ListUILinks
                 href: api-ref/Cluster/listUILinks.md
+              - name: ListAccessBindings
+                href: api-ref/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Cluster/updateAccessBindings.md
           - name: Job
             items:
               - name: Overview

@@ -65,7 +65,7 @@ To create a token:
     1. Click **Save changes**.
 1. Enable approval rules in the {{ mgl-name }} instance:
     1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ GL }} instance](../concepts/index.md#instance) is located.
-    1. Select **{{ mgl-name }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
     1. Select the instance and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** at the top of the page.
     1. In the **{{ ui-key.yacloud.gitlab.field_approval-rules }}** field, select the approval rule [configuration](../concepts/approval-rules.md#packages).
 

@@ -75,7 +75,7 @@
 
      import pydantic
 
-     from yandex_cloud_ml_sdk import YCloudML
+     from yandex_ai_studio_sdk import AIStudio
 
      text = """
      Назови любые три группы товаров в продовольственном магазине. 
@@ -85,7 +85,7 @@
 
 
      def main() -> None:
-         sdk = YCloudML(
+         sdk = AIStudio(
              folder_id="<идентификатор_каталога>",
              auth="<API-ключ>",
          )
@@ -146,13 +146,13 @@
 
      import pydantic
 
-     from yandex_cloud_ml_sdk import YCloudML
+     from yandex_ai_studio_sdk import AIStudio
 
      text = "Назови дату первого полета Гагарина."
 
 
      def main() -> None:
-         sdk = YCloudML(
+         sdk = AIStudio(
              folder_id="<идентификатор_каталога>",
              auth="<API-ключ>",
          )

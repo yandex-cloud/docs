@@ -29,7 +29,6 @@ After deleting or stopping resources, you will continue paying for the reserved 
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### {{ vpc-short-name }} {#vpc-prices}
@@ -55,7 +54,6 @@ For example, the cost of an inactive public static address will be:
 
 You will be charged per hour of NAT gateway usage and for outgoing traffic via the gateway. Charges will apply as soon as you add a gateway to a route table.
 
-
 #### {{ ddos-protection-full-name }} {#prices-ddos-protection}
 
 Legitimate traffic is incoming traffic that passes through the DDoS Protection system to the user's cloud resources. You are only charged for the legitimate traffic.
@@ -63,7 +61,6 @@ Legitimate traffic is incoming traffic that passes through the DDoS Protection s
 For example, let's assume a user's VM was hit by a typical 10 Gbps DDoS attack generating 75 GB of incoming traffic. During the attack, the user downloaded 2 GB of legitimate files from the internet to the VM. When the attack ended, the user downloaded another 2 GB of legitimate files. 
 
 In this case, the user will be charged only for these 4 GB of legitimate traffic: 2 GB that passed through DDoS Protection to the cloud resources during the attack and 2 GB downloaded after the attack ended. Malicious traffic is filtered at no charge to the user.
-
 
 
 

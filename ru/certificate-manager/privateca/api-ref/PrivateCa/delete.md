@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. The ID of the Certificate Authority to delete.
+            The maximum string length in characters is 50.
           type: string
       required:
         - certificateAuthorityId
@@ -38,7 +39,9 @@ Request to delete an existing Certificate Authority.
 ||Field | Description ||
 || certificateAuthorityId | **string**
 
-Required field. The ID of the Certificate Authority to delete. ||
+Required field. The ID of the Certificate Authority to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

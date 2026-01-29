@@ -3,7 +3,7 @@ title: How to get information about {{ mgl-full-name }} instances
 description: In this tutorial, you will learn how to get a list of {{ mgl-name }} instances and information about them.
 ---
 
-# Getting information about instances
+# Getting instance info
 
 You can get detailed information about each [{{ GL }} instance](../../concepts/index.md#instance) you created in {{ yandex-cloud }}.
 
@@ -13,7 +13,7 @@ You can get detailed information about each [{{ GL }} instance](../../concepts/i
 
 - Management console {#console}
 
-  Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
 
 - CLI {#cli}
 
@@ -68,7 +68,7 @@ Instance details include:
 - Management console {#console}
 
   1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ GL }} instance is located.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Click the instance name.
 
 - CLI {#cli}
@@ -192,11 +192,11 @@ All actions with {{ mgl-name }} instances are logged as a list of operations. Ea
 
   To get a list of operations for a specific instance:
 
-  1. In the [management console]({{ link-console-main }}), open the folder with the cluster.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. In the [management console]({{ link-console-main }}), open the folder containing your cluster.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.gitlab.switch_instances }}**.
   1. Select the instance you need.
-  1. Go to the ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected cluster.
+  1. Navigate to the ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the cluster you selected.
 
      You will see the list of operations with the selected instance.
 
@@ -205,7 +205,7 @@ All actions with {{ mgl-name }} instances are logged as a list of operations. Ea
 ## Getting operation details {#get-operation-info}
 
 1. [Get a list of operations](#list-operations) for an instance.
-1. Copy the operation ID.
+1. Copy the ID of the operation you need.
 1. Get operation details:
 
     {% list tabs group=instructions %}

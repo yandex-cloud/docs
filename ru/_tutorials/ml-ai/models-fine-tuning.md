@@ -116,7 +116,7 @@
 1. Установите {{ ml-platform-name }} SDK, запустив код в ячейке ноутбука:
 
    ```python
-   %pip install yandex-cloud-ml-sdk --upgrade
+   %pip install yandex-ai-studio-sdk --upgrade
    ```
 
 1. Импортируйте необходимые библиотеки:
@@ -127,7 +127,7 @@
    import os
    from __future__ import annotations
 
-   from yandex_cloud_ml_sdk import YCloudML
+   from yandex_ai_studio_sdk import AIStudio
    import urllib.request
    import zipfile   
    ```
@@ -157,7 +157,7 @@
 1. Создайте объект SDK, содержащий параметры для авторизации:
 
    ```python
-   sdk = YCloudML(
+   sdk = AIStudio(
        folder_id=os.environ['FOLDER_ID'], # Идентификатор каталога, сохраненный в секрете DataSphere
        auth=os.environ['API_KEY'] # API-ключ сервисного аккаунта, сохраненный в секрете DataSphere
    )

@@ -34,11 +34,13 @@ apiPlayground:
           description: |-
             **string**
             New desktop image name.
+            The maximum string length in characters is 50.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             New desktop image labels.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -98,10 +100,14 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
-New desktop image name. ||
+New desktop image name.
+
+The maximum string length in characters is 50. ||
 || labels | **object** (map<**string**, **string**>)
 
-New desktop image labels. ||
+New desktop image labels.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -216,7 +222,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || imageId | **string**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -262,7 +268,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Status of the image.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Image is being created.
 - `ACTIVE`: Image is ready to use.
 - `DELETING`: Image is being deleted. ||

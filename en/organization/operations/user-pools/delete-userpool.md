@@ -35,6 +35,38 @@ description: Follow this guide to delete a user pool in {{ org-name }}.
      yc organization-manager idp userpool delete <pool_ID>
      ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Open the {{ TF }} configuration file and delete the fragment with the [user pool](../../concepts/user-pools.md) description:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_userpool" "example_userpool" {
+       organization_id   = "<organization_ID>"
+       name              = "<pool_name>"
+       description       = "<pool_description>"
+       default_subdomain = "<default_domain>"
+       labels            = {
+         <key> = "<value>"
+       }
+     }
+     ```
+
+     For more information about `yandex_organizationmanager_idp_userpool` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will delete all the resources as appropriate. You can check the deletion of the resources in [{{ org-full-name }}]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
+
+     ```bash
+     yc organization-manager idp userpool list --organization-id <organization_ID>
+     ```
+
 - API {#api}
 
   Use the [Userpool.Delete](../../idp/api-ref/Userpool/delete.md) REST API method for the [Userpool](../../idp/api-ref/Userpool/index.md) resource or the [UserpoolService/Delete](../../idp/api-ref/grpc/Userpool/delete.md) gRPC API call.

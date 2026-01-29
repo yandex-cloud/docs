@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             ID of the cluster to list hosts for.
             To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       additionalProperties: false
     query:
@@ -23,6 +24,7 @@ apiPlayground:
             results is larger than `pageSize`, the service returns a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListClusterHostsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            The maximum value is 1000.
           default: '100'
           type: string
           format: int64
@@ -31,6 +33,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListClusterHostsResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListClusterHostsResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
@@ -41,6 +44,7 @@ apiPlayground:
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
             Example of a filter: `name=my-host`
+            The maximum string length in characters is 1000.
           type: string
       additionalProperties: false
     body: null
@@ -66,7 +70,9 @@ GET https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/hosts
 
 Required field. ID of the cluster to list hosts for.
 
-To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Cluster/list#List) request. ||
+To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.dataproc.v1.ListClusterHostsRequest}
@@ -78,11 +84,15 @@ To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Cluste
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListClusterHostsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListClusterHostsResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListClusterHostsResponse) returned by a previous list request. ||
+[ListClusterHostsResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListClusterHostsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters hosts listed in the response.
@@ -91,7 +101,9 @@ The expression must specify:
 1. The field name. Currently you can use filtering only on [Cluster.name](/docs/data-proc/api-ref/Cluster/get#yandex.cloud.dataproc.v1.Cluster) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-Example of a filter: `name=my-host` ||
+Example of a filter: `name=my-host`
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.dataproc.v1.ListClusterHostsResponse}
@@ -156,7 +168,6 @@ ID of the Compute virtual machine that is used as the Yandex Data Processing hos
 
 Role of the host in the cluster.
 
-- `ROLE_UNSPECIFIED`
 - `MASTERNODE`: The subcluster fulfills the master role.
 
   Master can run the following services, depending on the requested components:

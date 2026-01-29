@@ -42,7 +42,7 @@ If you need a JSON schema to prepare your data, you can get the structure of any
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder for which your account has the `ai.playground.user` and `ai.datasets.editor` [roles](../../security/index.md) or higher.
-  1. In the list of services, select **{{ ui-key.yacloud.dashboard.DashboardPage.AiStudioSection.section_title_1sDGx }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ai-studio }}**.
   1. In the left-hand panel, click ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.dataset.datasets }}**.
   1. Click **{{ ui-key.yacloud.dataset.create }}**.
   1. Enter a name and descriptions for the dataset. Follow these naming requirements:

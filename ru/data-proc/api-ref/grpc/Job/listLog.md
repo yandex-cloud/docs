@@ -26,20 +26,28 @@ Returns a log for specified job.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the cluster that the job is being created for. ||
+Required field. ID of the cluster that the job is being created for.
+
+The maximum string length in characters is 50. ||
 || job_id | **string**
 
-ID of the job being created. ||
+ID of the job being created.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum bytes of job log per response to return. If the number of available
 bytes is larger than `page_size`, the service returns a [ListJobLogResponse.next_page_token](#yandex.cloud.dataproc.v1.ListJobLogResponse)
 that can be used to get the next page of output in subsequent list requests.
-Default value: 1048576. ||
+Default value: 1048576.
+
+The maximum value is 1048576. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListJobLogResponse.next_page_token](#yandex.cloud.dataproc.v1.ListJobLogResponse) returned by a previous list request. ||
+[ListJobLogResponse.next_page_token](#yandex.cloud.dataproc.v1.ListJobLogResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListJobLogResponse {#yandex.cloud.dataproc.v1.ListJobLogResponse}
