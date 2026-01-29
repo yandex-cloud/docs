@@ -11,11 +11,13 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the folder into which list templates.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
             **string** (int64)
             The maximum number of results to return per page. Couldn't exceed 100, default value is 100
+            The maximum value is 100.
           type: string
           format: int64
         pageToken:
@@ -23,6 +25,7 @@ apiPlayground:
             **string**
             Token to retrieve specific pages of results.
             If this is set, the service will return the next page of results based on this token.
+            The maximum string length in characters is 100.
           type: string
       required:
         - folderId
@@ -50,14 +53,20 @@ Request message to list templates in a folder.
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder into which list templates. ||
+Required field. ID of the folder into which list templates.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
-The maximum number of results to return per page. Couldn't exceed 100, default value is 100 ||
+The maximum number of results to return per page. Couldn't exceed 100, default value is 100
+
+The maximum value is 100. ||
 || pageToken | **string**
 
 Token to retrieve specific pages of results.
-If this is set, the service will return the next page of results based on this token. ||
+If this is set, the service will return the next page of results based on this token.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.certificatemanager.v1.privateca.ListTemplateResponse}

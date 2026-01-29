@@ -296,12 +296,12 @@ from __future__ import annotations
 
 import pprint
 
-from yandex_cloud_ml_sdk import YCloudML
+from yandex_ai_studio_sdk import AIStudio
 
 
 def main() -> None:
 
-    sdk = YCloudML(
+    sdk = AIStudio(
         folder_id="<идентификатор_каталога>",
         auth="<API-ключ>",
     )
@@ -382,7 +382,7 @@ if __name__ == "__main__":
 * `enable_nrfm_docs` — параметр определяет, попадут ли в поиск документы, недоступные при прямом переходе с главной страницы. Параметр работает только в том случае, если область поиска задана параметром `site`. Например, если вы хотите добавить в поиск страницу, на которую нельзя перейти ни по одной из ссылок, ведущих с главной страницы сайта, то необходимо включить параметр `enable_nrfm_docs`. Необязательный параметр. Возможные значения: `true` или `false`.
 * `search_filters` — дополнительный текст, который будет добавлен к каждому запросу. Используется для передачи [поисковых операторов]({{ link-yandex }}/support/search/ru/query-language/search-operators) `date:`, `mime:` и `lang:`. Например, если указать `"date": ">20250101"`, то в ответ на запрос будут получены только документы с датой обновления после 1 января 2025 года. Необязательный параметр.
 
-Исходный код библиотеки {{ ml-sdk-name }} и примеры использования доступны в репозитории на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk). Подробнее о {{ ml-sdk-full-name }} см. в [документации {{ ai-studio-name }}](../../ai-studio/sdk/index.md).
+Исходный код библиотеки {{ ml-sdk-name }} и примеры использования доступны в репозитории на [GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk). Подробнее о {{ ml-sdk-full-name }} см. в [документации {{ ai-studio-name }}](../../ai-studio/sdk/index.md).
 
 ## Генеративный ответ {#response}
 

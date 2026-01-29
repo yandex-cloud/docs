@@ -8,7 +8,7 @@ You can [back up](../../concepts/backup.md) your instances manually.
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Click the instance name and select ![image](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.gitlab.title_backups }}**.
 
 {% endlist %}
@@ -19,7 +19,7 @@ You can [back up](../../concepts/backup.md) your instances manually.
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Click the instance name and select ![image](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.gitlab.title_backups }}**.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.gitlab.action_create-backup }}**.
 

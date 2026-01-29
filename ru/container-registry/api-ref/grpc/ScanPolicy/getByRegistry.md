@@ -23,7 +23,9 @@ Returns scan policy for the registry if any exists.
 ||Field | Description ||
 || registry_id | **string**
 
-Required field. ID of the registry with scan policy. ||
+Required field. ID of the registry with scan policy.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ScanPolicy {#yandex.cloud.containerregistry.v1.ScanPolicy}
@@ -101,7 +103,9 @@ Description of time based rescan rule. ||
 ||Field | Description ||
 || repository_prefixes[] | **string**
 
-List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry ||
+List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
+
+The number of elements must be greater than 0. Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. ||
 || disabled | **bool**
 
 Turns off scan rule. ||
@@ -113,7 +117,9 @@ Turns off scan rule. ||
 ||Field | Description ||
 || repository_prefixes[] | **string**
 
-List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry ||
+List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
+
+The number of elements must be greater than 0. Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. ||
 || rescan_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Required field. Period of time since last scan to trigger automatic rescan. ||

@@ -150,7 +150,12 @@ items:
               operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
           - name: Managing {{ k8s }} cluster access
             href: operations/kubernetes-cluster/kubernetes-cluster-access.md
-          - name: Monitoring {{ k8s }} cluster state
+          - name: >-
+              Getting a list of available master configurations in a {{ k8s }}
+              cluster
+            href: >-
+              operations/kubernetes-cluster/kubernetes-cluster-configuration-list.md
+          - name: '{{ k8s }} cluster state monitoring'
             href: operations/kubernetes-cluster/kubernetes-cluster-get-stats.md
           - name: Deleting a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-delete.md
@@ -270,7 +275,7 @@ items:
             href: tutorials/cert-manager-webhook.md
       - name: Backups
         items:
-          - name: Backups in {{ objstorage-name }}
+          - name: Backing up to {{ objstorage-name }}
             href: tutorials/kubernetes-backup.md
           - name: Working with snapshots
             href: tutorials/pvc-snapshot-restore.md
@@ -328,6 +333,8 @@ items:
         href: concepts/index.md
       - name: Release channels and updates
         href: concepts/release-channels-and-updates.md
+      - name: Zones of control in {{ managed-k8s-name }}
+        href: concepts/kubernetes-responsibilities.md
       - name: Updating node group OS
         href: concepts/node-os-update.md
       - name: Encryption

@@ -5,7 +5,7 @@ description: In this tutorial, you will learn how to create and customize the ta
 
 # Table ![](../../_assets/datalens/table-chart.svg) in {{ datalens-full-name }}
 
-A table is a standard form of data representation with as many details as possible. 
+A table is a standard form of presenting data with the maximum level of detail. 
 
 ### What you need to know {#what-to-know}
 
@@ -19,7 +19,7 @@ Graphics are easier to "read", whereas delving into tabular data requires more t
 
 {% endnote %}
 
-Tables are good for detailed analytics (a deep dive into figures) and problem detection.
+Tables are most suitable for detailed analytics (a deep dive into figures) and problem detection.
 
 A table is a good choice for quantitative comparison, where you can see different values of multiple categories or dimensions. The table below shows three different measures by three categories.
 
@@ -236,7 +236,8 @@ With this option on, the text will feature the same spaces and line breaks as in
 
    {% note info %}
 
-   You can use the **Palette** type for dimensions and the **Gradient** type for measures.
+   * You can use the **Palette** type for dimensions and the **Gradient** type for measures.
+   * Fill is not supported for the **Total** row.
 
    {% endnote %}
 

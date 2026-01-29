@@ -56,12 +56,22 @@ Updates desktop group properties
 ||Field | Description ||
 || desktop_group_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
-|| desktop_image_id | **string** ||
-|| name | **string** ||
-|| description | **string** ||
-|| labels | **object** (map<**string**, **string**>) ||
+|| desktop_image_id | **string**
+
+The maximum string length in characters is 50. ||
+|| name | **string**
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9]) ```. ||
+|| description | **string**
+
+The maximum string length in characters is 1024. ||
+|| labels | **object** (map<**string**, **string**>)
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || resources_spec | **[ResourcesSpec](#yandex.cloud.clouddesktop.v1.api.ResourcesSpec)** ||
 || group_config | **[DesktopGroupConfiguration](#yandex.cloud.clouddesktop.v1.api.DesktopGroupConfiguration)**
 
@@ -90,14 +100,20 @@ Update policy of the desktop group. ||
 ||Field | Description ||
 || memory | **int64**
 
-RAM volume, in bytes. ||
+RAM volume, in bytes.
+
+The minimum value is 1. ||
 || cores | **int64**
 
-Number of CPU cores. ||
+Number of CPU cores.
+
+The minimum value is 1. ||
 || core_fraction | **int64**
 
 Baseline level of CPU performance with the ability to burst performance above that baseline level.
-This field sets baseline performance for each core. ||
+This field sets baseline performance for each core.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## DesktopGroupConfiguration {#yandex.cloud.clouddesktop.v1.api.DesktopGroupConfiguration}
@@ -106,20 +122,25 @@ This field sets baseline performance for each core. ||
 ||Field | Description ||
 || min_ready_desktops | **int64**
 
-Minimum number of ready desktops. ||
+Minimum number of ready desktops.
+
+Acceptable values are 1 to 512, inclusive. ||
 || max_desktops_amount | **int64**
 
-Maximum number of desktops. ||
+Maximum number of desktops.
+
+Acceptable values are 0 to 512, inclusive. ||
 || desktop_type | enum **DesktopType**
 
 Type of the desktop.
 
-- `DESKTOP_TYPE_UNSPECIFIED`
 - `PERSISTENT`
 - `NON_PERSISTENT` ||
 || members[] | **[Subject](#yandex.cloud.access.Subject)**
 
-List of members of the desktop group. ||
+List of members of the desktop group.
+
+The number of elements must be in the range 0-10. ||
 |#
 
 ## Subject {#yandex.cloud.access.Subject}
@@ -141,7 +162,9 @@ with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `group:federation:<id>:users`: A special system group that represents all users of federation
 with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `<cloud generated id>`: An identifier that represents a user account.
-It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. ||
+It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+The maximum string length in characters is 100. ||
 || type | **string**
 
 Required field. Type of the subject.
@@ -152,7 +175,9 @@ It can contain one of the following values:
 * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
 * `system`: System group. This type represents several accounts with a common system identifier.
 
-For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). ||
+For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+The maximum string length in characters is 100. ||
 |#
 
 ## DiskSpec {#yandex.cloud.clouddesktop.v1.api.DiskSpec}
@@ -165,12 +190,13 @@ Disk specificaton.
 
 Required field. Type of disk.
 
-- `TYPE_UNSPECIFIED`: Disk type is not specified.
 - `HDD`: HDD disk type.
 - `SSD`: SSD disk type. ||
 || size | **int64**
 
-Size of disk. ||
+Size of disk.
+
+Value must be greater than 0. ||
 |#
 
 ## AutoUpdatePolicy {#yandex.cloud.clouddesktop.v1.api.AutoUpdatePolicy}

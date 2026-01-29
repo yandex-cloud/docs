@@ -8,6 +8,7 @@ There are different service packages available in different [regions](region.md)
 
 | Service                                                                          | Description | Russia | Kazakhstan
 |---------------------------------------------------------------------------------|---|---|---|
+| [{{ gost-gateway-name }}](../../gost-gateway/index.yaml)                        | {{ preview-stage }} Information protection service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ api-gw-full-name }}](../../api-gateway/index.yaml)                          | Service for managing API gateways | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ alb-full-name }}](../../application-load-balancer/index.yaml)               | Service for distributing incoming traffic between web application components | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ at-full-name }}](../../audit-trails/index.yaml)                             | Service for collecting and exporting audit logs | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
@@ -26,10 +27,11 @@ There are different service packages available in different [regions](region.md)
 | [{{ cns-full-name }}](../../notifications/index.yaml)                           | {{ preview-stage }} Service for multichannel user notifications | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ org-full-name }}](../../organization/index.yaml)                            | Service for managing the organizational structure, setting up integration with the employee catalog, and differentiating user access to the organization's cloud resources | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ postbox-full-name }}](../../postbox/index.yaml)                             | Transactional email service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ quota-manager-full-name }}](../../quota-manager/index.yaml)                 | {{ preview-stage }} Transactional email service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| [{{ quota-manager-full-name }}](../../quota-manager/index.yaml)                 | Service for managing your cloud resource quotas | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ cloud-registry-full-name }}](../../cloud-registry/index.yaml)               | Service for storing and managing development artifacts | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
+| [{{ stackland-full-name }}](../../stackland/index.yaml)                         | {{ preview-stage }} Service for managing AI loads and microservice solutions on-premise | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ video-full-name }}](../../video/index.yaml)                                 | Video hosting and online streaming service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ ca-full-name }}]({{ link-src-docs }}/code-assistant/)                           | {{ preview-stage }} AI-driven developer assistant with code autocompletion | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
+| [{{ ca-full-name }}]({{ link-src-docs }}/code-assistant/)                           | AI-driven developer assistant with code autocompletion | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ compute-full-name }}](../../compute/index.yaml)                             | Service for creating and managing VMs | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ container-registry-full-name }}](../../container-registry/index.yaml)       | Service for managing Docker images and containers | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ dataproc-full-name }}](../../data-proc/index.yaml)                          | Service for managing Apache Hadoop® and {{ SPRK }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |

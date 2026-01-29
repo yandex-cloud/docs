@@ -18,7 +18,7 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
    * Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-      1. Select **Yandex MPP Analytics for PostgreSQL**.
+      1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
       1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Enter a name for the cluster.
       1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
@@ -152,13 +152,13 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
 
           * `folder_id`: Specify the ID of the folder whose log group you want to use.
 
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. Validate your {{ TF }} configuration files using this command:
 
           ```bash
           terraform validate
           ```
 
-          {{ TF }} will show any errors found in your configuration files.
+          {{ TF }} will display any configuration errors detected in your files.
 
       1. Create the required infrastructure:
 
@@ -207,7 +207,7 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
    * Management console {#console}
 
       1. In the management console, navigate to the relevant folder.
-      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}** service.
       1. Click the row with the `default` log group.
 
       The page that opens will show the log group entries.
@@ -266,7 +266,7 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
    * Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-      1. Select **Yandex MPP Analytics for PostgreSQL**.
+      1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
       1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Enter a name for the cluster.
       1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
@@ -400,13 +400,13 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
 
           * `log_group_id`: ID of the log group to write logs to.
 
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. Validate your {{ TF }} configuration files using this command:
 
           ```bash
           terraform validate
           ```
 
-          {{ TF }} will show any errors found in your configuration files.
+          {{ TF }} will display any configuration errors detected in your files.
 
       1. Create the required infrastructure:
 
@@ -454,8 +454,8 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
 
    * Management console {#console}
 
-      1. In the management console, navigate to the relevant folder.
-      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
+      1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}** service.
       1. Click the row with the `greenplum-log-group` log group.
 
       The page that opens will show the log group entries.

@@ -15,7 +15,7 @@ To update a [node](../../concepts/deploy/index.md#node):
     * Folder to host new resources.
     * [Configuration](../../concepts/configurations.md) of computing resources for the [instance](../../concepts/deploy/index.md) where your node is running.
     * [Availability zones](../../../overview/concepts/geo-scope.md) where the instance resides.
-    * [Subnets](../../../vpc/concepts/network.md#subnet) hosting the instance.
+    * [Subnets](../../../vpc/concepts/network.md#subnet) hosting the instance. The subnet must be in the same availability zone where you created the community.
     * [IDs of the folders](../../../resource-manager/operations/folder/get-id.md) allowed to access the node (the **ACL** section).
 1. Click **{{ ui-key.yc-ui-datasphere.common.save }}**.
 

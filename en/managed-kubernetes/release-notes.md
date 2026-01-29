@@ -1,5 +1,12 @@
 # {{ managed-k8s-full-name }} release notes
 
+<!-- Changelog begin -->
+
+
+
+
+<!-- Changelog end -->
+
 {{ managed-k8s-full-name }} [release channels](./concepts/release-channels-and-updates.md) receive updates in the set order. First, updates with new features and improvements are released in the `rapid` channel, after a while, in the `regular` channel, and only then they become available in the `stable` channel.
 
 ## Q3 2025 {#q3-2025}

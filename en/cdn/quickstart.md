@@ -75,6 +75,8 @@ Use an {{ objstorage-name }} bucket to demonstrate how to set up content deliver
 
    {% endnote %}
 
+{% include [create-resource-time](../_includes/cdn/create-resource-time.md) %}
+
 ## Upload your content to the CDN {#upload-content-to-CDN}
 
 {% note tip %}
@@ -112,7 +114,7 @@ To prefetch content to CDN servers:
 
 ## Test the CDN {#check-cdn-working}
 
-1. Wait for the DNS records to update. This may take several hours.
+1. Wait for the DNS records to update. This may take a few hours.
 1. Make sure the `cdn` CNAME record in the DNS server's cache points to the generated URL, e.g., `{{ cname-example-yc }}`.
 1. Open the website in your browser to make sure it is working. Here is an example:
 

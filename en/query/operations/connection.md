@@ -12,10 +12,10 @@ A [connection](../concepts/glossary.md#connection) is required for {{ yq-full-na
 To create a connection:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a connection.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
 1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
-1. Enter a name and description for the connection. The naming requirements are as follows:
+1. Enter a name and description for the connection. Follow these naming requirements:
 
     {% include [name-format](../_includes/connection-name-format.md) %}
 
@@ -94,7 +94,7 @@ Next, you can [create a binding](binding.md#create).
 To view information about a connection:
 
 1. In the [management console]({{ link-console-main }}), select the folder where the connection was created.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
 1. In the row with the connection name, click ![info](../../_assets/console-icons/circle-info.svg). You can find information about the source and service account under **{{ ui-key.yql.yq-connection-info.general.section-header }}**. In the **{{ ui-key.yql.yq-common-meta-section.meta.section-header }}** section, you can view the connection ID, creation timestamp, and creator.
 
@@ -103,7 +103,7 @@ To view information about a connection:
 To edit connection parameters:
 
 1. In the [management console]({{ link-console-main }}), select the folder where the connection was created.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
 1. In the row with the appropriate connection name, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yql.yq-connection-actions.edit-connection.menu-item-text }}**.
 1. Set new parameters for the connection. You cannot change the connection type.
@@ -114,7 +114,7 @@ To edit connection parameters:
 To delete a connection:
 
 1. In the [management console]({{ link-console-main }}), select the folder where the connection was created.
-1. In the list of services, select **{{ yq-full-name }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
 1. In the row with the appropriate connection name, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yql.yq-connection-actions.delete-connection.menu-item-text }}**.
 1. Confirm connection deletion.

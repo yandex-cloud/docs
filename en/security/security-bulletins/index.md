@@ -2,6 +2,8 @@
 
 This page contains security recommendations from {{ yandex-cloud }} experts.
 
+{% include [25.12.2025 — CVE-2025-14847](../../_includes/security/security-bulletins/cve-2025-14847-storedoc-reading-uninitialized-memory-zlib.md) %}
+
 {% include [02.04.2025 — CVE-2025-1385](../../_includes/security/security-bulletins/cve-2025-1385-clickhouse-library-bridge-remote-code-execution.md) %}
 
 {% include [01.04.2025 — CVE-2025-1974](../../_includes/security/security-bulletins/cve-2025-1974.md) %}
@@ -282,7 +284,7 @@ Notifications with update recommendations were sent to all users using a depreca
 
 If you are using a deprecated {{ GL }} image from {{ marketplace-full-name }} or a custom image, [update](https://about.gitlab.com/update) it to the latest version. If for some reason you cannot update the {{ GL }} version, use a [hotpatch](https://forum.gitlab.com/t/cve-2021-22205-how-to-determine-if-a-self-managed-instance-has-been-impacted/60918#hotpatch-2).
 
-### More information
+### Additional information
 
 * [Action needed by self-managed customers in response to CVE-2021-22205](https://about.gitlab.com/blog/2021/11/04/action-needed-in-response-to-cve2021-22205/)
 * [GitLab CE CVE-2021-22205 in the wild](https://security.humanativaspa.it/gitlab-ce-cve-2021-22205-in-the-wild/)
@@ -307,11 +309,11 @@ We also recommend that you:
 * Schedule manual updates at least once a month if you cannot apply automatic updates.
 * Disable running pods as root for untrusted uploads.
 
-To do this, you can use the following tools:
+You can do this by using the following tools:
 * [OPA Gatekeeper](https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/users)
 * [Kyverno](https://kyverno.io/policies/pod-security/restricted/require-run-as-nonroot/require-run-as-nonroot/)
 
-### More information
+### Additional information
 
 A checklist for a secure Kubernetes configuration is available [here](../domains/checklist#kubernetes-security).
 
@@ -340,7 +342,7 @@ The following Linux OS images were updated:
 * Images that are used to create managed database clusters.
 * An image that is used to create {{ dataproc-short-name }} clusters.
 
-### More information
+### Additional information
 
 * [Buffer overflow in command line unescaping](https://www.sudo.ws/alerts/unescape_overflow.html)
 * [CVE-2021-3156: Heap-Based Buffer Overflow in Sudo (Baron Samedit)](https://blog.qualys.com/vulnerabilities-research/2021/01/26/cve-2021-3156-heap-based-buffer-overflow-in-sudo-baron-samedit)

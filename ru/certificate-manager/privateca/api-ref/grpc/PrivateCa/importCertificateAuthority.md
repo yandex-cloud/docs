@@ -33,13 +33,19 @@ Request to import an externally generated Certificate Authority (CA).
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. Folder ID where the CA is being created. ||
+Required field. Folder ID where the CA is being created.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Required field. The name of the imported Certificate Authority. ||
+Required field. The name of the imported Certificate Authority.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-A brief description of the imported Certificate Authority. ||
+A brief description of the imported Certificate Authority.
+
+The maximum string length in characters is 1024. ||
 || certificate_content | **string**
 
 Required field. PEM-encoded certificate content for the Certificate Authority. ||
@@ -51,7 +57,9 @@ Required field. PEM-encoded key pair content for the CA (private key). ||
 PEM-encoded passphrase to decrypt the private key (if applicable). ||
 || end_entities_ttl_limit_days | **int64**
 
-TTL limit in days for end-entities signed by the CA. ||
+TTL limit in days for end-entities signed by the CA.
+
+The maximum value is 20000. ||
 || deletion_protection | **bool**
 
 Protect the CA from accidental deletion. ||
@@ -183,7 +191,6 @@ ID of the parent certificate authority that signed this certificate authority if
 
 Status of the certificate authority.
 
-- `STATUS_UNSPECIFIED`
 - `UNSIGNED`: The certificate authority is unsigned and pending signing.
 - `ACTIVE`: The certificate authority is active and can issue certificates. ||
 || issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**

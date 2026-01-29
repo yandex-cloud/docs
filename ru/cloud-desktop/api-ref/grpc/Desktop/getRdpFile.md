@@ -29,7 +29,9 @@ Returns a RDP file for the specified desktop.
 
 Required field. ID of the desktop resource to return.
 
-To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/grpc/Desktop/list#List) request. ||
+To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/grpc/Desktop/list#List) request.
+
+The maximum string length in characters is 50. ||
 || user | **[User](#yandex.cloud.clouddesktop.v1.api.User)**
 
 User of the desktop. ||
@@ -41,10 +43,14 @@ User of the desktop. ||
 ||Field | Description ||
 || subject_id | **string**
 
-Required field. Identity of the access binding. ||
+Required field. Identity of the access binding.
+
+The maximum string length in characters is 100. ||
 || subject_type | **string**
 
-Required field. Type of the access binding, e.g. userAccount, serviceAccount, system. ||
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## RdpFileResponse {#yandex.cloud.clouddesktop.v1.api.RdpFileResponse}

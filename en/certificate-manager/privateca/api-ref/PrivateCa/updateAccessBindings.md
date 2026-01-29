@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the resource for which access bindings are being updated.
+            The maximum string length in characters is 50.
           type: string
       required:
         - resourceId
@@ -22,6 +23,7 @@ apiPlayground:
           description: |-
             **[AccessBindingDelta](#yandex.cloud.access.AccessBindingDelta)**
             Updates to access bindings.
+            The number of elements must be in the range 1-1000.
           type: array
           items:
             $ref: '#/definitions/AccessBindingDelta'
@@ -34,36 +36,43 @@ apiPlayground:
             description: |-
               **string**
               Two letter county code
+              The maximum string length in characters is 2.
             type: string
           organization:
             description: |-
               **string**
               Organization name in arbitrary form
+              The maximum string length in characters is 1000.
             type: string
           organizationalUnit:
             description: |-
               **string**
               Organizational unit name in arbitrary form
+              The maximum string length in characters is 1000.
             type: string
           distinguishedNameQualifier:
             description: |-
               **string**
               Distinguished name qualifier
+              The maximum string length in characters is 10000.
             type: string
           stateOrProvince:
             description: |-
               **string**
               State or province name in arbitrary form
+              The maximum string length in characters is 1000.
             type: string
           commonName:
             description: |-
               **string**
               Common name. For tls certificates it is domain usually.
+              The maximum string length in characters is 10000.
             type: string
           emailAddress:
             description: |-
               **string**
               Email address of certificate owner
+              The maximum string length in characters is 1000.
             type: string
       AdditionalRDN:
         type: object
@@ -72,36 +81,43 @@ apiPlayground:
             description: |-
               **string**
               Serial number of certificate subject in arbitrary form. Don't confuse with certificate serial number.
+              The maximum string length in characters is 100.
             type: string
           locality:
             description: |-
               **string**
               Locality of certificate subject in arbitrary form.
+              The maximum string length in characters is 1000.
             type: string
           title:
             description: |-
               **string**
               Title of certificate subject in arbitrary form.
+              The maximum string length in characters is 1000.
             type: string
           surname:
             description: |-
               **string**
               Surname of certificate subject in arbitrary form.
+              The maximum string length in characters is 1000.
             type: string
           givenName:
             description: |-
               **string**
               Given name of certificate subject in arbitrary form.
+              The maximum string length in characters is 1000.
             type: string
           initials:
             description: |-
               **string**
               Initials of certificate subject in arbitrary form.
+              The maximum string length in characters is 1000.
             type: string
           generationQualifier:
             description: |-
               **string**
               Generation qualifier of certificate subject in arbitrary form.
+              The maximum string length in characters is 1000.
             type: string
       Subject:
         type: object
@@ -125,6 +141,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the [subject](#yandex.cloud.access.AccessBinding).
+              The maximum string length in characters is 50.
             type: string
           subject:
             description: |-
@@ -142,7 +159,6 @@ apiPlayground:
             description: |-
               **enum** (AccessBindingAction)
               Required field. The action that is being performed on an access binding.
-              - `ACCESS_BINDING_ACTION_UNSPECIFIED`
               - `ADD`: Addition of an access binding.
               - `REMOVE`: Removal of an access binding.
             type: string
@@ -177,7 +193,9 @@ PATCH https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certifi
 ||Field | Description ||
 || resourceId | **string**
 
-Required field. ID of the resource for which access bindings are being updated. ||
+Required field. ID of the resource for which access bindings are being updated.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.access.UpdateAccessBindingsRequest}
@@ -203,7 +221,9 @@ Required field. ID of the resource for which access bindings are being updated. 
 ||Field | Description ||
 || accessBindingDeltas[] | **[AccessBindingDelta](#yandex.cloud.access.AccessBindingDelta)**
 
-Updates to access bindings. ||
+Updates to access bindings.
+
+The number of elements must be in the range 1-1000. ||
 |#
 
 ## AccessBindingDelta {#yandex.cloud.access.AccessBindingDelta}
@@ -214,7 +234,6 @@ Updates to access bindings. ||
 
 Required field. The action that is being performed on an access binding.
 
-- `ACCESS_BINDING_ACTION_UNSPECIFIED`
 - `ADD`: Addition of an access binding.
 - `REMOVE`: Removal of an access binding. ||
 || accessBinding | **[AccessBinding](#yandex.cloud.access.AccessBinding)**
@@ -228,7 +247,9 @@ Required field. Access binding. For more information, see [Access Bindings](/doc
 ||Field | Description ||
 || roleId | **string**
 
-Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the `subject`. ||
+Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the `subject`.
+
+The maximum string length in characters is 50. ||
 || subject | **[Subject](#yandex.cloud.access.Subject)**
 
 Required field. Identity for which access binding is being created.
@@ -254,7 +275,9 @@ with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `group:federation:<id>:users`: A special system group that represents all users of federation
 with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `<cloud generated id>`: An identifier that represents a user account.
-It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. ||
+It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+The maximum string length in characters is 100. ||
 || type | **string**
 
 Required field. Type of the subject.
@@ -265,7 +288,9 @@ It can contain one of the following values:
 * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
 * `system`: System group. This type represents several accounts with a common system identifier.
 
-For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). ||
+For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

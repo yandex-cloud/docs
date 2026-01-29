@@ -123,3 +123,7 @@ Antivirus activity may affect the time required to create [incremental backups](
 #### Issues installing the {{ backup-name }} agent on a VM with low computing resources {#low-resources-installation}
 
 {% include [cloud-backup-resources-note](../../_includes/backup/cloud-backup-resources-note.md) %}
+
+#### If I delete a VM, will its backups remain? {#backup-after-delete-vm}
+
+Yes. Deleting a VM does not delete its backups. The latter are linked to the [backup policy](../../backup/concepts/policy.md), not the VM.

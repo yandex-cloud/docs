@@ -17,8 +17,8 @@ To get a list of [refresh tokens](../../concepts/authorization/refresh-token.md)
   1. In the left-hand panel, click ![userpool](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.users }}**.
   1. Locate the user in the list. Use the filter or search bar at the top of the screen as needed.
   1. Navigate to the **{{ ui-key.yacloud_org.my-account.SecurityPageLayout.refresh_breadcrumb }}** tab.
-  1. Optionally, in the **Search by client** field, enter the name of the OAuth application for which you want to get the list of refresh tokens.
-  1. Optionally, in the **Search by client ID** field, enter the ID of the OAuth application for which you want to get the list of refresh tokens, e.g., `yc.oauth.public-sdk` for the {{ yandex-cloud }} CLI.
+  1. Optionally, in the **{{ ui-key.yacloud_org.users.refresh_tokens.placeholder_client-search }}** field, enter the name of the OAuth application for which you want to get the list of refresh tokens.
+  1. Optionally, in the **{{ ui-key.yacloud_org.users.refresh_tokens.placeholder_client-id-search }}** field, enter the ID of the OAuth application for which you want to get the list of refresh tokens. For example, `yc.oauth.public-sdk` for the {{ yandex-cloud }} CLI.
   1. Optionally, to change the displayed columns, click ![settings](../../../_assets/console-icons/gear.svg) in the top-right corner of the list.
 
 - CLI {#cli}

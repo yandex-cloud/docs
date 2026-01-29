@@ -17,17 +17,17 @@ editable: false
 
 ## What goes into the cost of using {{ backup-name }} {#rules}
 
-The cost of {{ backup-name }} depends on the number of resource units to back up, such as {{ compute-full-name }} VMs and {{ baremetal-full-name }} servers, and the total storage space used by backups.
+The cost of {{ backup-name }} depends on the number of backed up resource units, i.e., {{ compute-full-name }} VMs and {{ baremetal-full-name }} servers, and the total storage space used for backups.
 
-### Backing up resource units {#vms}
+### Resource unit backup {#vms}
 
-In {{ backup-name }}, you start paying for a {{ compute-name }} instance or {{ baremetal-name }} server as soon as you link it to a [backup policy](./concepts/policy.md). Regardless of the resource unit status, you will be charged until you unlink it from the policy.
+In {{ backup-name }}, you start paying for a {{ compute-name }} instance or {{ baremetal-name }} server as soon as you link it to a [backup policy](./concepts/policy.md). You continue to pay until you unlink the resource unit from the policy, whichever status it is in.
 
 If you delete a VM in [{{ compute-full-name }}](../compute/) using the [management console]({{ link-console-main }}), this will also unlink such a VM from all policies. If you delete a VM using the CLI, {{ TF }}, or API, it will not be unlinked from the policies automatically, so you will have to do it yourself.
 
 If you need to unlink a {{ baremetal-name }} server from a policy, you will still have to do it on your own.
 
-The minimum billing unit is one resource unit (VM or {{ baremetal-name }} server) to back up, per hour.
+The minimum billing unit is one backed up resource unit (VM or {{ baremetal-name }} server) per hour.
 
 ### Using the storage {#backups}
 
@@ -37,7 +37,7 @@ The minimum billing unit is 1 hour of storing 1 MB of data.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
-If a resource unit to back up is stopped or deleted, its backups are still stored in {{ backup-name }} and you continue to pay for their total size. Such backup size depends on the following:
+If a backed up resource unit is stopped or deleted, {{ backup-name }} continues to store its backups, and you continue to pay based on their size. Such backup size depends on the following:
 * VM disk usage or {{ baremetal-name }} server disk usage.
 * Amount of data changes during regular backups.
 * Data compression option.
@@ -48,12 +48,11 @@ To optimize your costs, consider removing the backups of the deleted VMs or the 
 
 {% endnote %}
 
-The size of resource unit backups may be less than the resource unit disk size, e.g., if the disk usage is low and the level of data compression is high, or exceed it, e.g., when there are many backups and their data is continuously modified and poorly compressed.
+It is equally likely that backups may be smaller in size than the resource unit's actual disk, e.g., if the disk has a lot of unused space and the data is well compressed, or exceed its size, e.g., when there are many backups and their data is constantly modified and poorly compressed.
 
 
 
 ## Prices for the Russia region {#prices}
-
 
 
 

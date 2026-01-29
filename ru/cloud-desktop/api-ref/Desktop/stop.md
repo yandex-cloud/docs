@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the desktop.
+            The maximum string length in characters is 50.
           type: string
       required:
         - desktopId
@@ -36,7 +37,9 @@ POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:
 ||Field | Description ||
 || desktopId | **string**
 
-Required field. ID of the desktop. ||
+Required field. ID of the desktop.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -214,7 +217,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Status of the desktop.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Desktop is being created.
 - `ACTIVE`: Desktop is ready to be used.
 - `DELETING`: Desktop is being deleted.
@@ -243,9 +245,15 @@ Labels of the desktop. ||
 
 #|
 ||Field | Description ||
-|| memory | **string** (int64) ||
-|| cores | **string** (int64) ||
-|| coreFraction | **string** (int64) ||
+|| memory | **string** (int64)
+
+The minimum value is 1. ||
+|| cores | **string** (int64)
+
+The minimum value is 1. ||
+|| coreFraction | **string** (int64)
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## NetworkInterface {#yandex.cloud.clouddesktop.v1.api.NetworkInterface}
@@ -254,10 +262,14 @@ Labels of the desktop. ||
 ||Field | Description ||
 || networkId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || subnetId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## User {#yandex.cloud.clouddesktop.v1.api.User}
@@ -266,8 +278,12 @@ Required field.  ||
 ||Field | Description ||
 || subjectId | **string**
 
-Required field. Identity of the access binding. ||
+Required field. Identity of the access binding.
+
+The maximum string length in characters is 100. ||
 || subjectType | **string**
 
-Required field. Type of the access binding, e.g. userAccount, serviceAccount, system. ||
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system.
+
+The maximum string length in characters is 100. ||
 |#

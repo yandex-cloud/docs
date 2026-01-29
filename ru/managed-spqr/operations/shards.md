@@ -15,6 +15,10 @@ keywords:
 
 Шарды {{ SPQR }} создаются на основе существующих кластеров {{ mpg-full-name }}, расположенных в том же каталоге и в той же облачной сети, что и кластер {{ SPQR }}.
 
+
+{% include [note-sg](../../_includes/managed-spqr/note-sg.md) %}
+
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

@@ -8,9 +8,9 @@ description: Follow this guide to upload a data schema.
 To simplify repetitive actions related to data schema setup and [data binding](../concepts/glossary.md#binding), you can prepare a file with data schemas and upload it. For this, follow these steps:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to change a data binding.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
-1. In the line with the binding name, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yql.yq-binding-actions.edit-binding.menu-item-text }}**.
+1. In the row with the binding, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yql.yq-binding-actions.edit-binding.menu-item-text }}**.
 1. Click **{{ ui-key.yql.yq-binding-form.action_upload-schema-file }}** and select the [data schema](#schema) file.
 1. Click **{{ ui-key.yql.yq-binding-form.binding-modify.button-text }}**.
 
@@ -23,7 +23,7 @@ We support multiple data schema formats:
 
 ### Text format {#txt_schema}
 
-The textual data schema format is most close to the SQL data definition syntax and consists of the `SCHEMA` keyword and a list of fields with types. Existing data schemas can only be exported from {{ yq-full-name }} in this format.
+The text format of a data schema closely resembles the SQL data definition syntax and consists of the `SCHEMA` keyword and a list of fields with types. Existing data schemas can only be exported from {{ yq-full-name }} in this format.
 
 Here is an example of a data schema in text format:
 
@@ -66,7 +66,7 @@ Where:
 * `String`: Field type.
 * `required: true`: Flag indicating a required field in the source data.
 
-### {{ data-transfer-name }} compatible JSON format {#json_schema_data_transfer}
+### {{ data-transfer-name }}-compatible JSON format {#json_schema_data_transfer}
 
 This format is intended for compatible description of data schemas across various systems. This JSON format consists of a set of records defining fields and their types, with all fields considered optional in the source data.
 

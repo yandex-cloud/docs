@@ -58,7 +58,7 @@
 
      * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}** hosting the deployed {{ mpg-short-name }} cluster.
      * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}** with the `managed-postgresql.editor` [role](../../../managed-postgresql/security/index.md#required-roles) or higher.
-     * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}** where the database host resides.
+     * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}** where the database host resides. The subnet must be in the same [availability zone](../../../overview/concepts/geo-scope.md) as the community you created.
 
        {% note info %}
 

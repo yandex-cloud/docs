@@ -259,7 +259,35 @@ items:
     items:
       - name: All tutorials
         href: archive/index.md
-      - name: Migrating data to {{ yandex-cloud }} using Hystax Acura
+      - name: Backing up to {{ objstorage-name }}
+        items:
+          - name: Overview
+            href: archive/storage-backup-overview.md
+          - name: Backing up to {{ objstorage-name }} with AWS S3 Sync
+            href: archive/storage-backup-aws-s3-sync.md
+          - name: Backing up to {{ objstorage-name }} with rclone
+            href: archive/storage-backup-rclone.md
+          - name: Backing up to {{ objstorage-name }} with GeeseFS
+            href: archive/storage-backup-geesefs.md
+          - name: >-
+              Backing up to {{ objstorage-name }} with MSP360 Backup (CloudBerry
+              Desktop Backup)
+            href: archive/object-storage-cloudberry.md
+          - name: Backing up to {{ objstorage-name }} with Duplicati
+            href: archive/object-storage-duplicati.md
+          - name: Backing up to {{ objstorage-name }} with Bacula
+            href: archive/backup-with-bacula.md
+          - name: Backing up to {{ objstorage-name }} with Veritas Backup Exec
+            href: archive/object-storage-veritas.md
+          - name: Backing up to {{ objstorage-name }} with Veeam Backup
+            href: archive/backup-with-veeam.md
+          - name: Backing up a VM with Hystax Acura Backup
+            href: infrastructure-management/hystax-backup.md
+          - name: >-
+              Backing up a {{ managed-k8s-name }} cluster to {{ objstorage-name
+              }}
+            href: archive/kubernetes-backup.md
+      - name: Migrating to {{ yandex-cloud }} with Hystax Acura
         href: infrastructure-management/hystax-migration.md
       - name: Fault protection with Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
@@ -273,22 +301,6 @@ items:
             href: archive/single-node-file-server/terraform.md
       - name: Configuring an SFTP server based on CentOS 7
         href: archive/backup-and-archive-to-sftp.md
-      - name: VM backups using Hystax Acura
-        href: infrastructure-management/hystax-backup.md
-      - name: >-
-          Backing up to {{ objstorage-name }} with MSP360 Backup (CloudBerry
-          Desktop Backup)
-        href: archive/object-storage-cloudberry.md
-      - name: Backing up to {{ objstorage-name }} with Duplicati
-        href: archive/object-storage-duplicati.md
-      - name: Backing up to {{ objstorage-name }} with Bacula
-        href: archive/backup-with-bacula.md
-      - name: Backing up to {{ objstorage-name }} with Veeam Backup
-        href: archive/backup-with-veeam.md
-      - name: Backing up to {{ objstorage-name }} with Veritas Backup Exec
-        href: archive/object-storage-veritas.md
-      - name: '{{ managed-k8s-name }} cluster backups in {{ objstorage-name }}'
-        href: archive/kubernetes-backup.md
       - name: Deploying GlusterFS in high availability mode
         href: archive/ha-regional-glusterfs.md
       - name: Deploying GlusterFS in high performance mode
@@ -759,6 +771,8 @@ items:
             href: web/flask.md
           - name: Hosting a static Gatsby website
             href: web/gatsby-static-website.md
+          - name: Installing Ghost CMS CloudApp
+            href: web/ghost-cms-cloudapp.md
           - name: Migrating to {{ cdn-name }} from a third-party CDN provider
             href: web/migrate-to-yc-cdn.md
           - name: Getting website traffic statistics with S3 Select
@@ -915,7 +929,7 @@ items:
             href: dataplatform/schema-registry-overview.md
           - name: Using {{ mkf-msr }} with {{ mkf-name }}
             href: dataplatform/managed-schema-registry.md
-          - name: Using {{ mkf-msr }} with {{ mkf-name }} via the REST API
+          - name: Using {{ mkf-msr }} with {{ mkf-name }} via REST API
             href: dataplatform/managed-schema-registry-rest.md
           - name: Using Confluent Schema Registry with {{ mkf-name }}
             href: dataplatform/confluent-schema-registry.md
@@ -1580,8 +1594,8 @@ items:
           - name: Terraform
             href: serverless/forms-and-datalens-integration/terraform.md
       - name: >-
-          Creating a {{ postbox-full-name }} address and checking domain
-          ownership with {{ TF }}
+          Creating a {{ postbox-full-name }} address and domain ownership
+          verification with {{ TF }}
         href: serverless/domain-identity-creating.md
       - name: Sending emails in {{ postbox-full-name }} using the AWS SDK
         items:

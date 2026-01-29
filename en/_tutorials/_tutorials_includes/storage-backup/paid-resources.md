@@ -1,0 +1,1 @@
+The bucket support cost includes the fee for bucket data storage and data operations (see [{{ objstorage-full-name }} pricing](../../../storage/pricing.md)).

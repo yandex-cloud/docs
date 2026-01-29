@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             ID of the Image to get last finished ScanResult.
+            The maximum string length in characters is 50.
           type: string
       additionalProperties: false
     query: null
@@ -34,7 +35,9 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/images/{imag
 ||Field | Description ||
 || imageId | **string**
 
-Required field. ID of the Image to get last finished ScanResult. ||
+Required field. ID of the Image to get last finished ScanResult.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.containerregistry.v1.ScanResult}
@@ -82,7 +85,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Output only. The status of the ScanResult.
 
-- `STATUS_UNSPECIFIED`
 - `RUNNING`: Image scan is in progress.
 - `READY`: Image has been scanned and result is ready.
 - `ERROR`: Image scan is failed. ||

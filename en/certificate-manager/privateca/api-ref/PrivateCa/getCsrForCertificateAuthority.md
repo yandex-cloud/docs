@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. The ID of the Certificate Authority for which you want to retrieve the CSR.
+            The maximum string length in characters is 50.
           type: string
       required:
         - certificateAuthorityId
@@ -39,7 +40,9 @@ Retrieve the CSR for a specific Certificate Authority.
 ||Field | Description ||
 || certificateAuthorityId | **string**
 
-Required field. The ID of the Certificate Authority for which you want to retrieve the CSR. ||
+Required field. The ID of the Certificate Authority for which you want to retrieve the CSR.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.certificatemanager.v1.privateca.CsrForSignCertificateAuthority}

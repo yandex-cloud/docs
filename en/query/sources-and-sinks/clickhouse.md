@@ -22,7 +22,7 @@ Where:
 To create a connection to {{ mch-name }}:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a connection.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, go to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
 1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. Specify the connection parameters:
@@ -33,7 +33,7 @@ To create a connection to {{ mch-name }}:
       * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}**: `{{ ui-key.yql.yq-connection.action_clickhouse }}`.
    1. Under **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ mch-name }} cluster or create a new one.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mch-name }} [service account](../../iam/concepts/users/service-accounts.md), or create a new one with the [`{{ roles.mch.viewer }}` role](../../managed-clickhouse/security.md#managed-clickhouse-viewer), and use it to connect to `{{ mch-name }}` clusters.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mch-name }} [service account](../../iam/concepts/users/service-accounts.md), or create a new one with the [`{{ roles.mch.viewer }}`](../../managed-clickhouse/security.md#managed-clickhouse-viewer) role to connect to `{{ mch-name }}` clusters.
 
         {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
 
@@ -68,7 +68,7 @@ Where:
 
 Some limitations apply when working with {{ CH }} clusters.
 
-Limitations:
+The following restrictions apply:
 1. {% include [!](_includes/supported_requests.md) %}
 1. {{ yq-short-name }} uses the {{ ydb-full-name }} [type system]({{ ydb.docs }}/yql/reference/types/primitive). However, the ranges of acceptable values for types used in {{ ydb-short-name }} for date and time operations (`Date`, `Datetime`, and `Timestamp`) are often not wide enough to cover the values of the relevant {{ CH }} types (`Date`, `Date32`, `Datetime`, and `Datetime64`).
 Therefore, {{ yq-short-name }} returns date and time values read from {{ CH }} as plain strings (type `Utf8` for regular columns or `Optional<Utf8>` for [nullable](https://clickhouse.com/docs/en/sql-reference/data-types/nullable) columns) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.

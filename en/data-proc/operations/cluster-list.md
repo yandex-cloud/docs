@@ -1,6 +1,6 @@
 # Information about existing {{ dataproc-name }} clusters
 
-You can get detailed information about each {{ dataproc-name }} cluster.
+You can get details about each {{ dataproc-name }} cluster.
 
 ## Getting a list of clusters in a folder {#list}
 
@@ -8,7 +8,8 @@ You can get detailed information about each {{ dataproc-name }} cluster.
 
 - Management console {#console}
 
-    Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 
 - CLI {#cli}
 
@@ -16,7 +17,7 @@ You can get detailed information about each {{ dataproc-name }} cluster.
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To request a list of {{ dataproc-name }} clusters in the default folder, run the command:
+    To get a list of {{ dataproc-name }} clusters in the default folder, run this command:
 
     ```bash
     {{ yc-dp }} cluster list
@@ -34,8 +35,9 @@ You can get detailed information about each {{ dataproc-name }} cluster.
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-    1. Click the cluster name.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Click the name of your cluster.
 
 - CLI {#cli}
 
@@ -69,16 +71,16 @@ All actions with {{ dataproc-name }} clusters are logged as a list of operations
 
 - Management console {#console}
 
-  To view operations with all {{ dataproc-name }} clusters, in the left-hand panel, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.dataproc.switch_operations }}**. The list that opens also includes operations with the clusters that were deleted.
+  To view operations with all {{ dataproc-name }} clusters, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.dataproc.switch_operations }}** in the left-hand panel. The list that opens also includes operations with the clusters you deleted.
 
   You can get a list of operations for a specific resource. The steps below describe how you can do this for a {{ dataproc-name }} cluster.
 
-  1. In the [management console]({{ link-console-main }}), open the folder with the cluster.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-  1. Select the cluster.
-  1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.dataproc.switch_operations }}** panel for the selected cluster.
+  1. In the [management console]({{ link-console-main }}), open the folder containing your cluster.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+  1. Select your cluster.
+  1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.dataproc.switch_operations }}** panel for the selected cluster.
 
-     You will see a list of operations with the selected cluster.
+     You will see a list of operations with the cluster.
 
 - CLI {#cli}
 
@@ -86,7 +88,7 @@ All actions with {{ dataproc-name }} clusters are logged as a list of operations
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of operations for a {{ dataproc-name }} cluster, run this command:
+  To get a list of {{ dataproc-name }} cluster operations, run this command:
 
   ```bash
   yc dataproc cluster list-operations <cluster_name_or_ID>
@@ -104,7 +106,7 @@ All actions with {{ dataproc-name }} clusters are logged as a list of operations
 
   You can get the cluster ID and name with the [list of clusters in the folder](#list).
 
-  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
+  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using `--format`:
 
   ```bash
   yc dataproc cluster list-operations epdplu8jn7sr******** --format yaml
@@ -137,8 +139,8 @@ All actions with {{ dataproc-name }} clusters are logged as a list of operations
 
 ### Getting operation details {#get-operations-info}
 
-1. [Get a list of operations](#get-operations) for a cluster.
-1. Copy the operation ID.
+1. [Get the list of cluster operations](#get-operations).
+1. Copy the ID of the operation you need.
 1. Get operation details:
 
    {% list tabs group=instructions %}

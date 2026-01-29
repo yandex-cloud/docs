@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the policy to update.
+            The maximum string length in characters is 50.
           type: string
       required:
         - id
@@ -22,6 +23,7 @@ apiPlayground:
           description: |-
             **string**
             New name for the policy.
+            Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
           type: string
         subjectPolicy:
@@ -113,71 +115,85 @@ apiPlayground:
             description: |-
               **string**
               Allowed country name in the subject field.
+              The maximum string length in characters is 1000.
             type: string
           organization:
             description: |-
               **string**
               Allowed organization name in the subject field.
+              The maximum string length in characters is 1000.
             type: string
           organizationalUnit:
             description: |-
               **string**
               Allowed organizational unit name in the subject field.
+              The maximum string length in characters is 1000.
             type: string
           distinguishedNameQualifier:
             description: |-
               **string**
               Allowed distinguished name qualifier in the subject field.
+              The maximum string length in characters is 10000.
             type: string
           stateOrProvince:
             description: |-
               **string**
               Allowed state or province name in the subject field.
+              The maximum string length in characters is 1000.
             type: string
           commonName:
             description: |-
               **string**
               Allowed common name in the subject field.
+              The maximum string length in characters is 10000.
             type: string
           emailAddress:
             description: |-
               **string**
               Allowed email address in the subject field.
+              The maximum string length in characters is 1000.
             type: string
           serialNumber:
             description: |-
               **string**
               Allowed serial number in the subject field.
+              The maximum string length in characters is 100.
             type: string
           locality:
             description: |-
               **string**
               Allowed locality name in the subject field.
+              The maximum string length in characters is 1000.
             type: string
           title:
             description: |-
               **string**
               Allowed title in the subject field.
+              The maximum string length in characters is 1000.
             type: string
           surname:
             description: |-
               **string**
               Allowed surname in the subject field.
+              The maximum string length in characters is 1000.
             type: string
           givenName:
             description: |-
               **string**
               Allowed given name in the subject field.
+              The maximum string length in characters is 1000.
             type: string
           initials:
             description: |-
               **string**
               Allowed initials in the subject field.
+              The maximum string length in characters is 1000.
             type: string
           generationQualifier:
             description: |-
               **string**
               Allowed generation qualifier in the subject field.
+              The maximum string length in characters is 1000.
             type: string
       EdiPartyName:
         type: object
@@ -186,11 +202,13 @@ apiPlayground:
             description: |-
               **string**
               Specifies the entity or authority that assigned the partyName
+              The maximum string length in characters is 1000.
             type: string
           partyName:
             description: |-
               **string**
               The actual identifier of the EDI party
+              The maximum string length in characters is 1000.
             type: string
       SubjectAlternativeNamePolicy:
         type: object
@@ -204,16 +222,19 @@ apiPlayground:
             description: |-
               **string**
               Allowed RFC 822 names (email addresses) in the SAN field.
+              The maximum string length in characters is 1000.
             type: string
           dnsName:
             description: |-
               **string**
               Allowed DNS names in the SAN field.
+              The maximum string length in characters is 1000.
             type: string
           directoryName:
             description: |-
               **string**
               Allowed directory names in the SAN field.
+              The maximum string length in characters is 1000.
             type: string
           ediPartyName:
             description: |-
@@ -224,16 +245,19 @@ apiPlayground:
             description: |-
               **string**
               Allowed URIs in the SAN field.
+              The maximum string length in characters is 1000.
             type: string
           ipAddress:
             description: |-
               **string**
               Allowed IP addresses in the SAN field.
+              The maximum string length in characters is 1000.
             type: string
           registeredId:
             description: |-
               **string**
               Allowed registered IDs in the SAN field.
+              The maximum string length in characters is 1000.
             type: string
       KeyUsagePolicy:
         type: object
@@ -242,7 +266,6 @@ apiPlayground:
             description: |-
               **enum** (KeyUsageExtension)
               List of key usages that are allowed or disallowed.
-              - `KEY_USAGE_EXTENSION_UNSPECIFIED`
               - `DIGITAL_SIGNATURE`
               - `CONTENT_COMMITMENT`
               - `KEY_ENCIPHERMENT`
@@ -273,7 +296,6 @@ apiPlayground:
             description: |-
               **enum** (ExtendedKeyUsageExtension)
               List of extended key usages that are allowed or disallowed.
-              - `EXTENDED_KEY_USAGE_EXTENSION_UNSPECIFIED`
               - `SERVER_AUTH`
               - `CLIENT_AUTH`
               - `CODE_SIGNING`
@@ -334,7 +356,9 @@ Request message for updating a policy.
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the policy to update. ||
+Required field. ID of the policy to update.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.certificatemanager.v1.privateca.UpdatePolicyRequest}
@@ -417,7 +441,9 @@ Request message for updating a policy.
 ||Field | Description ||
 || name | **string**
 
-New name for the policy. ||
+New name for the policy.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || subjectPolicy | **[SubjectPolicy](#yandex.cloud.certificatemanager.v1.privateca.SubjectPolicy)**
 
 New policy for the subject field of the certificate. ||
@@ -486,46 +512,74 @@ Policy for the subject field of a certificate. Each string field could be a rege
 ||Field | Description ||
 || country | **string**
 
-Allowed country name in the subject field. ||
+Allowed country name in the subject field.
+
+The maximum string length in characters is 1000. ||
 || organization | **string**
 
-Allowed organization name in the subject field. ||
+Allowed organization name in the subject field.
+
+The maximum string length in characters is 1000. ||
 || organizationalUnit | **string**
 
-Allowed organizational unit name in the subject field. ||
+Allowed organizational unit name in the subject field.
+
+The maximum string length in characters is 1000. ||
 || distinguishedNameQualifier | **string**
 
-Allowed distinguished name qualifier in the subject field. ||
+Allowed distinguished name qualifier in the subject field.
+
+The maximum string length in characters is 10000. ||
 || stateOrProvince | **string**
 
-Allowed state or province name in the subject field. ||
+Allowed state or province name in the subject field.
+
+The maximum string length in characters is 1000. ||
 || commonName | **string**
 
-Allowed common name in the subject field. ||
+Allowed common name in the subject field.
+
+The maximum string length in characters is 10000. ||
 || emailAddress | **string**
 
-Allowed email address in the subject field. ||
+Allowed email address in the subject field.
+
+The maximum string length in characters is 1000. ||
 || serialNumber | **string**
 
-Allowed serial number in the subject field. ||
+Allowed serial number in the subject field.
+
+The maximum string length in characters is 100. ||
 || locality | **string**
 
-Allowed locality name in the subject field. ||
+Allowed locality name in the subject field.
+
+The maximum string length in characters is 1000. ||
 || title | **string**
 
-Allowed title in the subject field. ||
+Allowed title in the subject field.
+
+The maximum string length in characters is 1000. ||
 || surname | **string**
 
-Allowed surname in the subject field. ||
+Allowed surname in the subject field.
+
+The maximum string length in characters is 1000. ||
 || givenName | **string**
 
-Allowed given name in the subject field. ||
+Allowed given name in the subject field.
+
+The maximum string length in characters is 1000. ||
 || initials | **string**
 
-Allowed initials in the subject field. ||
+Allowed initials in the subject field.
+
+The maximum string length in characters is 1000. ||
 || generationQualifier | **string**
 
-Allowed generation qualifier in the subject field. ||
+Allowed generation qualifier in the subject field.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## SubjectAlternativeNamePolicy {#yandex.cloud.certificatemanager.v1.privateca.SubjectAlternativeNamePolicy}
@@ -539,25 +593,37 @@ Policy for the Subject Alternative Name (SAN) field of a certificate. Each strin
 Allowed OIDs of the other name in the SAN field. ||
 || rfc_822Name | **string**
 
-Allowed RFC 822 names (email addresses) in the SAN field. ||
+Allowed RFC 822 names (email addresses) in the SAN field.
+
+The maximum string length in characters is 1000. ||
 || dnsName | **string**
 
-Allowed DNS names in the SAN field. ||
+Allowed DNS names in the SAN field.
+
+The maximum string length in characters is 1000. ||
 || directoryName | **string**
 
-Allowed directory names in the SAN field. ||
+Allowed directory names in the SAN field.
+
+The maximum string length in characters is 1000. ||
 || ediPartyName | **[EdiPartyName](#yandex.cloud.certificatemanager.v1.privateca.EdiPartyName)**
 
 Allowed EDI party names in the SAN field. ||
 || uniformResourceIdentifier | **string**
 
-Allowed URIs in the SAN field. ||
+Allowed URIs in the SAN field.
+
+The maximum string length in characters is 1000. ||
 || ipAddress | **string**
 
-Allowed IP addresses in the SAN field. ||
+Allowed IP addresses in the SAN field.
+
+The maximum string length in characters is 1000. ||
 || registeredId | **string**
 
-Allowed registered IDs in the SAN field. ||
+Allowed registered IDs in the SAN field.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## EdiPartyName {#yandex.cloud.certificatemanager.v1.privateca.EdiPartyName}
@@ -566,10 +632,14 @@ Allowed registered IDs in the SAN field. ||
 ||Field | Description ||
 || nameAssigner | **string**
 
-Specifies the entity or authority that assigned the partyName ||
+Specifies the entity or authority that assigned the partyName
+
+The maximum string length in characters is 1000. ||
 || partyName | **string**
 
-The actual identifier of the EDI party ||
+The actual identifier of the EDI party
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## KeyUsagePolicy {#yandex.cloud.certificatemanager.v1.privateca.KeyUsagePolicy}
@@ -582,7 +652,6 @@ Policy for key usages in a certificate.
 
 List of key usages that are allowed or disallowed.
 
-- `KEY_USAGE_EXTENSION_UNSPECIFIED`
 - `DIGITAL_SIGNATURE`
 - `CONTENT_COMMITMENT`
 - `KEY_ENCIPHERMENT`
@@ -604,7 +673,6 @@ Policy for extended key usages in a certificate.
 
 List of extended key usages that are allowed or disallowed.
 
-- `EXTENDED_KEY_USAGE_EXTENSION_UNSPECIFIED`
 - `SERVER_AUTH`
 - `CLIENT_AUTH`
 - `CODE_SIGNING`
@@ -918,46 +986,74 @@ Policy for the subject field of a certificate. Each string field could be a rege
 ||Field | Description ||
 || country | **string**
 
-Allowed country name in the subject field. ||
+Allowed country name in the subject field.
+
+The maximum string length in characters is 1000. ||
 || organization | **string**
 
-Allowed organization name in the subject field. ||
+Allowed organization name in the subject field.
+
+The maximum string length in characters is 1000. ||
 || organizationalUnit | **string**
 
-Allowed organizational unit name in the subject field. ||
+Allowed organizational unit name in the subject field.
+
+The maximum string length in characters is 1000. ||
 || distinguishedNameQualifier | **string**
 
-Allowed distinguished name qualifier in the subject field. ||
+Allowed distinguished name qualifier in the subject field.
+
+The maximum string length in characters is 10000. ||
 || stateOrProvince | **string**
 
-Allowed state or province name in the subject field. ||
+Allowed state or province name in the subject field.
+
+The maximum string length in characters is 1000. ||
 || commonName | **string**
 
-Allowed common name in the subject field. ||
+Allowed common name in the subject field.
+
+The maximum string length in characters is 10000. ||
 || emailAddress | **string**
 
-Allowed email address in the subject field. ||
+Allowed email address in the subject field.
+
+The maximum string length in characters is 1000. ||
 || serialNumber | **string**
 
-Allowed serial number in the subject field. ||
+Allowed serial number in the subject field.
+
+The maximum string length in characters is 100. ||
 || locality | **string**
 
-Allowed locality name in the subject field. ||
+Allowed locality name in the subject field.
+
+The maximum string length in characters is 1000. ||
 || title | **string**
 
-Allowed title in the subject field. ||
+Allowed title in the subject field.
+
+The maximum string length in characters is 1000. ||
 || surname | **string**
 
-Allowed surname in the subject field. ||
+Allowed surname in the subject field.
+
+The maximum string length in characters is 1000. ||
 || givenName | **string**
 
-Allowed given name in the subject field. ||
+Allowed given name in the subject field.
+
+The maximum string length in characters is 1000. ||
 || initials | **string**
 
-Allowed initials in the subject field. ||
+Allowed initials in the subject field.
+
+The maximum string length in characters is 1000. ||
 || generationQualifier | **string**
 
-Allowed generation qualifier in the subject field. ||
+Allowed generation qualifier in the subject field.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## SubjectAlternativeNamePolicy {#yandex.cloud.certificatemanager.v1.privateca.SubjectAlternativeNamePolicy2}
@@ -971,25 +1067,37 @@ Policy for the Subject Alternative Name (SAN) field of a certificate. Each strin
 Allowed OIDs of the other name in the SAN field. ||
 || rfc_822Name | **string**
 
-Allowed RFC 822 names (email addresses) in the SAN field. ||
+Allowed RFC 822 names (email addresses) in the SAN field.
+
+The maximum string length in characters is 1000. ||
 || dnsName | **string**
 
-Allowed DNS names in the SAN field. ||
+Allowed DNS names in the SAN field.
+
+The maximum string length in characters is 1000. ||
 || directoryName | **string**
 
-Allowed directory names in the SAN field. ||
+Allowed directory names in the SAN field.
+
+The maximum string length in characters is 1000. ||
 || ediPartyName | **[EdiPartyName](#yandex.cloud.certificatemanager.v1.privateca.EdiPartyName2)**
 
 Allowed EDI party names in the SAN field. ||
 || uniformResourceIdentifier | **string**
 
-Allowed URIs in the SAN field. ||
+Allowed URIs in the SAN field.
+
+The maximum string length in characters is 1000. ||
 || ipAddress | **string**
 
-Allowed IP addresses in the SAN field. ||
+Allowed IP addresses in the SAN field.
+
+The maximum string length in characters is 1000. ||
 || registeredId | **string**
 
-Allowed registered IDs in the SAN field. ||
+Allowed registered IDs in the SAN field.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## EdiPartyName {#yandex.cloud.certificatemanager.v1.privateca.EdiPartyName2}
@@ -998,10 +1106,14 @@ Allowed registered IDs in the SAN field. ||
 ||Field | Description ||
 || nameAssigner | **string**
 
-Specifies the entity or authority that assigned the partyName ||
+Specifies the entity or authority that assigned the partyName
+
+The maximum string length in characters is 1000. ||
 || partyName | **string**
 
-The actual identifier of the EDI party ||
+The actual identifier of the EDI party
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## KeyUsagePolicy {#yandex.cloud.certificatemanager.v1.privateca.KeyUsagePolicy2}
@@ -1014,7 +1126,6 @@ Policy for key usages in a certificate.
 
 List of key usages that are allowed or disallowed.
 
-- `KEY_USAGE_EXTENSION_UNSPECIFIED`
 - `DIGITAL_SIGNATURE`
 - `CONTENT_COMMITMENT`
 - `KEY_ENCIPHERMENT`
@@ -1036,7 +1147,6 @@ Policy for extended key usages in a certificate.
 
 List of extended key usages that are allowed or disallowed.
 
-- `EXTENDED_KEY_USAGE_EXTENSION_UNSPECIFIED`
 - `SERVER_AUTH`
 - `CLIENT_AUTH`
 - `CODE_SIGNING`

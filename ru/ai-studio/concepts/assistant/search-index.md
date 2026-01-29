@@ -41,8 +41,8 @@ noIndex: true
 - SDK {#sdk}
 
   ```python
-  from yandex_cloud_ml_sdk import YCloudML
-  from yandex_cloud_ml_sdk import search_indexes
+  from yandex_ai_studio_sdk import AIStudio
+  from yandex_ai_studio_sdk import search_indexes
   
   file = sdk.files.upload("<путь_к_файлу>")
   operation = sdk.search_indexes.create_deferred(
@@ -98,8 +98,8 @@ noIndex: true
 - SDK {#sdk}
 
   ```python
-  from yandex_cloud_ml_sdk import YCloudML
-  from yandex_cloud_ml_sdk import search_indexes
+  from yandex_ai_studio_sdk import AIStudio
+  from yandex_ai_studio_sdk import search_indexes
   
   file = sdk.files.upload("<путь_к_файлу>")
   operation = sdk.search_indexes.create_deferred(
@@ -169,8 +169,8 @@ noIndex: true
 - SDK {#sdk}
 
   ```python
-  from yandex_cloud_ml_sdk import YCloudML
-  from yandex_cloud_ml_sdk import search_indexes
+  from yandex_ai_studio_sdk import AIStudio
+  from yandex_ai_studio_sdk import search_indexes
   
   file = sdk.files.upload("<путь_к_файлу>")
   operation = sdk.search_indexes.create_deferred(
@@ -231,7 +231,7 @@ noIndex: true
 ## Примеры использования {#eamples}
 
 * [{#T}](../../operations/assistant/create-with-searchindex.md)
-* Примеры работы с {{ ml-sdk-name }} на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)
+* Примеры работы с {{ ml-sdk-name }} на [GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk/tree/master/examples/sync/assistants)
 
 #### См. также {#see-also}
 

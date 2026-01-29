@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the registry for which ip permissions are being set.
+            The maximum string length in characters is 50.
           type: string
       required:
         - registryId
@@ -33,7 +34,6 @@ apiPlayground:
           action:
             description: |-
               **enum** (Action)
-              - `ACTION_UNSPECIFIED`
               - `PULL`
               - `PUSH`
             type: string
@@ -63,7 +63,9 @@ POST https://container-registry.{{ api-host }}/container-registry/v1/registries/
 ||Field | Description ||
 || registryId | **string**
 
-Required field. ID of the registry for which ip permissions are being set. ||
+Required field. ID of the registry for which ip permissions are being set.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.containerregistry.v1.SetIpPermissionRequest}
@@ -92,7 +94,6 @@ IP permission to be set. ||
 ||Field | Description ||
 || action | **enum** (Action)
 
-- `ACTION_UNSPECIFIED`
 - `PULL`
 - `PUSH` ||
 || ip | **string** ||

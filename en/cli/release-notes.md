@@ -7,19 +7,47 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
-### Version 0.185.0 (22/12/25) {#version0.185.0}
+### Version 0.186.0 (15/01/26) {#version0.186.0}
 
-#### Changes to the CLI {#cli}
+#### Changes to the CLI {#cli-0.186.0}
 
-Fixed an error when calling commands in the {{ yandex-cloud }} CLI beta version.
+Fixed color display when using `--pager` set to `less` in `yc beta`.
+
+#### Changes to {{ yandex-cloud }} services {#services-0.186.0}
+
+##### {{ cloud-registry-full-name }} {#cloud-registry-full-name-0.186.0}
+
+Added the `configure-docker` command for the Docker credential helper.
+
+##### {{ data-transfer-name }} {#data-transfer-name-0.186.0}
+
+Added the `--labels` parameter to the following commands:
+* `datatransfer transfer create`
+* `datatransfer transfer update`
+* `datatransfer endpoint <ENDPOINT_TYPE> create`
+* `datatransfer endpoint <ENDPOINT_TYPE> update`
+
+##### {{ dataproc-name }} {#dataproc-name-0.186.0}
+
+Added commands for granting access permissions in {{ dataproc-name }}:
+* `yc dataproc cluster list-access-bindings`
+* `yc dataproc cluster set-access-bindings`
+* `yc dataproc cluster add-access-binding`
+* `yc dataproc cluster remove-access-binding`
 
 ## Previous releases {#previous-release}
 
+### Version 0.185.0 (22/12/25) {#version0.185.0}
+
+#### Changes to the CLI {#cli} {#cli-0.185.0}
+
+Fixed an error when calling `yc beta` commands.
+
 ### Version 0.184.0 (22/12/25) {#version0.184.0}
 
-#### Changes in {{ yandex-cloud }} services
+#### Changes to {{ yandex-cloud }} services {#services-0.184.0}
 
-##### {{ container-registry-name }}
+##### {{ container-registry-name }} {#container-registry-name-0.184.0}
 
 Fixed Docker version parsing in the `yc container registry configure-docker` command.
 
@@ -30,8 +58,8 @@ Fixed Docker version parsing in the `yc container registry configure-docker` com
 ##### {{ objstorage-name }} {#objstorage-name-0.183.0}
 
 * Added the following parameters to the `yc storage bucket update` command:
-  * `--disable-statickey-auth=<true_or_false>`: Whether users can authenticate in a bucket using static keys.
-  * `--private-endpoints-force-cloudconsole-access=<true_or_false>`: Whether a bucket with access limited to {{ vpc-short-name }} service connections can be accessed from the management console.
+  * `--disable-statickey-auth=<true_or_false>`: Static key authentication in the bucket.
+  * `--private-endpoints-force-cloudconsole-access=<true_or_false>`: Access from the management console to the bucket accessible only from {{ vpc-short-name }} service connections.
  
 ##### {{ mtr-name }} {#mtr-name-0.183.0}
 
@@ -49,7 +77,7 @@ Fixed Docker version parsing in the `yc container registry configure-docker` com
 
 ##### {{ iam-name }} {#iam-name-0.182.0}
 
-* For the `yc iam whoami` command, fixed the error when getting the current subject ID.
+* For the `yc iam whoami` command, fixed the error when getting the current subject's ID.
 
 ##### {{ mkf-name }} {#mkf-name-0.182.0}
 

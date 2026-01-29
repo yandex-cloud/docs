@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. The ID of the certificate to be deleted.
+            The maximum string length in characters is 50.
           type: string
       required:
         - certificateId
@@ -38,7 +39,9 @@ Request to delete a certificate, making it inactive or invalid.
 ||Field | Description ||
 || certificateId | **string**
 
-Required field. The ID of the certificate to be deleted. ||
+Required field. The ID of the certificate to be deleted.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

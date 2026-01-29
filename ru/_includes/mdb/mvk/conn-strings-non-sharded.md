@@ -1,54 +1,4 @@
-### Bash {#bash}
-
-{% list tabs group=connection %}
-
-- Подключение без SSL {#without-ssl}
-
-    {% include [Install requirements](./connect/bash/install-requirements.md) %}
-
-    **Подключение с помощью Sentinel**:
-
-    1. Получите адрес хоста-мастера, используя Sentinel и любой хост {{ VLK }}:
-
-        ```bash
-        redis-cli \
-            -h <FQDN_любого_хоста_{{ VLK }}> \
-            -p {{ port-mrd-sentinel }} \
-            sentinel \
-            get-master-addr-by-name <имя_кластера_{{ VLK }}> | head -n 1
-        ```
-
-    1. Подключитесь к хосту с этим адресом:
-
-        ```bash
-        redis-cli \
-            -h <адрес_хоста-мастера_{{ VLK }}> \
-            -a <пароль_{{ VLK }}>
-        ```
-
-    **Подключение напрямую к мастеру**:
-
-    ```bash
-    redis-cli \
-        -h c-<идентификатор_кластера>.rw.{{ dns-zone }} \
-        -a <пароль>
-    ```
-
-- Подключение с SSL {#with-ssl}
-
-    {% include [Install requirements SSL](./connect/bash/install-requirements-ssl.md) %}
-
-    **Подключение напрямую к мастеру**:
-
-    {% include [default-connstring](default-connstring.md) %}
-
-{% endlist %}
-
-{% include [see-fqdn](../../../_includes/mdb/mvk/fqdn-host.md) %}
-
-{% include [Подключение к кластеру](./connect/bash/after-connect.md) %}
-
-### C# {#csharp}
+## C# {#csharp}
 
 {% include [Install requirements](./connect/csharp/install-requirements.md) %}
 
@@ -312,7 +262,7 @@
 
 {% include [Подключение к кластеру](./connect/csharp/after-connect.md) %}
 
-### Go {#go}
+## Go {#go}
 
 {% include [Install requirements](./connect/go/install-requirements.md) %}
 
@@ -455,7 +405,7 @@
 
 {% include [Подключение к кластеру](./connect/go/after-connect.md) %}
 
-### Java {#java}
+## Java {#java}
 
 {% include [Установка зависимостей](./connect/java/install-requirements.md) %}
 
@@ -576,7 +526,7 @@
 
 {% include [Подключение к кластеру](./connect/java/after-connect.md) %}
 
-### Node.js {#nodejs}
+## Node.js {#nodejs}
 
 {% include [Установка зависимостей](./connect/nodejs/install-requirements.md) %}
 
@@ -696,7 +646,7 @@
 
 {% include [Подключение к кластеру](./connect/nodejs/after-connect.md) %}
 
-### PHP {#php}
+## PHP {#php}
 
 {% include [Установка зависимостей](./connect/php/install-requirements.md) %}
 
@@ -797,7 +747,7 @@
 
 {% include [Подключение к кластеру](./connect/php/after-connect.md) %}
 
-### Python {#python}
+## Python {#python}
 
 **Перед подключением установите зависимости**:
 
@@ -875,7 +825,7 @@ pip3 install redis
 
 {% include [Подключение к кластеру](./connect/python/after-connect.md) %}
 
-### Ruby {#ruby}
+## Ruby {#ruby}
 
 {% include [Установка зависимостей](./connect/ruby/install-requirements.md) %}
 

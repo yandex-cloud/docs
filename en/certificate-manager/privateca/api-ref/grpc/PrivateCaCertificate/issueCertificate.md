@@ -78,13 +78,19 @@ Request to issue a new certificate for a given Certificate Authority.
 ||Field | Description ||
 || certificate_authority_id | **string**
 
-Required field. The ID of the Certificate Authority (CA) that will issue this certificate. ||
+Required field. The ID of the Certificate Authority (CA) that will issue this certificate.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-The name of the certificate. ||
+The name of the certificate.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-A description of the certificate. ||
+A description of the certificate.
+
+The maximum string length in characters is 1024. ||
 || subject | **[Subject](#yandex.cloud.certificatemanager.v1.privateca.Subject)**
 
 Details about the certificate subject (e.g., CN, O, etc.). ||
@@ -92,7 +98,6 @@ Details about the certificate subject (e.g., CN, O, etc.). ||
 
 The algorithm the CA will use to sign and issue the certificate.
 
-- `ALGORITHM_UNSPECIFIED`
 - `RSA_2048_PSS_SHA_256`
 - `RSA_2048_PSS_SHA_384`
 - `RSA_2048_PSS_SHA_512`
@@ -119,7 +124,6 @@ The algorithm the CA will use to sign and issue the certificate.
 
 List of purposes of the certificate, such as digitalSignature or keyEncipherment.
 
-- `KEY_USAGE_EXTENSION_UNSPECIFIED`
 - `DIGITAL_SIGNATURE`
 - `CONTENT_COMMITMENT`
 - `KEY_ENCIPHERMENT`
@@ -133,7 +137,6 @@ List of purposes of the certificate, such as digitalSignature or keyEncipherment
 
 List of extended purposes of the certificate, such as serverAuth or clientAuth.
 
-- `EXTENDED_KEY_USAGE_EXTENSION_UNSPECIFIED`
 - `SERVER_AUTH`
 - `CLIENT_AUTH`
 - `CODE_SIGNING`
@@ -150,13 +153,17 @@ List of extended purposes of the certificate, such as serverAuth or clientAuth.
 Subject Alternative Names (SANs) for the certificate, such as DNS entries or IP addresses. ||
 || template_id | **string**
 
-Optional certificate template ID. Issue certificate with template's fields if non-empty. ||
+Optional certificate template ID. Issue certificate with template's fields if non-empty.
+
+The maximum string length in characters is 50. ||
 || deletion_protection | **bool**
 
 Flag to protect the certificate from being accidentally deleted. ||
 || desired_ttl_days | **int64**
 
-Desired time-to-live (TTL) of the certificate in days. ||
+Desired time-to-live (TTL) of the certificate in days.
+
+The maximum value is 20000. ||
 |#
 
 ## Subject {#yandex.cloud.certificatemanager.v1.privateca.Subject}
@@ -181,25 +188,39 @@ https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.4
 ||Field | Description ||
 || country | **string**
 
-Two letter county code ||
+Two letter county code
+
+The maximum string length in characters is 2. ||
 || organization | **string**
 
-Organization name in arbitrary form ||
+Organization name in arbitrary form
+
+The maximum string length in characters is 1000. ||
 || organizational_unit | **string**
 
-Organizational unit name in arbitrary form ||
+Organizational unit name in arbitrary form
+
+The maximum string length in characters is 1000. ||
 || distinguished_name_qualifier | **string**
 
-Distinguished name qualifier ||
+Distinguished name qualifier
+
+The maximum string length in characters is 10000. ||
 || state_or_province | **string**
 
-State or province name in arbitrary form ||
+State or province name in arbitrary form
+
+The maximum string length in characters is 1000. ||
 || common_name | **string**
 
-Common name. For tls certificates it is domain usually. ||
+Common name. For tls certificates it is domain usually.
+
+The maximum string length in characters is 10000. ||
 || email_address | **string**
 
-Email address of certificate owner ||
+Email address of certificate owner
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## AdditionalRDN {#yandex.cloud.certificatemanager.v1.privateca.AdditionalRDN}
@@ -210,25 +231,39 @@ https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.4
 ||Field | Description ||
 || serial_number | **string**
 
-Serial number of certificate subject in arbitrary form. Don't confuse with certificate serial number. ||
+Serial number of certificate subject in arbitrary form. Don't confuse with certificate serial number.
+
+The maximum string length in characters is 100. ||
 || locality | **string**
 
-Locality of certificate subject in arbitrary form. ||
+Locality of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 || title | **string**
 
-Title of certificate subject in arbitrary form. ||
+Title of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 || surname | **string**
 
-Surname of certificate subject in arbitrary form. ||
+Surname of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 || given_name | **string**
 
-Given name of certificate subject in arbitrary form. ||
+Given name of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 || initials | **string**
 
-Initials of certificate subject in arbitrary form. ||
+Initials of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 || generation_qualifier | **string**
 
-Generation qualifier of certificate subject in arbitrary form. ||
+Generation qualifier of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## SubjectAlternativeName {#yandex.cloud.certificatemanager.v1.privateca.SubjectAlternativeName}
@@ -248,12 +283,16 @@ https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6 ||
 
 Encoded email address
 
+The maximum string length in characters is 1000.
+
 Includes only one of the fields `other_name`, `rfc_822_name`, `dns_name`, `x_400_name`, `directory_name`, `edi_party_name`, `uniform_resource_identifier`, `ip_address`, `registered_id`.
 
 https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6 ||
 || dns_name | **string**
 
 Widely used in tls certificates for domains
+
+The maximum string length in characters is 1000.
 
 Includes only one of the fields `other_name`, `rfc_822_name`, `dns_name`, `x_400_name`, `directory_name`, `edi_party_name`, `uniform_resource_identifier`, `ip_address`, `registered_id`.
 
@@ -262,12 +301,16 @@ https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6 ||
 
 x400 name https://en.wikipedia.org/wiki/X.400
 
+The maximum string length in characters is 1000.
+
 Includes only one of the fields `other_name`, `rfc_822_name`, `dns_name`, `x_400_name`, `directory_name`, `edi_party_name`, `uniform_resource_identifier`, `ip_address`, `registered_id`.
 
 https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6 ||
 || directory_name | **string**
 
 Represents sequence of rdn for uniquely identifying entities
+
+The maximum string length in characters is 1000.
 
 Includes only one of the fields `other_name`, `rfc_822_name`, `dns_name`, `x_400_name`, `directory_name`, `edi_party_name`, `uniform_resource_identifier`, `ip_address`, `registered_id`.
 
@@ -283,6 +326,8 @@ https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6 ||
 
 URI
 
+The maximum string length in characters is 1000.
+
 Includes only one of the fields `other_name`, `rfc_822_name`, `dns_name`, `x_400_name`, `directory_name`, `edi_party_name`, `uniform_resource_identifier`, `ip_address`, `registered_id`.
 
 https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6 ||
@@ -290,12 +335,16 @@ https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6 ||
 
 ip address of certificate subject. May be used in tls certificates
 
+The maximum string length in characters is 45.
+
 Includes only one of the fields `other_name`, `rfc_822_name`, `dns_name`, `x_400_name`, `directory_name`, `edi_party_name`, `uniform_resource_identifier`, `ip_address`, `registered_id`.
 
 https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6 ||
 || registered_id | **string**
 
 Object Identifier (OID)
+
+The maximum string length in characters is 1000.
 
 Includes only one of the fields `other_name`, `rfc_822_name`, `dns_name`, `x_400_name`, `directory_name`, `edi_party_name`, `uniform_resource_identifier`, `ip_address`, `registered_id`.
 
@@ -308,10 +357,14 @@ https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6 ||
 ||Field | Description ||
 || type_oid | **string**
 
-Object identifier for name type ||
+Object identifier for name type
+
+The maximum string length in characters is 1000. ||
 || name | **string**
 
-DER encoded value of type with type_oid ||
+DER encoded value of type with type_oid
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## EdiPartyName {#yandex.cloud.certificatemanager.v1.privateca.EdiPartyName}
@@ -320,10 +373,14 @@ DER encoded value of type with type_oid ||
 ||Field | Description ||
 || name_assigner | **string**
 
-Specifies the entity or authority that assigned the partyName ||
+Specifies the entity or authority that assigned the partyName
+
+The maximum string length in characters is 1000. ||
 || party_name | **string**
 
-The actual identifier of the EDI party ||
+The actual identifier of the EDI party
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

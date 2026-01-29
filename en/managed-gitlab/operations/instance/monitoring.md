@@ -17,32 +17,32 @@ Diagnostic information about the instance status is visualized in charts. The ch
 
 To view detailed information about the {{ mgl-name }} instance state:
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
 1. Click the instance name and select the **{{ ui-key.yacloud.common.monitoring }}** tab.
 1. {% include [open-in-yandex-monitoring](../../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
-The following charts will open on the page:
+You will see the following charts:
 
 * **Data disk**: Amount of used and free space on the data storage disk.
 * **System disk**: Amount of used and free space in the system storage.
-* **CPU**: Load on processor cores.
+* **CPU**: Processor core workload.
 * **Memory**: RAM usage. At high loads, the value of the **Available memory** parameter goes down and the **Used memory** values go up.
 
-## Alert settings in {{ monitoring-name }} {#monitoring-integration}
+## Setting up alerts in {{ monitoring-name }} {#monitoring-integration}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder with the instance you want to configure alerts for.
-   1. In the list of services, select ![image](../../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+   1. [Go](../../../console/operations/select-service.md#select-service) to ![image](../../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
    1. On the home page, under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select **Managed Gitlab**.
    1. In the chart you need, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
    1. If the selected chart contains multiple metrics in the **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-config }}** section, you can keep all data queries or only specific ones. For example, for the **System disk** metric, you can remove the redundant free storage space query and keep only the used space query.
 
       To remove the redundant query, click ![options](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud_monitoring.actions.common.delete }}** in the query row.
 
-      You can learn more about the query language in the [{{ monitoring-name }}](../../../monitoring/concepts/querying.md) documentation.
+      You can learn more about the query language in [this {{ monitoring-name }} article](../../../monitoring/concepts/querying.md).
 
    1. Set the [alert trigger conditions](../../../monitoring/concepts/alerting/alert.md#condition):
 
@@ -62,7 +62,7 @@ The following charts will open on the page:
 
 You can also create alerts for specific {{ mgl-name }} metrics. 
 
-The recommended thresholds are as follows:
+Below are the recommended thresholds for some metrics:
 
 The recommended thresholds for the **Remaining free disk space** (`sys.filesystem.FreeB`) metric are as follows:
 
@@ -86,7 +86,7 @@ The following statuses are possible:
 || **STOPPING** | Stopping the instance | After a while, the instance status will change to `STOPPED` and the instance will be disabled. No action is required. ||
 || **STOPPED** | The instance is stopped. | Start the instance to get it running again. ||
 || **STARTING** | Starting the instance that was stopped earlier | After a while, the instance status will change to `RUNNING`. Wait a while and get started. ||
-|| **UPDATING** | Updating the instance | After the update is completed, the cluster status will change to `RUNNING`. Wait a while and get started. ||
+|| **UPDATING** | Updating the instance | After the update is completed, the cluster status will switch to `RUNNING`. Wait a while and get started. ||
 || **ERROR** | An error occurred that does not allow the instance to continue working | Run the initial diagnostics:
 
 * Review instance [monitoring charts](#view-graphs).

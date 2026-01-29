@@ -228,7 +228,7 @@ To create a [resource](../../concepts/resource.md):
 
      {% include [access-restrictions-cli](../../../_includes/cdn/access-restrictions-cli.md) %}
 
-     For more information about the `yc cdn resource create` command, see this [CLI reference](../../../cli/cli-ref/cdn/cli-ref/resource/create.md).
+     For more information about the `yc cdn resource create` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/resource/create.md).
 
 - {{ TF }} {#tf}
 
@@ -257,6 +257,8 @@ To create a [resource](../../concepts/resource.md):
   You can restrict access to the resource with [secure tokens](../../concepts/secure-tokens.md) and an [IP-based access policy](../../concepts/ip-address-acl.md).
 
 {% endlist %}
+
+{% include [create-resource-time](../../../_includes/cdn/create-resource-time.md) %}
 
 {% include [get-and-create-cname](../../../_includes/cdn/get-and-create-cname.md) %}
 

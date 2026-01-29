@@ -1,5 +1,5 @@
 ---
-title: Deleting an {{ ytsaurus-name }} cluster
+title: Deleting a {{ ytsaurus-name }} cluster
 description: You can delete an {{ ytsaurus-name }} cluster if you no longer need it.
 keywords:
   - deleting an {{ ytsaurus-name }} cluster
@@ -18,7 +18,7 @@ You can delete an {{ ytsaurus-name }} cluster if you no longer need it.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a cluster.
-  1. Select **{{ myt-name }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster in question and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
   1. In the window that opens, confirm the deletion and click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
 
@@ -28,7 +28,7 @@ You can delete an {{ ytsaurus-name }} cluster if you no longer need it.
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To delete an {{ ytsaurus-name }} cluster, run this command:
+    To delete a {{ ytsaurus-name }} cluster, run this command:
 
     ```bash
     {{ yc-ytsaurus }} cluster delete <cluster_name_or_ID>
@@ -42,7 +42,7 @@ You can delete an {{ ytsaurus-name }} cluster if you no longer need it.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -57,17 +57,17 @@ You can delete an {{ ytsaurus-name }} cluster if you no longer need it.
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-  1. Call the [ClusterService.Delete](../api-ref/grpc/Cluster/delete.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+  1. Call the [ClusterService.Delete](../api-ref/grpc/Cluster/delete.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
 
       ```bash
       grpcurl \
@@ -85,6 +85,6 @@ You can delete an {{ ytsaurus-name }} cluster if you no longer need it.
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

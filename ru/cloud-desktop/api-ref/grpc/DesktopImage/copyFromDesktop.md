@@ -25,13 +25,19 @@ Copies the specified desktop image from the specified desktop.
 ||Field | Description ||
 || folder_id | **string**
 
-ID of the folder to copy the image to. ||
+ID of the folder to copy the image to.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Name of the image. ||
+Name of the image.
+
+The maximum string length in characters is 50. ||
 || desktop_id | **string**
 
-Required field. ID of the desktop to copy the image from. ||
+Required field. ID of the desktop to copy the image from.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -146,7 +152,6 @@ Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text forma
 
 Status of the image.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Image is being created.
 - `ACTIVE`: Image is ready to use.
 - `DELETING`: Image is being deleted. ||

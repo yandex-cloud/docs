@@ -26,7 +26,9 @@ Request to get detailed information about an existing Certificate Authority.
 || certificate_authority_id | **string**
 
 Required field. The ID of the Certificate Authority to retrieve.
-This must be a valid Certificate Authority ID in your account. ||
+This must be a valid Certificate Authority ID in your account.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## CertificateAuthority {#yandex.cloud.certificatemanager.v1.privateca.CertificateAuthority}
@@ -73,7 +75,6 @@ ID of the parent certificate authority that signed this certificate authority if
 
 Status of the certificate authority.
 
-- `STATUS_UNSPECIFIED`
 - `UNSIGNED`: The certificate authority is unsigned and pending signing.
 - `ACTIVE`: The certificate authority is active and can issue certificates. ||
 || issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**

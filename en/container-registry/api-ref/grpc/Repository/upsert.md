@@ -25,7 +25,9 @@ Upserts a repository in the specified registry.
 
 Required field. Name of the repository.
 
-The name of the repository should match the name of the images that will be pushed in the repository. ||
+The name of the repository should match the name of the images that will be pushed in the repository.
+
+Value must match the regular expression ` [a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

@@ -5,13 +5,13 @@ from __future__ import annotations
 
 import pathlib
 
-from yandex_cloud_ml_sdk import YCloudML
-from yandex_cloud_ml_sdk.exceptions import DatasetValidationError
+from yandex_ai_studio_sdk import AIStudio
+from yandex_ai_studio_sdk.exceptions import DatasetValidationError
 
 
 def main() -> None:
 
-    sdk = YCloudML(
+    sdk = AIStudio(
         folder_id="<идентификатор_каталога>",
         auth="<API-ключ>",
     )

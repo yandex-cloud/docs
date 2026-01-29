@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the scan policy.
+            The maximum string length in characters is 50.
           type: string
       required:
         - scanPolicyId
@@ -36,7 +37,9 @@ DELETE https://container-registry.{{ api-host }}/container-registry/v1/scanPolic
 ||Field | Description ||
 || scanPolicyId | **string**
 
-Required field. ID of the scan policy. ||
+Required field. ID of the scan policy.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

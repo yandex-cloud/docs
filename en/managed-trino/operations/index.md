@@ -27,3 +27,16 @@ description: In this article, you will learn how to work with {{ mtr-full-name }
 
 * [Monitoring cluster state](monitoring.md)
 * [Viewing cluster logs](cluster-logs.md)
+
+## Object access rules {#access-control}
+
+* [Getting access rules](./access-control-get.md)
+* [Assigning rules for catalog objects](./access-control-catalogs.md)
+* [Assigning rules for schemas](./access-control-schemas.md)
+* [Assigning rules for tables](./access-control-tables.md)
+* [Assigning rules for functions](./access-control-functions.md)
+* [Assigning rules for procedures](./access-control-procedures.md)
+* [Assigning rules for queries](./access-control-queries.md)
+* [Assigning rules for session system properties](./access-control-session-properties.md)
+* [Assigning rules for session catalog properties](./access-control-catalog-properties.md)
+* [Deleting access rules](./access-control-delete.md)

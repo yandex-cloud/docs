@@ -10,11 +10,13 @@ apiPlayground:
           description: |-
             **string**
             Required field. Required. ID of the Yandex Data Processing cluster.
+            The maximum string length in characters is 50.
           type: string
         jobId:
           description: |-
             **string**
             Required field. Required. ID of the Yandex Data Processing job to cancel.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -42,10 +44,14 @@ POST https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/jobs/{jobI
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the Yandex Data Processing cluster. ||
+Required field. Required. ID of the Yandex Data Processing cluster.
+
+The maximum string length in characters is 50. ||
 || jobId | **string**
 
-Required field. Required. ID of the Yandex Data Processing job to cancel. ||
+Required field. Required. ID of the Yandex Data Processing job to cancel.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -261,10 +267,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the cluster that the job is being created for. ||
+Required field. ID of the cluster that the job is being created for.
+
+The maximum string length in characters is 50. ||
 || jobId | **string**
 
-ID of the job being created. ||
+ID of the job being created.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -336,7 +346,6 @@ The id of the user who created the job ||
 
 Job status.
 
-- `STATUS_UNSPECIFIED`
 - `PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.
 - `PENDING`: Job is acquired by the agent and is in the queue for execution.
 - `RUNNING`: Job is being run in the cluster.

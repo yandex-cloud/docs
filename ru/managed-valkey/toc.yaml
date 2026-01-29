@@ -31,14 +31,24 @@ items:
             href: operations/cluster-access.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
+      - name: Подключение
+        items:
+          - name: Предварительная настройка
+            href: operations/connect/index.md
+          - name: FQDN хостов
+            href: operations/connect/fqdn.md
+          - name: Подключение из приложений
+            href: operations/connect/clients.md
+          - name: Примеры кода
+            items:
+              - name: Обзор
+                href: operations/connect/code-examples.md
+              - name: Примеры для подключения к нешардированному кластеру
+                href: operations/connect/non-sharded-code-examples.md
+              - name: Примеры для подключения к шардированному кластеру
+                href: operations/connect/sharded-code-examples.md
       - name: Базы данных
         items:
-          - name: Подготовка к подключению
-            href: operations/connect/index.md
-          - name: Подключение к нешардированному кластеру
-            href: operations/connect/non-sharded.md
-          - name: Подключение к шардированному кластеру
-            href: operations/connect/sharded.md
           - name: Запросы в {{ websql-full-name }}
             href: operations/web-sql-query.md
       - name: Пользователи

@@ -32,9 +32,9 @@ description: Следуя данной инструкции, вы сможете
   1. Создайте файл `test_ml.py` и добавьте в него следующий код:
 
       ```python
-      from yandex_cloud_ml_sdk import YCloudML
+      from yandex_ai_studio_sdk import AIStudio
 
-      sdk = YCloudML(
+      sdk = AIStudio(
           folder_id="<идентификатор_каталога>", auth="<API-ключ_или_IAM-токен>"
       )
 

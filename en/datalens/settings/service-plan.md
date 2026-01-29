@@ -15,7 +15,7 @@ On December 1, 2025, the {{ datalens-name }} pricing rules changed. For details 
 
 To access the service plan and payment settings:
 
-1. In the left-hand panel, select ![image](../../_assets/console-icons/sliders.svg) **Service settings**. If the panel does not feature ![image](../../_assets/console-icons/sliders.svg), first select ![image](../../_assets/console-icons/ellipsis.svg) **More**, then ![image](../../_assets/console-icons/sliders.svg) **Service settings**.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/sliders.svg) **Service settings**. If you do not see ![image](../../_assets/console-icons/sliders.svg) in the panel, first select ![image](../../_assets/console-icons/ellipsis.svg) **More**, then ![image](../../_assets/console-icons/sliders.svg) **Service settings**.
 1. Select the **Service plans and payment** tab.
 
 This tab provides seat cost info, a link to support service plans, and allows you to manage your billing account.

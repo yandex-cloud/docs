@@ -1,90 +1,83 @@
 title: '{{ foundation-models-full-name }}'
 href: index.yaml
 items:
+  - name: About {{ foundation-models-full-name }}
+    href: concepts/index.md
   - name: Getting started with {{ model-gallery-name }}
     href: quickstart/yandexgpt.md
-  - name: Concepts
-    expanded: true
+  - name: '{{ model-gallery-name }}'
     items:
-      - name: About {{ foundation-models-full-name }}
-        href: concepts/index.md
-      - name: '{{ model-gallery-name }}'
+      - name: Overview
+        href: concepts/generation/index.md
+      - name: Common instance models
+        href: concepts/generation/models.md
+      - name: Dedicated instance models
+        href: concepts/generation/dedicated-instance.md
+      - name: Batch processing
+        href: concepts/generation/batch-processing.md
+      - name: Function calling
+        href: concepts/generation/function-call.md
+      - name: Reasoning mode
+        href: concepts/generation/chain-of-thought.md
+      - name: Formatting model responses
+        href: concepts/generation/structured-output.md
+      - name: Classifiers
         items:
-          - name: Overview
-            href: concepts/generation/index.md
-          - name: Common instance models
-            href: concepts/generation/models.md
-          - name: Dedicated instance models
-            href: concepts/generation/dedicated-instance.md
-          - name: Batch processing
-            href: concepts/generation/batch-processing.md
-          - name: Function calling
-            href: concepts/generation/function-call.md
-          - name: Reasoning mode
-            href: concepts/generation/chain-of-thought.md
-          - name: Formatting model responses
-            href: concepts/generation/structured-output.md
-          - name: Classifiers
+          - name: Supported classification types
+            href: concepts/classifier/index.md
+          - name: Available classifier models
+            href: concepts/classifier/models.md
+      - name: Embeddings
+        href: concepts/embeddings.md
+      - name: Datasets
+        href: concepts/resources/dataset.md
+      - name: Fine-tuning
+        href: concepts/tuning/index.md
+      - name: Tokens
+        href: concepts/generation/tokens.md
+  - name: '{{ agents-atelier-name }}'
+    items:
+      - name: Overview of AI agents
+        href: concepts/agents/index.md
+      - name: Voice agents
+        href: concepts/agents/realtime.md
+      - name: '{{ assistant-api }}'
+        hidden: true
+        items:
+          - name: AI assistants
+            href: concepts/assistant/index.md
+          - name: Source files
+            href: concepts/assistant/files.md
+          - name: '{{ assistant-api }} search indexes'
+            href: concepts/assistant/search-index.md
+          - name: Tools
             items:
-              - name: Supported classification types
-                href: concepts/classifier/index.md
-              - name: Available classifier models
-                href: concepts/classifier/models.md
-          - name: Embeddings
-            href: concepts/embeddings.md
-          - name: Datasets
-            href: concepts/resources/dataset.md
-          - name: Fine-tuning
-            href: concepts/tuning/index.md
-          - name: Tokens
-            href: concepts/generation/tokens.md
-      - name: '{{ agents-atelier-name }}'
-        items:
-          - name: Overview of AI agents
-            href: concepts/agents/index.md
-          - name: Voice agents
-            href: concepts/agents/realtime.md
-          - name: '{{ assistant-api }}'
-            hidden: true
-            items:
-              - name: AI assistants
-                href: concepts/assistant/index.md
-              - name: Source files
-                href: concepts/assistant/files.md
-              - name: '{{ assistant-api }} search indexes'
-                href: concepts/assistant/search-index.md
-              - name: Tools
-                items:
-                  - name: Overview
-                    href: concepts/assistant/tools/index.md
-                  - name: '{{ retrieval-tool-name }}'
-                    href: concepts/assistant/tools/vector-store.md
-                  - name: WebSearch
-                    href: concepts/assistant/tools/web-search.md
-                  - name: Rephrasing queries
-                    href: concepts/assistant/rephraser.md
-      - name: AI Search
-        items:
-          - name: AI Search overview
-            href: concepts/search/index.md
-          - name: '{{ vector-store-name }} search indexes'
-            href: concepts/search/vectorstore.md
-          - name: File search tool
-            href: concepts/agents/tools/filesearch.md
-          - name: Web search tool
-            href: concepts/agents/tools/websearch.md
-      - name: '{{ mcp-hub-name }}'
-        items:
-          - name: Overview
-            href: concepts/mcp-hub/index.md
-          - name: MCP server templates
-            href: concepts/mcp-hub/templates.md
-      - name: '{{ sw-full-name }}'
-        href: ../serverless-integrations/concepts/workflows/workflow.md
-      - name: Quotas and limits
-        href: concepts/limits.md
-      - name: Terms and definitions
-        href: concepts/glossary.md
+              - name: Overview
+                href: concepts/assistant/tools/index.md
+              - name: '{{ retrieval-tool-name }}'
+                href: concepts/assistant/tools/vector-store.md
+              - name: WebSearch
+                href: concepts/assistant/tools/web-search.md
+              - name: Rephrasing queries
+                href: concepts/assistant/rephraser.md
+  - name: AI Search
+    items:
+      - name: AI Search overview
+        href: concepts/search/index.md
+      - name: '{{ vector-store-name }} search indexes'
+        href: concepts/search/vectorstore.md
+      - name: File search tool
+        href: concepts/agents/tools/filesearch.md
+      - name: Web search tool
+        href: concepts/agents/tools/websearch.md
+  - name: '{{ mcp-hub-name }}'
+    items:
+      - name: Overview
+        href: concepts/mcp-hub/index.md
+      - name: MCP server templates
+        href: concepts/mcp-hub/templates.md
+  - name: '{{ sw-full-name }}'
+    href: ../serverless-integrations/concepts/workflows/workflow.md
   - name: Step-by-step guides
     items:
       - name: All guides
@@ -111,6 +104,8 @@ items:
                 href: operations/generation/function-call.md
           - name: Image generation
             href: operations/generation/yandexart-request.md
+          - name: Multimodal models
+            href: operations/generation/multimodels-request.md
           - name: Batch processing
             href: operations/batch/create.md
           - name: Using dedicated instances
@@ -194,453 +189,277 @@ items:
             href: operations/agents/manage-searchindex.md
       - name: '{{ mcp-hub-name }}'
         items:
-          - name: Connecting an external MCP server
-            href: operations/mcp-servers/connect-external.md
-          - name: Creating an MCP server from a template
-            href: operations/mcp-servers/create-from-template.md
-          - name: Creating an MCP server from scratch
-            href: operations/mcp-servers/create-brand-new.md
+          - name: Creating an MCP server
+            items:
+              - name: Connecting an external MCP server
+                href: operations/mcp-servers/connect-external.md
+              - name: Creating an MCP server from a template
+                href: operations/mcp-servers/create-from-template.md
+              - name: Creating an MCP server from scratch
+                href: operations/mcp-servers/create-brand-new.md
+          - name: Viewing information about an MCP server
+            href: operations/mcp-servers/get-server-info.md
+          - name: Deleting an MCP server
+            href: operations/mcp-servers/delete-server.md
   - name: Switching from the {{ assistant-api }} to {{ responses-api }}
     href: concepts/agents/assistant-responses-migration.md
-  - name: '{{ ml-sdk-full-name }}'
-    items:
-      - name: About {{ ml-sdk-full-name }}
-        href: sdk/index.md
-      - name: SDK reference
-        items:
-          - name: Overview
-            href: sdk-ref/index
-          - name: SDK
-            items:
-              - name: Overview
-                href: sdk-ref/sync/sdk
-              - name: Models domain
-                href: sdk-ref/sync/models/domain
-              - name: Assistants domain
-                href: sdk-ref/sync/assistants
-              - name: Tools domain
-                href: sdk-ref/sync/tools
-              - name: Files domain
-                href: sdk-ref/sync/files
-              - name: Threads domain
-                href: sdk-ref/sync/threads
-              - name: Runs domain
-                href: sdk-ref/sync/runs
-              - name: Search indexes domain
-                href: sdk-ref/sync/search_indexes
-              - name: Search API domain
-                href: sdk-ref/sync/search_api
-              - name: Datasets domain
-                href: sdk-ref/sync/datasets
-              - name: Tuning domain
-                href: sdk-ref/sync/tuning
-              - name: Batch domain
-                href: sdk-ref/sync/batch
-              - name: Chat domain
-                href: sdk-ref/sync/chat/domain
-              - name: SpheechKit domain
-                href: sdk-ref/sync/speechkit/domain
-          - name: Async SDK
-            items:
-              - name: Overview
-                href: sdk-ref/async/sdk
-              - name: Models domain
-                href: sdk-ref/async/models/domain
-              - name: Assistants domain
-                href: sdk-ref/async/assistants
-              - name: Tools domain
-                href: sdk-ref/async/tools
-              - name: Files domain
-                href: sdk-ref/async/files
-              - name: Threads domain
-                href: sdk-ref/async/threads
-              - name: Runs domain
-                href: sdk-ref/async/runs
-              - name: Search indexes domain
-                href: sdk-ref/async/search_indexes
-              - name: Search API domain
-                href: sdk-ref/async/search_api
-              - name: Datasets domain
-                href: sdk-ref/async/datasets
-              - name: Tuning domain
-                href: sdk-ref/async/tuning
-              - name: Batch domain
-                href: sdk-ref/async/batch
-              - name: Chat domain
-                href: sdk-ref/async/chat/domain
-              - name: SpheechKit domain
-                href: sdk-ref/async/speechkit/domain
-          - name: Authentication
-            href: sdk-ref/auth
-          - name: Types
-            items:
-              - name: Overview
-                href: sdk-ref/types/index
-              - name: Assistant types
-                href: sdk-ref/types/assistants
-              - name: Tools
-                href: sdk-ref/types/tools
-              - name: Operation
-                href: sdk-ref/types/operation
-              - name: Tuning
-                href: sdk-ref/types/tuning
-              - name: Result types for models
-                href: sdk-ref/types/model_results
-              - name: Datasets
-                href: sdk-ref/types/datasets
-              - name: Search API
-                href: sdk-ref/types/search_api
-              - name: Messages
-                href: sdk-ref/types/message
-              - name: Run types
-                href: sdk-ref/types/runs
-              - name: Search index types
-                href: sdk-ref/types/search_indexes
-              - name: Other types
-                href: sdk-ref/types/other
-              - name: Batch
-                href: sdk-ref/types/batch
-              - name: Speechkit
-                href: sdk-ref/types/speechkit
-          - name: Request retries
-            href: sdk-ref/retry
-          - name: Base classes
-            href: sdk-ref/internals/bases
-            hidden: true
-          - name: Other types
-            href: sdk-ref/types/other
-            hidden: true
-          - name: Domain
-            href: sdk-ref/sync/models/completions
-            hidden: true
-          - name: Domain
-            href: sdk-ref/sync/models/text_embeddings
-            hidden: true
-          - name: Domain
-            href: sdk-ref/sync/models/text_classifiers
-            hidden: true
-          - name: Domain
-            href: sdk-ref/sync/models/image_generation
-            hidden: true
-          - name: Assistant types
-            href: sdk-ref/types/assistants
-            hidden: true
-          - name: Search API
-            href: sdk-ref/types/search_api
-            hidden: true
-          - name: Tools
-            href: sdk-ref/types/tools
-            hidden: true
-          - name: Messages
-            href: sdk-ref/types/message
-            hidden: true
-          - name: Run types
-            href: sdk-ref/types/runs
-            hidden: true
-          - name: Search index types
-            href: sdk-ref/types/search_indexes
-            hidden: true
-          - name: Operation
-            href: sdk-ref/types/operation
-            hidden: true
-          - name: Datasets
-            href: sdk-ref/types/datasets
-            hidden: true
-          - name: Tuning
-            href: sdk-ref/types/tuning
-            hidden: true
-          - name: Batch
-            href: sdk-ref/types/batch
-            hidden: true
-          - name: Domain
-            href: sdk-ref/sync/chat/completions
-            hidden: true
-          - name: Domain
-            href: sdk-ref/sync/chat/text_embeddings
-            hidden: true
-          - name: Domain
-            href: sdk-ref/sync/speechkit/text_to_speech
-            hidden: true
-          - name: Domain
-            href: sdk-ref/async/models/completions
-            hidden: true
-          - name: Domain
-            href: sdk-ref/async/models/text_embeddings
-            hidden: true
-          - name: Domain
-            href: sdk-ref/async/models/text_classifiers
-            hidden: true
-          - name: Domain
-            href: sdk-ref/async/models/image_generation
-            hidden: true
-          - name: Domain
-            href: sdk-ref/async/chat/completions
-            hidden: true
-          - name: Domain
-            href: sdk-ref/async/chat/text_embeddings
-            hidden: true
-          - name: Domain
-            href: sdk-ref/async/speechkit/text_to_speech
-            hidden: true
-          - name: Result types for models
-            href: sdk-ref/types/model_results
-            hidden: true
-          - name: Speechkit
-            href: sdk-ref/types/speechkit
-            hidden: true
   - name: Compatibility with {{ openai }}
     href: concepts/openai-compatibility.md
-  - name: OpenAI-compatible API
-    items:
-      - name: Chat
-        items:
-          - name: Overview
-            href: chat/index.md
-          - name: listChatCompletions
-            href: chat/listChatCompletions.md
-          - name: createChatCompletion
-            href: chat/createChatCompletion.md
-          - name: getChatCompletion
-            href: chat/getChatCompletion.md
-          - name: updateChatCompletion
-            href: chat/updateChatCompletion.md
-          - name: deleteChatCompletion
-            href: chat/deleteChatCompletion.md
-      - name: Conversations
-        items:
-          - name: Overview
-            href: conversations/index.md
-          - name: createConversationItems
-            href: conversations/createConversationItems.md
-          - name: listConversationItems
-            href: conversations/listConversationItems.md
-          - name: getConversationItem
-            href: conversations/getConversationItem.md
-          - name: deleteConversationItem
-            href: conversations/deleteConversationItem.md
-          - name: createConversation
-            href: conversations/createConversation.md
-          - name: getConversation
-            href: conversations/getConversation.md
-          - name: deleteConversation
-            href: conversations/deleteConversation.md
-          - name: updateConversation
-            href: conversations/updateConversation.md
-      - name: Embeddings
-        items:
-          - name: Overview
-            href: embeddings/index.md
-          - name: createEmbedding
-            href: embeddings/createEmbedding.md
-      - name: Files
-        items:
-          - name: Overview
-            href: files/index.md
-          - name: listFiles
-            href: files/listFiles.md
-          - name: createFile
-            href: files/createFile.md
-          - name: deleteFile
-            href: files/deleteFile.md
-          - name: retrieveFile
-            href: files/retrieveFile.md
-          - name: downloadFile
-            href: files/downloadFile.md
-      - name: Models
-        items:
-          - name: Overview
-            href: models/index.md
-          - name: listModels
-            href: models/listModels.md
-      - name: Realtime
-        items:
-          - name: Client events
-            items:
-              - name: Overview
-                href: clientEvents/index.md
-              - name: realtime.session.update
-                href: clientEvents/realtimeSessionUpdate.md
-              - name: realtime.input_audio_buffer.append
-                href: clientEvents/realtimeInputAudioBufferAppend.md
-              - name: realtime.input_audio_buffer.commit
-                href: clientEvents/realtimeInputAudioBufferCommit.md
-              - name: realtime.input_audio_buffer.clear
-                href: clientEvents/realtimeInputAudioBufferClear.md
-              - name: realtime.conversation.item.create
-                href: clientEvents/realtimeConversationItemCreate.md
-              - name: realtime.conversation.item.retrieve
-                href: clientEvents/realtimeConversationItemRetrieve.md
-              - name: realtime.conversation.item.truncate
-                href: clientEvents/realtimeConversationItemTruncate.md
-              - name: realtime.conversation.item.delete
-                href: clientEvents/realtimeConversationItemDelete.md
-              - name: realtime.response.create
-                href: clientEvents/realtimeResponseCreate.md
-              - name: realtime.response.cancel
-                href: clientEvents/realtimeResponseCancel.md
-              - name: realtime.output_audio_buffer.clear
-                href: clientEvents/realtimeOutputAudioBufferClear.md
-          - name: Server events
-            items:
-              - name: Overview
-                href: serverEvents/index.md
-              - name: realtime.server.error
-                href: serverEvents/realtimeServerError.md
-              - name: realtime.server.session.created
-                href: serverEvents/realtimeServerSessionCreated.md
-              - name: realtime.server.session.updated
-                href: serverEvents/realtimeServerSessionUpdated.md
-              - name: realtime.server.conversation.item.added
-                href: serverEvents/realtimeServerConversationItemAdded.md
-              - name: realtime.server.conversation.item.created
-                href: serverEvents/realtimeServerConversationItemCreated.md
-              - name: realtime.server.conversation.item.deleted
-                href: serverEvents/realtimeServerConversationItemDeleted.md
-              - name: realtime.server.conversation.item.done
-                href: serverEvents/realtimeServerConversationItemDone.md
-              - name: >-
-                  realtime.server.conversation.item.input_audio_transcription.completed
-                href: >-
-                  serverEvents/realtimeServerConversationItemInputAudioTranscriptionCompleted.md
-              - name: >-
-                  realtime.server.conversation.item.input_audio_transcription.delta
-                href: >-
-                  serverEvents/realtimeServerConversationItemInputAudioTranscriptionDelta.md
-              - name: >-
-                  realtime.server.conversation.item.input_audio_transcription.failed
-                href: >-
-                  serverEvents/realtimeServerConversationItemInputAudioTranscriptionFailed.md
-              - name: >-
-                  realtime.server.conversation.item.input_audio_transcription.segment
-                href: >-
-                  serverEvents/realtimeServerConversationItemInputAudioTranscriptionSegment.md
-              - name: realtime.server.conversation.item.retrieved
-                href: serverEvents/realtimeServerConversationItemRetrieved.md
-              - name: realtime.server.conversation.item.truncated
-                href: serverEvents/realtimeServerConversationItemTruncated.md
-              - name: realtime.server.input_audio_buffer.cleared
-                href: serverEvents/realtimeServerInputAudioBufferCleared.md
-              - name: realtime.server.input_audio_buffer.committed
-                href: serverEvents/realtimeServerInputAudioBufferCommitted.md
-              - name: realtime.server.input_audio_buffer.dtmf_event_received
-                href: >-
-                  serverEvents/realtimeServerInputAudioBufferDtmfEventReceived.md
-              - name: realtime.server.input_audio_buffer.speech_started
-                href: serverEvents/realtimeServerInputAudioBufferSpeechStarted.md
-              - name: realtime.server.input_audio_buffer.speech_stopped
-                href: serverEvents/realtimeServerInputAudioBufferSpeechStopped.md
-              - name: realtime.server.input_audio_buffer.timeout_triggered
-                href: serverEvents/realtimeServerInputAudioBufferTimeoutTriggered.md
-              - name: realtime.server.output_audio_buffer.cleared
-                href: serverEvents/realtimeServerOutputAudioBufferCleared.md
-              - name: realtime.server.output_audio_buffer.started
-                href: serverEvents/realtimeServerOutputAudioBufferStarted.md
-              - name: realtime.server.output_audio_buffer.stopped
-                href: serverEvents/realtimeServerOutputAudioBufferStopped.md
-              - name: realtime.server.response.content_part.added
-                href: serverEvents/realtimeServerResponseContentPartAdded.md
-              - name: realtime.server.response.content_part.done
-                href: serverEvents/realtimeServerResponseContentPartDone.md
-              - name: realtime.server.response.created
-                href: serverEvents/realtimeServerResponseCreated.md
-              - name: realtime.server.response.done
-                href: serverEvents/realtimeServerResponseDone.md
-              - name: realtime.server.response.function_call_arguments.delta
-                href: >-
-                  serverEvents/realtimeServerResponseFunctionCallArgumentsDelta.md
-              - name: realtime.server.response.function_call_arguments.done
-                href: >-
-                  serverEvents/realtimeServerResponseFunctionCallArgumentsDone.md
-              - name: realtime.server.response.mcp_call.completed
-                href: serverEvents/realtimeServerResponseMcpCallCompleted.md
-              - name: realtime.server.response.mcp_call.failed
-                href: serverEvents/realtimeServerResponseMcpCallFailed.md
-              - name: realtime.server.response.mcp_call.in_progress
-                href: serverEvents/realtimeServerResponseMcpCallInProgress.md
-              - name: realtime.server.response.mcp_call_arguments.delta
-                href: serverEvents/realtimeServerResponseMcpCallArgumentsDelta.md
-              - name: realtime.server.response.mcp_call_arguments.done
-                href: serverEvents/realtimeServerResponseMcpCallArgumentsDone.md
-              - name: realtime.server.response.output_audio.delta
-                href: serverEvents/realtimeServerResponseOutputAudioDelta.md
-              - name: realtime.server.response.output_audio.done
-                href: serverEvents/realtimeServerResponseOutputAudioDone.md
-              - name: realtime.server.response.output_audio_transcript.delta
-                href: >-
-                  serverEvents/realtimeServerResponseOutputAudioTranscriptDelta.md
-              - name: realtime.server.response.output_audio_transcript.done
-                href: >-
-                  serverEvents/realtimeServerResponseOutputAudioTranscriptDone.md
-              - name: realtime.server.response.output_item.added
-                href: serverEvents/realtimeServerResponseOutputItemAdded.md
-              - name: realtime.server.response.output_item.done
-                href: serverEvents/realtimeServerResponseOutputItemDone.md
-              - name: realtime.server.response.output_text.delta
-                href: serverEvents/realtimeServerResponseOutputTextDelta.md
-              - name: realtime.server.response.output_text.done
-                href: serverEvents/realtimeServerResponseOutputTextDone.md
-              - name: realtime.server.mcp_list_tools.completed
-                href: serverEvents/realtimeServerMcpListToolsCompleted.md
-              - name: realtime.server.mcp_list_tools.failed
-                href: serverEvents/realtimeServerMcpListToolsFailed.md
-              - name: realtime.server.mcp_list_tools.in_progress
-                href: serverEvents/realtimeServerMcpListToolsInProgress.md
-              - name: realtime.server.rate_limits.updated
-                href: serverEvents/realtimeServerRateLimitsUpdated.md
-      - name: Responses
-        items:
-          - name: Overview
-            href: responses/index.md
-          - name: createResponse
-            href: responses/createResponse.md
-          - name: getResponse
-            href: responses/getResponse.md
-          - name: deleteResponse
-            href: responses/deleteResponse.md
-          - name: cancelResponse
-            href: responses/cancelResponse.md
-          - name: listInputItems
-            href: responses/listInputItems.md
-      - name: Vector stores
-        items:
-          - name: Overview
-            href: vectorStores/index.md
-          - name: listVectorStores
-            href: vectorStores/listVectorStores.md
-          - name: createVectorStore
-            href: vectorStores/createVectorStore.md
-          - name: getVectorStore
-            href: vectorStores/getVectorStore.md
-          - name: modifyVectorStore
-            href: vectorStores/modifyVectorStore.md
-          - name: deleteVectorStore
-            href: vectorStores/deleteVectorStore.md
-          - name: createVectorStoreFileBatch
-            href: vectorStores/createVectorStoreFileBatch.md
-          - name: getVectorStoreFileBatch
-            href: vectorStores/getVectorStoreFileBatch.md
-          - name: listFilesInVectorStoreBatch
-            href: vectorStores/listFilesInVectorStoreBatch.md
-          - name: listVectorStoreFiles
-            href: vectorStores/listVectorStoreFiles.md
-          - name: createVectorStoreFile
-            href: vectorStores/createVectorStoreFile.md
-          - name: getVectorStoreFile
-            href: vectorStores/getVectorStoreFile.md
-          - name: deleteVectorStoreFile
-            href: vectorStores/deleteVectorStoreFile.md
-          - name: updateVectorStoreFileAttributes
-            href: vectorStores/updateVectorStoreFileAttributes.md
-          - name: retrieveVectorStoreFileContent
-            href: vectorStores/retrieveVectorStoreFileContent.md
-          - name: searchVectorStore
-            href: vectorStores/searchVectorStore.md
   - name: API references
     items:
       - name: Overview
         href: concepts/api.md
       - name: API authentication
         href: api-ref/authentication.md
+      - name: OpenAI-compatible APIs
+        items:
+          - name: Chat
+            items:
+              - name: Overview
+                href: chat/index.md
+              - name: listChatCompletions
+                href: chat/listChatCompletions.md
+              - name: createChatCompletion
+                href: chat/createChatCompletion.md
+              - name: getChatCompletion
+                href: chat/getChatCompletion.md
+              - name: updateChatCompletion
+                href: chat/updateChatCompletion.md
+              - name: deleteChatCompletion
+                href: chat/deleteChatCompletion.md
+          - name: Conversations
+            items:
+              - name: Overview
+                href: conversations/index.md
+              - name: createConversationItems
+                href: conversations/createConversationItems.md
+              - name: listConversationItems
+                href: conversations/listConversationItems.md
+              - name: getConversationItem
+                href: conversations/getConversationItem.md
+              - name: deleteConversationItem
+                href: conversations/deleteConversationItem.md
+              - name: createConversation
+                href: conversations/createConversation.md
+              - name: getConversation
+                href: conversations/getConversation.md
+              - name: deleteConversation
+                href: conversations/deleteConversation.md
+              - name: updateConversation
+                href: conversations/updateConversation.md
+          - name: Embeddings
+            items:
+              - name: Overview
+                href: embeddings/index.md
+              - name: createEmbedding
+                href: embeddings/createEmbedding.md
+          - name: Files
+            items:
+              - name: Overview
+                href: files/index.md
+              - name: listFiles
+                href: files/listFiles.md
+              - name: createFile
+                href: files/createFile.md
+              - name: deleteFile
+                href: files/deleteFile.md
+              - name: retrieveFile
+                href: files/retrieveFile.md
+              - name: downloadFile
+                href: files/downloadFile.md
+          - name: Models
+            items:
+              - name: Overview
+                href: models/index.md
+              - name: listModels
+                href: models/listModels.md
+          - name: Realtime
+            items:
+              - name: Client events
+                items:
+                  - name: Overview
+                    href: clientEvents/index.md
+                  - name: realtime.session.update
+                    href: clientEvents/realtimeSessionUpdate.md
+                  - name: realtime.input_audio_buffer.append
+                    href: clientEvents/realtimeInputAudioBufferAppend.md
+                  - name: realtime.input_audio_buffer.commit
+                    href: clientEvents/realtimeInputAudioBufferCommit.md
+                  - name: realtime.input_audio_buffer.clear
+                    href: clientEvents/realtimeInputAudioBufferClear.md
+                  - name: realtime.conversation.item.create
+                    href: clientEvents/realtimeConversationItemCreate.md
+                  - name: realtime.conversation.item.retrieve
+                    href: clientEvents/realtimeConversationItemRetrieve.md
+                  - name: realtime.conversation.item.truncate
+                    href: clientEvents/realtimeConversationItemTruncate.md
+                  - name: realtime.conversation.item.delete
+                    href: clientEvents/realtimeConversationItemDelete.md
+                  - name: realtime.response.create
+                    href: clientEvents/realtimeResponseCreate.md
+                  - name: realtime.response.cancel
+                    href: clientEvents/realtimeResponseCancel.md
+                  - name: realtime.output_audio_buffer.clear
+                    href: clientEvents/realtimeOutputAudioBufferClear.md
+              - name: Server events
+                items:
+                  - name: Overview
+                    href: serverEvents/index.md
+                  - name: realtime.server.error
+                    href: serverEvents/realtimeServerError.md
+                  - name: realtime.server.session.created
+                    href: serverEvents/realtimeServerSessionCreated.md
+                  - name: realtime.server.session.updated
+                    href: serverEvents/realtimeServerSessionUpdated.md
+                  - name: realtime.server.conversation.item.added
+                    href: serverEvents/realtimeServerConversationItemAdded.md
+                  - name: realtime.server.conversation.item.created
+                    href: serverEvents/realtimeServerConversationItemCreated.md
+                  - name: realtime.server.conversation.item.deleted
+                    href: serverEvents/realtimeServerConversationItemDeleted.md
+                  - name: realtime.server.conversation.item.done
+                    href: serverEvents/realtimeServerConversationItemDone.md
+                  - name: >-
+                      realtime.server.conversation.item.input_audio_transcription.completed
+                    href: >-
+                      serverEvents/realtimeServerConversationItemInputAudioTranscriptionCompleted.md
+                  - name: >-
+                      realtime.server.conversation.item.input_audio_transcription.delta
+                    href: >-
+                      serverEvents/realtimeServerConversationItemInputAudioTranscriptionDelta.md
+                  - name: >-
+                      realtime.server.conversation.item.input_audio_transcription.failed
+                    href: >-
+                      serverEvents/realtimeServerConversationItemInputAudioTranscriptionFailed.md
+                  - name: >-
+                      realtime.server.conversation.item.input_audio_transcription.segment
+                    href: >-
+                      serverEvents/realtimeServerConversationItemInputAudioTranscriptionSegment.md
+                  - name: realtime.server.conversation.item.retrieved
+                    href: serverEvents/realtimeServerConversationItemRetrieved.md
+                  - name: realtime.server.conversation.item.truncated
+                    href: serverEvents/realtimeServerConversationItemTruncated.md
+                  - name: realtime.server.input_audio_buffer.cleared
+                    href: serverEvents/realtimeServerInputAudioBufferCleared.md
+                  - name: realtime.server.input_audio_buffer.committed
+                    href: serverEvents/realtimeServerInputAudioBufferCommitted.md
+                  - name: realtime.server.input_audio_buffer.dtmf_event_received
+                    href: >-
+                      serverEvents/realtimeServerInputAudioBufferDtmfEventReceived.md
+                  - name: realtime.server.input_audio_buffer.speech_started
+                    href: >-
+                      serverEvents/realtimeServerInputAudioBufferSpeechStarted.md
+                  - name: realtime.server.input_audio_buffer.speech_stopped
+                    href: >-
+                      serverEvents/realtimeServerInputAudioBufferSpeechStopped.md
+                  - name: realtime.server.input_audio_buffer.timeout_triggered
+                    href: >-
+                      serverEvents/realtimeServerInputAudioBufferTimeoutTriggered.md
+                  - name: realtime.server.output_audio_buffer.cleared
+                    href: serverEvents/realtimeServerOutputAudioBufferCleared.md
+                  - name: realtime.server.output_audio_buffer.started
+                    href: serverEvents/realtimeServerOutputAudioBufferStarted.md
+                  - name: realtime.server.output_audio_buffer.stopped
+                    href: serverEvents/realtimeServerOutputAudioBufferStopped.md
+                  - name: realtime.server.response.content_part.added
+                    href: serverEvents/realtimeServerResponseContentPartAdded.md
+                  - name: realtime.server.response.content_part.done
+                    href: serverEvents/realtimeServerResponseContentPartDone.md
+                  - name: realtime.server.response.created
+                    href: serverEvents/realtimeServerResponseCreated.md
+                  - name: realtime.server.response.done
+                    href: serverEvents/realtimeServerResponseDone.md
+                  - name: realtime.server.response.function_call_arguments.delta
+                    href: >-
+                      serverEvents/realtimeServerResponseFunctionCallArgumentsDelta.md
+                  - name: realtime.server.response.function_call_arguments.done
+                    href: >-
+                      serverEvents/realtimeServerResponseFunctionCallArgumentsDone.md
+                  - name: realtime.server.response.mcp_call.completed
+                    href: serverEvents/realtimeServerResponseMcpCallCompleted.md
+                  - name: realtime.server.response.mcp_call.failed
+                    href: serverEvents/realtimeServerResponseMcpCallFailed.md
+                  - name: realtime.server.response.mcp_call.in_progress
+                    href: serverEvents/realtimeServerResponseMcpCallInProgress.md
+                  - name: realtime.server.response.mcp_call_arguments.delta
+                    href: >-
+                      serverEvents/realtimeServerResponseMcpCallArgumentsDelta.md
+                  - name: realtime.server.response.mcp_call_arguments.done
+                    href: serverEvents/realtimeServerResponseMcpCallArgumentsDone.md
+                  - name: realtime.server.response.output_audio.delta
+                    href: serverEvents/realtimeServerResponseOutputAudioDelta.md
+                  - name: realtime.server.response.output_audio.done
+                    href: serverEvents/realtimeServerResponseOutputAudioDone.md
+                  - name: realtime.server.response.output_audio_transcript.delta
+                    href: >-
+                      serverEvents/realtimeServerResponseOutputAudioTranscriptDelta.md
+                  - name: realtime.server.response.output_audio_transcript.done
+                    href: >-
+                      serverEvents/realtimeServerResponseOutputAudioTranscriptDone.md
+                  - name: realtime.server.response.output_item.added
+                    href: serverEvents/realtimeServerResponseOutputItemAdded.md
+                  - name: realtime.server.response.output_item.done
+                    href: serverEvents/realtimeServerResponseOutputItemDone.md
+                  - name: realtime.server.response.output_text.delta
+                    href: serverEvents/realtimeServerResponseOutputTextDelta.md
+                  - name: realtime.server.response.output_text.done
+                    href: serverEvents/realtimeServerResponseOutputTextDone.md
+                  - name: realtime.server.mcp_list_tools.completed
+                    href: serverEvents/realtimeServerMcpListToolsCompleted.md
+                  - name: realtime.server.mcp_list_tools.failed
+                    href: serverEvents/realtimeServerMcpListToolsFailed.md
+                  - name: realtime.server.mcp_list_tools.in_progress
+                    href: serverEvents/realtimeServerMcpListToolsInProgress.md
+                  - name: realtime.server.rate_limits.updated
+                    href: serverEvents/realtimeServerRateLimitsUpdated.md
+          - name: Responses
+            items:
+              - name: Overview
+                href: responses/index.md
+              - name: createResponse
+                href: responses/createResponse.md
+              - name: getResponse
+                href: responses/getResponse.md
+              - name: deleteResponse
+                href: responses/deleteResponse.md
+              - name: cancelResponse
+                href: responses/cancelResponse.md
+              - name: listInputItems
+                href: responses/listInputItems.md
+          - name: Vector stores
+            items:
+              - name: Overview
+                href: vectorStores/index.md
+              - name: listVectorStores
+                href: vectorStores/listVectorStores.md
+              - name: createVectorStore
+                href: vectorStores/createVectorStore.md
+              - name: getVectorStore
+                href: vectorStores/getVectorStore.md
+              - name: modifyVectorStore
+                href: vectorStores/modifyVectorStore.md
+              - name: deleteVectorStore
+                href: vectorStores/deleteVectorStore.md
+              - name: createVectorStoreFileBatch
+                href: vectorStores/createVectorStoreFileBatch.md
+              - name: getVectorStoreFileBatch
+                href: vectorStores/getVectorStoreFileBatch.md
+              - name: listFilesInVectorStoreBatch
+                href: vectorStores/listFilesInVectorStoreBatch.md
+              - name: listVectorStoreFiles
+                href: vectorStores/listVectorStoreFiles.md
+              - name: createVectorStoreFile
+                href: vectorStores/createVectorStoreFile.md
+              - name: getVectorStoreFile
+                href: vectorStores/getVectorStoreFile.md
+              - name: deleteVectorStoreFile
+                href: vectorStores/deleteVectorStoreFile.md
+              - name: updateVectorStoreFileAttributes
+                href: vectorStores/updateVectorStoreFileAttributes.md
+              - name: retrieveVectorStoreFileContent
+                href: vectorStores/retrieveVectorStoreFileContent.md
+              - name: searchVectorStore
+                href: vectorStores/searchVectorStore.md
       - name: Text Generation API
         items:
           - name: REST
@@ -1232,7 +1051,7 @@ items:
                     href: tuning/api-ref/grpc/Tuning/archive.md
                   - name: EnableBilling
                     href: tuning/api-ref/grpc/Tuning/enableBilling.md
-      - name: '{{ mcp-hub-name }} API'
+      - name: MCP Gateway API
         items:
           - name: REST
             items:
@@ -1303,6 +1122,192 @@ items:
                     href: mcp-gateway/api-ref/grpc/Operation/get.md
                   - name: Cancel
                     href: mcp-gateway/api-ref/grpc/Operation/cancel.md
+  - name: '{{ ml-sdk-full-name }}'
+    items:
+      - name: About {{ ml-sdk-full-name }}
+        href: sdk/index.md
+      - name: SDK reference
+        items:
+          - name: Overview
+            href: sdk-ref/index
+          - name: SDK
+            items:
+              - name: Overview
+                href: sdk-ref/sync/sdk
+              - name: Models domain
+                href: sdk-ref/sync/models/domain
+              - name: Assistants domain
+                href: sdk-ref/sync/assistants
+              - name: Tools domain
+                href: sdk-ref/sync/tools
+              - name: Files domain
+                href: sdk-ref/sync/files
+              - name: Threads domain
+                href: sdk-ref/sync/threads
+              - name: Runs domain
+                href: sdk-ref/sync/runs
+              - name: Search indexes domain
+                href: sdk-ref/sync/search_indexes
+              - name: Search API domain
+                href: sdk-ref/sync/search_api
+              - name: Datasets domain
+                href: sdk-ref/sync/datasets
+              - name: Tuning domain
+                href: sdk-ref/sync/tuning
+              - name: Batch domain
+                href: sdk-ref/sync/batch
+              - name: Chat domain
+                href: sdk-ref/sync/chat/domain
+              - name: SpheechKit domain
+                href: sdk-ref/sync/speechkit/domain
+          - name: Async SDK
+            items:
+              - name: Overview
+                href: sdk-ref/async/sdk
+              - name: Models domain
+                href: sdk-ref/async/models/domain
+              - name: Assistants domain
+                href: sdk-ref/async/assistants
+              - name: Tools domain
+                href: sdk-ref/async/tools
+              - name: Files domain
+                href: sdk-ref/async/files
+              - name: Threads domain
+                href: sdk-ref/async/threads
+              - name: Runs domain
+                href: sdk-ref/async/runs
+              - name: Search indexes domain
+                href: sdk-ref/async/search_indexes
+              - name: Search API domain
+                href: sdk-ref/async/search_api
+              - name: Datasets domain
+                href: sdk-ref/async/datasets
+              - name: Tuning domain
+                href: sdk-ref/async/tuning
+              - name: Batch domain
+                href: sdk-ref/async/batch
+              - name: Chat domain
+                href: sdk-ref/async/chat/domain
+              - name: SpheechKit domain
+                href: sdk-ref/async/speechkit/domain
+          - name: Authentication
+            href: sdk-ref/auth
+          - name: Types
+            items:
+              - name: Overview
+                href: sdk-ref/types/index
+              - name: Assistant types
+                href: sdk-ref/types/assistants
+              - name: Tools
+                href: sdk-ref/types/tools
+              - name: Operation
+                href: sdk-ref/types/operation
+              - name: Tuning
+                href: sdk-ref/types/tuning
+              - name: Result types for models
+                href: sdk-ref/types/model_results
+              - name: Datasets
+                href: sdk-ref/types/datasets
+              - name: Search API
+                href: sdk-ref/types/search_api
+              - name: Messages
+                href: sdk-ref/types/message
+              - name: Run types
+                href: sdk-ref/types/runs
+              - name: Search index types
+                href: sdk-ref/types/search_indexes
+              - name: Other types
+                href: sdk-ref/types/other
+              - name: Batch
+                href: sdk-ref/types/batch
+              - name: Speechkit
+                href: sdk-ref/types/speechkit
+          - name: Request retries
+            href: sdk-ref/retry
+          - name: Base classes
+            href: sdk-ref/internals/bases
+            hidden: true
+          - name: Other types
+            href: sdk-ref/types/other
+            hidden: true
+          - name: Domain
+            href: sdk-ref/sync/models/completions
+            hidden: true
+          - name: Domain
+            href: sdk-ref/sync/models/text_embeddings
+            hidden: true
+          - name: Domain
+            href: sdk-ref/sync/models/text_classifiers
+            hidden: true
+          - name: Domain
+            href: sdk-ref/sync/models/image_generation
+            hidden: true
+          - name: Assistant types
+            href: sdk-ref/types/assistants
+            hidden: true
+          - name: Search API
+            href: sdk-ref/types/search_api
+            hidden: true
+          - name: Tools
+            href: sdk-ref/types/tools
+            hidden: true
+          - name: Messages
+            href: sdk-ref/types/message
+            hidden: true
+          - name: Run types
+            href: sdk-ref/types/runs
+            hidden: true
+          - name: Search index types
+            href: sdk-ref/types/search_indexes
+            hidden: true
+          - name: Operation
+            href: sdk-ref/types/operation
+            hidden: true
+          - name: Datasets
+            href: sdk-ref/types/datasets
+            hidden: true
+          - name: Tuning
+            href: sdk-ref/types/tuning
+            hidden: true
+          - name: Batch
+            href: sdk-ref/types/batch
+            hidden: true
+          - name: Domain
+            href: sdk-ref/sync/chat/completions
+            hidden: true
+          - name: Domain
+            href: sdk-ref/sync/chat/text_embeddings
+            hidden: true
+          - name: Domain
+            href: sdk-ref/sync/speechkit/text_to_speech
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/models/completions
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/models/text_embeddings
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/models/text_classifiers
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/models/image_generation
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/chat/completions
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/chat/text_embeddings
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/speechkit/text_to_speech
+            hidden: true
+          - name: Result types for models
+            href: sdk-ref/types/model_results
+            hidden: true
+          - name: Speechkit
+            href: sdk-ref/types/speechkit
+            hidden: true
   - name: Tutorials
     items:
       - name: All tutorials
@@ -1316,6 +1321,8 @@ items:
         href: tutorials/models-fine-tuning.md
       - name: Creating an AI agent with {{ sf-full-name }}
         href: tutorials/create-ai-agent-function.md
+      - name: Creating an AI agent with response streaming via web sockets
+        href: tutorials/streaming-openai-agent.md
       - name: Integrating generative models into Visual Studio Code
         href: tutorials/ai-model-ide-integration.md
       - name: Creating an AI assistant for Telegram
@@ -1329,16 +1336,20 @@ items:
           AI-powered review of GitHub pull requests with {{ sw-full-name }} and
           GitHub Actions
         href: tutorials/ai-powered-github-pr-review.md
-  - name: Access management
-    href: security/index.md
+  - name: Quotas and limits
+    href: concepts/limits.md
   - name: Pricing policy
     href: pricing.md
+  - name: Access management
+    href: security/index.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Public materials
     href: public-talks.md
   - name: Release notes
     href: release-notes/index.md
+  - name: Terms and definitions
+    href: concepts/glossary.md
   - name: FAQ
     items:
       - name: General questions about models

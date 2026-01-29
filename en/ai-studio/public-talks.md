@@ -74,14 +74,14 @@ description: Videos of conferences and webinars on {{ foundation-models-name }}.
 
 ### 2024: Yandex Scale {#yandex-scale-2024}
 
-* From a bunch of Ml services to a single platform for creating AI solutions. Click [here](https://www.youtube.com/watch?v=70kXmv9GL8s) for the video.
+* From a bunch of Ml services to a single platform for creating AI solutions. Click [here](https://www.youtube.com/watch?v=70kXmv9GL8s) to watch the video.
 
 
 ### 2023: Yandex Scale {#yandex-scale-2023}
 
-* ML in {{ yandex-cloud }}: Past, present, and future. Click [here](https://www.youtube.com/watch?v=90jIHP2F-zA) for the video.
+* ML in {{ yandex-cloud }}: Past, present, and future. Click [here](https://www.youtube.com/watch?v=90jIHP2F-zA) to watch the video.
 
 
 ### 2023: Webinar {#webinar-2023}
 
-* {{ yagpt-name }} generative text model. Click [here](https://www.youtube.com/watch?v=sdzcjygd_EQ) for the video.
+* {{ yagpt-name }} generative text model. Click [here](https://www.youtube.com/watch?v=sdzcjygd_EQ) to watch the video.

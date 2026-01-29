@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. The ID of the certificate to update.
+            The maximum string length in characters is 50.
           type: string
       required:
         - certificateId
@@ -34,12 +35,14 @@ apiPlayground:
           description: |-
             **string**
             Updated name for the certificate.
+            Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             Updated description for the certificate.
+            The maximum string length in characters is 1024.
           type: string
         deletionProtection:
           description: |-
@@ -69,7 +72,9 @@ Request to update the properties of an existing certificate.
 ||Field | Description ||
 || certificateId | **string**
 
-Required field. The ID of the certificate to update. ||
+Required field. The ID of the certificate to update.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.certificatemanager.v1.privateca.UpdateCertificateRequest}
@@ -99,10 +104,14 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
-Updated name for the certificate. ||
+Updated name for the certificate.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-Updated description for the certificate. ||
+Updated description for the certificate.
+
+The maximum string length in characters is 1024. ||
 || deletionProtection | **boolean**
 
 Update the deletion protection flag. ||

@@ -12,6 +12,7 @@ apiPlayground:
             **string**
             ID of the registry to list repositories in.
             To get the registry ID use a [RegistryService.List](/docs/container-registry/api-ref/Registry/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         folderId:
           description: |-
@@ -19,6 +20,7 @@ apiPlayground:
             ID of the folder to list registries in.
             `folderId` is ignored if a [ListImagesRequest.registryId](/docs/container-registry/api-ref/Image/list#yandex.cloud.containerregistry.v1.ListImagesRequest) is specified in the request.
             To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -28,6 +30,7 @@ apiPlayground:
             the service returns a [ListRepositoriesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListRepositoriesResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            The maximum value is 1000.
           default: '100'
           type: string
           format: int64
@@ -36,6 +39,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListRepositoriesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListRepositoriesResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
@@ -45,9 +49,12 @@ apiPlayground:
             1. The field name. Currently you can use filtering only on [Repository.name](#yandex.cloud.containerregistry.v1.Repository) field.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            The maximum string length in characters is 1000.
           type: string
         orderBy:
-          description: '**string**'
+          description: |-
+            **string**
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -73,33 +80,45 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/repositories
 
 ID of the registry to list repositories in.
 
-To get the registry ID use a [RegistryService.List](/docs/container-registry/api-ref/Registry/list#List) request. ||
+To get the registry ID use a [RegistryService.List](/docs/container-registry/api-ref/Registry/list#List) request.
+
+The maximum string length in characters is 50. ||
 || folderId | **string**
 
 ID of the folder to list registries in.
 
 `folderId` is ignored if a [ListImagesRequest.registryId](/docs/container-registry/api-ref/Image/list#yandex.cloud.containerregistry.v1.ListImagesRequest) is specified in the request.
 
-To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListRepositoriesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListRepositoriesResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListRepositoriesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListRepositoriesResponse) returned by a previous list request. ||
+[ListRepositoriesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListRepositoriesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on [Repository.name](#yandex.cloud.containerregistry.v1.Repository) field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
-|| orderBy | **string** ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+
+The maximum string length in characters is 1000. ||
+|| orderBy | **string**
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.containerregistry.v1.ListRepositoriesResponse}

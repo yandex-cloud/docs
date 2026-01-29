@@ -1,10 +1,10 @@
 **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**:
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**: Select one of the available formats:
-       * `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`: JSON format.
+       * `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`: JSON.
        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_config_audit_trails_v1.title }}`: [{{ at-name }}](../../../../../audit-trails/) log format.
        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_config_common_cloud_logging.title }}`: [{{ cloud-logging-short-name }}](../../../../../logging/) log format.
-       * `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_config_common_debezium_cdc.title }}`: Debezium CDC. It allows specifying [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html) in the settings. 
+       * `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_config_common_debezium_cdc.title }}`: Debezium CDC. It allows you to specify settings for connection to Schema Registry: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.title }}` for [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html), [namespace](../../../../../metadata-hub/operations/list-name-space.md) ID for `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.yandex_sr.title }}`. 
         
           For **JSON**, specify: 
 
@@ -16,4 +16,6 @@
            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.add_rest_column.title }}**: Select this option to add the fields missing in the schema to the `_rest` column.
            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.parsers.GenericParserCommon.unescape_string_values.title }}**: Select this option to remove quotation marks from string variables. Otherwise, the string field values will remain unchanged.
            
-         For **Debezium CDC**, specify the following: Schema Registry URL, authentication method (including the username and user password if authentication is used), and CA certificate. 
+         For **Debezium CDC**, specify the following: 
+           * For `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.title }}`: Schema Registry URL, authentication method (including username and password if authentication is used), and CA certificate.
+           * For `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.yandex_sr.title }}`: Schema registry [namespace](../../../../../metadata-hub/operations/list-name-space.md) ID.

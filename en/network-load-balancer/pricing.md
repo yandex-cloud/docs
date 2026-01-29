@@ -23,10 +23,10 @@ For a network load balancer with a public IP address, you additionally pay for o
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 You are charged for traffic arriving at the IP address and port specified as the network load balancer listener. Any other traffic sent to the load balancer is dropped and not charged.
+
 You are charged for network load balancers if they have a listener and a non-empty target group attached.
 
 If a network load balancer has a listener but no attached target groups, the listener public IP address is charged as an [inactive public IP address](../vpc/pricing.md#prices-public-ip).

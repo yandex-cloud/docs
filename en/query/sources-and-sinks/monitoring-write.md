@@ -22,7 +22,7 @@ Under [streaming processing](../concepts/stream-processing.md), {{ yq-full-name 
 ## Setting up a connection {#setup-connection}
 
 To send metrics to {{ monitoring-name }}:
-1. Go to **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** in the {{ yq-full-name }} interface and click **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** section in **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}** and click **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. In the window that opens, specify a name for a connection to {{ monitoring-name }} in the **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** field.
 1. In the drop-down list under **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}**, select `{{ ui-key.yql.yq-connection.action_monitoring }}`.
 1. In the **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** field, select the service account to use for metric writes. You can also create a new service account with the [`monitoring.editor`](../../monitoring/security/index.md#monitoring-editor) permissions.
@@ -33,7 +33,7 @@ To send metrics to {{ monitoring-name }}:
 
 ## Data model {#data-model}
 
-To write metrics to {{ monitoring-name }}, use this SQL statement:
+Metrics are written to {{ monitoring-name }} using the following SQL statement:
 
 ```sql
 INSERT INTO 
@@ -95,7 +95,7 @@ Where:
 | `monitoring` | | {{ monitoring-name }} connection name |
 | `$query` | | Data source in the SQL query. This may be a YQL subquery, including a [connection](../quickstart/streaming-example.md) to the data source. |
 | `my_timestamp` | Timestamp | Data source: `my_timestamp` column in the data source stream (`stream`) |
-| `exception_count` | Metrica | Data source: `exception_count` column in the data source stream (`stream`) |
+| `exception_count` | Matrica | Data source: `exception_count` column in the data source stream (`stream`) |
 | `host_name` | Label | Data source: `host` column in the data source stream (`stream`) |
 | `app_version` | Label | Data source: `app_version` column in the data source stream (`stream`) |
 

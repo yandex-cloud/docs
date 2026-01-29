@@ -12,17 +12,20 @@ apiPlayground:
           description: |-
             **string**
             Required field. Folder ID where the CA is being created.
+            The maximum string length in characters is 50.
           type: string
         name:
           description: |-
             **string**
             Required field. The name of the imported Certificate Authority.
+            Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             A brief description of the imported Certificate Authority.
+            The maximum string length in characters is 1024.
           type: string
         certificateContent:
           description: |-
@@ -43,6 +46,7 @@ apiPlayground:
           description: |-
             **string** (int64)
             TTL limit in days for end-entities signed by the CA.
+            The maximum value is 20000.
           type: string
           format: int64
         deletionProtection:
@@ -92,13 +96,19 @@ Request to import an externally generated Certificate Authority (CA).
 ||Field | Description ||
 || folderId | **string**
 
-Required field. Folder ID where the CA is being created. ||
+Required field. Folder ID where the CA is being created.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Required field. The name of the imported Certificate Authority. ||
+Required field. The name of the imported Certificate Authority.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-A brief description of the imported Certificate Authority. ||
+A brief description of the imported Certificate Authority.
+
+The maximum string length in characters is 1024. ||
 || certificateContent | **string**
 
 Required field. PEM-encoded certificate content for the Certificate Authority. ||
@@ -110,7 +120,9 @@ Required field. PEM-encoded key pair content for the CA (private key). ||
 PEM-encoded passphrase to decrypt the private key (if applicable). ||
 || endEntitiesTtlLimitDays | **string** (int64)
 
-TTL limit in days for end-entities signed by the CA. ||
+TTL limit in days for end-entities signed by the CA.
+
+The maximum value is 20000. ||
 || deletionProtection | **boolean**
 
 Protect the CA from accidental deletion. ||
@@ -281,7 +293,6 @@ ID of the parent certificate authority that signed this certificate authority if
 
 Status of the certificate authority.
 
-- `STATUS_UNSPECIFIED`
 - `UNSIGNED`: The certificate authority is unsigned and pending signing.
 - `ACTIVE`: The certificate authority is active and can issue certificates. ||
 || issuedAt | **string** (date-time)

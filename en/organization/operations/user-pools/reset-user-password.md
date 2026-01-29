@@ -90,11 +90,47 @@ The user must change this password on their first login to {{ yandex-cloud }}.
 
       {% note info %}
 
-      The user password may include Latin letters, numbers, and special characters.
-      
-      It must be at least seven characters long and must contain at least one uppercase Latin letter, one lowercase Latin letter, one number, and one special character. 
+      The new password must comply with the user pool's [password policy](../../concepts/password-policy.md).
 
       {% endnote %}
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Describe the user parameters in the configuration file:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_user" "example_user" {
+       userpool_id = "<pool_ID>"
+       username    = "<username>"
+       full_name   = "<full_username>"
+       password_spec = {
+         password = "<new_password>"
+       }
+     }
+     ```
+
+     Where:
+
+     * `userpool_id`: ID of the [pool](../../concepts/user-pools.md) the user is in.
+     * `username`: Username.
+     * `full_name`: User’s full name.
+     * `password`: New user password.
+
+     {% note info %}
+
+     The new password must comply with the user pool's [password policy](../../concepts/password-policy.md).
+
+     {% endnote %}
+
+     For more information about `yandex_organizationmanager_idp_user` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
+
+  1. Create the resources:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 - API {#api}
 

@@ -13,7 +13,7 @@ editable: false
 
 
 
-For a cost calculation, use our [calculator](https://yandex.cloud/en/prices?state=0791121652d3#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=0791121652d3#calculator) on our website or check out the pricing below.
 
 
 {% endnote %}
@@ -59,7 +59,6 @@ You pay for data operations according to the following policy:
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
@@ -81,7 +80,7 @@ You pay for data operations according to the following policy:
 
 #### Standard storage {#standard-storage}
 
-The daily cost of data storage service is calculated as `Price_per_GB_per_month / number_of_days_in_month`. For shorter months, the price per day is higher. For longer months, it is lower.
+The daily cost of data storage is calculated as `Price_per_GB_per_month / number_of_days_in_month`. For shorter months, the price per day is higher. For longer months, it is lower.
 
 Here is an example of proportional calculation. Let's assume a user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using this formula:
 
@@ -89,7 +88,7 @@ Here is an example of proportional calculation. Let's assume a user stores 15 GB
 Storage_price = Price_per_GB_per_month × 15 × 12 / 24 / 30
 ```
 
-The first 1 GB of data in a standard storage per month is free of charge.
+The first 1 GB of data stored in standard storage per month is free of charge.
 
 
 
@@ -99,7 +98,7 @@ The first 1 GB of data in a standard storage per month is free of charge.
 
 #### Ice storage {#ice-storage}
 
-The minimum billable storage time of an object in an ice storage is 12 months. If you delete an object that was stored for less than 12 months, you will be charged the remaining cost after deletion.
+The minimum billable storage duration of an object in ice storage is 12 months. If you delete an object that was stored for less than 12 months, you will be charged the remaining cost after deletion.
 
 
 

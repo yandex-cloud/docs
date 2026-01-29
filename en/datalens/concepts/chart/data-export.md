@@ -52,13 +52,13 @@ The data file will be generated immediately and downloaded in your browser. The 
 ## Background data export {#background-export}
 
 * [Limitations](#restrictions)
-* [Exporting data in the background](#how-to-background-export)
+* [Exporting data in background](#how-to-background-export)
 * [Export page](#export-page)
 * [Export history](#data-export-history)
 
 Before initiating a background data export, make sure that:
 
-* Export is not [disabled](#data-export-disable) at the {{ datalens-short-name }} instance level,  connection or dataset level.
+* Export is not [disabled](#data-export-disable) at the {{ datalens-short-name }} instance level or  connection or dataset level.
 * The user has the `{{ permission-execute }}` permission for both the connection and dataset used to create the chart with the data you want to export.
 
 ### Limitations {#restrictions}
@@ -84,7 +84,7 @@ The following limitations apply to the background export:
 * Maximum export file size is 1 GB.
 * File is available for download for 24 hours after the export is complete.
 
-### Exporting data in the background {#how-to-background-export}
+### Exporting data in background {#how-to-background-export}
 
 To initiate a background export, do the following:
 
@@ -98,7 +98,7 @@ To initiate a background export, do the following:
   
   If the export fails, you will get an error message. Make sure that data export is not [disabled](#data-export-disable) for this chart at any level and the user has the required permissions, then try again.
 
-The user who initiated the export can download the export file from the [data export history](#data-export-history) page. To download the file, the user must have the `{{ permission-execute }}` access permissions for both the connection and dataset used to generate the chart with the export data.
+The user who initiated the export can download the export file from the [data export history](#data-export-history) page. To download the file, the user must have the `{{ permission-execute }}` access permissions for both the connection and dataset used to generate the chart with exported data.
 
 ### Export page {#export-page}
 

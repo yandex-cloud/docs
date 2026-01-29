@@ -196,7 +196,7 @@ You can move a VM with secondary disks to a new host. Data on network disks will
 
 {% cut "Example of commands to move a VM from one host to another" %}
 
-   1. [To stop the VM](../operations/vm-control/vm-stop-and-start):
+   1. [To stop the VM](../operations/vm-control/vm-stop-and-start.md):
 
       ```bash
       yc compute instance stop \
@@ -260,7 +260,7 @@ Linking a VM ensures that it will run on the same physical server or group of se
 
 To move a VM from one dedicated host to another:
 
-1. [Stop the VM](../operations/vm-control/vm-stop-and-start).
+1. [Stop the VM](../operations/vm-control/vm-stop-and-start.md).
 1. Link the VM to a different host in the group.
 1. Restart the VM.
 

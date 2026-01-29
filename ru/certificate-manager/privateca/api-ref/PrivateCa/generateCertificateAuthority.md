@@ -12,22 +12,26 @@ apiPlayground:
           description: |-
             **string**
             Required field. Folder ID where the CA is being created.
+            The maximum string length in characters is 50.
           type: string
         parentCertificateAuthorityId:
           description: |-
             **string**
             Optional. If set intermediate CA would be generated and signed on parent CA
+            The maximum string length in characters is 50.
           type: string
         name:
           description: |-
             **string**
             Required field. The name of the Certificate Authority.
+            Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             An optional description of the Certificate Authority.
+            The maximum string length in characters is 1024.
           type: string
         subjectSpec:
           description: |-
@@ -38,7 +42,6 @@ apiPlayground:
           description: |-
             **enum** (Algorithm)
             Required field. The algorithm for the asymmetric key generation (e.g., RSA, ECC).
-            - `ALGORITHM_UNSPECIFIED`
             - `RSA_2048_PSS_SHA_256`
             - `RSA_2048_PSS_SHA_384`
             - `RSA_2048_PSS_SHA_512`
@@ -96,7 +99,7 @@ apiPlayground:
           description: |-
             **enum** (KeyUsageExtension)
             Key usage (e.g., keyEncipherment, digitalSignature).
-            - `KEY_USAGE_EXTENSION_UNSPECIFIED`
+            The maximum number of elements is 9.
             - `DIGITAL_SIGNATURE`
             - `CONTENT_COMMITMENT`
             - `KEY_ENCIPHERMENT`
@@ -124,7 +127,7 @@ apiPlayground:
           description: |-
             **enum** (ExtendedKeyUsageExtension)
             Extended key usage (e.g., serverAuth, clientAuth).
-            - `EXTENDED_KEY_USAGE_EXTENSION_UNSPECIFIED`
+            The maximum number of elements is 11.
             - `SERVER_AUTH`
             - `CLIENT_AUTH`
             - `CODE_SIGNING`
@@ -156,18 +159,21 @@ apiPlayground:
           description: |-
             **string** (int64)
             The Time-To-Live (TTL) in days for the CA.
+            Acceptable values are 1 to 20000, inclusive.
           type: string
           format: int64
         endEntitiesTtlLimitDays:
           description: |-
             **string** (int64)
             TTL limit in days for end-entities signed by the CA.
+            The maximum value is 20000.
           type: string
           format: int64
         templateId:
           description: |-
             **string**
             Optional template ID to fill certificate fields with template data. Explicitly defined parameters is preferred
+            The maximum string length in characters is 50.
           type: string
         enableCrl:
           description: |-
@@ -198,36 +204,43 @@ apiPlayground:
             description: |-
               **string**
               Two letter county code
+              The maximum string length in characters is 2.
             type: string
           organization:
             description: |-
               **string**
               Organization name in arbitrary form
+              The maximum string length in characters is 1000.
             type: string
           organizationalUnit:
             description: |-
               **string**
               Organizational unit name in arbitrary form
+              The maximum string length in characters is 1000.
             type: string
           distinguishedNameQualifier:
             description: |-
               **string**
               Distinguished name qualifier
+              The maximum string length in characters is 10000.
             type: string
           stateOrProvince:
             description: |-
               **string**
               State or province name in arbitrary form
+              The maximum string length in characters is 1000.
             type: string
           commonName:
             description: |-
               **string**
               Common name. For tls certificates it is domain usually.
+              The maximum string length in characters is 10000.
             type: string
           emailAddress:
             description: |-
               **string**
               Email address of certificate owner
+              The maximum string length in characters is 1000.
             type: string
       AdditionalRDN:
         type: object
@@ -236,36 +249,43 @@ apiPlayground:
             description: |-
               **string**
               Serial number of certificate subject in arbitrary form. Don't confuse with certificate serial number.
+              The maximum string length in characters is 100.
             type: string
           locality:
             description: |-
               **string**
               Locality of certificate subject in arbitrary form.
+              The maximum string length in characters is 1000.
             type: string
           title:
             description: |-
               **string**
               Title of certificate subject in arbitrary form.
+              The maximum string length in characters is 1000.
             type: string
           surname:
             description: |-
               **string**
               Surname of certificate subject in arbitrary form.
+              The maximum string length in characters is 1000.
             type: string
           givenName:
             description: |-
               **string**
               Given name of certificate subject in arbitrary form.
+              The maximum string length in characters is 1000.
             type: string
           initials:
             description: |-
               **string**
               Initials of certificate subject in arbitrary form.
+              The maximum string length in characters is 1000.
             type: string
           generationQualifier:
             description: |-
               **string**
               Generation qualifier of certificate subject in arbitrary form.
+              The maximum string length in characters is 1000.
             type: string
       Subject:
         type: object
@@ -347,16 +367,24 @@ Request to generate a new Certificate Authority (CA).
 ||Field | Description ||
 || folderId | **string**
 
-Required field. Folder ID where the CA is being created. ||
+Required field. Folder ID where the CA is being created.
+
+The maximum string length in characters is 50. ||
 || parentCertificateAuthorityId | **string**
 
-Optional. If set intermediate CA would be generated and signed on parent CA ||
+Optional. If set intermediate CA would be generated and signed on parent CA
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Required field. The name of the Certificate Authority. ||
+Required field. The name of the Certificate Authority.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-An optional description of the Certificate Authority. ||
+An optional description of the Certificate Authority.
+
+The maximum string length in characters is 1024. ||
 || subjectSpec | **[Subject](#yandex.cloud.certificatemanager.v1.privateca.Subject)**
 
 Required field. The subject (e.g., common name, organization, etc.) for the CA. ||
@@ -364,7 +392,6 @@ Required field. The subject (e.g., common name, organization, etc.) for the CA. 
 
 Required field. The algorithm for the asymmetric key generation (e.g., RSA, ECC).
 
-- `ALGORITHM_UNSPECIFIED`
 - `RSA_2048_PSS_SHA_256`
 - `RSA_2048_PSS_SHA_384`
 - `RSA_2048_PSS_SHA_512`
@@ -394,7 +421,8 @@ The maximum length of the certificate chain. ||
 
 Key usage (e.g., keyEncipherment, digitalSignature).
 
-- `KEY_USAGE_EXTENSION_UNSPECIFIED`
+The maximum number of elements is 9.
+
 - `DIGITAL_SIGNATURE`
 - `CONTENT_COMMITMENT`
 - `KEY_ENCIPHERMENT`
@@ -408,7 +436,8 @@ Key usage (e.g., keyEncipherment, digitalSignature).
 
 Extended key usage (e.g., serverAuth, clientAuth).
 
-- `EXTENDED_KEY_USAGE_EXTENSION_UNSPECIFIED`
+The maximum number of elements is 11.
+
 - `SERVER_AUTH`
 - `CLIENT_AUTH`
 - `CODE_SIGNING`
@@ -422,13 +451,19 @@ Extended key usage (e.g., serverAuth, clientAuth).
 - `MS_EFS` ||
 || ttlDays | **string** (int64)
 
-The Time-To-Live (TTL) in days for the CA. ||
+The Time-To-Live (TTL) in days for the CA.
+
+Acceptable values are 1 to 20000, inclusive. ||
 || endEntitiesTtlLimitDays | **string** (int64)
 
-TTL limit in days for end-entities signed by the CA. ||
+TTL limit in days for end-entities signed by the CA.
+
+The maximum value is 20000. ||
 || templateId | **string**
 
-Optional template ID to fill certificate fields with template data. Explicitly defined parameters is preferred ||
+Optional template ID to fill certificate fields with template data. Explicitly defined parameters is preferred
+
+The maximum string length in characters is 50. ||
 || enableCrl | **boolean**
 
 Enable Certificate Revocation List (CRL) support. ||
@@ -462,25 +497,39 @@ https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.4
 ||Field | Description ||
 || country | **string**
 
-Two letter county code ||
+Two letter county code
+
+The maximum string length in characters is 2. ||
 || organization | **string**
 
-Organization name in arbitrary form ||
+Organization name in arbitrary form
+
+The maximum string length in characters is 1000. ||
 || organizationalUnit | **string**
 
-Organizational unit name in arbitrary form ||
+Organizational unit name in arbitrary form
+
+The maximum string length in characters is 1000. ||
 || distinguishedNameQualifier | **string**
 
-Distinguished name qualifier ||
+Distinguished name qualifier
+
+The maximum string length in characters is 10000. ||
 || stateOrProvince | **string**
 
-State or province name in arbitrary form ||
+State or province name in arbitrary form
+
+The maximum string length in characters is 1000. ||
 || commonName | **string**
 
-Common name. For tls certificates it is domain usually. ||
+Common name. For tls certificates it is domain usually.
+
+The maximum string length in characters is 10000. ||
 || emailAddress | **string**
 
-Email address of certificate owner ||
+Email address of certificate owner
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## AdditionalRDN {#yandex.cloud.certificatemanager.v1.privateca.AdditionalRDN}
@@ -491,25 +540,39 @@ https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.4
 ||Field | Description ||
 || serialNumber | **string**
 
-Serial number of certificate subject in arbitrary form. Don't confuse with certificate serial number. ||
+Serial number of certificate subject in arbitrary form. Don't confuse with certificate serial number.
+
+The maximum string length in characters is 100. ||
 || locality | **string**
 
-Locality of certificate subject in arbitrary form. ||
+Locality of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 || title | **string**
 
-Title of certificate subject in arbitrary form. ||
+Title of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 || surname | **string**
 
-Surname of certificate subject in arbitrary form. ||
+Surname of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 || givenName | **string**
 
-Given name of certificate subject in arbitrary form. ||
+Given name of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 || initials | **string**
 
-Initials of certificate subject in arbitrary form. ||
+Initials of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 || generationQualifier | **string**
 
-Generation qualifier of certificate subject in arbitrary form. ||
+Generation qualifier of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -677,7 +740,6 @@ ID of the parent certificate authority that signed this certificate authority if
 
 Status of the certificate authority.
 
-- `STATUS_UNSPECIFIED`
 - `UNSIGNED`: The certificate authority is unsigned and pending signing.
 - `ACTIVE`: The certificate authority is active and can issue certificates. ||
 || issuedAt | **string** (date-time)

@@ -2035,7 +2035,7 @@ description: Пошаговые инструкции по работе с {{ con
     1. В списке **{{ ui-key.yacloud.connection-manager.label_connection-type }}** выберите **{{ VLK }}**.
     1. В разделе **Подключение к {{ VLK }}** укажите параметры подключения:
        1. В поле **{{ ui-key.yacloud.connection-manager.label_connection-type }}** выберите **Пользовательская инсталляция**.
-       1. В поле **Хосты** укажите [FQDN](../../glossary/fqdn.md) или IP-адреса хостов, входящих в шард, номер HTTP- или TCP-порта для подключения и имя [шарда](../../managed-valkey/operations/connect/sharded.md).
+       1. В поле **Хосты** укажите [FQDN](../../glossary/fqdn.md) или IP-адреса хостов, входящих в шард, номер HTTP- или TCP-порта для подключения и имя [шарда](../../managed-valkey/operations/connect/sharded-code-examples.md).
 
            Если вы создаете подключение к пользовательской инсталляции базы данных для использования с [{{ datalens-full-name }}](../../datalens/concepts/index.md), укажите внешние IP-адреса хостов.
 

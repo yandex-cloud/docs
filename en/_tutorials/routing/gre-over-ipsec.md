@@ -3,7 +3,7 @@
 
 For secure communication between remote resources and data transmission over public communication channels, e.g., the internet, you can use secure connection technologies, such as the [IPsec](https://www.ietf.org/rfc/rfc2401.txt) protocol. However, IPsec has significant limitations: it is only designed for IP packet transmission, does not support [multicast delivery](https://en.wikipedia.org/wiki/IP_multicast), and cannot be combined with other protocols within a single request.
 
-To extend the capabilities of IPsec, you can configure [GRE](https://en.wikipedia.org/wiki/Generic_Routing_Encapsulation) over it. GRE encapsulates network packets in IP packets, enabling you to transmit any traffic over IPsec.
+IPsec can be boosted using the [GRE](https://en.wikipedia.org/wiki/Generic_Routing_Encapsulation) protocol configured as GRE over IPsec. GRE encapsulates network packets in IP packets, enabling you to transmit any traffic over IPsec.
 
 In this example, you will create a secure GRE-over-IPsec tunnel between two [Cisco CSR 1000v](https://yandex.cloud/en/marketplace/products/yc/cisco-csr) virtual routers hosted in different [virtual networks](../../vpc/concepts/network.md) and [availability zones](../../overview/concepts/geo-scope.md) in {{ yandex-cloud }}. 
 
@@ -82,7 +82,7 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   1. In the configuration file, describe the properties of resources you want to create:
+   1. In the configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_resourcemanager_folder" "folder1" {

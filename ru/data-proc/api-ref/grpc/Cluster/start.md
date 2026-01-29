@@ -25,7 +25,9 @@ Starts the specified cluster.
 
 Required field. ID of the cluster to start.
 
-To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/grpc/Cluster/list#List) request. ||
+To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -181,13 +183,19 @@ ID of the folder that the cluster belongs to. ||
 Creation timestamp. ||
 || name | **string**
 
-Name of the cluster. The name is unique within the folder. ||
+Name of the cluster. The name is unique within the folder.
+
+The string length in characters must be 1-63. ||
 || description | **string**
 
-Description of the cluster. ||
+Description of the cluster.
+
+The string length in characters must be 0-256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Cluster labels as `key:value` pairs. ||
+Cluster labels as `key:value` pairs.
+
+No more than 64 per resource. ||
 || monitoring[] | **[Monitoring](#yandex.cloud.dataproc.v1.Monitoring)**
 
 Monitoring systems relevant to the cluster. ||
@@ -242,7 +250,6 @@ To prevent logs from being sent to the cloud set cluster property dataproc:disab
 
 Environment of the cluster
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`
 - `PRESTABLE` ||
 || autoscaling_service_account_id | **string**
@@ -291,7 +298,6 @@ their properties and settings.
 
 Set of services used in the cluster (if empty, the default set is used).
 
-- `SERVICE_UNSPECIFIED`
 - `HDFS`
 - `YARN`
 - `MAPREDUCE`

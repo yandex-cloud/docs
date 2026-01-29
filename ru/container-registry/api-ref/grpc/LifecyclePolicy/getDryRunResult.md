@@ -23,7 +23,9 @@ Returns the dry run result of the specified lifecycle policy.
 ||Field | Description ||
 || dry_run_lifecycle_policy_result_id | **string**
 
-Required field. ID of the dry run result of the lifecycle policy. ||
+Required field. ID of the dry run result of the lifecycle policy.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## DryRunLifecyclePolicyResult {#yandex.cloud.containerregistry.v1.DryRunLifecyclePolicyResult}

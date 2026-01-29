@@ -465,7 +465,7 @@ items:
         href: tutorials/hystax-migration.md
       - name: Fault protection with Hystax Acura
         href: tutorials/hystax-disaster-recovery.md
-      - name: VM backups using Hystax Acura
+      - name: Backing up a VM with Hystax Acura Backup
         href: tutorials/hystax-backup.md
       - name: Deploying a fault-tolerant architecture with preemptible VMs
         href: tutorials/nodejs-cron-restart-vm.md

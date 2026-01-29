@@ -51,6 +51,105 @@ keywords:
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы изменить настройки кластера:
+
+    1. Посмотрите описание команды CLI для изменения кластера:
+
+        ```bash
+        {{ yc-mdb-sp }} cluster update --help
+        ```
+
+    2. Передайте список настроек, которые хотите изменить, в команде изменения кластера:
+
+        ```bash
+        {{ yc-mdb-sp }} cluster update <имя_или_идентификатор_кластера> \
+          --new-name <имя_кластера> \
+          --description <описание_кластера> \
+          --labels <список_меток> \
+          --service-account-id <идентификатор_сервисного_аккаунта> \
+          --security-group-ids <список_идентификаторов_групп_безопасности> \
+          --driver-preset-id <идентификатор_ресурсов_драйвера> \
+          --driver-fixed-size <количество_экземпляров_драйвера> \
+          --executor-preset-id <идентификатор_ресурсов_исполнителя> \
+          --executor-fixed-size <количество_экземпляров_исполнителя> \
+          --history-server-enabled <использовать_Spark_History_Server> \
+          --metastore-cluster-id <идентификатор_кластера_Apache_Hive™_Metastore> \
+          --pip-packages <список_pip-пакетов> \
+          --deb-packages <список_deb-пакетов> \
+          --log-enabled \
+          --log-folder-id <идентификатор_каталога> \
+          --maintenance-window type=<тип_технического_обслуживания>,`
+                               `day=<день_недели>,`
+                               `hour=<час_дня> \
+          --deletion-protection
+        ```
+
+        Где:
+
+        * `--new-name` — уникальное имя кластера в рамках облака.
+        * `--description` — описание кластера.
+        * `--labels` — список меток. Метки задаются в формате `<ключ>=<значение>`.
+        * `--service-account-id` — идентификатор сервисного аккаунта для доступа к сервисам {{ yandex-cloud }}. Сервисному аккаунту должна быть назначена роль `managed-spark.integrationProvider`.
+        * `--security-group-ids`— список идентификаторов групп безопасности.
+
+        * Конфигурация хостов для запуска драйверов {{ SPRK }}:
+
+            * `--driver-preset-id` — [класс хостов](../concepts/instance-types.md) драйвера.
+            * `--driver-fixed-size` — фиксированное количество хостов для драйвера.
+            * `--driver-min-size` — минимальное количество хостов для драйвера при автоматическом масштабировании.
+            * `--driver-max-size` — максимальное количество хостов для драйвера при автоматическом масштабировании.
+
+            Укажите либо фиксированное количество хостов (`--driver-fixed-size`), либо минимальное и максимальное количество хостов (`--driver-min-size`, `--driver-max-size`) для автоматического масштабирования.
+
+        * Конфигурация хостов для запуска исполнителей {{ SPRK }}:
+
+            * `--executor-preset-id` — [класс хостов](../concepts/instance-types.md) исполнителя.
+            * `--executor-fixed-size` — фиксированное количество хостов для исполнителя.
+            * `--executor-min-size` — минимальное количество хостов для исполнителя при автоматическом масштабировании.
+            * `--executor-max-size` — максимальное количество хостов для исполнителя при автоматическом масштабировании.
+
+            Укажите либо фиксированное количество хостов (`--executor-fixed-size`), либо минимальное и максимальное количество хостов (`--executor-min-size`, `--executor-max-size`) для автоматического масштабирования.
+
+        * `--history-server-enabled` — подключает сервис для мониторинга приложений [Spark History Server](https://spark.apache.org/docs/latest/monitoring.html).
+        * `--metastore-cluster-id` — идентификатор кластера {{ metastore-name }}. Эта настройка подключает хранилище метаданных [{{ metastore-name }}](../../metadata-hub/concepts/metastore.md).
+
+        * Списки пакетов, которые позволяют установить в кластер дополнительные библиотеки и приложения:
+
+            * `--pip-packages` — список pip-пакетов.
+            * `--deb-packages` — список deb-пакетов.
+
+            При необходимости задайте ограничения на версии устанавливаемых пакетов, например:
+
+            ```bash
+            --pip-packages pandas==2.1.1,scikit-learn>=1.0.0,clickhouse-driver~=0.2.0
+            ```
+
+            Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
+
+        * Параметры логирования:
+
+            * `--log-enabled` — включает логирование.
+            * `--log-folder-id` — идентификатор каталога. Логи будут записываться в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для этого каталога.
+            * `--log-group-id` — идентификатор пользовательской лог-группы. Логи будут записываться в нее.
+
+            Укажите один из двух параметров: `--log-folder-id` или `--log-group-id`.
+
+        * `--maintenance-window` — настройки времени технического обслуживания (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
+
+            {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
+        * `--deletion-protection` — включает защиту кластера от непреднамеренного удаления.
+
+            Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
+
+        Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
 - {{ TF }} {#tf}
 
     Чтобы изменить настройки кластера:
@@ -98,7 +197,7 @@ keywords:
               }
             }
             history_server = {
-              enabled = <использование_Apache_Spark_History_Server>
+              enabled = <использование_Spark_History_Server>
             } 
             metastore = {
               cluster_id = "<идентификатор_кластера_Apache_Hive™_Metastore>"
@@ -214,7 +313,7 @@ keywords:
              }
            },
            "history_server": {
-             "enabled": <использование_Apache_Spark_History_Server>
+             "enabled": <использование_Spark_History_Server>
            },
             "dependencies": {
               "pip_packages": [ <список_pip-пакетов> ],
@@ -315,7 +414,7 @@ keywords:
                    ```bash
                    "dependencies": {
                      "pip_packages": [
-                       "pandas==2.0.2",
+                       "pandas==2.1.1",
                        "scikit-learn>=1.0.0",
                        "clickhouse-driver~=0.2.0"
                      ]

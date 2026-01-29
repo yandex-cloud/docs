@@ -13,7 +13,7 @@ editable: false
 
 
 
-For a cost calculation, use our [calculator](https://yandex.cloud/en/prices?state=fa8a272b5f0e#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=fa8a272b5f0e#calculator) on our website or check out the pricing below.
 
 
 {% endnote %}
@@ -31,8 +31,8 @@ When using {{ mgl-name }}, you pay for:
 * Data storage used by the instance.
 
 Other consumed resources to be additionally paid for:
-* The space used in {{ objstorage-full-name }} to store backups.
-* Outgoing traffic from {{ yandex-cloud }} to the internet.
+* Space used in {{ objstorage-full-name }} to store backups.
+* Egress traffic from {{ yandex-cloud }} to the internet.
 
 In all calculations, 1 GB = 2<sup>10</sup> MB = 2<sup>20</sup> KB = 2<sup>30</sup> bytes.
 
@@ -84,8 +84,9 @@ Total instance cost calculation:
 
 ## Prices for the Russia region {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
+The price of computing resources depends on the selected [approval rule](concepts/approval-rules.md) configuration.
 
 
 

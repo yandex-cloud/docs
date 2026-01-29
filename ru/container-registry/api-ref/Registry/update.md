@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Registry resource to update.
             To get the registry ID use a [RegistryService.List](/docs/container-registry/api-ref/Registry/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - registryId
@@ -36,6 +37,7 @@ apiPlayground:
             **string**
             Name of the registry.
             There may be only one registry per folder.
+            Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
           pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
           type: string
         labels:
@@ -43,6 +45,7 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
             Existing set of `labels` is completely replaced by the provided set.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -77,7 +80,9 @@ PATCH https://container-registry.{{ api-host }}/container-registry/v1/registries
 
 Required field. ID of the Registry resource to update.
 
-To get the registry ID use a [RegistryService.List](/docs/container-registry/api-ref/Registry/list#List) request. ||
+To get the registry ID use a [RegistryService.List](/docs/container-registry/api-ref/Registry/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.containerregistry.v1.UpdateRegistryRequest}
@@ -106,12 +111,16 @@ The rest of the fields will be reset to the default. ||
 
 Name of the registry.
 
-There may be only one registry per folder. ||
+There may be only one registry per folder.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
-Existing set of `labels` is completely replaced by the provided set. ||
+Existing set of `labels` is completely replaced by the provided set.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -263,7 +272,6 @@ Name of the registry. ||
 
 Output only. Status of the registry.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Registry is being created.
 - `ACTIVE`: Registry is ready to use.
 - `DELETING`: Registry is being deleted. ||

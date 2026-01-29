@@ -25,7 +25,7 @@ This example shows how to [fine-tune](../../concepts/tuning/index.md) an embeddi
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder for which your account has the `ai.playground.user`, `ai.datasets.user`, and `ai.models.editor` [roles](../../security/index.md) or higher.
-  1. In the list of services, select **{{ ui-key.yacloud.dashboard.DashboardPage.AiStudioSection.section_title_1sDGx }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ai-studio }}**.
   1. In the left-hand panel, click ![image](../../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud.tuning.tunings }}**.
   1. Click **{{ ui-key.yacloud.tuning.train-model }}**.
   1. Enter a name and description for the tuned model. Follow these naming requirements:

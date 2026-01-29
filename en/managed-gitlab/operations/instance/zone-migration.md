@@ -7,7 +7,7 @@ description: In this tutorial, you will learn how to migrate a {{ mgl-name }} in
 
 {% note info %}
 
-This feature is at the [Preview](../../../overview/concepts/launch-stages.md) stage and is available upon request.
+This feature is in the [Preview](../../../overview/concepts/launch-stages.md) stage and can be enabled upon request.
 
 {% endnote %}
 
@@ -21,7 +21,7 @@ VMs with {{ mgl-name }} instances reside in {{ yandex-cloud }} [availability zon
 
     - Management console {#console}
 
-        1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+        1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
         1. Click the instance name and select the **{{ ui-key.yacloud.gitlab.title_migration }}** tab.
         1. If unable to use the migration functionality, request access to it.
 

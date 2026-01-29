@@ -32,25 +32,33 @@ Only fields specified in `update_mask` will be updated.
 ||Field | Description ||
 || certificate_authority_id | **string**
 
-Required field. The ID of the Certificate Authority to update. ||
+Required field. The ID of the Certificate Authority to update.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that indicates which fields of the CA are being updated. ||
 || name | **string**
 
 New name of the Certificate Authority (if applicable).
-This field is optional and will only be applied if included in the update mask. ||
+This field is optional and will only be applied if included in the update mask.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 New description of the Certificate Authority (if applicable).
-Allows adding or updating the description to clarify the CA's purpose. ||
+Allows adding or updating the description to clarify the CA's purpose.
+
+The maximum string length in characters is 1024. ||
 || deletion_protection | **bool**
 
 Update the deletion protection flag.
 Protects the Certificate Authority from accidental deletion. ||
 || end_entities_ttl_limit_days | **int64**
 
-Update the end-entity TTL limit for certificates issued by this Certificate Authority. ||
+Update the end-entity TTL limit for certificates issued by this Certificate Authority.
+
+The maximum value is 20000. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -179,7 +187,6 @@ ID of the parent certificate authority that signed this certificate authority if
 
 Status of the certificate authority.
 
-- `STATUS_UNSPECIFIED`
 - `UNSIGNED`: The certificate authority is unsigned and pending signing.
 - `ACTIVE`: The certificate authority is active and can issue certificates. ||
 || issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**

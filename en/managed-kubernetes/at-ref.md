@@ -5,7 +5,7 @@ description: This page provides a reference for {{ managed-k8s-name }} events tr
 
 # {{ at-full-name }} event reference
 
-{{ at-name }} supports tracking [control plane](../audit-trails/concepts/format.md) events for {{ managed-k8s-full-name }}.
+{{ at-name }} supports tracking [control plane](../audit-trails/concepts/format.md) and [data plane](../audit-trails/concepts/format-data-plane.md) events for {{ managed-k8s-full-name }}.
 
 The general format of the `event_type` field value is as follows:
 

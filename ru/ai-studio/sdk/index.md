@@ -11,19 +11,19 @@
 * [дообучение](../concepts/tuning/index.md) моделей генерации текста и классификаторов;
 * интеграция с [LangChain](https://www.langchain.com/).
 
-Полный перечень поддерживаемых функций, исходный код библиотеки и примеры использования доступны на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk).
+Полный перечень поддерживаемых функций, исходный код библиотеки и примеры использования доступны на [GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk).
 
 ## Установка {#install}
 
 Установить библиотеку {{ ml-sdk-name }} можно с помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/):
 
 ```bash
-pip install yandex-cloud-ml-sdk
+pip install yandex-ai-studio-sdk
 ```
 
 ## Аутентификация в {{ ml-sdk-full-name }} {#authentication}
 
-Аутентификация в {{ ml-sdk-full-name }} выполняется путем передачи в модель объекта `YCloudML`, который содержит поля:
+Аутентификация в {{ ml-sdk-full-name }} выполняется путем передачи в модель объекта `AIStudio`, который содержит поля:
 
 * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы будете работать с моделями.
 * `auth` — ключ, токен или другие данные для аутентификации, позволяющие идентифицировать субъекта. Значение поля `auth` может быть задано явно или получено автоматически из окружения:
@@ -43,33 +43,33 @@ pip install yandex-cloud-ml-sdk
           SDK автоматически определит тип аутентификационных данных.
       * Объект одного из следующих [классов](../sdk-ref/auth.md#authentication-methods-classes):
 
-          * [APIKeyAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.APIKeyAuth) — позволяет явно задать аутентификацию по передаваемому API-ключу.
+          * [APIKeyAuth](../sdk-ref/auth.md#yandex_ai_studio_sdk.auth.APIKeyAuth) — позволяет явно задать аутентификацию по передаваемому API-ключу.
              Например: `auth = APIKeyAuth('<api_ключ>')`.
 
-          * [EnvIAMTokenAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.EnvIAMTokenAuth) — позволяет явно задать аутентификацию по IAM-токену, заданному в переменной окружения `YC_TOKEN` или любой другой.
+          * [EnvIAMTokenAuth](../sdk-ref/auth.md#yandex_ai_studio_sdk.auth.EnvIAMTokenAuth) — позволяет явно задать аутентификацию по IAM-токену, заданному в переменной окружения `YC_TOKEN` или любой другой.
              Например: `auth = EnvIAMTokenAuth()` или `auth = EnvIAMTokenAuth("env_var")`.
 
             SDK при каждом запросе заново получает IAM-токен из этой переменной окружения, поэтому вы можете вне SDK самостоятельно периодически обновлять IAM-токен в переменной окружения. Этот вариант аутентификации является оптимальным для использования с [сервисным агентом](../../datasphere/operations/community/create-ssa.md) в {{ ml-platform-full-name }}, если для этого сервиса включен [доступ](../../iam/concepts/service-control.md) к другим ресурсам в облаке пользователя.
 
-          * [IAMTokenAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.IAMTokenAuth) — позволяет явно задать аутентификацию по передаваемому IAM-токену.
+          * [IAMTokenAuth](../sdk-ref/auth.md#yandex_ai_studio_sdk.auth.IAMTokenAuth) — позволяет явно задать аутентификацию по передаваемому IAM-токену.
              Например: `auth = IAMTokenAuth('<iam_токен>')`.
 
-          * [MetadataAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.MetadataAuth) — позволяет явно задать аутентификацию от имени сервисного аккаунта, заданного в [метаданных](../../compute/concepts/vm-metadata.md) виртуальной машины {{ compute-full-name }}.
+          * [MetadataAuth](../sdk-ref/auth.md#yandex_ai_studio_sdk.auth.MetadataAuth) — позволяет явно задать аутентификацию от имени сервисного аккаунта, заданного в [метаданных](../../compute/concepts/vm-metadata.md) виртуальной машины {{ compute-full-name }}.
              Например: `auth = MetadataAuth()`.
 
-          * [NoAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.NoAuth) — позволяет указать, что аутентификационные данные не будут передаваться.
+          * [NoAuth](../sdk-ref/auth.md#yandex_ai_studio_sdk.auth.NoAuth) — позволяет указать, что аутентификационные данные не будут передаваться.
              Например: `auth = NoAuth()`.
 
-          * [OAuthTokenAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.OAuthTokenAuth) — позволяет явно задать аутентификацию по передаваемому OAuth-токену.
+          * [OAuthTokenAuth](../sdk-ref/auth.md#yandex_ai_studio_sdk.auth.OAuthTokenAuth) — позволяет явно задать аутентификацию по передаваемому OAuth-токену.
              Например: `auth = OAuthTokenAuth('<oauth_токен>')`.
 
-          * [YandexCloudCLIAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.YandexCloudCLIAuth) — позволяет явно задать аутентификацию от имени [пользователя](../../iam/concepts/users/accounts.md) или сервисного аккаунта, [заданного](../../cli/operations/index.md#auth) в профиле [{{ yandex-cloud }} CLI](../../cli/index.yaml) на компьютере пользователя.
+          * [YandexCloudCLIAuth](../sdk-ref/auth.md#yandex_ai_studio_sdk.auth.YandexCloudCLIAuth) — позволяет явно задать аутентификацию от имени [пользователя](../../iam/concepts/users/accounts.md) или сервисного аккаунта, [заданного](../../cli/operations/index.md#auth) в профиле [{{ yandex-cloud }} CLI](../../cli/index.yaml) на компьютере пользователя.
              Например: `auth = YandexCloudCLIAuth()`.
 
-          Эти классы вы можете получить, импортировав из библиотеки ML SDK. Например:
+          Эти классы вы можете получить, импортировав из библиотеки AI Studio SDK. Например:
 
           ```python
-          from yandex_cloud_ml_sdk.auth import APIKeyAuth
+          from yandex_ai_studio_sdk.auth import APIKeyAuth
           ```
 
     - Значение получено из окружения
@@ -99,7 +99,7 @@ pip install yandex-cloud-ml-sdk
 
 * Строку. Например: `Что такое небо?`.
 * Словарь — структуру данных, аналогичную [JSON](https://ru.wikipedia.org/wiki/JSON). Например: `{"role": "role", "text": "text"}`.
-* Объект [класса](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/blob/master/src/yandex_cloud_ml_sdk/_models/completions/message.py) `TextMessage` {{ ml-sdk-name }}. Например: `result[0]`.
+* Объект [класса](https://github.com/yandex-cloud/yandex-ai-studio-sdk/blob/master/src/yandex_ai_studio_sdk/_models/completions/message.py) `TextMessage` {{ ml-sdk-name }}. Например: `result[0]`.
 
     Объект `result` класса `TextMessage` представляет собой массив альтернатив, содержащихся в ответах модели. С помощью такого объекта можно передать предыдущий ответ модели в последующем запросе.
 * Массив, содержащий любое сочетание указанных выше типов данных. Например: `["text", {"role": "role", "text": "text"}]`.
@@ -107,9 +107,9 @@ pip install yandex-cloud-ml-sdk
 Пример ниже отправит в модель {{ gpt-pro }} запрос c промптом в форме строки «Что такое небо?».
 
 ```python
-from yandex_cloud_ml_sdk import YCloudML
+from yandex_ai_studio_sdk import AIStudio
 
-sdk = YCloudML(
+sdk = AIStudio(
     folder_id="<идентификатор_каталога>",
     auth="<аутентификационные_данные>",
 )
@@ -142,7 +142,7 @@ print(f'{result.alternatives[0].status=}')
     GPTModelResult(alternatives=(Alternative(role='assistant', text='Небо — это пространство над поверхностью Земли или другой планеты, которое мы видим, когда смотрим вверх. Оно может быть ясным и безоблачным, облачным или пасмурным, а ночью на нём появляются звёзды, луна и другие небесные тела.\n\nТакже слово «небо» может использоваться в переносном смысле, обозначая не только физическое пространство, но и нечто возвышенное, идеальное или божественное.', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=14, completion_tokens=83, total_tokens=97), model_version='23.10.2024')
     ```
 
-1. Элемент массива `result[0]` содержит объект `result.alternatives[0]` [класса](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/blob/master/src/yandex_cloud_ml_sdk/_models/completions/message.py) `TextMessage` {{ ml-sdk-name }}, который в свою очередь содержит поля `role`, `text` и `status`:
+1. Элемент массива `result[0]` содержит объект `result.alternatives[0]` [класса](https://github.com/yandex-cloud/yandex-ai-studio-sdk/blob/master/src/yandex_ai_studio_sdk/_models/completions/message.py) `TextMessage` {{ ml-sdk-name }}, который в свою очередь содержит поля `role`, `text` и `status`:
 
     ```text
     Alternative(role='assistant', text='Небо — это пространство над поверхностью Земли или другой планеты, которое мы видим, когда смотрим вверх. Оно может быть ясным и безоблачным, облачным или пасмурным, а ночью на нём появляются звёзды, луна и другие небесные тела.\n\nТакже слово «небо» может использоваться в переносном смысле, обозначая не только физическое пространство, но и нечто возвышенное, идеальное или божественное.', status=<AlternativeStatus.FINAL: 3>)

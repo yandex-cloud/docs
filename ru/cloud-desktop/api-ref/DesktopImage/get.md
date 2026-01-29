@@ -80,7 +80,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Status of the image.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Image is being created.
 - `ACTIVE`: Image is ready to use.
 - `DELETING`: Image is being deleted. ||

@@ -25,7 +25,9 @@ Request to retrieve details of a specific certificate.
 ||Field | Description ||
 || certificate_id | **string**
 
-Required field. The ID of the certificate to retrieve. ||
+Required field. The ID of the certificate to retrieve.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## PrivateCertificate {#yandex.cloud.certificatemanager.v1.privateca.PrivateCertificate}

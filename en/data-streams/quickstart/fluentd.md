@@ -15,7 +15,7 @@ description: In this tutorial, you will learn how to collect and deliver {{ ydb-
    ```
 
 1. In the [management console]({{ link-console-main }}), select the folder containing your data stream.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
 1. Select the data stream.
 1. Click **{{ ui-key.yacloud.data-streams.button_connect }}** and navigate to the **Fluentd** tab.
 1. Copy the example configuration and paste it into the `/etc/td-agent/td-agent.conf` file.

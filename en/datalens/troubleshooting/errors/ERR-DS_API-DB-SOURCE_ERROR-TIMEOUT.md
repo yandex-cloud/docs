@@ -11,3 +11,5 @@ Query execution time exceeded for the data source.
 
 
 {% include [datalens-dataset-timeout-note](../../../_includes/datalens/datalens-dataset-timeout-note.md) %}
+
+{% include [datalens-dataset-timeout-recommendations](../../../_includes/datalens/datalens-dataset-timeout-recommendations.md) %}

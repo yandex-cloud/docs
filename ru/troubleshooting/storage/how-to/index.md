@@ -2,7 +2,7 @@
 
 * [Как ограничить доступ к бакету {{ objstorage-name }} диапазоном IP-адресов, принадлежащих {{ cdn-name }}](permit-bucket-access-only-to-cdn-networks.md)
 * [Как перенести данные из бакета {{ objstorage-name }} в ледяное хранилище](moving-objects-to-glacier-storage-type.md)
-* [Как перенести содержимое бакета в другой бакет в пределах каталога](moving-data-to-other-bucket-within-folder.md)
+* [Как перенести содержимое бакета в другой бакет в пределах организации](moving-data-to-other-bucket-within-organisation.md)
 * [Как работать напрямую с API {{ objstorage-name }} без использования SDK](curl-api-request-example.md)
 * [Как просматривать и удалять незавершенные загрузки](incomplete-downloads.md)
 * [Как узнать скорость загрузки и скачивания данных](upload-download-speed.md)

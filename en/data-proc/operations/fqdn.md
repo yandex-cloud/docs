@@ -9,9 +9,9 @@ description: Follow this guide to get an FQDN of a {{ dataproc-name }} host.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), open the folder with the cluster.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-    1. Select the cluster in question.
+    1. In the [management console]({{ link-console-main }}), open the folder containing your cluster.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Select your cluster.
     1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
     1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 

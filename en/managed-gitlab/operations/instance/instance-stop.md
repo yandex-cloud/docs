@@ -1,16 +1,16 @@
 # Stopping and starting a {{ GL }} instance
 
-If necessary, you can stop and restart a [{{ GL }} instance](../../concepts/index.md#instance). When the instance is stopped, all its data is saved.
+If necessary, you can stop and restart a [{{ GL }} instance](../../concepts/index.md#instance). When stopped, an instance retains all its data.
 
 You are not charged while your instance is stopped: you continue to pay only for the data stored by the instance and the size of backups stored in {{ objstorage-full-name }} based on the [pricing policy](../../pricing.md#prices-storage).
 
-## Stopping a {#stop-instance} instance
+## Stopping an instance {#stop-instance}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Find the instance in the list, click ![options](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.stop }}**.
   1. In the dialog box that opens, confirm that you want to stop the instance, then click **{{ ui-key.yacloud.common.stop }}**.
 
@@ -65,7 +65,7 @@ You can restart your **Stopped** instance.
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Find the stopped instance in the list, click ![options](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.start }}**.
   1. In the dialog box that opens, confirm that you want to start the instance by clicking **{{ ui-key.yacloud.common.start }}**.
 

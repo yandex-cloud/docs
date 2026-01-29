@@ -37,16 +37,24 @@ Request to generate a Certificate Authority (CA) from a Certificate Signing Requ
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. Folder ID where the CA is being created. ||
+Required field. Folder ID where the CA is being created.
+
+The maximum string length in characters is 50. ||
 || parent_certificate_authority_id | **string**
 
-Optional. If set intermediate CA would be generated and signed on parent CA ||
+Optional. If set intermediate CA would be generated and signed on parent CA
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Required field. The name of the Certificate Authority. ||
+Required field. The name of the Certificate Authority.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-An optional description of the Certificate Authority. ||
+An optional description of the Certificate Authority.
+
+The maximum string length in characters is 1024. ||
 || csr | **string**
 
 Required field. The PEM-encoded Certificate Signing Request (CSR) content. ||
@@ -55,13 +63,19 @@ Required field. The PEM-encoded Certificate Signing Request (CSR) content. ||
 Optional. The PEM-encoded private key linked to the certificate. If absent CA would be issued with server side generated key pair ||
 || ttl_days | **int64**
 
-The Time-To-Live (TTL) in days for the CA. ||
+The Time-To-Live (TTL) in days for the CA.
+
+Acceptable values are 1 to 20000, inclusive. ||
 || end_entities_ttl_limit_days | **int64**
 
-TTL limit in days for end-entities signed by the CA. ||
+TTL limit in days for end-entities signed by the CA.
+
+The maximum value is 20000. ||
 || template_id | **string**
 
-Optional template ID to fill certificate fields with template data. Explicitly defined parameters is preferred ||
+Optional template ID to fill certificate fields with template data. Explicitly defined parameters is preferred
+
+The maximum string length in characters is 50. ||
 || enable_crl | **bool**
 
 Enable Certificate Revocation List (CRL) support. ||
@@ -199,7 +213,6 @@ ID of the parent certificate authority that signed this certificate authority if
 
 Status of the certificate authority.
 
-- `STATUS_UNSPECIFIED`
 - `UNSIGNED`: The certificate authority is unsigned and pending signing.
 - `ACTIVE`: The certificate authority is active and can issue certificates. ||
 || issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**

@@ -40,7 +40,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
   To create a {{ mkf-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), go to the appropriate [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
      1. Enter a name and description for the {{ mkf-name }} cluster. The {{ mkf-name }} cluster name must be unique within the folder.
@@ -77,7 +77,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
         {% endnote %}
 
-     1. Select [security groups](../../vpc/concepts/security-groups.md) for the {{ mkf-name }} cluster's network traffic.
+     1. Select [security groups](../../vpc/concepts/security-groups.md) for the {{ mkf-name }} cluster’s network traffic.
      1. To enable internet access to broker hosts, select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. In this case, you can only connect to them using SSL. For more information, see [Connecting to topics in a cluster](connect/clients.md).
 
 
@@ -203,7 +203,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
      * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-     Here is a configuration file example:
+     Here is an example of the configuration file structure:
 
      
      ```hcl
@@ -213,7 +213,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
        network_id             = "<network_ID>"
        subnet_ids             = ["<list_of_subnet_IDs>"]
        security_group_ids     = ["<list_of_cluster_security_group_IDs>"]
-       deletion_protection    = <protect_cluster_against_deletion>
+       deletion_protection    = <protect_cluster_from_deletion>
 
        config {
          version          = "<version>"
@@ -253,12 +253,12 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
      * `environment`: Cluster environment, `PRESTABLE` or `PRODUCTION`.
      * `version`: {{ KF }} version, {{ versions.tf.str }}. Additionally, provide the [{{ ZK }} host configuration](../concepts/index.md#zookeeper).
      * `zones` and `brokers_count`: Availability zones and number of broker hosts per zone.
-     * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`.
+     * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
        {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
 
      
-     * `disk_encryption_key_id`: Disk encryption with a [custom KMS key](../../kms/concepts/key.md). Provide the KMS key ID to encrypt the disk. To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+     * `disk_encryption_key_id`: Disk encryption using a [custom KMS key](../../kms/concepts/key.md). Provide the KMS key ID to encrypt the disk. To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
      * `assign_public_ip`: Public access to the cluster, `true` or `false`.
 
 
@@ -308,7 +308,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -399,7 +399,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
                   "hour": "<hour_UTC>"
                 }
               },
-              "deletionProtection": <protect_cluster_against_deletion>,
+              "deletionProtection": <protect_cluster_from_deletion>,
               "diskEncryptionKeyId": "<KMS_key_ID>"
             }
             ```
@@ -465,7 +465,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
             * `deletionProtection`: Cluster protection against accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
-
+            
             
             * `diskEncryptionKeyId`: ID of the [custom KMS key](../../kms/concepts/key.md). Provide the KMS key ID to encrypt the disks. To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
@@ -495,7 +495,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -594,7 +594,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
                   "hour": "<hour_UTC>"
                 }
               },
-              "deletion_protection": <protect_cluster_against_deletion>,
+              "deletion_protection": <protect_cluster_from_deletion>,
               "disk_encryption_key_id": "<KMS_key_ID>"
             }
             ```
@@ -687,7 +687,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
               --data '@body.json'
             ```
 
-    1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -706,7 +706,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
   To create a {{ mkf-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), go to the appropriate [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
      1. Enter a name and description for the {{ mkf-name }} cluster. The {{ mkf-name }} cluster name must be unique within the folder.
@@ -744,7 +744,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
         {% endnote %}
 
-     1. Select [security groups](../../vpc/concepts/security-groups.md) for the {{ mkf-name }} cluster's network traffic.
+     1. Select [security groups](../../vpc/concepts/security-groups.md) for the {{ mkf-name }} cluster’s network traffic.
      1. To enable internet access to broker hosts, select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. In this case, you can only connect to them using SSL. For more information, see [Connecting to topics in a cluster](connect/clients.md).
 
 
@@ -754,7 +754,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
         When selecting the number of hosts, consider the following:
         * You cannot set the number of broker hosts manually if using [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}](../concepts/kraft.md#cluster-topology) as the coordination service.
-        * You need to set the number of brokers manually if using [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-split-mode_sbrDd }}](../concepts/kraft.md#cluster-topology) as the coordination service. A new multi-host cluster will automatically get three dedicated {{ kraft-short-name }} hosts.
+        * You need to set the number of brokers manually if using [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-split-mode_sbrDd }}](../concepts/kraft.md#cluster-topology) as the coordination service. A new multi-host cluster will automatically get three separate {{ kraft-short-name }} hosts.
         * You need at least two hosts to enable replication in a {{ mkf-name }} cluster.
         * High availability of a {{ mkf-name }} cluster depends on meeting specific conditions.
       
@@ -885,7 +885,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
      * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-     Here is a configuration file example:
+     Here is an example of the configuration file structure:
 
      
      ```hcl
@@ -895,7 +895,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
        network_id          = "<network_ID>"
        subnet_ids          = ["<list_of_subnet_IDs>"]
        security_group_ids  = ["<list_of_cluster_security_group_IDs>"]
-       deletion_protection = <protect_cluster_against_deletion>
+       deletion_protection = <protect_cluster_from_deletion>
 
        config {
          version          = "<version>"
@@ -941,7 +941,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
        * `zones = ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"] brokers_count = 1`: Three availability zones with one broker host per zone.
        * `zones = ["<one_availability_zone>"] brokers_count = 3`: One availability zone with three broker hosts.
 
-     * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`.
+     * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
        {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
 
@@ -995,7 +995,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1086,7 +1086,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
                   "hour": "<hour_UTC>"
                 }
               },
-              "deletionProtection": <protect_cluster_against_deletion>,
+              "deletionProtection": <protect_cluster_from_deletion>,
               "diskEncryptionKeyId": "<KMS_key_ID>"
             }
             ```
@@ -1190,7 +1190,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1289,7 +1289,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
                   "hour": "<hour_UTC>"
                 }
               },
-              "deletion_protection": <protect_cluster_against_deletion>,
+              "deletion_protection": <protect_cluster_from_deletion>,
               "disk_encryption_key_id": "<KMS_key_ID>"
             }
             ```
@@ -1389,13 +1389,13 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
               --data '@body.json'
             ```
 
-    1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
 ## Creating a cluster copy {#duplicate}
 
-You can create an {{ KF }} cluster with the settings of another one created earlier. To do this, import the original {{ KF }} cluster configuration to {{ TF }}. Then you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. The import feature is useful when you need to replicate an {{ KF }} cluster with multiple settings.
+You can create an {{ KF }} cluster with the settings of another one created earlier. Do this by importing the original {{ KF }} cluster configuration into {{ TF }}. Then you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. The import feature is handy when the original {{ KF }} cluster has a lot of settings and you need to create a similar one.
 
 To create an {{ KF }} cluster copy:
 
@@ -1435,8 +1435,8 @@ To create an {{ KF }} cluster copy:
         ```
 
     1. Copy it from the terminal and paste it into the `.tf` file.
-    1. Place the file in the new `imported-cluster` directory.
-    1. Edit the copied configuration so that you can create a new cluster from it:
+    1. Move the file to the new `imported-cluster` directory.
+    1. Modify the copied configuration to prepare it for creating a new cluster:
 
         * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Delete `created_at`, `health`, `host`, `id`, and `status`.
@@ -1444,13 +1444,13 @@ To create an {{ KF }} cluster copy:
         * If the `maintenance_window` section contains `type = "ANYTIME"`, delete the `hour` setting.
         * Optionally, make further changes if you need a customized configuration.
 
-    1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
+    1. Navigate to the `imported-cluster` directory and [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
 
-    1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, as you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
+    1. Move the configuration file to the `imported-cluster` directory and [specify its settings](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
 
-    1. Make sure the {{ TF }} configuration files are correct:
+    1. Validate your {{ TF }} configuration:
 
         ```bash
         terraform validate

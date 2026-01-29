@@ -21,19 +21,19 @@ To complete the steps from this example, [create](../get-api-key.md#run-client) 
   import openai
   import time
 
-  YANDEX_CLOUD_API_KEY = "<API_key>"
+  YANDEX_API_KEY = "<API_key>"
   YANDEX_FOLDER_ID = "<folder_ID>"
-  YANDEX_CLOUD_MODEL = "yandexgpt"
+  YANDEX_MODEL = "yandexgpt"
 
   client = openai.OpenAI(
-      api_key=YANDEX_CLOUD_API_KEY,
-      base_url="https://rest-assistant.{{ api-host }}/v1",
+      api_key=YANDEX_API_KEY,
+      base_url="https://ai.{{ api-host }}/v1",
       project=YANDEX_FOLDER_ID,
   )
 
   # --- 1. Creating a response in the background
   resp = client.responses.create(
-      model=f"gpt://{YANDEX_FOLDER_ID}/{YANDEX_CLOUD_MODEL}",
+      model=f"gpt://{YANDEX_FOLDER_ID}/{YANDEX_MODEL}",
       input="Create a brief summary of the text: 'Yandex AI Studio features over 20 models deployed in the cloud and available in various modes. The YandexGPT family models remain the most popular models in terms of consumption, claiming 62.7% of the cloud platform traffic. This high demand allowed Yandex to bring down the prices of its proprietary models, making them more affordable. The open-source models Qwen3‑235b from Alibaba Group (30.9%) and GPT‑OSS from OpenAI (5.7%) take the second and third place accordingly.'",
       background=True,  # Running in the background
   )

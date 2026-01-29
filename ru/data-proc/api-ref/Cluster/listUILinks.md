@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required. ID of the Hadoop cluster.
+            The maximum string length in characters is 50.
           type: string
       additionalProperties: false
     query: null
@@ -34,7 +35,9 @@ GET https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/ui_links
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the Hadoop cluster. ||
+Required field. Required. ID of the Hadoop cluster.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.dataproc.v1.ListUILinksResponse}

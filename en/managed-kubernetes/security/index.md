@@ -160,7 +160,12 @@ To create a {{ managed-k8s-name }} cluster and node group with public access, yo
 
 When creating a cluster in {{ managed-k8s-name }}, specify two [service accounts](../../iam/concepts/users/service-accounts.md):
 * **Cluster service account**: On behalf of this service account, {{ managed-k8s-name }} manages cluster nodes, [subnets](../../vpc/concepts/network.md#subnet) for [pods](../concepts/index.md#pod) and [services](../concepts/index.md#service), [disks](../../compute/concepts/disk.md), [load balancers](../../network-load-balancer/concepts/index.md), encrypts and decrypts [secrets](../../lockbox/concepts/secret.md). The minimum recommended role for such an account is `k8s.clusters.agent`.
-* **Node group service account**: On behalf of this service account, {{ managed-k8s-name }} cluster nodes are authenticated in [{{ container-registry-full-name }}](../../container-registry/concepts/index.md). To deploy applications in a {{ managed-k8s-name }} cluster using [Docker images](../../container-registry/concepts/docker-image.md) from {{ container-registry-name }}, grant to this account any [service role](../../container-registry/security/index.md#service-roles). If you use a different container registry, you can skip assigning roles to this service account.
+* **Node group service account**: Under this service account, {{ managed-k8s-name }} cluster nodes get authenticated in [{{ container-registry-full-name }}](../../container-registry/concepts/index.md) or [{{ cloud-registry-full-name }}](../../cloud-registry/concepts/index.md). For other container registries, you do not need to assign roles to the service account.
+  
+  For nodes to be able to pull Docker images from a registry:
+
+  * For {{ container-registry-full-name }}, assign the [container-registry.images.puller](../../container-registry/security/index.md#container-registry-images-puller) role to the service account.
+  * For {{ cloud-registry-full-name }}, assign the [cloud-registry.artifacts.puller](../../container-registry/security/index.md#container-registry-images-puller) role to the service account.
 
 To manage a {{ managed-k8s-name }} cluster and node groups with public access, you will also need the `{{ roles-vpc-public-admin }}` role.
 

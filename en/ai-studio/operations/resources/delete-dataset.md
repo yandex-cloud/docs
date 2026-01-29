@@ -18,7 +18,7 @@ To delete a dataset:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) for which your account has the `ai.playground.user` and `ai.datasets.editor` [roles](../../security/index.md) or higher.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.dashboard.DashboardPage.AiStudioSection.section_title_1sDGx }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ai-studio }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.dashboard.label_ai-studio }}** panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.dataset.datasets }}**.
   1. In the list that opens, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) next to the dataset in question and select ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, confirm the deletion.

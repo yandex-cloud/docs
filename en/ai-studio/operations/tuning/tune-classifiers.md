@@ -26,7 +26,7 @@ Create a tuning dataset:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder for which your account has the `ai.playground.user` and `ai.datasets.editor` [roles](../../security/index.md) or higher.
-  1. In the list of services, select **{{ ui-key.yacloud.dashboard.DashboardPage.AiStudioSection.section_title_1sDGx }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ai-studio }}**.
   1. In the left-hand panel, click ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.dataset.datasets }}**.
   1. Click **{{ ui-key.yacloud.dataset.create }}**.
   1. Enter a name and descriptions for the dataset. Follow these naming requirements:
@@ -126,7 +126,7 @@ Create a tuning dataset:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder for which your account has the `ai.playground.user`, `ai.datasets.user`, and `ai.models.editor` [roles](../../security/index.md) or higher.
-  1. In the list of services, select **{{ ui-key.yacloud.dashboard.DashboardPage.AiStudioSection.section_title_1sDGx }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ai-studio }}**.
   1. In the left-hand panel, click ![image](../../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud.tuning.tunings }}**.
   1. Click **{{ ui-key.yacloud.tuning.train-model }}**.
   1. Enter a name and descriptions for the dataset. Follow these naming requirements:
@@ -187,7 +187,7 @@ Create a tuning dataset:
 
      Model tuning may take up to one day depending on the dataset size and the system load.
 
-     Use the fine-tuned model's URI you got (the `uri` field value) when [accessing](../../concepts/classifier/models#addressing-models) the model.
+     Use the fine-tuned model's URI you got (the `uri` field value) when [accessing](../../concepts/classifier/models.md#addressing-models) the model.
 
   1. Fine-tuning metrics are available in TensorBoard format. You can open the downloaded file, for example, in the [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) project:
   
@@ -274,7 +274,7 @@ Create a tuning dataset:
      }
      ```
 
-     Use the fine-tuned model's URI you got (the `targetModelUri` field value) when [accessing](../../concepts/classifier/models#addressing-models) the model.
+     Use the fine-tuned model's URI you got (the `targetModelUri` field value) when [accessing](../../concepts/classifier/models.md#addressing-models) the model.
 
   1. Fine-tuning metrics are available in TensorBoard format. Get the link to download the file: 
   

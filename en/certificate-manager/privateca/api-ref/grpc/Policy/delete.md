@@ -25,7 +25,9 @@ Request message for deleting a policy.
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the policy to delete. ||
+Required field. ID of the policy to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

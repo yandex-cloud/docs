@@ -12,16 +12,19 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the folder to copy the image to.
+            The maximum string length in characters is 50.
           type: string
         name:
           description: |-
             **string**
             Required field. Name of the image.
+            The maximum string length in characters is 50.
           type: string
         imageId:
           description: |-
             **string**
             Required field. ID of the compute image to copy the image from.
+            The maximum string length in characters is 50.
           type: string
       required:
         - folderId
@@ -56,13 +59,19 @@ POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/images:copy
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder to copy the image to. ||
+Required field. ID of the folder to copy the image to.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Required field. Name of the image. ||
+Required field. Name of the image.
+
+The maximum string length in characters is 50. ||
 || imageId | **string**
 
-Required field. ID of the compute image to copy the image from. ||
+Required field. ID of the compute image to copy the image from.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -223,7 +232,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Status of the image.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Image is being created.
 - `ACTIVE`: Image is ready to use.
 - `DELETING`: Image is being deleted. ||

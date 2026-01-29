@@ -1,7 +1,7 @@
-# Using node groups with GPUs and no pre-installed drivers
+# Using node groups with GPUs without pre-installed drivers
 
 
-You can use {{ managed-k8s-name }} node groups for workloads on [GPUs](../../compute/concepts/gpus.md) without pre-installed drivers. With [GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html), you can choose the driver version that suits your needs.
+You can use {{ managed-k8s-name }} node groups for [GPU](../../compute/concepts/gpus.md) workloads without pre-installed drivers. With [GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html), you can choose the driver version that suits your needs.
 
 To set up a {{ managed-k8s-name }} cluster and node group without pre-installed drivers for workloads:
 
@@ -30,7 +30,7 @@ The support cost for this solution includes:
 
     {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration. When creating, specify the preconfigured security groups.
+1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration. When creating, specify the security groups prepared earlier.
 
 1. [Create a {{ managed-k8s-name }} node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with the following settings:
    * **{{ ui-key.yacloud.compute.instances.create.section_platform }}**: Navigate to the **GPU** tab and select the platform.
@@ -43,9 +43,16 @@ The support cost for this solution includes:
 
 ## Component version requirements {#version-requirements}
 
-Starting with {{ k8s }} version 1.30, for a group of nodes with GPUs to work correctly without pre-installed drivers, you will need the following:
+Starting with {{ k8s }} version `1.30`, for a group of nodes with GPUs to work correctly without pre-installed drivers, you will need the following:
 
-* GPU Operator `24.9.0` or higher.
+* GPU Operator version `24.9.2`.
+
+  {% note info %}
+
+  GPU Operator versions above `24.9.2` were not tested in {{ yandex-cloud }}.
+
+  {% endnote %}
+
 * NVIDIA driver `550.144.03` or higher.
 
 Older version components may cause driver compilation errors.
@@ -72,13 +79,13 @@ Older version components may cause driver compilation errors.
 
     Recommended driver versions:
 
-    * For node groups {{ k8s }} 1.30 or higher: [`550.144.03`](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-550-144-03/index.html) or higher.
+    * For node groups of {{ k8s }} `1.30` or higher: [`550.144.03`](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-550-144-03/index.html) or higher.
 
-    For the {{ managed-k8s-name }} `{{ a100-epyc }}` (`gpu-standard-v3`) node group platform, use [driver version `515.48.07`](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-515-48-07/index.html).
+    * For node groups on {{ a100-epyc }} (`gpu-standard-v3`): [`515.48.07`](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-515-48-07/index.html).
 
     {% endnote %}
 
-    GPU Operator will be installed with default parameters. Learn more about parameters in the [official guide]({{ tr.docs }}/admin/fault-tolerant-execution.html#advanced-configuration).
+    GPU Operator will be installed with default parameters. For more information about parameters, see [this guide](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html#common-chart-customization-options).
 
     {% note tip %}
 
@@ -124,11 +131,16 @@ You can now run GPU workloads by following [this tutorial](../../managed-kuberne
 
 If you get compilation errors when installing drivers:
 
-1. Make sure you are running GPU Operator 24.9.0 or higher:
+1. Make sure you are running GPU Operator `24.9.2` or higher:
 
     ```bash
     helm list -n gpu-operator
     ```
+    {% note info %}
+
+    GPU Operator versions above `24.9.2` were not tested in {{ yandex-cloud }}.
+
+    {% endnote %}
 
 1. Use precompiled drivers:
 

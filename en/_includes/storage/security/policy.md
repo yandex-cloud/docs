@@ -71,52 +71,21 @@ Example of a rule for a specific {{ yandex-cloud }} user:
 
 ```json
 {
+  "Sid": "AllowAWSServices",
   "Effect": "Allow",
-  "Principal": {
-    "CanonicalUser": "<user_ID>"
-  },
-  "Action": "*",
+  "Principal": "*",
+  "Action": "s3:*",
   "Resource": [
     "arn:aws:s3:::<bucket_name>/*",
     "arn:aws:s3:::<bucket_name>"
   ],
   "Condition": {
-    "StringLike": {
-      "aws:referer": "{{ link-console-main }}/folders/*/storage/buckets/your-bucket-name*"
+    "Bool": {
+      "aws:PrincipalIsAWSService": "true"
     }
   }
 }
 ```
-
-
-{% cut "Example of using the console.cloud.yandex.* domain together with console.yandex.cloud" %}
-
-If you are using the old domain (`console.cloud.yandex.*`) together with the new one (`console.yandex.cloud`), set the following policy rules:
-
-```json
-{
-  "Effect": "Allow",
-  "Principal": {
-    "CanonicalUser": "<user_ID>"
-  },
-  "Action": "*",
-  "Resource": [
-    "arn:aws:s3:::<bucket_name>/*",
-    "arn:aws:s3:::<bucket_name>"
-  ],
-  "Condition": {
-    "StringLike": {
-      "aws:referer": [
-        "https://console.cloud.yandex.*/folders/*/storage/buckets/your-bucket-name*",
-        "{{ link-console-main }}/folders/*/storage/buckets/your-bucket-name*"
-      ]
-    }
-  }
-}
-```
-
-{% endcut %}
-
 
 
 You can retrieve the user ID by following [this guide](../../../organization/operations/users-get.md) in the {{ iam-full-name }} documentation.
@@ -176,6 +145,32 @@ If the bucket receives a request with the `X-Forwarded-For: 192.168.2.100, 192.1
 
 {% endcut %}
 
+## Enforcing conditional object writes with an access policy {#conditional-writes-policy}
+
+[Conditional object writes](../../../storage/concepts/object.md#conditional-writes) prevent accidental overwriting and conflicts during concurrent uploads. By default, conditional writes are optional: a client may provide the `If-Match` and `If-None-Match` headers at its own discretion.
+
+You can use an [access policy](../../../storage/concepts/policy.md) to enforce condition checks. This way, all object write requests without the appropriate headers will be rejected.
+
+To check for the `If-None-Match` and `If-Match` headers when creating new objects, use the `s3:if-match` and `s3:if-none-match` conditions with the `Null` [operator](../../../storage/s3/api-ref/policy/conditions.md#null). You can apply them to the [upload](../../../storage/s3/api-ref/object/upload.md) and [completeUpload](../../../storage/s3/api-ref/multipart/completeupload.md) methods.
+
+You can extend the conditions:
+
+* To the entire bucket:
+
+    ```json
+    "Resource": ["arn:aws:s3:::<bucket_name>/*"],
+    ```
+
+* To a specific prefix:
+
+    ```json
+    "Resource": ["arn:aws:s3:::<bucket_name>/<prefix>/*"],
+    ```
+
+If a condition is not met, you will get the `403 Access Denied` error.
+
+See [configuration examples](#conditional-writes-rules) for setting up conditional object writes using an access policy.
+
 ## Configuration examples {#config-examples}
 
 * [Allow an anonymous user to read bucket objects over an encrypted connection](#anonymous-user-read-encrypted)
@@ -183,6 +178,8 @@ If the bucket receives a request with the `X-Forwarded-For: 192.168.2.100, 192.1
 * [Deny downloading objects from a specified IP address](#block-download-specific-ip)
 * [Grant users full access to specific folders](#user-specific-full-folder-access)
 * [Provide each user or service account with full access to a folder](#full-access-user-service-account-folder)
+* [Prohibit tools other than the management console](#allow-only-console)
+* [Allow object writes only as conditional writes](#conditional-writes-rules)
 
 #### Rule that allows an anonymous user to read bucket objects over an encrypted connection: {#anonymous-user-read-encrypted}
 
@@ -327,6 +324,110 @@ If the bucket receives a request with the `X-Forwarded-For: 192.168.2.100, 192.1
     ]
   }
   ```
+
+#### Rule to prohibit all tools except the management console {#allow-only-console}
+
+  ```json
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "DenyAllExceptAWSServices",
+        "Effect": "Deny",
+        "Principal": "*",
+        "Action": "s3:*",
+        "Resource": [
+          "arn:aws:s3:::thatsroman-policy2"
+        ],
+        "Condition": {
+          "Bool": {
+            "aws:PrincipalIsAWSService": "false"
+          }
+        }
+      }, 
+      {
+        "Sid": "AllowAWSServices",
+        "Effect": "Allow",
+        "Principal": "*",
+        "Action": "s3:*",
+        "Resource": [
+          "arn:aws:s3:::thatsroman-policy2"
+        ],
+        "Condition": {
+          "Bool": {
+            "aws:PrincipalIsAWSService": "true"
+          }
+        }
+      } 
+    ]
+  }
+  ```
+
+#### Rules to enforce conditional object writes {#conditional-writes-rules}
+
+##### Rule that allows all users access to all bucket objects only if the request contains the If-None-Match header {#force-if-none-match}
+
+```json
+{
+  "Version":"2025-12-24",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": "s3:PutObject",
+      "Resource": [
+      "arn:aws:s3:::<bucket_name>/*"
+      ],
+      "Condition": {
+        "Null": {
+          "s3:if-none-match": "true"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "*",
+      "Resource": [
+        "arn:aws:s3:::<bucket_name>/*",
+        "arn:aws:s3:::<bucket_name>"
+      ]
+    }
+  ]
+}
+```
+
+##### Rule that allows all users access to all bucket objects only if the request contains the If-Match header {#force-if-match}
+
+```json
+{
+  "Version":"2025-12-25",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": "s3:PutObject",
+      "Resource": [
+      "arn:aws:s3:::<bucket_name>/*"
+      ],
+      "Condition": {
+        "Null": {
+          "s3:if-match": "true"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "*",
+      "Resource": [
+        "arn:aws:s3:::<bucket_name>/*",
+        "arn:aws:s3:::<bucket_name>"
+      ]
+    }
+  ]
+}
+```
 
 ### See also {#see-also}
 

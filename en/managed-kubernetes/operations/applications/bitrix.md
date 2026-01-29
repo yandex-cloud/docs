@@ -7,15 +7,15 @@ description: Follow this guide to install the Bitrix application in your {{ mana
 
 **Bitrix** is an application that prepares and deploys environments for standard installation of 1C Bitrix products in a {{ managed-k8s-full-name }} cluster.
 
-Two types of environment are available:
+There are two available environment types:
 
-* Admin environment, intended for:
+* Admin environment, where you can:
 
    * Deploy Bitrix products from scratch or from backups.
    * Modify Bitrix components using the admin panel.
    * Develop and test your products.
 
-   Admin environment supports these features:
+   Admin environment supports the following tools:
 
    * Git client.
    * Running agents in cron jobs.
@@ -23,17 +23,17 @@ Two types of environment are available:
    * Sphinx morphological search.
    * Tools for collecting PHP and Nginx metrics.
 
-   You can set up the environment both from {{ marketplace-full-name }} and using the Helm chart.
+   You can set up the environment both from {{ marketplace-full-name }} and using a Helm chart.
 
    You can use the admin environment to install stable versions of Bitrix applications.
 
-* Product environment that supports all the features of the admin one, but is not intended to make any changes to Bitrix components. There is no admin panel in the product environment.
+* Product environment, which supports all admin features but does not allow you to modify Bitrix components. There is no admin panel in the product environment.
 
   You can run multiple `Deployment` replicas in your product environment, which provides fault tolerance.
 
-  To set up the product environment, you will need to prepare images based on those supplied, adding desired Bitrix files.
+  To set up the product environment, you will need to prepare images based on the provided ones by adding the relevant Bitrix files.
 
-  You can only set up the product environment using the Helm chart.
+  You can only set up the product environment using a Helm chart.
 
 {% note info %}
 
@@ -65,7 +65,7 @@ The admin and product environments share these assets:
       tls.key: <Base64_encoded_certificate_private_key>
     ```
 
-1. [Create a bucket](../../../storage/operations/buckets/create.md) to house the shared project directories: `upload` and `backup`.
+1. [Create a bucket](../../../storage/operations/buckets/create.md) to house the shared project directories, `upload` and `backup`.
 1. [Create a service account](../../../iam/operations/sa/create.md) with the `storage.editor` [role](../../../iam/concepts/access-control/roles.md) for the folder where your bucket is located.
 1. [Create a static access key](../../../iam/operations/authentication/manage-access-keys.md) for the service account and save its ID and secret key.
 1. [Create a {{ mmy-name }}](../../../managed-mysql/operations/cluster-create.md) cluster with the following parameters:
@@ -78,7 +78,7 @@ The admin and product environments share these assets:
      * **Sync Binlog**: `1000`
      * **Transaction Isolation**: `read committed`
 
-1. If you need to use the queue server (the Bitrix Push and Pull module), create a secret key for it:
+1. If you need to use the queue server (Bitrix Push and Pull module), create a secret key for it:
 
     ```shell
     docker container run --rm \
@@ -88,7 +88,7 @@ The admin and product environments share these assets:
 
     Save the command output.
 
-1. If you expect to use the product environment, prepare your {{ container-registry-name }} resources to pull the desired Docker images:
+1. If you are going to use the product environment, prepare {{ container-registry-name }} resources to push the required Docker images:
 
    1. Create a container registry:
 
@@ -139,10 +139,10 @@ The admin and product environments share these assets:
      * **Access key**: Specify Base64-encoded contents of the repo access public key.
 
    * **Use cron to run agents**: Enable to run Bitrix agents on the schedule specified in `ConfigMap` `<app_name>-bitrix-space-cron`. By default, `ConfigMap` enables running agent jobs every minute, and backup jobs, every 24 hours. You can also add your own schedule.
-   * **Use queue server**: Enable to use a queue server (the Bitrix Push and Pull module). The `Deployment` resource to deploy the server will start in a separate pod.
+   * **Use queue server**: Enable to use a queue server (the Bitrix Push and Pull module). The `Deployment` resource for server deployment will start in a separate pod.
    * **Secret key**: If you enabled **Use queue server**, provide the secret key you created previously.
-   * **Use Sphinx**: Enable to use Sphinx, a full-text search engine. The `Deployment` resource to deploy Sphinx will start in a separate pod.
-   * **Store cache in Redis**: Enable to store Bitrix cache in Redis. In this case, the cluster will have a separate `StatefulSet` in the app’s namespace: `<app_name>-redis-*`. Please avoid enabling it in your admin environment due to possible performance degradation.
+   * **Use Sphinx**: Enable to use Sphinx, a full-text search engine. The `Deployment` resource for Sphinx deplyment will start in a separate pod.
+   * **Store cache in Redis**: Enable to store Bitrix cache in Redis. In this case, the cluster will have a separate `StatefulSet` in the app’s namespace: `<app_name>-redis-*`. Do not enable this setting in the admin environment as this may lead to degraded performance.
    * **Export PHP metrics**: Select to enable PHP metrics.
    * **Export NGINX metrics**: Select to enable NGINX metrics.
    * **Storage class for S3**: `csi-s3`, default.
@@ -166,7 +166,7 @@ The admin and product environments share these assets:
 
 1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Bitrix admin environment, run this command:
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the Bitrix admin environment, run this command:
 
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_bitrix-env.helmChart.name }} \
@@ -197,7 +197,7 @@ The admin and product environments share these assets:
      --set push.key="<secret_key_of_Bitrix_Push_server>" \
      --set-json 'mysql={"host":"<{{ MY }}_host_FQDN>","login":"<{{ MY }}_user_name>","password":"<{{ MY }}_user_password>","database":"<{{ MY }}_database_name>"}' \
      --set certmanager.enabled=false \
-     --set tls.existingSecret="<name_of_secret_storing_certificate>" \
+     --set tls.existingSecret="<name_of_secret_with_certificate>" \
      --set features.cache=<use_Redis_cache> .
      bitrix ./bitrix/
    ```
@@ -209,15 +209,15 @@ The admin and product environments share these assets:
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Bitrix product environment, do the following:
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the Bitrix product environment, do the following:
    1. Create a new [namespace](../../concepts/index.md#namespace) in your cluster: `bitrix-prod`.
-   1. Create a folder named `bitrix` locally or, if your project is uploaded to a Git repository, clone your repository to this folder:
+   1. Create a local folder named `bitrix` or, if your project is uploaded to a Git repository, clone your repository to this folder:
 
        ```shell
        git clone <repository_SSH_URL> bitrix
        ```
 
-   1. Prepare the image of your Bitrix app with PHP:
+   1. Prepare the image of your Bitrix PHP app:
 
       1. Download the `bitrix-admin-php` image:
 
@@ -254,9 +254,9 @@ The admin and product environments share these assets:
          docker push {{ registry }}/<registry_ID>/bitrix-prod-php
          ```
 
-   1. Similar to the procedure in Step 2, prepare a Bitrix image with NGINX, `bitrix-prod-nginx`, from this base image: `{{ mkt-k8s-key.yc_bitrix-env.dockerImages.nginx.repository.name }}:{{ mkt-k8s-key.yc_bitrix-env.dockerImages.nginx.repository.tag }}`.
+   1. Repeat step 2 to prepare a Bitrix NGINX image, `bitrix-prod-nginx`, based on this image: `{{ mkt-k8s-key.yc_bitrix-env.dockerImages.nginx.repository.name }}:{{ mkt-k8s-key.yc_bitrix-env.dockerImages.nginx.repository.tag }}`.
 
-   1. Perform the Helm chart installation procedure:
+   1. Run Helm chart installation:
 
        ```bash
        helm pull oci://{{ mkt-k8s-key.yc_bitrix-env.helmChart.name }} \
@@ -288,7 +288,7 @@ The admin and product environments share these assets:
          --set php.image="{{ registry }}/<registry_ID>/bitrix-prod-php" \
          --set nginx.image="{{ registry }}/<registry_ID>/bitrix-prod-nginx" \
          --set certmanager.enabled=false \
-         --set tls.existingSecret="<name_of_secret_storing_certificate>" \
+         --set tls.existingSecret="<name_of_secret_with_certificate>" \
          bitrix ./bitrix/
        ```
 
@@ -301,9 +301,9 @@ The admin and product environments share these assets:
 
 ## Working with a Git repository {#working-with-git}
 
-To work with a repository, you must operate in the admin environment.
+To work with a repository, you need the admin environment.
 
-1. Connect to the pod container when in the admin environment:
+1. Connect to the pod container from the admin environment:
 
    ```shell
    kubectl -n bitrix-space exec \

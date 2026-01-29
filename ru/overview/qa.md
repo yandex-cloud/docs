@@ -112,7 +112,7 @@ description: Из статьи вы узнаете, какими материа�
 ### Бизнес-инструменты {#business-tools}
 
 * [{{ datalens-full-name }}](../datalens/qa/index.md)
-* [{{ video-full-name }}](../video/troubleshooting.md)
+* [{{ video-full-name }}](../video/troubleshooting/index.md)
 
 {% include [Greenplum trademark](../_includes/mdb/mgp/trademark.md) %}
 

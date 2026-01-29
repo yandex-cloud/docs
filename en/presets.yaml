@@ -877,6 +877,7 @@ default:
   tf-provider-mrd: https://yandex.cloud/en/docs/terraform/resources/mdb_redis_cluster_v2
   tf-provider-msp: https://yandex.cloud/en/docs/terraform/resources/spark_cluster
   tf-provider-mtr: https://yandex.cloud/en/docs/terraform/resources/trino_cluster
+  tf-provider-mtr-access: https://yandex.cloud/ru/docs/terraform/resources/trino_access_control
   tf-provider-resources-link: https://yandex.cloud/en/docs/terraform/resources
   tf-provider-ytsaurus: https://terraform-provider.yandexcloud.net/resources/ytsaurus_cluster
   TF-version: '0.90'
@@ -3072,32 +3073,6 @@ default:
     used_space:
       v1|month|number: 0.0378
       v1|month|string: $0.037800
-  sku|USD|baremetal:
-    server:
-      bf25_i201_h:
-        1_day|string: $124.147521
-        1_month|string: $124.147521
-        12_month|string: $124.147521
-        3_month|string: $124.147521
-        6_month|string: $124.147521
-      bf25_i202_s:
-        1_day|string: $129.999979
-        1_month|string: $129.999979
-        12_month|string: $129.999979
-        3_month|string: $129.999979
-        6_month|string: $129.999979
-      bf25_i204_s:
-        1_day|string: $133.122930
-        1_month|string: $133.122930
-        12_month|string: $133.122930
-        3_month|string: $133.122930
-        6_month|string: $133.122930
-      bf25_i205_s:
-        1_day|string: $154.532762
-        1_month|string: $154.532762
-        12_month|string: $154.532762
-        3_month|string: $154.532762
-        6_month|string: $154.532762
   sku|USD|cloud_desktop:
     hdd:
       v1|month|number: 0.036
@@ -6006,6 +5981,10 @@ default:
         BalancerAllocationDialog:
           AllocationForm:
             form_timezone_0_6LoEf: Disable block through
+        CloudActions:
+          button_action-delete-cloud_3simi: Delete cloud
+        FolderActions:
+          button_action-delete-folder_mu24C: Delete folder
         JsonSchemaField:
           mode_json-schema_5eGi4: JSON schema
           mode_wysiwyg_v3RqJ: Form

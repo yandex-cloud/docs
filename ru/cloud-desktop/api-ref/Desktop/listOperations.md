@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the desktop.
+            The maximum string length in characters is 50.
           type: string
       required:
         - desktopId
@@ -25,6 +26,7 @@ apiPlayground:
             the service returns a [ListDesktopOperationsResponse.nextPageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -33,6 +35,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListDesktopOperationsResponse.nextPageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopOperationsResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
@@ -42,6 +45,7 @@ apiPlayground:
             1. The field name. Currently you can use filtering only on [Desktop.name](/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#yandex.cloud.clouddesktop.v1.api.Desktop) field.
             2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
             3. Value or a list of values to compare against the values of the field.
+            The maximum string length in characters is 1000.
           type: string
       additionalProperties: false
     body: null
@@ -65,7 +69,9 @@ GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}/o
 ||Field | Description ||
 || desktopId | **string**
 
-Required field. ID of the desktop. ||
+Required field. ID of the desktop.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.clouddesktop.v1.api.ListDesktopOperationsRequest}
@@ -78,18 +84,24 @@ The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListDesktopOperationsResponse.nextPageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListDesktopOperationsResponse.nextPageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopOperationsResponse) returned by a previous list request. ||
+[ListDesktopOperationsResponse.nextPageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on [Desktop.name](/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#yandex.cloud.clouddesktop.v1.api.Desktop) field.
 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-3. Value or a list of values to compare against the values of the field. ||
+3. Value or a list of values to compare against the values of the field.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.clouddesktop.v1.api.ListDesktopOperationsResponse}

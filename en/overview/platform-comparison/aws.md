@@ -24,6 +24,7 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | Amazon ElastiCache | [{{ mrd-full-name }}](../../managed-valkey/) |
 | Amazon EMR | [{{ dataproc-full-name }}](../../data-proc/) |
 | Amazon EMR Trino | [{{ mtr-full-name }}](../../managed-trino/) |
+| Amazon EMR Spark | [{{ msp-full-name }}](../../managed-spark/) |
 | Amazon EventBridge | [{{ si-full-name }}: {{ er-name }}](../../serverless-integrations/quickstart/eventrouter.md) |
 | Amazon Interactive Video Service | [{{ video-full-name }}](../../video/) |
 | Amazon Kinesis Data Streams | [{{ yds-full-name }}](../../data-streams/) |
@@ -62,7 +63,8 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | AWS Key Management Service | [{{ kms-full-name }}](../../kms/) |
 | AWS Lambda | [{{ sf-full-name }}](../../functions/) |
 | AWS Organizations | [{{ org-full-name }}](../../organization/) |
-| AWS Redshift | [{{ mch-full-name }}](../../managed-clickhouse/) |
+| AWS Outposts | [{{ stackland-full-name }}](../../stackland/) |
+| AWS Redshift | [{{ mch-full-name }}](../../managed-clickhouse/)<br/>[{{ mgp-full-name }}](../../managed-greenplum/) |
 | AWS Resource Access Manager | [{{ resmgr-full-name }}](../../resource-manager/) |
 | AWS Secrets Manager | [{{ lockbox-name }}](../../lockbox/) |
 | AWS Security Hub | [{{ sd-full-name }}](../../security-deck/) |

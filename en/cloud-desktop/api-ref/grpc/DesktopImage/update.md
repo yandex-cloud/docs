@@ -32,10 +32,14 @@ Required field. Id of image to update. ||
 Mask of fields that need to be update. ||
 || name | **string**
 
-New desktop image name. ||
+New desktop image name.
+
+The maximum string length in characters is 50. ||
 || labels | **object** (map<**string**, **string**>)
 
-New desktop image labels. ||
+New desktop image labels.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -128,7 +132,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || image_id | **string**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## DesktopImage {#yandex.cloud.clouddesktop.v1.api.DesktopImage}
@@ -150,7 +154,6 @@ Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text forma
 
 Status of the image.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Image is being created.
 - `ACTIVE`: Image is ready to use.
 - `DELETING`: Image is being deleted. ||
