@@ -1,5 +1,5 @@
 ---
-title: Installing the Container Storage Interface for S3
+title: Installing Container Storage Interface for S3
 description: Follow this guide to install the Container Storage Interface for S3.
 ---
 
@@ -38,8 +38,8 @@ You can install Container Storage Interface for S3 in the following ways:
    * **Application name**: Specify the application name, e.g., `csi-s3`.
    * **Create storage class**: Select this option to create a new [storage class](../volumes/manage-storage-class.md) when deploying the application.
    * **Create secret**: Select this option to create a new secret for a storage class when installing the application.
-   * **S3 key ID**: Copy the service account key ID into this field.
-   * **S3 secret key**: Copy the service account secret key into this field.
+   * **S3 key ID**: Copy and paste the service account key ID into this field.
+   * **S3 secret key**: Copy and paste the service account secret key into this field.
    * **General S3 bucket for volumes**: Specify the name of the general bucket to contain your [dynamically provisioned volumes](../../concepts/volume.md#dynamic-provisioning). For CSI to create a new bucket for each volume, leave this field blank.
    * **S3 service address**: Address of the S3 service the application will use. The default is `https://{{ s3-storage-host }}`.
    * **GeeseFS mounting options**: Mounting options for GeeseFS. For a complete list of options, see [our GeeseFS guide](https://github.com/yandex-cloud/geesefs).
@@ -93,6 +93,8 @@ The [GitHub repository](https://github.com/yandex-cloud/k8s-csi-s3) contains the
     ```
 
     You can also set additional [parameters](#installation-parameters) for Container Storage Interface for S3.
+
+    Learn more about [upgrading from different versions of k8s-csi-s3](https://github.com/yandex-cloud/k8s-csi-s3/tree/master#upgrading).
 
 ## Parameters for installation using a Helm chart {#installation-parameters}
 

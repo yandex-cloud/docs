@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. The ID of the certificate to revoke.
+            The maximum string length in characters is 50.
           type: string
       required:
         - certificateId
@@ -22,7 +23,6 @@ apiPlayground:
           description: |-
             **enum** (CrlReason)
             Required field. The reason for revoking the certificate (must be one of the reasons defined above).
-            - `CRL_REASON_UNSPECIFIED`
             - `KEY_COMPROMISE`: Key used in the certificate has been compromised.
             - `CA_COMPROMISE`: The Certificate Authority (CA) has been compromised.
             - `AFFILIATION_CHANGED`: Change in affiliation, such as an organization restructure.
@@ -69,7 +69,9 @@ Request to revoke an issued certificate, making it invalid.
 ||Field | Description ||
 || certificateId | **string**
 
-Required field. The ID of the certificate to revoke. ||
+Required field. The ID of the certificate to revoke.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.certificatemanager.v1.privateca.RevokeCertificateRequest}
@@ -88,7 +90,6 @@ Request to revoke an issued certificate, making it invalid.
 
 Required field. The reason for revoking the certificate (must be one of the reasons defined above).
 
-- `CRL_REASON_UNSPECIFIED`
 - `KEY_COMPROMISE`: Key used in the certificate has been compromised.
 - `CA_COMPROMISE`: The Certificate Authority (CA) has been compromised.
 - `AFFILIATION_CHANGED`: Change in affiliation, such as an organization restructure.
@@ -190,10 +191,14 @@ Metadata for the `RevokeCertificate` operation.
 ||Field | Description ||
 || certificateAuthorityId | **string**
 
-Required field. The ID of the Certificate Authority that issued the revoked certificate. ||
+Required field. The ID of the Certificate Authority that issued the revoked certificate.
+
+The maximum string length in characters is 50. ||
 || certificateId | **string**
 
-Required field. The ID of the certificate that was revoked. ||
+Required field. The ID of the certificate that was revoked.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Status {#google.rpc.Status}

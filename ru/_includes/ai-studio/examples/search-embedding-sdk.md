@@ -3,7 +3,7 @@
 # pylint: disable=import-outside-toplevel
 
 from __future__ import annotations
-from yandex_cloud_ml_sdk import YCloudML
+from yandex_ai_studio_sdk import AIStudio
 
 doc_texts = [
     """Александр Сергеевич Пушкин (26 мая [6 июня] 1799, Москва — 29 января [10 февраля] 1837, Санкт-Петербург)
@@ -20,7 +20,7 @@ def main():
     import numpy as np
     from scipy.spatial.distance import cdist
 
-    sdk = YCloudML(
+    sdk = AIStudio(
         folder_id="<идентификатор_каталога>",
         auth="<API-ключ>",
     )

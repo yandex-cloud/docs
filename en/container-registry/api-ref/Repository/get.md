@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Repository resource to return.
             To get the repository ID use a [RepositoryService.List](/docs/container-registry/api-ref/Repository/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - repositoryId
@@ -41,7 +42,9 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/repositories
 
 Required field. ID of the Repository resource to return.
 
-To get the repository ID use a [RepositoryService.List](/docs/container-registry/api-ref/Repository/list#List) request. ||
+To get the repository ID use a [RepositoryService.List](/docs/container-registry/api-ref/Repository/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.containerregistry.v1.Repository}

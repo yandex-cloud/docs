@@ -26,7 +26,9 @@ Retrieve the CSR for a specific Certificate Authority.
 ||Field | Description ||
 || certificate_authority_id | **string**
 
-Required field. The ID of the Certificate Authority for which you want to retrieve the CSR. ||
+Required field. The ID of the Certificate Authority for which you want to retrieve the CSR.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## CsrForSignCertificateAuthority {#yandex.cloud.certificatemanager.v1.privateca.CsrForSignCertificateAuthority}

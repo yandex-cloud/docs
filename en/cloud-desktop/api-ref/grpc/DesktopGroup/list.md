@@ -29,29 +29,39 @@ Retrieves the list of desktop group resources.
 
 Required field. ID of the folder to list desktop groups in.
 
-To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListDesktopGroupsResponse.next_page_token](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListDesktopGroupsResponse.next_page_token](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupsResponse) returned by a previous list request. ||
+[ListDesktopGroupsResponse.next_page_token](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on [DesktopGroup.name](#yandex.cloud.clouddesktop.v1.api.DesktopGroup) field.
 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-3. Value or a list of values to compare against the values of the field. ||
+3. Value or a list of values to compare against the values of the field.
+
+The maximum string length in characters is 1000. ||
 || order_by | **string**
 
 Sorting the list by [DesktopGroup.name](#yandex.cloud.clouddesktop.v1.api.DesktopGroup), [DesktopGroup.created_at](#yandex.cloud.clouddesktop.v1.api.DesktopGroup) and [DesktopGroup.status](#yandex.cloud.clouddesktop.v1.api.DesktopGroup) fields.
-The default sorting order is ascending. ||
+The default sorting order is ascending.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListDesktopGroupsResponse {#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupsResponse}
@@ -141,7 +151,6 @@ Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text forma
 
 Status of the desktop group.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Desktop group is being created.
 - `ACTIVE`: Desktop group is ready to use.
 - `DELETING`: Desktop group is being deleted.
@@ -188,14 +197,20 @@ Desktop group update policy. ||
 ||Field | Description ||
 || memory | **int64**
 
-RAM volume, in bytes. ||
+RAM volume, in bytes.
+
+The minimum value is 1. ||
 || cores | **int64**
 
-Number of CPU cores. ||
+Number of CPU cores.
+
+The minimum value is 1. ||
 || core_fraction | **int64**
 
 Baseline level of CPU performance with the ability to burst performance above that baseline level.
-This field sets baseline performance for each core. ||
+This field sets baseline performance for each core.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## NetworkInterfaceSpec {#yandex.cloud.clouddesktop.v1.api.NetworkInterfaceSpec}
@@ -204,10 +219,14 @@ This field sets baseline performance for each core. ||
 ||Field | Description ||
 || network_id | **string**
 
-Required field. ID of the network interface specification. ||
+Required field. ID of the network interface specification.
+
+The maximum string length in characters is 50. ||
 || subnet_ids[] | **string**
 
-List of subnet IDs. ||
+List of subnet IDs.
+
+The number of elements must be greater than 0. The maximum string length in characters for each value is 50. ||
 |#
 
 ## DiskSpec {#yandex.cloud.clouddesktop.v1.api.DiskSpec}
@@ -220,12 +239,13 @@ Disk specificaton.
 
 Required field. Type of disk.
 
-- `TYPE_UNSPECIFIED`: Disk type is not specified.
 - `HDD`: HDD disk type.
 - `SSD`: SSD disk type. ||
 || size | **int64**
 
-Size of disk. ||
+Size of disk.
+
+Value must be greater than 0. ||
 |#
 
 ## DesktopGroupConfiguration {#yandex.cloud.clouddesktop.v1.api.DesktopGroupConfiguration}
@@ -234,20 +254,25 @@ Size of disk. ||
 ||Field | Description ||
 || min_ready_desktops | **int64**
 
-Minimum number of ready desktops. ||
+Minimum number of ready desktops.
+
+Acceptable values are 1 to 512, inclusive. ||
 || max_desktops_amount | **int64**
 
-Maximum number of desktops. ||
+Maximum number of desktops.
+
+Acceptable values are 0 to 512, inclusive. ||
 || desktop_type | enum **DesktopType**
 
 Type of the desktop.
 
-- `DESKTOP_TYPE_UNSPECIFIED`
 - `PERSISTENT`
 - `NON_PERSISTENT` ||
 || members[] | **[Subject](#yandex.cloud.access.Subject)**
 
-List of members of the desktop group. ||
+List of members of the desktop group.
+
+The number of elements must be in the range 0-10. ||
 |#
 
 ## Subject {#yandex.cloud.access.Subject}
@@ -269,7 +294,9 @@ with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `group:federation:<id>:users`: A special system group that represents all users of federation
 with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `<cloud generated id>`: An identifier that represents a user account.
-It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. ||
+It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+The maximum string length in characters is 100. ||
 || type | **string**
 
 Required field. Type of the subject.
@@ -280,7 +307,9 @@ It can contain one of the following values:
 * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
 * `system`: System group. This type represents several accounts with a common system identifier.
 
-For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). ||
+For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+The maximum string length in characters is 100. ||
 |#
 
 ## AutoUpdatePolicy {#yandex.cloud.clouddesktop.v1.api.AutoUpdatePolicy}

@@ -8,7 +8,7 @@ description: The main entity {{ k8s }} operates is a cluster. {{ k8s }} clusters
 
 [{{ k8s }}](https://kubernetes.io/) is a containerized application management system. {{ k8s }} provides tools for working with clusters to automate deployment, scaling, and management of applications in containers.
 
-The main entity {{ k8s }} leverages is a _{{ k8s }} cluster_.
+The main entity {{ k8s }} operates is a _{{ k8s }} cluster_.
 
 ## {{ k8s }} cluster {#kubernetes-cluster}
 
@@ -92,34 +92,36 @@ The following master configurations are available for Intel Cascade Lake with a 
 
 * **Standard**: Standard hosts with 4:1 RAM to vCPU ratio: {#master-standard}
 
-  Number of vCPUs | RAM
-  --- | ---
-  2 | 8
-  4 | 16
-  8 | 32
-  16 | 64
-  32 | 128
-  64 | 256
-  80 | 320
+  ID | Number of vCPUs | RAM
+  --- | --- | ---
+  s-c2-m8    | 2 | 8
+  s-c4-m16   | 4 | 16
+  s-c8-m32   | 8 | 32
+  s-c16-m64  | 16 | 64
+  s-c32-m128 | 32 | 128
+  s-c64-m256 | 64 | 256
+  s-c80-m320 | 80 | 320
 
 * **CPU-optimized**: Hosts with a decreased RAM to vCPU ratio of 2:1: {#master-cpu-optimized}
 
-  Number of vCPUs | RAM
-  --- | ---
-  4 | 8
-  8 | 16
-  16 | 32
-  32 | 64
+  ID | Number of vCPUs | RAM
+  --- | --- | ---
+  c-c4-m8   | 4 | 8
+  c-c8-m16  | 8 | 16
+  c-c16-m32 | 16 | 32
+  c-c32-m64 | 32 | 64
 
 * **Memory-optimized**: Hosts with an increased RAM to vCPU ratio of 8:1: {#master-memory-optimized}
 
-  Number of vCPUs | RAM
-  --- | ---
-  2 | 16
-  4 | 32
-  8 | 64
-  16 | 128
-  32 | 256
+  ID | Number of vCPUs | RAM
+  --- | --- | ---
+  m-c2-m16 | 2 | 16
+  m-c4-m32 | 4 | 32
+  m-c8-m64 | 8 | 64
+  m-c16-m128 | 16 | 128
+  m-c32-m256 | 32 | 256
+
+For more information, see [{#T}](../operations/kubernetes-cluster/kubernetes-cluster-configuration-list.md).
 
 You can update the master configuration without stopping your {{ managed-k8s-name }} cluster.
 

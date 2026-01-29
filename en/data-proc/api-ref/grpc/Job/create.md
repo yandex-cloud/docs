@@ -115,10 +115,14 @@ Creates a job for a cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the cluster to create a job for. ||
+Required field. ID of the cluster to create a job for.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Name of the job. ||
+Name of the job.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || mapreduce_job | **[MapreduceJob](#yandex.cloud.dataproc.v1.MapreduceJob)**
 
 Specification for a MapReduce job.
@@ -483,10 +487,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the cluster that the job is being created for. ||
+Required field. ID of the cluster that the job is being created for.
+
+The maximum string length in characters is 50. ||
 || job_id | **string**
 
-ID of the job being created. ||
+ID of the job being created.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Job {#yandex.cloud.dataproc.v1.Job}
@@ -520,7 +528,6 @@ The id of the user who created the job ||
 
 Job status.
 
-- `STATUS_UNSPECIFIED`
 - `PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.
 - `PENDING`: Job is acquired by the agent and is in the queue for execution.
 - `RUNNING`: Job is being run in the cluster.

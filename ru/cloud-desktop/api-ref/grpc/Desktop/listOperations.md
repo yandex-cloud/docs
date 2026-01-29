@@ -26,25 +26,33 @@ Returns list of the operations for the specified desktop.
 ||Field | Description ||
 || desktop_id | **string**
 
-Required field. ID of the desktop. ||
+Required field. ID of the desktop.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListDesktopOperationsResponse.next_page_token](#yandex.cloud.clouddesktop.v1.api.ListDesktopOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListDesktopOperationsResponse.next_page_token](#yandex.cloud.clouddesktop.v1.api.ListDesktopOperationsResponse) returned by a previous list request. ||
+[ListDesktopOperationsResponse.next_page_token](#yandex.cloud.clouddesktop.v1.api.ListDesktopOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on [Desktop.name](/docs/cloud-desktop/api-ref/grpc/DesktopGroup/listDesktops#yandex.cloud.clouddesktop.v1.api.Desktop) field.
 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-3. Value or a list of values to compare against the values of the field. ||
+3. Value or a list of values to compare against the values of the field.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListDesktopOperationsResponse {#yandex.cloud.clouddesktop.v1.api.ListDesktopOperationsResponse}

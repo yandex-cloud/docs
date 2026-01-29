@@ -18,7 +18,7 @@
 
     * `--body`: Path to the file you need to upload to the bucket.
     * `--bucket`: Name of your bucket.
-    * `--key`: [Key](../../storage/concepts/object.md#key) to use for storing the object in the bucket.
+    * `--key`: [Key](../../storage/concepts/object.md#key) by which to store the object in the bucket.
 
     Result:
 
@@ -41,4 +41,8 @@
     upload: object.txt to s3://my-bucket/object.txt
     ```
 
+    {% cut "Configuring parameters for the `yc storage s3 cp` command" %}
+
     {% include [s3-cp-config](s3-cp-config.md) %}
+
+    {% endcut %}

@@ -15,15 +15,15 @@ To add a ready-made template-based MCP server to [{{ mcp-hub-name }}](../../conc
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder for which your account has the [`serverless.mcpGateways.editor`](../../security/index.md#serverless-mcpGateways-editor) and [`serverless.mcpGateways.anonymousInvoker`](../../security/index.md#serverless-mcpGateways-anonymousInvoker) roles or higher.
-  1. In the list of services, select **{{ ui-key.yacloud.dashboard.DashboardPage.AiStudioSection.section_title_1sDGx }}**.
-  1. In the left-hand panel, select ![logo-mcp](../../../_assets/console-icons/logo-mcp.svg) **MCP servers** and click **Create MCP server**. In the window that opens, do the following:
+  1. In the [management console]({{ link-console-main }}), select the folder for which your account has the [`serverless.mcpGateways.editor`](../../security/index.md#serverless-mcpGateways-editor) and [`iam.serviceAccounts.user`](../../../iam/security/index.md#iam-serviceAccounts-user) roles or higher.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ai-studio }}**.
+  1. In the left-hand panel, select ![logo-mcp](../../../_assets/console-icons/logo-mcp.svg) **{{ ui-key.yacloud.yagpt.YaGPT.mcp-servers-list-title_snWTf }}** and click **{{ ui-key.yacloud.yagpt.YaGPT.McpServersList.label_create-mcp-gateway_3o3Vu }}**. In the window that opens:
 
-      1. Under **How to add**, select one of the [templates](../../concepts/mcp-hub/templates.md): [Kontur.Focus](https://kontur-inc.com/focus), [{{ tracker-full-name }}](https://360.yandex.ru/business/tracker/), [{{ search-api-full-name }}](../../../search-api/index.yaml), or [amoCRM](https://www.amocrm.com/).
-      1. Under **Tools**, click **Add tools**. In the window that opens, do the following:
+      1. Under **{{ ui-key.yacloud.yagpt.YaGPT.CreateMcpServerForm.type_dZSaw }}**, select one of these [templates](../../concepts/mcp-hub/templates.md): [Yandex Search](../../../search-api/index.yaml), [amoCRM](https://www.amocrm.com/), [{{ src-full-name }}]({{ link-src-docs }}), [Kontur.Focus](https://kontur-inc.com/focus), or [{{ tracker-full-name }}](https://360.yandex.ru/business/tracker/).
+      1. Under **{{ ui-key.yacloud.yagpt.YaGPT.CreateMcpServerForm.tools_gkQfS }}**, click **{{ ui-key.yacloud.yagpt.YaGPT.ConnectMcpTools.add-mcp-tool_dyEgv }}**. In the window that opens:
 
-          1. The **Transport**, **URL**, and **Authorization type** fields will show the preset values. These are default values for the selected template and cannot be changed.
-          1. Under **Authorization header** and (for some templates) **Headers**, specify values for the authorization header and (if required) other headers.
+          1. The **{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.transport_q3nD6 }}**, **{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.url_bUhZ1 }}**, and **Authorization type** fields will show the preset values. These are default values for the selected template and cannot be changed.
+          1. Under **{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.auth-header_h6kre }}** and (for some templates) **{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.headers_wBENR }}**, specify values for the authorization header and (if required) other headers.
 
                 {% note tip %}
 
@@ -31,8 +31,7 @@ To add a ready-made template-based MCP server to [{{ mcp-hub-name }}](../../conc
 
                 {% endnote %}
 
-
-          1. Click **Connect**.
+          1. Click **{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.connect_xY9Zw }}**.
           1. {% include [create-server-console-choose-tools](../../../_includes/ai-studio/mcp-hub/create-server-console-choose-tools.md) %}
 
       1. Under **Server parameters**:
@@ -43,7 +42,7 @@ To add a ready-made template-based MCP server to [{{ mcp-hub-name }}](../../conc
           1. {% include [create-server-console-general-params-ss4](../../../_includes/ai-studio/mcp-hub/create-server-console-general-params-ss4.md) %}
           1. {% include [create-server-console-general-params-ss4-1](../../../_includes/ai-studio/mcp-hub/create-server-console-general-params-ss4-1.md) %}
           1. {% include [create-server-console-general-params-ss5](../../../_includes/ai-studio/mcp-hub/create-server-console-general-params-ss5.md) %}
-      1. Click **Save**.
+      1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
@@ -53,5 +52,3 @@ To add a ready-made template-based MCP server to [{{ mcp-hub-name }}](../../conc
 
 * [{#T}](../../concepts/mcp-hub/index.md)
 * [{#T}](../../concepts/mcp-hub/templates.md)
-* [{#T}](./connect-external.md)
-* [{#T}](./create-brand-new.md)

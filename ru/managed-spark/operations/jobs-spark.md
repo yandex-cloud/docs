@@ -43,6 +43,60 @@ description: Из статьи вы узнаете, как управлять з
 
     1. Нажмите кнопку **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
 
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы создать задание Spark:
+
+    1. Посмотрите описание команды CLI для создания задания:
+
+        ```bash
+        {{ yc-mdb-sp }} job create-spark --help
+        ```
+    
+    1. Создайте задание, выполнив команду:
+
+        ```bash
+        {{ yc-mdb-sp }} job create-spark \
+          --cluster-id <идентификатор_кластера> \
+          --name <имя_задания> \
+          --main-class <имя_основного_класса> \
+          --main-jar-file-uri <путь_к_основному_JAR-файлу> \
+          --jar-file-uris <список_путей_к_JAR-файлам> \
+          --file-uris <список_путей_к_файлам> \
+          --archive-uris <список_путей_к_архивам> \
+          --packages <список_Maven-координат_пакетов> \
+          --repositories <список_URL_репозиториев_для_поиска_пакетов> \
+          --exclude-packages <список_Maven-координат_исключаемых_пакетов> \
+          --properties <список_свойств> \
+          --args <список_аргументов> 
+        ```
+
+        Где:
+
+        * `--cluster-id` — идентификатор кластера.
+
+          Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+        * (Опционально) `--name` — имя задания.
+        * `--main-class` — имя основного класса приложения.
+        * `--main-jar-file-uri` — путь к основному JAR-файлу приложения.
+        * `--jar-file-uris` — список путей к используемым JAR-файлам.
+        * `--file-uris` — список путей к используемым файлам.
+        * `--archive-uris` — список путей к используемым архивам.
+        * `--packages` — список Maven-координат пакетов в формате `groupId:artifactId:version`.
+        * `--repositories` — список URL дополнительных репозиториев для поиска пакетов.
+        * `--exclude-packages` — список Maven-координат пакетов, которые нужно исключить, в формате `groupId:artifactId`.
+        * `--properties` — список свойств компонентов в формате `ключ=значение`.
+        * `--args` — список аргументов приложения.
+
+        Доступные форматы файлов:
+          
+          {% include [jar-file-path-requirements](../../_includes/managed-spark/jar-file-path-requirements.md) %}
+
 - gRPC API {#grpc-api}
 
     1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -111,7 +165,7 @@ description: Из статьи вы узнаете, как управлять з
                 {% include [jar-file-path-requirements](../../_includes/managed-spark/jar-file-path-requirements.md) %}
 
             * `main_class` — имя основного класса приложения.
-            * `packages` — Maven-координаты JAR-файлов в формате `groupId:artifactId:version`.
+            * `packages` — Maven-координаты пакетов в формате `groupId:artifactId:version`.
             * `repositories` — URL дополнительных репозиториев для поиска пакетов.
             * `exclude_packages` — Maven-координаты пакетов, которые нужно исключить, в формате `groupId:artifactId`.
 

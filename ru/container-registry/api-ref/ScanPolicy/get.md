@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the scan policy.
+            The maximum string length in characters is 50.
           type: string
       required:
         - scanPolicyId
@@ -36,7 +37,9 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/scanPolicies
 ||Field | Description ||
 || scanPolicyId | **string**
 
-Required field. ID of the scan policy. ||
+Required field. ID of the scan policy.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.containerregistry.v1.ScanPolicy}
@@ -123,7 +126,9 @@ Description of time based rescan rule. ||
 ||Field | Description ||
 || repositoryPrefixes[] | **string**
 
-List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry ||
+List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
+
+The number of elements must be greater than 0. Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. ||
 || disabled | **boolean**
 
 Turns off scan rule. ||
@@ -135,7 +140,9 @@ Turns off scan rule. ||
 ||Field | Description ||
 || repositoryPrefixes[] | **string**
 
-List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry ||
+List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
+
+The number of elements must be greater than 0. Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. ||
 || rescanPeriod | **string** (duration)
 
 Required field. Period of time since last scan to trigger automatic rescan. ||

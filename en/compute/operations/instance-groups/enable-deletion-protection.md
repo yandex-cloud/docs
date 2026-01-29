@@ -36,7 +36,7 @@ Deletion protection prevents accidental deletion of an [instance group](../../co
      {% include [instance-group-list](../../../_includes/instance-groups/instance-group-list.md) %}
 
   1. Select `ID` of the instance group in question.
-  1. In the YAML file that was used to create the group, specify `deletion_protection: true`. If this YAML file was not saved, get the instance group [info](get-info.md) and create a new one, e.g., `specification.yaml`. For more information, see [{#T}](create-fixed-group.md).
+  1. In the YAML file that was used to create the group, set `deletion_protection: true`. If this YAML file was not saved, get the instance group [info](get-info.md) and create a new one, e.g., `specification.yaml`. For more information, see [{#T}](create-fixed-group.md).
   1. Update the instance group in the default folder:
 
       ```bash
@@ -122,7 +122,7 @@ Deletion protection prevents accidental deletion of an [instance group](../../co
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  1. Check the instance group update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+  1. Check the instance group update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
      ```bash
      yc compute instance-group get <instance_group_name>
@@ -212,7 +212,7 @@ To disable instance group deletion protection:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  1. Check the instance group update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+  1. Check the instance group update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
      ```bash
      yc compute instance-group get <instance_group_name>

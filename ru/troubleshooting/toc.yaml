@@ -192,11 +192,6 @@ items:
           Устранение ошибок `no such bucket` и `no such key` при загрузке
           объектов из {{ cdn-name }}
         href: cdn/known-issues/no-such-bucket-no-such-key.md
-      - name: >-
-          Устранение ошибки `You cannot enable redirect HTTP to HTTPS when HTTPS
-          is disabled`
-        href: >-
-          cdn/known-issues/you-cannot-enable-redirect-http-to-https-when-https-is-disabled.md
       - name: Сервис {{ cdn-name }} возвращает только один IP-адрес
         href: cdn/known-issues/returning-only-one-ip-address.md
       - name: Примеры конфигураций и сценариев {{ cdn-name }}
@@ -901,8 +896,8 @@ items:
           Как ограничить доступ к бакету {{ objstorage-name }} диапазоном
           IP-адресов, принадлежащих {{ cdn-name }}
         href: storage/how-to/permit-bucket-access-only-to-cdn-networks.md
-      - name: Как перенести содержимое бакета в другой бакет в пределах каталога
-        href: storage/how-to/moving-data-to-other-bucket-within-folder.md
+      - name: Как перенести содержимое бакета в другой бакет в пределах организации
+        href: storage/how-to/moving-data-to-other-bucket-within-organisation.md
       - name: >-
           Как работать напрямую с API {{ objstorage-name }} без использования
           SDK

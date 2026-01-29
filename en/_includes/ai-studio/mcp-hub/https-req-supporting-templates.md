@@ -1,0 +1,3 @@
+All HTTPS request parameters support templating: their values can be generated dynamically in the `jq` language. For more information, see the [jq guide](https://jqlang.github.io/jq/manual/).
+
+For example, the `\(.city)` value of the HTTPS request parameter will be taken from the `city` tool parameter. In addition, you can use the syntax `Bearer \(.token)` for the `Authorization` header to set up authorization via a token provided in the tool parameter.

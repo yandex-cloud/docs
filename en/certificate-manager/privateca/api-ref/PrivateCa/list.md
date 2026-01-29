@@ -11,11 +11,13 @@ apiPlayground:
           description: |-
             **string**
             Required field. The folder in which CA would be listed.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
             **string** (int64)
             The maximum number of results to return per page. Couldn't exceed 100, default value is 100
+            The maximum value is 100.
           type: string
           format: int64
         pageToken:
@@ -23,6 +25,7 @@ apiPlayground:
             **string**
             Token to retrieve the next page of results.
             This is returned from a previous call to ListCertificateAuthorities.
+            The maximum string length in characters is 100.
           type: string
       required:
         - folderId
@@ -51,14 +54,20 @@ This supports pagination.
 ||Field | Description ||
 || folderId | **string**
 
-Required field. The folder in which CA would be listed. ||
+Required field. The folder in which CA would be listed.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
-The maximum number of results to return per page. Couldn't exceed 100, default value is 100 ||
+The maximum number of results to return per page. Couldn't exceed 100, default value is 100
+
+The maximum value is 100. ||
 || pageToken | **string**
 
 Token to retrieve the next page of results.
-This is returned from a previous call to ListCertificateAuthorities. ||
+This is returned from a previous call to ListCertificateAuthorities.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.certificatemanager.v1.privateca.ListCertificateAuthoritiesResponse}
@@ -126,7 +135,6 @@ ID of the parent certificate authority that signed this certificate authority if
 
 Status of the certificate authority.
 
-- `STATUS_UNSPECIFIED`
 - `UNSIGNED`: The certificate authority is unsigned and pending signing.
 - `ACTIVE`: The certificate authority is active and can issue certificates. ||
 || issuedAt | **string** (date-time)

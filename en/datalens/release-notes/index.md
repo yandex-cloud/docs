@@ -1,9 +1,9 @@
 ---
-title: '{{ datalens-full-name }} release notes: November 2025'
-description: Check out {{ datalens-full-name }} release notes for November 2025.
+title: '{{ datalens-full-name }} release notes: December 2025'
+description: Check out the {{ datalens-full-name }} release notes for December 2025.
 ---
 
-# {{ datalens-full-name }} release notes: November 2025
+# {{ datalens-full-name }} release notes: December 2025
 
 * [Changes in basic features](#base)
 * [Fixes and improvements](#fixes)
@@ -11,59 +11,63 @@ description: Check out {{ datalens-full-name }} release notes for November 2025.
 ## Changes in basic features {#base}
 
 
-* Starting December 1, {{ datalens-full-name }} introduces a revised pricing policy. Under the new unified service plan, all users will gain access to expanded capabilities, including [Neuroanalyst](../concepts/neuroanalyst.md), [reports](../reports/index.md), JavaScript-based customizations in [Editor](../charts/editor/index.md), [background chart data export](../concepts/chart/data-export.md#background-export), [UI styling](../settings/appearance.md#ui-customization), and more. The new plan will be offered free of charge for individual use and for a fee for team work.
-
-  For more information, see the [pricing policy updates](../pricing-changes.md).
-
-* Added a new section with info about the annual [{{ datalens-short-name }} festival]({{ link-datalens-main }}/festival).
-* In connections to [{{ TR }}](../operations/connection/create-trino.md), [{{ PG }}](../operations/connection/create-postgresql.md), and [{{ GP }}](../operations/connection/create-greenplum.md), reduced workload on the source when selecting tables. What's new:
-
-  * Table lists are filtered and paginated on the database side.
-  * For [{{ TR }}](../operations/connection/create-trino.md#create-dataset), when you create a dataset, the table search is limited to the selected catalog.
-
-* The chat with the [report Neuroanalyst](../reports/insights.md) does not close when you switch between the pages of the report.
+* The annual [{{ datalens-short-name }} Fest]({{ link-datalens-main }}/festival), held from December 8 to 16, 2025, presented a series of offline and online activities – videos, live broadcasts, use cases, and contests – for participants to explore the all-new {{ datalens-short-name }} features, including [AI tools](../concepts/neuroanalyst.md), [customization](../settings/appearance.md), on-premises, and migration.
+* New works available in [{{ datalens-gallery }}]({{ link-datalens-main }}/gallery). For more information, see the [{{ datalens-short-name }}](https://t.me/YandexDataLens/28631/145412) Telegram chat.
+* [Neuroanalyst on your dashboard](../dashboard/insights.md) can now search for insights within an entire dashboard tab. It will analyze your question and dashboard contents, select relevant charts, draw data from them, and come up with the final insight. For context, it uses descriptions of dashboards, charts, datasets, and connections, as well as the data you upload.
+  To try it, click **Neuroanalyst** at the top of the dashboard to open the **Neuroanalyst** tab on the right.
 
 
+* Added the option to add [connection](../operations/connection/add-description.md) and [dataset](../dataset/add-description.md) info.
+* Added the following to the [calculated field](../concepts/calculations/index.md) formula editor:
 
-* Updated the appearance of [chart](../dashboard/widget.md#chart) widget settings.
+  * [Hash functions](../function-ref/hash-functions.md): `MD5`, `SHA256`, `CITYHASH64` and others.
+  * `DB_CALL` [native functions](../function-ref/native-functions.md) for access to database functions. The `DB_CALL` functions allow you to:
+    
+    * Securely use string and aggregate functions from any databases.
+    * Access types not currently supported by {{ datalens-short-name }}.
+    * Streamline your workflow and optimize source workloads.
+
+    {% note info %}
+    
+    Use these native functions for specific point operations {{ datalens-short-name }} does not support yet. For standard operations, e.g., aggregations, math operations, use the built-in {{ datalens-short-name }} functions for better optimization.
+
+    {% endnote %}
+
+
+* Implemented the option to save a chart as a `PNG` image. To do this:
+
+  1. Open the chart and click ![image](../../_assets/console-icons/ellipsis.svg) → ![icon](../../_assets/console-icons/arrow-down-to-line.svg) **Save as** → **Image** in its top-right corner.
+
+  1. Select resolution:
+
+     * Standard, 800x600.
+     * Widescreen, 1600x720.
+     * Specify manually.
+  
+  1. Optionally, enable **Display interface elements**.
+  1. Click **Download**.
+
+
 
 ## Fixes and improvements {#fixes}
 
-
-* Fixed an issue where the [{{ datalens-gallery }}](https://datalens.ru/gallery) section did not appear if no organization was selected on the {{ datalens-short-name }} [main page]({{ link-datalens-main }}/init).
-* Added an update to the widget menu in reports after loading data.
-* Fixed chart loading when scrolling the dashboard. Previously, empty widgets would appear from time to time.
-* Fixed a private object embedding issue where [signed parameters](../security/private-embedded-objects.md#signed-parameters) did not affect dataset-based selectors.
+* Fixed the issue of incorrectly saved original background when copying a dashboard widget. Earlier, if set to `Basic chart background`, the original widget background would reset to transparent when copying.
+* Updated the appearance of the selector and chart setup window.
 
 
-* In the [dataset field settings](../dataset/create-dataset.md#setup-fields), fixed a bug that made it impossible to assign the same color to different fields.
-* In reports, fixed an issue with pivot table presentation after changing the [page format](../reports/report-operations.md#page-settings).
+* Restored the display of `Request-id` and `Trace-Id` in the [private embedding](../security/private-embedded-objects.md) errors.
 
-### Fixes in charts {#chart-fixes}
-
-* Fixed the display of [tables](../visualization-ref/table-chart.md) with empty (`null`) values in `Markup` type fields (fields using the [markup functions](../function-ref/markup-functions.md)).
-* Fixed the chart title font color setting in [Gravity UI Charts](../charts/editor/widgets/chart.md).
 
 
 ### Fixes in Neuroanalyst {#neuroanalyst-fixes}
 
-* On dashboards, the [Neuroanalyst](../concepts/neuroanalyst.md) chat box can now appear not only on top of the dashboard but also along its side, thus compressing it sideways (default). To change the chat position, click:
-  
-  * ![image](../../_assets/console-icons/pin-slash.svg): Chat on the top of the dashboard.
-  * ![image](../../_assets/console-icons/pin.svg): Chat along the side of the dashboard.
+* Now charts save the context of your chat with [Neuroanalyst for creating calculated fields](../concepts/calculations/formulas-helper.md):
 
-* The Neuroanalyst chat now closes as soon as you switch to dashboard edit mode.
-* When in dashboard edit or create mode, the Neuroanalyst chat opening button is now hidden.
-* Closing the Neuroanalyst chat does not delete its contents. When you open the chat for the same widget or dashboard, you will see your previous dialog. Opening the chat for a new widget will start a new dialog.
-* Fixed Neuroanalyst chat positioning when minimized.
-* Fixed the Neuroanalyst chat bugs, where:
+  * When changing a formula.
+  * When closing the chat.
 
-  * Queries related to the Neuroanalyst chat were still executed after you closed it.
-  * The Neuroanalyst chat was displayed even if you tried to hide it.
-  * Neuroanalyst froze or displayed a white screen in the chat box after you clicked **Start again**.
-  * The buttons for hiding ![image](../../_assets/console-icons/chevrons-up.svg) and showing ![image](../../_assets/console-icons/chevrons-down.svg) the [pinned widgets](../dashboard/settings.md#widget-fixation) area were displayed on top of the open Neuroanalyst chat.
 
-### Mobile version updates {#mobile-version-changes}
+### Fixes in charts {#chart-fixes}
 
-* Chart [legends](../concepts/chart/settings.md#common-settings) in full screen mode are no longer concealed behind the browser panel if using a non-standard address bar layout (e.g., mobile Yandex Browser with the bottom panel).
+* Fixed the [pie chart](../visualization-ref/pie-chart.md) colors issue. Now colors are as per your selection in the [dataset field settings](../dataset/create-dataset.md#setup-fields).
 

@@ -8,13 +8,13 @@
 
 - SDK {#sdk}
 
-  При инициализации объекта класса `YCloudML` в параметре `enable_server_data_logging` установите значение `False`. В этом случае {{ ml-sdk-full-name }} будет добавлять опцию `x-data-logging-enabled: false` в метаинформацию каждого gRPC-вызова.
+  При инициализации объекта класса `AIStudio` в параметре `enable_server_data_logging` установите значение `False`. В этом случае {{ ml-sdk-full-name }} будет добавлять опцию `x-data-logging-enabled: false` в метаинформацию каждого gRPC-вызова.
 
   Например:
 
   ```python
   ...
-  sdk = YCloudML(
+  sdk = AIStudio(
       folder_id="<идентификатор_каталога>",
       auth="<API-ключ>",
       enable_server_data_logging=False,

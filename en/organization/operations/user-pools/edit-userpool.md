@@ -54,7 +54,49 @@ description: Follow this guide to edit a user pool in {{ org-name }}.
        {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
 
      * `--description`: New user pool description.
-     * `labels`: New list of [labels](../../../resource-manager/concepts/labels.md). You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
+     * `--labels`: New list of [labels](../../../resource-manager/concepts/labels.md). You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Open the {{ TF }} configuration file and update the [user pool](../../concepts/user-pools.md) parameters:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_userpool" "example_userpool" {
+       organization_id   = "<organization_ID>"
+       name              = "<pool_name>"
+       description       = "<pool_description>"
+       default_subdomain = "<default_domain>"
+       labels            = {
+         <key> = "<value>"
+       }
+     }
+     ```
+
+     Where:
+
+     * `name`: New user pool name. The name must be unique within the organization and aligned with the naming requirements:
+
+       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
+
+     * `description`: New user pool description.
+     * `default_subdomain`: New default [domain](../../concepts/domains.md). It will be used if no other domains are associated with the pool.
+     * `labels`: New list of [labels](../../../resource-manager/concepts/labels.md).
+
+     For more information about `yandex_organizationmanager_idp_userpool` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will update all the required resources. You can check the update in [{{ org-full-name }}]({{ link-org-cloud-center }}) or using the [CLI](../../../cli/):
+
+     ```bash
+     yc organization-manager idp userpool get <pool_ID>
+     ```
 
 - API {#api}
 

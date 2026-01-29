@@ -25,7 +25,9 @@ Request to delete an existing Certificate Authority.
 ||Field | Description ||
 || certificate_authority_id | **string**
 
-Required field. The ID of the Certificate Authority to delete. ||
+Required field. The ID of the Certificate Authority to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

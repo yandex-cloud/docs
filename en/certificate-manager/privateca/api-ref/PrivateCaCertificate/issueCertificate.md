@@ -12,17 +12,20 @@ apiPlayground:
           description: |-
             **string**
             Required field. The ID of the Certificate Authority (CA) that will issue this certificate.
+            The maximum string length in characters is 50.
           type: string
         name:
           description: |-
             **string**
             The name of the certificate.
+            Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             A description of the certificate.
+            The maximum string length in characters is 1024.
           type: string
         subject:
           description: |-
@@ -33,7 +36,6 @@ apiPlayground:
           description: |-
             **enum** (Algorithm)
             The algorithm the CA will use to sign and issue the certificate.
-            - `ALGORITHM_UNSPECIFIED`
             - `RSA_2048_PSS_SHA_256`
             - `RSA_2048_PSS_SHA_384`
             - `RSA_2048_PSS_SHA_512`
@@ -85,7 +87,6 @@ apiPlayground:
           description: |-
             **enum** (KeyUsageExtension)
             List of purposes of the certificate, such as digitalSignature or keyEncipherment.
-            - `KEY_USAGE_EXTENSION_UNSPECIFIED`
             - `DIGITAL_SIGNATURE`
             - `CONTENT_COMMITMENT`
             - `KEY_ENCIPHERMENT`
@@ -113,7 +114,6 @@ apiPlayground:
           description: |-
             **enum** (ExtendedKeyUsageExtension)
             List of extended purposes of the certificate, such as serverAuth or clientAuth.
-            - `EXTENDED_KEY_USAGE_EXTENSION_UNSPECIFIED`
             - `SERVER_AUTH`
             - `CLIENT_AUTH`
             - `CODE_SIGNING`
@@ -152,6 +152,7 @@ apiPlayground:
           description: |-
             **string**
             Optional certificate template ID. Issue certificate with template's fields if non-empty.
+            The maximum string length in characters is 50.
           type: string
         deletionProtection:
           description: |-
@@ -162,6 +163,7 @@ apiPlayground:
           description: |-
             **string** (int64)
             Desired time-to-live (TTL) of the certificate in days.
+            The maximum value is 20000.
           type: string
           format: int64
       required:
@@ -175,36 +177,43 @@ apiPlayground:
             description: |-
               **string**
               Two letter county code
+              The maximum string length in characters is 2.
             type: string
           organization:
             description: |-
               **string**
               Organization name in arbitrary form
+              The maximum string length in characters is 1000.
             type: string
           organizationalUnit:
             description: |-
               **string**
               Organizational unit name in arbitrary form
+              The maximum string length in characters is 1000.
             type: string
           distinguishedNameQualifier:
             description: |-
               **string**
               Distinguished name qualifier
+              The maximum string length in characters is 10000.
             type: string
           stateOrProvince:
             description: |-
               **string**
               State or province name in arbitrary form
+              The maximum string length in characters is 1000.
             type: string
           commonName:
             description: |-
               **string**
               Common name. For tls certificates it is domain usually.
+              The maximum string length in characters is 10000.
             type: string
           emailAddress:
             description: |-
               **string**
               Email address of certificate owner
+              The maximum string length in characters is 1000.
             type: string
       AdditionalRDN:
         type: object
@@ -213,36 +222,43 @@ apiPlayground:
             description: |-
               **string**
               Serial number of certificate subject in arbitrary form. Don't confuse with certificate serial number.
+              The maximum string length in characters is 100.
             type: string
           locality:
             description: |-
               **string**
               Locality of certificate subject in arbitrary form.
+              The maximum string length in characters is 1000.
             type: string
           title:
             description: |-
               **string**
               Title of certificate subject in arbitrary form.
+              The maximum string length in characters is 1000.
             type: string
           surname:
             description: |-
               **string**
               Surname of certificate subject in arbitrary form.
+              The maximum string length in characters is 1000.
             type: string
           givenName:
             description: |-
               **string**
               Given name of certificate subject in arbitrary form.
+              The maximum string length in characters is 1000.
             type: string
           initials:
             description: |-
               **string**
               Initials of certificate subject in arbitrary form.
+              The maximum string length in characters is 1000.
             type: string
           generationQualifier:
             description: |-
               **string**
               Generation qualifier of certificate subject in arbitrary form.
+              The maximum string length in characters is 1000.
             type: string
       Subject:
         type: object
@@ -266,11 +282,13 @@ apiPlayground:
             description: |-
               **string**
               Object identifier for name type
+              The maximum string length in characters is 1000.
             type: string
           name:
             description: |-
               **string**
               DER encoded value of type with type_oid
+              The maximum string length in characters is 1000.
             type: string
       EdiPartyName:
         type: object
@@ -279,11 +297,13 @@ apiPlayground:
             description: |-
               **string**
               Specifies the entity or authority that assigned the partyName
+              The maximum string length in characters is 1000.
             type: string
           partyName:
             description: |-
               **string**
               The actual identifier of the EDI party
+              The maximum string length in characters is 1000.
             type: string
       SubjectAlternativeName:
         type: object
@@ -299,6 +319,7 @@ apiPlayground:
             description: |-
               **string**
               Encoded email address
+              The maximum string length in characters is 1000.
               Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
               https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
             type: string
@@ -306,6 +327,7 @@ apiPlayground:
             description: |-
               **string**
               Widely used in tls certificates for domains
+              The maximum string length in characters is 1000.
               Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
               https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
             type: string
@@ -313,6 +335,7 @@ apiPlayground:
             description: |-
               **string**
               x400 name https://en.wikipedia.org/wiki/X.400
+              The maximum string length in characters is 1000.
               Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
               https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
             type: string
@@ -320,6 +343,7 @@ apiPlayground:
             description: |-
               **string**
               Represents sequence of rdn for uniquely identifying entities
+              The maximum string length in characters is 1000.
               Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
               https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
             type: string
@@ -334,6 +358,7 @@ apiPlayground:
             description: |-
               **string**
               URI
+              The maximum string length in characters is 1000.
               Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
               https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
             type: string
@@ -341,6 +366,7 @@ apiPlayground:
             description: |-
               **string**
               ip address of certificate subject. May be used in tls certificates
+              The maximum string length in characters is 45.
               Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
               https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
             type: string
@@ -348,6 +374,7 @@ apiPlayground:
             description: |-
               **string**
               Object Identifier (OID)
+              The maximum string length in characters is 1000.
               Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
               https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
             type: string
@@ -450,13 +477,19 @@ Request to issue a new certificate for a given Certificate Authority.
 ||Field | Description ||
 || certificateAuthorityId | **string**
 
-Required field. The ID of the Certificate Authority (CA) that will issue this certificate. ||
+Required field. The ID of the Certificate Authority (CA) that will issue this certificate.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-The name of the certificate. ||
+The name of the certificate.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-A description of the certificate. ||
+A description of the certificate.
+
+The maximum string length in characters is 1024. ||
 || subject | **[Subject](#yandex.cloud.certificatemanager.v1.privateca.Subject)**
 
 Details about the certificate subject (e.g., CN, O, etc.). ||
@@ -464,7 +497,6 @@ Details about the certificate subject (e.g., CN, O, etc.). ||
 
 The algorithm the CA will use to sign and issue the certificate.
 
-- `ALGORITHM_UNSPECIFIED`
 - `RSA_2048_PSS_SHA_256`
 - `RSA_2048_PSS_SHA_384`
 - `RSA_2048_PSS_SHA_512`
@@ -491,7 +523,6 @@ The algorithm the CA will use to sign and issue the certificate.
 
 List of purposes of the certificate, such as digitalSignature or keyEncipherment.
 
-- `KEY_USAGE_EXTENSION_UNSPECIFIED`
 - `DIGITAL_SIGNATURE`
 - `CONTENT_COMMITMENT`
 - `KEY_ENCIPHERMENT`
@@ -505,7 +536,6 @@ List of purposes of the certificate, such as digitalSignature or keyEncipherment
 
 List of extended purposes of the certificate, such as serverAuth or clientAuth.
 
-- `EXTENDED_KEY_USAGE_EXTENSION_UNSPECIFIED`
 - `SERVER_AUTH`
 - `CLIENT_AUTH`
 - `CODE_SIGNING`
@@ -522,13 +552,17 @@ List of extended purposes of the certificate, such as serverAuth or clientAuth.
 Subject Alternative Names (SANs) for the certificate, such as DNS entries or IP addresses. ||
 || templateId | **string**
 
-Optional certificate template ID. Issue certificate with template's fields if non-empty. ||
+Optional certificate template ID. Issue certificate with template's fields if non-empty.
+
+The maximum string length in characters is 50. ||
 || deletionProtection | **boolean**
 
 Flag to protect the certificate from being accidentally deleted. ||
 || desiredTtlDays | **string** (int64)
 
-Desired time-to-live (TTL) of the certificate in days. ||
+Desired time-to-live (TTL) of the certificate in days.
+
+The maximum value is 20000. ||
 |#
 
 ## Subject {#yandex.cloud.certificatemanager.v1.privateca.Subject}
@@ -553,25 +587,39 @@ https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.4
 ||Field | Description ||
 || country | **string**
 
-Two letter county code ||
+Two letter county code
+
+The maximum string length in characters is 2. ||
 || organization | **string**
 
-Organization name in arbitrary form ||
+Organization name in arbitrary form
+
+The maximum string length in characters is 1000. ||
 || organizationalUnit | **string**
 
-Organizational unit name in arbitrary form ||
+Organizational unit name in arbitrary form
+
+The maximum string length in characters is 1000. ||
 || distinguishedNameQualifier | **string**
 
-Distinguished name qualifier ||
+Distinguished name qualifier
+
+The maximum string length in characters is 10000. ||
 || stateOrProvince | **string**
 
-State or province name in arbitrary form ||
+State or province name in arbitrary form
+
+The maximum string length in characters is 1000. ||
 || commonName | **string**
 
-Common name. For tls certificates it is domain usually. ||
+Common name. For tls certificates it is domain usually.
+
+The maximum string length in characters is 10000. ||
 || emailAddress | **string**
 
-Email address of certificate owner ||
+Email address of certificate owner
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## AdditionalRDN {#yandex.cloud.certificatemanager.v1.privateca.AdditionalRDN}
@@ -582,25 +630,39 @@ https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.4
 ||Field | Description ||
 || serialNumber | **string**
 
-Serial number of certificate subject in arbitrary form. Don't confuse with certificate serial number. ||
+Serial number of certificate subject in arbitrary form. Don't confuse with certificate serial number.
+
+The maximum string length in characters is 100. ||
 || locality | **string**
 
-Locality of certificate subject in arbitrary form. ||
+Locality of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 || title | **string**
 
-Title of certificate subject in arbitrary form. ||
+Title of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 || surname | **string**
 
-Surname of certificate subject in arbitrary form. ||
+Surname of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 || givenName | **string**
 
-Given name of certificate subject in arbitrary form. ||
+Given name of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 || initials | **string**
 
-Initials of certificate subject in arbitrary form. ||
+Initials of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 || generationQualifier | **string**
 
-Generation qualifier of certificate subject in arbitrary form. ||
+Generation qualifier of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## SubjectAlternativeName {#yandex.cloud.certificatemanager.v1.privateca.SubjectAlternativeName}
@@ -620,12 +682,16 @@ https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6 ||
 
 Encoded email address
 
+The maximum string length in characters is 1000.
+
 Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
 
 https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6 ||
 || dnsName | **string**
 
 Widely used in tls certificates for domains
+
+The maximum string length in characters is 1000.
 
 Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
 
@@ -634,12 +700,16 @@ https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6 ||
 
 x400 name https://en.wikipedia.org/wiki/X.400
 
+The maximum string length in characters is 1000.
+
 Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
 
 https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6 ||
 || directoryName | **string**
 
 Represents sequence of rdn for uniquely identifying entities
+
+The maximum string length in characters is 1000.
 
 Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
 
@@ -655,6 +725,8 @@ https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6 ||
 
 URI
 
+The maximum string length in characters is 1000.
+
 Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
 
 https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6 ||
@@ -662,12 +734,16 @@ https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6 ||
 
 ip address of certificate subject. May be used in tls certificates
 
+The maximum string length in characters is 45.
+
 Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
 
 https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6 ||
 || registeredId | **string**
 
 Object Identifier (OID)
+
+The maximum string length in characters is 1000.
 
 Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
 
@@ -680,10 +756,14 @@ https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6 ||
 ||Field | Description ||
 || typeOid | **string**
 
-Object identifier for name type ||
+Object identifier for name type
+
+The maximum string length in characters is 1000. ||
 || name | **string**
 
-DER encoded value of type with type_oid ||
+DER encoded value of type with type_oid
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## EdiPartyName {#yandex.cloud.certificatemanager.v1.privateca.EdiPartyName}
@@ -692,10 +772,14 @@ DER encoded value of type with type_oid ||
 ||Field | Description ||
 || nameAssigner | **string**
 
-Specifies the entity or authority that assigned the partyName ||
+Specifies the entity or authority that assigned the partyName
+
+The maximum string length in characters is 1000. ||
 || partyName | **string**
 
-The actual identifier of the EDI party ||
+The actual identifier of the EDI party
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

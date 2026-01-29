@@ -3,7 +3,7 @@
 
 from __future__ import annotations
 import pathlib
-from yandex_cloud_ml_sdk import YCloudML
+from yandex_ai_studio_sdk import AIStudio
 
 PATH = pathlib.Path(__file__)
 NAME = f'example-{PATH.parent.name}-{PATH.name}'
@@ -14,7 +14,7 @@ def local_path(path: str) -> pathlib.Path:
 
 
 def main() -> None:
-    sdk = YCloudML(
+    sdk = AIStudio(
         folder_id="<идентификатор_каталога>",
         auth="<API-ключ>",
     )
@@ -38,7 +38,7 @@ def main() -> None:
         for line in resulting_dataset.read():
             print(line)
     except ImportError:
-        print('skipping dataset read; install yandex-cloud-ml-sdk[datasets] to be able to read')
+        print('skipping dataset read; install yandex-ai-studio-sdk[datasets] to be able to read')
 
 if __name__ == '__main__':
     main()

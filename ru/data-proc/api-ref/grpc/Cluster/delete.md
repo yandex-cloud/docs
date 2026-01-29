@@ -26,10 +26,14 @@ Deletes the specified cluster.
 
 Required field. ID of the cluster to delete.
 
-To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/grpc/Cluster/list#List) request. ||
+To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || decommission_timeout | **int64**
 
-Timeout to gracefully decommission nodes. In seconds. Default value: 0 ||
+Timeout to gracefully decommission nodes. In seconds. Default value: 0
+
+Acceptable values are 0 to 86400, inclusive. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

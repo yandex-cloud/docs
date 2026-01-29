@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the certificate to return.
             To get the ID of a certificate use a [CertificateService.List](/docs/certificate-manager/api-ref/Certificate/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - certificateId
@@ -54,7 +55,9 @@ GET https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/{cert
 
 Required field. ID of the certificate to return.
 
-To get the ID of a certificate use a [CertificateService.List](/docs/certificate-manager/api-ref/Certificate/list#List) request. ||
+To get the ID of a certificate use a [CertificateService.List](/docs/certificate-manager/api-ref/Certificate/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.certificatemanager.v1.GetCertificateRequest}
@@ -154,7 +157,6 @@ Certificate labels as `key:value` pairs. ||
 
 Type of the certificate.
 
-- `CERTIFICATE_TYPE_UNSPECIFIED`
 - `IMPORTED`: The certificate is imported by user.
 - `MANAGED`: The certificate is created by service. ||
 || domains[] | **string**
@@ -164,7 +166,6 @@ Fully qualified domain names of the certificate. ||
 
 Status of the certificate.
 
-- `STATUS_UNSPECIFIED`
 - `VALIDATING`: The certificate domains validation are required. Used only for managed certificates.
 - `INVALID`: The certificate issuance is failed. Used only for managed certificates.
 - `ISSUED`: The certificate is issued.
@@ -244,7 +245,6 @@ Domain of the challenge. ||
 
 Type of the challenge.
 
-- `CHALLENGE_TYPE_UNSPECIFIED`
 - `DNS`: Domain validation type that using DNS-records.
 - `HTTP`: Domain validation type that using HTTP-files. ||
 || createdAt | **string** (date-time)
@@ -271,7 +271,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Status of the challenge.
 
-- `STATUS_UNSPECIFIED`
 - `PENDING`: The challenge is waiting to be completed.
 - `PROCESSING`: The challenge is awaiting approval from Let's Encrypt.
 - `VALID`: The challenge is complete.

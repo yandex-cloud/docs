@@ -97,6 +97,33 @@ apiPlayground:
           type: array
           items:
             $ref: '#/definitions/OverrideVariant'
+        disallowDataProcessing:
+          description: |-
+            **boolean**
+            If true, Yandex team won't be able to read internal data.
+          type: boolean
+        description:
+          description: |-
+            **string**
+            Optional description of the captcha.
+            The maximum string length in characters is 512.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
       required:
         - folderId
       additionalProperties: false
@@ -492,7 +519,10 @@ POST https://smartcaptcha.{{ api-host }}/smartcaptcha/v1/captchas
       "preCheckType": "string",
       "challengeType": "string"
     }
-  ]
+  ],
+  "disallowDataProcessing": "boolean",
+  "description": "string",
+  "labels": "object"
 }
 ```
 
@@ -508,7 +538,7 @@ The maximum string length in characters is 50. ||
 Name of the captcha.
 The name must be unique within the folder.
 
-Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || allowedSites[] | **string**
 
 List of allowed host names, see [Domain validation](/docs/smartcaptcha/concepts/domain-validation). ||
@@ -548,6 +578,19 @@ Determines whether captcha is protected from being deleted. ||
 || overrideVariants[] | **[OverrideVariant](#yandex.cloud.smartcaptcha.v1.OverrideVariant)**
 
 List of variants to use in security_rules ||
+|| disallowDataProcessing | **boolean**
+
+If true, Yandex team won't be able to read internal data. ||
+|| description | **string**
+
+Optional description of the captcha.
+
+The maximum string length in characters is 512. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## SecurityRule {#yandex.cloud.smartcaptcha.v1.SecurityRule}

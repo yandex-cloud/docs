@@ -30,7 +30,7 @@ description: Следуя данной инструкции, вы сможете
       ```python
       from __future__ import annotations
 
-      from yandex_cloud_ml_sdk import YCloudML
+      from yandex_ai_studio_sdk import AIStudio
 
       YANDEX_API_KEY = "<API-ключ>"
       YANDEX_FOLDER_ID = "<идентификатор_каталога>"
@@ -39,7 +39,7 @@ description: Следуя данной инструкции, вы сможете
 
       def main() -> None:
 
-          sdk = YCloudML(
+          sdk = AIStudio(
               folder_id=YANDEX_FOLDER_ID,
               auth=YANDEX_API_KEY,
           )

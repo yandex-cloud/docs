@@ -28,7 +28,9 @@ This is used to send back the signed certificate that will finalize the creation
 ||Field | Description ||
 || certificate_authority_id | **string**
 
-Required field. The ID of the created but not activated Certificate Authority. ||
+Required field. The ID of the created but not activated Certificate Authority.
+
+The maximum string length in characters is 50. ||
 || pem_content | **string**
 
 Required field. The PEM-encoded content of the signed certificate.
@@ -162,7 +164,6 @@ ID of the parent certificate authority that signed this certificate authority if
 
 Status of the certificate authority.
 
-- `STATUS_UNSPECIFIED`
 - `UNSIGNED`: The certificate authority is unsigned and pending signing.
 - `ACTIVE`: The certificate authority is active and can issue certificates. ||
 || issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**

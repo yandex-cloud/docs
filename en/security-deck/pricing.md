@@ -44,7 +44,6 @@ The cost of using the {{ k8s }}® Security Posture Management (KSPM) module is c
 
 ## Prices for the Russia region {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### {{ atr-name }} {#atr-pricing}
@@ -92,3 +91,4 @@ These prices apply starting February 2, 2026.
 
 
 The monthly price is calculated based on 720 hours per month.
+

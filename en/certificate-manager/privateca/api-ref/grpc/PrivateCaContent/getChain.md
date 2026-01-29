@@ -25,7 +25,9 @@ Request message for getting the certificate chain of a certificate authority.
 ||Field | Description ||
 || certificate_authority_id | **string**
 
-Required field. ID of the certificate authority to get the chain for. ||
+Required field. ID of the certificate authority to get the chain for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## GetCertificateAuthorityChainResponse {#yandex.cloud.certificatemanager.v1.privateca.GetCertificateAuthorityChainResponse}

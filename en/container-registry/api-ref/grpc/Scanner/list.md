@@ -30,6 +30,8 @@ Retrieves the list of ScanResults for specified Image.
 ||Field | Description ||
 || image_id | **string**
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `image_id`, `repository_id`.
 
 ID of the Image or Repository to list ScanResults for.
@@ -37,6 +39,8 @@ ID of the Image or Repository to list ScanResults for.
 To get the image ID use a [yandex.cloud.containerregistry.v1.ImageService.List](/docs/container-registry/api-ref/grpc/Image/list#List) request.
 To get the repository ID use a [yandex.cloud.containerregistry.v1.RepositoryService.List](/docs/container-registry/api-ref/grpc/Repository/list#List) request. ||
 || repository_id | **string**
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `image_id`, `repository_id`.
 
@@ -50,24 +54,32 @@ The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListRegistriesResponse.next_page_token](/docs/container-registry/api-ref/grpc/Registry/list#yandex.cloud.containerregistry.v1.ListRegistriesResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListRegistriesResponse.next_page_token](/docs/container-registry/api-ref/grpc/Registry/list#yandex.cloud.containerregistry.v1.ListRegistriesResponse) returned by a previous list request. ||
+[ListRegistriesResponse.next_page_token](/docs/container-registry/api-ref/grpc/Registry/list#yandex.cloud.containerregistry.v1.ListRegistriesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on [ScanResult.status](#yandex.cloud.containerregistry.v1.ScanResult) field.
 2. An `=` operator.
-3. The value in double quotes (`"`). ||
+3. The value in double quotes (`"`).
+
+The maximum string length in characters is 1000. ||
 || order_by | **string**
 
 An order expression that orders resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on [ScanResult.status](#yandex.cloud.containerregistry.v1.ScanResult) field.
-2. Order selector. Currently you can use ordering only on `ScanResult.status` field (critical first). ||
+2. Order selector. Currently you can use ordering only on `ScanResult.status` field (critical first).
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListScanResultsResponse {#yandex.cloud.containerregistry.v1.ListScanResultsResponse}
@@ -128,7 +140,6 @@ Output only. The timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) te
 
 Output only. The status of the ScanResult.
 
-- `STATUS_UNSPECIFIED`
 - `RUNNING`: Image scan is in progress.
 - `READY`: Image has been scanned and result is ready.
 - `ERROR`: Image scan is failed. ||

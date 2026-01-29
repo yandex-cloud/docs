@@ -33,7 +33,6 @@ Optional ID of the version. ||
 
 Desired format of private key
 
-- `PRIVATE_KEY_FORMAT_UNSPECIFIED`
 - `PKCS1`
 - `PKCS8` ||
 |#

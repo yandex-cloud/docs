@@ -23,7 +23,9 @@ List ip permissions for the specified registry.
 ||Field | Description ||
 || registry_id | **string**
 
-Required field. ID of the Registry to return ip permission list. ||
+Required field. ID of the Registry to return ip permission list.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ListIpPermissionsResponse {#yandex.cloud.containerregistry.v1.ListIpPermissionsResponse}
@@ -52,7 +54,6 @@ List of ip permissions for registry ||
 ||Field | Description ||
 || action | enum **Action**
 
-- `ACTION_UNSPECIFIED`
 - `PULL`
 - `PUSH` ||
 || ip | **string** ||

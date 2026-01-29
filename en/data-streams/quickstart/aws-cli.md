@@ -8,12 +8,12 @@ description: In this tutorial, you will learn how to collect and deliver {{ ydb-
 {% include [trigger](../../_includes/data-streams/trigger.md) %}
 
 1. In the [management console]({{ link-console-main }}), select the folder containing your data stream.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
 1. Select the data stream.
 1. Click **{{ ui-key.yacloud.data-streams.button_connect }}** and navigate to the **AWS CLI** tab.
 1. Copy and run the example command to send a message. Data delivery will be performed via AWS Kinesis Data Streams.
 
-   Example command:
+   Command example:
 
    ```bash
    aws kinesis \

@@ -188,11 +188,6 @@ items:
           Resolving the `no such bucket` and `no such key` errors when uploading
           objects from {{ cdn-name }}
         href: cdn/known-issues/no-such-bucket-no-such-key.md
-      - name: >-
-          Resolving the `You cannot enable redirect HTTP to HTTPS when HTTPS is
-          disabled` error
-        href: >-
-          cdn/known-issues/you-cannot-enable-redirect-http-to-https-when-https-is-disabled.md
       - name: '{{ cdn-name }} returns only one IP address'
         href: cdn/known-issues/returning-only-one-ip-address.md
       - name: Sample {{ cdn-name }} configurations and use cases

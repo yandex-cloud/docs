@@ -25,7 +25,9 @@ Request message for GetPrivateKey.
 ||Field | Description ||
 || certificate_id | **string**
 
-Required field. ID of the certificate to get the private key for. ||
+Required field. ID of the certificate to get the private key for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## GetCertificatePrivateKeyResponse {#yandex.cloud.certificatemanager.v1.privateca.GetCertificatePrivateKeyResponse}

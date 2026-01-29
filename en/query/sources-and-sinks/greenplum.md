@@ -21,7 +21,7 @@ Where:
 
 To create a connection to {{ mgp-name }}:
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a connection.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, go to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
 1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. Specify the connection parameters:
@@ -69,7 +69,7 @@ Where:
 
 Some limitations apply when working with {{ GP }} clusters.
 
-Limitations:
+The following restrictions apply:
 1. {% include [!](_includes/supported_requests.md) %}
 1. Data is read in a single stream via the master host, i.e., the [coordinator host](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/admin_guide-intro-arch_overview.html) of a {{ GP }} cluster. Currently, massive parallel reading is not supported.
 1. {{ yq-short-name }} uses the {{ ydb-full-name }} [type system]({{ ydb.docs }}/yql/reference/types/primitive). However, the ranges of acceptable values for types used in {{ ydb-short-name }} for date and time operations (`Date`, `Datetime`, and `Timestamp`) often turn out to be insufficiently wide to cover the values of the relevant {{ GP }} types (`date` and `timestamp`). 

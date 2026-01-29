@@ -25,7 +25,9 @@ To get the list of ScanResults for specified Image, make a [List](/docs/containe
 ||Field | Description ||
 || scan_result_id | **string**
 
-Required field. ID of the ScanResult to return. ||
+Required field. ID of the ScanResult to return.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ScanResult {#yandex.cloud.containerregistry.v1.ScanResult}
@@ -64,7 +66,6 @@ Output only. The timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) te
 
 Output only. The status of the ScanResult.
 
-- `STATUS_UNSPECIFIED`
 - `RUNNING`: Image scan is in progress.
 - `READY`: Image has been scanned and result is ready.
 - `ERROR`: Image scan is failed. ||

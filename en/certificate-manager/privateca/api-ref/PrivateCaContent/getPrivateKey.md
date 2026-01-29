@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the certificate authority to get the private key for.
+            The maximum string length in characters is 50.
           type: string
       required:
         - certificateAuthorityId
@@ -38,7 +39,9 @@ Request message for getting the private key of a certificate authority.
 ||Field | Description ||
 || certificateAuthorityId | **string**
 
-Required field. ID of the certificate authority to get the private key for. ||
+Required field. ID of the certificate authority to get the private key for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.certificatemanager.v1.privateca.GetCertificateAuthorityPrivateKeyResponse}

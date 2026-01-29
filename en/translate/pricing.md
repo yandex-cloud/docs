@@ -13,7 +13,7 @@ editable: false
 
 
 
-For a cost calculation, use our [calculator](https://yandex.cloud/en/prices?state=431d2333ac46#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=431d2333ac46#calculator) on our website or check out the pricing below.
 
 
 {% endnote %}
@@ -34,7 +34,6 @@ The cost of using {{ translate-full-name }} is calculated based on the total num
 {% include [pricing-symbol-count](../_includes/pricing-symbol-count.md) %}
 
 ## Prices for the Russia region {#prices}
-
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 

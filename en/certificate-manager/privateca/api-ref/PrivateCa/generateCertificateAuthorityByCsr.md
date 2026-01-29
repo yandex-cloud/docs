@@ -12,22 +12,26 @@ apiPlayground:
           description: |-
             **string**
             Required field. Folder ID where the CA is being created.
+            The maximum string length in characters is 50.
           type: string
         parentCertificateAuthorityId:
           description: |-
             **string**
             Optional. If set intermediate CA would be generated and signed on parent CA
+            The maximum string length in characters is 50.
           type: string
         name:
           description: |-
             **string**
             Required field. The name of the Certificate Authority.
+            Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
           pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             An optional description of the Certificate Authority.
+            The maximum string length in characters is 1024.
           type: string
         csr:
           description: |-
@@ -43,18 +47,21 @@ apiPlayground:
           description: |-
             **string** (int64)
             The Time-To-Live (TTL) in days for the CA.
+            Acceptable values are 1 to 20000, inclusive.
           type: string
           format: int64
         endEntitiesTtlLimitDays:
           description: |-
             **string** (int64)
             TTL limit in days for end-entities signed by the CA.
+            The maximum value is 20000.
           type: string
           format: int64
         templateId:
           description: |-
             **string**
             Optional template ID to fill certificate fields with template data. Explicitly defined parameters is preferred
+            The maximum string length in characters is 50.
           type: string
         enableCrl:
           description: |-
@@ -116,16 +123,24 @@ Request to generate a Certificate Authority (CA) from a Certificate Signing Requ
 ||Field | Description ||
 || folderId | **string**
 
-Required field. Folder ID where the CA is being created. ||
+Required field. Folder ID where the CA is being created.
+
+The maximum string length in characters is 50. ||
 || parentCertificateAuthorityId | **string**
 
-Optional. If set intermediate CA would be generated and signed on parent CA ||
+Optional. If set intermediate CA would be generated and signed on parent CA
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Required field. The name of the Certificate Authority. ||
+Required field. The name of the Certificate Authority.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-An optional description of the Certificate Authority. ||
+An optional description of the Certificate Authority.
+
+The maximum string length in characters is 1024. ||
 || csr | **string**
 
 Required field. The PEM-encoded Certificate Signing Request (CSR) content. ||
@@ -134,13 +149,19 @@ Required field. The PEM-encoded Certificate Signing Request (CSR) content. ||
 Optional. The PEM-encoded private key linked to the certificate. If absent CA would be issued with server side generated key pair ||
 || ttlDays | **string** (int64)
 
-The Time-To-Live (TTL) in days for the CA. ||
+The Time-To-Live (TTL) in days for the CA.
+
+Acceptable values are 1 to 20000, inclusive. ||
 || endEntitiesTtlLimitDays | **string** (int64)
 
-TTL limit in days for end-entities signed by the CA. ||
+TTL limit in days for end-entities signed by the CA.
+
+The maximum value is 20000. ||
 || templateId | **string**
 
-Optional template ID to fill certificate fields with template data. Explicitly defined parameters is preferred ||
+Optional template ID to fill certificate fields with template data. Explicitly defined parameters is preferred
+
+The maximum string length in characters is 50. ||
 || enableCrl | **boolean**
 
 Enable Certificate Revocation List (CRL) support. ||
@@ -317,7 +338,6 @@ ID of the parent certificate authority that signed this certificate authority if
 
 Status of the certificate authority.
 
-- `STATUS_UNSPECIFIED`
 - `UNSIGNED`: The certificate authority is unsigned and pending signing.
 - `ACTIVE`: The certificate authority is active and can issue certificates. ||
 || issuedAt | **string** (date-time)

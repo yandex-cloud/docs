@@ -44,12 +44,16 @@ Updates the specified subcluster.
 
 Required field. ID of the cluster to update a subcluster in.
 
-To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/grpc/Cluster/list#List) request. ||
+To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || subcluster_id | **string**
 
 Required field. ID of the subcluster to update.
 
-To get a subcluster ID, make a [SubclusterService.List](/docs/data-proc/api-ref/grpc/Subcluster/list#List) request. ||
+To get a subcluster ID, make a [SubclusterService.List](/docs/data-proc/api-ref/grpc/Subcluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which attributes of the subcluster should be updated. ||
@@ -58,13 +62,19 @@ Field mask that specifies which attributes of the subcluster should be updated. 
 New configuration of resources that should be allocated for each host in the subcluster. ||
 || name | **string**
 
-New name for the subcluster. The name must be unique within the cluster. ||
+New name for the subcluster. The name must be unique within the cluster.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || hosts_count | **int64**
 
-Required field. New number of hosts in the subcluster. ||
+Required field. New number of hosts in the subcluster.
+
+The minimum value is 1. ||
 || decommission_timeout | **int64**
 
-Timeout to gracefully decommission nodes. In seconds. Default value: 0 ||
+Timeout to gracefully decommission nodes. In seconds. Default value: 0
+
+Acceptable values are 0 to 86400, inclusive. ||
 || autoscaling_config | **[AutoscalingConfig](#yandex.cloud.dataproc.v1.AutoscalingConfig)**
 
 Configuration for instance group based subclusters ||
@@ -95,7 +105,9 @@ Volume of the storage available to a host, in bytes. ||
 ||Field | Description ||
 || max_hosts_count | **int64**
 
-Upper limit for total instance subcluster count. ||
+Upper limit for total instance subcluster count.
+
+Acceptable values are 1 to 100, inclusive. ||
 || preemptible | **bool**
 
 Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
@@ -116,10 +128,14 @@ During this time, the group size doesn't decrease, even if the new metric values
 indicate that it should. ||
 || cpu_utilization_target | **double**
 
-Defines an autoscaling rule based on the average CPU utilization of the instance group. ||
+Defines an autoscaling rule based on the average CPU utilization of the instance group.
+
+Acceptable values are 0 to 100, inclusive. ||
 || decommission_timeout | **int64**
 
-Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 ||
+Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+
+Acceptable values are 0 to 86400, inclusive. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -228,10 +244,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || cluster_id | **string**
 
-ID of the cluster whose subcluster is being updated. ||
+ID of the cluster whose subcluster is being updated.
+
+The maximum string length in characters is 50. ||
 || subcluster_id | **string**
 
-ID of the subcluster that is being updated. ||
+ID of the subcluster that is being updated.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Subcluster {#yandex.cloud.dataproc.v1.Subcluster}
@@ -251,12 +271,13 @@ ID of the Yandex Data Processing cluster that the subcluster belongs to. ||
 Creation timestamp. ||
 || name | **string**
 
-Name of the subcluster. The name is unique within the cluster. ||
+Name of the subcluster. The name is unique within the cluster.
+
+The string length in characters must be 1-63. ||
 || role | enum **Role**
 
 Role that is fulfilled by hosts of the subcluster.
 
-- `ROLE_UNSPECIFIED`
 - `MASTERNODE`: The subcluster fulfills the master role.
 
   Master can run the following services, depending on the requested components:
@@ -324,7 +345,9 @@ Volume of the storage available to a host, in bytes. ||
 ||Field | Description ||
 || max_hosts_count | **int64**
 
-Upper limit for total instance subcluster count. ||
+Upper limit for total instance subcluster count.
+
+Acceptable values are 1 to 100, inclusive. ||
 || preemptible | **bool**
 
 Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
@@ -345,8 +368,12 @@ During this time, the group size doesn't decrease, even if the new metric values
 indicate that it should. ||
 || cpu_utilization_target | **double**
 
-Defines an autoscaling rule based on the average CPU utilization of the instance group. ||
+Defines an autoscaling rule based on the average CPU utilization of the instance group.
+
+Acceptable values are 0 to 100, inclusive. ||
 || decommission_timeout | **int64**
 
-Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 ||
+Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+
+Acceptable values are 0 to 86400, inclusive. ||
 |#

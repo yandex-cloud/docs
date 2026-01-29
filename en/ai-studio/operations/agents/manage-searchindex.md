@@ -31,7 +31,7 @@ To use the examples:
 
 {% endlist %}
 
-## Uploading source files {#upload-files}
+## Uploading files {#upload-files}
 
 Before creating a search index, upload the files you want to index to {{ vector-store-name }}:
 
@@ -43,9 +43,7 @@ Before creating a search index, upload the files you want to index to {{ vector-
   1. Create a file named `upload.py` and paste the following code into it:
 
       ```python
-      import os
       import pathlib
-      import time
       from openai import OpenAI
 
       YANDEX_API_KEY = "<API_key>"
@@ -118,8 +116,6 @@ Create a search index from the pre-uploaded files:
   1. Create a file named `index.py` and paste the following code into it:
 
       ```python
-      import os
-      import pathlib
       import time
       from openai import OpenAI
 

@@ -26,10 +26,16 @@ Updates desktop properties.
 ||Field | Description ||
 || desktop_id | **string**
 
-Required field. To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/grpc/Desktop/list#List) request. ||
+Required field. To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/grpc/Desktop/list#List) request.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
-|| name | **string** ||
-|| labels | **object** (map<**string**, **string**>) ||
+|| name | **string**
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9]) ```. ||
+|| labels | **object** (map<**string**, **string**>)
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -161,7 +167,6 @@ Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text forma
 
 Status of the desktop.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Desktop is being created.
 - `ACTIVE`: Desktop is ready to be used.
 - `DELETING`: Desktop is being deleted.
@@ -190,9 +195,15 @@ Labels of the desktop. ||
 
 #|
 ||Field | Description ||
-|| memory | **int64** ||
-|| cores | **int64** ||
-|| core_fraction | **int64** ||
+|| memory | **int64**
+
+The minimum value is 1. ||
+|| cores | **int64**
+
+The minimum value is 1. ||
+|| core_fraction | **int64**
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## NetworkInterface {#yandex.cloud.clouddesktop.v1.api.NetworkInterface}
@@ -201,10 +212,14 @@ Labels of the desktop. ||
 ||Field | Description ||
 || network_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || subnet_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## User {#yandex.cloud.clouddesktop.v1.api.User}
@@ -213,8 +228,12 @@ Required field.  ||
 ||Field | Description ||
 || subject_id | **string**
 
-Required field. Identity of the access binding. ||
+Required field. Identity of the access binding.
+
+The maximum string length in characters is 100. ||
 || subject_type | **string**
 
-Required field. Type of the access binding, e.g. userAccount, serviceAccount, system. ||
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system.
+
+The maximum string length in characters is 100. ||
 |#

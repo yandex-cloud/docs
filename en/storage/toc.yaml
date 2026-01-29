@@ -107,6 +107,32 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
+      - name: Backups
+        items:
+          - name: Overview
+            href: tutorials/storage-backup-overview.md
+          - name: Backing up to {{ objstorage-name }} with AWS S3 Sync
+            href: tutorials/storage-backup-aws-s3-sync.md
+          - name: Backing up to {{ objstorage-name }} with rclone
+            href: tutorials/storage-backup-rclone.md
+          - name: Backing up to {{ objstorage-name }} with GeeseFS
+            href: tutorials/storage-backup-geesefs.md
+          - name: Backing up to {{ objstorage-name }} with CloudBerry Desktop Backup
+            href: tutorials/object-storage-cloudberry.md
+          - name: Backing up to {{ objstorage-name }} with Duplicati
+            href: tutorials/object-storage-duplicati.md
+          - name: Backing up to {{ objstorage-name }} with Bacula
+            href: tutorials/backup-with-bacula.md
+          - name: Backing up to {{ objstorage-name }} with Veritas Backup Exec
+            href: tutorials/object-storage-veritas.md
+          - name: Backing up to {{ objstorage-name }} with Veeam Backup
+            href: tutorials/backup-with-veeam.md
+          - name: Backing up a VM with Hystax Acura Backup
+            href: tutorials/hystax-backup.md
+          - name: >-
+              Backing up a {{ managed-k8s-name }} cluster to {{ objstorage-name
+              }}
+            href: tutorials/kubernetes-backup.md
       - name: Getting statistics on object queries with S3 Select
         href: tutorials/server-logs.md
       - name: Getting website traffic statistics with S3 Select
@@ -138,8 +164,8 @@ items:
       - name: Using {{ objstorage-name }} in {{ dataproc-name }}
         href: tutorials/copy-files-from-object-storage.md
       - name: >-
-          Importing data from {{ objstorage-name }}, processing it, and
-          exporting it to {{ mch-name }}
+          Importing data from {{ objstorage-name }}, processing, and exporting
+          it to {{ mch-name }}
         href: tutorials/s3-data-processing-ch.md
       - name: Connecting a bucket as a disk in Windows
         href: tutorials/s3-disk-connect.md
@@ -189,6 +215,8 @@ items:
         href: tutorials/ydb-to-object-storage.md
       - name: Hosting a static Gatsby website in {{ objstorage-name }}
         href: tutorials/gatsby-static-website.md
+      - name: Installing Ghost CMS CloudApp in {{ objstorage-name }}
+        href: tutorials/ghost-cms-cloudapp.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
         items:
           - name: Overview
@@ -244,20 +272,6 @@ items:
         href: tutorials/data-from-yandex-query-visualization.md
       - name: Publishing game updates
         href: tutorials/prefetch.md
-      - name: VM backups using Hystax Acura
-        href: tutorials/hystax-backup.md
-      - name: Backing up to {{ objstorage-name }} with CloudBerry Desktop Backup
-        href: tutorials/object-storage-cloudberry.md
-      - name: Backing up to {{ objstorage-name }} with Duplicati
-        href: tutorials/object-storage-duplicati.md
-      - name: Backing up to {{ objstorage-name }} with Bacula
-        href: tutorials/backup-with-bacula.md
-      - name: Backing up to {{ objstorage-name }} with Veeam Backup
-        href: tutorials/backup-with-veeam.md
-      - name: Backing up to {{ objstorage-name }} with Veritas Backup Exec
-        href: tutorials/object-storage-veritas.md
-      - name: '{{ managed-k8s-name }} cluster backups in {{ objstorage-name }}'
-        href: tutorials/kubernetes-backup.md
       - name: Developing a custom integration in {{ api-gw-name }}
         href: tutorials/api-gw-integration.md
       - name: URL shortener
@@ -282,7 +296,7 @@ items:
         href: tutorials/export-logs-to-splunk.md
       - name: Creating an MLFlow server for logging experiments and artifacts
         href: tutorials/mlflow-datasphere.md
-      - name: Operations with data using {{ yq-full-name }}
+      - name: Operations with data in {{ yq-full-name }}
         href: tutorials/yq-storage.md
       - name: Federated data queries using {{ yq-name }}
         href: tutorials/yq-federative-queries.md

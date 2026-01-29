@@ -21,7 +21,7 @@ To get started with {{ backup-name }}:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Set up your infrastructure {#deploy-infrastructure}
+## Prepare the infrastructure {#deploy-infrastructure}
 
 1. If you do not have a cloud network yet, [create](../../vpc/operations/network-create.md) one.
 1. If your [cloud network](../../vpc/concepts/network.md#network) has no subnets, [create](../../vpc/operations/subnet-create.md) one:

@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the template to be deleted.
+            The maximum string length in characters is 50.
           type: string
       required:
         - id
@@ -39,7 +40,9 @@ Request message to delete a template.
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the template to be deleted. ||
+Required field. ID of the template to be deleted.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -23,7 +23,9 @@ Restart the specified desktop.
 ||Field | Description ||
 || desktop_id | **string**
 
-Required field. ID of the desktop. ||
+Required field. ID of the desktop.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -157,7 +159,6 @@ Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text forma
 
 Status of the desktop.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Desktop is being created.
 - `ACTIVE`: Desktop is ready to be used.
 - `DELETING`: Desktop is being deleted.
@@ -186,9 +187,15 @@ Labels of the desktop. ||
 
 #|
 ||Field | Description ||
-|| memory | **int64** ||
-|| cores | **int64** ||
-|| core_fraction | **int64** ||
+|| memory | **int64**
+
+The minimum value is 1. ||
+|| cores | **int64**
+
+The minimum value is 1. ||
+|| core_fraction | **int64**
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## NetworkInterface {#yandex.cloud.clouddesktop.v1.api.NetworkInterface}
@@ -197,10 +204,14 @@ Labels of the desktop. ||
 ||Field | Description ||
 || network_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || subnet_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## User {#yandex.cloud.clouddesktop.v1.api.User}
@@ -209,8 +220,12 @@ Required field.  ||
 ||Field | Description ||
 || subject_id | **string**
 
-Required field. Identity of the access binding. ||
+Required field. Identity of the access binding.
+
+The maximum string length in characters is 100. ||
 || subject_type | **string**
 
-Required field. Type of the access binding, e.g. userAccount, serviceAccount, system. ||
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system.
+
+The maximum string length in characters is 100. ||
 |#

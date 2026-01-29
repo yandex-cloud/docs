@@ -27,17 +27,23 @@ Lists operations for the specified certificate.
 
 Required field. ID of the certificate to list operations for.
 
-To get the certificate ID, use a [CertificateService.List](/docs/certificate-manager/api-ref/grpc/Certificate/list#List) request. ||
+To get the certificate ID, use a [CertificateService.List](/docs/certificate-manager/api-ref/grpc/Certificate/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`, the service returns a [ListCertificateOperationsResponse.next_page_token](#yandex.cloud.certificatemanager.v1.ListCertificateOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListCertificateOperationsResponse.next_page_token](#yandex.cloud.certificatemanager.v1.ListCertificateOperationsResponse) returned by a previous list request. ||
+[ListCertificateOperationsResponse.next_page_token](#yandex.cloud.certificatemanager.v1.ListCertificateOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListCertificateOperationsResponse {#yandex.cloud.certificatemanager.v1.ListCertificateOperationsResponse}

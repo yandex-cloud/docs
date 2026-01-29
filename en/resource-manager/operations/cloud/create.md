@@ -5,7 +5,13 @@ description: Follow this guide to create a new cloud.
 
 # Creating a new cloud
 
-[After you sign up](../../../billing/quickstart/index.md#create_billing_account) with {{ yandex-cloud }} and create an [organization](../../../organization/concepts/organization.md), you will create your first [cloud](../../concepts/resources-hierarchy.md#cloud). If you need an additional cloud, follow the same guide to create it.
+[After you sign up](../../../billing/quickstart/index.md#create_billing_account) with {{ yandex-cloud }} and create an [organization](../../../organization/concepts/organization.md), you can create your first [cloud](../../concepts/resources-hierarchy.md#cloud). If you need an additional cloud, follow the same guide to create it.
+
+{% note info %}
+
+When creating a cloud, you automatically get the [owner](../../concepts/resources-hierarchy.md#owner) role in this cloud.
+
+{% endnote %}
 
 To create a cloud:
 
@@ -13,15 +19,21 @@ To create a cloud:
 
 - Management console {#console}
 
-  1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure your [billing account](../../../billing/concepts/billing-account.md) is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account) or ask your administrator to assign you the `billing.accounts.member` role for a billing account.
-  1. Navigate to the [management console]({{ link-console-main }}).
-  1. In the upper left corner next to the **{{ ui-key.yacloud.cloud-tree-list.value_search-placeholder }}** field, click ![plus](../../../_assets/console-icons/plus.svg). In the window that opens:
+  1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure that the [billing account](../../../billing/concepts/billing-account.md) is in the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account) or ask your administrator to assign you the `billing.accounts.member` role for a billing account.
+  1. In the [management console]({{ link-console-main }}), in the top panel, click ![image](../../../_assets/console-icons/chevron-down.svg) and select the [organization](../../../organization/concepts/organization.md).
+  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the organization name.
+  1. Select ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.cloud.label_create_cloud }}**.
   
-      1. Enter a name for the cloud. The naming requirements are as follows:
-
-          {% include [name-format.md](../../../_includes/name-format.md) %}
-      1. If you have multiple organizations, select the one you need.
-      1. Click **{{ ui-key.yacloud.common.create }}**.
+     ![create-cloud1](../../../_assets/resource-manager/create-cloud-1.png)
+  
+  1. Enter a name for [your cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud). Follow these naming requirements:
+  
+      {% include [name-format](../../../_includes/name-format.md) %}
+  
+  1. Optionally, add a cloud label.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
+  
+     ![create-cloud2](../../../_assets/resource-manager/create-cloud-2.png)
 
 - CLI {#cli}
 
@@ -57,7 +69,7 @@ To create a cloud:
 
       Where:
 
-      * `--name`: Name of the cloud you are creating. The naming requirements are as follows:
+      * `--name`: Name of the new cloud. Follow these naming requirements:
 
           {% include [name-format.md](../../../_includes/name-format.md) %}
       * `--billing-account-id`: ID of the [billing account](../../../billing/concepts/billing-account.md) to link the new cloud to.
@@ -104,7 +116,7 @@ To create a cloud:
 
       Where:
 
-      * `name`: Cloud name. The naming requirements are as follows:
+      * `name`: Cloud name. Follow these naming requirements:
       
         {% include [name-format.md](../../../_includes/name-format.md) %}
         
@@ -132,11 +144,6 @@ To create a cloud:
 
 {% endlist %}
 
-{% note info %}
-
-When you create a cloud, you are automatically given the [owner](../../concepts/resources-hierarchy.md#owner) role in this cloud.
-
-{% endnote %}
 
 #### See also {#see-also}
 

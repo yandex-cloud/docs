@@ -7,7 +7,7 @@
 
 ## Релиз 21.01.2026 {#210126}
 
-Синтез {{ speechkit-name }} поддержан в {{ ml-sdk-full-name }}. Подробнее см. в [документации {{ ml-sdk-name }}](../ai-studio/sdk/index.md) и в [репозитории проекта на GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk).
+Синтез {{ speechkit-name }} поддержан в {{ ml-sdk-full-name }}. Подробнее см. в [документации {{ ml-sdk-name }}](../ai-studio/sdk/index.md) и в [репозитории проекта на GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk).
 
 ## Релиз 28.05.25 {#280525}
 

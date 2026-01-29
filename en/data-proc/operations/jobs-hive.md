@@ -1,31 +1,32 @@
 # Managing Hive jobs
 
-In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and receive execution logs for them. For examples of jobs, see [{#T}](../tutorials/job-overview.md).
+In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and receive execution logs for them. For sample jobs, see [{#T}](../tutorials/job-overview.md).
 
-## Create a job {#create}
+## Creating a job {#create}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
     1. Click **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
-    1. (Optional) Enter a name for the job.
+    1. Optionally, enter a name for the job.
     1. In the **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** field, select `{{ ui-key.yacloud.dataproc.jobs.field_hive-job-type }}`.
-    1. (Optional) In the **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** field, specify [component properties](../concepts/settings-list.md) as `key-value` pairs.
+    1. Optionally, in the **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** field, specify [component properties](../concepts/settings-list.md) as `key-value` pairs.
 
        {% include [job-properties-requirements](../../_includes/data-processing/job-properties-requirements.md) %}
 
-    1. (Optional) Enable the **{{ ui-key.yacloud.dataproc.jobs.field_continue-on-failure }}** setting.
-    1. Specify **{{ ui-key.yacloud.dataproc.jobs.field_script-variables }}** as a `key:value` pair.
-    1. (Optional) Specify the paths to the JAR files, if any.
+    1. Optionally, enable the **{{ ui-key.yacloud.dataproc.jobs.field_continue-on-failure }}** setting.
+    1. Specify **{{ ui-key.yacloud.dataproc.jobs.field_script-variables }}** as a `key-value` pair.
+    1. Optionally, specify the paths to JAR files, if any.
 
         {% include [jar-file-path-requirements](../../_includes/data-processing/jar-file-path-requirements.md) %}
 
-    1. Select one of the driver types and specify which to use to start the job:
-        * List of queries to be executed.
-        * Path to the file with the queries to be executed.
+    1. Select one of the driver types and specify which to use to run the job:
+        * List of queries to execute.
+        * Path to the file with the queries to execute.
     1. Click **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
 
 - CLI {#cli}
@@ -42,7 +43,7 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
         {{ yc-dp }} job create-hive --help
         ```
 
-    1. Create a job (the example does not show all the available parameters):
+    1. Create a job (the example does not illustrate all available parameters):
 
         ```bash
         {{ yc-dp }} job create-hive \
@@ -62,7 +63,7 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
 
 - API {#api}
 
-    Use the [create](../api-ref/Job/create) API method and include the following information in the request:
+    Call the [create](../api-ref/Job/create) API method and provide the following in the request:
 
     * Cluster ID in the `clusterId` parameter. You can get it with the [list of clusters in the folder](./cluster-list.md#list).
     * Job name in the `name` parameter.
@@ -78,7 +79,7 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
 
 {% include [jobs-list](../../_includes/data-processing/jobs-list.md) %}
 
-## Get general information about the job {#get-info}
+## Get general info about a job {#get-info}
 
 {% include [jobs-get-info](../../_includes/data-processing/jobs-get-info.md) %}
 

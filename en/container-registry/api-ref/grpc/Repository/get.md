@@ -27,7 +27,9 @@ To get the list of available Repository resources, make a [List](/docs/container
 
 Required field. ID of the Repository resource to return.
 
-To get the repository ID use a [RepositoryService.List](/docs/container-registry/api-ref/grpc/Repository/list#List) request. ||
+To get the repository ID use a [RepositoryService.List](/docs/container-registry/api-ref/grpc/Repository/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Repository {#yandex.cloud.containerregistry.v1.Repository}

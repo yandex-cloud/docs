@@ -15,6 +15,7 @@ description: Из статьи вы узнаете про доступные м�
 * [Editor.getLoadedData()](#get-loaded-data)
 * [Editor.getParam(name)](#get-param)
 * [Editor.getParams()](#get-params)
+* [Editor.getSortParams()](#get-sort-params)
 * [Editor.getWidgetConfig()](#get-widget-config)
 * [Editor.resolveInterval(arg)](#resolve-interval)
 * [Editor.resolveOperation(args)](#resolve-oper)
@@ -714,6 +715,10 @@ JSON-объект вида:
 
 {% endlist %}
 
+#### Примеры чартов {#get-current-page-charts-example}
+
+[Пример чарта с пагинацией и сортировкой](https://datalens.yandex/nvkfwnekf9xy9#Editor.getSortParams()%2C%20Editor.getCurrentPage())
+
 ## Editor.getId(arg) {#get-id}
 
 Возвращает id объекта из поля `links` со вкладки [Meta](./tabs.md#meta).
@@ -1098,6 +1103,69 @@ JSON-объект вида:
 #### Примеры чартов {#get-params-charts-example}
 
 [Пример использования функции получения всех примененных параметров](https://datalens.yandex/nvkfwnekf9xy9#Editor.getParams())
+
+## Editor.getSortParams() {#get-sort-params}
+
+Возвращает объект с параметрами сортировки в таблице.
+
+#### Поддерживаемые виды чартов {#get-sort-params-charts}
+
+[Таблица](./widgets/table.md).
+
+#### Аргументы {#get-sort-params-args}
+
+Нет.
+
+#### Возвращаемый результат {#get-sort-params-result}
+
+JSON-объект вида:
+
+```json
+{
+  "columnId": "<string>",
+  "order": "<numer> | <string>"
+}
+```
+
+Где:
+
+* `columnId` (_строка_) — ID колонки, например `0_0_1_id=date_name=Дата`;
+* `order` (_число_ или _строка_) — порядок сортировки. Возможные значения:
+  
+  * `1` — сортировка по возрастанию;
+  * `-1` — сортировка по убыванию;
+  * `__special_value__NaN` — нет сортировки.
+
+#### Пример {#get-sort-params-example}
+
+Пример для таблицы с источником на основе датасета.
+
+{% list tabs %}
+
+- Вкладка Sources
+
+  Содержимое вкладки [Sources](./tabs.md#sources):
+
+  ```js
+  const sort_params = Editor.getSortParams();
+  ```
+
+- Результат
+
+  Объект с параметрами сортировки после выполнения вкладки **Sources**:
+
+  ```json
+  {
+    "columnId": "_id=ProductCategory_name=ProductCategory",
+    "order": -1
+  }
+  ```
+
+{% endlist %}
+
+#### Примеры чартов {#get-sort-params-charts-example}
+
+[Пример чарта с пагинацией и сортировкой](https://datalens.yandex/nvkfwnekf9xy9#Editor.getSortParams()%2C%20Editor.getCurrentPage())
 
 ## Editor.getWidgetConfig() {#get-widget-config}
 

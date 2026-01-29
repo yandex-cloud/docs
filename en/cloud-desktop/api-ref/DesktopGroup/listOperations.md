@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the desktop group.
+            The maximum string length in characters is 50.
           type: string
       required:
         - desktopGroupId
@@ -25,6 +26,7 @@ apiPlayground:
             the service returns a [ListDesktopGroupOperationsResponse.nextPageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -33,12 +35,14 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListDesktopGroupOperationsResponse.nextPageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupOperationsResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
             **string**
             Sorting the list by [DesktopGroup.name](/docs/cloud-desktop/api-ref/DesktopGroup/get#yandex.cloud.clouddesktop.v1.api.DesktopGroup) field.
             The default sorting order is ascending.
+            The maximum string length in characters is 1000.
           type: string
       additionalProperties: false
     body: null
@@ -62,7 +66,9 @@ GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups/{desktop
 ||Field | Description ||
 || desktopGroupId | **string**
 
-Required field. ID of the desktop group. ||
+Required field. ID of the desktop group.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupOperationsRequest}
@@ -75,15 +81,21 @@ The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListDesktopGroupOperationsResponse.nextPageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListDesktopGroupOperationsResponse.nextPageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupOperationsResponse) returned by a previous list request. ||
+[ListDesktopGroupOperationsResponse.nextPageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 Sorting the list by [DesktopGroup.name](/docs/cloud-desktop/api-ref/DesktopGroup/get#yandex.cloud.clouddesktop.v1.api.DesktopGroup) field.
-The default sorting order is ascending. ||
+The default sorting order is ascending.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupOperationsResponse}

@@ -23,7 +23,9 @@ Deletes the specified lifecycle policy.
 ||Field | Description ||
 || lifecycle_policy_id | **string**
 
-Required field. ID of the lifecycle policy. ||
+Required field. ID of the lifecycle policy.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

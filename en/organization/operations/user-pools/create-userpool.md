@@ -62,6 +62,49 @@ description: Follow this guide to create a user pool in {{ org-name }}.
      * `--default-subdomain`: Default [domain](../../concepts/domains.md). It will be used if no other domains are associated with the pool.
      * `--labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional parameter. You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Describe the [user pool](../../concepts/user-pools.md) parameters in the configuration file:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_userpool" "example_userpool" {
+       organization_id   = "<organization_ID>"
+       name              = "<pool_name>"
+       description       = "<pool_description>"
+       default_subdomain = "<default_domain>"
+       labels            = {
+         <key> = "<value>"
+       }
+     }
+     ```
+
+     Where:
+
+     * `organization_id`: ID of the organization you want to create a user pool in.
+     * `name`: User pool name. The name must be unique within the organization and aligned with the naming requirements:
+
+       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
+
+     * `description`: User pool description. This is an optional parameter.
+     * `default_subdomain`: Default [domain](../../concepts/domains.md). It will be used if no other domains are associated with the pool.
+     * `labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional parameter.
+
+     For more information about the `yandex_organizationmanager_idp_userpool` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
+
+  1. Create the resources:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will create all the required resources. You can check the new resources and their settings either in [{{ org-full-name }}]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
+
+     ```bash
+     yc organization-manager idp userpool list --organization-id <organization_ID>
+     ```
+
 - API {#api}
 
   Use the [Userpool.Create](../../idp/api-ref/Userpool/create.md) REST API method for the [Userpool](../../idp/api-ref/Userpool/index.md) resource or the [UserpoolService/Create](../../idp/api-ref/grpc/Userpool/create.md) gRPC API call.

@@ -1,6 +1,6 @@
 # Stock server configurations
 
-You can order a server in one of the stock configurations, e.g., based on the processor, memory, and number of disks you need. Alternatively, you can choose a server specifically tailored for a particular task, such as servers with a powerful processor for high-performance computing or servers for data storage with many large disks.
+You can order a server in one of the stock configurations. For example, select a configuration with the processor, memory, and number of disks you need. Alternatively, you can choose a server specifically tailored for a particular task, such as servers with a powerful processor for high-performance computing or servers for data storage with many large disks.
 
 You can view the configurations available for lease in each pool when ordering a server in the [management console]({{ link-console-main }}).
 

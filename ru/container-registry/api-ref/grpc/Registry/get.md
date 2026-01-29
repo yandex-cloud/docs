@@ -27,7 +27,9 @@ To get the list of available Registry resources, make a [List](/docs/container-r
 
 Required field. ID of the Registry resource to return.
 
-To get the registry ID use a [RegistryService.List](/docs/container-registry/api-ref/grpc/Registry/list#List) request. ||
+To get the registry ID use a [RegistryService.List](/docs/container-registry/api-ref/grpc/Registry/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Registry {#yandex.cloud.containerregistry.v1.Registry}
@@ -60,7 +62,6 @@ Name of the registry. ||
 
 Output only. Status of the registry.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Registry is being created.
 - `ACTIVE`: Registry is ready to use.
 - `DELETING`: Registry is being deleted. ||

@@ -1,32 +1,14 @@
 title: '{{ ai-studio-full-name }}'
 description:
   - >-
-    {{ yandex-cloud }} presents the AI agent development platform called {{
-    ai-studio-full-name }} that brings everything you need to create and operate
-    AI-based solutions.
-  - >-
-    Model Gallery provides access to large generative models for business. With
-    Model Gallery, you can use Yandex's YandexGPT Lite, YandexGPT Pro, and
-    YandexART models, as well as the best open-source models out there, and
-    fine-tune models to better answer your needs.
-  - >-
-    Agent Atelier is an AI agent development environment based on an {{ openai
-    }}-compatible API or low-code tools. With its ready-made tools, you can
-    create effective AI agents capable of dialog and concerted action with
-    corporate systems.
-  - >-
-    MCP Hub allows you to build and connect MCP servers for agents to be able to
-    use external tools and become truly efficient in helping you with your work.
-  - >-
-    The {{ ai-studio-full-name }} API is compatible with {{ openai }}: the {{
-    responses-api }} is suitable for creating text agents, the {{ realtime-api
-    }}, for voice agents, and the Vector Store API, for searching through
-    documents. The APIs support integration with such widely used frameworks as
-    LangChain and LangGraph.
+    {{ ai-studio-full-name }} is a {{ yandex-cloud }} platform for creating AI
+    applications and AI agents based on large generative models. {{
+    ai-studio-name }} provides everything you need through all stages – from
+    experiments and prototyping to production deployment.
   - >-
     For terms of use, see the <a
     href="https://yandex.com/legal/cloud_terms_yandex_foundation_models">{{
-    ai-studio-full-name }}</a> Terms of Use. For terms of use, see the <a
+    ai-studio-full-name }} Terms of Use</a>. For terms of use, see the <a
     href="https://yandex.com/legal/cloud_terms_speechkit">{{ speechkit-full-name
     }} Terms of Use</a>. For terms of use, see the <a
     href="https://yandex.com/legal/cloud_terms_search_api">{{
@@ -39,28 +21,42 @@ description:
     ai-studio-full-name }}</a> Service Level.
 links:
   - title: About {{ ai-studio-name }}
-    description: Read about the basic features
+    description: Summary of main features
     href: concepts/
   - title: Getting started with {{ model-gallery-name }}
-    description: Use {{ model-gallery-name }} models to generate text
+    description: How to use {{ model-gallery-name }} models for text generation
     href: quickstart/yandexgpt
+  - title: '{{ agents-atelier-name }}'
+    description: What are AI agents and how to create them
+    href: concepts/agents/
+  - title: '{{ ai-search-name }}'
+    description: Search tools for AI agents
+    href: concepts/search/
+  - title: '{{ mcp-hub-name }}'
+    description: Creating, managing, and monitoring MCP servers
+    href: concepts/mcp-hub/
+  - title: Step-by-step guides
+    description: Simple guides for routine operations
+    href: operations/
+  - title: API references
+    description: Description of {{ ai-studio-name }} API methods
+    href: concepts/api
+  - title: Access management
+    description: Permissions required to use the service
+    href: security/
   - title: Quotas and limits
     description: Technical and organizational limitations
     href: concepts/limits
-  - title: Access management
-    description: Configure access permissions to use this service
-    href: security/
   - title: Pricing policy
     description: Service pricing and cost calculation
     href: pricing
 meta:
   title: '{{ ai-studio-full-name }}'
   description: >-
-    {{ ai-studio-full-name }} offers large generative models for business.
-    Yandex Cloud provides access to neural networks enabling you to leverage
-    generative models in your business apps and web services. {{
-    ai-studio-full-name }} will benefit anyone looking to boost their business
-    with the help of machine learning technology.
+    {{ ai-studio-full-name }} is a {{ yandex-cloud }} platform for creating AI
+    applications and AI agents based on large generative models. {{
+    ai-studio-name }} provides everything you need through all stages – from
+    experiments and prototyping to production deployment.
   keywords:
     - '{{ ai-studio-full-name }}'
     - '{{ ai-studio-name }}'

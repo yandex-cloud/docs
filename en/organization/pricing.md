@@ -19,7 +19,6 @@ You can [manage](#pricing-management) {{ org-name }} billing through the [{{ clo
 
 ## Prices for the Russia region {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 

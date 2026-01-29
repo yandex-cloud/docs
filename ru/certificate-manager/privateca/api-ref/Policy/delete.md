@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the policy to delete.
+            The maximum string length in characters is 50.
           type: string
       required:
         - id
@@ -38,7 +39,9 @@ Request message for deleting a policy.
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the policy to delete. ||
+Required field. ID of the policy to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

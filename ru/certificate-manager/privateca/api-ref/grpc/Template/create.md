@@ -28,11 +28,15 @@ Request message for creating a template.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder where the template will be created. ||
+Required field. ID of the folder where the template will be created.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Required field. Name of the certificate template.
-The name must follow the name pattern. ||
+The name must follow the name pattern.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || data | **string**
 
 Required field. Certificate template data. ||

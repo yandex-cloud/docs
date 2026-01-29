@@ -20,6 +20,20 @@ Parameter | Description
 `key` | Object key.
 
 
+### Request parameters {#request-params}
+
+Parameter | Description
+----- | -----
+`range` | Defines the range of bytes to load from the object, e.g., `?range=bytes=1-5`.<br/><br/>If used together with the `Range` header, only the header value will be taken.
+`response-content-type` | Sets the `Content-Type` response header.
+`response-content-language` | Sets the `Content-Language` response header.
+`response-expires` | Sets the `Expires` response header.
+`response-cache-control` | Sets the `Cache-Control` response header.
+`response-content-disposition` | Sets the `Content-Disposition` response header.
+`response-content-encoding` | Sets the `Content-Encoding` response header.
+`versionId` | Link to a specific version of the object.
+
+
 ### Headers {#request-headers}
 
 Use the appropriate [common headers](../common-request-headers.md) in your request.
@@ -28,7 +42,7 @@ You can also use the following headers in your request:
 
 Header | Description
 ----- | -----
-`Range` | Sets the byte range to be uploaded from the object.<br/><br/>For more information about the `Range` header, see the HTTP specification [http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35).
+`Range` | Defines the range of bytes to load from the object, e.g., `--header 'Range: bytes=1-5'`.<br/><br/>If used together with the `range` request parameter, only the header value will be taken.<br/><br/>To learn more about the `Range` header, see [RFC 9110](https://www.rfc-editor.org/rfc/rfc9110.html#name-range).
 `If-Modified-Since` | If it is specified, {{ objstorage-name }} returns the following:<br/>- Object. If it has been modified since the specified time.<br/>- Code 304. If the object has not been modified since the specified time.<br/><br/>If a request has both the `If-Modified-Since` and `If-None-Match` headers and their checks result in `If-Modified-Since -> true` and `If-None-Match -> false`, {{ objstorage-name }} returns a 304 code. For more information, see [RFC 7232](https://tools.ietf.org/html/rfc7232).
 `If-Unmodified-Since` | If it is specified, {{ objstorage-name }} returns the following:<br/>- Object. If it has not been modified since the specified time.<br/>- Code 412. If the object has been modified since the specified time.<br/><br/>If a request has both the `If-Unmodified-Since` and `If-Match` headers and their checks result in `If-Unmodified-Since -> false` and `If-Match -> true`, {{ objstorage-name }} returns a 200 code and the requested data. For more information, see [RFC 7232](https://tools.ietf.org/html/rfc7232).
 `If-Match` | If it is specified, {{ objstorage-name }} returns the following:<br/><br/>- Object. If its `ETag` matches the provided one.<br/>- Code 412. If its `ETag` does not match the provided one.<br/><br/><br/>If a request has both the `If-Unmodified-Since` and `If-Match` headers and their checks result in `If-Unmodified-Since -> false` and `If-Match -> true`, {{ objstorage-name }} returns a 200 code and the requested data. For more information, see [RFC 7232](https://tools.ietf.org/html/rfc7232).

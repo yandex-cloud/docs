@@ -24,12 +24,11 @@ Tests run by multiple agents are charged as a sum of tests run by each agent.
 
 ## Prices for the Russia region {#prices}
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-You are charged:
-* based on the test runtime;
-* based on the runtime of tests whose results will be stored.
+You pay for the following:
+* Test duration.
+* Duration of tests whose results will be stored.
 
 
 
@@ -42,7 +41,7 @@ You are charged:
 </MDX>
 
 
-## Cost calculation example {#amount-example}
+## Cost calculation examples {#amount-example}
 
 ### Test running time {#test-time}
 

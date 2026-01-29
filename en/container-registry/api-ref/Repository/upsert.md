@@ -13,6 +13,7 @@ apiPlayground:
             **string**
             Required field. Name of the repository.
             The name of the repository should match the name of the images that will be pushed in the repository.
+            Value must match the regular expression ` [a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* `.
           pattern: '[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))*'
           type: string
       required:
@@ -46,7 +47,9 @@ POST https://container-registry.{{ api-host }}/container-registry/v1/repositorie
 
 Required field. Name of the repository.
 
-The name of the repository should match the name of the images that will be pushed in the repository. ||
+The name of the repository should match the name of the images that will be pushed in the repository.
+
+Value must match the regular expression ` [a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

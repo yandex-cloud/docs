@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/Desktop/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - desktopId
@@ -31,11 +32,15 @@ apiPlayground:
           type: string
           format: field-mask
         name:
-          description: '**string**'
+          description: |-
+            **string**
+            Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9]) `.
           pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])'
           type: string
         labels:
-          description: '**object** (map<**string**, **string**>)'
+          description: |-
+            **object** (map<**string**, **string**>)
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -68,7 +73,9 @@ PATCH https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}
 ||Field | Description ||
 || desktopId | **string**
 
-Required field. To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/Desktop/list#List) request. ||
+Required field. To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/Desktop/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.clouddesktop.v1.api.UpdatePropertiesRequest}
@@ -93,8 +100,12 @@ the field's value will be reset to the default. The default value for most field
 If `` updateMask `` is not sent in the request, all fields' values will be updated.
 Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
-|| name | **string** ||
-|| labels | **object** (map<**string**, **string**>) ||
+|| name | **string**
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9]) ```. ||
+|| labels | **object** (map<**string**, **string**>)
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -272,7 +283,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Status of the desktop.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Desktop is being created.
 - `ACTIVE`: Desktop is ready to be used.
 - `DELETING`: Desktop is being deleted.
@@ -301,9 +311,15 @@ Labels of the desktop. ||
 
 #|
 ||Field | Description ||
-|| memory | **string** (int64) ||
-|| cores | **string** (int64) ||
-|| coreFraction | **string** (int64) ||
+|| memory | **string** (int64)
+
+The minimum value is 1. ||
+|| cores | **string** (int64)
+
+The minimum value is 1. ||
+|| coreFraction | **string** (int64)
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## NetworkInterface {#yandex.cloud.clouddesktop.v1.api.NetworkInterface}
@@ -312,10 +328,14 @@ Labels of the desktop. ||
 ||Field | Description ||
 || networkId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || subnetId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## User {#yandex.cloud.clouddesktop.v1.api.User}
@@ -324,8 +344,12 @@ Required field.  ||
 ||Field | Description ||
 || subjectId | **string**
 
-Required field. Identity of the access binding. ||
+Required field. Identity of the access binding.
+
+The maximum string length in characters is 100. ||
 || subjectType | **string**
 
-Required field. Type of the access binding, e.g. userAccount, serviceAccount, system. ||
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system.
+
+The maximum string length in characters is 100. ||
 |#

@@ -14,7 +14,7 @@ To use an example:
 
 {% endlist %}
 
-## Create {#create-agent}
+## Create an agent {#create-agent}
 
 {% list tabs group=programming_language %}
 
@@ -42,16 +42,15 @@ To use an example:
          input="Give me a quick overview of LLM news for September 2025.",
          tools=[
              {
-                 "web_search": {
-                     "filters": {
-                         "allowed_domains": [
-                             "habr.ru"
-                         ]
-                     },
-                     "user_location": {
-                         "region": "213",
-                     }
-                 }
+                "type": "web_search",
+                "filters": {
+                    "allowed_domains": [
+                        "habr.ru"
+                    ]
+                },
+                "user_location": {
+                        "region": "213",
+                    }
              }
          ],
          temperature=0.3,

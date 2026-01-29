@@ -29,7 +29,9 @@ Set ip permissions for the specified registry.
 ||Field | Description ||
 || registry_id | **string**
 
-Required field. ID of the registry for which ip permissions are being set. ||
+Required field. ID of the registry for which ip permissions are being set.
+
+The maximum string length in characters is 50. ||
 || ip_permission[] | **[IpPermission](#yandex.cloud.containerregistry.v1.IpPermission)**
 
 IP permission to be set. ||
@@ -41,7 +43,6 @@ IP permission to be set. ||
 ||Field | Description ||
 || action | enum **Action**
 
-- `ACTION_UNSPECIFIED`
 - `PULL`
 - `PUSH` ||
 || ip | **string** ||

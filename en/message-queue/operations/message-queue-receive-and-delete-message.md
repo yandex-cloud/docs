@@ -10,7 +10,7 @@ Messages queued in {{ message-queue-name }} are received by consumers, i.e., com
 {% list tabs group=instructions %}
 
 - AWS CLI {#cli}
-
+  
   1. [Install and configure](configuring-aws-cli.md) the AWS CLI.
   1. [Create](message-queue-new-queue.md) a message queue and [send](message-queue-send-message.md) a test message to it.
   1. Receive the message you sent earlier:
@@ -69,7 +69,7 @@ Messages queued in {{ message-queue-name }} are received by consumers, i.e., com
       Where:
 
       * `--queue-url`: URL of the queue to delete the message from.
-      * `--endpoint`: Endpoint set to `https://message-queue.{{ api-host }}/`.
+      * `--endpoint`: Endpoint in the `https://message-queue.{{ api-host }}/` value.
       * `--receipt-handle`: Previously saved message receipt ID (`ReceiptHandle`).
 
 {% endlist %}
@@ -81,7 +81,7 @@ If the delete command is executed successfully, no text is output to the termina
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you created the message queue.
-  1. In the list of services, select **{{ message-queue-name }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
   1. The current number of enqueued messages is specified in the **Messages in queue** field.
 
 {% endlist %}

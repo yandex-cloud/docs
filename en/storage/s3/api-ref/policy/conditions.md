@@ -17,6 +17,8 @@ Condition key | Description
 `aws:userid` | Compares the user ID in {{ iam-short-name }} with the one specified in the policy.
 `s3:authtype` | Restricts incoming requests to use a specific authentication method.
 `s3:delimiter` | Sets the delimiter that user requests must contain.
+`s3:if-match` | Checks if the request contains the `If-Match` header to perform a [conditional write](../../../concepts/object.md#conditional-writes) of the object. Used to enforce ETag validation when overwriting an existing object.
+`s3:if-none-match` | Checks if the request contains the `If-None-Match` header to perform a [conditional write](../../../concepts/object.md#conditional-writes) of the object. Used to ensure that the object does not exist when creating a new one.
 `s3:max-keys` | Sets the maximum number of keys returned per [ListBucket](../bucket/list.md) request.
 `s3:prefix` | Restricts access by key name prefix.
 `s3:signatureage` | Sets the length of time that a signature is valid in an authenticated request.
@@ -186,6 +188,6 @@ You can append `IfExists` to any operator name (except [Null](#null)), e.g., `Bo
 
 ### Null operator {#null}
 
-The `Null` operator sets to `true` if a condition key is missing in the request at the time of authentication. If the key exists and its value is not null, the operator returns `false`.
+The `Null` operator sets to `true` if a condition key is missing in the request at the time of authorization. If the key exists and its value is not null, the operator returns `false`.
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

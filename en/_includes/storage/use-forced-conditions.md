@@ -1,0 +1,1 @@
+To make the conditions check mandatory, use an [access policy](../../storage/concepts/policy.md#conditional-writes-policy). See [these rule examples](../../storage/concepts/policy.md#conditional-writes-rules).

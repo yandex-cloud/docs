@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the lifecycle policy.
+            The maximum string length in characters is 50.
           type: string
       required:
         - lifecyclePolicyId
@@ -36,7 +37,9 @@ POST https://container-registry.{{ api-host }}/container-registry/v1/dryRunLifec
 ||Field | Description ||
 || lifecyclePolicyId | **string**
 
-Required field. ID of the lifecycle policy. ||
+Required field. ID of the lifecycle policy.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

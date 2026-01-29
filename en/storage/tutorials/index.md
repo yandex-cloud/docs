@@ -5,6 +5,23 @@ description: This page features a list of {{ objstorage-name }} tutorials.
 
 # {{ objstorage-name }} tutorials
 
+
+## Backups {#backup}
+
+* [Overview](storage-backup-overview.md)
+* [Backing up with AWS S3 Sync](./storage-backup-aws-s3-sync.md)
+* [Backing up with rclone](./storage-backup-rclone.md)
+* [Backing up with GeeseFS](./storage-backup-geesefs.md)
+* [Backing up with CloudBerry Desktop Backup](./object-storage-cloudberry.md)
+* [Backing up with Duplicati](./object-storage-duplicati.md)
+* [Backing up with Bacula](./backup-with-bacula.md)
+* [Backing up with Veritas Backup Exec](./object-storage-veritas.md)
+* [Backing up a VM with Hystax Acura Backup](./hystax-backup.md)
+* [Backing up a {{ managed-k8s-name }} cluster](./kubernetes-backup.md)
+
+## Other tutorials {#other}
+
+
 * [Getting object query statistics with S3 Select](./server-logs.md)
 * [Getting website traffic statistics with S3 Select](./user-agent-statistics.md)
 * [Getting object query statistics with {{ yq-full-name }}](./server-logs-yq.md)
@@ -26,12 +43,6 @@ description: This page features a list of {{ objstorage-name }} tutorials.
 * [Connecting to {{ objstorage-name }} from {{ vpc-short-name }}](./storage-vpc-access.md)
 * [{#T}](./static/index.md)
 * [{#T}](prefetch.md)
-* [VM backup with Hystax Acura Backup](./hystax-backup.md)
-* [Backing up to {{ objstorage-name }} with CloudBerry Desktop Backup](./object-storage-cloudberry.md)
-* [Backing up to {{ objstorage-name }} via Duplicati](./object-storage-duplicati.md)
-* [Backing up to {{ objstorage-name }} with Bacula](./backup-with-bacula.md)
-* [Backing up to {{ objstorage-name }} with Veritas Backup Exec](./object-storage-veritas.md)
-* [{{ managed-k8s-name }} cluster backups in {{ objstorage-name }}](./kubernetes-backup.md)
 * [{#T}](./dp-mch-data-exchange.md)
 * [{#T}](./object-storage-to-postgresql.md)
 * [{#T}](./object-storage-to-greenplum.md)

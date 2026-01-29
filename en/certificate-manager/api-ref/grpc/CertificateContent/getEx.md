@@ -29,14 +29,17 @@ sourcePath: en/_api-ref-grpc/certificatemanager/v1/api-ref/grpc/CertificateConte
 ||Field | Description ||
 || certificate_id | **string**
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `certificate_id`, `folder_and_name`. ||
 || folder_and_name | **[FolderAndName](#yandex.cloud.certificatemanager.v1.FolderAndName)**
 
 Includes only one of the fields `certificate_id`, `folder_and_name`. ||
-|| version_id | **string** ||
+|| version_id | **string**
+
+The maximum string length in characters is 50. ||
 || private_key_format | enum **PrivateKeyFormat**
 
-- `PRIVATE_KEY_FORMAT_UNSPECIFIED`
 - `PKCS1`
 - `PKCS8` ||
 |#
@@ -47,10 +50,14 @@ Includes only one of the fields `certificate_id`, `folder_and_name`. ||
 ||Field | Description ||
 || folder_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || certificate_name | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## GetExCertificateContentResponse {#yandex.cloud.certificatemanager.v1.GetExCertificateContentResponse}

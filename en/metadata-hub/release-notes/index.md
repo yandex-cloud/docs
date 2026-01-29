@@ -1,11 +1,9 @@
 ---
 title: '{{ metadata-hub-full-name }} release notes'
-description: This section contains {{ metadata-hub-name }} release notes.
+description: This section contains the {{ metadata-hub-name }} release notes.
 ---
 
 <!-- Changelog begin -->
-
-
 
 
 
@@ -14,7 +12,25 @@ description: This section contains {{ metadata-hub-name }} release notes.
 
 # {{ metadata-hub-full-name }} release notes
 
+
+
 ## 2025 {#2025}
+
+### December {#dec25}
+
+
+#### New features {#new-features-dec25}
+
+[{{ data-catalog-name }}](../concepts/data-catalog.md) users can now enjoy these extra metadata analysis and management features:
+
+* Metadata markup management space with bulk editing and statistics.
+
+* Data storage for viewing datasets uploaded from multiple sources.
+
+
+#### Fixed issues {#problems-solved-dec5}
+
+Fixed an error when using connections to the custom {{ SD }} installation.
 
 
 ### November {#nov25}

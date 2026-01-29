@@ -27,7 +27,9 @@ To get the list of available Repository resources, make a [List](/docs/container
 
 Required field. Name of the Repository resource to return.
 
-To get the repository name use a [RepositoryService.List](/docs/container-registry/api-ref/grpc/Repository/list#List) request. ||
+To get the repository name use a [RepositoryService.List](/docs/container-registry/api-ref/grpc/Repository/list#List) request.
+
+Value must match the regular expression ` [a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* `. ||
 |#
 
 ## Repository {#yandex.cloud.containerregistry.v1.Repository}

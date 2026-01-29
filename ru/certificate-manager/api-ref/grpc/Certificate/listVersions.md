@@ -23,15 +23,21 @@ sourcePath: en/_api-ref-grpc/certificatemanager/v1/api-ref/grpc/Certificate/list
 ||Field | Description ||
 || certificate_id | **string**
 
-Required field. ID of the certificate to list versions for. ||
+Required field. ID of the certificate to list versions for.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListCertificatesResponse.next_page_token](/docs/certificate-manager/api-ref/grpc/Certificate/list#yandex.cloud.certificatemanager.v1.ListCertificatesResponse) returned by a previous list request. ||
+[ListCertificatesResponse.next_page_token](/docs/certificate-manager/api-ref/grpc/Certificate/list#yandex.cloud.certificatemanager.v1.ListCertificatesResponse) returned by a previous list request.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListCertificatesResponse.next_page_token](/docs/certificate-manager/api-ref/grpc/Certificate/list#yandex.cloud.certificatemanager.v1.ListCertificatesResponse) returned by a previous list request. ||
+[ListCertificatesResponse.next_page_token](/docs/certificate-manager/api-ref/grpc/Certificate/list#yandex.cloud.certificatemanager.v1.ListCertificatesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListVersionsResponse {#yandex.cloud.certificatemanager.v1.ListVersionsResponse}

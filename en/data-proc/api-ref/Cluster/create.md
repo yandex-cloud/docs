@@ -13,23 +13,27 @@ apiPlayground:
             **string**
             Required field. ID of the folder to create a cluster in.
             To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         name:
           description: |-
             **string**
             Name of the cluster. The name must be unique within the folder.
             The name can't be changed after the Yandex Data Processing cluster is created.
+            Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
           pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
           type: string
         description:
           description: |-
             **string**
             Description of the cluster.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Cluster labels as `key:value` pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -51,6 +55,7 @@ apiPlayground:
             **string**
             Required field. ID of the availability zone where the cluster should be placed.
             To get the list of available zones make a [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         serviceAccountId:
           description: |-
@@ -95,7 +100,6 @@ apiPlayground:
           description: |-
             **enum** (Environment)
             Environment of the cluster
-            - `ENVIRONMENT_UNSPECIFIED`
             - `PRODUCTION`
             - `PRESTABLE`
           type: string
@@ -143,7 +147,6 @@ apiPlayground:
             description: |-
               **enum** (Service)
               Set of services used in the cluster (if empty, the default set is used).
-              - `SERVICE_UNSPECIFIED`
               - `HDFS`
               - `YARN`
               - `MAPREDUCE`
@@ -234,6 +237,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Upper limit for total instance subcluster count.
+              Acceptable values are 1 to 100, inclusive.
             type: string
             format: int64
           preemptible:
@@ -269,11 +273,13 @@ apiPlayground:
             description: |-
               **string**
               Defines an autoscaling rule based on the average CPU utilization of the instance group.
+              Acceptable values are 0 to 100, inclusive.
             type: string
           decommissionTimeout:
             description: |-
               **string** (int64)
               Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+              Acceptable values are 0 to 86400, inclusive.
             default: '120'
             type: string
             format: int64
@@ -286,13 +292,13 @@ apiPlayground:
             description: |-
               **string**
               Name of the subcluster.
+              Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
             pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
             type: string
           role:
             description: |-
               **enum** (Role)
               Required field. Role of the subcluster in the Yandex Data Processing cluster.
-              - `ROLE_UNSPECIFIED`
               - `MASTERNODE`: The subcluster fulfills the master role.
                 Master can run the following services, depending on the requested components:
               * HDFS: Namenode, Secondary Namenode
@@ -327,11 +333,13 @@ apiPlayground:
             description: |-
               **string**
               Required field. ID of the VPC subnet used for hosts in the subcluster.
+              The maximum string length in characters is 50.
             type: string
           hostsCount:
             description: |-
               **string** (int64)
               Number of hosts in the subcluster.
+              The minimum value is 1.
             type: string
             format: int64
           assignPublicIp:
@@ -458,17 +466,25 @@ POST https://dataproc.{{ api-host }}/dataproc/v1/clusters
 
 Required field. ID of the folder to create a cluster in.
 
-To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Name of the cluster. The name must be unique within the folder.
-The name can't be changed after the Yandex Data Processing cluster is created. ||
+The name can't be changed after the Yandex Data Processing cluster is created.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
-Description of the cluster. ||
+Description of the cluster.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Cluster labels as `key:value` pairs. ||
+Cluster labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || configSpec | **[CreateClusterConfigSpec](#yandex.cloud.dataproc.v1.CreateClusterConfigSpec)**
 
 Required field. Configuration and resources for hosts that should be created with the cluster. ||
@@ -476,7 +492,9 @@ Required field. Configuration and resources for hosts that should be created wit
 
 Required field. ID of the availability zone where the cluster should be placed.
 
-To get the list of available zones make a [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request. ||
+To get the list of available zones make a [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+
+The maximum string length in characters is 50. ||
 || serviceAccountId | **string**
 
 Required field. ID of the service account to be used by the Yandex Data Processing manager agent. ||
@@ -502,7 +520,6 @@ ID of the cloud logging log group to write logs. If not set, logs will not be se
 
 Environment of the cluster
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`
 - `PRESTABLE` ||
 || autoscalingServiceAccountId | **string**
@@ -538,7 +555,6 @@ their properties and settings.
 
 Set of services used in the cluster (if empty, the default set is used).
 
-- `SERVICE_UNSPECIFIED`
 - `HDFS`
 - `YARN`
 - `MAPREDUCE`
@@ -591,12 +607,13 @@ Execution timeout ||
 ||Field | Description ||
 || name | **string**
 
-Name of the subcluster. ||
+Name of the subcluster.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || role | **enum** (Role)
 
 Required field. Role of the subcluster in the Yandex Data Processing cluster.
 
-- `ROLE_UNSPECIFIED`
 - `MASTERNODE`: The subcluster fulfills the master role.
 
   Master can run the following services, depending on the requested components:
@@ -624,10 +641,14 @@ Required field. Role of the subcluster in the Yandex Data Processing cluster.
 Required field. Resource configuration for hosts in the subcluster. ||
 || subnetId | **string**
 
-Required field. ID of the VPC subnet used for hosts in the subcluster. ||
+Required field. ID of the VPC subnet used for hosts in the subcluster.
+
+The maximum string length in characters is 50. ||
 || hostsCount | **string** (int64)
 
-Number of hosts in the subcluster. ||
+Number of hosts in the subcluster.
+
+The minimum value is 1. ||
 || assignPublicIp | **boolean**
 
 Assign public ip addresses for all hosts in subcluter. ||
@@ -661,7 +682,9 @@ Volume of the storage available to a host, in bytes. ||
 ||Field | Description ||
 || maxHostsCount | **string** (int64)
 
-Upper limit for total instance subcluster count. ||
+Upper limit for total instance subcluster count.
+
+Acceptable values are 1 to 100, inclusive. ||
 || preemptible | **boolean**
 
 Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
@@ -682,10 +705,14 @@ During this time, the group size doesn't decrease, even if the new metric values
 indicate that it should. ||
 || cpuUtilizationTarget | **string**
 
-Defines an autoscaling rule based on the average CPU utilization of the instance group. ||
+Defines an autoscaling rule based on the average CPU utilization of the instance group.
+
+Acceptable values are 0 to 100, inclusive. ||
 || decommissionTimeout | **string** (int64)
 
-Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 ||
+Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+
+Acceptable values are 0 to 86400, inclusive. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -887,13 +914,19 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || name | **string**
 
-Name of the cluster. The name is unique within the folder. ||
+Name of the cluster. The name is unique within the folder.
+
+The string length in characters must be 1-63. ||
 || description | **string**
 
-Description of the cluster. ||
+Description of the cluster.
+
+The string length in characters must be 0-256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Cluster labels as `key:value` pairs. ||
+Cluster labels as `key:value` pairs.
+
+No more than 64 per resource. ||
 || monitoring[] | **[Monitoring](#yandex.cloud.dataproc.v1.Monitoring)**
 
 Monitoring systems relevant to the cluster. ||
@@ -948,7 +981,6 @@ To prevent logs from being sent to the cloud set cluster property dataproc:disab
 
 Environment of the cluster
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`
 - `PRESTABLE` ||
 || autoscalingServiceAccountId | **string**
@@ -997,7 +1029,6 @@ their properties and settings.
 
 Set of services used in the cluster (if empty, the default set is used).
 
-- `SERVICE_UNSPECIFIED`
 - `HDFS`
 - `YARN`
 - `MAPREDUCE`

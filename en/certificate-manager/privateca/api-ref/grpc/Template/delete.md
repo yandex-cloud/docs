@@ -26,7 +26,9 @@ Request message to delete a template.
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the template to be deleted. ||
+Required field. ID of the template to be deleted.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

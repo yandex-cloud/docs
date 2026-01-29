@@ -10,7 +10,6 @@ description: In this tutorial, you will learn about the security recommendations
 * [{#T}](iaas-checklist.md)
 * [{#T}](iam-checklist.md)
 * [{#T}](kubernetes.md)
- 
 
 ## General recommendations {#general-recommendations}
 

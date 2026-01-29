@@ -28,6 +28,6 @@ description: Из данного раздела вы узнаете, что пр
 
 {{ ai-studio-full-name }} предоставляет библиотеку инструментов и примеров готового кода для разработки продуктов на языке Python — [{{ ml-sdk-full-name }}](../../ai-studio/sdk/index.md). {{ ml-sdk-name }} обеспечивает стандартизированный способ взаимодействия с {{ search-api-name }} и упрощает интеграцию с другими сервисами {{ ai-studio-full-name }}.
 
-Библиотека {{ ml-sdk-name }} реализует синхронный и асинхронный интерфейсы Python на основе gRPC-вызовов API сервисов {{ search-api-name }} и [{{ ai-studio-name }}](../../ai-studio/index.yaml). Полный перечень поддерживаемых функций, исходный код библиотеки и примеры использования доступны в репозитории на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk).
+Библиотека {{ ml-sdk-name }} реализует синхронный и асинхронный интерфейсы Python на основе gRPC-вызовов API сервисов {{ search-api-name }} и [{{ ai-studio-name }}](../../ai-studio/index.yaml). Полный перечень поддерживаемых функций, исходный код библиотеки и примеры использования доступны в репозитории на [GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk).
 
 Подробнее о {{ ml-sdk-full-name }} см. в [документации {{ ai-studio-name }}](../../ai-studio/sdk/index.md).

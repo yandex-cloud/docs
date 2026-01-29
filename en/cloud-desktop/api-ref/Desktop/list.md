@@ -12,6 +12,7 @@ apiPlayground:
             **string**
             Required field. ID of the folder to create a DesktopGroup in.
             To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -21,6 +22,7 @@ apiPlayground:
             the service returns a [ListDesktopsResponse.nextPageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -29,6 +31,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListDesktopsResponse.nextPageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopsResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
@@ -38,12 +41,14 @@ apiPlayground:
             1. The field name. Currently you can use filtering only on [Desktop.name](#yandex.cloud.clouddesktop.v1.api.Desktop) field.
             2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
             3. Value or a list of values to compare against the values of the field.
+            The maximum string length in characters is 1000.
           type: string
         orderBy:
           description: |-
             **string**
             Sorting the list by [Desktop.name](#yandex.cloud.clouddesktop.v1.api.Desktop), [Desktop.createdAt](#yandex.cloud.clouddesktop.v1.api.Desktop) and [Desktop.status](#yandex.cloud.clouddesktop.v1.api.Desktop) fields.
             The default sorting order is ascending.
+            The maximum string length in characters is 100.
           type: string
       required:
         - folderId
@@ -71,29 +76,39 @@ GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops
 
 Required field. ID of the folder to create a DesktopGroup in.
 
-To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListDesktopsResponse.nextPageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListDesktopsResponse.nextPageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopsResponse) returned by a previous list request. ||
+[ListDesktopsResponse.nextPageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on [Desktop.name](#yandex.cloud.clouddesktop.v1.api.Desktop) field.
 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-3. Value or a list of values to compare against the values of the field. ||
+3. Value or a list of values to compare against the values of the field.
+
+The maximum string length in characters is 1000. ||
 || orderBy | **string**
 
 Sorting the list by [Desktop.name](#yandex.cloud.clouddesktop.v1.api.Desktop), [Desktop.createdAt](#yandex.cloud.clouddesktop.v1.api.Desktop) and [Desktop.status](#yandex.cloud.clouddesktop.v1.api.Desktop) fields.
-The default sorting order is ascending. ||
+The default sorting order is ascending.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.clouddesktop.v1.api.ListDesktopsResponse}
@@ -178,7 +193,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Status of the desktop.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Desktop is being created.
 - `ACTIVE`: Desktop is ready to be used.
 - `DELETING`: Desktop is being deleted.
@@ -207,9 +221,15 @@ Labels of the desktop. ||
 
 #|
 ||Field | Description ||
-|| memory | **string** (int64) ||
-|| cores | **string** (int64) ||
-|| coreFraction | **string** (int64) ||
+|| memory | **string** (int64)
+
+The minimum value is 1. ||
+|| cores | **string** (int64)
+
+The minimum value is 1. ||
+|| coreFraction | **string** (int64)
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## NetworkInterface {#yandex.cloud.clouddesktop.v1.api.NetworkInterface}
@@ -218,10 +238,14 @@ Labels of the desktop. ||
 ||Field | Description ||
 || networkId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || subnetId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## User {#yandex.cloud.clouddesktop.v1.api.User}
@@ -230,8 +254,12 @@ Required field.  ||
 ||Field | Description ||
 || subjectId | **string**
 
-Required field. Identity of the access binding. ||
+Required field. Identity of the access binding.
+
+The maximum string length in characters is 100. ||
 || subjectType | **string**
 
-Required field. Type of the access binding, e.g. userAccount, serviceAccount, system. ||
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system.
+
+The maximum string length in characters is 100. ||
 |#

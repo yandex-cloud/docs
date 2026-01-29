@@ -63,16 +63,24 @@ Request to generate a new Certificate Authority (CA).
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. Folder ID where the CA is being created. ||
+Required field. Folder ID where the CA is being created.
+
+The maximum string length in characters is 50. ||
 || parent_certificate_authority_id | **string**
 
-Optional. If set intermediate CA would be generated and signed on parent CA ||
+Optional. If set intermediate CA would be generated and signed on parent CA
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Required field. The name of the Certificate Authority. ||
+Required field. The name of the Certificate Authority.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-An optional description of the Certificate Authority. ||
+An optional description of the Certificate Authority.
+
+The maximum string length in characters is 1024. ||
 || subject_spec | **[Subject](#yandex.cloud.certificatemanager.v1.privateca.Subject)**
 
 Required field. The subject (e.g., common name, organization, etc.) for the CA. ||
@@ -80,7 +88,6 @@ Required field. The subject (e.g., common name, organization, etc.) for the CA. 
 
 Required field. The algorithm for the asymmetric key generation (e.g., RSA, ECC).
 
-- `ALGORITHM_UNSPECIFIED`
 - `RSA_2048_PSS_SHA_256`
 - `RSA_2048_PSS_SHA_384`
 - `RSA_2048_PSS_SHA_512`
@@ -110,7 +117,8 @@ The maximum length of the certificate chain. ||
 
 Key usage (e.g., keyEncipherment, digitalSignature).
 
-- `KEY_USAGE_EXTENSION_UNSPECIFIED`
+The maximum number of elements is 9.
+
 - `DIGITAL_SIGNATURE`
 - `CONTENT_COMMITMENT`
 - `KEY_ENCIPHERMENT`
@@ -124,7 +132,8 @@ Key usage (e.g., keyEncipherment, digitalSignature).
 
 Extended key usage (e.g., serverAuth, clientAuth).
 
-- `EXTENDED_KEY_USAGE_EXTENSION_UNSPECIFIED`
+The maximum number of elements is 11.
+
 - `SERVER_AUTH`
 - `CLIENT_AUTH`
 - `CODE_SIGNING`
@@ -138,13 +147,19 @@ Extended key usage (e.g., serverAuth, clientAuth).
 - `MS_EFS` ||
 || ttl_days | **int64**
 
-The Time-To-Live (TTL) in days for the CA. ||
+The Time-To-Live (TTL) in days for the CA.
+
+Acceptable values are 1 to 20000, inclusive. ||
 || end_entities_ttl_limit_days | **int64**
 
-TTL limit in days for end-entities signed by the CA. ||
+TTL limit in days for end-entities signed by the CA.
+
+The maximum value is 20000. ||
 || template_id | **string**
 
-Optional template ID to fill certificate fields with template data. Explicitly defined parameters is preferred ||
+Optional template ID to fill certificate fields with template data. Explicitly defined parameters is preferred
+
+The maximum string length in characters is 50. ||
 || enable_crl | **bool**
 
 Enable Certificate Revocation List (CRL) support. ||
@@ -178,25 +193,39 @@ https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.4
 ||Field | Description ||
 || country | **string**
 
-Two letter county code ||
+Two letter county code
+
+The maximum string length in characters is 2. ||
 || organization | **string**
 
-Organization name in arbitrary form ||
+Organization name in arbitrary form
+
+The maximum string length in characters is 1000. ||
 || organizational_unit | **string**
 
-Organizational unit name in arbitrary form ||
+Organizational unit name in arbitrary form
+
+The maximum string length in characters is 1000. ||
 || distinguished_name_qualifier | **string**
 
-Distinguished name qualifier ||
+Distinguished name qualifier
+
+The maximum string length in characters is 10000. ||
 || state_or_province | **string**
 
-State or province name in arbitrary form ||
+State or province name in arbitrary form
+
+The maximum string length in characters is 1000. ||
 || common_name | **string**
 
-Common name. For tls certificates it is domain usually. ||
+Common name. For tls certificates it is domain usually.
+
+The maximum string length in characters is 10000. ||
 || email_address | **string**
 
-Email address of certificate owner ||
+Email address of certificate owner
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## AdditionalRDN {#yandex.cloud.certificatemanager.v1.privateca.AdditionalRDN}
@@ -207,25 +236,39 @@ https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.4
 ||Field | Description ||
 || serial_number | **string**
 
-Serial number of certificate subject in arbitrary form. Don't confuse with certificate serial number. ||
+Serial number of certificate subject in arbitrary form. Don't confuse with certificate serial number.
+
+The maximum string length in characters is 100. ||
 || locality | **string**
 
-Locality of certificate subject in arbitrary form. ||
+Locality of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 || title | **string**
 
-Title of certificate subject in arbitrary form. ||
+Title of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 || surname | **string**
 
-Surname of certificate subject in arbitrary form. ||
+Surname of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 || given_name | **string**
 
-Given name of certificate subject in arbitrary form. ||
+Given name of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 || initials | **string**
 
-Initials of certificate subject in arbitrary form. ||
+Initials of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 || generation_qualifier | **string**
 
-Generation qualifier of certificate subject in arbitrary form. ||
+Generation qualifier of certificate subject in arbitrary form.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -354,7 +397,6 @@ ID of the parent certificate authority that signed this certificate authority if
 
 Status of the certificate authority.
 
-- `STATUS_UNSPECIFIED`
 - `UNSIGNED`: The certificate authority is unsigned and pending signing.
 - `ACTIVE`: The certificate authority is active and can issue certificates. ||
 || issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**

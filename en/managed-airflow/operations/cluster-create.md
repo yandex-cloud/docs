@@ -33,7 +33,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
   1. Click **{{ ui-key.yacloud.airflow.button_create-cluster }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
@@ -258,7 +258,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -470,7 +470,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -685,7 +685,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -758,7 +758,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
     * One DAG processor with the `c1-m2` host class.
     * New bucket of any name for DAG files.
 
-    The configuration file for this cluster looks like this:
+    The configuration file for this cluster is as follows:
 
     ```hcl
     locals {

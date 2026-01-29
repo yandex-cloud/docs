@@ -12,6 +12,7 @@ apiPlayground:
             **string**
             Required field. ID of the folder to list clusters in.
             To get the folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -20,6 +21,7 @@ apiPlayground:
             results is larger than `pageSize`, the service returns a [ListClustersResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListClustersResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            The maximum value is 1000.
           default: '100'
           type: string
           format: int64
@@ -28,6 +30,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `page_token` to the
             [ListClustersResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListClustersResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
@@ -38,6 +41,7 @@ apiPlayground:
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
             Example of a filter: `name=my-cluster`.
+            The maximum string length in characters is 1000.
           type: string
       required:
         - folderId
@@ -65,17 +69,23 @@ GET https://dataproc.{{ api-host }}/dataproc/v1/clusters
 
 Required field. ID of the folder to list clusters in.
 
-To get the folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListClustersResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListClustersResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListClustersResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListClustersResponse) returned by a previous list request. ||
+[ListClustersResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListClustersResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters clusters listed in the response.
@@ -84,7 +94,9 @@ The expression must specify:
 1. The field name. Currently you can use filtering only on [Cluster.name](#yandex.cloud.dataproc.v1.Cluster) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-Example of a filter: `name=my-cluster`. ||
+Example of a filter: `name=my-cluster`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.dataproc.v1.ListClustersResponse}
@@ -190,13 +202,19 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || name | **string**
 
-Name of the cluster. The name is unique within the folder. ||
+Name of the cluster. The name is unique within the folder.
+
+The string length in characters must be 1-63. ||
 || description | **string**
 
-Description of the cluster. ||
+Description of the cluster.
+
+The string length in characters must be 0-256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Cluster labels as `key:value` pairs. ||
+Cluster labels as `key:value` pairs.
+
+No more than 64 per resource. ||
 || monitoring[] | **[Monitoring](#yandex.cloud.dataproc.v1.Monitoring)**
 
 Monitoring systems relevant to the cluster. ||
@@ -251,7 +269,6 @@ To prevent logs from being sent to the cloud set cluster property dataproc:disab
 
 Environment of the cluster
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`
 - `PRESTABLE` ||
 || autoscalingServiceAccountId | **string**
@@ -300,7 +317,6 @@ their properties and settings.
 
 Set of services used in the cluster (if empty, the default set is used).
 
-- `SERVICE_UNSPECIFIED`
 - `HDFS`
 - `YARN`
 - `MAPREDUCE`

@@ -75,6 +75,8 @@ Yandex regularly conducts internal and external audits and penetration tests to 
 * In accordance with the laws on personal data protection and ISO standards, Yandex has a schedule of external audits for compliance with ISO 27001, ISO 27017, and ISO 27018, and a plan of monitoring activities to check the compliance of IS processes and controls with FSTEC Order No. 21.
 * The {{ yandex-cloud }} security team uses Red Teaming. Vulnerabilities detected through regular penetration tests are fixed by development teams or, if it is impossible to quickly release an update, patched with appropriate security tools before a fix is released.
 
+The {{ yandex-cloud }} penetration test report is available upon [request](/security/compliance-portal#security-compliance-pentest-form).
+
 ## Incident response {#incident-resp}
 
 Yandex has an incident management policy. IS incidents are managed by the Security Operations Center (SOC) of the information security department. If required, employees from relevant departments provide legal, administrative, and expert support. The main objective of the SOC is to conduct procedures to improve security:
@@ -151,7 +153,7 @@ There are several levels of security for physical machines and service VMs.
 
 ### Protection against supply chain attacks {#simply-chain-attacks}
 
-Yandex has a Research and Development (R&D) department. It works on the design and production of the server hardware used by Yandex. All server hardware is tested before deployment. Packages with code that are deployed to the production environment contain a cryptographic signature. A package manager checks it before installation. All third-party open-source software packages are re-signed before they are added to the company's package repository.  
+ Yandex has a research and development (RnD) department. It works on the design and production of the server hardware used by Yandex. All server hardware is tested before deployment. Packages with code that are deployed to the production environment contain a cryptographic signature. A package manager checks it before installation. All third-party open-source software packages are re-signed before they are added to the company's package repository.  
 
 Updates are released from special management servers that can only be accessed through the bastion host described above. The production environment update log is saved and analyzed by release engineers. All changes to applications or configurations are subject to mandatory verification.  
 
@@ -196,14 +198,14 @@ The data owner is always the cloud platform user. {{ yandex-cloud }} only uses c
 
 * Encryption of transmitted data
 
-  Data sent over the internet is encrypted using TLS. The keys used for TLS are stored on hosts running the protocol.
+  Data sent over the internet is encrypted using TLS. The keys for TLS are stored on hosts that use the protocol.
 
 The above scenarios use the following cryptographic algorithms:
 
 * Symmetric: AES, ChaCha.
 * Asymmetric: RSA, Ed25519.
 
-The minimum used key length is 128 bits for symmetric encryption algorithms, and 2048 bits for asymmetric encryption algorithms.
+The minimum key length is 128 bits for symmetric encryption, and 2048 bits for asymmetric encryption.
 
 ### Deleting data {#delete-data}
 
@@ -221,7 +223,7 @@ A resource marked for deletion cannot be restored. The data is actually deleted 
 
 {% endnote %}
 
-* Deleting logs of requests to resources. Records of API requests to user resources are stored for 12 months. They are used for analyzing information security incidents and preventing fraud. Records are permanently deleted once the 12-month period expires. 
+* Deleting logs of requests to resources. Records of API requests to user resources are stored for 12 months. They are used for analyzing information security incidents and preventing fraud. Records are permanently deleted after 12 months. 
 
 * When a billing account is deleted. At the user's request, the billing account is marked for deletion, and the user loses access it within 72 hours. Billing account data may be used to generate financial statements. Therefore, this data is kept until the expiration of the term of the limitation of actions and the term set by the applicable finance laws. When these terms expire, the billing account is irrevocably deleted.
 

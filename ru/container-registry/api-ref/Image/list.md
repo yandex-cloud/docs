@@ -13,12 +13,14 @@ apiPlayground:
             ID of the registry to list Docker images in.
             `registryId` is ignored if a `ListImagesRequest.repositoryName` is specified in the request.
             To get the registry ID use a [RegistryService.List](/docs/container-registry/api-ref/Registry/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         repositoryName:
           description: |-
             **string**
             Name of the repository to list Docker images in.
             To get the repository name use a [RepositoryService.List](/docs/container-registry/api-ref/Repository/list#List) request.
+            Value must match the regular expression ` |[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* `.
           pattern: '|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))*'
           type: string
         folderId:
@@ -27,6 +29,7 @@ apiPlayground:
             ID of the folder to list Docker images in.
             `folderId` is ignored if a `ListImagesRequest.repositoryName` or a `ListImagesRequest.registryId` are specified in the request.
             To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -36,6 +39,7 @@ apiPlayground:
             the service returns a [ListImagesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListImagesResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            The maximum value is 1000.
           default: '100'
           type: string
           format: int64
@@ -44,6 +48,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListImagesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListImagesResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
@@ -53,9 +58,14 @@ apiPlayground:
             1. The field name. Currently you can use filtering only on [Image.name](#yandex.cloud.containerregistry.v1.Image) field.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be a maximum of 256 characters long and match the regular expression `[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))`.
+            The maximum string length in characters is 1000.
           type: string
         orderBy:
-          description: '**string**'
+          description: |-
+            **string**
+            By which field to sort the results.
+            You can sort by `name`, `digest`, `created_at`, `last_modified`. To sort results by multiple fields, separate the fields with commas.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -83,38 +93,55 @@ ID of the registry to list Docker images in.
 
 `registryId` is ignored if a `ListImagesRequest.repositoryName` is specified in the request.
 
-To get the registry ID use a [RegistryService.List](/docs/container-registry/api-ref/Registry/list#List) request. ||
+To get the registry ID use a [RegistryService.List](/docs/container-registry/api-ref/Registry/list#List) request.
+
+The maximum string length in characters is 50. ||
 || repositoryName | **string**
 
 Name of the repository to list Docker images in.
 
-To get the repository name use a [RepositoryService.List](/docs/container-registry/api-ref/Repository/list#List) request. ||
+To get the repository name use a [RepositoryService.List](/docs/container-registry/api-ref/Repository/list#List) request.
+
+Value must match the regular expression ``` |[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. ||
 || folderId | **string**
 
 ID of the folder to list Docker images in.
 
 `folderId` is ignored if a `ListImagesRequest.repositoryName` or a `ListImagesRequest.registryId` are specified in the request.
 
-To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListImagesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListImagesResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListImagesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListImagesResponse) returned by a previous list request. ||
+[ListImagesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListImagesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on [Image.name](#yandex.cloud.containerregistry.v1.Image) field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be a maximum of 256 characters long and match the regular expression `[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))`. ||
-|| orderBy | **string** ||
+3. The value in double quotes (`"`). Must be a maximum of 256 characters long and match the regular expression `[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))`.
+
+The maximum string length in characters is 1000. ||
+|| orderBy | **string**
+
+By which field to sort the results.
+You can sort by `name`, `digest`, `created_at`, `last_modified`. To sort results by multiple fields, separate the fields with commas.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.containerregistry.v1.ListImagesResponse}

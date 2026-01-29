@@ -23,7 +23,9 @@ Deletes the specified scan policy.
 ||Field | Description ||
 || scan_policy_id | **string**
 
-Required field. ID of the scan policy. ||
+Required field. ID of the scan policy.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

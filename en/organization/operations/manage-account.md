@@ -122,7 +122,7 @@ To manage login authentication methods, a user must be added to the [MFA policy]
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to the [My account]({{ link-my-account }}) portal.
+  1. Go to the [_My account_]({{ link-my-account }}) portal.
   1. In the left-hand panel, select ![alt](../../_assets/console-icons/clock.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.activity_kyqSv }}**.
   1. The page that opens will show your audit [logs](../concepts/logs.md).
   1. Click an entry to view more details about the event.

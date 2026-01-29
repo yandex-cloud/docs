@@ -23,7 +23,9 @@ Executes scanning of specified image.
 ||Field | Description ||
 || image_id | **string**
 
-Required field. ID of the Image to be scanned for vulnerabilities. ||
+Required field. ID of the Image to be scanned for vulnerabilities.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -142,7 +144,6 @@ Output only. The timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) te
 
 Output only. The status of the ScanResult.
 
-- `STATUS_UNSPECIFIED`
 - `RUNNING`: Image scan is in progress.
 - `READY`: Image has been scanned and result is ready.
 - `ERROR`: Image scan is failed. ||

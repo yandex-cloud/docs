@@ -12,15 +12,15 @@ To create a new message queue:
 {% list tabs group=instructions %}
 
 - Management console {#console}
-
+  
   1. In the [management console]({{ link-console-main }}), select the folder to create your queue in.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
   1. Click **{{ ui-key.yacloud.ymq.queues.button_create }}**.
   1. Under **{{ ui-key.yacloud.ymq.queue.form.section_base }}**, fill in the following fields:
       * **{{ ui-key.yacloud.common.name }}**: Enter a name for the queue.
-
+  
         {% include [name](../../_includes/message-queue/ymq-name.md) %}
-
+  
       * **{{ ui-key.yacloud.ymq.queue.form.switch_fifo-queue }}**: Select the `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}` or `{{ ui-key.yacloud.ymq.queue.form.type_switch_fifo }}` queue type.
       * **{{ ui-key.yacloud.ymq.queue.form.field_visibility-timeout }}**: Specify the standard visibility timeout to be applied to enqueued messages after they are read by a consumer.
       * **{{ ui-key.yacloud.ymq.queue.form.field_keeping-time }}**: Set the maximum period for retaining messages in the queue.
@@ -38,7 +38,7 @@ To create a new message queue:
   1. [Install and configure](configuring-aws-cli.md) the AWS CLI.
 
   1. Run the following command in the terminal:
-
+  
      ```bash
      aws sqs create-queue \
        --queue-name <queue_name> \

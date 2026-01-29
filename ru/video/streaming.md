@@ -134,4 +134,4 @@ description: Чтобы запустить видеотрансляцию {{ vid
 * [{#T}](hosting.md)
 * [Обзор сервиса {{ video-full-name }}](./concepts/index.md)
 * [Настроить показ рекламы](operations/channels/settings.md#ad-settings)
-* [{#T}](troubleshooting.md)
+* [{#T}](troubleshooting/index.md)

@@ -8,6 +8,7 @@ description: Various {{ foundation-models-full-name }} use cases.
 * [{#T}](./pdf-searchindex-ai-assistant.md)
 * [{#T}](./models-fine-tuning.md)
 * [{#T}](./create-ai-agent-function.md)
+* [{#T}](./streaming-openai-agent.md)
 * [{#T}](./ai-model-ide-integration.md)
 * [{#T}](./tg-bot-assistant.md)
 * [Developing a Telegram bot with AI agent support using {{ sw-full-name }}](./telegram-ai-bot-workflows.md)
