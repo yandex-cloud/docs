@@ -2,6 +2,6 @@
 
 {% note tip %}
 
-This user is not intended for routine jobs; for those, we recommend creating regular users. For more information, see [{#T}](../../../managed-opensearch/operations/cluster-users.md).
+However, for routine jobs, we recommend creating individual regular users. For more information, see [{#T}](../../../managed-opensearch/operations/cluster-users.md).
 
 {% endnote %}

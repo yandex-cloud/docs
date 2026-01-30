@@ -1,6 +1,6 @@
 ---
 title: Information about existing {{ OS }} clusters
-description: You can request detailed information for each {{ OS }} cluster you have created.
+description: You can get detailed information about each {{ OS }} cluster you created.
 keywords:
   - Information about OpenSearch hosts
   - OpenSearch hosts
@@ -61,7 +61,7 @@ You can get detailed information about each {{ mos-name }} cluster you created.
       You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-  1. Check the [server response](../api-ref/Cluster/list.md#yandex.cloud.mdb.opensearch.v1.ListClustersResponse) to make sure your request was successful.
+  1. View the [server response](../api-ref/Cluster/list.md#yandex.cloud.mdb.opensearch.v1.ListClustersResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -90,7 +90,7 @@ You can get detailed information about each {{ mos-name }} cluster you created.
       You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-  1. Check the [server response](../api-ref/grpc/Cluster/list.md#yandex.cloud.mdb.opensearch.v1.ListClustersResponse) to make sure your request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/list.md#yandex.cloud.mdb.opensearch.v1.ListClustersResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -102,7 +102,7 @@ You can get detailed information about each {{ mos-name }} cluster you created.
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder page.
   1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
-  1. Click the name of your cluster.
+  1. Click the cluster name.
 
 - CLI {#cli}
 
@@ -110,7 +110,7 @@ You can get detailed information about each {{ mos-name }} cluster you created.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get {{ OS }} cluster details, run the following command:
+  To get information about an {{ OS }} cluster, run this command:
 
   ```bash
   {{ yc-mdb-os }} cluster get <cluster_name_or_ID>
@@ -135,7 +135,7 @@ You can get detailed information about each {{ mos-name }} cluster you created.
 
       You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-  1. Check the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
+  1. View the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -162,13 +162,13 @@ You can get detailed information about each {{ mos-name }} cluster you created.
 
       You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-  1. Check the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
 
 {% endlist %}
 
 ## Viewing operations with clusters {#list-operations}
 
-All actions performed on {{ mos-name }} clusters are logged, Each operation gets its own unique ID.
+All actions with {{ mos-name }} clusters are logged as a list of operations. Each operation gets its own unique ID.
 
 ### Getting a list of operations {#get-operations}
 
@@ -181,10 +181,10 @@ All actions performed on {{ mos-name }} clusters are logged, Each operation gets
   1. In the [management console]({{ link-console-main }}), open the folder containing your cluster.
   1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
-  1. Select the cluster.
-  1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected cluster.
+  1. Select the cluster you need.
+  1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the cluster you selected.
 
-      You will see a list of operations with the cluster.
+      You will see the list of operations with this cluster.
 
 - CLI {#cli}
 
@@ -192,7 +192,7 @@ All actions performed on {{ mos-name }} clusters are logged, Each operation gets
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of {{ mos-name }} cluster operations, run this command:
+  To get a list of operations for a {{ mos-name }} cluster, run this command:
 
   ```bash
   yc managed-opensearch cluster list-operations <cluster_name_or_ID>
@@ -250,7 +250,7 @@ All actions performed on {{ mos-name }} clusters are logged, Each operation gets
 
       You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-  1. Check the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.mdb.opensearch.v1.ListClusterOperationsResponse) to make sure your request was successful.
+  1. View the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.mdb.opensearch.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -277,7 +277,7 @@ All actions performed on {{ mos-name }} clusters are logged, Each operation gets
 
       You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-  1. Check the [server response](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.mdb.opensearch.v1.ListClusterOperationsResponse) to make sure your request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.mdb.opensearch.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -460,7 +460,7 @@ All actions performed on {{ mos-name }} clusters are logged, Each operation gets
 
         You can get the operation ID with the [list of operations](#get-operations) for the cluster.
 
-    1. Check the [server response](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

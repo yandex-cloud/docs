@@ -30,7 +30,7 @@ description: В этой статье приводятся решения для
    ffmpeg -err_detect ignore_err \
           -i <входной_файл> \
           -c:v libx264 \
-          -crf 23 \
+          -crf 21 \
           -c:a aac \
           -b:a 192k \
           -map 0 \

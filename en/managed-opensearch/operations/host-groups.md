@@ -29,7 +29,7 @@ For information about migrating host groups in a {{ mos-name }} cluster to a dif
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder page.
     1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
-    1. Locate the cluster you need in the list, click its name, and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
+    1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
 
 - CLI {#cli}
 
@@ -64,7 +64,7 @@ For information about migrating host groups in a {{ mos-name }} cluster to a dif
 
         You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-    1. Check the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
+    1. View the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
 
         You can find available host groups in the `nodeGroups` parameters.
 
@@ -93,7 +93,7 @@ For information about migrating host groups in a {{ mos-name }} cluster to a dif
 
         You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-    1. Check the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
 
         You can find available host groups in the `nodeGroups` parameters.
 
@@ -114,7 +114,7 @@ To create a host group:
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder page.
     1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
-    1. Locate the cluster you need in the list, click its name, and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
+    1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
     1. Click **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_add-node-group }}**.
     1. Specify the group parameters:
 
@@ -182,7 +182,7 @@ To create a host group:
 
         To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of adjustable configuration fields for a {{ mos-name }} cluster, see the [{{ TF }} provider guide]({{ tf-provider-mos }}).
+        For a complete list of {{ mos-name }} cluster configuration fields you can update, see [this {{ TF }} provider guide]({{ tf-provider-mos }}).
 
     1. To create a group of `{{ OS }}` hosts, add the `node_groups` section to `opensearch`:
 
@@ -306,7 +306,7 @@ To create a host group:
             * `diskTypeId`: [Disk type](../concepts/storage.md).
 
         * `roles` (`{{ OS }}` hosts only): List of [host roles](../concepts/host-roles.md), `DATA` or `MANAGER`. You can assign one or both roles for a group.
-        * `hostsCount`: Number of hosts per group. The minimum number of `DATA` and `Dashboards` hosts is one; while the minimum number of `MANAGER` hosts is three.
+        * `hostsCount`: Number of hosts in the group. The minimum number of `DATA` and `Dashboards` hosts is one; while the minimum number of `MANAGER` hosts is three.
         * `zoneIds`: List of availability zones the cluster hosts are located in.
         * `subnetIds`: List of subnet IDs.
 
@@ -370,7 +370,7 @@ To create a host group:
 
             You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-        1. Check the [server response](../api-ref/Cluster/addDashboardsNodeGroup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+        1. View the [server response](../api-ref/Cluster/addDashboardsNodeGroup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -424,7 +424,7 @@ To create a host group:
             * `disk_type_id`: [Disk type](../concepts/storage.md).
 
         * `roles` (`{{ OS }}` hosts only): List of [host roles](../concepts/host-roles.md), `DATA` or `MANAGER`. You can assign one or both roles for a group.
-        * `hosts_count`: Number of hosts per group. The minimum number of `DATA` and `Dashboards` hosts is one; while the minimum number of `MANAGER` hosts is three.
+        * `hosts_count`: Number of hosts in the group. The minimum number of `DATA` and `Dashboards` hosts is one; while the minimum number of `MANAGER` hosts is three.
         * `zone_ids`: List of availability zones the cluster hosts are located in.
         * `subnet_ids`: List of subnet IDs.
 
@@ -456,7 +456,7 @@ To create a host group:
             {% include [warn-storage-resize](../../_includes/mdb/mos/warn-storage-resize.md) %}
 
 
-    1. To create a `{{ OS }}` host group:
+    1. To create an `{{ OS }}` host group:
 
         1. Call the [ClusterService.AddOpenSearchNodeGroup](../api-ref/grpc/Cluster/addOpenSearchNodeGroup.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
@@ -492,7 +492,7 @@ To create a host group:
                 < body.json
             ```
 
-        1. Check the [server response](../api-ref/grpc/Cluster/addDashboardsNodeGroup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+        1. View the [server response](../api-ref/grpc/Cluster/addDashboardsNodeGroup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -504,7 +504,7 @@ To create a host group:
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder page.
     1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
-    1. Locate the cluster you need in the list, click its name, and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
+    1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the group you need and select **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_edit }}**.
     1. Change the host group settings:
 
@@ -573,7 +573,7 @@ To create a host group:
 
         To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of adjustable configuration fields for a {{ mos-name }} cluster, see the [{{ TF }} provider guide]({{ tf-provider-mos }}).
+        For a complete list of {{ mos-name }} cluster configuration fields you can update, see [this {{ TF }} provider guide]({{ tf-provider-mos }}).
 
     1. To update the configuration of an `{{ OS }}` host group, edit the parameters of the `node_groups` section under `opensearch`:
 
@@ -733,7 +733,7 @@ To create a host group:
                 --data "@body.json"
             ```
 
-            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters). You can get the host group name with [cluster details](cluster-list.md#get-cluster).
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters). You can get the name of the host group with [cluster details](cluster-list.md#get-cluster).
 
         1. View the [server response](../api-ref/Cluster/updateOpenSearchNodeGroup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -750,7 +750,7 @@ To create a host group:
                 --data "@body.json"
             ```
 
-            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters). You can get the host group name with [cluster details](cluster-list.md#get-cluster).
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters). You can get the name of the host group with [cluster details](cluster-list.md#get-cluster).
 
         1. View the [server response](../api-ref/Cluster/updateDashboardsNodeGroup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -809,7 +809,7 @@ To create a host group:
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
         * `node_groups`: Host settings:
 
             * `resources`: Cluster resources:
@@ -850,7 +850,7 @@ To create a host group:
                 {% include [warn-storage-resize](../../_includes/mdb/mos/warn-storage-resize.md) %}
 
 
-    1. To update a `{{ OS }}` host group configuration:
+    1. To update an `{{ OS }}` host group configuration:
 
         1. Call the [ClusterService.UpdateOpenSearchNodeGroup](../api-ref/grpc/Cluster/updateOpenSearchNodeGroup.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
@@ -867,7 +867,7 @@ To create a host group:
                 < body.json
             ```
 
-            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters). You can get the host group name with [cluster details](cluster-list.md#get-cluster).
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters). You can get the name of the host group with [cluster details](cluster-list.md#get-cluster).
 
         1. View the [server response](../api-ref/grpc/Cluster/updateOpenSearchNodeGroup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -888,7 +888,7 @@ To create a host group:
                 < body.json
             ```
 
-            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters). You can get the host group name with [cluster details](cluster-list.md#get-cluster).
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters). You can get the name of the host group with [cluster details](cluster-list.md#get-cluster).
 
         1. View the [server response](../api-ref/grpc/Cluster/updateDashboardsNodeGroup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -904,7 +904,7 @@ When deleting a host group, the following limitation applies: you cannot delete 
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder page.
     1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
-    1. Locate the cluster you need in the list, click its name, and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
+    1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the group you need and select **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_delete }}**.
 
 - CLI {#cli}
@@ -930,7 +930,7 @@ When deleting a host group, the following limitation applies: you cannot delete 
 
         To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of adjustable configuration fields for a {{ mos-name }} cluster, see the [{{ TF }} provider guide]({{ tf-provider-mos }}).
+        For a complete list of {{ mos-name }} cluster configuration fields you can update, see [this {{ TF }} provider guide]({{ tf-provider-mos }}).
 
     1. To delete an `{{ OS }}` host group, remove its `node_groups` section from `opensearch`.
 
@@ -963,7 +963,7 @@ When deleting a host group, the following limitation applies: you cannot delete 
                 --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<cluster_ID>/opensearch/node_groups/<host_group_name>'
             ```
 
-            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters). You can get the host group name with [cluster details](cluster-list.md#get-cluster).
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters). You can get the name of the host group with [cluster details](cluster-list.md#get-cluster).
 
         1. View the [server response](../api-ref/Cluster/deleteOpenSearchNodeGroup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -978,7 +978,7 @@ When deleting a host group, the following limitation applies: you cannot delete 
                 --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<cluster_ID>/dashboards/node_groups/<host_group_name>'
             ```
 
-            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters). You can get the host group name with [cluster details](cluster-list.md#get-cluster).
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters). You can get the name of the host group with [cluster details](cluster-list.md#get-cluster).
 
         1. View the [server response](../api-ref/Cluster/deleteDashboardsNodeGroup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -989,7 +989,7 @@ When deleting a host group, the following limitation applies: you cannot delete 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. To delete a `{{ OS }}` host group:
+    1. To delete an `{{ OS }}` host group:
 
         1. Call the [ClusterService.DeleteOpenSearchNodeGroup](../api-ref/grpc/Cluster/deleteOpenSearchNodeGroup.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
@@ -1008,7 +1008,7 @@ When deleting a host group, the following limitation applies: you cannot delete 
                 yandex.cloud.mdb.opensearch.v1.ClusterService.DeleteOpenSearchNodeGroup
             ```
 
-            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters). You can get the host group name with [cluster details](cluster-list.md#get-cluster).
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters). You can get the name of the host group with [cluster details](cluster-list.md#get-cluster).
 
         1. View the [server response](../api-ref/grpc/Cluster/deleteOpenSearchNodeGroup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1031,7 +1031,7 @@ When deleting a host group, the following limitation applies: you cannot delete 
                 yandex.cloud.mdb.opensearch.v1.ClusterService.DeleteDashboardsNodeGroup
             ```
 
-            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters). You can get the host group name with [cluster details](cluster-list.md#get-cluster).
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters). You can get the name of the host group with [cluster details](cluster-list.md#get-cluster).
 
         1. View the [server response](../api-ref/grpc/Cluster/deleteDashboardsNodeGroup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1064,7 +1064,7 @@ When deleting a host group, the following limitation applies: you cannot delete 
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/Cluster/listHosts.md#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse) to make sure your request was successful.
+  1. View the [server response](../api-ref/Cluster/listHosts.md#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1091,6 +1091,6 @@ When deleting a host group, the following limitation applies: you cannot delete 
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse) to make sure your request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse) to make sure your request was successful.
 
 {% endlist %}

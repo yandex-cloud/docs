@@ -77,7 +77,7 @@ Incorrect settings may cause the cluster to fail.
 
         * **{{ ui-key.yacloud.opensearch.auth.field_subject-key }}**: Name of the SAML response parameter that stores the subject. The SAML response comes from the identity provider. If it is not specified, the `NameID` parameter is used.
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_jwt-default-expiration-timeout }}**: Session lifetime, in minutes. Specify it if it is not set by the identity provider.
+        * **{{ ui-key.yacloud.opensearch.auth.field_jwt-default-expiration-timeout }}**: Session lifetime, in minutes. Specify if it is not set by the identity provider.
 
             If there is no value or `0`, the session lifetime is unlimited (default).
 
@@ -124,13 +124,13 @@ Incorrect settings may cause the cluster to fail.
         * `dashboardsUrl`: URL of the host with the `DASHBOARDS` role.
         * `rolesKey`: Name of the SAML response parameter that stores the roles. The SAML response comes from the identity provider. Skipping this parameter disables the use of roles.
         * `subjectKey`: Name of the SAML response parameter that stores the subject. The SAML response comes from the identity provider. If it is not specified, the `NameID` parameter is used.
-        * `jwtDefaultExpirationTimeout`: Session lifetime, in minutes. Specify it if it is not set by the identity provider.
+        * `jwtDefaultExpirationTimeout`: Session lifetime, in minutes. Specify if it is not set by the identity provider.
 
             If there is no value or `0`, the session lifetime is unlimited (default).
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. Check the [server response](../api-ref/Cluster/updateAuthSettings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/Cluster/updateAuthSettings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -175,7 +175,7 @@ Incorrect settings may cause the cluster to fail.
         * `dashboards_url`: URL of the host with the `DASHBOARDS` role.
         * `roles_key`: Name of the SAML response parameter that stores the roles. The SAML response comes from the identity provider. Skipping this parameter disables the use of roles.
         * `subject_key`: Name of the SAML response parameter that stores the subject. The SAML response comes from the identity provider. If it is not specified, the `NameID` parameter is used.
-        * `jwt_default_expiration_timeout`: Session lifetime, in minutes. Specify it if it is not set by the identity provider.
+        * `jwt_default_expiration_timeout`: Session lifetime, in minutes. Specify if it is not set by the identity provider.
 
             If there is no value or `0`, the session lifetime is unlimited (default).
 
