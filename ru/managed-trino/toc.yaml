@@ -77,6 +77,8 @@ items:
         href: concepts/retry-policy.md
       - name: Классы хостов
         href: concepts/instance-types.md
+      - name: Управление доступом
+        href: concepts/access-control.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
   - name: Справочник CLI (англ.)

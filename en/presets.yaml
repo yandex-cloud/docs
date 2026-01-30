@@ -3857,6 +3857,7 @@ default:
             payment-type_label_invoice: Bank transfer
             section_persons: Payers
           dashboard-grants:
+            action_show-all: Show all
             button_activate-grant: Activate promo code
             section_grants: Grants
           dashboard-info:
@@ -3927,6 +3928,9 @@ default:
             column_money: Payment amount
             column_status: Status
           label_consumption: Consumption
+          offers:
+            label_title: Pricing
+            value_grants: Grants
           overview:
             account-data_label_organization: Organization
             button_bind-card-apply: Apply

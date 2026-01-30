@@ -3862,6 +3862,7 @@ default:
             payment-type_label_invoice: Банковский перевод
             section_persons: Плательщики
           dashboard-grants:
+            action_show-all: Показать все
             button_activate-grant: Активировать промокод
             section_grants: Гранты
           dashboard-info:
@@ -3932,6 +3933,9 @@ default:
             column_money: Сумма платежа
             column_status: Статус
           label_consumption: Потребление
+          offers:
+            label_title: Ценообразование
+            value_grants: Гранты
           overview:
             account-data_label_organization: Организация
             button_bind-card-apply: Применить

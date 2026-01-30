@@ -56,7 +56,7 @@ description: '{{ datalens-full-name }} Gallery — готовые дашборд
 
 Работы из {{ datalens-gallery }} можно использовать двумя способами:
 * Развернуть в своем экземпляре {{ datalens-name }} — будет создана копия воркбука со всеми объектами.
-* Скачать JSON-файл для экспорта и импортировать его в стороннем окружении {{ datalens-name }} — в {{ datalens-name }} Open Source или {{ datalens-name }} Enterprise.
+* Скачать JSON-файл для экспорта и импортировать его в стороннем окружении {{ datalens-name }} — в {{ datalens-name }} Open Source или {{ datalens-name }} On-premises.
 
 {% note info %}
 
