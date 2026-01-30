@@ -1,5 +1,5 @@
 ---
-title: Deleting a {{ OS }} cluster
+title: Deleting an {{ OS }} cluster
 description: You can delete an {{ OS }} cluster if you no longer need it. All data in the cluster will be deleted. In the management console, select the folder where you want to delete a cluster.
 keywords:
   - Creating an OpenSearch cluster
@@ -13,7 +13,7 @@ You can delete an {{ OS }} cluster if you no longer need it. All data in the clu
 
 ## Before deleting a cluster {#before-you-delete}
 
-* If deletion protection is on for the cluster, [disable it](update.md).
+* [Disable deletion protection](update.md) for the cluster if it is enabled.
 * [Save the cluster ID](cluster-list.md#list-clusters).
 
 {% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
@@ -55,7 +55,7 @@ You can delete an {{ OS }} cluster if you no longer need it. All data in the clu
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Call the [Cluster.Delete](../api-ref/Cluster/delete.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
+  1. Call the [Cluster.Delete](../api-ref/Cluster/delete.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
       ```bash
       curl \
@@ -73,7 +73,7 @@ You can delete an {{ OS }} cluster if you no longer need it. All data in the clu
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Call the [ClusterService.Delete](../api-ref/grpc/Cluster/delete.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
+  1. Call the [ClusterService.Delete](../api-ref/grpc/Cluster/delete.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
       ```bash
       grpcurl \

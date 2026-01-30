@@ -1,6 +1,6 @@
 ---
 title: Connecting to an {{ OS }} cluster in {{ mos-full-name }}
-description: You can connect to {{ OS }} cluster hosts with the DATA role via the internet if you have set up public access to the host of interest and from {{ yandex-cloud }} VMs residing in the same virtual network.
+description: You can connect to {{ OS }} cluster hosts with the DATA role over the internet if you have set up public access to the host of interest, and from {{ yandex-cloud }} VMs residing in the same virtual network.
 keywords:
   - connecting OpenSearch clusters
   - OpenSearch cluster
@@ -11,9 +11,9 @@ keywords:
 
 You can connect to {{ mos-name }} cluster hosts with the `DATA` [role](../concepts/host-roles.md#data):
 
-* Over the internet, if you configured public access for the appropriate host group.
+* Over the internet, if you configured public access to the host group you need.
 
-* Over the internet using a [special FQDN](#special-fqdns) if you configured public access for the host group with the `DASHBOARDS` [role](../concepts/host-roles.md#dashboards).
+* Over the internet using a [special FQDN](#special-fqdns) if you configured public access to the host group with the `DASHBOARDS` [role](../concepts/host-roles.md#dashboards).
 
 
 * From {{ yandex-cloud }} VMs residing in the same [virtual network](../../vpc/concepts/network.md).
@@ -37,7 +37,7 @@ To use an encrypted connection, get an SSL certificate:
 
 To connect to a host, you need its fully qualified domain name ([FQDN](../concepts/network.md#hostname)). You can use the FQDN of a particular host in the cluster or a [special FQDN](#special-fqdns) always pointing to the available host with the `DASHBOARDS` role.
 
-Example of the host FQDN:
+Here is a host FQDN example:
 
 ```text
 {{ host-name }}.{{ dns-zone }}
@@ -45,33 +45,33 @@ Example of the host FQDN:
 
 ### Getting a host FQDN {#get-fqdn}
 
-You can obtain the {{ OS }} host FQDN by doing one of the following:
+There are several ways to get an {{ OS }} host FQDN:
 
 * Look up the FQDN in the management console:
 
     1. Navigate to the cluster page.
-    1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
     1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
 * In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
 
-* [Request a list of cluster hosts](host-groups.md#list-hosts) using the CLI or API.
+* [Get the list of cluster hosts](host-groups.md#list-hosts) using the CLI or API.
 
 ### Special FQDN {#special-fqdns}
 
 An FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format always points to the available {{ OS }} host with the `DASHBOARDS` role in the cluster. You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-You can connect to hosts with the `DATA` role using a special FQDN with port `9200`. In which case the load balancer located on the host with the `DASHBOARDS` role will redirect the request to one of the hosts with the `DATA` role using the [Round-Robin](https://en.wikipedia.org/wiki/Round-robin_scheduling) balancing algorithm. To make such connection scheme work, the cluster must have at least one host with the `DASHBOARDS` role.
+You can connect to hosts with the `DATA` role using a special FQDN with port `9200`. In which case the load balancer located on the host with the `DASHBOARDS` role will redirect the request to one of the hosts with the `DATA` role using the [round-robin](https://en.wikipedia.org/wiki/Round-robin_scheduling) scheduling algorithm. To implement this connection scheme, your cluster must have at least one host with the `DASHBOARDS` role.
 
 You can use a special FQDN to send requests to a specific host group with the `DATA` role. To do this, add the `X-Yandex-OpenSearch-NodeGroup=<host_group_name>` header to the request.
 
-You can request the name of the host group with [cluster details](cluster-list.md#get-cluster).
+You can get the name of the host group with [cluster details](cluster-list.md#get-cluster).
 
-In clusters with multiple `DATA ` or `DASHBOARDS` hosts, a special FQDN may temporarily point to an unavailable host (for up to 10 minutes). This is because it takes time to update DNS record for special FQDNs. If your request fails, returning an error, repeat it later.
+In clusters with multiple `DATA ` or `DASHBOARDS` hosts, a special FQDN may temporarily point to an unavailable host (for up to 10 minutes). This is because it takes time to update DNS records for special FQDNs. If your request returns an error, repeat it later.
 
 {% note warning %}
 
-Use special FQDN-based connections only for processes that can cope with indexes being unavailable for writing for up to 10 minutes.
+Use special FQDN-based connections only for processes that allow for indexes being not available for writing for up to 10 minutes.
 
 {% endnote %}
 
@@ -80,21 +80,21 @@ Use special FQDN-based connections only for processes that can cope with indexes
 
 You can connect to {{ OS }} Dashboards:
 
-* Over the internet if public access is enabled for a host with the `DASHBOARDS` role.
-* Via a VM instance in {{ yandex-cloud }} if public access is not enabled for any of your hosts with the `DASHBOARDS` role.
+* Over the internet, if public access is enabled for a host with the `DASHBOARDS` role.
+* From a VM in {{ yandex-cloud }}, if public access is not enabled for any of your hosts with the `DASHBOARDS` role.
 
 {% list tabs group=connection_method %}
 
 - Over the internet {#internet}
 
-    1. Install the [SSL certificate](#ssl-certificate) in your browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
+    1. Install the [SSL certificate](#ssl-certificate) in your browser's store of trusted root certificates (see the instructions for Mozilla Firefox [here](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate)).
     1. On the cluster page in the management console, click **OpenSearch Dashboards** or go to `https://c-<cluster_ID>.rw.{{ dns-zone }}>` in your browser.
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. Enter `admin` for username and the password you set when [creating the cluster](cluster-create.md).
+    1. Enter `admin` for the username and the password you set when [creating the cluster](cluster-create.md).
 
-- From a VM in {{ yandex-cloud }} {#cloud}
+- From a {{ yandex-cloud }} VM {#cloud}
 
     1. [Create](../../compute/quickstart/quick-create-linux.md) a Linux VM in the same [virtual network](../../vpc/concepts/network.md) as the cluster.
     1. [Connect](../../compute/operations/vm-connect/ssh.md) to the virtual machine over SSH.
@@ -142,7 +142,7 @@ You can connect to {{ OS }} Dashboards:
 
        {% note warning %}
 
-       This configuration file example uses a self-signed `snakeoil` certificate from the `ssl-cert` package. It is not safe to use this certificate in a real cluster. Instead of the self-signed certificate, specify the path to your public and private SSL certificate keys in the `ssl_certificate` and `ssl_certificate_key` directives.
+       This configuration file example uses a self-signed `snakeoil` certificate from the `ssl-cert` package. It is not safe to use this certificate in a real cluster. Instead, specify the path to your public and private SSL certificate keys in the `ssl_certificate` and `ssl_certificate_key` directives.
 
        {% endnote %}
 
@@ -152,7 +152,7 @@ You can connect to {{ OS }} Dashboards:
        sudo systemctl restart nginx
        ```
 
-    1. Add the certificate specified in the `ssl_certificate` directive to the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
+    1. Add the certificate specified in the `ssl_certificate` directive to the browser's trusted root certificate store (see the instructions for Mozilla Firefox [here](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate)).
 
     1. In your browser, go to `https://<VM_public_IP_address>`.
 
@@ -165,14 +165,14 @@ You can connect to {{ OS }} Dashboards:
 
 When using the {{ OS }} Dashboards API:
 
-* To send requests, use `{{ port-https }}` for port instead of the standard `5601`.
-* Add the SSL certificate path to your application's configuration to use the API.
+* To send requests, use `{{ port-https }}` instead of the standard port `5601`.
+* To use the API, add the SSL certificate path to your application's configuration.
 
 {% endnote %}
 
 ## Before you connect from a Docker container {#connection-docker}
 
-To connect to a {{ mos-name }} cluster from a Docker container, add the following lines to the Dockerfile:
+To connect to a {{ mos-name }} cluster from a Docker container, add the following lines to your Dockerfile:
 
 {% list tabs group=connection %}
 
@@ -185,7 +185,7 @@ To connect to a {{ mos-name }} cluster from a Docker container, add the followin
     ```
 
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     ```bash
     RUN apt-get update && \
@@ -202,7 +202,7 @@ To connect to a {{ mos-name }} cluster from a Docker container, add the followin
 
 Before connecting, [prepare a certificate](#ssl-cetificate).
 
-To connect, enter `admin` for username and the password you set when [creating the cluster](cluster-create.md#create-cluster).
+To connect, enter `admin` for the username and the password you set when [creating the cluster](cluster-create.md#create-cluster).
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 

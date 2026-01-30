@@ -1,9 +1,9 @@
 #### How are {{ OS }} clusters maintained? {#service-window}
 
-In {{ mos-short-name }}, maintenance implies:
+Maintenance in {{ mos-short-name }} includes:
 
 * Automatic installation of {{ OS }} updates and fixes for your hosts.
-* Changes to the host class and storage size.
+* Changes in the host class and storage size.
 * Other {{ mos-short-name }} maintenance activities.
 
 For more information, see [Maintenance](../../managed-opensearch/concepts/maintenance.md).
@@ -20,17 +20,17 @@ Automatic backups are stored for two weeks.
 
 #### What happens when a new {{ OS }} version is released? {#new-version}
 
-When a new minor version is released, the cluster software is [automatically updated](../../managed-opensearch/concepts/update-policy.md) after testing. Clusters with an unsupported {{ OS }} version will also be updated automatically.
+When a new version is released, the cluster software is [automatically updated](../../managed-opensearch/concepts/update-policy.md) after testing. Clusters running on an {{ OS }} version that is no longer supported will also be automatically updated.
 
-The owner of the affected clusters will receive a notice of expected work times and database availability.
+Owners of affected clusters will receive a notice of expected update times and database availability.
 
 {% include [logs](../logs.md) %}
 
 {% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}
 
-#### How do I set up an alert that triggers as soon as a certain percentage of disk space has been used up? {#disk-space-percentage}
+#### How do I set up an alert that triggers as soon as a certain percentage of disk space is used up? {#disk-space-percentage}
 
-[Create an alert](../../managed-opensearch/operations/monitoring.md#monitoring-integration) with the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mos-name }} cluster.
+[Create an alert](../../managed-opensearch/operations/monitoring.md#monitoring-integration) for the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mos-name }} cluster.
 
 For `disk.used_bytes`, use notification thresholds. Their recommended values are as follows:
 
@@ -42,11 +42,11 @@ Thresholds are set in bytes only. For example, the recommended values for a 100�
 * `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96636764160` bytes (90%).
 * `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85899345920` bytes (80%).
 
-#### Why is my cluster slow even though there are still some computing resources to spare? {#throttling}
+#### Why is my cluster slow even though the computing resources are not fully utilized? {#throttling}
 
 {% include [throttling](../throttling.md) %}
 
-To increase the maximum IOPS and bandwidth values and make throttling less likely, increase the storage size or switch to a faster disk type by [restoring the cluster](../../managed-opensearch/operations/cluster-backups.md#restore) from a backup.
+To increase the maximum IOPS and bandwidth values and make throttling less likely, expand the storage or switch to a faster disk type by [restoring the cluster](../../managed-opensearch/operations/cluster-backups.md#restore) from a backup.
 
 #### Can I connect to cluster hosts over SSH or get superuser privileges on hosts? {#connect-ssh}
 
@@ -60,18 +60,18 @@ Here is the full text of the error:
 curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
 The revocation function was unable to check revocation for the certificate
 ```
-This means, when connecting to the website, the service was unable to check whether or not its certificate was listed among revoked ones.
+This means that when connecting to the website, the service was unable to check whether its certificate was listed among the revoked ones.
 
 To fix this error:
 
-* Make sure the corporate network settings do not block the check.
+* Make sure your corporate network policies are not blocking the verification.
 * Run the following command with the `--ssl-no-revoke` parameter:
 
    ```powershell
    mkdir $HOME\.opensearch; curl --ssl-no-revoke --output $HOME\.opensearch\root.crt {{ crt-web-path }}
    ```
 
-#### How can I fix the no permission error when assigning a service account to a cluster? {#attach-service-account}
+#### How can I fix the no permission error when attaching a service account to a cluster? {#attach-service-account}
 
 {% include notitle [attach-sa](../../_qa/attach-sa.md) %}
 
@@ -87,6 +87,6 @@ This error occurs if the transfer is activated in or from a custom {{ OS }} inst
 
 To fix this error, specify a subnet ID in the {{ OS }} endpoint settings, even if the source and target can access each other without the internet.
 
-#### What is {{ mos-short-name }}'s share of database management and maintenance work? {#services}
+#### What is the role of {{ mos-short-name }} in database management and maintenance? {#services}
 
 {% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}

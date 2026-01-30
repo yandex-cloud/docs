@@ -14,7 +14,7 @@ description: Follow this guide to move host groups in a {{ mos-full-name }} clus
 
    1. In the [management console]({{ link-console-main }}), navigate to the folder page.
    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
-   1. Locate the cluster you need in the list, click its name, and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
+   1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
    1. In the row with the host group, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Edit**.
    1. In the **Host placement** field, select the target availability zone for the clusters and remove the source zone.
    1. Click **{{ ui-key.yacloud.common.save }}**.

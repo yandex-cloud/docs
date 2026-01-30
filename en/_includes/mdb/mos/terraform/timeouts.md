@@ -2,15 +2,15 @@
 
 The {{ TF }} provider sets the following timeouts for {{ mos-name }} cluster operations:
 
-* Creating a cluster, including restoring from a backup: 30 minutes.
-* Editing a cluster: 60 minutes.
+* Creating a cluster, including by restoring it from a backup: 30 minutes.
+* Updating a cluster: 60 minutes.
 * Deleting a cluster: 15 minutes.
 
-Operations exceeding the set timeout are interrupted.
+Operations exceeding the timeout are aborted.
 
 {% cut "How do I change these limits?" %}
 
-Add the `timeouts` block to the cluster description, for example:
+Add a `timeouts` section to the cluster description, e.g.:
 
 ```hcl
 resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {

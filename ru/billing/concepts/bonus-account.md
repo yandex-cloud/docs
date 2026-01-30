@@ -10,6 +10,19 @@
 
 {% include [currency](../_includes/currency.md) %}
 
+## Просмотр полученных грантов {#how-to-view}
+
+{% list tabs group=instructions %}
+
+- {{ billing-interface }} {#billing}
+
+  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Выберите платежный аккаунт из списка.
+  1. На странице **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** в блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.section_grants }}** нажмите ![image](../../_assets/console-icons/chevron-right.svg) **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.action_show-all }}**.
+  1. На странице **{{ ui-key.yacloud_billing.billing.account.offers.label_title }}** на вкладке **{{ ui-key.yacloud_billing.billing.account.offers.value_grants }}** отобразится информация обо всех полученных грантах.
+
+{% endlist %}
+
 ## Стартовый грант {#start}
 
 {% include [grant-amount](../../getting-started/_includes/grant-amount.md) %}
