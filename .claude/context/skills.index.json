@@ -1,0 +1,63 @@
+{
+  "skills": [
+    {
+      "id": "yandex-cloud",
+      "name": "Yandex Cloud Expert",
+      "version": "2.0.0",
+      "archetype": "infra",
+      "status": "active",
+      "path": ".claude/skills/yandex-cloud",
+      "entrypoint": ".claude/skills/yandex-cloud/scripts/skill-run.sh",
+      "capabilities": [
+        "analyze",
+        "build",
+        "test",
+        "deploy",
+        "monitor",
+        "troubleshoot",
+        "optimize",
+        "document"
+      ],
+      "agents": [
+        "docs-indexer",
+        "resource-analyzer",
+        "cost-optimizer",
+        "security-auditor"
+      ],
+      "bus_topics": [
+        "yc.request",
+        "yc.results",
+        "yc.metrics",
+        "yc.docs.updated",
+        "yc.errors"
+      ],
+      "created": "2025-11-19T00:00:00Z",
+      "updated": "2025-11-19T00:00:00Z",
+      "docs": {
+        "readme": ".claude/skills/yandex-cloud/README.md",
+        "official": [
+          {
+            "name": "Yandex Cloud Documentation",
+            "url": "https://yandex.cloud/docs",
+            "last_checked": "2025-11-19"
+          },
+          {
+            "name": "Yandex Cloud CLI",
+            "url": "https://yandex.cloud/docs/cli/",
+            "last_checked": "2025-11-19"
+          },
+          {
+            "name": "Terraform Yandex Provider",
+            "url": "https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs",
+            "last_checked": "2025-11-19"
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "last_updated": "2025-11-19T00:00:00Z",
+    "total_skills": 1
+  }
+}
