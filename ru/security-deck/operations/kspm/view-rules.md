@@ -5,7 +5,7 @@ description: В данном разделе вы узнаете, как можн
 
 # Посмотреть правила контроля {{ k8s }}
 
-{% include [note-preview-kspm](../../../_includes/security-deck/note-preview-kspm.md) %}
+{% include [note-preview](../../../_includes/note-preview.md) %}
 
 Для просмотра правил контроля {{ k8s }} необходима роль `security-deck.viewer` или выше на каталог, в котором находятся ресурсы модуля KSPM.
 

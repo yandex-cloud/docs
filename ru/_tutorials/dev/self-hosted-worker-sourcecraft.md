@@ -53,7 +53,7 @@
 ## Подготовьтесь к работе {#prepare}
 
 1. {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
-1. Аутентифицируйтесь в {{ src-name }} на [главной странице]({{ link-src-main }}) сервиса или [зарегистрируйтесь]({{ link-src-docs }}/sourcecraft/security/registration.md).
+1. Аутентифицируйтесь в {{ src-name }} на [главной странице]({{ link-src-main }}) сервиса или [зарегистрируйтесь]({{ link-src-docs }}/sourcecraft/security/registration).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -193,7 +193,7 @@
 
 ### Сконфигурируйте базовые параметры CI/CD {#base-config}
 
-CI/CD-процесс [настраивается]({{ link-src-docs }}/sourcecraft/operations/ci-cd) в файле `.sourcecraft/ci.yaml`. 
+CI/CD-процесс [настраивается]({{ link-src-docs }}/sourcecraft/operations/ci-cd) в файле `.sourcecraft/ci.yaml`.
 
 Представленная [конфигурация CI/CD]({{ link-src-docs }}/sourcecraft/ci-cd-ref/) состоит из следующих [рабочих процессов]({{ link-src-docs }}/sourcecraft/ci-cd-ref/workflows):
 * `create-vm` — создает ВМ с пользовательским воркером.
@@ -213,7 +213,7 @@ CI/CD-процесс [настраивается]({{ link-src-docs }}/sourcecraf
 Конфигурация ВМ для пользовательского воркера задается в блоке переменных `env` в файле `.sourcecraft/ci.yaml`:
 * `COMPUTE_INSTANCE_NAME` — название и имя хоста ВМ, например `self-hosted-worker`.
 * `VPC_SUBNET_NAME` — название подсети, созданной ранее, в которой будет размещена ВМ, например `default-ru-central1-d`.
-* `CREATE_BOOT_DISK` — [образ диска](../../compute/concepts/image.md), из которого будет создана ВМ, например `image-folder-id=standard-images,image-family=ubuntu-2204-lts` (Ubuntu 22.04 LTS). См. также [{#T}](../../compute/operations/images-with-pre-installed-software/get-list.md).
+* `CREATE_BOOT_DISK` — [образ диска](../../compute/concepts/image.md), из которого будет создана ВМ, например `image-folder-id=standard-images,image-family=ubuntu-2204-lts` (Ubuntu 22.04 LTS). См. также [Получить список публичных образов](../../compute/operations/images-with-pre-installed-software/get-list.md).
 * `PLATFORM` — [платформа](../../compute/concepts/vm-platforms.md) ВМ, например `standard-v3`.
 * `MEMORY` — количество RAM, например `64GB`.
 * `CORES` — количество ядер vCPU, например `8`.
@@ -320,7 +320,7 @@ write_files:
 ## См. также {#see-also}
 
 * [Настроить пользовательский воркер для {{ src-name }}]({{ link-src-docs }}/sourcecraft/operations/self-hosted-worker)
-* [{#T}](../../compute/operations/vm-create/create-with-cloud-init-scripts.md)
-* [{#T}](../../compute/operations/images-with-pre-installed-software/get-list.md)
-* [{#T}](../../compute/concepts/vm-platforms.md)
-* [{#T}](../../compute/concepts/performance-levels.md)
+* [Создать виртуальную машину с пользовательским скриптом конфигурации](../../compute/operations/vm-create/create-with-cloud-init-scripts.md)
+* [Получить список публичных образов](../../compute/operations/images-with-pre-installed-software/get-list.md)
+* [Платформы](../../compute/concepts/vm-platforms.md)
+* [Уровни производительности vCPU](../../compute/concepts/performance-levels.md)

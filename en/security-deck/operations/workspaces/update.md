@@ -5,7 +5,7 @@ description: In this guide, you will learn how to update a workspace in {{ sd-fu
 
 # Updating a {{ sd-name }} workspace and its components
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
+{% include [note-preview](../../../_includes/note-preview.md) %}
 
 ## Updating a {{ sd-full-name }} workspace
 

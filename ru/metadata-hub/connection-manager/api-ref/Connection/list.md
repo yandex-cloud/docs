@@ -8,48 +8,67 @@ apiPlayground:
       type: object
       properties:
         folderId:
-          description: '**string**'
+          description: |-
+            **string**
+            ID of the folder to list connections in.
           type: string
         mdbClusterId:
-          description: '**string**'
+          description: |-
+            **string**
+            ID of the managed database cluster to filter connections.
           type: string
         pageSize:
-          description: '**string** (int64)'
+          description: |-
+            **string** (int64)
+            Maximum number of results per page.
           type: string
           format: int64
         pageToken:
-          description: '**string**'
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListConnectionResponse.nextPageToken](#yandex.cloud.connectionmanager.v1.ListConnectionResponse) returned by a previous list request.
           type: string
         namePatternOrId:
-          description: '**string**'
+          description: |-
+            **string**
+            Filter by connection name pattern or exact ID.
           type: string
         authorId:
-          description: '**string**'
+          description: |-
+            **string**
+            ID of the connection author to filter by.
           type: string
         withCanUse:
-          description: '**boolean**'
+          description: |-
+            **boolean**
+            Include only connections that the current user can use.
           type: boolean
         isOnpremise:
-          description: '**boolean**'
+          description: |-
+            **boolean**
+            Filter by whether connections are on-premise.
           type: boolean
         isManual:
-          description: '**boolean**'
+          description: |-
+            **boolean**
+            Filter by whether connections are manually configured.
           type: boolean
         dbType:
           description: |-
             **enum** (DBType)
-            - `DB_TYPE_UNSPECIFIED`
-            - `POSTGRESQL`
-            - `MYSQL`
-            - `CLICKHOUSE`
-            - `MONGODB`
-            - `KAFKA`
-            - `REDIS`
-            - `OPENSEARCH`
-            - `TRINO`
-            - `VALKEY`
-            - `GREENPLUM`
-            - `STOREDOC`
+            Filter connections by database type.
+            - `POSTGRESQL`: PostgreSQL database.
+            - `MYSQL`: MySQL database.
+            - `CLICKHOUSE`: ClickHouse database.
+            - `MONGODB`: MongoDB database.
+            - `KAFKA`: Apache Kafka message broker.
+            - `REDIS`: Redis in-memory data store.
+            - `OPENSEARCH`: OpenSearch search engine.
+            - `TRINO`: Trino distributed SQL query engine.
+            - `VALKEY`: Valkey in-memory data store.
+            - `GREENPLUM`: Greenplum data warehouse.
+            - `STOREDOC`: StoreDoc document store.
           type: string
           enum:
             - DB_TYPE_UNSPECIFIED
@@ -72,7 +91,7 @@ sourcePath: en/_api-ref/connectionmanager/v1/connection-manager/api-ref/Connecti
 
 # Connection Manager API, REST: Connection.List
 
-List connections in specified folder.
+Retrieves the list of connections in the specified folder.
 
 ## HTTP request
 
@@ -82,31 +101,53 @@ GET https://connman.{{ api-host }}/v1/connections
 
 ## Query parameters {#yandex.cloud.connectionmanager.v1.ListConnectionRequest}
 
+Request message for listing connections.
+
 #|
 ||Field | Description ||
-|| folderId | **string** ||
-|| mdbClusterId | **string** ||
-|| pageSize | **string** (int64) ||
-|| pageToken | **string** ||
-|| namePatternOrId | **string** ||
-|| authorId | **string** ||
-|| withCanUse | **boolean** ||
-|| isOnpremise | **boolean** ||
-|| isManual | **boolean** ||
+|| folderId | **string**
+
+ID of the folder to list connections in. ||
+|| mdbClusterId | **string**
+
+ID of the managed database cluster to filter connections. ||
+|| pageSize | **string** (int64)
+
+Maximum number of results per page. ||
+|| pageToken | **string**
+
+Page token. To get the next page of results, set `page_token` to the
+[ListConnectionResponse.nextPageToken](#yandex.cloud.connectionmanager.v1.ListConnectionResponse) returned by a previous list request. ||
+|| namePatternOrId | **string**
+
+Filter by connection name pattern or exact ID. ||
+|| authorId | **string**
+
+ID of the connection author to filter by. ||
+|| withCanUse | **boolean**
+
+Include only connections that the current user can use. ||
+|| isOnpremise | **boolean**
+
+Filter by whether connections are on-premise. ||
+|| isManual | **boolean**
+
+Filter by whether connections are manually configured. ||
 || dbType | **enum** (DBType)
 
-- `DB_TYPE_UNSPECIFIED`
-- `POSTGRESQL`
-- `MYSQL`
-- `CLICKHOUSE`
-- `MONGODB`
-- `KAFKA`
-- `REDIS`
-- `OPENSEARCH`
-- `TRINO`
-- `VALKEY`
-- `GREENPLUM`
-- `STOREDOC` ||
+Filter connections by database type.
+
+- `POSTGRESQL`: PostgreSQL database.
+- `MYSQL`: MySQL database.
+- `CLICKHOUSE`: ClickHouse database.
+- `MONGODB`: MongoDB database.
+- `KAFKA`: Apache Kafka message broker.
+- `REDIS`: Redis in-memory data store.
+- `OPENSEARCH`: OpenSearch search engine.
+- `TRINO`: Trino distributed SQL query engine.
+- `VALKEY`: Valkey in-memory data store.
+- `GREENPLUM`: Greenplum data warehouse.
+- `STOREDOC`: StoreDoc document store. ||
 |#
 
 ## Response {#yandex.cloud.connectionmanager.v1.ListConnectionResponse}
@@ -693,6 +734,11 @@ GET https://connman.{{ api-host }}/v1/connections
         "newestVersion": "string"
       },
       // end of the list of possible fields
+      // Includes only one of the fields `lockboxSecretSpec`
+      "lockboxSecretSpec": {
+        "folderId": "string"
+      },
+      // end of the list of possible fields
       "isManaged": "boolean",
       "canUse": "boolean"
     }
@@ -701,19 +747,37 @@ GET https://connman.{{ api-host }}/v1/connections
 }
 ```
 
+Response message for listing connections.
+
 #|
 ||Field | Description ||
-|| connection[] | **[Connection](#yandex.cloud.connectionmanager.v1.Connection)** ||
-|| nextPageToken | **string** ||
+|| connection[] | **[Connection](#yandex.cloud.connectionmanager.v1.Connection)**
+
+List of connections in the specified folder. ||
+|| nextPageToken | **string**
+
+Token for getting the next page of the list. If the number of results is greater than
+the specified [ListConnectionRequest.pageSize](#yandex.cloud.connectionmanager.v1.ListConnectionRequest), use `next_page_token` as the value
+for the [ListConnectionRequest.pageToken](#yandex.cloud.connectionmanager.v1.ListConnectionRequest) parameter in the next list request.
+
+Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
 ## Connection {#yandex.cloud.connectionmanager.v1.Connection}
 
+A Connection resource represents a configured connection to a database or service.
+
 #|
 ||Field | Description ||
-|| id | **string** ||
-|| folderId | **string** ||
+|| id | **string**
+
+ID of the connection. Generated at creation time. ||
+|| folderId | **string**
+
+ID of the folder that the connection belongs to. ||
 || createdAt | **string** (date-time)
+
+Creation timestamp.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -723,61 +787,134 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || updatedAt | **string** (date-time)
 
+Last update timestamp.
+
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
 
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| name | **string** ||
-|| description | **string** ||
-|| labels | **object** (map<**string**, **string**>) ||
-|| createdBy | **string** ||
-|| params | **[ConnectionParams](#yandex.cloud.connectionmanager.v1.ConnectionParams)** ||
+|| name | **string**
+
+Name of the connection. ||
+|| description | **string**
+
+Description of the connection. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Connection labels as `key:value` pairs. ||
+|| createdBy | **string**
+
+ID of the subject which created the connection. ||
+|| params | **[ConnectionParams](#yandex.cloud.connectionmanager.v1.ConnectionParams)**
+
+Connection parameters specific to the database or service type. ||
 || lockboxSecret | **[LockboxSecret](#yandex.cloud.connectionmanager.v1.LockboxSecret)**
 
-Includes only one of the fields `lockboxSecret`. ||
-|| isManaged | **boolean** ||
-|| canUse | **boolean** ||
+Reference to the Lockbox secret containing connection credentials.
+
+Includes only one of the fields `lockboxSecret`.
+
+Secret configuration for authentication. ||
+|| lockboxSecretSpec | **[LockboxSecretSpec](#yandex.cloud.connectionmanager.v1.LockboxSecretSpec)**
+
+Specification for creating a new Lockbox secret.
+
+Includes only one of the fields `lockboxSecretSpec`.
+
+Secret specification for creating a new secret. ||
+|| isManaged | **boolean**
+
+Whether this connection is managed by the system (e.g. an MDB cluster). ||
+|| canUse | **boolean**
+
+Whether the current user can use this connection. Filled only when `with_can_use` has been requested in ListConnectionRequest. ||
 |#
 
 ## ConnectionParams {#yandex.cloud.connectionmanager.v1.ConnectionParams}
+
+Connection parameters for various database and service types.
 
 #|
 ||Field | Description ||
 || postgresql | **[PostgreSQLConnection](#yandex.cloud.connectionmanager.v1.PostgreSQLConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+PostgreSQL database connection parameters.
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+
+Database or service connection configuration. ||
 || mysql | **[MySQLConnection](#yandex.cloud.connectionmanager.v1.MySQLConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+MySQL database connection parameters.
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+
+Database or service connection configuration. ||
 || mongodb | **[MongoDBConnection](#yandex.cloud.connectionmanager.v1.MongoDBConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+MongoDB database connection parameters.
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+
+Database or service connection configuration. ||
 || clickhouse | **[ClickHouseConnection](#yandex.cloud.connectionmanager.v1.ClickHouseConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+ClickHouse database connection parameters.
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+
+Database or service connection configuration. ||
 || kafka | **[KafkaConnection](#yandex.cloud.connectionmanager.v1.KafkaConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+Apache Kafka message broker connection parameters.
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+
+Database or service connection configuration. ||
 || redis | **[RedisConnection](#yandex.cloud.connectionmanager.v1.RedisConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+Redis in-memory data store connection parameters.
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+
+Database or service connection configuration. ||
 || opensearch | **[OpenSearchConnection](#yandex.cloud.connectionmanager.v1.OpenSearchConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+OpenSearch search engine connection parameters.
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+
+Database or service connection configuration. ||
 || trino | **[TrinoConnection](#yandex.cloud.connectionmanager.v1.TrinoConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+Trino distributed SQL query engine connection parameters.
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+
+Database or service connection configuration. ||
 || valkey | **[ValkeyConnection](#yandex.cloud.connectionmanager.v1.ValkeyConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+Valkey in-memory data store connection parameters.
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+
+Database or service connection configuration. ||
 || greenplum | **[GreenplumConnection](#yandex.cloud.connectionmanager.v1.GreenplumConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+Greenplum data warehouse connection parameters.
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+
+Database or service connection configuration. ||
 || storedoc | **[StoreDocConnection](#yandex.cloud.connectionmanager.v1.StoreDocConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+StoreDoc document store connection parameters.
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+
+Database or service connection configuration. ||
 |#
 
 ## PostgreSQLConnection {#yandex.cloud.connectionmanager.v1.PostgreSQLConnection}
@@ -812,18 +949,15 @@ mutually exclusive with "cluster". ||
 || port | **string** (int64) ||
 || role | **enum** (Role)
 
-- `ROLE_UNSPECIFIED`
 - `MASTER`
 - `REPLICA` ||
 || replicaType | **enum** (ReplicaType)
 
-- `REPLICA_TYPE_UNSPECIFIED`
 - `ASYNC`
 - `SYNC`
 - `QUORUM` ||
 || health | **enum** (Health)
 
-- `HEALTH_UNSPECIFIED`
 - `ALIVE`
 - `DEAD`
 - `DEGRADED`
@@ -964,12 +1098,10 @@ mutually exclusive with "cluster". ||
 || port | **string** (int64) ||
 || role | **enum** (Role)
 
-- `ROLE_UNSPECIFIED`
 - `MASTER`
 - `REPLICA` ||
 || health | **enum** (Health)
 
-- `HEALTH_UNSPECIFIED`
 - `ALIVE`
 - `DEAD`
 - `DEGRADED`
@@ -1017,18 +1149,15 @@ mutually exclusive with "cluster". ||
 || port | **string** (int64) ||
 || role | **enum** (Role)
 
-- `ROLE_UNSPECIFIED`
 - `PRIMARY`
 - `SECONDARY` ||
 || health | **enum** (Health)
 
-- `HEALTH_UNSPECIFIED`
 - `ALIVE`
 - `DEAD`
 - `DEGRADED` ||
 || type | **enum** (Type)
 
-- `TYPE_UNSPECIFIED`
 - `MONGOD`
 - `MONGOS`
 - `MONGOINFRA` ||
@@ -1135,7 +1264,6 @@ mutually exclusive with "cluster". ||
 || port | **string** (int64) ||
 || health | **enum** (Health)
 
-- `HEALTH_UNSPECIFIED`: Host is in unknown state (we have no data)
 - `ALIVE`: Host is alive and well (all services are alive)
 - `DEAD`: Host is inoperable (it cannot perform any of its essential functions)
 - `DEGRADED`: Host is partially alive (it can perform some of its essential functions) ||
@@ -1158,7 +1286,6 @@ Includes only one of the fields `sasl`. ||
 || password | **[Password](#yandex.cloud.connectionmanager.v1.Password)** ||
 || supportedMechanisms[] | **enum** (Mechanism)
 
-- `MECHANISM_UNSPECIFIED`
 - `PLAIN`
 - `SCRAM_SHA256`
 - `SCRAM_SHA512` ||
@@ -1190,12 +1317,10 @@ Includes only one of the fields `sasl`. ||
 || port | **string** (int64) ||
 || role | **enum** (Role)
 
-- `ROLE_UNSPECIFIED`
 - `MASTER`
 - `REPLICA` ||
 || health | **enum** (Health)
 
-- `HEALTH_UNSPECIFIED`
 - `ALIVE`
 - `DEAD`
 - `DEGRADED` ||
@@ -1250,14 +1375,12 @@ mutually exclusive with "cluster". ||
 || port | **string** (int64) ||
 || health | **enum** (Health)
 
-- `HEALTH_UNSPECIFIED`
 - `ALIVE`
 - `DEAD`
 - `DEGRADED`
 - `READONLY` ||
 || roles[] | **enum** (GroupRole)
 
-- `GROUP_ROLE_UNSPECIFIED`
 - `DATA`
 - `MANAGER` ||
 |#
@@ -1337,12 +1460,10 @@ mutually exclusive with "cluster". ||
 || port | **string** (int64) ||
 || role | **enum** (Role)
 
-- `ROLE_UNSPECIFIED`
 - `MASTER`
 - `REPLICA` ||
 || health | **enum** (Health)
 
-- `HEALTH_UNSPECIFIED`
 - `ALIVE`
 - `DEAD`
 - `DEGRADED` ||
@@ -1398,12 +1519,10 @@ mutually exclusive with "cluster". ||
 || port | **string** (int64) ||
 || role | **enum** (Role)
 
-- `ROLE_UNSPECIFIED`
 - `MASTER`
 - `REPLICA` ||
 || health | **enum** (Health)
 
-- `HEALTH_UNSPECIFIED`
 - `ALIVE`
 - `DEAD`
 - `DEGRADED`
@@ -1451,18 +1570,15 @@ exclusive with "cluster". ||
 || port | **string** (int64) ||
 || role | **enum** (Role)
 
-- `ROLE_UNSPECIFIED`
 - `PRIMARY`
 - `SECONDARY` ||
 || health | **enum** (Health)
 
-- `HEALTH_UNSPECIFIED`
 - `ALIVE`
 - `DEAD`
 - `DEGRADED` ||
 || type | **enum** (Type)
 
-- `TYPE_UNSPECIFIED`
 - `MONGOD`
 - `MONGOS`
 - `MONGOINFRA` ||
@@ -1480,9 +1596,28 @@ Includes only one of the fields `userPassword`. ||
 
 ## LockboxSecret {#yandex.cloud.connectionmanager.v1.LockboxSecret}
 
+Reference to a Lockbox secret.
+
 #|
 ||Field | Description ||
-|| id | **string** ||
-|| version | **string** ||
-|| newestVersion | **string** ||
+|| id | **string**
+
+ID of the Lockbox secret. ||
+|| version | **string**
+
+Lockbox secret version. ||
+|| newestVersion | **string**
+
+The newest available version of the Lockbox secret. ||
+|#
+
+## LockboxSecretSpec {#yandex.cloud.connectionmanager.v1.LockboxSecretSpec}
+
+Specification for creating a new Lockbox secret.
+
+#|
+||Field | Description ||
+|| folderId | **string**
+
+ID of the folder where the Lockbox secret will be created. If omitted, the secret will be created in the connection's folder. ||
 |#

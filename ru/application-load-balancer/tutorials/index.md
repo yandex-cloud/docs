@@ -5,6 +5,7 @@ description: Различные сценарии использования {{ a
 
 # Практические руководства {{ alb-name }}
 
+* [{#T}](testing-zone-failure-for-alb.md)
 * [{#T}](virtual-hosting.md)
 * [{#T}](alb-with-ddos-protection/index.md)
 * [{#T}](alb-ingress-with-sws-profile.md)

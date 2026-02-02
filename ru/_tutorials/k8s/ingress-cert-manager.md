@@ -158,7 +158,7 @@
     spec:
       acme:
         server: https://acme-v02.api.letsencrypt.org/directory
-        email: <ваш_email>
+        email: <электронная_почта_для_уведомлений_от_Lets_Encrypt>
         privateKeySecretRef:
           name: http01-clusterissuer-secret
         solvers:

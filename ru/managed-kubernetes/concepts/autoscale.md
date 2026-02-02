@@ -66,4 +66,3 @@
 * [{#T}](../tutorials/autoscaling.md)
 * [{#T}](../tutorials/vpa-autoscaling.md)
 * [{#T}](../tutorials/load-testing-grpc-autoscaling.md)
-* [{#T}](../tutorials/cert-manager-webhook.md)

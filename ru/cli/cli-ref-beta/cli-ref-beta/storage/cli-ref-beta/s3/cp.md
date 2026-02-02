@@ -102,10 +102,10 @@ The maximum number of concurrent requests. ||
 || `--max-queue-size` | `int`
 
 The maximum number of tasks in the task queue. ||
-|| `--multipart-chunksize` | `string`
+|| `--multipart-chunksize` | `bytes`
 
 When using multipart transfers, this is the chunk size that the CLI uses for multipart transfers of individual files. ||
-|| `--multipart-threshold` | `string`
+|| `--multipart-threshold` | `bytes`
 
 The size threshold the CLI uses for multipart transfers of individual files. ||
 |#

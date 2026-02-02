@@ -5,7 +5,7 @@ description: Контроль {{ k8s }}® (KSPM) контролирует соо
 
 # Контроль {{ k8s }}® (KSPM)
 
-{% include [note-preview-kspm](../../_includes/security-deck/note-preview-kspm.md) %}
+{% include [note-preview](../../_includes/note-preview.md) %}
 
 {% include [kpsm-requirements](../../_includes/security-deck/kpsm-requirements.md) %}
 

@@ -79,12 +79,6 @@ Let’s assume you set up scanning a bucket with 50 text files, their overall si
 
 ### Kubernetes® Security Posture Management (KSPM) {#kspm-pricing}
 
-{% note warning %}
-
-These prices apply starting February 2, 2026.
-
-{% endnote %}
-
 
 
 {% include notitle [usd.md](../_pricing/security-deck/kspm/usd.md) %}

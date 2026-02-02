@@ -234,8 +234,8 @@ async def main():
                     "Если спрашивают о погоде — вызывай функцию get_weather."
                     "При вопросе про {голосовой профилировщик} - обращайся к функции file_search"
                 ),
-                # Конфигурация формата ответа: в ответе может быть и текст, и звук
-                "output_modalities": ["text", "audio"],
+                # Конфигурация формата ответа: в ответе может быть только звук (audio) или текст (text)  
+                "output_modalities": ["audio"], # пример для аудио
                 "audio": {
                     "input": {
                         # Формат входящего аудио
@@ -408,15 +408,7 @@ async def main():
 
                     # Запрос нового ответа агента
                     log("отправляем response.create после функции")
-                    await ws.send_json(
-                        {
-                            "type": "response.create",
-                            "response": {
-                                "modalities": ["audio", "text"],
-                                "conversation": "default",
-                            },
-                        }
-                    )
+                    await ws.send_json({"type": "response.create"}) 
                 continue
 
             # Обработка ошибок

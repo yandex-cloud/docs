@@ -537,6 +537,29 @@ apiPlayground:
               **boolean**
               Use the redirect target domain as a Host header, or leave it the same as the value of the Change Host header option.
             type: boolean
+      WebsocketsOption:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              Enables or disables feature.
+            type: boolean
+      HeaderFilterOption:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              Enables or disables feature.
+            type: boolean
+          headers:
+            description: |-
+              **string**
+              Whitelist of headers.
+            type: array
+            items:
+              type: string
       ResourceOptions:
         type: object
         properties:
@@ -670,6 +693,17 @@ apiPlayground:
               Manage the state of the Redirection from origin option.
               If the source returns a redirect, the option lets CDN pull the requested content from the source that was returned in the redirect.
             $ref: '#/definitions/FollowRedirectsOption'
+          websockets:
+            description: |-
+              **[WebsocketsOption](#yandex.cloud.cdn.v1.ResourceOptions.WebsocketsOption)**
+              Configuration for WebSocket protocol support.
+            $ref: '#/definitions/WebsocketsOption'
+          headerFilter:
+            description: |-
+              **[HeaderFilterOption](#yandex.cloud.cdn.v1.ResourceOptions.HeaderFilterOption)**
+              Configuration for HTTP response header filtering.
+              This feature allows controlling which headers from the origin are passed to end users.
+            $ref: '#/definitions/HeaderFilterOption'
       SSLCertificateCMData:
         type: object
         properties:
@@ -921,6 +955,15 @@ POST https://cdn.{{ api-host }}/cdn/v1/resources
         "string"
       ],
       "useCustomHost": "boolean"
+    },
+    "websockets": {
+      "enabled": "boolean"
+    },
+    "headerFilter": {
+      "enabled": "boolean",
+      "headers": [
+        "string"
+      ]
     }
   },
   "sslCertificate": {
@@ -1189,6 +1232,13 @@ The option controls access to content from the specified IP addresses. ||
 
 Manage the state of the Redirection from origin option.
 If the source returns a redirect, the option lets CDN pull the requested content from the source that was returned in the redirect. ||
+|| websockets | **[WebsocketsOption](#yandex.cloud.cdn.v1.ResourceOptions.WebsocketsOption)**
+
+Configuration for WebSocket protocol support. ||
+|| headerFilter | **[HeaderFilterOption](#yandex.cloud.cdn.v1.ResourceOptions.HeaderFilterOption)**
+
+Configuration for HTTP response header filtering.
+This feature allows controlling which headers from the origin are passed to end users. ||
 |#
 
 ## BoolOption {#yandex.cloud.cdn.v1.ResourceOptions.BoolOption}
@@ -1488,6 +1538,27 @@ Add the redirect HTTP status codes that the source returns. ||
 Use the redirect target domain as a Host header, or leave it the same as the value of the Change Host header option. ||
 |#
 
+## WebsocketsOption {#yandex.cloud.cdn.v1.ResourceOptions.WebsocketsOption}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enables or disables feature. ||
+|#
+
+## HeaderFilterOption {#yandex.cloud.cdn.v1.ResourceOptions.HeaderFilterOption}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enables or disables feature. ||
+|| headers[] | **string**
+
+Whitelist of headers. ||
+|#
+
 ## SSLTargetCertificate {#yandex.cloud.cdn.v1.SSLTargetCertificate}
 
 A set of the personal SSL certificate parameters.
@@ -1717,6 +1788,15 @@ ID of the custom certificate. ||
           "string"
         ],
         "useCustomHost": "boolean"
+      },
+      "websockets": {
+        "enabled": "boolean"
+      },
+      "headerFilter": {
+        "enabled": "boolean",
+        "headers": [
+          "string"
+        ]
       }
     },
     "secondaryHostnames": [
@@ -2010,6 +2090,13 @@ The option controls access to content from the specified IP addresses. ||
 
 Manage the state of the Redirection from origin option.
 If the source returns a redirect, the option lets CDN pull the requested content from the source that was returned in the redirect. ||
+|| websockets | **[WebsocketsOption](#yandex.cloud.cdn.v1.ResourceOptions.WebsocketsOption2)**
+
+Configuration for WebSocket protocol support. ||
+|| headerFilter | **[HeaderFilterOption](#yandex.cloud.cdn.v1.ResourceOptions.HeaderFilterOption2)**
+
+Configuration for HTTP response header filtering.
+This feature allows controlling which headers from the origin are passed to end users. ||
 |#
 
 ## BoolOption {#yandex.cloud.cdn.v1.ResourceOptions.BoolOption2}
@@ -2307,6 +2394,27 @@ Add the redirect HTTP status codes that the source returns. ||
 || useCustomHost | **boolean**
 
 Use the redirect target domain as a Host header, or leave it the same as the value of the Change Host header option. ||
+|#
+
+## WebsocketsOption {#yandex.cloud.cdn.v1.ResourceOptions.WebsocketsOption2}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enables or disables feature. ||
+|#
+
+## HeaderFilterOption {#yandex.cloud.cdn.v1.ResourceOptions.HeaderFilterOption2}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enables or disables feature. ||
+|| headers[] | **string**
+
+Whitelist of headers. ||
 |#
 
 ## SSLCertificate {#yandex.cloud.cdn.v1.SSLCertificate}

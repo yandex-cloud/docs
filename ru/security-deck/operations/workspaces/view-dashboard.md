@@ -5,7 +5,7 @@ description: Из этой инструкции вы узнаете, как по
 
 # Посмотреть дашборд и операции с окружением {{ sd-name }}
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
+{% include [note-preview](../../../_includes/note-preview.md) %}
 
 ## Посмотреть дашборд {#view-dashboard}
 

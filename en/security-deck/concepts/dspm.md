@@ -7,6 +7,12 @@ description: Data Security Posture Management, or {{ dspm-name }}, is a {{ sd-na
 
 [Data Security Posture Management]({{ link-sd-main }}dspm/), or {{ dspm-name }}, is a tool that helps quickly detect sensitive information stored in {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md) and on {{ yandex-360 }} disks for timely actions to protect it by configuring [access policies](../../storage/concepts/policy.md), anonymizing data, etc.
 
+{% note info %}
+
+Disk scanning in {{ yandex-360 }} is in the [Preview](../../overview/concepts/launch-stages.md) stage. To get access, contact [tech support]({{ link-console-support }}) or your account manager.
+
+{% endnote %}
+
 ## Scanning for sensitive information {#scanning}
 
 {{ dspm-name }} scans _data sources_ for sensitive information in buckets. You can run a scan once or on a schedule.

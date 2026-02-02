@@ -595,6 +595,32 @@ scale-type -> (oneof<auto-scale|fixed-scale>)
 || `--version` | `string`
 
 Version of Kubernetes components that runs on the nodes. ||
+|| `--workload-identity-federation` | `shorthand/json`
+
+Workload Identity Federation parameters of the node group.
+
+Shorthand Syntax:
+
+```hcl
+{
+  enabled = bool
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "enabled": "bool"
+}
+```
+
+Fields:
+
+```
+enabled -> (bool)
+  Identifies whether Workload Identity Federation is enabled.
+``` ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

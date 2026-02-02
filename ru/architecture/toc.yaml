@@ -9,4 +9,8 @@ items:
       yandex-cloud }}
     href: app-in-k8s.md
   - name: Тестирование отказоустойчивости в {{ yandex-cloud }}
-    href: testing-zone-failure.md
+    items:
+      - name: Тестирование инфраструктуры на основе {{ alb-name }}
+        href: testing-zone-failure-for-alb.md
+      - name: Тестирование инфраструктуры на основе {{ network-load-balancer-name }}
+        href: testing-zone-failure.md
