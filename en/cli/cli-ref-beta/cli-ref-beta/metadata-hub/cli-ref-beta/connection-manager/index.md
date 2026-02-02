@@ -18,19 +18,19 @@ Syntax:
 
 - [yc beta metadata-hub connection-manager connection](connection/index.md) — A set of methods for managing Connection resources.
 
-  - [yc beta metadata-hub connection-manager connection create](connection/create.md) — Creates connection.
+  - [yc beta metadata-hub connection-manager connection create](connection/create.md) — Creates a connection.
 
-  - [yc beta metadata-hub connection-manager connection delete](connection/delete.md) — Delete specified connection.
+  - [yc beta metadata-hub connection-manager connection delete](connection/delete.md) — Deletes the specified connection.
 
-  - [yc beta metadata-hub connection-manager connection get](connection/get.md) — Returns connection.
+  - [yc beta metadata-hub connection-manager connection get](connection/get.md) — Returns the specified connection.
 
-  - [yc beta metadata-hub connection-manager connection list](connection/list.md) — List connections in specified folder.
+  - [yc beta metadata-hub connection-manager connection list](connection/list.md) — Retrieves the list of connections in the specified folder.
 
-  - [yc beta metadata-hub connection-manager connection list-operations](connection/list-operations.md) — Retrieves the list of Operation resources for the specified connection.
+  - [yc beta metadata-hub connection-manager connection list-operations](connection/list-operations.md) — Lists operations for the specified connection.
 
   - [yc beta metadata-hub connection-manager connection resolve-cluster](connection/resolve-cluster.md) — Returns the connection with the resolved cluster; that is,
 
-  - [yc beta metadata-hub connection-manager connection update](connection/update.md) — Updates specified connection.
+  - [yc beta metadata-hub connection-manager connection update](connection/update.md) — Updates the specified connection.
 
 #### Global Flags
 

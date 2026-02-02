@@ -7,7 +7,7 @@ description: This section describes how to get started with {{ sd-name }} and ma
 
 {{ sd-name }} offers tools for data security and compliance with regulatory requirements and industry standards.
 
-{% include [note-preview-by-request](../_includes/note-preview-by-request.md) %}
+{% include [note-service-preview](../_includes/note-service-preview.md) %}
 
 ## Getting started {#before-begin}
 

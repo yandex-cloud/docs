@@ -5,7 +5,7 @@ description: Сервис {{ sd-name }} представляет собой CNAP
 
 # Обзор {{ sd-full-name }}
 
-{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
+{% include [note-service-preview](../../_includes/note-service-preview.md) %}
 
 {{ sd-full-name }} — это комплексный сервис CNAPP, модули которого позволяют обнаруживать уязвимости, отслеживать и защищать доступ к данным, а также контролировать соблюдение нормативных актов и отраслевых стандартов.
 

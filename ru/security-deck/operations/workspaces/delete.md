@@ -5,7 +5,7 @@ description: Из этой инструкции вы узнаете, как уд
 
 # Удалить окружение {{ sd-name }}
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
+{% include [note-preview](../../../_includes/note-preview.md) %}
 
 Чтобы удалить [окружение](../../concepts/workspace.md) {{ sd-name }}:
 

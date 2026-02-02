@@ -5,7 +5,7 @@ description: '{{ alerts-name }} provides a single interface for information on s
 
 # About {{ alerts-name }}
 
-{% include [preview-by-request](../../_includes/note-preview-by-request.md) %}
+{% include [note-preview](../../_includes/note-preview.md) %}
 
 {{ alerts-name }} in {{ sd-full-name }} provides a single interface for viewing _alerts_, which are special documents containing notifications or warnings about security issues, such as infrastructure attacks, vulnerabilities, unsafe configurations, leaks, and incidents. This module provides additional information about each alert, a list of affected resources, the source of the alert, and tips on how to resolve the issue.
 

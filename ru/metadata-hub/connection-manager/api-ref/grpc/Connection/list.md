@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/connectionmanager/v1/connection-manager/api-ref/grp
 
 # Connection Manager API, gRPC: ConnectionService.List
 
-List connections in specified folder.
+Retrieves the list of connections in the specified folder.
 
 ## gRPC request
 
@@ -28,31 +28,53 @@ List connections in specified folder.
 }
 ```
 
+Request message for listing connections.
+
 #|
 ||Field | Description ||
-|| folder_id | **string** ||
-|| mdb_cluster_id | **string** ||
-|| page_size | **int64** ||
-|| page_token | **string** ||
-|| name_pattern_or_id | **string** ||
-|| author_id | **string** ||
-|| with_can_use | **bool** ||
-|| is_onpremise | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
-|| is_manual | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
+|| folder_id | **string**
+
+ID of the folder to list connections in. ||
+|| mdb_cluster_id | **string**
+
+ID of the managed database cluster to filter connections. ||
+|| page_size | **int64**
+
+Maximum number of results per page. ||
+|| page_token | **string**
+
+Page token. To get the next page of results, set `page_token` to the
+[ListConnectionResponse.next_page_token](#yandex.cloud.connectionmanager.v1.ListConnectionResponse) returned by a previous list request. ||
+|| name_pattern_or_id | **string**
+
+Filter by connection name pattern or exact ID. ||
+|| author_id | **string**
+
+ID of the connection author to filter by. ||
+|| with_can_use | **bool**
+
+Include only connections that the current user can use. ||
+|| is_onpremise | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Filter by whether connections are on-premise. ||
+|| is_manual | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Filter by whether connections are manually configured. ||
 || db_type | enum **DBType**
 
-- `DB_TYPE_UNSPECIFIED`
-- `POSTGRESQL`
-- `MYSQL`
-- `CLICKHOUSE`
-- `MONGODB`
-- `KAFKA`
-- `REDIS`
-- `OPENSEARCH`
-- `TRINO`
-- `VALKEY`
-- `GREENPLUM`
-- `STOREDOC` ||
+Filter connections by database type.
+
+- `POSTGRESQL`: PostgreSQL database.
+- `MYSQL`: MySQL database.
+- `CLICKHOUSE`: ClickHouse database.
+- `MONGODB`: MongoDB database.
+- `KAFKA`: Apache Kafka message broker.
+- `REDIS`: Redis in-memory data store.
+- `OPENSEARCH`: OpenSearch search engine.
+- `TRINO`: Trino distributed SQL query engine.
+- `VALKEY`: Valkey in-memory data store.
+- `GREENPLUM`: Greenplum data warehouse.
+- `STOREDOC`: StoreDoc document store. ||
 |#
 
 ## ListConnectionResponse {#yandex.cloud.connectionmanager.v1.ListConnectionResponse}
@@ -649,6 +671,11 @@ List connections in specified folder.
         "newest_version": "string"
       },
       // end of the list of possible fields
+      // Includes only one of the fields `lockbox_secret_spec`
+      "lockbox_secret_spec": {
+        "folder_id": "string"
+      },
+      // end of the list of possible fields
       "is_managed": "bool",
       "can_use": "google.protobuf.BoolValue"
     }
@@ -657,69 +684,160 @@ List connections in specified folder.
 }
 ```
 
+Response message for listing connections.
+
 #|
 ||Field | Description ||
-|| connection[] | **[Connection](#yandex.cloud.connectionmanager.v1.Connection)** ||
-|| next_page_token | **string** ||
+|| connection[] | **[Connection](#yandex.cloud.connectionmanager.v1.Connection)**
+
+List of connections in the specified folder. ||
+|| next_page_token | **string**
+
+Token for getting the next page of the list. If the number of results is greater than
+the specified [ListConnectionRequest.page_size](#yandex.cloud.connectionmanager.v1.ListConnectionRequest), use `next_page_token` as the value
+for the [ListConnectionRequest.page_token](#yandex.cloud.connectionmanager.v1.ListConnectionRequest) parameter in the next list request.
+
+Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
 ## Connection {#yandex.cloud.connectionmanager.v1.Connection}
 
+A Connection resource represents a configured connection to a database or service.
+
 #|
 ||Field | Description ||
-|| id | **string** ||
-|| folder_id | **string** ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| name | **string** ||
-|| description | **string** ||
-|| labels | **object** (map<**string**, **string**>) ||
-|| created_by | **string** ||
-|| params | **[ConnectionParams](#yandex.cloud.connectionmanager.v1.ConnectionParams)** ||
+|| id | **string**
+
+ID of the connection. Generated at creation time. ||
+|| folder_id | **string**
+
+ID of the folder that the connection belongs to. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Creation timestamp. ||
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Last update timestamp. ||
+|| name | **string**
+
+Name of the connection. ||
+|| description | **string**
+
+Description of the connection. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Connection labels as `key:value` pairs. ||
+|| created_by | **string**
+
+ID of the subject which created the connection. ||
+|| params | **[ConnectionParams](#yandex.cloud.connectionmanager.v1.ConnectionParams)**
+
+Connection parameters specific to the database or service type. ||
 || lockbox_secret | **[LockboxSecret](#yandex.cloud.connectionmanager.v1.LockboxSecret)**
 
-Includes only one of the fields `lockbox_secret`. ||
-|| is_managed | **bool** ||
-|| can_use | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
+Reference to the Lockbox secret containing connection credentials.
+
+Includes only one of the fields `lockbox_secret`.
+
+Secret configuration for authentication. ||
+|| lockbox_secret_spec | **[LockboxSecretSpec](#yandex.cloud.connectionmanager.v1.LockboxSecretSpec)**
+
+Specification for creating a new Lockbox secret.
+
+Includes only one of the fields `lockbox_secret_spec`.
+
+Secret specification for creating a new secret. ||
+|| is_managed | **bool**
+
+Whether this connection is managed by the system (e.g. an MDB cluster). ||
+|| can_use | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Whether the current user can use this connection. Filled only when `with_can_use` has been requested in ListConnectionRequest. ||
 |#
 
 ## ConnectionParams {#yandex.cloud.connectionmanager.v1.ConnectionParams}
+
+Connection parameters for various database and service types.
 
 #|
 ||Field | Description ||
 || postgresql | **[PostgreSQLConnection](#yandex.cloud.connectionmanager.v1.PostgreSQLConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+PostgreSQL database connection parameters.
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+
+Database or service connection configuration. ||
 || mysql | **[MySQLConnection](#yandex.cloud.connectionmanager.v1.MySQLConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+MySQL database connection parameters.
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+
+Database or service connection configuration. ||
 || mongodb | **[MongoDBConnection](#yandex.cloud.connectionmanager.v1.MongoDBConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+MongoDB database connection parameters.
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+
+Database or service connection configuration. ||
 || clickhouse | **[ClickHouseConnection](#yandex.cloud.connectionmanager.v1.ClickHouseConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+ClickHouse database connection parameters.
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+
+Database or service connection configuration. ||
 || kafka | **[KafkaConnection](#yandex.cloud.connectionmanager.v1.KafkaConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+Apache Kafka message broker connection parameters.
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+
+Database or service connection configuration. ||
 || redis | **[RedisConnection](#yandex.cloud.connectionmanager.v1.RedisConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+Redis in-memory data store connection parameters.
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+
+Database or service connection configuration. ||
 || opensearch | **[OpenSearchConnection](#yandex.cloud.connectionmanager.v1.OpenSearchConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+OpenSearch search engine connection parameters.
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+
+Database or service connection configuration. ||
 || trino | **[TrinoConnection](#yandex.cloud.connectionmanager.v1.TrinoConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+Trino distributed SQL query engine connection parameters.
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+
+Database or service connection configuration. ||
 || valkey | **[ValkeyConnection](#yandex.cloud.connectionmanager.v1.ValkeyConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+Valkey in-memory data store connection parameters.
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+
+Database or service connection configuration. ||
 || greenplum | **[GreenplumConnection](#yandex.cloud.connectionmanager.v1.GreenplumConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+Greenplum data warehouse connection parameters.
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+
+Database or service connection configuration. ||
 || storedoc | **[StoreDocConnection](#yandex.cloud.connectionmanager.v1.StoreDocConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+StoreDoc document store connection parameters.
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+
+Database or service connection configuration. ||
 |#
 
 ## PostgreSQLConnection {#yandex.cloud.connectionmanager.v1.PostgreSQLConnection}
@@ -754,18 +872,15 @@ mutually exclusive with "cluster". ||
 || port | **int64** ||
 || role | enum **Role**
 
-- `ROLE_UNSPECIFIED`
 - `MASTER`
 - `REPLICA` ||
 || replica_type | enum **ReplicaType**
 
-- `REPLICA_TYPE_UNSPECIFIED`
 - `ASYNC`
 - `SYNC`
 - `QUORUM` ||
 || health | enum **Health**
 
-- `HEALTH_UNSPECIFIED`
 - `ALIVE`
 - `DEAD`
 - `DEGRADED`
@@ -909,12 +1024,10 @@ mutually exclusive with "cluster". ||
 || port | **int64** ||
 || role | enum **Role**
 
-- `ROLE_UNSPECIFIED`
 - `MASTER`
 - `REPLICA` ||
 || health | enum **Health**
 
-- `HEALTH_UNSPECIFIED`
 - `ALIVE`
 - `DEAD`
 - `DEGRADED`
@@ -962,18 +1075,15 @@ mutually exclusive with "cluster". ||
 || port | **int64** ||
 || role | enum **Role**
 
-- `ROLE_UNSPECIFIED`
 - `PRIMARY`
 - `SECONDARY` ||
 || health | enum **Health**
 
-- `HEALTH_UNSPECIFIED`
 - `ALIVE`
 - `DEAD`
 - `DEGRADED` ||
 || type | enum **Type**
 
-- `TYPE_UNSPECIFIED`
 - `MONGOD`
 - `MONGOS`
 - `MONGOINFRA` ||
@@ -1080,7 +1190,6 @@ mutually exclusive with "cluster". ||
 || port | **int64** ||
 || health | enum **Health**
 
-- `HEALTH_UNSPECIFIED`: Host is in unknown state (we have no data)
 - `ALIVE`: Host is alive and well (all services are alive)
 - `DEAD`: Host is inoperable (it cannot perform any of its essential functions)
 - `DEGRADED`: Host is partially alive (it can perform some of its essential functions) ||
@@ -1106,7 +1215,6 @@ Includes only one of the fields `sasl`, `disabled`. ||
 || password | **[Password](#yandex.cloud.connectionmanager.v1.Password)** ||
 || supported_mechanisms[] | enum **Mechanism**
 
-- `MECHANISM_UNSPECIFIED`
 - `PLAIN`
 - `SCRAM_SHA256`
 - `SCRAM_SHA512` ||
@@ -1138,12 +1246,10 @@ Includes only one of the fields `sasl`, `disabled`. ||
 || port | **int64** ||
 || role | enum **Role**
 
-- `ROLE_UNSPECIFIED`
 - `MASTER`
 - `REPLICA` ||
 || health | enum **Health**
 
-- `HEALTH_UNSPECIFIED`
 - `ALIVE`
 - `DEAD`
 - `DEGRADED` ||
@@ -1198,14 +1304,12 @@ mutually exclusive with "cluster". ||
 || port | **int64** ||
 || health | enum **Health**
 
-- `HEALTH_UNSPECIFIED`
 - `ALIVE`
 - `DEAD`
 - `DEGRADED`
 - `READONLY` ||
 || roles[] | enum **GroupRole**
 
-- `GROUP_ROLE_UNSPECIFIED`
 - `DATA`
 - `MANAGER` ||
 |#
@@ -1285,12 +1389,10 @@ mutually exclusive with "cluster". ||
 || port | **int64** ||
 || role | enum **Role**
 
-- `ROLE_UNSPECIFIED`
 - `MASTER`
 - `REPLICA` ||
 || health | enum **Health**
 
-- `HEALTH_UNSPECIFIED`
 - `ALIVE`
 - `DEAD`
 - `DEGRADED` ||
@@ -1346,12 +1448,10 @@ mutually exclusive with "cluster". ||
 || port | **int64** ||
 || role | enum **Role**
 
-- `ROLE_UNSPECIFIED`
 - `MASTER`
 - `REPLICA` ||
 || health | enum **Health**
 
-- `HEALTH_UNSPECIFIED`
 - `ALIVE`
 - `DEAD`
 - `DEGRADED`
@@ -1399,18 +1499,15 @@ exclusive with "cluster". ||
 || port | **int64** ||
 || role | enum **Role**
 
-- `ROLE_UNSPECIFIED`
 - `PRIMARY`
 - `SECONDARY` ||
 || health | enum **Health**
 
-- `HEALTH_UNSPECIFIED`
 - `ALIVE`
 - `DEAD`
 - `DEGRADED` ||
 || type | enum **Type**
 
-- `TYPE_UNSPECIFIED`
 - `MONGOD`
 - `MONGOS`
 - `MONGOINFRA` ||
@@ -1428,9 +1525,28 @@ Includes only one of the fields `user_password`. ||
 
 ## LockboxSecret {#yandex.cloud.connectionmanager.v1.LockboxSecret}
 
+Reference to a Lockbox secret.
+
 #|
 ||Field | Description ||
-|| id | **string** ||
-|| version | **string** ||
-|| newest_version | **string** ||
+|| id | **string**
+
+ID of the Lockbox secret. ||
+|| version | **string**
+
+Lockbox secret version. ||
+|| newest_version | **string**
+
+The newest available version of the Lockbox secret. ||
+|#
+
+## LockboxSecretSpec {#yandex.cloud.connectionmanager.v1.LockboxSecretSpec}
+
+Specification for creating a new Lockbox secret.
+
+#|
+||Field | Description ||
+|| folder_id | **string**
+
+ID of the folder where the Lockbox secret will be created. If omitted, the secret will be created in the connection's folder. ||
 |#

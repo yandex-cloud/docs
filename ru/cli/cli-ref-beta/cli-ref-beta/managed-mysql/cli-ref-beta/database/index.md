@@ -25,6 +25,8 @@ Syntax:
 
 - [yc beta managed-mysql database list](list.md) — Retrieves the list of databases in a cluster.
 
+- [yc beta managed-mysql database update](update.md) — Updates the specified database.
+
 #### Global Flags
 
 #|

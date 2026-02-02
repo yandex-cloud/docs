@@ -5,7 +5,7 @@ description: Из этой инструкции вы узнаете, как из
 
 # Изменить окружение {{ sd-name }} и его компоненты
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
+{% include [note-preview](../../../_includes/note-preview.md) %}
 
 ## Изменить окружение {#update-workspace}
 

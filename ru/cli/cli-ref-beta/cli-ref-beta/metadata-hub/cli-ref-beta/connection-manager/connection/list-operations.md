@@ -6,7 +6,7 @@ sourcePath: en/_cli-ref-beta/cli-ref-beta/metadata-hub/cli-ref-beta/connection-m
 
 # yc beta metadata-hub connection-manager connection list-operations
 
-Retrieves the list of Operation resources for the specified connection.
+Lists operations for the specified connection.
 
 #### Command Usage
 
@@ -20,13 +20,13 @@ Syntax:
 ||Flag | Description ||
 || `--connection-id` | `string`
 
- ||
+ID of the connection to list operations for. ||
 || `--page-size` | `int`
 
- ||
+Maximum number of results per page. ||
 || `--page-token` | `string`
 
- ||
+Token for getting the next page of results. ||
 |#
 
 #### Global Flags

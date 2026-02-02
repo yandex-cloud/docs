@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/connectionmanager/v1/connection-manager/api-ref/grp
 
 # Connection Manager API, gRPC: ConnectionService.Delete
 
-Delete specified connection.
+Deletes the specified connection.
 
 ## gRPC request
 
@@ -19,9 +19,13 @@ Delete specified connection.
 }
 ```
 
+Request message for deleting a connection.
+
 #|
 ||Field | Description ||
-|| connection_id | **string** ||
+|| connection_id | **string**
+
+ID of the connection to delete. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -98,6 +102,8 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
 ## DeleteConnectionMetadata {#yandex.cloud.connectionmanager.v1.DeleteConnectionMetadata}
+
+Metadata for the connection deletion operation.
 
 #|
 ||Field | Description ||

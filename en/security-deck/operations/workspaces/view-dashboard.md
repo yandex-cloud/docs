@@ -5,7 +5,7 @@ description: In this guide, you will learn how to view a dashboard and operation
 
 # Viewing the workspace dashboard and operations in {{ sd-name }}
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
+{% include [note-preview](../../../_includes/note-preview.md) %}
 
 ## Viewing a dashboard {#view-dashboard}
 

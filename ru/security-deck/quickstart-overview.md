@@ -7,7 +7,7 @@ description: В данном разделе описано, как начать 
 
 Сервис {{ sd-name }} предлагает инструменты для обеспечения безопасности данных и соответствия нормативным требованиям и отраслевым стандартам.
 
-{% include [note-preview-by-request](../_includes/note-preview-by-request.md) %}
+{% include [note-service-preview](../_includes/note-service-preview.md) %}
 
 ## Перед началом работы {#before-begin}
 

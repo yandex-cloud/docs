@@ -69,7 +69,9 @@ sourcePath: en/_events-ref/audit/compute/events-ref/UpdateHostGroup.md
       }
       // end of the list of possible fields
     },
-    "updateMask": "string"
+    "updateMask": "string",
+    "description": "string",
+    "labels": "object"
   },
   "requestParameters": "object",
   "response": "object"
@@ -227,6 +229,8 @@ the field's value will be reset to the default. The default value for most field
 If `` updateMask `` is not sent in the request, all fields' values will be updated.
 Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
+|| description | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 |#
 
 ## ScalePolicy {#yandex.cloud.compute.v1.ScalePolicy}

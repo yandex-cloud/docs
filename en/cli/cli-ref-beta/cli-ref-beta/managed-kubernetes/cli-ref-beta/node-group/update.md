@@ -608,6 +608,32 @@ specifier -> (oneof<latest-revision|version>)
   latest-revision -> (bool)
     Request update to the latest revision for the current version.
 ``` ||
+|| `--workload-identity-federation` | `shorthand/json`
+
+Workload Identity Federation parameters of the node group.
+
+Shorthand Syntax:
+
+```hcl
+{
+  enabled = bool
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "enabled": "bool"
+}
+```
+
+Fields:
+
+```
+enabled -> (bool)
+  Identifies whether Workload Identity Federation is enabled.
+``` ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

@@ -42,6 +42,7 @@ Description of Workflow. ||
 || `--folder-id` | `string`
 
 ID of the folder to create Workflow in. ||
+|| `--is-public` | Ability of the Workflow to be executed without authentication. ||
 || `--labels` | `stringToString`
 
 Workflow labels as 'key:value' pairs. ||

@@ -5,7 +5,7 @@ description: '{{ k8s }}® Security Posture Management (KSPM) ensures that contai
 
 # {{ k8s }}® Security Posture Management (KSPM)
 
-{% include [note-preview-kspm](../../_includes/security-deck/note-preview-kspm.md) %}
+{% include [note-preview](../../_includes/note-preview.md) %}
 
 {% include [kpsm-requirements](../../_includes/security-deck/kpsm-requirements.md) %}
 

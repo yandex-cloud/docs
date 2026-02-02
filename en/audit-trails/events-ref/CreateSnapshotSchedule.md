@@ -72,7 +72,9 @@ sourcePath: en/_events-ref/audit/compute/events-ref/CreateSnapshotSchedule.md
     // end of the list of possible fields
     "diskIds": [
       "string"
-    ]
+    ],
+    "description": "string",
+    "labels": "object"
   },
   "requestParameters": "object",
   "response": "object"
@@ -230,6 +232,8 @@ Includes only one of the fields `retentionPeriod`, `snapshotCount`. ||
 
 Includes only one of the fields `retentionPeriod`, `snapshotCount`. ||
 || diskIds[] | **string** ||
+|| description | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 |#
 
 ## SchedulePolicy {#yandex.cloud.compute.v1.SchedulePolicy}

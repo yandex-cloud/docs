@@ -6,7 +6,7 @@ sourcePath: en/_cli-ref-beta/cli-ref-beta/metadata-hub/cli-ref-beta/connection-m
 
 # yc beta metadata-hub connection-manager connection get
 
-Returns connection.
+Returns the specified connection.
 
 #### Command Usage
 
@@ -20,7 +20,7 @@ Syntax:
 ||Flag | Description ||
 || `--connection-id` | `string`
 
- ||
+ID of the connection to retrieve. ||
 |#
 
 #### Global Flags

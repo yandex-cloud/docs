@@ -16,19 +16,19 @@ Syntax:
 
 #### Command Tree
 
-- [yc beta metadata-hub connection-manager connection create](create.md) — Creates connection.
+- [yc beta metadata-hub connection-manager connection create](create.md) — Creates a connection.
 
-- [yc beta metadata-hub connection-manager connection delete](delete.md) — Delete specified connection.
+- [yc beta metadata-hub connection-manager connection delete](delete.md) — Deletes the specified connection.
 
-- [yc beta metadata-hub connection-manager connection get](get.md) — Returns connection.
+- [yc beta metadata-hub connection-manager connection get](get.md) — Returns the specified connection.
 
-- [yc beta metadata-hub connection-manager connection list](list.md) — List connections in specified folder.
+- [yc beta metadata-hub connection-manager connection list](list.md) — Retrieves the list of connections in the specified folder.
 
-- [yc beta metadata-hub connection-manager connection list-operations](list-operations.md) — Retrieves the list of Operation resources for the specified connection.
+- [yc beta metadata-hub connection-manager connection list-operations](list-operations.md) — Lists operations for the specified connection.
 
 - [yc beta metadata-hub connection-manager connection resolve-cluster](resolve-cluster.md) — Returns the connection with the resolved cluster; that is,
 
-- [yc beta metadata-hub connection-manager connection update](update.md) — Updates specified connection.
+- [yc beta metadata-hub connection-manager connection update](update.md) — Updates the specified connection.
 
 #### Global Flags
 

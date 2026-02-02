@@ -5,7 +5,7 @@ description: In this section, you will learn how to create, modify, and delete e
 
 # Managing exceptions to the {{ cspm-name }} module's security control rules
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
+{% include [note-preview](../../../_includes/note-preview.md) %}
 
 {% include [cspm-use-in-workspaces](../../../_includes/security-deck/cspm-use-in-workspaces.md) %}
 

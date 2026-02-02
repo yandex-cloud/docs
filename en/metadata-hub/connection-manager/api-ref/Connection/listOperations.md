@@ -8,14 +8,20 @@ apiPlayground:
       type: object
       properties:
         connectionId:
-          description: '**string**'
+          description: |-
+            **string**
+            ID of the connection to list operations for.
           type: string
         pageSize:
-          description: '**string** (int64)'
+          description: |-
+            **string** (int64)
+            Maximum number of results per page.
           type: string
           format: int64
         pageToken:
-          description: '**string**'
+          description: |-
+            **string**
+            Token for getting the next page of results.
           type: string
       additionalProperties: false
     body: null
@@ -25,7 +31,7 @@ sourcePath: en/_api-ref/connectionmanager/v1/connection-manager/api-ref/Connecti
 
 # Connection Manager API, REST: Connection.ListOperations
 
-Retrieves the list of Operation resources for the specified connection.
+Lists operations for the specified connection.
 
 ## HTTP request
 
@@ -35,11 +41,19 @@ GET https://connman.{{ api-host }}/v1/operations
 
 ## Query parameters {#yandex.cloud.connectionmanager.v1.ListOperationsRequest}
 
+Request message for listing operations of a connection.
+
 #|
 ||Field | Description ||
-|| connectionId | **string** ||
-|| pageSize | **string** (int64) ||
-|| pageToken | **string** ||
+|| connectionId | **string**
+
+ID of the connection to list operations for. ||
+|| pageSize | **string** (int64)
+
+Maximum number of results per page. ||
+|| pageToken | **string**
+
+Token for getting the next page of results. ||
 |#
 
 ## Response {#yandex.cloud.connectionmanager.v1.ListOperationsResponse}
@@ -73,10 +87,16 @@ GET https://connman.{{ api-host }}/v1/operations
 }
 ```
 
+Response message for listing operations of a connection.
+
 #|
 ||Field | Description ||
-|| operations[] | **[Operation](#yandex.cloud.operation.Operation)** ||
-|| nextPageToken | **string** ||
+|| operations[] | **[Operation](#yandex.cloud.operation.Operation)**
+
+List of operations for the specified connection. ||
+|| nextPageToken | **string**
+
+Token for getting the next page of results. ||
 |#
 
 ## Operation {#yandex.cloud.operation.Operation}

@@ -26,7 +26,7 @@ A filter expression that filters resources listed in the response. The expressio
 ID of the folder to list Docker images in. [folder_id] is ignored if a [ListImagesRequest.repository_name] or a [ListImagesRequest.registry_id] are specified in the request. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List] request. ||
 || `--order-by` | `string`
 
- ||
+By which field to sort the results. You can sort by 'name', 'digest', 'created_at', 'last_modified'. To sort results by multiple fields, separate the fields with commas. ||
 || `--page-size` | `int`
 
 The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListImagesResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
