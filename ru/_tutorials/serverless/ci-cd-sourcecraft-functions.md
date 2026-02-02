@@ -78,6 +78,15 @@
 
 {% endlist %}
 
+{% note tip %}
+
+В реальных сценариях для работы функции может понадобиться применение секретов из хранилища [LockBox](../../../lockbox/tutorials/index.md). В этом случае необходимо выдать сервисному аккаунту роли:
+- `iam.serviceAccounts.user`
+- `kms.keys.encrypterDecrypter`
+- `lockbox.payloadViewer`
+
+{% endnote %}
+
 ## Создайте репозиторий {#repository}
 
 Репозиторий будет создан из шаблона [yc-cloud-functions-template]({{ link-src-main }}/sourcecraft/yc-cloud-functions-template). В репозитории будут храниться примеры кода функций для разных языков программирования и фреймворков, а также настройки CI/CD-процесса.
