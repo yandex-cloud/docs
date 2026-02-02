@@ -175,6 +175,15 @@ Update specified by id resource rule.
         "int64"
       ],
       "use_custom_host": "bool"
+    },
+    "websockets": {
+      "enabled": "bool"
+    },
+    "header_filter": {
+      "enabled": "bool",
+      "headers": [
+        "string"
+      ]
     }
   },
   // Includes only one of the fields `weight`
@@ -309,6 +318,13 @@ The option controls access to content from the specified IP addresses. ||
 
 Manage the state of the Redirection from origin option.
 If the source returns a redirect, the option lets CDN pull the requested content from the source that was returned in the redirect. ||
+|| websockets | **[WebsocketsOption](#yandex.cloud.cdn.v1.ResourceOptions.WebsocketsOption)**
+
+Configuration for WebSocket protocol support. ||
+|| header_filter | **[HeaderFilterOption](#yandex.cloud.cdn.v1.ResourceOptions.HeaderFilterOption)**
+
+Configuration for HTTP response header filtering.
+This feature allows controlling which headers from the origin are passed to end users. ||
 |#
 
 ## BoolOption {#yandex.cloud.cdn.v1.ResourceOptions.BoolOption}
@@ -608,6 +624,27 @@ Add the redirect HTTP status codes that the source returns. ||
 Use the redirect target domain as a Host header, or leave it the same as the value of the Change Host header option. ||
 |#
 
+## WebsocketsOption {#yandex.cloud.cdn.v1.ResourceOptions.WebsocketsOption}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Enables or disables feature. ||
+|#
+
+## HeaderFilterOption {#yandex.cloud.cdn.v1.ResourceOptions.HeaderFilterOption}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Enables or disables feature. ||
+|| headers[] | **string**
+
+Whitelist of headers. ||
+|#
+
 ## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
@@ -784,6 +821,15 @@ Use the redirect target domain as a Host header, or leave it the same as the val
           "int64"
         ],
         "use_custom_host": "bool"
+      },
+      "websockets": {
+        "enabled": "bool"
+      },
+      "header_filter": {
+        "enabled": "bool",
+        "headers": [
+          "string"
+        ]
       }
     },
     "weight": "int64"
@@ -987,6 +1033,13 @@ The option controls access to content from the specified IP addresses. ||
 
 Manage the state of the Redirection from origin option.
 If the source returns a redirect, the option lets CDN pull the requested content from the source that was returned in the redirect. ||
+|| websockets | **[WebsocketsOption](#yandex.cloud.cdn.v1.ResourceOptions.WebsocketsOption2)**
+
+Configuration for WebSocket protocol support. ||
+|| header_filter | **[HeaderFilterOption](#yandex.cloud.cdn.v1.ResourceOptions.HeaderFilterOption2)**
+
+Configuration for HTTP response header filtering.
+This feature allows controlling which headers from the origin are passed to end users. ||
 |#
 
 ## BoolOption {#yandex.cloud.cdn.v1.ResourceOptions.BoolOption2}
@@ -1284,4 +1337,25 @@ Add the redirect HTTP status codes that the source returns. ||
 || use_custom_host | **bool**
 
 Use the redirect target domain as a Host header, or leave it the same as the value of the Change Host header option. ||
+|#
+
+## WebsocketsOption {#yandex.cloud.cdn.v1.ResourceOptions.WebsocketsOption2}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Enables or disables feature. ||
+|#
+
+## HeaderFilterOption {#yandex.cloud.cdn.v1.ResourceOptions.HeaderFilterOption2}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Enables or disables feature. ||
+|| headers[] | **string**
+
+Whitelist of headers. ||
 |#

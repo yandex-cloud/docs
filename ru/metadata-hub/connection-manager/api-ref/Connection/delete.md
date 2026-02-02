@@ -7,7 +7,9 @@ apiPlayground:
       type: object
       properties:
         connectionId:
-          description: '**string**'
+          description: |-
+            **string**
+            ID of the connection to delete.
           type: string
       additionalProperties: false
     query: null
@@ -18,7 +20,7 @@ sourcePath: en/_api-ref/connectionmanager/v1/connection-manager/api-ref/Connecti
 
 # Connection Manager API, REST: Connection.Delete
 
-Delete specified connection.
+Deletes the specified connection.
 
 ## HTTP request
 
@@ -28,11 +30,13 @@ DELETE https://connman.{{ api-host }}/v1/connection/{connectionId}
 
 ## Path parameters
 
+Request message for deleting a connection.
+
 #|
 ||Field | Description ||
 || connectionId | **string**
 
-Required field.  ||
+Required field. ID of the connection to delete. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

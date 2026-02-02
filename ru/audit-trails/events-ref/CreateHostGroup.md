@@ -70,7 +70,9 @@ sourcePath: en/_events-ref/audit/compute/events-ref/CreateHostGroup.md
         "size": "string"
       }
       // end of the list of possible fields
-    }
+    },
+    "description": "string",
+    "labels": "object"
   },
   "requestParameters": "object",
   "response": "object"
@@ -220,6 +222,8 @@ A list of messages that carry the error details. ||
 - `RESTART`
 - `MIGRATE` ||
 || scalePolicy | **[ScalePolicy](#yandex.cloud.compute.v1.ScalePolicy)** ||
+|| description | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 |#
 
 ## ScalePolicy {#yandex.cloud.compute.v1.ScalePolicy}

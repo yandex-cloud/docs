@@ -108,6 +108,10 @@ Shorthand Syntax:
       action = container-call={
         body = str,
         container-id = str,
+        forward-headers = {
+          headers = str,...,
+          mode = WHITE_LIST|BLACK_LIST
+        },
         headers = {key=str, key=...},
         method = OPTIONS|GET|HEAD|POST|PUT|PATCH|DELETE|TRACE|CONNECT,
         path = str,
@@ -118,11 +122,19 @@ Shorthand Syntax:
       } | grpc-call={
         body = str,
         endpoint = str,
+        forward-headers = {
+          headers = str,...,
+          mode = WHITE_LIST|BLACK_LIST
+        },
         headers = {key=str, key=...},
         method = str,
         use-service-account = bool
       } | http-call={
         body = str,
+        forward-headers = {
+          headers = str,...,
+          mode = WHITE_LIST|BLACK_LIST
+        },
         headers = {key=str, key=...},
         method = OPTIONS|GET|HEAD|POST|PUT|PATCH|DELETE|TRACE|CONNECT,
         query = {key=str, key=...},
@@ -138,6 +150,10 @@ Shorthand Syntax:
           header-value = str
         } | service-account={} | unauthorized={},
         forward-headers = {key=str, key=...},
+        transfer-headers = {
+          headers = str,...,
+          mode = WHITE_LIST|BLACK_LIST
+        },
         transport = SSE|STREAMABLE,
         url = str
       } | start-workflow={
@@ -163,6 +179,12 @@ JSON Syntax:
         "container-call": {
           "body": "str",
           "container-id": "str",
+          "forward-headers": {
+            "headers": [
+              "str", ...
+            ],
+            "mode": "WHITE_LIST|BLACK_LIST"
+          },
           "headers": {
             "<key>": "str", ...
           },
@@ -179,6 +201,12 @@ JSON Syntax:
         "grpc-call": {
           "body": "str",
           "endpoint": "str",
+          "forward-headers": {
+            "headers": [
+              "str", ...
+            ],
+            "mode": "WHITE_LIST|BLACK_LIST"
+          },
           "headers": {
             "<key>": "str", ...
           },
@@ -187,6 +215,12 @@ JSON Syntax:
         },
         "http-call": {
           "body": "str",
+          "forward-headers": {
+            "headers": [
+              "str", ...
+            ],
+            "mode": "WHITE_LIST|BLACK_LIST"
+          },
           "headers": {
             "<key>": "str", ...
           },
@@ -214,6 +248,12 @@ JSON Syntax:
           },
           "forward-headers": {
             "<key>": "str", ...
+          },
+          "transfer-headers": {
+            "headers": [
+              "str", ...
+            ],
+            "mode": "WHITE_LIST|BLACK_LIST"
           },
           "transport": "SSE|STREAMABLE",
           "url": "str"
@@ -251,6 +291,12 @@ action -> (struct)
         Request body to send to the container.
       container-id -> (string)
         ID of serverless container to call.
+      forward-headers -> (struct)
+        Policy that defines which headers from the incoming request should be forwarded
+        headers -> ([]string)
+          List of HTTP header names to forward. Interpretation depends on the mode: - WHITE_LIST: only these headers will be forwarded (all others are excluded) - BLACK_LIST: all headers except these will be forwarded (these are excluded)
+        mode -> (struct)
+          Mode of header forwarding. Determines how the headers list is interpreted.
       headers -> (map[string,string])
         HTTP headers to include in the request.
       method -> (struct)
@@ -263,6 +309,12 @@ action -> (struct)
       Send HTTP request.
       body -> (string)
         Request body payload.
+      forward-headers -> (struct)
+        Policy that defines which headers from the incoming request should be forwarded
+        headers -> ([]string)
+          List of HTTP header names to forward. Interpretation depends on the mode: - WHITE_LIST: only these headers will be forwarded (all others are excluded) - BLACK_LIST: all headers except these will be forwarded (these are excluded)
+        mode -> (struct)
+          Mode of header forwarding. Determines how the headers list is interpreted.
       headers -> (map[string,string])
         HTTP headers to include.
       method -> (struct)
@@ -277,6 +329,12 @@ action -> (struct)
       Call MCP Gateway.
       forward-headers -> (map[string,string])
         Headers from the incoming request to forward downstream by name.
+      transfer-headers -> (struct)
+        Policy that defines which headers from the incoming request should be forwarded to the HTTP endpoint
+        headers -> ([]string)
+          List of HTTP header names to forward. Interpretation depends on the mode: - WHITE_LIST: only these headers will be forwarded (all others are excluded) - BLACK_LIST: all headers except these will be forwarded (these are excluded)
+        mode -> (struct)
+          Mode of header forwarding. Determines how the headers list is interpreted.
       transport -> (struct)
         Transport to use for MCP communication.
       url -> (string)
@@ -284,6 +342,7 @@ action -> (struct)
       action -> (oneof<tool-call>)
         Oneof action field
         tool-call -> (struct)
+          Tool call action to invoke a specific tool on the MCP endpoint.
           parameters-json -> (string)
             JSON-encoded parameters to pass to the tool.
           tool-name -> (string)
@@ -291,18 +350,27 @@ action -> (struct)
       authorization -> (oneof<header|service-account|unauthorized>)
         Oneof authorization field
         unauthorized -> (struct)
+          No authorization mode.
         header -> (struct)
+          Header-based authorization.
           header-name -> (string)
             Name of the authorization header to send.
           header-value -> (string)
             Value of the authorization header to send.
         service-account -> (struct)
+          Service account authorization.
     grpc-call -> (struct)
       Call gRPC endpoint. Server must support gRPC reflection.
       body -> (string)
         Request body payload for the call.
       endpoint -> (string)
         gRPC server endpoint, e.g., host:port. (required)
+      forward-headers -> (struct)
+        Policy that defines which headers from the incoming request should be forwarded
+        headers -> ([]string)
+          List of HTTP header names to forward. Interpretation depends on the mode: - WHITE_LIST: only these headers will be forwarded (all others are excluded) - BLACK_LIST: all headers except these will be forwarded (these are excluded)
+        mode -> (struct)
+          Mode of header forwarding. Determines how the headers list is interpreted.
       headers -> (map[string,string])
         gRPC/HTTP headers to include with the call.
       method -> (string)

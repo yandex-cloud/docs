@@ -12,7 +12,11 @@ description: В разделе представлена история изме�
 
 # История изменений {{ metadata-hub-full-name }}
 
+## 2026 год {#2026}
 
+### Январь {#jan26}
+
+Параметры подключения к [{{ schema-registry-name }}](../../metadata-hub/concepts/schema-registry.md) теперь можно указывать в настройках источников данных [{{ KF }}](../../data-transfer/operations/endpoint/source/kafka.md) и [{{ yds-name }}](../../data-transfer/operations/endpoint/source/data-streams.md) в сервисе {{ data-transfer-name }}.
 
 ## 2025 год {#2025}
 

@@ -20,6 +20,12 @@ Syntax:
 
 - [yc beta cloud-registry artifact get](get.md) — Returns the specified artifact resource.
 
+- [yc beta cloud-registry artifact list-access-bindings](list-access-bindings.md) — access bindings
+
+- [yc beta cloud-registry artifact set-access-bindings](set-access-bindings.md) — Sets access bindings for the specified artifact (folder, package, artifact, etc).
+
+- [yc beta cloud-registry artifact update-access-bindings](update-access-bindings.md) — Updates access bindings for the specified artifact (folder, package, artifact, etc).
+
 #### Global Flags
 
 #|

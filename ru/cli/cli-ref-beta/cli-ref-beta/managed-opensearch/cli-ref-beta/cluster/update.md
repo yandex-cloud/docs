@@ -152,10 +152,11 @@ opensearch-spec -> (struct)
     Oneof config field
     opensearch-config-2 -> (struct)
       fielddata-cache-size -> (string)
-        the percentage or absolute value (10%, 512mb) of heap space that is allocated to fielddata
+        The maximum size of the field data cache. May be specified as an absolute value (for example, 8GB) or a percentage of the node heap (for example, 50%). This setting is dynamic. If you don't specify this setting, the maximum size is 35%. This value should be smaller than the **indices.breaker.fielddata.limit** Change of the setting is applied with restart. For details, see OpenSearch documentation.
       max-clause-count -> (int)
-        the maximum number of allowed boolean clauses in a query
+        Defines the maximum product of fields and terms that are queryable simultaneously. Before OpenSearch 2.16, a cluster restart was required in order to apply this static setting. Now dynamic, existing search thread pools may use the old static value initially, causing **TooManyClauses** exceptions. New thread pools use the updated value. Default value: **1024**. Change of the setting is applied with restart. For details, see OpenSearch documentation.
       reindex-remote-whitelist -> (string)
+        Allowed remote hosts Change of the setting is applied with restart. For details, see OpenSearch documentation.
 snapshot-management -> (struct)
   Snapshot management configuration
   snapshot-max-age-days -> (int)

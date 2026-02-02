@@ -81,6 +81,8 @@ items:
     items:
       - name: Все практические руководства
         href: tutorials/index.md
+      - name: Тестирование отказоустойчивости в инфраструктуре {{ yandex-cloud }}
+        href: tutorials/testing-zone-failure-for-alb.md
       - name: Организация виртуального хостинга
         href: tutorials/virtual-hosting.md
       - name: Создание L7-балансировщика с защитой от DDoS

@@ -60,7 +60,7 @@
    spec:
      secretName: example-com-secret
      issuerRef:
-       # The issuer created previously
+       # ClusterIssuer, созданный вместе с {{ dns-full-name }} ACME webhook
        name: yc-clusterissuer
        kind: ClusterIssuer
      dnsNames:

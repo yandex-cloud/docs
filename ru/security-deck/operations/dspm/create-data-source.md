@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы узнаете
 
 # Создать источник данных {{ dspm-name }}
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
-
 [Источник данных](../../concepts/dspm.md#data-source) содержит информацию о хранилищах, в которых будет выполняться сканирование, а также дополнительные настройки. В качестве хранилищ доступны [бакеты](../../../storage/concepts/bucket.md) {{ objstorage-full-name }} и [Яндекс Дисков]({{ link-yandex }}/support/yandex-360/business/disk/web/{{ lang }}/index.html) в {{ yandex-360 }}. В одном источнике данных нельзя одновременно использовать хранилища [{{ objstorage-name }}](../../../storage/) и [{{ yandex-360 }}]({{ link-yandex }}/support/yandex-360/business/admin/{{ lang }}/).
 
 Прежде чем начать работать с {{ dspm-name }}, [настройте](../../quickstart-overview.md#configure-sd) каталог по умолчанию для хранения данных сервиса {{ sd-name }}.
@@ -52,6 +50,8 @@ description: Следуя данной инструкции, вы узнаете
 
 
 ## Создать источник данных для {{ yandex-360 }} {#yandex-360}
+
+{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
 {% list tabs group=instructions %}
 

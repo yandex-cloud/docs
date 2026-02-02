@@ -217,7 +217,10 @@ The maximum string length in characters is 1000. ||
           "effect": "Effect"
         }
       ],
-      "node_labels": "map<string, string>"
+      "node_labels": "map<string, string>",
+      "workload_identity_federation": {
+        "enabled": "bool"
+      }
     }
   ],
   "next_page_token": "string"
@@ -307,6 +310,9 @@ Taints that are applied to the nodes of the node group at creation time. ||
 || node_labels | **object** (map<**string**, **string**>)
 
 Labels that are assigned to the nodes of the node group at creation time. ||
+|| workload_identity_federation | **[NodeGroupWorkloadIdentityFederation](#yandex.cloud.k8s.v1.NodeGroupWorkloadIdentityFederation)**
+
+Workload Identity Federation parameters of the node group. ||
 |#
 
 ## NodeTemplate {#yandex.cloud.k8s.v1.NodeTemplate}
@@ -783,4 +789,15 @@ to start, and allow all already-running pods to continue running.
 new pods onto the node, rather than prohibiting new pods from scheduling
 onto the node entirely. Enforced by the scheduler.
 - `NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint. ||
+|#
+
+## NodeGroupWorkloadIdentityFederation {#yandex.cloud.k8s.v1.NodeGroupWorkloadIdentityFederation}
+
+NodeGroupWorkloadIdentityFederation contains configuration for Workload Identity Federation.
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Identifies whether Workload Identity Federation is enabled. ||
 |#

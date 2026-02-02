@@ -22,6 +22,12 @@ Syntax:
 
   - [yc beta cloud-registry artifact get](artifact/get.md) — Returns the specified artifact resource.
 
+  - [yc beta cloud-registry artifact list-access-bindings](artifact/list-access-bindings.md) — access bindings
+
+  - [yc beta cloud-registry artifact set-access-bindings](artifact/set-access-bindings.md) — Sets access bindings for the specified artifact (folder, package, artifact, etc).
+
+  - [yc beta cloud-registry artifact update-access-bindings](artifact/update-access-bindings.md) — Updates access bindings for the specified artifact (folder, package, artifact, etc).
+
 - [yc beta cloud-registry lifecycle-policy](lifecycle-policy/index.md) — A set of methods for managing LifecyclePolicy resources.
 
   - [yc beta cloud-registry lifecycle-policy change-state](lifecycle-policy/change-state.md) — Changes the state of the specified lifecycle policy.

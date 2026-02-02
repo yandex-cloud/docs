@@ -31,6 +31,13 @@ Additional task type of the captcha. Possible Values: 'image-text', 'silhouettes
 
 Complexity of the captcha. Possible Values: 'easy', 'medium', 'hard', 'force-hard' ||
 || `--deletion-protection` | Determines whether captcha is protected from being deleted. ||
+|| `--description` | `string`
+
+Optional description of the captcha. ||
+|| `--disallow-data-processing` | If true, Yandex team won't be able to read internal data. ||
+|| `--labels` | `stringToString`
+
+Resource labels as 'key:value' pairs. ||
 || `--name` | `string`
 
 Name of the captcha. The name must be unique within the folder. ||

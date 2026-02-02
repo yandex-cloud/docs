@@ -46,6 +46,7 @@ Shorthand Syntax:
 
 ```hcl
 {
+  deletion-protection = bool,
   name = str
 }
 ```
@@ -54,6 +55,7 @@ JSON Syntax:
 
 ```json
 {
+  "deletion-protection": "bool",
   "name": "str"
 }
 ```
@@ -61,6 +63,8 @@ JSON Syntax:
 Fields:
 
 ```
+deletion-protection -> (bool)
+  Deletion Protection inhibits deletion of the database Default value: 'false' (protection is disabled)
 name -> (string)
   Name of the database.
 ``` ||

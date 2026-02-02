@@ -96,6 +96,10 @@ Shorthand Syntax:
     enabled = bool,
     use-custom-host = bool
   },
+  header-filter = {
+    enabled = bool,
+    headers = str,...
+  },
   host-options = {
     host-variant = forward-host-header={
       enabled = bool,
@@ -164,6 +168,9 @@ Shorthand Syntax:
   static-request-headers = {
     enabled = bool,
     value = {key=str, key=...}
+  },
+  websockets = {
+    enabled = bool
   }
 }
 ```
@@ -242,6 +249,12 @@ JSON Syntax:
     ],
     "enabled": "bool",
     "use-custom-host": "bool"
+  },
+  "header-filter": {
+    "enabled": "bool",
+    "headers": [
+      "str", ...
+    ]
   },
   "host-options": {
     "host-variant": {
@@ -333,6 +346,9 @@ JSON Syntax:
     "value": {
       "<key>": "str", ...
     }
+  },
+  "websockets": {
+    "enabled": "bool"
   }
 }
 ```
@@ -426,6 +442,12 @@ follow-redirects -> (struct)
     True - the option is enabled and its [flag] is applied to the resource. False - the option is disabled and its default value of the [flag] is used for the resource.
   use-custom-host -> (bool)
     Use the redirect target domain as a Host header, or leave it the same as the value of the Change Host header option.
+header-filter -> (struct)
+  Configuration for HTTP response header filtering. This feature allows controlling which headers from the origin are passed to end users.
+  enabled -> (bool)
+    Enables or disables feature.
+  headers -> ([]string)
+    Whitelist of headers.
 host-options -> (struct)
   Set up host parameters.
   host-variant -> (oneof<forward-host-header|host>)
@@ -540,6 +562,10 @@ static-request-headers -> (struct)
     True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
   value -> (map[string,string])
     Value of the option.
+websockets -> (struct)
+  Configuration for WebSocket protocol support.
+  enabled -> (bool)
+    Enables or disables feature.
 ``` ||
 || `--resource-id` | `string`
 

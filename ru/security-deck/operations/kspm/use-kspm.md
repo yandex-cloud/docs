@@ -5,7 +5,7 @@ description: Инструкция по работе с интерфейсом м
 
 # Работать с дашбордом модуля KSPM
 
-{% include [note-preview-kspm](../../../_includes/security-deck/note-preview-kspm.md) %}
+{% include [note-preview](../../../_includes/note-preview.md) %}
 
 Для работы с дашбордом необходима роль `security-deck.viewer` или выше на каталог, в котором находятся ресурсы модуля KSPM.
 

@@ -269,6 +269,7 @@ Shorthand Syntax:
   send-progress-in-http-headers = bool,
   send-timeout = int,
   set-overflow-mode = OVERFLOW_MODE_THROW|OVERFLOW_MODE_BREAK,
+  show-data-lake-catalogs-in-system-tables = bool,
   skip-unavailable-shards = bool,
   sort-overflow-mode = OVERFLOW_MODE_THROW|OVERFLOW_MODE_BREAK,
   timeout-before-checking-execution-speed = int,
@@ -448,6 +449,7 @@ JSON Syntax:
   "send-progress-in-http-headers": "bool",
   "send-timeout": "int",
   "set-overflow-mode": "OVERFLOW_MODE_THROW|OVERFLOW_MODE_BREAK",
+  "show-data-lake-catalogs-in-system-tables": "bool",
   "skip-unavailable-shards": "bool",
   "sort-overflow-mode": "OVERFLOW_MODE_THROW|OVERFLOW_MODE_BREAK",
   "timeout-before-checking-execution-speed": "int",
@@ -782,6 +784,8 @@ send-timeout -> (int)
   Send timeout in milliseconds. Default value: **300000** (5 minutes). For details, see ClickHouse documentation.
 set-overflow-mode -> (struct)
   Determines the behavior on exceeding max_rows_in_set or max_bytes_in_set limit. Default value: **OVERFLOW_MODE_THROW**. For details, see ClickHouse documentation.
+show-data-lake-catalogs-in-system-tables -> (bool)
+  Enables or disables showing data lake catalogs in system tables. Default value: **false** for versions 25.10 and higher, **true** for versions 25.9 and lower. For details, see ClickHouse documentation.
 skip-unavailable-shards -> (bool)
   Enables or disables silent skipping of unavailable shards. A shard is considered unavailable if all its replicas are also unavailable. Default value: **false**. For details, see ClickHouse documentation.
 sort-overflow-mode -> (struct)

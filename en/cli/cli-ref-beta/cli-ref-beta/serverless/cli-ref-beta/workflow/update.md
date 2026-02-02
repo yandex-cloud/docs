@@ -22,6 +22,7 @@ Syntax:
 
 Description of the Workflow. ||
 || `--express` | Express execution mode. ||
+|| `--is-public` | Ability of the Workflow to be executed without authentication. ||
 || `--labels` | `stringToString`
 
 Workflow labels as 'key:value' pairs. ||

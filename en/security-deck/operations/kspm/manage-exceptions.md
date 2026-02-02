@@ -5,7 +5,7 @@ description: How to manage exceptions to security control rules in the KSPM modu
 
 # Managing exceptions to the KSPM module's security control rules
 
-{% include [note-preview-kspm](../../../_includes/security-deck/note-preview-kspm.md) %}
+{% include [note-preview](../../../_includes/note-preview.md) %}
 
 ## Viewing the list of exceptions from the rules {#view-exceptions-list}
 

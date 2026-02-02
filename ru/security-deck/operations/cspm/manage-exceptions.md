@@ -5,7 +5,7 @@ description: В данном разделе вы узнаете, как в мо�
 
 # Управлять исключениями из правил контроля безопасности модуля {{ cspm-name }}
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
+{% include [note-preview](../../../_includes/note-preview.md) %}
 
 {% include [cspm-use-in-workspaces](../../../_includes/security-deck/cspm-use-in-workspaces.md) %}
 

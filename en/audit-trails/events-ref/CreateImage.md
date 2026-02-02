@@ -75,8 +75,10 @@ sourcePath: en/_events-ref/audit/compute/events-ref/CreateImage.md
     "sourceImageId": "string",
     "sourceDiskId": "string",
     "sourceSnapshotId": "string",
-    "sourceUri": "string"
+    "sourceUri": "string",
     // end of the list of possible fields
+    "description": "string",
+    "labels": "object"
   },
   "requestParameters": "object",
   "response": "object"
@@ -234,6 +236,8 @@ Includes only one of the fields `sourceImageId`, `sourceDiskId`, `sourceSnapshot
 || sourceUri | **string**
 
 Includes only one of the fields `sourceImageId`, `sourceDiskId`, `sourceSnapshotId`, `sourceUri`. ||
+|| description | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 |#
 
 ## Os {#yandex.cloud.compute.v1.Os}

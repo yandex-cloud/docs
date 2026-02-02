@@ -5,7 +5,7 @@ description: How to work with the {{ k8s }}® Security Posture Management (KSPM)
 
 # Working with the KSPM dashboard
 
-{% include [note-preview-kspm](../../../_includes/security-deck/note-preview-kspm.md) %}
+{% include [note-preview](../../../_includes/note-preview.md) %}
 
 To work with the dashboard, you need the `security-deck.viewer` role or higher for the folder containing the KSPM module resources.
 

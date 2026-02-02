@@ -5,7 +5,7 @@ description: In this section, you will learn how to view active {{ k8s }} contro
 
 # Viewing {{ k8s }} control rules
 
-{% include [note-preview-kspm](../../../_includes/security-deck/note-preview-kspm.md) %}
+{% include [note-preview](../../../_includes/note-preview.md) %}
 
 To view Kubernetes control rules, you need the `security-deck.viewer` role or higher for the folder containing the KSPM module resources.
 

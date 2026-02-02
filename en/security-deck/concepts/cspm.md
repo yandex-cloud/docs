@@ -5,7 +5,7 @@ description: Cloud Security Posture Management ({{ cspm-name }}) ensures that th
 
 # Cloud Security Posture Management ({{ cspm-name }})
 
-{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
+{% include [note-preview](../../_includes/note-preview.md) %}
 
 {% include [cspm-basic-intro](../../_includes/security-deck/cspm-basic-intro.md) %}
 

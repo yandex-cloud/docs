@@ -60,7 +60,9 @@ sourcePath: en/_events-ref/audit/compute/events-ref/DeleteHostGroup.md
   },
   "details": {
     "hostGroupId": "string",
-    "hostGroupName": "string"
+    "hostGroupName": "string",
+    "description": "string",
+    "labels": "object"
   },
   "requestParameters": "object",
   "response": "object"
@@ -203,4 +205,6 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || hostGroupId | **string** ||
 || hostGroupName | **string** ||
+|| description | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 |#

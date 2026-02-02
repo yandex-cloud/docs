@@ -6,7 +6,7 @@ sourcePath: en/_cli-ref-beta/cli-ref-beta/metadata-hub/cli-ref-beta/connection-m
 
 # yc beta metadata-hub connection-manager connection create
 
-Creates connection.
+Creates a connection.
 
 #### Command Usage
 
@@ -37,17 +37,19 @@ Usage example:
 3. Run with template: yc beta compute instance create -r request.yaml ||
 || `--description` | `string`
 
- ||
+Description of the connection. ||
 || `--folder-id` | `string`
 
- ||
+ID of the folder to create the connection in. ||
 || `--labels` | `stringToString`
 
- ||
+Connection labels as 'key:value' pairs. ||
 || `--name` | `string`
 
- ||
+Name of the connection. ||
 || `--params` | `shorthand/json`
+
+Connection parameters specific to the database or service type.
 
 Shorthand Syntax:
 
@@ -1081,6 +1083,7 @@ Fields:
 type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|redis|storedoc|trino|valkey>)
   Oneof type field
   postgresql -> (struct)
+    PostgreSQL database connection parameters.
     auth -> (struct)
       security -> (oneof<user-password>)
         Oneof security field
@@ -1132,6 +1135,7 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
     managed-cluster-id -> (string)
       When creating/updating Connection, the field "managed_cluster_id" is mutually exclusive with "cluster".
   mysql -> (struct)
+    MySQL database connection parameters.
     auth -> (struct)
       security -> (oneof<user-password>)
         Oneof security field
@@ -1182,6 +1186,7 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
     managed-cluster-id -> (string)
       When creating/updating Connection, the field "managed_cluster_id" is mutually exclusive with "cluster".
   mongodb -> (struct)
+    MongoDB database connection parameters.
     auth -> (struct)
       auth-source -> (string)
       security -> (oneof<user-password>)
@@ -1234,6 +1239,7 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
     managed-cluster-id -> (string)
       When creating/updating Connection, the field "managed_cluster_id" is mutually exclusive with "cluster".
   clickhouse -> (struct)
+    ClickHouse database connection parameters.
     auth -> (struct)
       security -> (oneof<user-password>)
         Oneof security field
@@ -1289,6 +1295,7 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
     managed-cluster-id -> (string)
       When creating/updating Connection, the field "managed_cluster_id" is mutually exclusive with "cluster".
   kafka -> (struct)
+    Apache Kafka message broker connection parameters.
     auth -> (struct)
       security -> (oneof<disabled|sasl>)
         Oneof security field
@@ -1339,6 +1346,7 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
     managed-cluster-id -> (string)
       When creating/updating Connection, the field "managed_cluster_id" is mutually exclusive with "cluster".
   redis -> (struct)
+    Redis in-memory data store connection parameters.
     auth -> (struct)
       security -> (oneof<user-password>)
         Oneof security field
@@ -1388,6 +1396,7 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
             ca-certificate -> (string)
     databases -> ([]int)
   opensearch -> (struct)
+    OpenSearch search engine connection parameters.
     auth -> (struct)
       security -> (oneof<user-password>)
         Oneof security field
@@ -1437,6 +1446,7 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
     managed-cluster-id -> (string)
       When creating/updating Connection, the field "managed_cluster_id" is mutually exclusive with "cluster".
   trino -> (struct)
+    Trino distributed SQL query engine connection parameters.
     auth -> (struct)
       security -> (oneof<user-password>)
         Oneof security field
@@ -1481,6 +1491,7 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
           tls -> (struct)
             ca-certificate -> (string)
   valkey -> (struct)
+    Valkey in-memory data store connection parameters.
     auth -> (struct)
       security -> (oneof<user-password>)
         Oneof security field
@@ -1533,6 +1544,7 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
     managed-cluster-id -> (string)
       When creating/updating Connection, the field "managed_cluster_id" is mutually exclusive with "cluster".
   greenplum -> (struct)
+    Greenplum data warehouse connection parameters.
     auth -> (struct)
       security -> (oneof<user-password>)
         Oneof security field
@@ -1583,6 +1595,7 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
     managed-cluster-id -> (string)
       When creating/updating Connection, the field "managed_cluster_id" is mutually exclusive with "cluster".
   storedoc -> (struct)
+    StoreDoc document store connection parameters.
     auth -> (struct)
       auth-source -> (string)
       security -> (oneof<user-password>)
@@ -1634,6 +1647,32 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
     databases -> ([]string)
     managed-cluster-id -> (string)
       When creating/updating Connection, the field "managed_cluster_id" is mutually exclusive with "cluster".
+``` ||
+|| `--lockbox-secret-spec` | `shorthand/json`
+
+Specification for creating a new Lockbox secret.
+
+Shorthand Syntax:
+
+```hcl
+{
+  folder-id = str
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "folder-id": "str"
+}
+```
+
+Fields:
+
+```
+folder-id -> (string)
+  ID of the folder where the Lockbox secret will be created. If omitted, the secret will be created in the connection's folder.
 ``` ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#

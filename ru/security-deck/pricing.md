@@ -98,12 +98,6 @@ editable: false
 
 ### Модуль контроля {{ k8s }}® (KSPM) {#kspm-pricing}
 
-{% note warning %}
-
-Цены действуют с 2 февраля 2026 года.
-
-{% endnote %}
-
 
 {% list tabs group=pricing %}
 

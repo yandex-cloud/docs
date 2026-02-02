@@ -6,7 +6,7 @@ sourcePath: en/_cli-ref-beta/cli-ref-beta/metadata-hub/cli-ref-beta/connection-m
 
 # yc beta metadata-hub connection-manager connection delete
 
-Delete specified connection.
+Deletes the specified connection.
 
 #### Command Usage
 
@@ -37,7 +37,7 @@ Usage example:
 3. Run with template: yc beta compute instance create -r request.yaml ||
 || `--connection-id` | `string`
 
- ||
+ID of the connection to delete. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

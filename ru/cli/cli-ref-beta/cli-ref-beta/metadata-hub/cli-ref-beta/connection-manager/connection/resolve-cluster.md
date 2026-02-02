@@ -41,7 +41,7 @@ Usage example:
 3. Run with template: yc beta compute instance create -r request.yaml ||
 || `--connection-id` | `string`
 
- ||
+ID of the connection to resolve cluster topology for. ||
 |#
 
 #### Global Flags

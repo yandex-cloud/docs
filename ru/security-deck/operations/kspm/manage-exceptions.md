@@ -5,7 +5,7 @@ description: Инструкция по управлению исключения
 
 # Управлять исключениями из правил контроля безопасности модуля KSPM
 
-{% include [note-preview-kspm](../../../_includes/security-deck/note-preview-kspm.md) %}
+{% include [note-preview](../../../_includes/note-preview.md) %}
 
 ## Посмотреть список исключений из правил {#view-exceptions-list}
 

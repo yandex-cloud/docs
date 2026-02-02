@@ -162,7 +162,10 @@ Creates a node group in the specified Kubernetes cluster.
       "effect": "Effect"
     }
   ],
-  "node_labels": "map<string, string>"
+  "node_labels": "map<string, string>",
+  "workload_identity_federation": {
+    "enabled": "bool"
+  }
 }
 ```
 
@@ -218,6 +221,9 @@ Taints that are applied to the nodes of the node group at creation time. ||
 || node_labels | **object** (map<**string**, **string**>)
 
 Labels that are assigned to the nodes of the node group at creation time. ||
+|| workload_identity_federation | **[NodeGroupWorkloadIdentityFederation](#yandex.cloud.k8s.v1.NodeGroupWorkloadIdentityFederation)**
+
+Workload Identity Federation parameters of the node group. ||
 |#
 
 ## NodeTemplate {#yandex.cloud.k8s.v1.NodeTemplate}
@@ -674,6 +680,17 @@ onto the node entirely. Enforced by the scheduler.
 - `NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint. ||
 |#
 
+## NodeGroupWorkloadIdentityFederation {#yandex.cloud.k8s.v1.NodeGroupWorkloadIdentityFederation}
+
+NodeGroupWorkloadIdentityFederation contains configuration for Workload Identity Federation.
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Identifies whether Workload Identity Federation is enabled. ||
+|#
+
 ## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
@@ -847,7 +864,10 @@ onto the node entirely. Enforced by the scheduler.
         "effect": "Effect"
       }
     ],
-    "node_labels": "map<string, string>"
+    "node_labels": "map<string, string>",
+    "workload_identity_federation": {
+      "enabled": "bool"
+    }
   }
   // end of the list of possible fields
 }
@@ -985,6 +1005,9 @@ Taints that are applied to the nodes of the node group at creation time. ||
 || node_labels | **object** (map<**string**, **string**>)
 
 Labels that are assigned to the nodes of the node group at creation time. ||
+|| workload_identity_federation | **[NodeGroupWorkloadIdentityFederation](#yandex.cloud.k8s.v1.NodeGroupWorkloadIdentityFederation2)**
+
+Workload Identity Federation parameters of the node group. ||
 |#
 
 ## NodeTemplate {#yandex.cloud.k8s.v1.NodeTemplate2}
@@ -1461,4 +1484,15 @@ to start, and allow all already-running pods to continue running.
 new pods onto the node, rather than prohibiting new pods from scheduling
 onto the node entirely. Enforced by the scheduler.
 - `NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint. ||
+|#
+
+## NodeGroupWorkloadIdentityFederation {#yandex.cloud.k8s.v1.NodeGroupWorkloadIdentityFederation2}
+
+NodeGroupWorkloadIdentityFederation contains configuration for Workload Identity Federation.
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Identifies whether Workload Identity Federation is enabled. ||
 |#

@@ -80,6 +80,8 @@ Syntax:
 
   - [yc beta managed-mysql database list](database/list.md) — Retrieves the list of databases in a cluster.
 
+  - [yc beta managed-mysql database update](database/update.md) — Updates the specified database.
+
 - [yc beta managed-mysql resource-preset](resource-preset/index.md) — A set of methods for managing MySQL resource presets.
 
   - [yc beta managed-mysql resource-preset get](resource-preset/get.md) — Retrieves information about a resource preset.

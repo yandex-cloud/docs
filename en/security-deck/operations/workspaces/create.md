@@ -5,7 +5,7 @@ description: In this guide, you will learn how to create an workspace in {{ sd-f
 
 # Creating a {{ sd-name }} workspace 
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
+{% include [note-preview](../../../_includes/note-preview.md) %}
 
 To create a {{ sd-name }} [workspace](../../concepts/workspace.md):
 

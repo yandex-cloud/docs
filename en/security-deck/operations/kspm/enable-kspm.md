@@ -5,7 +5,7 @@ description: How to activate and configure {{ k8s }}® Security Posture Manageme
 
 # Activating KSPM
 
-{% include [note-preview-kspm](../../../_includes/security-deck/note-preview-kspm.md) %}
+{% include [note-preview](../../../_includes/note-preview.md) %}
 
 The KSPM module allows you to flexibly select and customize security rules to meet your organization's specific requirements, as well as create rule exceptions.
 

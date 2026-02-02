@@ -6,7 +6,7 @@ sourcePath: en/_cli-ref-beta/cli-ref-beta/metadata-hub/cli-ref-beta/connection-m
 
 # yc beta metadata-hub connection-manager connection list
 
-List connections in specified folder.
+Retrieves the list of connections in the specified folder.
 
 #### Command Usage
 
@@ -20,28 +20,28 @@ Syntax:
 ||Flag | Description ||
 || `--author-id` | `string`
 
- ||
+ID of the connection author to filter by. ||
 || `--db-type` | `enum`
 
-Possible Values: 'postgresql', 'mysql', 'clickhouse', 'mongodb', 'kafka', 'redis', 'opensearch', 'trino', 'valkey', 'greenplum', 'storedoc' ||
+Filter connections by database type. Possible Values: 'postgresql', 'mysql', 'clickhouse', 'mongodb', 'kafka', 'redis', 'opensearch', 'trino', 'valkey', 'greenplum', 'storedoc' ||
 || `--folder-id` | `string`
 
- ||
-|| `--is-manual` |  ||
-|| `--is-onpremise` |  ||
+ID of the folder to list connections in. ||
+|| `--is-manual` | Filter by whether connections are manually configured. ||
+|| `--is-onpremise` | Filter by whether connections are on-premise. ||
 || `--mdb-cluster-id` | `string`
 
- ||
+ID of the managed database cluster to filter connections. ||
 || `--name-pattern-or-id` | `string`
 
- ||
+Filter by connection name pattern or exact ID. ||
 || `--page-size` | `int`
 
- ||
+Maximum number of results per page. ||
 || `--page-token` | `string`
 
- ||
-|| `--with-can-use` |  ||
+Page token. To get the next page of results, set 'page_token' to the [ListConnectionResponse.next_page_token] returned by a previous list request. ||
+|| `--with-can-use` | Include only connections that the current user can use. ||
 |#
 
 #### Global Flags

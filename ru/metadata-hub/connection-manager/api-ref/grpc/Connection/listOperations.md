@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/connectionmanager/v1/connection-manager/api-ref/grp
 
 # Connection Manager API, gRPC: ConnectionService.ListOperations
 
-Retrieves the list of Operation resources for the specified connection.
+Lists operations for the specified connection.
 
 ## gRPC request
 
@@ -21,11 +21,19 @@ Retrieves the list of Operation resources for the specified connection.
 }
 ```
 
+Request message for listing operations of a connection.
+
 #|
 ||Field | Description ||
-|| connection_id | **string** ||
-|| page_size | **int64** ||
-|| page_token | **string** ||
+|| connection_id | **string**
+
+ID of the connection to list operations for. ||
+|| page_size | **int64**
+
+Maximum number of results per page. ||
+|| page_token | **string**
+
+Token for getting the next page of results. ||
 |#
 
 ## ListOperationsResponse {#yandex.cloud.connectionmanager.v1.ListOperationsResponse}
@@ -51,10 +59,16 @@ Retrieves the list of Operation resources for the specified connection.
 }
 ```
 
+Response message for listing operations of a connection.
+
 #|
 ||Field | Description ||
-|| operations[] | **[Operation](#yandex.cloud.operation.Operation)** ||
-|| next_page_token | **string** ||
+|| operations[] | **[Operation](#yandex.cloud.operation.Operation)**
+
+List of operations for the specified connection. ||
+|| next_page_token | **string**
+
+Token for getting the next page of results. ||
 |#
 
 ## Operation {#yandex.cloud.operation.Operation}

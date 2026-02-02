@@ -5,7 +5,7 @@ description: Инструкция по активации и настройке 
 
 # Активировать модуль KSPM
 
-{% include [note-preview-kspm](../../../_includes/security-deck/note-preview-kspm.md) %}
+{% include [note-preview](../../../_includes/note-preview.md) %}
 
 Модуль KSPM позволяет гибко выбирать и настраивать правила безопасности под специфические требования вашей организации, а также создавать исключения из правил.
 
