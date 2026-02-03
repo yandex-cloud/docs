@@ -33,13 +33,13 @@ items:
             href: operations/connect/index.md
           - name: Connecting from applications
             href: operations/connect/clients.md
-          - name: Code snippets
+          - name: Code examples
             items:
               - name: Overview
                 href: operations/connect/code-examples.md
-              - name: Examples for connection to a non-sharded cluster
+              - name: Connection examples for non-sharded clusters
                 href: operations/connect/non-sharded.md
-              - name: Examples for connection to a sharded cluster
+              - name: Connection examples for sharded clusters
                 href: operations/connect/sharded.md
       - name: Databases
         items:
@@ -47,7 +47,7 @@ items:
             href: operations/websql.md
           - name: Managing databases
             href: operations/databases.md
-          - name: DB user management
+          - name: Managing database users
             href: operations/cluster-users.md
       - name: Sharding and replication
         items:
@@ -63,7 +63,7 @@ items:
             href: operations/performance-diagnostics.md
           - name: Performance analysis tools
             href: operations/tools.md
-          - name: Monitoring the state of a cluster and its hosts
+          - name: Cluster and host state monitoring
             href: operations/monitoring.md
   - name: Tutorials
     items:
@@ -80,7 +80,7 @@ items:
       - name: '{{ SD }} performance analysis and tuning'
         href: tutorials/profiling.md
       - name: >-
-          Transferring data from {{ mkf-full-name }} using {{
+          Delivering data from {{ mkf-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/migration-from-kafka.md
   - name: Concepts
@@ -89,7 +89,7 @@ items:
         href: concepts/index.md
       - name: Host classes
         items:
-          - name: Available host classes
+          - name: Active host classes
             href: concepts/instance-types.md
           - name: Archive
             items:

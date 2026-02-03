@@ -7,14 +7,7 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/smartcaptcha_captcha.m
 
 # yandex_smartcaptcha_captcha (Data Source)
 
-Get information about Yandex SmartCaptcha. For more information, see [the official documentation](https://yandex.cloud/docs/smartcaptcha/).This data source is used to define Captcha that can be used by other resources.
-
-{% note warning %}
-
-One of `captcha_id` or `name` should be specified.
-
-{% endnote %}
-
+A Captcha resource.
 
 ## Example Usage
 
@@ -41,202 +34,288 @@ data "yandex_smartcaptcha_captcha" "by-name" {
 
 ### Optional
 
-- `captcha_id` (String) ID of the Captcha.
-- `cloud_id` (String) The `Cloud ID` which resource belongs to. If it is not provided, the default provider `cloud-id` is used.
-- `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `name` (String) The resource name.
+- `captcha_id` (String) ID of the Captcha resource to return.
+- `cloud_id` (String) ID of the cloud that the captcha belongs to.
+- `folder_id` (String) ID of the folder that the captcha belongs to.
+- `id` (String) ID of the Captcha resource to return.
+- `name` (String) Name of the captcha. The name is unique within the folder. 3-63 characters long.
+- `timeouts` (Attributes) (see [below for nested schema](#nestedatt--timeouts))
 
 ### Read-Only
 
-- `allowed_sites` (List of String) List of allowed host names, see [Domain validation](https://yandex.cloud/docs/smartcaptcha/concepts/domain-validation).
-- `challenge_type` (String) Additional task type of the captcha. Possible values:
-* `IMAGE_TEXT` - Text recognition: The user has to type a distorted text from the picture into a special field.
-* `SILHOUETTES` - Silhouettes: The user has to mark several icons from the picture in a particular order.
-* `KALEIDOSCOPE` - Kaleidoscope: The user has to build a picture from individual parts by shuffling them using a slider.
-- `client_key` (String) Client key of the captcha, see [CAPTCHA keys](https://yandex.cloud/docs/smartcaptcha/concepts/keys).
-- `complexity` (String) Complexity of the captcha. Possible values:
-* `EASY` - High chance to pass pre-check and easy advanced challenge.
-* `MEDIUM` - Medium chance to pass pre-check and normal advanced challenge.
-* `HARD` - Little chance to pass pre-check and hard advanced challenge.
-* `FORCE_HARD` - Impossible to pass pre-check and hard advanced challenge.
-- `created_at` (String) The creation timestamp of the resource.
-- `deletion_protection` (Boolean) The `true` value means that resource is protected from accidental deletion.
-- `id` (String) The ID of this resource.
-- `override_variant` (List of Object) (see [below for nested schema](#nestedatt--override_variant))
-- `pre_check_type` (String) Basic check type of the captcha.Possible values:
-* `CHECKBOX` - User must click the 'I am not a robot' button.
-* `SLIDER` - User must move the slider from left to right.
-- `security_rule` (List of Object) (see [below for nested schema](#nestedatt--security_rule))
+- `allowed_sites` (List of String) List of allowed host names, see [Domain validation](/docs/smartcaptcha/concepts/domain-validation).
+- `challenge_type` (String) Additional task type of the captcha.
+- `client_key` (String) Client key of the captcha, see [CAPTCHA keys](/docs/smartcaptcha/concepts/keys).
+- `complexity` (String) Complexity of the captcha.
+- `created_at` (String) Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+- `deletion_protection` (Boolean) Determines whether captcha is protected from being deleted.
+- `description` (String) package: yandex.cloud.smartcaptcha.v1
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
+- `disallow_data_processing` (Boolean) package: yandex.cloud.smartcaptcha.v1
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
+- `labels` (Map of String) package: yandex.cloud.smartcaptcha.v1
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
+- `override_variant` (Attributes List) List of variants to use in security_rules (see [below for nested schema](#nestedatt--override_variant))
+- `pre_check_type` (String) Basic check type of the captcha.
+- `security_rule` (Attributes List) List of security rules. (see [below for nested schema](#nestedatt--security_rule))
 - `style_json` (String) JSON with variables to define the captcha appearance. For more details see generated JSON in cloud console.
-- `suspend` (Boolean)
-- `turn_off_hostname_check` (Boolean) Turn off host name check, see [Domain validation](https://yandex.cloud/docs/smartcaptcha/concepts/domain-validation).
+- `suspend` (Boolean) Determines that the captcha is currently in restricted mode, see [SmartCaptcha restricted mode](/docs/smartcaptcha/concepts/restricted-mode).
+- `turn_off_hostname_check` (Boolean) Turn off host name check, see [Domain validation](/docs/smartcaptcha/concepts/domain-validation).
+
+<a id="nestedatt--timeouts"></a>
+### Nested Schema for `timeouts`
+
+Optional:
+
+- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `delete` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+- `read` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+- `update` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+
 
 <a id="nestedatt--override_variant"></a>
 ### Nested Schema for `override_variant`
 
 Read-Only:
 
-- `challenge_type` (String) Additional task type of the captcha.
+- `challenge_type` (String) Additional task type of the captcha. Additional task type of the captcha.
 
-- `complexity` (String) Complexity of the captcha.
+- `complexity` (String) Complexity of the captcha. Complexity of the captcha.
 
-- `description` (String) Optional description of the rule. 0-512 characters long.
+- `description` (String) Optional description of the rule. 0-512 characters long. Optional description of the rule. 0-512 characters long.
 
-- `pre_check_type` (String) Basic check type of the captcha.
+- `pre_check_type` (String) Basic check type of the captcha. Basic check type of the captcha.
 
-- `uuid` (String) Unique identifier of the variant.
+- `uuid` (String) Unique identifier of the variant. Unique identifier of the variant.
 
 
 
 <a id="nestedatt--security_rule"></a>
 ### Nested Schema for `security_rule`
 
+Required:
+
+- `name` (String) Name of the rule. The name is unique within the captcha. 1-50 characters long. Name of the rule. The name is unique within the captcha. 1-50 characters long.
+
+
 Read-Only:
 
-- `condition` (Block List, Max: 1) The condition for matching the rule. You can find all possibilities of condition in [gRPC specs](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/smartcaptcha/v1/captcha.proto). (see [below for nested schema](#nestedobjatt--security_rule--condition))
+- `condition` (Attributes List) The condition for matching the rule. (see [below for nested schema](#nestedatt--security_rule--condition)) (see [below for nested schema](#nestedatt--security_rule--condition))
 
-- `description` (String) Description of the rule. 0-512 characters long.
+- `description` (String) Optional description of the rule. 0-512 characters long. Optional description of the rule. 0-512 characters long.
 
-- `name` (String) Name of the rule. The name is unique within the captcha. 1-50 characters long.
+- `override_variant_uuid` (String) Variant UUID to show in case of match the rule. Keep empty to use defaults. Variant UUID to show in case of match the rule. Keep empty to use defaults.
 
-- `override_variant_uuid` (String) Variant UUID to show in case of match the rule. Keep empty to use defaults.
-
-- `priority` (Number) Priority of the rule. Lower value means higher priority.
+- `priority` (Number) Priority of the rule. Lower value means higher priority. Priority of the rule. Lower value means higher priority.
 
 
-<a id="nestedobjatt--security_rule--condition"></a>
+<a id="nestedatt--security_rule--condition"></a>
 ### Nested Schema for `security_rule.condition`
 
 Read-Only:
 
-- `headers` (List of Object) (see [below for nested schema](#nestedobjatt--security_rule--condition--headers))
-- `host` (List of Object) (see [below for nested schema](#nestedobjatt--security_rule--condition--host))
-- `source_ip` (List of Object) (see [below for nested schema](#nestedobjatt--security_rule--condition--source_ip))
-- `uri` (List of Object) (see [below for nested schema](#nestedobjatt--security_rule--condition--uri))
+- `headers` (Attributes List) Captcha request headers. (see [below for nested schema](#nestedatt--security_rule--condition--headers)) (see [below for nested schema](#nestedatt--security_rule--condition--headers))
 
-<a id="nestedobjatt--security_rule--condition--headers"></a>
+- `host` (Attributes List) Host where captcha placed. (see [below for nested schema](#nestedatt--security_rule--condition--host)) (see [below for nested schema](#nestedatt--security_rule--condition--host))
+
+- `source_ip` (Attributes List) The IP address of the requester. (see [below for nested schema](#nestedatt--security_rule--condition--source_ip)) (see [below for nested schema](#nestedatt--security_rule--condition--source_ip))
+
+- `uri` (Attributes List) URI where captcha placed. (see [below for nested schema](#nestedatt--security_rule--condition--uri)) (see [below for nested schema](#nestedatt--security_rule--condition--uri))
+
+
+<a id="nestedatt--security_rule--condition--headers"></a>
 ### Nested Schema for `security_rule.condition.headers`
+
+Required:
+
+- `name` (String) Name of header (case insensitive). Name of header (case insensitive).
+
 
 Read-Only:
 
-- `name` (String)
-- `value` (List of Object) (see [below for nested schema](#nestedobjatt--security_rule--condition--headers--value))
+- `value` (Attributes List) Value of the header. (see [below for nested schema](#nestedatt--security_rule--condition--headers--value)) (see [below for nested schema](#nestedatt--security_rule--condition--headers--value))
 
-<a id="nestedobjatt--security_rule--condition--headers--value"></a>
+
+<a id="nestedatt--security_rule--condition--headers--value"></a>
 ### Nested Schema for `security_rule.condition.headers.value`
 
 Read-Only:
 
-- `exact_match` (String)
-- `exact_not_match` (String)
-- `pire_regex_match` (String)
-- `pire_regex_not_match` (String)
-- `prefix_match` (String)
-- `prefix_not_match` (String)
+- `exact_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
+- `exact_not_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
+- `pire_regex_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
+- `pire_regex_not_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
+- `prefix_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
+- `prefix_not_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
 
 
 
-<a id="nestedobjatt--security_rule--condition--host"></a>
+<a id="nestedatt--security_rule--condition--host"></a>
 ### Nested Schema for `security_rule.condition.host`
 
 Read-Only:
 
-- `hosts` (List of Object) (see [below for nested schema](#nestedobjatt--security_rule--condition--host--hosts))
+- `hosts` (Attributes List) List of hosts. OR semantics implied. (see [below for nested schema](#nestedatt--security_rule--condition--host--hosts)) (see [below for nested schema](#nestedatt--security_rule--condition--host--hosts))
 
-<a id="nestedobjatt--security_rule--condition--host--hosts"></a>
+
+<a id="nestedatt--security_rule--condition--host--hosts"></a>
 ### Nested Schema for `security_rule.condition.host.hosts`
 
 Read-Only:
 
-- `exact_match` (String)
-- `exact_not_match` (String)
-- `pire_regex_match` (String)
-- `pire_regex_not_match` (String)
-- `prefix_match` (String)
-- `prefix_not_match` (String)
+- `exact_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
+- `exact_not_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
+- `pire_regex_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
+- `pire_regex_not_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
+- `prefix_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
+- `prefix_not_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
 
 
 
-<a id="nestedobjatt--security_rule--condition--source_ip"></a>
+<a id="nestedatt--security_rule--condition--source_ip"></a>
 ### Nested Schema for `security_rule.condition.source_ip`
 
 Read-Only:
 
-- `geo_ip_match` (List of Object) (see [below for nested schema](#nestedobjatt--security_rule--condition--source_ip--geo_ip_match))
-- `geo_ip_not_match` (List of Object) (see [below for nested schema](#nestedobjatt--security_rule--condition--source_ip--geo_ip_not_match))
-- `ip_ranges_match` (List of Object) (see [below for nested schema](#nestedobjatt--security_rule--condition--source_ip--ip_ranges_match))
-- `ip_ranges_not_match` (List of Object) (see [below for nested schema](#nestedobjatt--security_rule--condition--source_ip--ip_ranges_not_match))
+- `geo_ip_match` (Attributes List) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
 
-<a id="nestedobjatt--security_rule--condition--source_ip--geo_ip_match"></a>
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto (see [below for nested schema](#nestedatt--security_rule--condition--source_ip--geo_ip_match))
+- `geo_ip_not_match` (Attributes List) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto (see [below for nested schema](#nestedatt--security_rule--condition--source_ip--geo_ip_not_match))
+- `ip_ranges_match` (Attributes List) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto (see [below for nested schema](#nestedatt--security_rule--condition--source_ip--ip_ranges_match))
+- `ip_ranges_not_match` (Attributes List) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto (see [below for nested schema](#nestedatt--security_rule--condition--source_ip--ip_ranges_not_match))
+
+<a id="nestedatt--security_rule--condition--source_ip--geo_ip_match"></a>
 ### Nested Schema for `security_rule.condition.source_ip.geo_ip_match`
 
 Read-Only:
 
-- `locations` (List of String)
+- `locations` (List of String) ISO 3166-1 alpha 2. OR semantics implied. ISO 3166-1 alpha 2. OR semantics implied.
 
 
-<a id="nestedobjatt--security_rule--condition--source_ip--geo_ip_not_match"></a>
+
+<a id="nestedatt--security_rule--condition--source_ip--geo_ip_not_match"></a>
 ### Nested Schema for `security_rule.condition.source_ip.geo_ip_not_match`
 
 Read-Only:
 
-- `locations` (List of String)
+- `locations` (List of String) ISO 3166-1 alpha 2. OR semantics implied. ISO 3166-1 alpha 2. OR semantics implied.
 
 
-<a id="nestedobjatt--security_rule--condition--source_ip--ip_ranges_match"></a>
+
+<a id="nestedatt--security_rule--condition--source_ip--ip_ranges_match"></a>
 ### Nested Schema for `security_rule.condition.source_ip.ip_ranges_match`
 
 Read-Only:
 
-- `ip_ranges` (List of String)
+- `ip_ranges` (List of String) List of IP ranges. OR semantics implied. List of IP ranges. OR semantics implied.
 
 
-<a id="nestedobjatt--security_rule--condition--source_ip--ip_ranges_not_match"></a>
+
+<a id="nestedatt--security_rule--condition--source_ip--ip_ranges_not_match"></a>
 ### Nested Schema for `security_rule.condition.source_ip.ip_ranges_not_match`
 
 Read-Only:
 
-- `ip_ranges` (List of String)
+- `ip_ranges` (List of String) List of IP ranges. OR semantics implied. List of IP ranges. OR semantics implied.
 
 
 
-<a id="nestedobjatt--security_rule--condition--uri"></a>
+
+<a id="nestedatt--security_rule--condition--uri"></a>
 ### Nested Schema for `security_rule.condition.uri`
 
 Read-Only:
 
-- `path` (List of Object) (see [below for nested schema](#nestedobjatt--security_rule--condition--uri--path))
-- `queries` (List of Object) (see [below for nested schema](#nestedobjatt--security_rule--condition--uri--queries))
+- `path` (Attributes List) Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3). (see [below for nested schema](#nestedatt--security_rule--condition--uri--path)) (see [below for nested schema](#nestedatt--security_rule--condition--uri--path))
 
-<a id="nestedobjatt--security_rule--condition--uri--path"></a>
+- `queries` (Attributes List) List of query matchers. AND semantics implied. (see [below for nested schema](#nestedatt--security_rule--condition--uri--queries)) (see [below for nested schema](#nestedatt--security_rule--condition--uri--queries))
+
+
+<a id="nestedatt--security_rule--condition--uri--path"></a>
 ### Nested Schema for `security_rule.condition.uri.path`
 
 Read-Only:
 
-- `exact_match` (String)
-- `exact_not_match` (String)
-- `pire_regex_match` (String)
-- `pire_regex_not_match` (String)
-- `prefix_match` (String)
-- `prefix_not_match` (String)
+- `exact_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
+- `exact_not_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
+- `pire_regex_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
+- `pire_regex_not_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
+- `prefix_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
+- `prefix_not_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
 
 
-<a id="nestedobjatt--security_rule--condition--uri--queries"></a>
+<a id="nestedatt--security_rule--condition--uri--queries"></a>
 ### Nested Schema for `security_rule.condition.uri.queries`
 
 Read-Only:
 
-- `key` (String)
-- `value` (List of Object) (see [below for nested schema](#nestedobjatt--security_rule--condition--uri--queries--value))
+- `key` (String) Key of the query parameter. Key of the query parameter.
 
-<a id="nestedobjatt--security_rule--condition--uri--queries--value"></a>
+- `value` (Attributes List) Value of the query parameter. (see [below for nested schema](#nestedatt--security_rule--condition--uri--queries--value)) (see [below for nested schema](#nestedatt--security_rule--condition--uri--queries--value))
+
+
+<a id="nestedatt--security_rule--condition--uri--queries--value"></a>
 ### Nested Schema for `security_rule.condition.uri.queries.value`
 
 Read-Only:
 
-- `exact_match` (String)
-- `exact_not_match` (String)
-- `pire_regex_match` (String)
-- `pire_regex_not_match` (String)
-- `prefix_match` (String)
-- `prefix_not_match` (String)
+- `exact_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
+- `exact_not_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
+- `pire_regex_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
+- `pire_regex_not_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
+- `prefix_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto
+- `prefix_not_match` (String) package: yandex.cloud.smartcaptcha.v1 package: yandex.cloud.smartcaptcha.v1
+
+filename: yandex/cloud/smartcaptcha/v1/captcha.proto

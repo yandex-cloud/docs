@@ -1,6 +1,13 @@
 ---
 title: Getting started with {{ mspqr-full-name }}
-description: Follow this guide to create a {{ SPQR }} cluster and connect to it.
+description: Follow this guide to create an {{ SPQR }} cluster and connect to it.
+keywords:
+  - keyword: First {{ mspqr-name }} cluster
+  - keyword: How to create sharded cluster for PostrgeSQL
+  - keyword: SPQR
+  - keyword: Sharding in PostrgeSQL
+  - keyword: Sharded PostrgeSQL
+  - keyword: PostrgeSQL shard
 ---
 
 # Getting started with {{ mspqr-name }}

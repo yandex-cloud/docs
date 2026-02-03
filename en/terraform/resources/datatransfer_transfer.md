@@ -7,7 +7,7 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/datatransfer_transfer.md
 
 # yandex_datatransfer_transfer (Resource)
 
-Manages a Data Transfer transfer. For more information, see [the official documentation](https://yandex.cloud/docs/data-transfer/).
+Transfer core entity
 
 ## Example usage
 
@@ -90,46 +90,111 @@ resource "yandex_datatransfer_transfer" "pgpg_transfer" {
 
 ### Optional
 
-- `description` (String) The resource description.
-- `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `labels` (Map of String) A set of key/value label pairs which assigned to resource.
-- `name` (String) The resource name.
-- `on_create_activate_mode` (String) Activation action on create a new incremental transfer. It is not part of the transfer parameter and is used only on create. One of `sync_activate`, `async_activate`, `dont_activate`. The default is `sync_activate`.
-- `runtime` (Block List, Max: 1) Runtime parameters for the transfer. (see [below for nested schema](#nestedblock--runtime))
-- `source_id` (String) ID of the source endpoint for the transfer.
-- `target_id` (String) ID of the target endpoint for the transfer.
-- `transformation` (Block List, Max: 1) Transformation for the transfer. (see [below for nested schema](#nestedblock--transformation))
-- `type` (String) Type of the transfer. One of `SNAPSHOT_ONLY`, `INCREMENT_ONLY`, `SNAPSHOT_AND_INCREMENT`
+- `description` (String) Description of the transfer.
+- `folder_id` (String) ID of the folder to create the transfer in.
+ 
+ To get the folder ID, make a
+ [yandex.cloud.resourcemanager.v1.FolderService.List] request.
+- `id` (String) Identifier of the transfer to be returned.
+ 
+ To get the list of all available transfers, make a [List] request.
+- `labels` (Map of String) Transfer labels as `key:value` pairs.
+ 
+ For details about the concept, see [documentation]( api-url-prefix
+ /resource-manager/concepts/labels).
+- `name` (String) The transfer name. Must be unique within the folder.
+- `on_create_activate_mode` (String) Activation action on create a new incremental transfer. It is not part of the transfer parameter and is used only on create. One of `sync_activate`, `async_activate`, `dont_activate`. The default is `async_activate`.
+- `replication_runtime` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto (see [below for nested schema](#nestedblock--replication_runtime))
+- `runtime` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto (see [below for nested schema](#nestedblock--runtime))
+- `source_id` (String) Identifier of the source endpoint.
+- `target_id` (String) Identifier of the target endpoint.
+- `timeouts` (Attributes) (see [below for nested schema](#nestedatt--timeouts))
+- `transfer_id` (String) Identifier of the transfer to be returned.
+ 
+ To get the list of all available transfers, make a [List] request.
+- `transformation` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto (see [below for nested schema](#nestedblock--transformation))
+- `type` (String) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
 
 ### Read-Only
 
-- `id` (String) The ID of this resource.
-- `warning` (String) Error description if transfer has any errors.
+- `warning` (String) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+
+<a id="nestedblock--replication_runtime"></a>
+### Nested Schema for `replication_runtime`
+
+Optional:
+
+- `yc_runtime` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto (see [below for nested schema](#nestedblock--replication_runtime--yc_runtime))
+
+<a id="nestedblock--replication_runtime--yc_runtime"></a>
+### Nested Schema for `replication_runtime.yc_runtime`
+
+Optional:
+
+- `job_count` (Number) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+- `upload_shard_params` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto (see [below for nested schema](#nestedblock--replication_runtime--yc_runtime--upload_shard_params))
+
+<a id="nestedblock--replication_runtime--yc_runtime--upload_shard_params"></a>
+### Nested Schema for `replication_runtime.yc_runtime.upload_shard_params`
+
+Optional:
+
+- `job_count` (Number) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+- `process_count` (Number) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+
+
+
 
 <a id="nestedblock--runtime"></a>
 ### Nested Schema for `runtime`
 
 Optional:
 
-- `yc_runtime` (Block List, Max: 1) YC Runtime parameters for the transfer. (see [below for nested schema](#nestedblock--runtime--yc_runtime))
+- `yc_runtime` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto (see [below for nested schema](#nestedblock--runtime--yc_runtime))
 
 <a id="nestedblock--runtime--yc_runtime"></a>
 ### Nested Schema for `runtime.yc_runtime`
 
 Optional:
 
-- `job_count` (Number) Number of workers in parallel replication.
-- `upload_shard_params` (Block List, Max: 1) Parallel snapshot parameters. (see [below for nested schema](#nestedblock--runtime--yc_runtime--upload_shard_params))
+- `job_count` (Number) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+- `upload_shard_params` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto (see [below for nested schema](#nestedblock--runtime--yc_runtime--upload_shard_params))
 
 <a id="nestedblock--runtime--yc_runtime--upload_shard_params"></a>
 ### Nested Schema for `runtime.yc_runtime.upload_shard_params`
 
 Optional:
 
-- `job_count` (Number) Number of workers.
-- `process_count` (Number) Number of threads.
+- `job_count` (Number) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+- `process_count` (Number) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
 
 
+
+
+<a id="nestedatt--timeouts"></a>
+### Nested Schema for `timeouts`
+
+Optional:
+
+- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `delete` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+- `read` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+- `update` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 
 
 <a id="nestedblock--transformation"></a>
@@ -137,37 +202,48 @@ Optional:
 
 Optional:
 
-- `transformers` (Block List) A list of transformers. You can specify exactly 1 transformer in each element of list. (see [below for nested schema](#nestedblock--transformation--transformers))
+- `transformers` (Block List) Transformers are set as a list.
+ When activating a transfer, a transformation plan is made for the tables that
+ match the specified criteria.
+ Transformers are applied to the tables in the sequence specified in the list. (see [below for nested schema](#nestedblock--transformation--transformers))
 
 <a id="nestedblock--transformation--transformers"></a>
 ### Nested Schema for `transformation.transformers`
 
 Optional:
 
-- `convert_to_string` (Block List, Max: 1) Convert column values to strings. (see [below for nested schema](#nestedblock--transformation--transformers--convert_to_string))
-- `filter_columns` (Block List, Max: 1) Set up a list of table columns to transfer. (see [below for nested schema](#nestedblock--transformation--transformers--filter_columns))
-- `filter_rows` (Block List, Max: 1) This filter only applies to transfers with queues (Apache Kafka®) as a data source. When running a transfer, only the strings meeting the specified criteria remain in a changefeed. (see [below for nested schema](#nestedblock--transformation--transformers--filter_rows))
-- `mask_field` (Block List, Max: 1) Mask field transformer allows you to hash data. (see [below for nested schema](#nestedblock--transformation--transformers--mask_field))
-- `rename_tables` (Block List, Max: 1) Set rules for renaming tables by specifying the current names of the tables in the source and new names for these tables in the target. (see [below for nested schema](#nestedblock--transformation--transformers--rename_tables))
-- `replace_primary_key` (Block List, Max: 1) Override primary keys. (see [below for nested schema](#nestedblock--transformation--transformers--replace_primary_key))
-- `sharder_transformer` (Block List, Max: 1) Set the number of shards for particular tables and a list of columns whose values will be used for calculating a hash to determine a shard. (see [below for nested schema](#nestedblock--transformation--transformers--sharder_transformer))
-- `table_splitter_transformer` (Block List, Max: 1) Splits the X table into multiple tables (X_1, X_2, ..., X_n) based on data. (see [below for nested schema](#nestedblock--transformation--transformers--table_splitter_transformer))
+- `convert_to_string` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto (see [below for nested schema](#nestedblock--transformation--transformers--convert_to_string))
+- `filter_columns` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto (see [below for nested schema](#nestedblock--transformation--transformers--filter_columns))
+- `filter_rows` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto (see [below for nested schema](#nestedblock--transformation--transformers--filter_rows))
+- `mask_field` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto (see [below for nested schema](#nestedblock--transformation--transformers--mask_field))
+- `rename_tables` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto (see [below for nested schema](#nestedblock--transformation--transformers--rename_tables))
+- `replace_primary_key` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto (see [below for nested schema](#nestedblock--transformation--transformers--replace_primary_key))
+- `sharder_transformer` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto (see [below for nested schema](#nestedblock--transformation--transformers--sharder_transformer))
+- `table_splitter_transformer` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto (see [below for nested schema](#nestedblock--transformation--transformers--table_splitter_transformer))
 
 <a id="nestedblock--transformation--transformers--convert_to_string"></a>
 ### Nested Schema for `transformation.transformers.convert_to_string`
 
 Optional:
 
-- `columns` (Block List, Max: 1) List of the columns to transfer to the target tables using lists of included and excluded columns. (see [below for nested schema](#nestedblock--transformation--transformers--convert_to_string--columns))
-- `tables` (Block List, Max: 1) Table filter. (see [below for nested schema](#nestedblock--transformation--transformers--convert_to_string--tables))
+- `columns` (Block List) List of included and excluded columns (see [below for nested schema](#nestedblock--transformation--transformers--convert_to_string--columns))
+- `tables` (Block List) List of included and excluded tables (see [below for nested schema](#nestedblock--transformation--transformers--convert_to_string--tables))
 
 <a id="nestedblock--transformation--transformers--convert_to_string--columns"></a>
 ### Nested Schema for `transformation.transformers.convert_to_string.columns`
 
 Optional:
 
-- `exclude_columns` (List of String) List of columns that will be excluded to transfer.
-- `include_columns` (List of String) List of columns that will be included to transfer.
+- `exclude_columns` (List of String) List of columns that will be excluded to transfer
+- `include_columns` (List of String) List of columns that will be included to transfer
 
 
 <a id="nestedblock--transformation--transformers--convert_to_string--tables"></a>
@@ -175,8 +251,8 @@ Optional:
 
 Optional:
 
-- `exclude_tables` (List of String) List of tables that will be excluded to transfer.
-- `include_tables` (List of String) List of tables that will be included to transfer.
+- `exclude_tables` (List of String) List of tables that will be excluded to transfer
+- `include_tables` (List of String) List of tables that will be included to transfer
 
 
 
@@ -185,16 +261,17 @@ Optional:
 
 Optional:
 
-- `columns` (Block List, Max: 1) List of the columns to transfer to the target tables using lists of included and excluded columns. (see [below for nested schema](#nestedblock--transformation--transformers--filter_columns--columns))
-- `tables` (Block List, Max: 1) Table filter. (see [below for nested schema](#nestedblock--transformation--transformers--filter_columns--tables))
+- `columns` (Block List) List of the columns to transfer to the target tables using lists of included and
+ excluded columns. (see [below for nested schema](#nestedblock--transformation--transformers--filter_columns--columns))
+- `tables` (Block List) List of the tables to filter using lists of included and excluded tables. (see [below for nested schema](#nestedblock--transformation--transformers--filter_columns--tables))
 
 <a id="nestedblock--transformation--transformers--filter_columns--columns"></a>
 ### Nested Schema for `transformation.transformers.filter_columns.columns`
 
 Optional:
 
-- `exclude_columns` (List of String)
-- `include_columns` (List of String)
+- `exclude_columns` (List of String) List of columns that will be excluded to transfer
+- `include_columns` (List of String) List of columns that will be included to transfer
 
 
 <a id="nestedblock--transformation--transformers--filter_columns--tables"></a>
@@ -202,8 +279,8 @@ Optional:
 
 Optional:
 
-- `exclude_tables` (List of String)
-- `include_tables` (List of String)
+- `exclude_tables` (List of String) List of tables that will be excluded to transfer
+- `include_tables` (List of String) List of tables that will be included to transfer
 
 
 
@@ -212,16 +289,28 @@ Optional:
 
 Optional:
 
-- `filter` (String) Filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string. See details [here](https://yandex.cloud/docs/data-transfer/concepts/data-transformation#append-only-sources).
-- `tables` (Block List, Max: 1) Table filter. (see [below for nested schema](#nestedblock--transformation--transformers--filter_rows--tables))
+- `filter` (String) Filtering criterion. This can be comparison operators for numeric, string, and
+ Boolean values,
+ comparison to NULL, and checking whether a substring is part of a string.
+ Details here:
+ https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources.
+ Deprecated: Use filters instead.
+- `filters` (List of String) Data is transported if it satisfies at least one of filters. Consider that there
+ is OR statement between filters.
+ Each filter can be comparison operators for numeric, string, and Boolean values,
+ comparison to NULL, and
+ checking whether a substring is part of a string.
+ Details in docs:
+ https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources.
+- `tables` (Block List) List of included and excluded tables. (see [below for nested schema](#nestedblock--transformation--transformers--filter_rows--tables))
 
 <a id="nestedblock--transformation--transformers--filter_rows--tables"></a>
 ### Nested Schema for `transformation.transformers.filter_rows.tables`
 
 Optional:
 
-- `exclude_tables` (List of String)
-- `include_tables` (List of String)
+- `exclude_tables` (List of String) List of tables that will be excluded to transfer
+- `include_tables` (List of String) List of tables that will be included to transfer
 
 
 
@@ -230,23 +319,24 @@ Optional:
 
 Optional:
 
-- `columns` (List of String) List of strings that specify the name of the column for data masking (a regular expression).
-- `function` (Block List, Max: 1) Mask function. (see [below for nested schema](#nestedblock--transformation--transformers--mask_field--function))
-- `tables` (Block List, Max: 1) Table filter. (see [below for nested schema](#nestedblock--transformation--transformers--mask_field--tables))
+- `columns` (List of String) Specify the name of the column for data masking (a regular expression).
+- `function` (Block List) Mask function (see [below for nested schema](#nestedblock--transformation--transformers--mask_field--function))
+- `tables` (Block List) List of included and excluded tables (see [below for nested schema](#nestedblock--transformation--transformers--mask_field--tables))
 
 <a id="nestedblock--transformation--transformers--mask_field--function"></a>
 ### Nested Schema for `transformation.transformers.mask_field.function`
 
 Optional:
 
-- `mask_function_hash` (Block List, Max: 1) Hash mask function. (see [below for nested schema](#nestedblock--transformation--transformers--mask_field--function--mask_function_hash))
+- `mask_function_hash` (Block List) Hash mask function (see [below for nested schema](#nestedblock--transformation--transformers--mask_field--function--mask_function_hash))
 
 <a id="nestedblock--transformation--transformers--mask_field--function--mask_function_hash"></a>
 ### Nested Schema for `transformation.transformers.mask_field.function.mask_function_hash`
 
 Optional:
 
-- `user_defined_salt` (String) This string will be used in the HMAC(sha256, salt) function applied to the column data.
+- `user_defined_salt` (String) This string will be used in the HMAC(sha256, salt) function applied to the
+ column data.
 
 
 
@@ -255,8 +345,8 @@ Optional:
 
 Optional:
 
-- `exclude_tables` (List of String)
-- `include_tables` (List of String)
+- `exclude_tables` (List of String) List of tables that will be excluded to transfer
+- `include_tables` (List of String) List of tables that will be included to transfer
 
 
 
@@ -265,23 +355,25 @@ Optional:
 
 Optional:
 
-- `rename_tables` (Block List) List of renaming rules. (see [below for nested schema](#nestedblock--transformation--transformers--rename_tables--rename_tables))
+- `rename_tables` (Block List) List of renaming rules (see [below for nested schema](#nestedblock--transformation--transformers--rename_tables--rename_tables))
 
 <a id="nestedblock--transformation--transformers--rename_tables--rename_tables"></a>
 ### Nested Schema for `transformation.transformers.rename_tables.rename_tables`
 
 Optional:
 
-- `new_name` (Block List, Max: 1) Specify the new names for this table in the target. (see [below for nested schema](#nestedblock--transformation--transformers--rename_tables--rename_tables--new_name))
-- `original_name` (Block List, Max: 1) Specify the current names of the table in the source. (see [below for nested schema](#nestedblock--transformation--transformers--rename_tables--rename_tables--original_name))
+- `new_name` (Block List) Specify the new names for this table in the target (see [below for nested schema](#nestedblock--transformation--transformers--rename_tables--rename_tables--new_name))
+- `original_name` (Block List) Specify the current names of the table in the source (see [below for nested schema](#nestedblock--transformation--transformers--rename_tables--rename_tables--original_name))
 
 <a id="nestedblock--transformation--transformers--rename_tables--rename_tables--new_name"></a>
 ### Nested Schema for `transformation.transformers.rename_tables.rename_tables.new_name`
 
 Optional:
 
-- `name` (String)
-- `name_space` (String)
+- `name` (String) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+- `name_space` (String) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
 
 
 <a id="nestedblock--transformation--transformers--rename_tables--rename_tables--original_name"></a>
@@ -289,8 +381,10 @@ Optional:
 
 Optional:
 
-- `name` (String)
-- `name_space` (String)
+- `name` (String) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+- `name_space` (String) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
 
 
 
@@ -300,16 +394,16 @@ Optional:
 
 Optional:
 
-- `keys` (List of String) List of columns to be used as primary keys.
-- `tables` (Block List, Max: 1) Table filter. (see [below for nested schema](#nestedblock--transformation--transformers--replace_primary_key--tables))
+- `keys` (List of String) List of columns to be used as primary keys
+- `tables` (Block List) List of included and excluded tables (see [below for nested schema](#nestedblock--transformation--transformers--replace_primary_key--tables))
 
 <a id="nestedblock--transformation--transformers--replace_primary_key--tables"></a>
 ### Nested Schema for `transformation.transformers.replace_primary_key.tables`
 
 Optional:
 
-- `exclude_tables` (List of String)
-- `include_tables` (List of String)
+- `exclude_tables` (List of String) List of tables that will be excluded to transfer
+- `include_tables` (List of String) List of tables that will be included to transfer
 
 
 
@@ -318,17 +412,23 @@ Optional:
 
 Optional:
 
-- `columns` (Block List, Max: 1) List of the columns to transfer to the target tables using lists of included and excluded columns. (see [below for nested schema](#nestedblock--transformation--transformers--sharder_transformer--columns))
-- `shards_count` (Number) Number of shards.
-- `tables` (Block List, Max: 1) Table filter. (see [below for nested schema](#nestedblock--transformation--transformers--sharder_transformer--tables))
+- `columns` (Block List) List of included and excluded columns (see [below for nested schema](#nestedblock--transformation--transformers--sharder_transformer--columns))
+- `random` (Block List) package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto (see [below for nested schema](#nestedblock--transformation--transformers--sharder_transformer--random))
+- `shards_count` (Number) Number of shards
+- `tables` (Block List) List of included and excluded tables (see [below for nested schema](#nestedblock--transformation--transformers--sharder_transformer--tables))
 
 <a id="nestedblock--transformation--transformers--sharder_transformer--columns"></a>
 ### Nested Schema for `transformation.transformers.sharder_transformer.columns`
 
 Optional:
 
-- `exclude_columns` (List of String)
-- `include_columns` (List of String)
+- `exclude_columns` (List of String) List of columns that will be excluded to transfer
+- `include_columns` (List of String) List of columns that will be included to transfer
+
+
+<a id="nestedblock--transformation--transformers--sharder_transformer--random"></a>
+### Nested Schema for `transformation.transformers.sharder_transformer.random`
 
 
 <a id="nestedblock--transformation--transformers--sharder_transformer--tables"></a>
@@ -336,8 +436,8 @@ Optional:
 
 Optional:
 
-- `exclude_tables` (List of String)
-- `include_tables` (List of String)
+- `exclude_tables` (List of String) List of tables that will be excluded to transfer
+- `include_tables` (List of String) List of tables that will be included to transfer
 
 
 
@@ -346,17 +446,17 @@ Optional:
 
 Optional:
 
-- `columns` (List of String) List of strings that specify the columns in the tables to be partitioned.
+- `columns` (List of String) Specify the columns in the tables to be partitioned.
 - `splitter` (String) Specify the split string to be used for merging components in a new table name.
-- `tables` (Block List, Max: 1) Table filter. (see [below for nested schema](#nestedblock--transformation--transformers--table_splitter_transformer--tables))
+- `tables` (Block List) List of included and excluded tables (see [below for nested schema](#nestedblock--transformation--transformers--table_splitter_transformer--tables))
 
 <a id="nestedblock--transformation--transformers--table_splitter_transformer--tables"></a>
 ### Nested Schema for `transformation.transformers.table_splitter_transformer.tables`
 
 Optional:
 
-- `exclude_tables` (List of String)
-- `include_tables` (List of String)
+- `exclude_tables` (List of String) List of tables that will be excluded to transfer
+- `include_tables` (List of String) List of tables that will be included to transfer
 
 ## Import
 

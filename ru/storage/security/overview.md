@@ -11,6 +11,7 @@ description: Управление доступом в сервисе {{ objstora
 * [Политика доступа (bucket policy)](#policy).
 * [Публичный доступ](#anonymous).
 * [{{ sts-name }}](#sts).
+* [Эфемерные ключи доступа](#ephemeral-keys).
 * [Подписанные (pre-signed) URL](#pre-signed).
 * [Сервисные подключения {{ vpc-short-name }} (Private Endpoints)](#pe-vpc).
 
@@ -104,6 +105,11 @@ description: Управление доступом в сервисе {{ objstora
 [{{ sts-name }}](./sts.md) — компонент сервиса {{ iam-name }} для получения временных ключей доступа, совместимых с [AWS S3 API](../s3/index.md).
 
 С помощью временных ключей вы можете гранулярно разграничить доступы в бакеты для множества пользователей, используя для этого всего один сервисный аккаунт.
+
+## Эфемерные ключи доступа {#ephemeral-keys}
+
+[Эфемерные ключи доступа](./ephemeral-keys.md) — это временные учетные данные для аутентификации [аккаунтов на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../iam/concepts/users/accounts.md#saml-federation), [локальных пользователей](../../iam/concepts/users/accounts.md#local) и [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md).
+
 
 ## Подписанные (pre-signed) URL {#pre-signed}
 

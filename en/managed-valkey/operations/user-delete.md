@@ -38,13 +38,13 @@ description: You can delete a {{ VLK }} user in {{ mrd-name }}.
   
       To learn how to create this file, see [Creating a cluster](cluster-create.md).
   
-  1. Delete the `yandex_mdb_redis_user` resource with the user description.
+  1. Delete the `yandex_mdb_redis_user` resource with the target user’s description.
   
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -61,7 +61,7 @@ description: You can delete a {{ VLK }} user in {{ mrd-name }}.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -82,7 +82,7 @@ description: You can delete a {{ VLK }} user in {{ mrd-name }}.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

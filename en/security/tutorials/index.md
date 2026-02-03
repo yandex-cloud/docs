@@ -5,6 +5,8 @@ description: Various {{ yandex-cloud }} security tutorials
 
 # {{ yandex-cloud }} security tutorials
 
+* [{#T}](./info-for-federal-ip-whitelist.md)
+
 ## Authentication and access management {#authentication}
 
 * [{#T}](authentication/user-group-access-control.md)

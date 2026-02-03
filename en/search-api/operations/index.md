@@ -11,3 +11,10 @@ description: Step-by-step guides on search queries and {{ search-api-name }} set
 * [{#T}](./search-images-by-pic.md)
 * [{#T}](./web-search-geo.md)
 * [{#T}](./v2-mobile.md)
+
+## {{ wordstat-name }} {#wordstat}
+
+* [{#T}](../operations/wordstat-gettop.md)
+* [{#T}](../operations/wordstat-getdynamics.md)
+* [{#T}](../operations/wordstat-getregionsdistribution.md)
+* [{#T}](../operations/wordstat-getregiontree.md)

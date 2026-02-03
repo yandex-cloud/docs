@@ -18,13 +18,13 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
 
 - DBeaver {#dbeaver}
 
-    Connections to {{ VLK }} clusters are only available in [DBeaver business editions](https://dbeaver.com/buy/).
+    Connections to {{ VLK }} clusters are only available in [DBeaver commercial editions](https://dbeaver.com/buy/).
 
     To connect to your cluster:
 
     1. Create a new database connection:
         1. In the **Database** menu, select **New connection**.
-        1. Select **{{ VLK }}** from the database list.
+        1. Select **{{ VLK }}** from the DB list.
         1. Click **Next**.
         1. Specify the connection settings on the **Main** tab:
             * **Host**: Specify comma-separated FQDNs of master hosts in each shard.

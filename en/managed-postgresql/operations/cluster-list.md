@@ -170,15 +170,15 @@ All actions with {{ mpg-name }} clusters are logged as a list of operations. Eac
 
 - Management console {#console}
 
-  To view operations with all {{ mpg-name }} clusters, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.postgresql.switch_operations }}** in the left-hand panel. In the list that opens, you will also see operations for the deleted resources.
+  To view operations with all {{ mpg-name }} clusters, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.postgresql.switch_operations_9JzwJ }}** in the left-hand panel. In the list that opens, you will also see operations for the deleted resources.
 
   You can get a list of cluster operations as follows:
 
   1. In the [management console]({{ link-console-main }}), open the folder containing your cluster.
   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.postgresql.switch_list }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.postgresql.switch_list_9AfbP }}**.
   1. Select your cluster.
-  1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.postgresql.switch_operations }}** panel for the cluster you selected.
+  1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.postgresql.switch_operations_9JzwJ }}** panel for the cluster you selected.
 
      You will see a list of operations with the cluster.
 

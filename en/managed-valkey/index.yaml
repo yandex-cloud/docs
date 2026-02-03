@@ -1,10 +1,10 @@
 title: '{{ mrd-full-name }}'
 description:
   - >-
-    {{ mrd-full-name }} helps you deploy and maintain <a
-    href="https://valkey.io/">{{ VLK }}</a> 7.2, 8.0, 8.1 or 9.0 server clusters
-    in the {{ yandex-cloud }} infrastructure. Valkey™ is a Redis-compatible
-    high-performance open-source NoSQL DBMS working with key-value data.
+    With {{ mrd-full-name }}, you can deploy and maintain clusters of <a
+    href="https://valkey.io/">Valkey™</a> 7.2, 8.0, and 8.1 servers in the
+    Yandex Cloud infrastructure." Valkey™ is a Redis-compatible high-performance
+    open-source NoSQL DBMS designed for key-value data.
   - |-
     {{ mrd-full-name }} is often used to: <ul>
       <li>Build message queues using the publish-subscribe pattern.</li>
@@ -47,8 +47,8 @@ links:
 meta:
   title: '{{ mrd-full-name }}'
   description: >-
-    {{ mrd-full-name }} helps you deploy and maintain Valkey™ 7.2, 8.0, 8.1 or
-    9.0 server clusters in the {{ yandex-cloud }} infrastructure.
+    With {{ mrd-full-name }}, you can deploy and maintain clusters of Valkey™
+    7.2, 8.0, and 8.1 servers in the Yandex Cloud infrastructure.
   keywords:
     - '{{ mrd-name }}'
     - '{{ mrd-full-name }}'

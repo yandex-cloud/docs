@@ -78,7 +78,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
 
       {% include [user-permissions-note](../../_includes/mdb/mvk/user-permissions-note.md) %}
 
-      For more information about access control lists, see this [{{ VLK }} ACL guide](https://valkey.io/topics/acl).
+      For more information about access control lists, see [this {{ VLK }} ACL guide](https://valkey.io/topics/acl).
 
 - {{ TF }} {#tf}
 
@@ -111,7 +111,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
       
       * `name`: Username.
         
-      * `passwords`: User password. It must be from 8 to 128 characters long.
+      * `passwords`: Password. It must be from 8 to 128 characters long.
           
         You can specify only one password.
 
@@ -137,13 +137,13 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
         
         {% include [user-permissions-note](../../_includes/mdb/mvk/user-permissions-note.md) %}
 
-        For more information about access control lists, see this [{{ VLK }} ACL guide](https://valkey.io/topics/acl).
+        For more information about access control lists, see [this {{ VLK }} ACL guide](https://valkey.io/topics/acl).
   
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -160,7 +160,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -189,7 +189,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
       
       * `name`: Username.
 
-      * `passwords`: User password. It must be from 8 to 128 characters long.
+      * `passwords`: Password. It must be from 8 to 128 characters long.
       
         You can specify only one password.
       
@@ -206,7 +206,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
         
         {% include [user-permissions-note](../../_includes/mdb/mvk/user-permissions-note.md) %}
 
-        For more information about access control lists, see this [{{ VLK }} ACL guide](https://valkey.io/topics/acl). 
+        For more information about access control lists, see [this {{ VLK }} ACL guide](https://valkey.io/topics/acl). 
 
       * `enabled`: User status. The possible values are:
         
@@ -230,7 +230,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -268,7 +268,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
       
         * `name`: Username.
         
-        * `passwords`: User password. It must be from 8 to 128 characters long.
+        * `passwords`: Password. It must be from 8 to 128 characters long.
           
           You can specify only one password.
       
@@ -289,7 +289,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
         
           {% include [user-permissions-note](../../_includes/mdb/mvk/user-permissions-note.md) %}
 
-          For more information about access control lists, see this [{{ VLK }} ACL guide](https://valkey.io/topics/acl).
+          For more information about access control lists, see [this {{ VLK }} ACL guide](https://valkey.io/topics/acl).
 
         * `enabled`: User status. The possible values are:
         

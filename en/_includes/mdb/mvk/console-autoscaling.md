@@ -1,8 +1,8 @@
-* In the **{{ ui-key.yacloud.mdb.cluster.field_thresholds }}** field, specify the conditions for the actions below:
+* In the **{{ ui-key.yacloud.mdb.cluster.field_thresholds }}** field, set the conditions for the actions below:
 
-    * Storage size increase during the [next maintenance window](../../../managed-valkey/concepts/maintenance.md#maintenance-window) once the fill level exceeds the specified percentage. If you set this condition, configure the maintenance schedule.
+    * Storage expansion during the [next maintenance window](../../../managed-valkey/concepts/maintenance.md#maintenance-window) if and when the specified storage space utilization percentage is exceeded. If you set this condition, configure the maintenance schedule.
 
-    * Storage size increase immediately once the fill level exceeds the specified percentage.
+    * Storage expansion immediately if and when the specified storage space utilization percentage is exceeded.
 
         {% note warning %}
 

@@ -61,7 +61,7 @@
             {% include [download-saml-cert-when-creating-fed](../../_includes/organization/download-saml-cert-when-creating-fed.md) %}
 
         * **{{ ui-key.yacloud_org.entity.federation.field.caseInsensitiveNameIds }}** — идентификаторы имен федеративных пользователей будут нечувствительны к регистру.
-        * **{{ ui-key.yacloud_org.entity.federation.field.forceAuthn }}** — при истечении сессии в {{ yandex-cloud }} поставщик удостоверений запросит у пользователя повторную аутентификацию.
+        * **{{ ui-key.yacloud_org.entity.federation.field.forceAuthn }}** — по истечении сессии в {{ yandex-cloud }} поставщик удостоверений запросит у пользователя повторную аутентификацию.
 
   1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
 

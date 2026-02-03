@@ -152,8 +152,3 @@
       ```
 
     {% endlist %}
-
-
-#### См. также {#see-also}
-
-* [{#T}](../../storage/security/overview.md)

@@ -108,7 +108,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -147,7 +147,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
         Where:
 
-        * `backupId`: Backup ID. You can get the backup ID with the [list of backups in the folder](#list-backups).
+        * `backupId`: Backup ID. To learn the ID, [get the list of backups in the folder](#list-backups).
         * `name`: Cluster name.
         * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
         * `configSpec.redis.password`: User password.
@@ -172,7 +172,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -216,7 +216,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
         Where:
 
-        * `backup_id`: Backup ID. You can get the backup ID with the [list of backups in the folder](#list-backups).
+        * `backup_id`: Backup ID. To learn the ID, [get the list of backups in the folder](#list-backups).
         * `name`: Cluster name.
         * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
         * `config_spec.redis.password`: User password.
@@ -278,7 +278,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -291,13 +291,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>:backup'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -319,7 +319,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
             yandex.cloud.mdb.redis.v1.ClusterService.Backup
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -368,7 +368,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -383,7 +383,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
                 --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>/backups'
             ```
 
-            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         1. Check the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.redis.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
@@ -407,7 +407,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -431,7 +431,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
                 yandex.cloud.mdb.redis.v1.ClusterService.ListBackups
             ```
 
-            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         1. Check the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.redis.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
@@ -493,7 +493,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -512,7 +512,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -573,7 +573,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -610,24 +610,24 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
             Here, specify the backup start time:
 
-            * `hours`: From `0` to `23` hours.
-            * `minutes`: From `0` to `59` minutes.
-            * `seconds`: From `0` to `59` seconds.
-            * `nanos`: From `0` to `999999999` nanoseconds.
+            * `hours`: Between `0` and `23` hours.
+            * `minutes`: Between `0` and `59` minutes.
+            * `seconds`: Between `0` and `59` seconds.
+            * `nanos`: Between `0` and `999999999` nanoseconds.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -666,12 +666,12 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
 
             In this parameter, specify the backup start time:
 
-            * `hours`: From `0` to `23` hours.
-            * `minutes`: From `0` to `59` minutes.
-            * `seconds`: From `0` to `59` seconds.
-            * `nanos`: From `0` to `999999999` nanoseconds.
+            * `hours`: Between `0` and `23` hours.
+            * `minutes`: Between `0` and `59` minutes.
+            * `seconds`: Between `0` and `59` seconds.
+            * `nanos`: Between `0` and `999999999` nanoseconds.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

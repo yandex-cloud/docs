@@ -1,6 +1,10 @@
 ---
 title: Sharding keys
 description: 'The _sharding key_ is one or more table columns the system uses to determine which shard will store a row. Row sharding follows the selected strategy: hash or range.'
+keywords:
+  - keyword: SPQR sharding keys
+  - keyword: PostrgeSQL shard
+  - keyword: SPQR
 ---
 
 # Sharding keys

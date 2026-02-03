@@ -1,6 +1,6 @@
 ---
 title: Recommended {{ VLK }} clients
-description: 'To connect to {{ mrd-short-name }}, consider using the following clients: `redis` Python package, `jedis` Java client, `ioredis` Node.js package, `go-redis` Go client, `telnet`, and `redis-cli`. {{ mrd-short-name }} does not restrict the use of other clients. However, if using clients other than those listed above, review known limitations and problems to avoid connectivity issues and cluster failures.'
+description: 'To connect to {{ mrd-short-name }}, consider using the following clients: `redis` Python package, `jedis` Java client, `ioredis` Node.js package, `go-redis` Go client, `telnet`, and `redis-cli`. {{ mrd-short-name }} does not restrict the use of other clients. However, if using clients other than those listed above, check the known limitations and problems to avoid connectivity issues and cluster failures.'
 keywords:
   - redis clients
   - valkey clients
@@ -22,7 +22,7 @@ To connect to {{ mrd-short-name }}, consider using the following clients:
 * [Ioredis](https://www.npmjs.com/ioredis) Node.js package
 * [Go-redis](https://github.com/go-redis/redis) Go client
 
-{{ mrd-short-name }} does not restrict the use of other clients. However, if using clients other than those listed above, review known limitations and problems to avoid connectivity issues and cluster failures.
+{{ mrd-short-name }} does not restrict the use of other clients. However, if using clients other than those listed above, check the known limitations and problems to avoid connectivity issues and cluster failures.
 
 {% note info %}
 

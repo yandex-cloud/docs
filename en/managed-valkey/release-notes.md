@@ -1,21 +1,27 @@
 ---
 title: '{{ mrd-full-name }} release notes'
-description: This section contains {{ mrd-name }} release notes.
+description: This section contains the {{ mrd-name }} release notes.
 ---
 
 # {{ mrd-full-name }} release notes
 
+## December 2025 {#dec-2025}
+
+* Added [detailed metrics](operations/monitoring.md#hosts) for disk usage on cluster hosts.
+* Added execution details for [operations on the cluster](operations/cluster-list.md#list-operations).
+* All new clusters are created with a [{{ connection-manager-name }} connection](../metadata-hub/concepts/connection-manager.md) by default.
+
 ## November 2025 {#nov-2025}
 
-Added the `managed-redis.restorer` role, which allows restoring clusters from backups. To learn more, see [Access management](security/index.md#managed-redis-restorer).
+Added the `managed-redis.restorer` role for restoring clusters from backups. To learn more, see [Access management](security/index.md#managed-redis-restorer).
 
 ## October 2025 {#oct-2025}
 
 * A new version is out: {{ VLK }} 9.0. For more information about the updates, see [this {{ VLK }} guide](https://github.com/valkey-io/valkey/releases/tag/9.0.0).
 * Added support for:
-    * Valkey-Search: Vector and full-text search.
-    * Valkey-JSON: Native work with JSON documents.
-    * Valkey-Bloom: Probabilistic data structures.
+    * [Valkey-Search](concepts/modules.md#valkey-search): Vector and full-text search.
+    * [Valkey-JSON](concepts/modules.md#valkey-json): Native support for JSON documents.
+    * [Valkey-Bloom](concepts/modules.md#valkey-bloom): Probabilistic data structures.
 * When [creating](operations/user-create.md) a {{ VLK }} user, you can now immediately specify their permissions. Do it with the help of an [ACL](https://valkey.io/topics/acl/) (Access Control List) which controls the user's permissions to run particular commands.
 * Added integration with {{ connection-manager-name }}. This tool allows you to connect to the cluster without directly using a password, thus reducing the risk of it being compromised.
 * Added the ability to restore a sharded cluster from a backup.

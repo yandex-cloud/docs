@@ -20,7 +20,6 @@ To use an example:
 
 - Python {#python}
 
-  1. [Create a search index](./manage-searchindex.md#create-index).
   1. Create a file named `index.py` and add the following code to it:
 
      ```python
@@ -72,7 +71,6 @@ To use an example:
       ```bash
       export YANDEX_CLOUD_FOLDER=<folder_ID>
       export YANDEX_CLOUD_API_KEY=<API_key>
-      export VECTOR_STORE_ID=<search_index_ID>
       ```
 
   1. Run the file you created:

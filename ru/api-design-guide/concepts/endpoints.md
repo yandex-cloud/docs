@@ -16,11 +16,11 @@ curl https://{{ api-host }}/endpoints
  "endpoints": [
   {
    "id": "ai-foundation-models",
-   "address": "llm.{{ api-host }}:443"
+   "address": "ai.{{ api-host }}:443"
   },
   {
    "id": "ai-llm",
-   "address": "llm.{{ api-host }}:443"
+   "address": "ai.{{ api-host }}:443"
   },
   {
    "id": "ai-speechkit",

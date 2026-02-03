@@ -25,36 +25,24 @@ data "yandex_connectionmanager_connection" "my_connection" {
 
 ### Optional
 
-- `connection_id` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection_service.proto
-- `folder_id` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto
-- `id` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection_service.proto
+- `connection_id` (String) ID of the connection to retrieve.
+- `folder_id` (String) ID of the folder that the connection belongs to.
+- `id` (String) ID of the connection to retrieve.
 - `timeouts` (Attributes) (see [below for nested schema](#nestedatt--timeouts))
 
 ### Read-Only
 
-- `can_use` (Boolean) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto
-- `created_at` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto
-- `created_by` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto
-- `description` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto
-- `is_managed` (Boolean) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto
-- `labels` (Map of String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto
-- `lockbox_secret` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto (see [below for nested schema](#nestedatt--lockbox_secret))
-- `name` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto
-- `params` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto (see [below for nested schema](#nestedatt--params))
-- `updated_at` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto
+- `can_use` (Boolean) Whether the current user can use this connection. Filled only when `with_can_use` has been requested in ListConnectionRequest.
+- `created_at` (String) Creation timestamp.
+- `created_by` (String) ID of the subject which created the connection.
+- `description` (String) Description of the connection.
+- `is_managed` (Boolean) Whether this connection is managed by the system (e.g. an MDB cluster).
+- `labels` (Map of String) Connection labels as `key:value` pairs.
+- `lockbox_secret` (Attributes) Reference to the Lockbox secret containing connection credentials. (see [below for nested schema](#nestedatt--lockbox_secret))
+- `lockbox_secret_spec` (Attributes) Specification for creating a new Lockbox secret. (see [below for nested schema](#nestedatt--lockbox_secret_spec))
+- `name` (String) Name of the connection.
+- `params` (Attributes) Connection parameters specific to the database or service type. (see [below for nested schema](#nestedatt--params))
+- `updated_at` (String) Last update timestamp.
 
 <a id="nestedatt--timeouts"></a>
 ### Nested Schema for `timeouts`
@@ -72,17 +60,21 @@ Optional:
 
 Optional:
 
-- `id` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto
+- `id` (String) ID of the Lockbox secret.
 
 Read-Only:
 
-- `connection_id` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto
-- `newest_version` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto
-- `version` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto
+- `connection_id` (String) ID of the Lockbox secret.
+- `newest_version` (String) The newest available version of the Lockbox secret.
+- `version` (String) Lockbox secret version.
+
+
+<a id="nestedatt--lockbox_secret_spec"></a>
+### Nested Schema for `lockbox_secret_spec`
+
+Optional:
+
+- `folder_id` (String) ID of the folder where the Lockbox secret will be created. If omitted, the secret will be created in the connection's folder.
 
 
 <a id="nestedatt--params"></a>
@@ -90,28 +82,17 @@ filename: yandex/cloud/connectionmanager/v1/connection.proto
 
 Read-Only:
 
-- `clickhouse` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto (see [below for nested schema](#nestedatt--params--clickhouse))
-- `greenplum` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto (see [below for nested schema](#nestedatt--params--greenplum))
-- `kafka` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto (see [below for nested schema](#nestedatt--params--kafka))
-- `mongodb` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto (see [below for nested schema](#nestedatt--params--mongodb))
-- `mysql` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto (see [below for nested schema](#nestedatt--params--mysql))
-- `opensearch` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto (see [below for nested schema](#nestedatt--params--opensearch))
-- `postgresql` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto (see [below for nested schema](#nestedatt--params--postgresql))
-- `redis` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto (see [below for nested schema](#nestedatt--params--redis))
-- `storedoc` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto (see [below for nested schema](#nestedatt--params--storedoc))
-- `trino` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto (see [below for nested schema](#nestedatt--params--trino))
-- `valkey` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/connection.proto (see [below for nested schema](#nestedatt--params--valkey))
+- `clickhouse` (Attributes) ClickHouse database connection parameters. (see [below for nested schema](#nestedatt--params--clickhouse))
+- `greenplum` (Attributes) Greenplum data warehouse connection parameters. (see [below for nested schema](#nestedatt--params--greenplum))
+- `kafka` (Attributes) Apache Kafka message broker connection parameters. (see [below for nested schema](#nestedatt--params--kafka))
+- `mongodb` (Attributes) MongoDB database connection parameters. (see [below for nested schema](#nestedatt--params--mongodb))
+- `mysql` (Attributes) MySQL database connection parameters. (see [below for nested schema](#nestedatt--params--mysql))
+- `opensearch` (Attributes) OpenSearch search engine connection parameters. (see [below for nested schema](#nestedatt--params--opensearch))
+- `postgresql` (Attributes) PostgreSQL database connection parameters. (see [below for nested schema](#nestedatt--params--postgresql))
+- `redis` (Attributes) Redis in-memory data store connection parameters. (see [below for nested schema](#nestedatt--params--redis))
+- `storedoc` (Attributes) StoreDoc document store connection parameters. (see [below for nested schema](#nestedatt--params--storedoc))
+- `trino` (Attributes) Trino distributed SQL query engine connection parameters. (see [below for nested schema](#nestedatt--params--trino))
+- `valkey` (Attributes) Valkey in-memory data store connection parameters. (see [below for nested schema](#nestedatt--params--valkey))
 
 <a id="nestedatt--params--clickhouse"></a>
 ### Nested Schema for `params.clickhouse`

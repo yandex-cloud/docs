@@ -3,6 +3,13 @@ title: История изменений в {{ mpg-full-name }}
 description: В разделе представлена история изменений сервиса {{ mpg-name }}.
 ---
 
+<!-- Changelog begin -->
+
+
+
+
+<!-- Changelog end -->
+
 # История изменений в {{ mpg-full-name }}
 
 ## Декабрь 2025 {#dec-2025}

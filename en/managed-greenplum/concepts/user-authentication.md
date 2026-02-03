@@ -45,9 +45,10 @@ As an address, you can use a host's FQDN, IP range, or the special `all` value t
 
 The following authentication methods are supported:
 
-* `md5`: Password-based authentication. For more information, see the [{{ PG }} documentation]({{ pg-docs }}/auth-password.html).
+* `md5`: Password-based authentication. For more information, see [this {{ PG }} guide]({{ pg-docs }}/auth-password.html).
+* `iam`: [IAM-based authentication](../operations/connect.md#iam).
 * `reject`: User connection is not allowed.
 
-For more information about the settings, see the [{{ PG }} documentation]({{ pg-docs }}/auth-pg-hba-conf.html).
+You can learn more about these settings in [this {{ PG }} guide]({{ pg-docs }}/auth-pg-hba-conf.html).
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

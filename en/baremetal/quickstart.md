@@ -19,7 +19,7 @@ Lease your first [physical server](./concepts/servers.md) and connect to it. All
 
   1. {% include [server-lease-step1](../_includes/baremetal/instruction-steps/server-lease-step1.md) %}
   1. {% include [server-lease-step2](../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
-  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}** and, in the window that opens, select `{{ ui-key.yacloud.baremetal.servers.ServerConfigPage.ready-configs_ibA3Y }}` and a suitable [configuration](./concepts/server-configurations.md) for your {{ baremetal-name }} server. For example: `BA-i103-S-10G`.
+  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}** and, in the window that opens, select `{{ ui-key.yacloud_components.baremetal.PresetConfigurations }}` and a suitable [configuration](./concepts/server-configurations.md) for your {{ baremetal-name }} server. For example: `BA-i103-S-10G`.
 
       {% include [server-lease-selecting-the-right-config](../_includes/baremetal/instruction-steps/server-lease-selecting-the-right-config.md) %}
 

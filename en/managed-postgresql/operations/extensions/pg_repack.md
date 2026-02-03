@@ -7,9 +7,9 @@ description: In this tutorial, you will learn how to install and use pg_repack a
 
 {{ PG }} tables and indexes may be given to _bloating_. During transactions that update data in tables and indexes, the old data is kept to allow for rollback if needed. This causes tables and indexes to bloat during bulk data updates. You can use the [pgstattuple](./cluster-extensions.md#postgresql) extension or the [pgsql-bloat-estimation](https://github.com/ioguix/pgsql-bloat-estimation) queries to assess bloat.
 
-The system does not automatically purge old data versions. To free up storage space and eliminate the bloat, you can delete the data you no longer need using the [VACUUM FULL]({{ pg-docs }}/sql-vacuum.html) or [CLUSTER]({{ pg-docs }}/sql-cluster.html) commands. These commands require an exclusive table lock, which may not be convenient or acceptable.
+The system does not automatically purge old data versions. To free up storage space and eliminate the bloat, you can delete the data you no longer need using the [VACUUM FULL]({{ pg-docs }}/sql-vacuum.html) or [CLUSTER]({{ pg-docs }}/sql-cluster.html) commands. However, these commands require an exclusive table lock for their duration, which may not be convenient or acceptable.
 
-The [pg_repack](https://github.com/reorg/pg_repack) extension allows you to remove bloat from tables and indexes by repacking them. `pg_repack` does not require an exclusive table lock, unlike other methods. For more information, see the [extension page](https://reorg.github.io/pg_repack/).
+The [pg_repack](https://github.com/reorg/pg_repack) extension allows you to remove bloat from tables and indexes by repacking them. In contrast to other methods, `pg_repack` sets an exclusive table lock for a short period of time. For more information, see the [extension page](https://reorg.github.io/pg_repack/).
 
 ## Installing pg_repack in a {{ PG }} cluster {#install-extension}
 

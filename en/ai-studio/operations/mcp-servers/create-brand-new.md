@@ -9,6 +9,12 @@ description: Follow this guide to learn how to create your own MCP servers in {{
 
 In [{{ mcp-hub-name }}](../../concepts/mcp-hub/index.md), you can create new MCP servers from scratch containing tools such as an HTTPS request to an external API, a {{ sf-full-name }} [function](../../../functions/concepts/function.md), or a [workflow](../../../serverless-integrations/concepts/workflows/workflow.md) in {{ sw-full-name }}.
 
+{% note tip %}
+
+{% include [roles-to-invoke-mcp](../../../_includes/ai-studio/mcp-hub/roles-to-invoke-mcp.md) %}
+
+{% endnote %}
+
 To create a new MCP server:
 
 {% list tabs group=instructions %}
@@ -126,7 +132,7 @@ To create a new MCP server:
 
   {% note info %}
 
-  The example below demonstrates how to create a simple MCP server with a single tool, an HTTPS request. To create an MCP server with multiple tools, add the descriptions of these tools as separate [JSON](https://en.wikipedia.org/wiki/JSON) objects into the `tools` list. For more information about the parameters used to create an MCP server, see [McpGateway.Create](../../mcp-gateway/api-ref/McpGateway/create.md) in the API reference.
+  The example below demonstrates how to create a simple MCP server with a single tool, an HTTPS request. To set up an MCP server with multiple tools, add the descriptions of these tools as separate [JSON](https://en.wikipedia.org/wiki/JSON) objects in the `tools` list. For more information about the parameters used to create an MCP server, see [McpGateway.Create](../../mcp-gateway/api-ref/McpGateway/create.md) in the API reference.
 
   {% endnote %}
 
@@ -192,7 +198,7 @@ To create a new MCP server:
               {% include [name-format](../../../_includes/name-format.md) %}
 
           * `description`: Tool description.
-          * `inputJsonSchema`: [JSON](https://en.wikipedia.org/wiki/JSON) schema describing the tool's input parameters.
+          * `inputJsonSchema`: [JSON](https://en.wikipedia.org/wiki/JSON) schema describing the tool input parameters.
 
               {% include [create-server-json-scheme-example](../../../_includes/ai-studio/mcp-hub/create-server-json-scheme-example.md) %}
 

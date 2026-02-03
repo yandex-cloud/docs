@@ -39,6 +39,8 @@ items:
             href: operations/resources/enable-shielding.md
           - name: Настроить перенаправление запросов
             href: operations/resources/setup-http-rewrite.md
+          - name: Настроить следование перенаправлениям запросов
+            href: operations/resources/setup-follow-redirects.md
           - name: Настроить доступ по защищенному токену
             href: operations/resources/enable-secure-token.md
           - name: Настроить локационные правила
@@ -128,6 +130,8 @@ items:
             href: concepts/slicing.md
           - name: Экранирование источников
             href: concepts/origins-shielding.md
+          - name: Следование перенаправлениям запросов
+            href: concepts/follow-redirects.md
       - name: Перенаправление запросов
         href: concepts/http-rewrite.md
       - name: Кеширование контента

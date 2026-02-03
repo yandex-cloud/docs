@@ -6,3 +6,8 @@ description: С помощью {{ sts-name }} вы можете получить
 # Доступ в бакет с помощью {{ sts-name }}
 
 {% include notitle [create-sts-key](../../../_includes/iam/create-sts-key.md) %}
+
+#### См. также {#see-also}
+
+* [{#T}](../../security/overview.md)
+* [{#T}](manage-ephemeral-keys.md)

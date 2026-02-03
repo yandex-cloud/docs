@@ -177,6 +177,7 @@ description: Из статьи вы узнаете, как задать наст
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
+
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.table_filter.title }}**: 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}** — будут передаваться данные только из таблиц этого списка.
 

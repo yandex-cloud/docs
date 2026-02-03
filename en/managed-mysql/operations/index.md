@@ -32,5 +32,5 @@ description: This page provides a list of step-by-step guides for {{ mmy-name }}
 
 * [Viewing cluster logs](cluster-logs.md)
 * [Performance diagnostics](performance-diagnostics.md)
-* [Monitoring the state of a cluster and its hosts](monitoring.md)
+* [Cluster and host state monitoring](monitoring.md)
 * [{#T}](datalens-connect.md)

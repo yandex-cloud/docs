@@ -9,7 +9,11 @@ description: In this tutorial, you will learn how to switch over to another clou
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
+  1. In the [management console]({{ link-console-main }}), in the top panel, click ![image](../../../_assets/console-icons/chevron-down.svg).
+  1. In the list that opens, select the cloud or folder within that cloud.
+  1. The dashboard shows general cloud and folder information. The cloud [ID](./get-id.md) is specified at the top, below the cloud name.
+
+     ![switch-cloud](../../../_assets/resource-manager/switch-cloud-new.png)
 
 - CLI {#cli}
 
@@ -29,12 +33,12 @@ description: In this tutorial, you will learn how to switch over to another clou
 
       ```
       yc resource-manager cloud list
-      +----------------------+----------------------+-------------------------------+
-      |          ID          |         NAME         |          DESCRIPTION          |
-      +----------------------+----------------------+-------------------------------+
-      | b1gg8sgd16g7******** | cloud-b1gg8s******** | ...                           |
-      | b1gjqgj3hhvj******** | cloud-b1gjqg******** | ...                           |
-      +----------------------+----------------------+-------------------------------+
+      +--------------------------+----------------------+-------------------------------+
+      |            ID            |         NAME         |          DESCRIPTION          |
+      +--------------------------+----------------------+-------------------------------+
+      | <ID_of_cloud_1> | <name_of_cloud_1>       | ...                           |
+      | <ID_of_cloud_2> | <name_of_cloud_2>       | ...                           |
+      +--------------------------+----------------------+-------------------------------+
       ```
 
       {% note info %}
@@ -46,7 +50,7 @@ description: In this tutorial, you will learn how to switch over to another clou
   1. Specify the ID of the cloud to be used by default:
 
       ```
-      yc config set cloud-id b1gjqgj3hhvj********
+      yc config set cloud-id <cloud_ID>
       ```
 
 - API {#api}

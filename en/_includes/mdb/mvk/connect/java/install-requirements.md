@@ -102,7 +102,7 @@
 1. To connect with SSL:
 
     1. [Get an SSL certificate](../../../../../managed-valkey/operations/connect/index.md#get-ssl-cert).
-    1. Create secure storage for certificates:
+    1. Create a secure certificate store:
 
         ```bash
         keytool -importcert \

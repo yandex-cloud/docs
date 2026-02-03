@@ -47,5 +47,5 @@ description: This page provides a list of step-by-step guides for {{ mpg-name }}
 
 * [Viewing cluster logs](cluster-logs.md)
 * [Performance diagnostics](performance-diagnostics.md)
-* [Cluster and host status monitoring](monitoring.md)
+* [Cluster and host state monitoring](monitoring.md)
 * [Connecting to a cluster from {{ datalens-name }}](datalens-connect.md)

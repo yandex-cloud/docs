@@ -1,11 +1,14 @@
 ---
 title: Storage in {{ mspqr-full-name }}
 description: In this article, you will learn what a storage is in {{ mspqr-name }} and how to select the right disk type when creating a cluster.
+keywords:
+  - keyword: Storage in {{ mspqr-full-name }}
+  - keyword: Disks in {{ mspqr-full-name }}
 ---
 
 # Storage in {{ mspqr-full-name }}
 
-With {{ mspqr-name }}, you can use network storage drives to set up your cluster storage. Network drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure.
+With {{ mspqr-name }}, you can use network storage drives to set up your cluster storage. Network drives are based on network blocks, i.e., virtual disks in the {{ yandex-cloud }} infrastructure.
 
 Your storage can use the following disk types:
 

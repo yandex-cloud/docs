@@ -5,6 +5,15 @@ description: This section contains the {{ mpg-name }} release notes.
 
 # {{ mpg-full-name }} release notes
 
+## December 2025 {#dec-2025}
+
+* Added [detailed metrics](operations/monitoring.md#hosts) for disk usage on cluster hosts.
+* Added execution details for [operations on the cluster](operations/cluster-list.md#list-operations).
+* All [extensions](./operations/extensions/cluster-extensions.md) supported in {{ PG }} 17 are available for {{ PG }} 18.
+* Implemented authorization via {{ iam-short-name }} when [creating](./operations/cluster-users.md#adduser) a {{ PG }} user.
+
+
+
 ## November 2025 {#nov-2025}
 
 * Added the `managed-postgresql.restorer` role for restoring clusters from backups. To learn more, see [Access management](security/index.md#managed-postgresql-restorer).

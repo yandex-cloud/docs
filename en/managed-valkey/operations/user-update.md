@@ -24,7 +24,7 @@ After creating a {{ VLK }} user, you can:
 
   To change a {{ VLK }} user password:
 
-  1. See the description of the CLI command for updating user settings:
+  1. View the description of the CLI command for updating user settings:
 
       ```bash
       {{ yc-mdb-rd }} user update --help
@@ -68,11 +68,11 @@ After creating a {{ VLK }} user, you can:
       
       You can specify only one password.
   
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -80,7 +80,7 @@ After creating a {{ VLK }} user, you can:
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -124,7 +124,7 @@ After creating a {{ VLK }} user, you can:
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -157,7 +157,7 @@ After creating a {{ VLK }} user, you can:
 
         You can get the username with the [list of users](user-list.md#list) in the cluster.
 
-      * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+      * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
         
         {% cut "Format for listing settings" %}
 
@@ -176,7 +176,7 @@ After creating a {{ VLK }} user, you can:
 
         {% include [update-mask-note-grpc](../../_includes/mdb/mvk/update-mask-note-grpc.md) %}
 
-      * `passwords`: User password. It must be from 8 to 128 characters long.
+      * `passwords`: Password. It must be from 8 to 128 characters long.
           
         You can specify only one password.  
 
@@ -211,7 +211,7 @@ After creating a {{ VLK }} user, you can:
 
   To change a {{ VLK }} user status:
 
-  1. See the description of the CLI command for updating user settings:
+  1. View the description of the CLI command for updating user settings:
 
       ```bash
       {{ yc-mdb-rd }} user update --help
@@ -259,11 +259,11 @@ After creating a {{ VLK }} user, you can:
       * `true`: User is enabled.
       * `false`: User is disabled.
   
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -271,7 +271,7 @@ After creating a {{ VLK }} user, you can:
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -314,7 +314,7 @@ After creating a {{ VLK }} user, you can:
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -345,7 +345,7 @@ After creating a {{ VLK }} user, you can:
 
         You can get the username with the [list of users](user-list.md#list) in the cluster.
 
-      * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+      * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
         
         {% cut "Format for listing settings" %}
 
@@ -400,7 +400,7 @@ After creating a {{ VLK }} user, you can:
 
   To configure data cleanup:
 
-  1. See the description of the CLI command for updating user settings:
+  1. View the description of the CLI command for updating user settings:
 
       ```bash
       {{ yc-mdb-rd }} user update --help
@@ -448,11 +448,11 @@ After creating a {{ VLK }} user, you can:
       * `sanitize-payload`: Data cleanup is enabled. This is the default value.
       * `skip-sanitize-payload`: Data cleanup is disabled.
   
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -460,7 +460,7 @@ After creating a {{ VLK }} user, you can:
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -505,7 +505,7 @@ After creating a {{ VLK }} user, you can:
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -538,7 +538,7 @@ After creating a {{ VLK }} user, you can:
 
         You can get the username with the [list of users](user-list.md#list) in the cluster.
 
-      * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+      * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
         
         {% cut "Format for listing settings" %}
 
@@ -593,7 +593,7 @@ After creating a {{ VLK }} user, you can:
 
   To assign permissions to a {{ VLK }} user:
 
-  1. See the description of the CLI command for updating user settings:
+  1. View the description of the CLI command for updating user settings:
 
       ```bash
       {{ yc-mdb-rd }} user update --help
@@ -640,7 +640,7 @@ After creating a {{ VLK }} user, you can:
 
       {% include [user-permissions-note](../../_includes/mdb/mvk/user-permissions-note.md) %}
 
-      For more information about access control lists, see this [{{ VLK }} ACL guide](https://valkey.io/topics/acl).
+      For more information about access control lists, see [this {{ VLK }} ACL guide](https://valkey.io/topics/acl).
       
       You can get the username with the [list of users](user-list.md#list) in the cluster.
 
@@ -680,11 +680,11 @@ After creating a {{ VLK }} user, you can:
 
       For more information about access control lists, see this [{{ VLK }} ACL guide](https://valkey.io/topics/acl).
   
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -692,7 +692,7 @@ After creating a {{ VLK }} user, you can:
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -726,7 +726,7 @@ After creating a {{ VLK }} user, you can:
 
       {% include [user-permissions-note](../../_includes/mdb/mvk/user-permissions-note.md) %}
 
-      For more information about access control lists, see this [{{ VLK }} ACL guide](https://valkey.io/topics/acl).
+      For more information about access control lists, see [this {{ VLK }} ACL guide](https://valkey.io/topics/acl).
 
   1. Call the [User.Update](../api-ref/User/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -747,7 +747,7 @@ After creating a {{ VLK }} user, you can:
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -783,7 +783,7 @@ After creating a {{ VLK }} user, you can:
 
         You can get the username with the [list of users](user-list.md#list) in the cluster.
 
-      * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+      * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
         
         {% cut "Format for listing settings" %}
 
@@ -812,7 +812,7 @@ After creating a {{ VLK }} user, you can:
             
       {% include [user-permissions-note](../../_includes/mdb/mvk/user-permissions-note.md) %}
 
-      For more information about access control lists, see this [{{ VLK }} ACL guide](https://valkey.io/topics/acl).
+      For more information about access control lists, see [this {{ VLK }} ACL guide](https://valkey.io/topics/acl).
           
   1. Call the [UserService.Update](../api-ref/grpc/User/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 

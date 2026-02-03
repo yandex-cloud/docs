@@ -1,6 +1,11 @@
 ---
 title: '{{ mspqr-full-name }} host classes'
-description: The host class determines the computing power allocated for each host in a {{ mspqr-name }} cluster. If a cluster uses standard sharding, changing the host class updates the properties of all previously created hosts. If a cluster uses advanced sharding, the host class is changed separately for hosts with the ROUTER and COORDINATOR roles. Changing the configuration updates the properties of all previously created hosts.
+description: The host class determines the computing power allocated for each host in a {{ mspqr-name }} cluster. If a cluster uses standard sharding, changing the host class updates the properties of all previously created hosts. If a cluster uses advanced sharding, the host class is changed separately for hosts with the `ROUTER` and `COORDINATOR` roles. Changing the configuration updates the properties of all previously created hosts.
+keywords:
+  - keyword: SPQR
+  - keyword: Sharding in PostrgeSQL
+  - keyword: Sharded PostrgeSQL
+  - keyword: PostrgeSQL shard
 ---
 
 # {{ mspqr-full-name }} host classes
@@ -30,9 +35,9 @@ Intel Broadwell is not available for clusters with hosts residing in the `{{ reg
 Configuration types:
 
 * **s1**, **s2**, **s3**, and **s4a**: Standard configurations with a 4:1 RAM GB to vCPU ratio.
-* **m2**, **m3**, and **m4a**: Configurations with an increased RAM GB to vCPU ratio (8:1). These configurations may be useful for clusters with higher cache requirements.
+* **m2**, **m3**, and **m4a**: Configurations with an increased RAM GB to vCPU ratio (8:1). These configurations are well suited for clusters with high cache requirements.
 * **c3** and **c4a**: Configurations with a reduced RAM GB to vCPU ratio (2:1). These configurations may be useful for clusters with higher processor performance requirements.
-* **b1**, **b2**, **b3**: Configurations with a guaranteed vCPU share under 100%. This host class is intended for test load, while the minimum recommended host configuration for production solutions is two vCPUs with a guaranteed share of 50%.
+* **b1**, **b2**, **b3**: Configurations with a guaranteed vCPU share under 100%. This host class is intended for test workloads. The minimum recommended host configuration for production solutions is two vCPUs with a guaranteed share of 50%.
 
   {% note info %}
 
@@ -40,7 +45,7 @@ Configuration types:
 
   {% endnote %}
 
-| Host class name   | Number of CPUs | CPU performance        | RAM, GB | Disk <br>size, GB    |
+| Host class name | Number of CPUs | CPU performance | RAM, GB | Disk <br>size, GB |
 |-------------------|----------------|------------------------|---------|----------------------|
 | **Intel Broadwell**                                                                          |
 | b1.medium         | 2              | 50%                    | 4       | 10–512               |
@@ -106,7 +111,7 @@ Configuration types:
 | c3-c48-m96        | 48             | 100%                   | 96      | 10–512               |
 | c3-c64-m128       | 64             | 100%                   | 128     | 10–512               |
 | c3-c80-m160       | 80             | 100%                   | 160     | 10–512               |
-| c3-c96-m192       | 96             | 100%                   | 192     | 10–512               |
+| c3-c96-m192       | 96             | 100%                   | 192     | 10–512               | 
 | **AMD Zen 3**                                                                                |
 | s4a-c2-m8         | 2              | 100%                   | 8       | 10–512               |
 | s4a-c4-m16        | 4              | 100%                   | 16      | 10–512               |

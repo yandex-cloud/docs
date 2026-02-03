@@ -81,7 +81,7 @@ items:
         items:
           - name: Viewing cluster logs
             href: operations/cluster-logs.md
-          - name: Monitoring the state of a cluster and its hosts
+          - name: Cluster and host state monitoring
             href: operations/monitoring.md
           - name: Connecting from {{ datalens-name }}
             href: operations/datalens-connect.md

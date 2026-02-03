@@ -93,7 +93,7 @@ description: Следуя данной инструкции, вы научите
      curl --request POST \
        --header "Authorization: Bearer ${IAM_TOKEN}" \
        --data "@tbody.json" \
-       "https://llm.api.cloud.yandex.net/foundationModels/v1/tokenize"
+       "https://ai.api.cloud.yandex.net/foundationModels/v1/tokenize"
      ```
   
      Где:

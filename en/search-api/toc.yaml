@@ -19,6 +19,16 @@ items:
         href: operations/web-search-geo.md
       - name: Mobile search results
         href: operations/v2-mobile.md
+      - name: '{{ wordstat-name }}'
+        items:
+          - name: Top results by key phrase
+            href: operations/wordstat-gettop.md
+          - name: Query change dynamics
+            href: operations/wordstat-getdynamics.md
+          - name: Query distribution by regions
+            href: operations/wordstat-getregionsdistribution.md
+      - name: Getting a list of search regions
+        href: operations/wordstat-getregiontree.md
       - name: API v1
         items:
           - name: General connection procedure
@@ -59,6 +69,8 @@ items:
         href: concepts/generative-response.md
       - name: Image search
         href: concepts/image-search.md
+      - name: '{{ wordstat-name }}'
+        href: concepts/wordstat.md
       - name: API v1
         items:
           - name: Text search
@@ -203,5 +215,7 @@ items:
         href: reference/error-codes.md
       - name: Request headers for troubleshooting
         href: api-ref/support-headers.md
+      - name: Search operators
+        href: concepts/search-operators.md
       - name: Search regions
         href: reference/regions.md

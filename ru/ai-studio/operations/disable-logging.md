@@ -59,11 +59,11 @@
   * `IAM_TOKEN` — [IAM-токен](../../iam/operations/iam-token/create.md), необходимый для аутентификации.
   * `@<путь_до_файла_json>` — путь к файлу JSON, содержащему запрос к модели.
   * `<эндпоинт_модели>` — эндпоинт для обращения к модели. Например:
-    * `https://llm.{{ api-host }}/foundationModels/v1/completion` — для синхронных запросов к [{{ yagpt-name }}](../concepts/generation/index.md).
-    * `https://llm.{{ api-host }}/foundationModels/v1/completionAsync` — для [асинхронных](generation/async-request.md) запросов к {{ yagpt-name }}.
+    * `https://ai.{{ api-host }}/foundationModels/v1/completion` — для синхронных запросов к [{{ yagpt-name }}](../concepts/generation/index.md).
+    * `https://ai.{{ api-host }}/foundationModels/v1/completionAsync` — для [асинхронных](generation/async-request.md) запросов к {{ yagpt-name }}.
     * `https://{{ api-host-llm }}:443/foundationModels/v1/textClassification` — для [дообученных](../concepts/classifier/index.md#trainable) классификаторов.
     * `https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification` — для [Zero-shot](../concepts/classifier/index.md#zero-shot) и [Few-shot](../concepts/classifier/index.md#few-shot) классификаторов.
-    * `https://llm.{{ api-host }}/foundationModels/v1/imageGenerationAsync` — для {{ yandexart-name }}.
+    * `https://ai.{{ api-host }}/foundationModels/v1/imageGenerationAsync` — для {{ yandexart-name }}.
 
     Полный список доступных эндпоинтов см. в [справочниках API {{ foundation-models-full-name }}](../concepts/api.md).
 
@@ -74,7 +74,7 @@
 
   client = OpenAI(
         api_key="<API-ключ>",
-        base_url="https://llm.api.cloud.yandex.net/v1",
+        base_url="https://ai.api.cloud.yandex.net/v1",
         project="<идентификатор_каталога>",
         default_headers={
             "x-data-logging-enabled": "false"

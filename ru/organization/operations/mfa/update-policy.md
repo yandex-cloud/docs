@@ -83,6 +83,10 @@ description: Следуя данной инструкции, вы сможете
      * `--description` — новое описание.
      * `--organization-id` — идентификатор организации.
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Update](../../../organization/api-ref/MfaEnforcement/update.md) для ресурса [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) или вызовом gRPC API [MfaEnforcementService/Update](../../../organization/api-ref/grpc/MfaEnforcement/update.md).
+
 {% endlist %}
 
 {% include [mfa-policy-add-users-notice](../../../_includes/organization/mfa-policy-add-users-notice.md) %}

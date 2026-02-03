@@ -58,8 +58,6 @@ Host: <имя_бакета>.{{ s3-storage-host }}
 
   Если для аутентификации в [API](../../glossary/rest-api.md) вы используете IAM-токен, то дополнительно подписывать HTTP-запросы не требуется.
 
-  [Инструменты](../tools/index.md) для работы с Amazon S3, такие как [AWS CLI](../tools/aws-cli.md) и [AWS SDK](../tools/sdk/index.md), поддерживают только аутентификацию с помощью статического ключа доступа, и использовать их одновременно с аутентификацией по IAM-токену нельзя.
-
 - Аутентификация с помощью статического ключа {#static-key}
 
   Если для аутентификации в [API](../../glossary/rest-api.md) вы используете статический ключ доступа и обращаетесь к API напрямую (без SDK и приложений), то для подписи запросов вам придется самостоятельно генерировать заголовок `Authorization`. О том, как это сделать, читайте в разделе [Authenticating Requests (AWS Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html) документации Amazon S3.

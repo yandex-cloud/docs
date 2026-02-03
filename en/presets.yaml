@@ -914,6 +914,7 @@ default:
   wiki-full-name: Yandex Wiki
   wiki-name: Wiki
   wiki-short-name: Wiki
+  wordstat-name: Wordstat
   ya-360: Yandex 360 for Business
   ya-oauth-url: https://oauth.yandex.com
   yagpt-full-name: YandexGPT API
@@ -3195,6 +3196,10 @@ default:
         cpu|string: $0.015120
         ram|number: 0.00405
         ram|string: $0.004050
+  sku|USD|identity-hub:
+    users:
+      101-500|number: 4.081967
+      501-1000|number: 3.663934
   sku|USD|kms:
     api:
       asymmetric:
@@ -4015,9 +4020,11 @@ default:
         addDiskButton: Add
         amount: Number
         cpuTitle: CPU
+        CustomConfiguration: Custom configuration
         disks: Disks
         networkLabel: Network
         poolFilter: Pool
+        PresetConfigurations: Preset configurations
         ramLabel: RAM
         size: Size
         type: Type
@@ -4860,7 +4867,8 @@ default:
             controlRule_kr2Bv: Control rule
             module_63uuk: Module of control
             standards_iv6a5: Rule sets
-            verificationMethod_dS9B2: Verification method
+            verificationMethod_dS9B2: |
+              Rule type
             violations_q7AcU: Violations
           RulePageLayout:
             tab_overview_s9riS: Overview
@@ -5441,9 +5449,6 @@ default:
             bandwidthTitle_wvZra: Bandwidth
             plan100Tb_4AB2b: 100 TB per day, connection capacity, 10 Gbit/s
             plan10Tb_2BFQU: 10 TB per day, connection capacity, 1 Gbit/s
-          ServerConfigPage:
-            custom-configs_b5Ab9: Custom configuration
-            ready-configs_ibA3Y: Preset configurations
         title_common-info: General information
         title_routing-settings: IP addressing and routing
         title_section-accesses: Accesses
@@ -5676,7 +5681,6 @@ default:
         button_install: Install
         label_marketplace: Marketplace
         label_service-account: Service account
-        label_subnetwork: Subnet
         section_parameters: Application settings
       cloud-registry:
         action_registry-create: Create registry
@@ -7836,9 +7840,9 @@ default:
         hosts:
           dialog:
             button_choose: Save
-        switch_backups: Backups
-        switch_list: Clusters
-        switch_operations: Operations
+        switch_backups_xgJVM: Backups
+        switch_list_9AfbP: Clusters
+        switch_operations_9JzwJ: Operations
       redis:
         cluster:
           switch_monitoring: Monitoring
@@ -7931,9 +7935,6 @@ default:
             label_section-variables: Variable settings
           item:
             switch_domains: Domains
-            switch_logs: Logs
-            switch_monitoring: Monitoring
-            switch_operations: Operations
           list:
             button_create: Create API gateway
           overview:
@@ -8280,7 +8281,6 @@ default:
         label_complexity: Complexity
         label_main-challenge: Main challenge
         label_no-hostname-check: Disable domain check
-        label_section-customization: Сustomize style
         label_section-style: Style
         label_server-key: Server key
         value_challenge-image_text: Text recognition
@@ -8711,7 +8711,6 @@ default:
               title: Speech synthesis
             stt:
               title: Speech recognition
-        train-modal: Fine-tune model
         use-context: Use context
         YaGPT:
           ConnectMcpTools:

@@ -1,6 +1,6 @@
 ## Before you connect from a Docker container {#connection-docker}
 
-To connect to a {{ mrd-name }} cluster from a Docker container, add the following lines to your Dockerfile:
+To connect to a {{ mrd-name }} cluster from a Docker container, add the following lines to the Dockerfile:
 
 {% list tabs group=connection %}
 

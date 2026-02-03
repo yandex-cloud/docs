@@ -58,7 +58,7 @@ description: Следуя этой инструкции, с помощью {{ ve
       def main():
           client = OpenAI(
               api_key=YANDEX_API_KEY,
-              base_url="https://rest-assistant.{{ api-host }}/v1",
+              base_url="https://ai.{{ api-host }}/v1",
               project=YANDEX_FOLDER_ID,
           )
 
@@ -126,7 +126,7 @@ description: Следуя этой инструкции, с помощью {{ ve
       def main():
           client = OpenAI(
               api_key=YANDEX_API_KEY,
-              base_url="https://rest-assistant.{{ api-host }}/v1",
+              base_url="https://ai.{{ api-host }}/v1",
               project=YANDEX_FOLDER_ID,
           )
 
@@ -215,7 +215,7 @@ description: Следуя этой инструкции, с помощью {{ ve
       def main():
           client = OpenAI(
               api_key=YANDEX_API_KEY,
-              base_url="https://rest-assistant.{{ api-host }}/v1",
+              base_url="https://ai.{{ api-host }}/v1",
               project=YANDEX_FOLDER_ID,
           )
 
@@ -298,7 +298,7 @@ description: Следуя этой инструкции, с помощью {{ ve
       def main():
           client = OpenAI(
               api_key=YANDEX_API_KEY,
-              base_url="https://rest-assistant.{{ api-host }}/v1",
+              base_url="https://ai.{{ api-host }}/v1",
               project=YANDEX_FOLDER_ID,
           )
 
@@ -361,7 +361,7 @@ description: Следуя этой инструкции, с помощью {{ ve
       def main():
           client = OpenAI(
               api_key=YANDEX_API_KEY,
-              base_url="https://rest-assistant.{{ api-host }}/v1",
+              base_url="https://ai.{{ api-host }}/v1",
               project=YANDEX_FOLDER_ID,
           )
 

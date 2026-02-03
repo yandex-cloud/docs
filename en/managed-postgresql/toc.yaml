@@ -47,7 +47,7 @@ items:
             href: operations/databases.md
       - name: '{{ PG }} users'
         items:
-          - name: DB user management
+          - name: Managing database users
             href: operations/cluster-users.md
           - name: Assigning privileges and roles
             href: operations/grant.md
@@ -73,7 +73,7 @@ items:
             href: operations/cluster-logs.md
           - name: Performance diagnostics
             href: operations/performance-diagnostics.md
-          - name: Cluster and host status monitoring
+          - name: Cluster and host state monitoring
             href: operations/monitoring.md
           - name: Connecting to DataLens
             href: operations/datalens-connect.md
@@ -183,7 +183,7 @@ items:
         href: concepts/index.md
       - name: Host classes
         items:
-          - name: Available host classes
+          - name: Active host classes
             href: concepts/instance-types.md
           - name: Archive
             items:

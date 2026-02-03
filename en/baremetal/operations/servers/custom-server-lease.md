@@ -19,7 +19,7 @@ You can [configure](../../concepts/server-configurations.md#custom) your server 
 
   1. {% include [server-lease-step1](../../../_includes/baremetal/instruction-steps/server-lease-step1.md) %}
   1. {% include [server-lease-step2](../../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
-  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}** and, in the window that opens, select `{{ ui-key.yacloud.baremetal.servers.ServerConfigPage.custom-configs_b5Ab9 }}`. In the window that opens, set up the server configuration:
+  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}** and, in the window that opens, select `{{ ui-key.yacloud_components.baremetal.CustomConfiguration }}`. In the window that opens, set up the server configuration:
 
       1. Under **{{ ui-key.yacloud_components.baremetal.cpuTitle }}**, select the CPU that suits you best.
 

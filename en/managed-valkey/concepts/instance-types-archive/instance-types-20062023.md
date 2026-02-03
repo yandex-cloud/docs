@@ -1,5 +1,5 @@
 ---
-title: '{{ RD }} host classes prior to June 20, 2023'
+title: '{{ RD }} host classes before June 20, 2023'
 description: 'The host class determines the computing power allocated for each host in the Redis cluster. When you change the host class for a cluster, all existing hosts change accordingly. The amount of memory allocated to a host also depends on the maxmemory configuration parameter for Redis hosts: the maximum amount of data equals 75% of available memory.'
 ---
 
@@ -14,15 +14,15 @@ The amount of memory allocated to a host also depends on the `maxmemory` configu
 {% endnote %}
 
 
-The host class also determines which [disk types](.././storage.md) are available:
+The host class determines the available [disk types](.././storage.md):
 
-* **hm1**: `network-ssd`, `local-ssd`
-* **hm2**: `network-ssd`, `local-ssd`, `network-ssd-nonreplicated`
-* **hm3**: `network-ssd`, `network-ssd-nonreplicated`
-* **b1**, **b2**, **b3**: `network-ssd`
+* **hm1**:`network-ssd`, `local-ssd`.
+* **hm2**: `network-ssd`, `local-ssd`, `network-ssd-nonreplicated`.
+* **hm3**: `network-ssd`, `network-ssd-nonreplicated`.
+* **b1**, **b2**, **b3**: `network-ssd`.
 
 
-The storage space available to the host should be at least twice as large as the selected memory size. For more information on Managed Service for Redis technical and organizational limitations, see [Quotas and limits](../limits.md).
+The storage space available to the host should be at least twice as large as the selected memory size. For more information on {{ mrd-full-name }} technical and organizational limitations, see [Quotas and limits](../limits.md).
 
 ## Available host classes {#available-flavors}
 

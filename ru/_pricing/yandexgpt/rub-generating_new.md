@@ -11,5 +11,5 @@
 || Gemma3 27B | {% calc [currency=RUB] round((2 × {{ sku|RUB|foundation_models.text_generation.v1|number }}) × 100) / 100 %} ^2^ | {% calc [currency=RUB] round((2 × {{ sku|RUB|foundation_models.text_generation.v1|number }}) × 100) / 100 %} ^2^ | — | — ||
 |#
 
-^1^ Цена указана без учета действующей скидки 50%. Скидка действует до 10 февраля 2026 года.
+^1^ Цена указана без учета действующей скидки 50%. Скидка действует до 16 февраля 2026 года.
 ^2^ Цена указана с учетом действующей скидки 50%.

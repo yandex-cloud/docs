@@ -1,5 +1,5 @@
 ---
-title: Network and DB clusters in {{ mrd-full-name }}
+title: Network and database clusters in {{ mrd-full-name }}
 description: In this tutorial, you will learn about the basic network interface settings for a {{ VLK }} cluster.
 ---
 
@@ -15,7 +15,7 @@ When creating a cluster, you can:
 
 ## Host name and FQDN {#hostname}
 
-{{ mrd-short-name }} generates a name for each cluster host when it is created. This name will be the host's fully qualified domain name (FQDN). The host name and, consequently, FQDN cannot be changed.
+{{ mrd-short-name }} generates a name for each cluster host when it is created. This name will be the host's fully qualified domain name (FQDN). You cannot change the host name and, consequently, FQDN.
 
 {% include [see-fqdn](../../_includes/mdb/mvk/fqdn-host.md) %}
 
@@ -38,7 +38,7 @@ When deleting a publicly accessible host, the assigned IP address is revoked.
 
 {{ VLK }} uses host IP addresses, not their [FQDNs](#hostname). If a {{ mrd-short-name }} cluster supports TLS, this prevents connection to {{ VLK }} hosts in the following situations:
 
-* The [{{ VLK }} client](./supported-clients.md) connects to a host via SSL and requests to verify the host's FQDN against the certificate.
+* The [{{ VLK }}](./supported-clients.md) client  connects to a host via SSL and requests to verify the host's FQDN against the certificate.
 
     The certificate contains the host's FQDN, not its IP address, so this verification will fail.
 
@@ -46,7 +46,7 @@ When deleting a publicly accessible host, the assigned IP address is revoked.
 
     {{ VLK }} returns the host's internal IP address, even if public access is enabled for that host. Such an IP address is not accessible from the internet.
 
-Enable the use of FQDNs instead of IP addresses to replace a host's IP address with its FQDN. You can do this when [creating](../operations/cluster-create.md) or [updating](../operations/update.md#configure-fqdn-ip-behavior) any {{ mrd-short-name }} cluster; however, this setting is typically used in clusters with TLS support to bypass the above limitations.
+Enable the setting that allows FQDNs to replace IP addresses. You can do this when [creating](../operations/cluster-create.md) or [updating](../operations/update.md#configure-fqdn-ip-behavior) any {{ mrd-short-name }} cluster; however, this setting is typically used in clusters with TLS support to bypass the above limitations.
 
 {% include [fqdn-option-compatibility-note](../../_includes/mdb/mvk/connect/fqdn-option-compatibility-note.md) %}
 
@@ -67,7 +67,7 @@ For information on how to configure security groups, see [{#T}](../operations/co
 
 {% note tip %}
 
-When connecting to a cluster from the same cloud network, configure security groups both for the cluster and the connecting host.
+When connecting to a cluster from its cloud network, configure security groups both for the cluster and the connecting host.
 
 {% endnote %}
 

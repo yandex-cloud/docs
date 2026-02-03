@@ -54,11 +54,11 @@ To get started in {{ yandex-cloud }}:
      * Select a generation [model](../concepts/generation/models.md).
      * **{{ ui-key.yacloud.yagpt.label_temperature-text }}**: Enter a value between `0` and `1` for the model's response variability. With a higher value, you get a more unpredictable result.
      * **{{ ui-key.yacloud.yagpt.instruction }}**: Describe your task, the appropriate writing style, limits, and other requirements for the model.
-     * **{{ ui-key.yacloud.yagpt.use-context }}**: Change the generation type.
-     * **Use an assistant**: With this option on, {{ ai-playground }} will operate based on the [{{ assistant-api }}](../concepts/assistant/index.md).
+     * **{{ ui-key.yacloud.yagpt.use-context }}**: Switch to a different generation type.
+     * **{{ ui-key.yacloud.yagpt.file-search }}**: Allow your model to use the search index to select files as an additional source of information. Once you activate the option, select a search index from the list of available ones or [create a new one](../operations/assistant/create-with-searchindex.md).
 
-  1. Click ![image](../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud.yagpt.train-modal }}** if you want to [train the model](../concepts/tuning/index.md) to follow a complex response format.
-  1. Under **{{ ui-key.yacloud.yagpt.model-using }}**, click ![image](../../_assets/console-icons/code.svg) **View code** to get the code for a request to the model via the ML SDK for Python or [cURL](https://curl.haxx.se).
+  1. Click ![image](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.yagpt.YaGPT.create-agent_1txyW }}** to create an [agent](../concepts/agents/index.md) for task automation.
+  1. Click ![image](../../_assets/console-icons/code.svg) **View code** to get the code for a request to the model via the API using Python, Node.js, or [cURL](https://curl.haxx.se).
 
      ![screen02](../../_assets/ai-studio/quickstart/yandexgpt/screen02.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Getting started with {{ mrd-full-name }}
-description: Follow this guide to create a {{ VLK }} cluster and connect to it.
+description: Follow this guide to create an {{ VLK }} cluster and connect to it.
 ---
 
 # Getting started with {{ mrd-name }}
@@ -21,7 +21,7 @@ To get started:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mrd.editor }} role or higher](security/index.md#roles-list) to your {{ yandex-cloud }} account to be able to create a cluster.
+1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mrd.editor }} role or higher](security/index.md#roles-list) to your {{ yandex-cloud }} account. These roles allow you to create a cluster.
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
@@ -50,8 +50,8 @@ Create a non-sharded {{ VLK }} cluster [without public access](./concepts/networ
 
 To create a cluster:
 
-1. In the management console, select the folder where you want to create a {{ VLK }} cluster.
-1. [Go to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+1. In the management console, select the folder where you want to create your {{ VLK }} cluster.
+1. [Navigate to](../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. Specify the following cluster settings:
 

@@ -1,10 +1,10 @@
 # Refresh-токен
 
-_Refresh-токен_ — это тип учетных данных, позволяющий OAuth-приложению при истечении срока действия [IAM-токена](./iam-token.md) пользователя автоматически получать новый IAM-токен. Refresh-токен выпускается для пользователя и передается в OAuth-приложение, которое выполняет аутентификацию пользователя в {{ yandex-cloud }}.
+_Refresh-токен_ — это тип учетных данных, позволяющий OAuth-приложению по истечении срока действия [IAM-токена](./iam-token.md) пользователя автоматически получать новый IAM-токен. Refresh-токен выпускается для пользователя и передается в OAuth-приложение, которое выполняет аутентификацию пользователя в {{ yandex-cloud }}.
 
-Одним из OAuth-приложений, поддерживающих использование refresh-токенов, является [{{ yandex-cloud }} CLI](../../../cli/index.yaml). При этом refresh-токены могут выпускаться только для [федеративных](../../../organization/concepts/add-federation.md) пользователей [организации {{ org-full-name }}](../../../overview/roles-and-resources.md).
+Одним из OAuth-приложений, поддерживающих использование refresh-токенов, является [{{ yandex-cloud }} CLI](../../../cli/index.yaml). Refresh-токены могут выпускаться для пользователей с любым типом [аккаунта](../users/accounts.md).
 
-С помощью {{ yandex-cloud }} CLI и [API](../../api-ref/RefreshToken/index.md) вы можете [просматривать](../../operations/refresh-token/list.md) список выпущенных для пользователя refresh-токенов и [отзывать](../../operations/refresh-token/revoke.md) такие токены.
+{% include [refresh-tokens-control](../../../_includes/iam/refresh-tokens-control.md) %}
 
 ## Срок жизни refresh-токенов {#token-lifetime}
 

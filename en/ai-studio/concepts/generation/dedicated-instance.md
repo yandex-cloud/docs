@@ -37,3 +37,11 @@ Each model may be available for deployment in several configurations: **S**, **M
 The figure below shows the dependence of latency and the number of tokens processed by the model on the number of parallel generations (_Concurrency_ in the figure): up to a certain point, the more generations the model processes in parallel, the longer the generation will last, and the more tokens will be generated per second.
 
 ![instances](../../../_assets/ai-studio/instances-chart.svg)
+
+## Use cases {#examples}
+
+* [{#T}](../../operations/resources/create-instance.md)
+* [{#T}](../../operations/resources/clone-instance.md)
+* [{#T}](../../operations/resources/get-instance.md)
+* [{#T}](../../operations/resources/start-stop-instance.md)
+* [{#T}](../../operations/resources/delete-instance.md)

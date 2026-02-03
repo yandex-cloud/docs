@@ -1,6 +1,11 @@
 ---
 title: Resource relationships in {{ mspqr-full-name }}
 description: '{{ SPQR }} is a system for horizontal {{ PG }} scaling through sharding. A {{ SPQR }} cluster consists of shards, a router, and a coordinator.'
+keywords:
+  - keyword: SPQR
+  - keyword: Sharding in PostrgeSQL
+  - keyword: Sharded PostrgeSQL
+  - keyword: PostrgeSQL shard
 ---
 
 # Resource relationships in {{ mspqr-full-name }}

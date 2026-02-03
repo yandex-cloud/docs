@@ -1,6 +1,9 @@
 ---
 title: Selecting a sharding strategy
 description: The choice a sharding strategy depends on your data structure. {{ SPQR }} enables you to test the selected strategy in shadow mode and rebalance data on a running system.
+keywords:
+  - keyword: SPQR sharding methods
+  - keyword: SPQR sharding strategy
 ---
 
 # Selecting a sharding strategy

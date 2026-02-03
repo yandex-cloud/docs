@@ -8,7 +8,7 @@ from openai import OpenAI
 # Создаем клиента
 client = openai.OpenAI(
     api_key="<API-ключ>",
-    base_url="https://rest-assistant.{{ api-host }}/v1",
+    base_url="https://ai.{{ api-host }}/v1",
     project="<идентификатор_каталога>"
 )
 # Пример вызова MCP через {{ responses-api }}
