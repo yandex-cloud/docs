@@ -1,6 +1,14 @@
+---
+title: '{{ SPQR }} settings'
+description: '{{ SPQR }} is a system for horizontal {{ PG }} scaling. {{ SPQR }} settings can be configured at the {{ mspqr-name }} cluster level.'
+keywords:
+  - keyword: SPQR settings
+---
 # {{ SPQR }} settings
 
-For {{ mpg-name }} clusters, you can specify {{ SPQR }} settings using the management console. These settings are configured at the cluster level.
+For a {{ mspqr-name }} cluster, you can set {{ SPQR }} settings.
+
+{{ SPQR }} settings are configured at the {{ mspqr-name }} cluster level. You can specify them when [creating](../operations/cluster-create.md) or [updating](../operations/cluster-update.md) a cluster.
 
 Router settings (**Router** → **Config**):
 

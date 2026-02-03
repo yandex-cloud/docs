@@ -5,12 +5,13 @@ description: This guide will help you set up access to resources only for users 
 
 # Enabling the two-factor authentication requirement
 
-You can deny {{ yandex-cloud }} authentication to all [Yandex accounts](../../iam/concepts/users/accounts.md#passport) users in your organization that do not have [two-factor authentication](https://yandex.com/support/id/en/authorization/twofa.html) configured.
+You can deny {{ yandex-cloud }} authentication to all [Yandex account](../../iam/concepts/users/accounts.md#passport) users in your organization without [two-factor authentication](https://yandex.com/support/id/en/authorization/twofa.html) enabled.
 
 {% note warning %}
 
-With this setting on, access to the organization will be lost by all users already authenticated without the two-factor identity check, including administrators and owners.
-To restore access to the organization, [configure](https://id.yandex.ru/security/enter-methods) two-factor authentication for the Yandex account.
+With this setting on, all users authenticated without the two-factor identity check, including administrators and owners, will lose access to the organization and all its resources.
+
+To grant access to the organization, [configure](https://id.yandex.ru/security/enter-methods) two-factor authentication for the Yandex account. It is best to notify the users of the organization in advance of the required actions.
 
 {% endnote %}
 

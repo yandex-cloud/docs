@@ -30,7 +30,7 @@ description: Следуя данной инструкции, вы создади
 
       client = openai.OpenAI(
           api_key=YANDEX_CLOUD_API_KEY,
-          base_url="https://rest-assistant.{{ api-host }}/v1",
+          base_url="https://ai.{{ api-host }}/v1",
           project=YANDEX_CLOUD_FOLDER
       )
 

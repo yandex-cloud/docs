@@ -15,7 +15,7 @@ To generate text, models can only refer to their training data or information pr
 
 1. Data indexing. By default, {{ ai-studio-name }} automatically prepares data for search. All you need to do is upload files in the management console or via the Files API and create a {{ vector-store-name }} search index. After that, {{ ai-studio-name }} will break the data into chunks of the required size, i.e., fragments of text from a few lines to several paragraphs, and then [tokenize](../generation/tokens.md) them and store them in the search index.
 
-   To avoid possible loss of meaning when preparing files, you can [split](../../operations/agents/create-prechunked-search-agent.md) the data into chunks yourself and upload them to {{ ai-studio-name }} in [JSONL](https://jsonlines.org/) format.
+   To avoid possible loss of meaning when preparing files, you can [split](../../operations/agents/create-prechunked-search-agent.md) the data into chunks yourself and upload them to {{ ai-studio-name }} in [JSONL](https://jsonlines.org/) format. One chunk may contain a maximum of 8,000 characters.
 
 1. Generating a search query. Depending on the task at hand and conditions for using search tools described in the prompt, the model generates a query to either file search or internet search tools.
 

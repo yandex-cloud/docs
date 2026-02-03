@@ -33,7 +33,7 @@ To use an example:
 
 ## Fragment the information {#fragment-info}
 
-Split the information you want to upload into the search index into fragments. Save the resulting fragments in JSON Lines format as `"body":"<fragment_content>"` pairs. Here is an example:
+Split the information you want to upload into the search index into fragments. One fragment may contain a maximum of 8,000 characters. Save the resulting fragments in JSON Lines format as `"body":"<fragment_content>"` pairs. Here is an example:
 
 ```json
 { "body": "How to recover a password? Go to the password recovery page and enter your email." }
@@ -253,7 +253,7 @@ For the agent to be able to use the index you created, provide index ID in the `
 
       Result:
 
-      {% cut "Example of a brief response %}
+      {% cut "Example of a brief response" %}
 
       ```text
       Response text:

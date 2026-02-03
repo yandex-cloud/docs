@@ -1,6 +1,9 @@
 ---
 title: How to work with {{ mspqr-name }}
-description: In this tutorial, you will learn how to work with {{ mspqr-name }} in {{ yandex-cloud }}.
+description: In this article, you will learn how to work with {{ mspqr-name }} in {{ yandex-cloud }}.
+keywords:
+  - keyword: Working with a {{ SPQR }} cluster
+  - keyword: '{{ SPQR }}'
 ---
 
 # Step-by-step guides for {{ mspqr-name }}

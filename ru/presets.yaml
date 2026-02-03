@@ -41,7 +41,7 @@ default:
   api-host-iot-data: iot-data.api.cloud.yandex.net
   api-host-kms: kms.api.cloud.yandex.net
   api-host-kms-symcrypto: kms.yandex
-  api-host-llm: llm.api.cloud.yandex.net
+  api-host-llm: ai.api.cloud.yandex.net
   api-host-lockbox: lockbox.api.cloud.yandex.net
   api-host-lockbox-payload: payload.lockbox.api.cloud.yandex.net
   api-host-mdb: mdb.api.cloud.yandex.net
@@ -3200,6 +3200,10 @@ default:
         cpu|string: "0,015120\_$"
         ram|number: 0.00405
         ram|string: "0,004050\_$"
+  sku|USD|identity-hub:
+    users:
+      101-500|number: 4.081967
+      501-1000|number: 3.663934
   sku|USD|kms:
     api:
       asymmetric:
@@ -4020,9 +4024,11 @@ default:
         addDiskButton: Добавить
         amount: Количество
         cpuTitle: Процессор
+        CustomConfiguration: Своя конфигурация
         disks: Диски
         networkLabel: Сеть
         poolFilter: Пул
+        PresetConfigurations: Готовые конфигурации
         ramLabel: Оперативная память
         size: Размер
         type: Тип
@@ -4865,7 +4871,7 @@ default:
             controlRule_kr2Bv: Правило контроля
             module_63uuk: Модуль контроля
             standards_iv6a5: Наборы требований
-            verificationMethod_dS9B2: Способ проверки
+            verificationMethod_dS9B2: Тип правила
             violations_q7AcU: Нарушения
           RulePageLayout:
             tab_overview_s9riS: Обзор
@@ -5450,9 +5456,6 @@ default:
             bandwidthTitle_wvZra: Объём данных
             plan100Tb_4AB2b: 100 ТБ в сутки, ёмкость подключения — 10 Гбит/с
             plan10Tb_2BFQU: 10 ТБ в сутки, ёмкость подключения — 1 Гбит/с
-          ServerConfigPage:
-            custom-configs_b5Ab9: Своя конфигурация
-            ready-configs_ibA3Y: Готовые конфигурации
         title_common-info: Общая информация
         title_routing-settings: IP-адресация и маршрутизация
         title_section-accesses: Доступы
@@ -5685,7 +5688,6 @@ default:
         button_install: Установить
         label_marketplace: Магазин приложений
         label_service-account: Сервисный аккаунт
-        label_subnetwork: Подсеть
         section_parameters: Настройки приложения
       cloud-registry:
         action_registry-create: Создать реестр
@@ -7847,9 +7849,9 @@ default:
         hosts:
           dialog:
             button_choose: Сохранить
-        switch_backups: Резервные копии
-        switch_list: Кластеры
-        switch_operations: Операции
+        switch_backups_xgJVM: Резервные копии
+        switch_list_9AfbP: Кластеры
+        switch_operations_9JzwJ: Операции
       redis:
         cluster:
           switch_monitoring: Мониторинг
@@ -7942,9 +7944,6 @@ default:
             label_section-variables: Управление переменными
           item:
             switch_domains: Домены
-            switch_logs: Логи
-            switch_monitoring: Мониторинг
-            switch_operations: Операции
           list:
             button_create: Создать API-шлюз
           overview:
@@ -8291,7 +8290,6 @@ default:
         label_complexity: Сложность
         label_main-challenge: Основное задание
         label_no-hostname-check: Отключить проверку домена
-        label_section-customization: Настройка внешнего вида
         label_section-style: Внешний вид
         label_server-key: Ключ сервера
         value_challenge-image_text: Распознавание текста
@@ -8722,7 +8720,6 @@ default:
               title: Синтез речи
             stt:
               title: Распознавание речи
-        train-modal: Дообучить модель
         use-context: Использовать контекст
         YaGPT:
           ConnectMcpTools:

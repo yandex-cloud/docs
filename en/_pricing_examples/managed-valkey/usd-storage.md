@@ -1,4 +1,4 @@
-> 720 × {% calc [currency=USD] 3 × (2 × {{ sku|USD|mdb.cluster.redis.v3.cpu.c100|number }} + 8 × {{ sku|USD|mdb.cluster.redis.v3.ram|number }}) %} + 3 × (100 × {{ sku|USD|mdb.cluster.network-nvme.redis|month|string }}) = {% calc [currency=USD] 720 × (3 × (2 × {{ sku|USD|mdb.cluster.redis.v3.cpu.c100|number }} + 8 × {{ sku|USD|mdb.cluster.redis.v3.ram|number }})) + 3 × (100 × {{ sku|USD|mdb.cluster.network-nvme.redis|month|number }}) %}
+> 720 × {% calc [currency=USD] 3 × (2 × {{ sku|USD|mdb.cluster.redis.v3.cpu.c100|number }} + 8 × {{ sku|USD|mdb.cluster.redis.v3.ram|number }}) %} + 3 × (100&nbsp;×&nbsp;{{ sku|USD|mdb.cluster.network-nvme.redis|month|string }}) = {% calc [currency=USD] 720 × (3 × (2 × {{ sku|USD|mdb.cluster.redis.v3.cpu.c100|number }} + 8 × {{ sku|USD|mdb.cluster.redis.v3.ram|number }})) + 3 × (100 × {{ sku|USD|mdb.cluster.network-nvme.redis|month|number }}) %}
 >
 > Total: {% calc [currency=USD] 720 × (3 × (2 × {{ sku|USD|mdb.cluster.redis.v3.cpu.c100|number }} + 8 × {{ sku|USD|mdb.cluster.redis.v3.ram|number }})) + 3 × (100 × {{ sku|USD|mdb.cluster.network-nvme.redis|month|number }}) %}, cost of using the cluster for 30 days.
 

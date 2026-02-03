@@ -7,13 +7,13 @@ With {{ mrd-short-name }}, you can:
 - Scale computing power and storage size allocated to your databases as needed.
 - Get database logs.
 
-{{ mrd-short-name }} takes over time-consuming administrative tasks in {{ VLK }}:
+{{ mrd-short-name }} handles the heavy lifting of {{ VLK }} infrastructure management:
 - Monitors your resource consumption.
-- Automatically creates DB backups.
-- Provides fault tolerance through automatic failover to backup replicas.
+- Performs automated database backups.
+- Ensures fault tolerance through automatic failover to standby replicas.
 - Keeps your DBMS software up to date.
 
-You work with a {{ mrd-short-name }} database cluster just like with your regular local database. This allows you to manage internal database settings to meet your app requirements.
+You can work with a {{ mrd-short-name }} database cluster the same way as with your regular local database. This allows you to manage internal database settings to meet your app requirements.
 
 
 #### What is the role of {{ mrd-short-name }} in database management and maintenance? {#services}
@@ -38,26 +38,26 @@ Furthermore, {{ mrd-short-name }} ensures data replication across database hosts
 
 A _database host_ is a cloud-based isolated database environment with dedicated computing resources and reserved storage capacity.
 
-A _database cluster_ consists of one or more database hosts with configurable replication between them.
+A _database cluster_ consists of one or more database hosts with configurable replication across them.
 
 
 #### How do I get started with {{ mrd-short-name }}? {#quickstart}
 
 {{ mrd-short-name }} is available to all registered {{ yandex-cloud }} users.
 
-Before creating a database cluster in {{ mrd-short-name }}, you need to decide on its configuration:
+Before you create a database cluster in {{ mrd-short-name }}, you need to decide on its specifications:
 
-- [Host class](../../managed-valkey/concepts/instance-types.md) that will determine your computing power, i.e., vCPUs, RAM, and more.
+- [Host class](../../managed-valkey/concepts/instance-types.md) that will determine your host performance by specifying its resources, such as the number of vCPUs, RAM size, etc.
 - [Disk type](../../managed-valkey/concepts/storage.md) and size (fully reserved when creating the cluster).
-- Network for your cluster.
+- Your cluster network.
 - Number of hosts in your cluster and availability zone for each host.
 
 For more information, see [Getting started](../../managed-valkey/quickstart.md).
 
 #### How many database hosts can there be in a cluster? {#how-many-hosts}
 
-The minimum number of hosts in a cluster depends on the following:
-* Selected [platform and host class](../../managed-valkey/concepts/instance-types.md).
+The minimum cluster size depends on the following:
+* Your chosen [platform and host class](../../managed-valkey/concepts/instance-types.md).
 * Selected [disk type](../../managed-valkey/concepts/storage.md).
 * Whether you enabled [sharding](../../managed-valkey/concepts/sharding.md) when [creating](../../managed-valkey/operations/cluster-create.md) a cluster.
 
@@ -72,7 +72,7 @@ You can connect to {{ mrd-short-name }} databases using conventional DBMS method
 
 #### How many clusters can I create within a single cloud? {#db-limit}
 
-To learn more about MDB technical and organizational limitations, see [Quotas and limits](../../managed-valkey/concepts/limits.md).
+To learn more about technical and organizational limitations of MDB, see [Quotas and limits](../../managed-valkey/concepts/limits.md).
 
 
 #### How are database clusters maintained? {#service-window}
@@ -81,7 +81,7 @@ Maintenance in {{ mrd-short-name }} includes:
 
 - Automatic installation of DBMS updates and patches for database hosts (including for stopped clusters).
 - Changes in the host class and storage size.
-- Other {{ mrd-short-name }} maintenance activities.
+- Other {{ mrd-short-name }} maintenance tasks.
 
 For more information, see [Maintenance](../../managed-valkey/concepts/maintenance.md).
 
@@ -91,7 +91,7 @@ For more information, see [Maintenance](../../managed-valkey/concepts/maintenanc
 
 #### What happens when a new DBMS version is released? {#new-version}
 
-The database software is updated whenever new minor versions are released. Owners of affected database clusters get advance notice of upcoming maintenance and database availability.
+The database software is updated whenever new minor versions are released. Owners of affected database clusters get advance notice of the upcoming maintenance schedule and database availability.
 
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
@@ -107,14 +107,14 @@ In {{ mrd-short-name }}, the usage cost is calculated based on the following:
 
 - Selected host class.
 - Reserved storage capacity for the database host.
-- Size of database cluster backups. You do not pay for backups as long as their size does not exceed the storage capacity. Additional backup storage is charged according to our [pricing policy](../../managed-valkey/pricing.md).
+- Size of database cluster backups. You are not charged for backup storage up to the size of your provisioned storage. Backup storage exceeding this limit is charged according to our [pricing policy](../../managed-valkey/pricing.md).
 - Database host uptime in hours. Partial hours are rounded to the nearest whole hour. For the hourly rates of each host class, see our [pricing policy](../../managed-valkey/pricing.md).
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
 You can scale your computing resources and storage size directly in the management console by selecting a different host class for your cluster.
 
-The cluster settings will update within 30 minutes. This window may also be used for other maintenance activities, such as installing updates.
+The cluster settings will update within 30 minutes. This window may also be used for other maintenance tasks, such as installing updates.
 
 #### How do I fix the `Maximum number of hosts reached` error when adding a host to my cluster? {#error-when-adding-host}
 
@@ -128,9 +128,9 @@ Yes, backups are enabled by default. The {{ VLK }} backup policies provide full 
 
 By default, backups are retained for seven days.
 
-#### When does a backup run? Is a database cluster available during backups? {#backup-window}
+#### When does a backup run? Can I access my database cluster during backup? {#backup-window}
 
-The backup window, the scheduled time for the database cluster’s full daily backup, is from 01:00 to 05:00 (UTC+3).
+The backup window, i.e., the scheduled time for the full daily backup of a database cluster, is from 01:00 to 05:00 (UTC+3).
 
 Clusters remain fully available during the backup window.
 
@@ -138,9 +138,9 @@ Clusters remain fully available during the backup window.
 
 For all DBMS types, you can monitor:
 
-- CPU, memory, network, and disk usage, in absolute terms.
-- Memory, network, and disk usage as a percentage of the set limits for the relevant cluster's host class.
-- Amount of data in a DB cluster and the remaining free space in your data storage.
+- CPU, memory, network, and disk utilization, in absolute terms.
+- Memory, network, and disk utilization as a percentage of the set limits for the cluster’s host class.
+- Total cluster data size and available storage space remaining.
 
 For all database hosts, you can monitor metrics specific to their DBMS type. For example, for {{ VLK }}, you can monitor:
 - Average query execution time.
@@ -149,7 +149,7 @@ For all database hosts, you can monitor metrics specific to their DBMS type. For
 
 You can monitor metrics with a minimum granularity of five seconds.
 
-#### How do I set up an alert that triggers as soon as a certain percentage of disk space is used up? {#disk-space-percentage}
+#### How can I configure an alert for when disk usage reaches a certain percentage? {#disk-space-percentage}
 
 [Create an alert](../../managed-valkey/operations/monitoring.md#monitoring-integration) for the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mrd-name }} cluster.
 
@@ -201,7 +201,7 @@ This means that when connecting to the website, the service was unable to check 
 To fix this error:
 
 * Make sure your corporate network policies are not blocking the check.
-* Run the following command with `--ssl-no-revoke`:
+* Run the following command with the `--ssl-no-revoke` parameter:
 
    ```powershell
    mkdir $HOME\.redis; curl.exe --ssl-no-revoke -o $HOME\.redis\{{ crt-local-file }} {{ crt-web-path }}

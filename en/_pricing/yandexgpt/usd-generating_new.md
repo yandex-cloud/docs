@@ -11,5 +11,5 @@
 || Gemma3 27B | {% calc [currency=USD] 2 × {{ sku|USD|foundation_models.text_generation.v1|number }} %} ^2^ | {% calc [currency=USD] 2 × {{ sku|USD|foundation_models.text_generation.v1|number }} %} ^2^ | — | — ||
 |#
 
-^1^ The price is without taking into account the current 50% discount. The discount is effective until February 10, 2026.
+^1^ The price is without taking into account the current 50% discount. The discount is effective until February 16, 2026.
 ^2^ The price is based on the current 50% discount.

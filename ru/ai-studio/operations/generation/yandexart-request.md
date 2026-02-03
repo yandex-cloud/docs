@@ -135,7 +135,7 @@
        --request POST \
        --header "Authorization: Bearer <значение_IAM-токена>" \
        --data "@prompt.json" \
-       "https://llm.{{ api-host }}/foundationModels/v1/imageGenerationAsync"
+       "https://ai.{{ api-host }}/foundationModels/v1/imageGenerationAsync"
      ```
 
      Где:
@@ -151,10 +151,10 @@
 
      Сохраните идентификатор (`id`) операции, полученный в ответе.
 
-  1. Генерация изображения может занять от нескольких секунд до нескольких часов. Подождите некоторое время и отправьте запрос по адресу: `https://llm.api.cloud.yandex.net:443/operations/<идентификатор_операции>`, чтобы получить результат генерации. Если изображение готово, результат вернется в [кодировке Base64](https://ru.wikipedia.org/wiki/Base64) и будет записан в файл `image.jpeg`. 
+  1. Генерация изображения может занять от нескольких секунд до нескольких часов. Подождите некоторое время и отправьте запрос по адресу: `https://operation.api.cloud.yandex.net:443/operations/<идентификатор_операции>`, чтобы получить результат генерации. Если изображение готово, результат вернется в [кодировке Base64](https://ru.wikipedia.org/wiki/Base64) и будет записан в файл `image.jpeg`. 
 
      ```bash
-     curl --request GET --header "Authorization: Bearer <значение_IAM-токена>" https://llm.api.cloud.yandex.net:443/operations/<идентификатор_операции> | jq -r '.response | .image' | base64 -d > image.jpeg
+     curl --request GET --header "Authorization: Bearer <значение_IAM-токена>" https://operation.api.cloud.yandex.net:443/operations/<идентификатор_операции> | jq -r '.response | .image' | base64 -d > image.jpeg
      ```
 
      Где:

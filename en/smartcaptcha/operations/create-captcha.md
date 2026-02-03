@@ -41,7 +41,7 @@ When creating a CAPTCHA, you can:
      * `Dark theme`
      * `Blue`
 
-      Under **{{ ui-key.yacloud.smartcaptcha.label_section-customization }}**, you can set custom properties for the challenge window and other elements through the form or style description in `JSON` format.
+      Under **Сustomize style**, you can set custom properties for the challenge window and other elements through the form or style description in `JSON` format.
 
       All changes will be displayed in the preview window.
 

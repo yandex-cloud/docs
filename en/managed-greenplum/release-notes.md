@@ -1,9 +1,13 @@
 ---
 title: '{{ mgp-full-name }} release notes'
-description: This section contains {{ mgp-name }} release notes.
+description: This section contains the {{ mgp-name }} release notes.
 ---
 
 # {{ mgp-full-name }} release notes
+
+## December 2025 {#dec-2025}
+
+* Added [detailed metrics](operations/monitoring.md#hosts) for disk usage on cluster hosts.
 
 ## November 2025 {#nov-2025}
 

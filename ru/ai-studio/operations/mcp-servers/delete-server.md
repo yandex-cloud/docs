@@ -42,7 +42,7 @@ description: Следуя данной инструкции, вы научите
       curl \
         --request DELETE \
         --header "Authorization: Bearer $IAM_TOKEN" \
-        "https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways/<идентификатор_MCP-сервера>"
+        "https://ai.{{ api-host }}/mcpgateway/v1/mcpGateways/<идентификатор_MCP-сервера>"
       ```
 
       {% cut "Результат" %}

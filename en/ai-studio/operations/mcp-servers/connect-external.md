@@ -9,6 +9,12 @@ description: Follow this guide to learn how to connect third-party MCP servers t
 
 If you already have deployed an external MCP server, e.g., on [smithery.ai](https://smithery.ai/), in [{{ marketplace-full-name }}]({{ link-cloud-marketplace }}), or on a {{ compute-full-name }} [VM](../../../compute/concepts/vm.md), you can connect it to [{{ mcp-hub-name }}](../../concepts/mcp-hub/index.md).
 
+{% note tip %}
+
+{% include [roles-to-invoke-mcp](../../../_includes/ai-studio/mcp-hub/roles-to-invoke-mcp.md) %}
+
+{% endnote %}
+
 To add an existing external MCP server to {{ mcp-hub-name }}:
 
 {% list tabs group=instructions %}

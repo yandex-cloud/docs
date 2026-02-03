@@ -59,7 +59,7 @@ description: В статье вы ознакомитесь с промптом �
     --request POST \
     --header "Authorization: Bearer <IAM-токен>" \
     --data @prompt.json \
-    https://llm.{{ api-host }}/foundationModels/v1/completion
+    https://ai.{{ api-host }}/foundationModels/v1/completion
   ```
   
   Где:
@@ -150,7 +150,7 @@ description: В статье вы ознакомитесь с промптом �
     --request POST \
     --header "Authorization: Bearer <IAM-токен>" \
     --data @prompt.json \
-    https://llm.{{ api-host }}/foundationModels/v1/completion
+    https://ai.{{ api-host }}/foundationModels/v1/completion
   ```
   
   Где:

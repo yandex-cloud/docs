@@ -7,7 +7,7 @@ FOLDER_ID = "<folder_ID>"
 IAM_TOKEN = "<IAM_token>"
 doc_uri = f"emb://{FOLDER_ID}/text-search-doc/latest"
 query_uri = f"emb://{FOLDER_ID}/text-search-query/latest"
-embed_url = "https://llm.api.cloud.yandex.net:443/foundationModels/v1/textEmbedding"
+embed_url = "https://ai.api.cloud.yandex.net:443/foundationModels/v1/textEmbedding"
 headers = {"Content-Type": "application/json", "Authorization": f"Bearer {IAM_TOKEN}", "x-folder-id": f"{FOLDER_ID}"}
 doc_texts = [
   """Alexander Sergeyevich Pushkin (May 26 [June 6], 1799, Moscow — January 29 [February 10], 1837, St. Petersburg) was a Russian poet, playwright, and novelist, the progenitor of Russian realism, a literary critic and theorist, historian, essay writer, and journalist.""",

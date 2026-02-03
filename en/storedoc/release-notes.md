@@ -1,13 +1,19 @@
 ---
 title: '{{ mmg-full-name }} release notes'
-description: This section contains {{ mmg-name }} release notes.
+description: This section contains the {{ mmg-name }} release notes.
 ---
 
 # {{ mmg-full-name }} release notes
 
+## December 2025 {#dec-2025}
+
+* Added [detailed metrics](operations/monitoring.md#hosts) for disk usage on cluster hosts.
+* Added execution details for [operations on the cluster](operations/cluster-list.md#list-operations).
+* All new clusters are created with a [{{ connection-manager-name }} connection](../metadata-hub/concepts/connection-manager.md) by default.
+
 ## November 2025 {#nov-2025}
 
-Added the `managed-mongodb.restorer` role, which allows restoring clusters from backups. To learn more, see [Access management](security/index.md#managed-mongodb-restorer).
+Added the `managed-mongodb.restorer` role for restoring clusters from backups. To learn more, see [Access management](security/index.md#managed-mongodb-restorer).
 
 ## October 2025 {#oct-2025}
 

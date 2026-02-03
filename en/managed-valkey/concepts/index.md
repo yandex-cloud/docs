@@ -1,6 +1,6 @@
 ---
 title: Resource relationships in {{ mrd-full-name }}
-description: '{{ VLK }} is a high-performance in-memory DBMS for storing key-value data. {{ mrd-name }} allows you to easily create {{ VLK }} host clusters with a high level of fault tolerance. The main entity used in {{ mrd-name }} is a database cluster.'
+description: '{{ VLK }} is a high-performance in-memory DBMS for storing key-value data. {{ mrd-name }} allows you to easily create {{ VLK }} host clusters with a high level of fault tolerance. The main entity {{ mrd-name }} operates is a database cluster.'
 ---
 
 # Resource relationships in {{ mrd-name }}
@@ -8,20 +8,20 @@ description: '{{ VLK }} is a high-performance in-memory DBMS for storing key-val
 
 {{ VLK }} is a high-performance DBMS for storing key-value data that runs in RAM. {{ mrd-name }} allows you to easily create {{ VLK }} host clusters with a high level of fault tolerance.
 
-The main entity used in {{ mrd-name }} is a _database cluster_.
+The main entity in {{ mrd-name }} is a _database cluster_.
 
-Each cluster consists of one or more _DB hosts_, which are virtual machines with DBMS servers deployed. Cluster hosts may reside in different availability zones and even different availability regions. You can learn more about {{ yandex-cloud }} availability zones in [Platform overview](../../overview/concepts/geo-scope.md).
+Each cluster consists of one or multiple _database hosts_, which are virtual machines with deployed DBMS servers. Cluster hosts may reside in different availability zones and even different availability regions. You can learn more about the {{ yandex-cloud }} availability zones in [Platform overview](../../overview/concepts/geo-scope.md).
 
 * A cluster with three or more hosts is natively fault-tolerant because its hosts can step in for one another as the cluster’s primary replica.
 
 * A cluster of one or two hosts is cheaper, but it does not guarantee fault tolerance.
 
 When creating a cluster, specify:
-* _Host class_: VM template for deploying the cluster hosts. For a list of available host classes and their specs, see [Host classes](instance-types.md).
+* _Host class_: VM template for deploying cluster hosts. For a list of available host classes and their specs, see [Host classes](instance-types.md).
 
 * _Environment_: Environment where the cluster will be deployed:
    * `PRODUCTION`: For stable versions of your applications.
-   * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
+   * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by an SLA. However, it receives new features, improvements, and bug fixes earlier. In the prestable environment, you can test new versions for compatibility with your application.
 
 {% note info %}
 
@@ -30,7 +30,7 @@ The amount of memory allocated to a host also depends on the `maxmemory` configu
 {% endnote %}
 
 
-A cluster created in a folder can be accessed by all VMs connected to the same cloud network. For more information about networking, see the [{{ vpc-name }} documentation](../../vpc/).
+You can access a cluster created in a folder from any VM in the same cloud network. For more information about networking, see [this {{ vpc-name }} guide](../../vpc/).
 
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}

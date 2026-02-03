@@ -38,7 +38,7 @@ description: This page provides a list of step-by-step guides for {{ mch-name }}
 
 * [Managing a custom geobase](geobase.md)
 * [Connecting external dictionaries](dictionaries.md)
-* [Managing data format schemas](format-schemas.md)
+* [Managing format schemas](format-schemas.md)
 * [Managing machine learning models](ml-models.md)
 
 
@@ -53,7 +53,7 @@ description: This page provides a list of step-by-step guides for {{ mch-name }}
 ## Logs and monitoring {#monitoring-and-logs}
 
 * [Viewing cluster logs](cluster-logs.md)
-* [Monitoring the state of a cluster and its hosts](monitoring.md)
+* [Cluster and host state monitoring](monitoring.md)
 * [Connecting to a cluster from {{ datalens-name }}](datalens-connect.md)
 
 

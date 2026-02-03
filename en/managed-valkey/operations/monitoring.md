@@ -1,9 +1,9 @@
 ---
-title: Monitoring the state of a {{ VLK }} cluster and its hosts
+title: '{{ VLK }} cluster and host state monitoring'
 description: You can monitor the state of a {{ mrd-name }} cluster and its individual hosts using the monitoring tools in the management console. These tools display diagnostic information as charts.
 ---
 
-# Monitoring the state of a {{ VLK }} cluster and its hosts
+# {{ VLK }} cluster and host state monitoring
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -21,9 +21,9 @@ To view detailed information on the state of a {{ mrd-name }} cluster:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.redis.cluster.switch_monitoring }}** tab.
+  1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.redis.cluster.switch_monitoring }}** tab.
   
   1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
@@ -100,7 +100,7 @@ To view detailed information on the state of a {{ mrd-name }} cluster:
       * **mem_aof_buffer**: For the [AOF](../concepts/replication.md#setting-appendonly) buffer.
       * **mem_clients_normal**: For handling external client connections.
       * **mem_clients_slaves**: For handling replication connections.
-      * **mem_replication_backlog**: For the replication backlog buffer.
+      * **mem_replication_backlog**: For the replication backlog.
       * **used_memory_startup**: For {{ VLK }} processes at startup, e.g., after restarting a cluster.
       * **used_memory_dataset**: For storing data.
       * **mem_cluster_links**: For network connections in cluster mode.
@@ -155,8 +155,8 @@ To view detailed information on the state of individual {{ mrd-name }} hosts:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
   1. Click the name of your cluster and select **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**.
   1. Select the host from the drop-down list.
 
@@ -168,7 +168,7 @@ To view detailed information on the state of individual {{ mrd-name }} hosts:
   * **Disk space usage**: Amount of used and total disk space.
   * **Memory usage**: Amount of RAM used, in bytes. At high workloads, the `Free` value goes down, while the other values go up.
   * **Network bytes**: Network data exchange rate, in bytes per second.
-  * **Network packets**: Number of network packets exchanged per second.
+  * **Network packets**: Network packet exchange rate, in packets per second.
 
   The **Disk read/write bytes** and the **Disk IOPS** charts show the increase of the **Read** value during database read activity, and in **Write**, during database write activity..
 
@@ -185,7 +185,7 @@ To configure state indicator alerts for a [cluster](#monitoring-cluster) and [ho
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster for which you want to set up alerts.
+  1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to configure alerts.
   1. [Go to](../../console/operations/select-service.md#select-service) ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select:
       * **{{ mrd-name }} — Cluster Overview** to set up cluster alerts.
@@ -201,7 +201,7 @@ To configure state indicator alerts for a [cluster](#monitoring-cluster) and [ho
 
 Below are the recommended thresholds for some metrics:
 
-| Metric                                                                                                   | Designation         | `Alarm`                  | `Warning`                |
+| Metric                                                                                                   | Internal metric name         | `Alarm`                  | `Warning`                |
 |----------------------------------------------------------------------------------------------------------:|:-------------------:|:------------------------:|:------------------------:|
 | Database write availability                                                                                  | `can_write`         | `Equal to 0`                | —                        |
 | Number of out-of-memory errors, per hour                                                                   | `redis_oom_count`   | `More than 2`               | `More than 0`               |
@@ -220,15 +220,15 @@ You can view the current RAM of the hosts in the [detailed information about the
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 
-To check the cluster’s state and status:
+To check the cluster state and status:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column.
+  1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Hover over the indicator in the cluster row of the **{{ ui-key.yacloud.common.availability }}** column.
 
 {% endlist %}
 

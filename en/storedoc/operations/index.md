@@ -38,4 +38,4 @@ description: This page provides a list of step-by-step guides for {{ mmg-name }}
 * [Viewing cluster logs](cluster-logs.md)
 * [Performance diagnostics](performance-diagnostics.md)
 * [{#T}](tools.md)
-* [Monitoring the state of clusters and hosts](monitoring.md)
+* [Cluster and host state monitoring](monitoring.md)

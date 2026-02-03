@@ -20,11 +20,30 @@
         1. Для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_ [назначьте роль](../../../../managed-postgresql/operations/grant.md#grant-role) `mdb_replication` этому пользователю.
         
         1. [Подключитесь к базе данных](../../../../managed-postgresql/operations/connect.md), которую нужно мигрировать, от имени владельца базы и [настройте привилегии](../../../../managed-postgresql/operations/grant.md#grant-privilege):
-            
-            * `SELECT` над всеми таблицами базы данных, которые переносит трансфер.
-            * `SELECT` над всеми последовательностями базы данных, которые переносит трансфер.
-            * `USAGE` на схемы этих таблиц и последовательностей.
-            * `ALL PRIVILEGES` (`CREATE` и `USAGE`) на задаваемую [параметром эндпоинта](../../../../data-transfer/operations/endpoint/source/postgresql.md#additional-settings) схему служебных таблиц `__consumer_keeper` и `__data_transfer_mole_finder`, если эндпоинт будет использоваться для типов трансфера _{{ dt-type-repl }}_ или _{{ dt-type-copy-repl }}_.
+
+            * Выдайте привилегию на выполнение операции `SELECT` над всеми таблицами базы данных, которые переносит трансфер:
+
+              ```sql
+              GRANT SELECT ON ALL TABLES IN SCHEMA <название_схемы> TO <имя_владельца_БД>;
+              ```
+
+            * Выдайте привилегию на выполнение операции `SELECT` над всеми последовательностями базы данных, которые переносит трансфер:
+
+              ```sql
+              GRANT SELECT ON ALL SEQUENCES IN SCHEMA <название_схемы> TO <имя_владельца_БД>;
+              ```
+
+            * Выдайте привилегию `USAGE` на схемы, где хранятся эти таблицы и последовательности:
+
+              ```sql
+              GRANT USAGE ON SCHEMA <название_схемы> TO <имя_владельца_БД>;
+              ```
+
+            * Выдайте привилегию `ALL PRIVILEGES` (`CREATE` и `USAGE`) на задаваемую [параметром эндпоинта](../../../../data-transfer/operations/endpoint/source/postgresql.md#additional-settings) схему для хранения служебных таблиц `__consumer_keeper` и `__data_transfer_mole_finder`, если эндпоинт будет использоваться для типов трансфера _{{ dt-type-repl }}_ или _{{ dt-type-copy-repl }}_:
+
+              ```sql
+              GRANT ALL PRIVILEGES ON SCHEMA <название_схемы> TO <имя_владельца_БД>;
+              ```
 
     1. Настройте [количество подключений пользователя](../../../../data-transfer/concepts/work-with-endpoints.md#postgresql-connection-limit) к базе данных.
 

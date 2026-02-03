@@ -19,7 +19,7 @@ Since the replication is asynchronous, the data on replicas may be out of date: 
 
 Due to limited resources, **b1**, **b2**, and **b3** class hosts are not replicated.
 
-For more information on how replication works in {{ VLK }}, see the [relevant documentation](https://valkey.io/topics/replication/).
+For more information on how replication works in {{ VLK }}, see the [{{ PG }} documentation](https://valkey.io/topics/replication/).
 
 ## Fault tolerance {#availability}
 

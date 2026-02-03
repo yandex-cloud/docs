@@ -2,9 +2,9 @@
 title: Updating a {{ SPQR }} cluster
 description: After creating an {{ SPQR }} cluster, you can edit its basic and advanced settings.
 keywords:
-  - Updating an {{ SPQR }} cluster
-  - '{{ SPQR }} cluster'
-  - '{{ SPQR }}'
+  - keyword: updating a {{ SPQR }} cluster
+  - keyword: '{{ SPQR }} cluster'
+  - keyword: '{{ SPQR }}'
 ---
 
 # Updating a {{ SPQR }} cluster
@@ -48,7 +48,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -67,7 +67,7 @@ After creating a cluster, you can edit its basic and advanced settings.
          ...
          "<security_group_N_ID>"
        ],
-       "deletionProtection": <protect_cluster_against_deletion>,
+       "deletionProtection": <protect_cluster_from_deletion>,
        "configSpec": {
          "spqrSpec": {
            "router": {
@@ -157,7 +157,7 @@ After creating a cluster, you can edit its basic and advanced settings.
            * `config`: Router configuration:
 
              * `showNoticeMessages`: Show information notifications, `true` or `false`.
-             * `timeQuantiles`: Array of time quantile strings for displaying statistics. The following values ​​are used by default: `"0.5"`, `"0.75"`, `"0.9"`, `"0.95"`, `"0.99"`, `"0.999"`, `"0.9999"`.
+             * `timeQuantiles`: Array of time quantile strings for displaying statistics. The default values are `"0.5"`, `"0.75"`, `"0.9"`, `"0.95"`, `"0.99"`, `"0.999"`, `"0.9999"`.
              * `defaultRouteBehavior`: Router's multishard request execution policy. Possible values: `BLOCK` or `ALLOW`.
              * `preferSameAvailabilityZone`: Enable priority routing of read requests to the router's availability zone, `true` or `false`.
 
@@ -182,7 +182,7 @@ After creating a cluster, you can edit its basic and advanced settings.
              * `router`: Router configuration:
 
                * `showNoticeMessages`: Show information notifications, `true` or `false`.
-               * `timeQuantiles`: Array of time quantile strings for displaying statistics. The following values ​​are used by default: `"0.5"`, `"0.75"`, `"0.9"`, `"0.95"`, `"0.99"`, `"0.999"`, `"0.9999"`.
+               * `timeQuantiles`: Array of time quantile strings for displaying statistics. The default values are `"0.5"`, `"0.75"`, `"0.9"`, `"0.95"`, `"0.99"`, `"0.999"`, `"0.9999"`.
                * `defaultRouteBehavior`: Router's multishard request execution policy. Possible values: `BLOCK` or `ALLOW`.
                * `preferSameAvailabilityZone`: Enable priority routing of read requests to the router's availability zone, `true` or `false`.
 
@@ -194,17 +194,17 @@ After creating a cluster, you can edit its basic and advanced settings.
 
          Here, specify the backup start time. Allowed values:
 
-         * `hours`: From `0` to `23` hours.
-         * `minutes`: From `0` to `59` minutes.
-         * `seconds`: From `0` to `59` seconds.
-         * `nanos`: From `0` to `999999999` nanoseconds.
+         * `hours`: Between `0` and `23` hours.
+         * `minutes`: Between `0` and `59` minutes.
+         * `seconds`: Between `0` and `59` seconds.
+         * `nanos`: Between `0` and `999999999` nanoseconds.
 
        * `backupRetainPeriodDays`: Number of days to retain the cluster backup. Possible values: between `7` and `60` days.
 
      * `maintenanceWindow`: Maintenance window settings:
 
         * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-        * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The valid values range from `1` to `24`.
+        * `hour`: Hour of day, in `HH` format, for scheduled maintenance. Allowed values range from `1` to `24`.
 
   1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -217,11 +217,11 @@ After creating a cluster, you can edit its basic and advanced settings.
        --data "@body.json"
      ```
 
-  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -244,7 +244,7 @@ After creating a cluster, you can edit its basic and advanced settings.
          ...
          "<security_group_N_ID>"
        ],
-       "deletion_protection": <protect_cluster_against_deletion>,
+       "deletion_protection": <protect_cluster_from_deletion>,
        "config_spec": {
          "spqr_spec": {
            "router": {
@@ -315,7 +315,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
      Where:
 
-     * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+     * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
 
         {% cut "Format for listing settings" %}
 
@@ -357,7 +357,7 @@ After creating a cluster, you can edit its basic and advanced settings.
            * `config`: Router configuration:
 
              * `show_notice_messages`: Show information notifications, `true` or `false`.
-             * `time_quantiles`: Array of time quantiles for displaying statistics. The following values ​​are used by default: `0.5`, `0.75`, `0.9`, `0.95`, `0.99`, `0.999`, `0.9999`.
+             * `time_quantiles`: Array of time quantiles for displaying statistics. The following values are used by default: `0.5`, `0.75`, `0.9`, `0.95`, `0.99`, `0.999`, `0.9999`.
              * `default_route_behavior`: Router's multishard request execution policy. Possible values: `BLOCK` or `ALLOW`.
              * `prefer_same_availability_zone`: Enable priority routing of read requests to the router's availability zone, `true` or `false`.
 
@@ -394,17 +394,17 @@ After creating a cluster, you can edit its basic and advanced settings.
 
          Here, specify the backup start time. Allowed values:
 
-         * `hours`: From `0` to `23` hours.
-         * `minutes`: From `0` to `59` minutes.
-         * `seconds`: From `0` to `59` seconds.
-         * `nanos`: From `0` to `999999999` nanoseconds.
+         * `hours`: Between `0` and `23` hours.
+         * `minutes`: Between `0` and `59` minutes.
+         * `seconds`: Between `0` and `59` seconds.
+         * `nanos`: Between `0` and `999999999` nanoseconds.
 
        * `backup_retain_period_days`: Number of days to retain the cluster backup. Possible values: between `7` and `60` days.
 
      * `maintenance_window`: Maintenance window settings:
 
        * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The valid values range from `1` to `24`.
+       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. Allowed values range from `1` to `24`.
 
   1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 

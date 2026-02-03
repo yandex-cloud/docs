@@ -1,15 +1,19 @@
 ---
 title: Connecting to a {{ SPQR }} cluster
 description: Follow this guide to connect to a {{ SPQR }} cluster.
+keywords:
+  - keyword: connecting to a {{ SPQR }} cluster
+  - keyword: '{{ SPQR }} cluster'
+  - keyword: '{{ SPQR }}'
 ---
 
 # Connecting to a {{ SPQR }} cluster
 
 You can connect to {{ mspqr-name }} cluster hosts:
 
-* Over the internet, if you configured public access for the appropriate host. You can only access such hosts over an SSL connection.
+* Via the internet, if you configured public access for these hosts. You can only access such hosts over an SSL connection.
 
-* From {{ yandex-cloud }} VMs located in the same [cloud network](../../vpc/concepts/network.md). If the host is not publicly accessible, there is no need to use SSL for connections from such virtual machines.
+* From {{ yandex-cloud }} VMs located in the same [cloud network](../../vpc/concepts/network.md) For hosts without public access, SSL is not required to connect to them from these virtual machines.
 
 You can connect to all [host types](../concepts/index.md): `INFRA`, `ROUTER`, `COORDINATOR`, {{ PG }} cluster hosts. The connection is established through port {{ port-mpg }}. In the case of `COORDINATOR` hosts and the {{ SPQR }} admin console, you must connect as the `spqr-console` user to the `spqr-console` database. You can use the admin console to configure sharding rules. For more information, see the [SPQR documentation](https://pg-sharding.tech/welcome/get_started).
 
@@ -24,25 +28,25 @@ Rule settings depend on the connection method you select:
 
 - Over the internet {#internet}
 
-    [Configure all the cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port {{ port-mpg }} from any IP address. To do this, create the following rule for inbound traffic:
+    [Configure all cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port {{ port-mpg }} from any IP address. To do this, create the following inbound rule:
 
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mpg }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-- From a VM in {{ yandex-cloud }} {#cloud}
+- From a {{ yandex-cloud }} VM {#cloud}
 
-    1. [Configure all the cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port {{ port-mpg }} from the security group where the VM is located. To do this, create the following rule for incoming traffic in these groups:
+    1. [Configure all cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port {{ port-mpg }} from the security group assigned to your VM. To do this, create the following inbound rule in these groups:
 
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mpg }}`.
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: If your cluster and VM are in the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). Otherwise, specify the VM security group.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: If your cluster and VM share the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). Otherwise, specify the VM security group.
 
-    1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to enable connections to the VM and traffic between the VM and the cluster hosts.
+    1. [Configure the VM security group](../../vpc/operations/security-group-add-rule.md) to allow VM connections and traffic between the VM and cluster hosts.
 
-        For example, you can set the following rules for a VM:
+        For example, you can set the following rules for your VM:
 
         * For incoming traffic:
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `22`.
@@ -50,7 +54,7 @@ Rule settings depend on the connection method you select:
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-            This rule allows you to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to a VM over SSH.
+            This rule allows inbound VM [connections](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH.
 
         * For outgoing traffic:
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
@@ -64,16 +68,16 @@ Rule settings depend on the connection method you select:
 
 {% note info %}
 
-You can specify more granular rules for your security groups, such as only allowing traffic within specific subnets.
+You can specify more granular rules for your security groups, e.g., to allow traffic only in specific subnets.
 
-You must configure security groups correctly for all subnets in which the cluster hosts will reside.
+Make sure to configure the security groups correctly for all subnets where the cluster hosts will reside.
 
 {% endnote %}
 
 
 ## Getting an SSL certificate {#get-ssl-cert}
 
-{{ SPQR }} hosts with public access only support encrypted connections. To use them, get an SSL certificate:
+Publicly accessible {{ SPQR }} hosts only support encrypted connections. To assess them, get an SSL certificate:
 
 {% include [install-certificate](../../_includes/mdb/mpg/install-certificate.md) %}
 
@@ -89,7 +93,7 @@ You can view the FQDN in the management console:
 
 ## Connecting with Bash {#bash}
 
-Before connecting, install the following dependencies:
+Before connecting, install the required dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes postgresql-client
@@ -112,15 +116,15 @@ sudo apt update && sudo apt install --yes postgresql-client
 
         Where `target_session_attrs` defines the type of request to the host. For example, `read-write` enables both reading and writing. For more information, see the [SPQR documentation](https://pg-sharding.tech/routing/hints#spqr-target-session-attrs).
 
-        After running the command, enter the user password to complete the connection process.
+        After you run this command, enter the user password to complete the connection procedure.
 
-    1. To check the connection, run this query:
+    1. To check the connection, run the following query:
 
         ```bash
         SELECT version();
         ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     1. Connect to a database:
 
@@ -135,9 +139,9 @@ sudo apt update && sudo apt install --yes postgresql-client
 
         Where `target_session_attrs` defines the type of request to the host. For example, `read-write` enables both reading and writing. For more information, see the [SPQR documentation](https://pg-sharding.tech/routing/hints#spqr-target-session-attrs).
 
-        After running the command, enter the user password to complete the connection process.
+        After you run this command, enter the user password to complete the connection procedure.
 
-    1. To check the connection, run this query:
+    1. To check the connection, run the following query:
 
         ```bash
         SELECT version();
@@ -154,13 +158,13 @@ You can only use {{ pgadmin }} to connect to public cluster hosts [using an SSL 
 Create a new server connection:
 
 1. Select **Object** → **Register** → **Server...**.
-1. On the **General** tab, in the **Name** field, specify the name for the cluster. This name will be shown in the {{ pgadmin }} interface. You can set any name.
-1. In the **Connection** tab, specify the connection parameters:
+1. On the **General** tab, in the **Name** field, specify the cluster name to be shown in the {{ pgadmin }} interface. You can set any name.
+1. In the **Connection** tab, specify the connection settings:
 
     * **Host name/address**: [Host FQDN](#fqdn).
     * **Port**: `{{ port-mpg }}`.
-    * **Maintenance database**: DB you want to connect to.
-    * **Username**: Username for connection.
+    * **Maintenance database**: Target database name.
+    * **Username**: Username used to establish the connection.
     * **Password**: User password.
 
 1. In the **Parameters** tab:

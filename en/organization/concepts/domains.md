@@ -16,7 +16,7 @@ To use a domain in a user pool or federation, domain ownership must be [verified
 
 ## Login Discovery {#login-discovery}
 
-_Login Discovery_ finds the required container and the user in it. The available options for authentication by username and domain (`<username>@<domain>`) are as follows:
+_Login Discovery_ in {{ yandex-cloud }} maps users without relying on external authentication providers. This ensures proper authentication flow and streamlines system login for users. The available options for authentication by username and domain (`<username>@<domain>`) are as follows:
 
 * If the domain and username are both associated with the pool, the user will get authenticated as a [local user](../../iam/concepts/users/accounts.md#local).
 * If the username and domain match a [federated account](../../iam/concepts/users/accounts.md#saml-federation), the user will get authenticated as a federated user.

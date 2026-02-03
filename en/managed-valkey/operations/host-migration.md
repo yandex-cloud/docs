@@ -24,14 +24,14 @@ description: Follow this guide to migrate {{ VLK }} cluster hosts to a different
 
    - Management console {#console}
 
-      1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-      1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+      1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+      1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
       1. Specify the following host settings:
 
-         * Availability zone to move your hosts to.
+         * Target availability zone for your hosts.
          * New subnet.
-         * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to make the host accessible from outside {{ yandex-cloud }}, if required.
+         * To make the host accessible from outside {{ yandex-cloud }}, select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
       1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
@@ -57,7 +57,7 @@ description: Follow this guide to migrate {{ VLK }} cluster hosts to a different
 
    - {{ TF }} {#tf}
 
-      1. Add a host manifest to the {{ TF }} configuration file describing your infrastructure:
+      1. Add the host manifest to the {{ TF }} configuration file describing your infrastructure:
 
          ```hcl
          resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
@@ -72,11 +72,11 @@ description: Follow this guide to migrate {{ VLK }} cluster hosts to a different
 
          In the `zone` attribute, specify the target availability zone for your hosts.
 
-      1. Make sure the settings are correct.
+      1. Validate your configuration.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      1. Confirm updating the resources.
+      1. Confirm resource changes.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -92,7 +92,7 @@ description: Follow this guide to migrate {{ VLK }} cluster hosts to a different
 
 1. To connect to the database after migration, specify the new host’s FQDN in your backend or client, e.g., in your application code or graphical IDE. Delete the original host's FQDN in your source availability zone.
 
-   To get the FQDN, request the list of hosts in the cluster:
+   You can get this FQDN from the list of hosts in your cluster.
 
    ```bash
    {{ yc-mdb-rd }} host list --cluster-name <cluster_name>
@@ -106,8 +106,8 @@ description: Follow this guide to migrate {{ VLK }} cluster hosts to a different
 
    - Management console {#console}
 
-      1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-      1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+      1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+      1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
       1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
    - CLI {#cli}
@@ -120,8 +120,8 @@ description: Follow this guide to migrate {{ VLK }} cluster hosts to a different
 
    - {{ TF }} {#tf}
 
-      1. In your {{ TF }} infrastructure configuration file, delete the `host` resource sections with the source availability zone from your cluster description.
-      1. Make sure the settings are correct.
+      1. In your {{ TF }} infrastructure configuration file, locate your cluster description and delete the `host` sections with the source availability zone.
+      1. Validate your configuration.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -139,4 +139,4 @@ description: Follow this guide to migrate {{ VLK }} cluster hosts to a different
 
    {% endlist %}
 
-1. Wait for the cluster state to change to **Alive**. In the management console, navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**. You can see the cluster state in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+1. Wait for the cluster state to change to **Alive**. In the management console, navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**. You can check the cluster state in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.

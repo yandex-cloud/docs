@@ -37,6 +37,8 @@ items:
             href: operations/buckets/bucket-availability.md
           - name: Доступ в бакет с помощью {{ sts-name }}
             href: operations/buckets/create-sts-key.md
+          - name: Доступ в бакет с помощью эфемерного ключа доступа
+            href: operations/buckets/manage-ephemeral-keys.md
           - name: >-
               Доступ в бакет с помощью сервисного подключения из {{
               vpc-short-name }}
@@ -474,6 +476,8 @@ items:
         href: security/pre-signed-urls.md
       - name: '{{ sts-name }}'
         href: security/sts.md
+      - name: Эфемерные ключи
+        href: security/ephemeral-keys.md
   - name: Правила тарификации
     href: pricing.md
   - name: Справочник YC CLI (англ.)

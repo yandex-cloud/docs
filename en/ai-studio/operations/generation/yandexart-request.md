@@ -21,7 +21,7 @@ To use the examples:
   1. Get API authentication credentials as described here: [{#T}](../../api-ref/authentication.md).
 
       To access the {{ yandexart-name }} API, first assign the `ai.imageGeneration.user` [role](../../security/index.md#imageGeneration-user) to the user or service account you will use to authenticate with the API.
-  1. Install the following tools:
+  1. Install these tools:
 
       * [cURL](https://curl.haxx.se) to send API requests.
       * [jq](https://github.com/jqlang/jq) to handle JSON files.
@@ -86,8 +86,6 @@ To use the examples:
       * `message2`: Clarifying part of the image generation prompt.
 
       {% include [sdk-code-legend](../../../_includes/ai-studio/examples/sdk-code-legend.md) %}
-
-      For more information about accessing the image generation model, see [{#T}](../../concepts/generation/models.md#addressing-models).
       
   1. Run the file you created:
 

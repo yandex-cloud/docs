@@ -37,7 +37,7 @@ You can connect modules to a [new](cluster-create.md) or [existing](#enable-modu
      ```
 
      Where:
-     * `--cluster-name`: {{ mrd-name }} cluster name. You can get it with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     * `--cluster-name`: {{ mrd-name }} cluster name. You can get it from the [list of clusters in the folder](cluster-list.md#list-clusters).
      * `--valkey-modules`: [{{ VLK }} module](../concepts/modules.md) parameters:
         * `enable-valkey-search`: Enable the `Valkey-Search` module, `true` or `false`.
         * `valkey-search-reader-threads`: Number of request processing threads in the `Valkey-Search` module.
@@ -47,7 +47,7 @@ You can connect modules to a [new](cluster-create.md) or [existing](#enable-modu
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -83,7 +83,7 @@ You can connect modules to a [new](cluster-create.md) or [existing](#enable-modu
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
         * `configSpec.modules`: {{ VLK }} module parameters:
 
@@ -93,13 +93,13 @@ You can connect modules to a [new](cluster-create.md) or [existing](#enable-modu
             * `valkeyJson.enabled`: Enable the `Valkey-JSON` module, `true` or `false`.
             * `valkeyBloom.enabled`: Enable the `Valkey-Bloom` module, `true` or `false`.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -149,7 +149,7 @@ You can connect modules to a [new](cluster-create.md) or [existing](#enable-modu
 
         Where:
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
 
         * `config_spec.modules`: {{ VLK }} module parameters:
 
@@ -159,9 +159,9 @@ You can connect modules to a [new](cluster-create.md) or [existing](#enable-modu
             * `valkey_json.enabled`: Enable the `Valkey-JSON` module, `true` or `false`.
             * `valkey_bloom.enabled`: Enable the `Valkey-Bloom` module, `true` or `false`.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -193,14 +193,14 @@ You can connect modules to a [new](cluster-create.md) or [existing](#enable-modu
      ```
 
      Where:
-     * `--cluster-name`: {{ mrd-name }} cluster name. You can get it with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     * `--cluster-name`: {{ mrd-name }} cluster name. You can get it from the [list of clusters in the folder](cluster-list.md#list-clusters).
      * `--valkey-modules`: [{{ VLK }} module](../concepts/modules.md) parameters:
         * `valkey-search-reader-threads`: Number of request processing threads in the `Valkey-Search` module.
         * `valkey-search-writer-threads`: Number of indexing threads in the `Valkey-Search` module.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -229,20 +229,20 @@ You can connect modules to a [new](cluster-create.md) or [existing](#enable-modu
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
         * `configSpec.modules`: {{ VLK }} module parameters:
 
             * `valkeySearch.readerThreads`: Number of request processing threads in the `Valkey-Search` module.
             * `valkeySearch.writerThreads`: Number of indexing threads in the `Valkey-Search` module.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -280,15 +280,15 @@ You can connect modules to a [new](cluster-create.md) or [existing](#enable-modu
 
         Where:
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
 
         * `config_spec.modules`: {{ VLK }} module parameters:
 
             * `valkey_search.reader_threads`: Number of request processing threads in the `Valkey-Search` module.
             * `valkey_search.writer_threads`: Number of indexing threads in the `Valkey-Search` module.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

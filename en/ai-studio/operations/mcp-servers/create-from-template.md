@@ -9,6 +9,12 @@ description: Follow this guide to learn how to build MCP servers in {{ mcp-hub-n
 
 {{ foundation-models-full-name }} offers some MCP server [templates](../../concepts/mcp-hub/templates.md) from external {{ yandex-cloud }} partners. You can use these in your AI agents to access these partners’ services.
 
+{% note tip %}
+
+{% include [roles-to-invoke-mcp](../../../_includes/ai-studio/mcp-hub/roles-to-invoke-mcp.md) %}
+
+{% endnote %}
+
 To add a ready-made template-based MCP server to [{{ mcp-hub-name }}](../../concepts/mcp-hub/index.md):
 
 {% list tabs group=instructions %}

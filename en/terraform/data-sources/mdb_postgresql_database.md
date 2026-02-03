@@ -31,25 +31,22 @@ output "owner" {
 ### Required
 
 - `cluster_id` (String) The ID of the PostgreSQL cluster.
-- `name` (String) The resource name.
+- `name` (String) The name of the PostgreSQL database.
 
-### Optional
+### Read-Only
 
 - `deletion_protection` (String) The `true` value means that resource is protected from accidental deletion.
-- `extension` (Block Set) Set of database extensions. (see [below for nested schema](#nestedblock--extension))
+- `extension` (Set of Object) Set of database extensions. (see [below for nested schema](#nestedatt--extension))
+- `id` (String) The ID of this resource.
 - `lc_collate` (String) POSIX locale for string sorting order. Forbidden to change in an existing database.
 - `lc_type` (String) POSIX locale for character classification. Forbidden to change in an existing database.
 - `owner` (String) Name of the user assigned as the owner of the database. Forbidden to change in an existing database.
 - `template_db` (String) Name of the template database.
 
-### Read-Only
-
-- `id` (String) The ID of this resource.
-
-<a id="nestedblock--extension"></a>
+<a id="nestedatt--extension"></a>
 ### Nested Schema for `extension`
 
-Required:
+Read-Only:
 
-- `name` (String) Name of the database extension. For more information on available extensions see [the official documentation](https://yandex.cloud/docs/managed-postgresql/operations/cluster-extensions). Name of the database extension. For more information on available extensions see [the official documentation](https://yandex.cloud/docs/managed-postgresql/operations/cluster-extensions).
+- `name` (String) Name of the database extension. For more information on available extensions see [the official documentation](https://yandex.cloud/docs/managed-postgresql/operations/cluster-extensions).
 

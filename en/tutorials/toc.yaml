@@ -37,7 +37,7 @@ items:
         href: security/different-folders-services.md
       - name: Basic SWS setup
         href: security/sws-basic-protection.md
-      - name: Emergency DDoS protection in {{ alb-name }}, L7
+      - name: Emergency L7 DDoS protection in {{ alb-name }}
         href: security/sws-protection-ongoing-ddos.md
       - name: >-
           Migrating services from an NLB to an L7 ALB to enable {{ sws-name }}
@@ -255,6 +255,10 @@ items:
           Transferring a {{ mgp-name }} cluster's logs to {{
           cloud-logging-full-name }}
         href: security/mgp-to-cloud-logging.md
+      - name: >-
+          Obtaining the information you need to request the Russian Ministry of
+          Digital Development to whitelist a resource
+        href: security/info-for-federal-ip-whitelist.md
   - name: Storing and recovering data
     items:
       - name: All tutorials
@@ -305,7 +309,7 @@ items:
         href: archive/ha-regional-glusterfs.md
       - name: Deploying GlusterFS in high performance mode
         href: archive/ha-regional-glusterfs-high-performance.md
-      - name: Associating a {{ backup-name }} policy to a VM automatically
+      - name: Associating a {{ backup-name }} policy with a VM automatically
         items:
           - name: Overview
             href: archive/vm-with-backup-policy/index.md
@@ -389,6 +393,10 @@ items:
         href: routing/web-service.md
       - name: Cost analysis by resource using {{ objstorage-name }}
         href: infrastructure/billing-resource-detailing.md
+      - name: >-
+          Obtaining the information you need to request the Russian Ministry of
+          Digital Development to whitelist a resource
+        href: infrastructure/info-for-federal-ip-whitelist.md
       - name: Fault tolerance and scaling
         items:
           - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
@@ -1559,7 +1567,7 @@ items:
         href: serverless/connect-from-cf.md
       - name: >-
           Connecting to a {{ ydb-short-name }} database from a {{ sf-name }}
-          function in Node.js
+          Node.js function
         href: serverless/connect-from-cf-nodejs.md
       - name: '{{ api-gw-name }} protection with {{ sws-name }}'
         href: serverless/api-gw-sws-integration.md

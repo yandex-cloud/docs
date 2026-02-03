@@ -85,13 +85,13 @@ The support cost for this solution includes:
             * VM public [image](../../compute/operations/images-with-pre-installed-software/get-list) ID, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
             * Username and absolute path to the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for accessing the virtual machine. By default, [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) ignores the specified username and automatically creates a user named `ubuntu`. Use it to connect to the VM.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -344,7 +344,7 @@ Delete the resources you no longer need to avoid paying for them:
 - Manually {#manual}
 
     * [Delete the {{ mrd-full-name }} cluster](../../managed-valkey/operations/cluster-delete.md).
-    * If you created an intermediate VM, [delete it](../../compute/operations/vm-control/vm-delete.md).
+    * If you created a staging virtual machine, [delete it](../../compute/operations/vm-control/vm-delete.md).
     * If you reserved public static IP addresses, release and [delete them](../../vpc/operations/address-delete.md).
 
 - {{ TF }} {#tf}

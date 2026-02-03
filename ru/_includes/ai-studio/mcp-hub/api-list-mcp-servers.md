@@ -4,7 +4,7 @@
 curl \
   --request GET \
   --header "Authorization: Bearer $IAM_TOKEN" \
-  "https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways?folderId=<идентификатор_каталога>"
+  "https://ai.{{ api-host }}/mcpgateway/v1/mcpGateways?folderId=<идентификатор_каталога>"
 ```
 
 Где `folderId` — query-параметр, содержащий [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором вы хотите посмотреть список MCP-серверов.

@@ -56,7 +56,7 @@ description: Вы можете создавать резервные копии 
   **Чтобы восстановить из резервной копии удаленный ранее кластер:**
 
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.postgresql.switch_backups }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.postgresql.switch_backups_xgJVM }}**.
   1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **{{ ui-key.yacloud.common.id }}** содержатся идентификаторы в формате `<идентификатор_кластера>:<идентификатор_резервной_копии>`.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Задайте настройки нового кластера. В списке **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** можно выбрать каталог для нового кластера.
@@ -499,7 +499,7 @@ description: Вы можете создавать резервные копии 
 
   Чтобы получить список всех резервных копий в каталоге:
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.postgresql.switch_backups }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.postgresql.switch_backups_xgJVM }}**.
   
 - CLI {#cli}
   
@@ -626,7 +626,7 @@ description: Вы можете создавать резервные копии 
 
   Чтобы получить информацию о резервной копии удаленного ранее кластера:
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.postgresql.switch_backups }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.postgresql.switch_backups_xgJVM }}**.
   
 - CLI {#cli}
   

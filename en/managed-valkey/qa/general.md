@@ -1,6 +1,6 @@
 ---
 title: '{{ mrd-name }}. FAQ'
-description: What is {{ mrd-name }}? Not sure whether to use {{ mrd-name }} or VMs running databases? Want to know the role of {{ mrd-name }} in database management and maintenance? Find answers to these and other questions in this article.
+description: What is {{ mrd-name }}? Not sure whether to use {{ mrd-name }} or VMs with databases? Want to know the role of {{ mrd-name }} in database management and maintenance? Find answers to these and other questions in this article.
 ---
 
 # General questions about {{ mrd-name }}

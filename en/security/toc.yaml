@@ -355,6 +355,10 @@ items:
               Transferring a {{ managed-k8s-name }} cluster's logs to {{
               cloud-logging-name }}
             href: tutorials/kubernetes-security/k8s-fluent-bit-logging.md
+      - name: >-
+          Obtaining the information you need to request the Russian Ministry of
+          Digital Development to whitelist a resource
+        href: tutorials/info-for-federal-ip-whitelist.md
   - name: Guides
     items:
       - name: Deleting a Yandex account from {{ org-full-name }}
