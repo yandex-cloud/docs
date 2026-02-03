@@ -16,7 +16,7 @@ description: Из этой статьи вы узнаете, что такое �
 ```bash
 grpcurl \
   -H "Authorization: Bearer <IAM-токен>" \
-  llm.api.cloud.yandex.net:443 yandex.cloud.ai.dataset.v1.DatasetService.ListTypes 
+  ai.api.cloud.yandex.net:443 yandex.cloud.ai.dataset.v1.DatasetService.ListTypes 
 ```
 
 ## Датасеты для генерации текста {#generating}

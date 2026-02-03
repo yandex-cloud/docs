@@ -74,7 +74,7 @@ To disable request logging:
 
   client = OpenAI(
         api_key="<API_key>",
-        base_url="https://llm.api.cloud.yandex.net/v1",
+        base_url="https://ai.api.cloud.yandex.net/v1",
         project="<folder_ID>",
         default_headers={
             "x-data-logging-enabled": "false"

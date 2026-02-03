@@ -62,6 +62,10 @@ description: Следуя данной инструкции, вы сможете
 
      Можно указать несколько параметров `--audience-delta` для одновременного изменения нескольких объектов.
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [UpdateAudience](../../../organization/api-ref/MfaEnforcement/updateAudience.md) для ресурса [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) или вызовом gRPC API [MfaEnforcementService/UpdateAudience](../../../organization/api-ref/grpc/MfaEnforcement/updateAudience.md).
+
 {% endlist %}
 
 {% include [mfa-policy-applications-acc-type-notice](../../../_includes/organization/mfa-policy-applications-acc-type-notice.md) %}

@@ -1,10 +1,10 @@
 ---
-title: Deleting an {{ SPQR }} cluster
+title: Deleting a {{ SPQR }} cluster
 description: You can delete an {{ SPQR }} cluster if you no longer need it.
 keywords:
-  - deleting an {{ SPQR }} cluster
-  - '{{ SPQR }} cluster'
-  - '{{ SPQR }}'
+  - keyword: deleting {{ SPQR }} cluster
+  - keyword: '{{ SPQR }} cluster'
+  - keyword: '{{ SPQR }}'
 ---
 
 # Deleting an {{ SPQR }} cluster
@@ -28,7 +28,7 @@ Before deleting a cluster, disable its deletion protection if it is enabled.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -46,7 +46,7 @@ Before deleting a cluster, disable its deletion protection if it is enabled.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -68,6 +68,6 @@ Before deleting a cluster, disable its deletion protection if it is enabled.
        yandex.cloud.mdb.spqr.v1.ClusterService.Delete
      ```
 
-  1. View the [server response](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

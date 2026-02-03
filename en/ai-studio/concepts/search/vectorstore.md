@@ -11,7 +11,7 @@ description: In this section, you will learn about {{ vector-store-name }} searc
 
 To create a search index, upload source files for the knowledge base into {{ vector-store-name }} and index them.
 
-### Uploading source files {#file-uploading}
+### Uploading files {#file-uploading}
 
 In {{ vector-store-name }}, you can [upload](../../operations/agents/manage-searchindex.md#upload-files) up to 10,000 files with the maximum size of 128 MB per file. A single file can be included into multiple {{ vector-store-name }} search indexes at the same time.
 
@@ -25,7 +25,7 @@ When fragmenting the information, the semantics are ignored, so the text may be 
 
 {% note tip %}
 
-To avoid possible loss of meaning when fragmenting files, you can do it yourself and upload the chunks to the search index in [JSONL](https://jsonlines.org/) format. For more information, see [{#T}](../../operations/agents/create-prechunked-search-agent.md).
+To avoid possible loss of meaning when fragmenting files, you can do it yourself and upload the chunks to the search index in [JSONL](https://jsonlines.org/) format. One fragment may contain a maximum of 8,000 characters. For more information, see [{#T}](../../operations/agents/create-prechunked-search-agent.md).
 
 {% endnote %}
 

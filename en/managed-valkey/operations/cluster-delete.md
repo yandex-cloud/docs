@@ -1,13 +1,13 @@
 ---
 title: Deleting a {{ VLK }} cluster
-description: After you delete a {{ VLK }} database cluster, its backups are retained for seven days for recovery purposes. To restore a deleted cluster from a backup, you will need its ID, so make sure to securely save the cluster ID before deleting the cluster.
+description: After you delete a {{ VLK }} database cluster, its backups are retained and available for recovery for 7 days. To restore a deleted cluster from a backup, you will need its ID. Therefore, make sure to save the cluster ID safely before deletion.
 ---
 
 # Deleting a {{ VLK }} cluster
 
 ## Before deleting a cluster {#before-you-delete}
 
-* [Disable deletion protection](update.md#change-additional-settings) for the cluster if it is enabled.
+* If deletion protection is on for the cluster, [disable it](update.md#change-additional-settings).
 * [Save the cluster ID](cluster-list.md#list-clusters).
 
   {% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
@@ -18,9 +18,9 @@ description: After you delete a {{ VLK }} database cluster, its backups are reta
 
 - Management console {#console}
   
-  1. In the [management console]({{ link-console-main }}), go to the folder to delete the cluster from.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. In the line of the appropriate cluster, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
+  1. In the [management console]({{ link-console-main }}), go to the folder with the cluster you want to delete.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
   1. In the window that opens, check **Delete cluster** and click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
   
 - CLI {#cli}
@@ -45,11 +45,11 @@ description: After you delete a {{ VLK }} database cluster, its backups are reta
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Call the [Cluster.Delete](../api-ref/Cluster/delete.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+    1. Call the [Cluster.Delete](../api-ref/Cluster/delete.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -58,19 +58,19 @@ description: After you delete a {{ VLK }} database cluster, its backups are reta
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Call the [ClusterService.Delete](../api-ref/grpc/Cluster/delete.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+    1. Call the [ClusterService.Delete](../api-ref/grpc/Cluster/delete.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -86,7 +86,7 @@ description: After you delete a {{ VLK }} database cluster, its backups are reta
             yandex.cloud.mdb.redis.v1.ClusterService.Delete
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

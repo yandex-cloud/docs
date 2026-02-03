@@ -325,7 +325,7 @@ In 32-bit {{ RD }} versions 4.0 and higher, an integer overflow vulnerability wa
 
 ### Impact on {{ yandex-cloud }} services
 
-Yandex Managed Service for Redis uses a 64-bit {{ RD }} version and is not affected by the vulnerability.
+{{ mrd-full-name }} uses 64-bit {{ RD }} instances and is not affected by the vulnerability.
 
 ## 26/01/2021: CVE-2021-3156: Privilege escalation through vulnerabilities in sudo.
 

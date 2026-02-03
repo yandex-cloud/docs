@@ -2,7 +2,7 @@
 
 Recommended hardware requirements for running {{ sk-hybrid-name }} containers estimated values of {{ sk-hybrid-name }} specifications are given for reference based on hardware using the NVIDIA 535 driver. The actual values may change after containers are updated and new features are added.
 
-The data in the tables is for the Russian language only:
+The data in the tables is for the Russian language only, unless otherwise specified:
 
 {% list tabs group=gpu_type %}
 
@@ -14,7 +14,7 @@ The data in the tables is for the Russian language only:
    | Streaming recognition | 50 | 64 | 200 | 8 | 16 |
    | Audio file recognition | 250 | 64 | 200 | 8 | 16 |
    | **Speech synthesis** |
-   | Speech synthesis | 80 | 64 | 200 | 8 | 16 |
+   | Speech synthesis | 147 | 64 | 200 | 8 | 16 |
 
 - Containers with GPU V100 {#v100}
 
@@ -24,7 +24,7 @@ The data in the tables is for the Russian language only:
    | Streaming recognition | 110 | 64 | 200 | 8 | 16 |
    | Audio file recognition | 500 | 64 | 200 | 8 | 16 |
    | **Speech synthesis** |
-   | Speech synthesis | 200 | 64 | 200 | 8 | 16 |
+   | Speech synthesis | 105 | 64 | 200 | 8 | 16 |
 
 - Containers with GPU L4 {#l4}
 
@@ -34,7 +34,7 @@ The data in the tables is for the Russian language only:
    | Streaming recognition | 66 | 64 | 200 | 8 | 16 |
    | Audio file recognition | 330 | 64 | 200 | 8 | 16 |
    | **Speech synthesis** |
-   | Speech synthesis | 383 | 64 | 200 | 8 | 16 |
+   | Speech synthesis | 266 | 64 | 200 | 8 | 16 |
 
 - Containers with GPU A100 {#a100}
 
@@ -44,17 +44,19 @@ The data in the tables is for the Russian language only:
    | Streaming recognition | 245 | 64 | 200 | 14 | 28 |
    | Audio file recognition | 1,000 | 64 | 200 | 14 | 28 |
    | **Speech synthesis** |
-   | Speech synthesis | 480 | 64 | 200 | 14 | 28 |
+   | Speech synthesis | 581 | 64 | 200 | 14 | 28 |
 
-- Containers with GPU H100 {#h100}
+- Containers with GPU H100 PCI {#h100}
 
    | Operation mode | Guaranteed<br>SPS^1^ | RAM per card, <br>GB | HDD per card, <br>GB | Physical processor<br>cores<br>Intel Gold 6230R <br>per card, pcs | Boolean cores <br>Intel Gold 6230R <br>per card, pcs |
    |---|---|---|---|---|---|
    | **Speech recognition** |
-   | Streaming recognition | 110 | 64 | 200 | 8 | 16 |
-   | Audio file recognition | 500 | 64 | 200 | 8 | 16 |
+   | Streaming recognition, Russian | 385 | 64 | 200 | 8 | 16 |
+   | Streaming recognition, multi-lingual model | 245 | 64 | 200 | 8 | 16 |
+   | Audio file recognition, Russian | 3,500 | 64 | 200 | 8 | 16 |
+   | Audio file recognition with speaker labeling, Russian | 2,590 | 64 | 200 | 8 | 16 |
    | **Speech synthesis** |
-   | Speech synthesis | 200 | 64 | 200 | 8 | 16 |
+   | Speech synthesis | 1,260 | 64 | 200 | 8 | 16 |
 
 {% endlist %}
 

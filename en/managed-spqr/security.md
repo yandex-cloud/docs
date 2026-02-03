@@ -1,6 +1,10 @@
 ---
 title: Access management in {{ mspqr-full-name }}
-description: Access management in {{ SPQR }}, a solution for creating and managing databases. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+description: Access management in the {{ SPQR }} database creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+keywords:
+  - keyword: Roles for {{ mspqr-name }}
+  - keyword: Sharded cluster for PostrgeSQL
+  - keyword: SPQR
 ---
 
 # Access management in {{ mspqr-name }}
@@ -14,7 +18,7 @@ In this section, you will learn about:
 
 {% include [about-access-management](../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, you need the `mdb.admin` role, the `managed-spqr.admin` role, or one of the following roles for that resource:
+To assign a role for a resource, you need the `mdb.admin` role, `managed-spqr.admin` role, or one of the following roles for that resource:
 
 {% include [roles-list](../_includes/iam/roles-list.md) %}
 
@@ -82,7 +86,7 @@ The chart below shows the roles existing in the service and their permission inh
 
 ## Required roles {#required-roles}
 
-To use the service, you need the [managed-spqr.editor role or higher](../iam/concepts/access-control/roles.md) for the folder to house the new cluster. The `managed-spqr.viewer` role only allows you to view the list of clusters.
+As a user, you need the [`managed-spqr.editor` role or higher](../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `managed-spqr.viewer` role only allows you to view the list of clusters.
 
 To create a {{ mspqr-name }} cluster, you need the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the `managed-spqr.editor` role or higher.
 

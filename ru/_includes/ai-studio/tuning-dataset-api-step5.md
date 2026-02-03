@@ -4,7 +4,7 @@
 grpcurl \
   -H "Authorization: Bearer <IAM-токен>" \
   -d '{"operation_id": "<идентификатор_операции_валидации>"}' \
-  {{ api-host-llm }}:443 yandex.cloud.operation.OperationService/Get
+  {{ api-host-operation }}:443 yandex.cloud.operation.OperationService/Get
 ```
 
 Где:

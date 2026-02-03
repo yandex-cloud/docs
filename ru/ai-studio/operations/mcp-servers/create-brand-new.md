@@ -256,7 +256,7 @@ description: Следуя данной инструкции, вы научите
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --data "@body.json" \
-        "https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways"
+        "https://ai.{{ api-host }}/mcpgateway/v1/mcpGateways"
       ```
 
       Результат:
@@ -284,7 +284,7 @@ description: Следуя данной инструкции, вы научите
       curl \
         --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
-        "https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways/<идентификатор_MCP-сервера>"
+        "https://ai.{{ api-host }}/mcpgateway/v1/mcpGateways/<идентификатор_MCP-сервера>"
       ```
 
       {% cut "Результат" %}

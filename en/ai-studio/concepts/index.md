@@ -9,22 +9,22 @@ description: '{{ ai-studio-full-name }} is a {{ yandex-cloud }} platform for bui
 
 ## Models and basic features {#model-gallery}
 
-[{{ model-gallery-name }}](./generation/index.md) offers a broad choice of models for text, voice, and image generation, [text classification](./classifier/index.md), and [embeddings](./embeddings.md). They will help you deal with the application tasks of creating and analyzing content, classifying data, building document search, or processing large arrays of uniform data.
+[{{ model-gallery-name }}](./generation/index.md) offers a broad choice of models for text, voice, and image generation, [text classification](./classifier/index.md), and [embeddings](./embeddings.md). They will help you address the application tasks of creating and analyzing content, classifying data, building document search, or processing large arrays of uniform data.
 
-### Using the models {#model-usage}
+### Model usage {#model-usage}
 
-Select an interface and a model – {{ ai-studio-name }} has everything you need:
+{{ ai-studio-name }} provides you with everything needed to select an interface and model for your tasks:
 
 * [{{ ai-playground }}]({{ link-console-main }}/link/ml/ai-studio/playground): For experiments, model testing, and image generation.
 * [{{ agents-atelier-name }}]({{ link-console-main }}link/ml/ai-studio/agents): For creating and managing agents via the management console.
 * {{ openai }}-compatible APIs, {{ openai }} SDK, and {{ ml-sdk-full-name }}: For integrating models into applications.
-* [Common instance models](./generation/models.md): For most business scenarios.
-* [Dedicated instances](./generation/dedicated-instance.md): To deploy models not included in the common instance.
+* [Common instance models](./generation/models.md): For most business use cases.
+* [Dedicated instances](./generation/dedicated-instance.md): For deploying models not included in the common instance.
 * [Batch processing](./generation/batch-processing.md): For asynchronous data processing.
 
 ## AI application development {#ai-apps}
 
-The [{{ agents-atelier-name }}](./agents/index.md) development environment allows you to create text and voice AI agent-based solutions using out-of-the-box and customizable [tools](./agents/index.md#tools). If the out-of-the-box toolkit is not enough, you can always build an MCP server of your own in {{ mcp-hub-name }} for your agent to be able to use any external tools and APIs.
+The [{{ agents-atelier-name }}](./agents/index.md) development environment allows you to build solutions based on text and voice AI agents using out-of-the-box and configurable [tools](./agents/index.md#tools). If out-of-the-box tools are not enough, you can always build a custom MCP server in {{ mcp-hub-name }} to enable the agent to use any external tools and APIs.
 
 For visual design, {{ ai-studio-name }} provides the {{ sw-full-name }} low-code constructor.
 
@@ -39,8 +39,8 @@ For visual design, {{ ai-studio-name }} provides the {{ sw-full-name }} low-code
 
 In addition, {{ ai-studio-name }} offers gRPC and REST APIs for specific generation, analysis, and training tasks. 
 
-For more on available APIs, see [{{ ai-studio-full-name }} API overview](./api.md).
+For more information about the available APIs, see [{{ ai-studio-full-name }} API overview](./api.md).
 
-## Limitations {#quotas}
+## Service limitations {#quotas}
 
-For current {{ ai-studio-name }} technical and organizational limitations, see [{#T}](limits.md).
+For current technical and organizational limitations of {{ ai-studio-name }}, see [{#T}](limits.md).

@@ -235,7 +235,7 @@ resource "yandex_vpc_subnet" "foo" {
 - `config` (Block List, Min: 1, Max: 1) Configuration of the PostgreSQL cluster. (see [below for nested schema](#nestedblock--config))
 - `environment` (String) Deployment environment of the PostgreSQL cluster.
 - `host` (Block List, Min: 1) A host of the PostgreSQL cluster. (see [below for nested schema](#nestedblock--host))
-- `name` (String) The resource name.
+- `name` (String) The name of PostgreSQL cluster.
 - `network_id` (String) The `VPC Network ID` of subnets which resource attached to.
 
 ### Optional
@@ -249,7 +249,7 @@ resource "yandex_vpc_subnet" "foo" {
      {% endnote %}
 - `deletion_protection` (Boolean) The `true` value means that resource is protected from accidental deletion.
 - `description` (String) The resource description.
-- `disk_encryption_key_id` (String) ID of the KMS key for cluster disk encryption. Restoring without an encryption key will disable encryption if any exists.
+- `disk_encryption_key_id` (String) ID of the KMS key used for cluster disk encryption. Encryption can`t be disabled for an existing cluster. If the source cluster is encrypted and you leave this field empty when restoring, the restored cluster will be created without encryption.
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `host_group_ids` (Set of String) Host Group IDs.
 - `host_master_name` (String, Deprecated) Deprecated field. Will be removed in future versions.

@@ -1,15 +1,19 @@
 title: '{{ mspqr-full-name }}'
 description:
   - >-
-    With {{ mspqr-name }}, you can deploy sharded {{ PG }} clusters (<a
-    href="https://pg-sharding.tech/">SPQR</a>) in the {{ yandex-cloud }}
-    infrastructure.
+    With {{ mspqr-name }}, you can deploy sharded {{ PG }} (<a
+    href="https://pg-sharding.tech/">SPQR</a>) clusters in the {{ yandex-cloud
+    }} infrastructure.
   - >-
     SPQR (Stateless Postgres Query Router) is a system for horizontal scaling of
-    {{ PG }} via sharding.
+    {{ PG }} via sharding, based on <a
+    href="https://opensource.yandex/projects/">Yandex Open Source</a>
+    technologies.
   - >-
-    The service is at the <a
-    href="/docs/overview/concepts/launch-stages">Preview</a> stage.
+    This service is at the <a
+    href="/docs/overview/concepts/launch-stages">Preview</a> stage. You can
+    request access <a
+    href="https://yandex.cloud/en/services/managed-spqr">here</a>.
   - >-
     The {{ yandex-cloud }} infrastructure is <a
     href="/docs/security/conform">protected</a> pursuant to the following
@@ -25,7 +29,7 @@ links:
     description: How to perform routine operations
     href: operations/
   - title: Concepts
-    description: Learn about basic concepts and how the service works
+    description: Learn about basic concepts and how this service works
     href: concepts/
   - title: Quotas and limits
     description: Technical and organizational limitations

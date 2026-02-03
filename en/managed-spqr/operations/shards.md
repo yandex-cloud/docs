@@ -1,6 +1,10 @@
 ---
 title: Managing {{ SPQR }} shards
 description: Follow this guide to create shards in a {{ mspqr-name }} cluster.
+keywords:
+  - keyword: managing shards in {{ SPQR }}
+  - keyword: creating a shard in {{ SPQR }}
+  - '{{ SPQR }}'
 ---
 
 # Managing {{ SPQR }} shards
@@ -23,7 +27,7 @@ description: Follow this guide to create shards in a {{ mspqr-name }} cluster.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -47,11 +51,11 @@ description: Follow this guide to create shards in a {{ mspqr-name }} cluster.
 
      Where `mdbPostgresql.clusterId` is the {{ mpg-name }} cluster ID within the shard.
 
-  1. View the [server response](../api-ref/Cluster/addShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/addShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -98,7 +102,7 @@ Deleting a {{ SPQR }} shard does not affect the {{ mpg-name }} cluster.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -112,11 +116,11 @@ Deleting a {{ SPQR }} shard does not affect the {{ mpg-name }} cluster.
        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<cluster_ID>/shards/<shard_name>'
      ```
 
-  1. View the [server response](../api-ref/Cluster/deleteShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/deleteShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -139,6 +143,6 @@ Deleting a {{ SPQR }} shard does not affect the {{ mpg-name }} cluster.
        yandex.cloud.mdb.spqr.v1.ClusterService.DeleteShard
      ```
 
-  1. View the [server response](../api-ref/grpc/Cluster/deleteShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/deleteShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

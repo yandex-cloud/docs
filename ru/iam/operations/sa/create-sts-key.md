@@ -4,3 +4,9 @@ description: С помощью {{ sts-name }} и {{ iam-name }} вы может�
 ---
 
 {% include [create-sts-key](../../../_includes/iam/create-sts-key.md) %}
+
+
+#### См. также {#see-also}
+
+* [{#T}](../../../storage/security/overview.md)
+* [{#T}](../authentication/manage-ephemeral-keys.md)

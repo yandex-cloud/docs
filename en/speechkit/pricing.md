@@ -83,7 +83,7 @@ In [streaming mode](stt/streaming.md), the billing starts as soon as you send a 
 
 {% endnote %}
 
-> **Examples**:
+> **Examples:**
 >
 > * One audio fragment that is 37 seconds long is billed as 45 seconds.
 >

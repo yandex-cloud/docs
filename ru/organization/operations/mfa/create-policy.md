@@ -77,6 +77,10 @@ description: Следуя данной инструкции, вы сможете
         --id <идентификатор_политики>
       ```
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Create](../../../organization/api-ref/MfaEnforcement/create.md) для ресурса [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) или вызовом gRPC API [MfaEnforcementService/Create](../../../organization/api-ref/grpc/MfaEnforcement/create.md).
+
 {% endlist %}
 
 {% include [mfa-policy-add-users-notice](../../../_includes/organization/mfa-policy-add-users-notice.md) %}

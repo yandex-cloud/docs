@@ -7,7 +7,7 @@ FOLDER_ID = "<идентификатор_каталога>"
 IAM_TOKEN = "<IAM-токен>"
 doc_uri = f"emb://{FOLDER_ID}/text-search-doc/latest"
 query_uri = f"emb://{FOLDER_ID}/text-search-query/latest"
-embed_url = "https://llm.api.cloud.yandex.net:443/foundationModels/v1/textEmbedding"
+embed_url = "https://ai.api.cloud.yandex.net:443/foundationModels/v1/textEmbedding"
 headers = {"Content-Type": "application/json", "Authorization": f"Bearer {IAM_TOKEN}", "x-folder-id": f"{FOLDER_ID}"}
 doc_texts = [
   """Александр Сергеевич Пушкин (26 мая [6 июня] 1799, Москва — 29 января [10 февраля] 1837, Санкт-Петербург) — русский поэт, драматург и прозаик, заложивший основы русского реалистического направления, литературный критик и теоретик литературы, историк, публицист, журналист.""",

@@ -47,7 +47,7 @@ items:
             href: operations/cluster-logs.md
           - name: Performance diagnostics
             href: operations/performance-diagnostics.md
-          - name: Monitoring the state of a cluster and its hosts
+          - name: Cluster and host state monitoring
             href: operations/monitoring.md
           - name: Connecting from {{ datalens-name }}
             href: operations/datalens-connect.md
@@ -67,7 +67,7 @@ items:
                 href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Using deprecated host classes
             href: concepts/using-deprecated-instances.md
-      - name: High cluster availability
+      - name: High availability clusters
         href: concepts/high-availability.md
       - name: Networking in Managed Service for MySQL
         href: concepts/network.md
@@ -108,7 +108,7 @@ items:
       - name: Migrating a database from {{ mmy-name }} to {{ MY }}
         href: tutorials/mmy-to-mysql-migration.md
       - name: >-
-          Transferring data from {{ mkf-full-name }} using {{
+          Delivering data from {{ mkf-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/mkf-mmy-data-transfer.md
       - name: >-

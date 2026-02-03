@@ -63,7 +63,7 @@
         --header "Authorization: Bearer ${IAM_TOKEN}" \
         --header "x-folder-id: ${FOLDER_ID}" \
         --data "@<путь_до_файла_json>" \
-        "https://llm.{{ api-host }}/foundationModels/v1/completion"
+        "https://ai.{{ api-host }}/foundationModels/v1/completion"
       ```
 
       Где:

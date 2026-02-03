@@ -14,7 +14,7 @@
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/branches-right.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-gateways }}**.
   1. Выберите нужный API-шлюз.
-  1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_operations }}** для выбранного API-шлюза.
+  1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** для выбранного API-шлюза.
 
      В открывшемся списке отображаются операции с выбранным API-шлюзом.
 

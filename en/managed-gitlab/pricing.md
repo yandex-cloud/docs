@@ -31,8 +31,8 @@ When using {{ mgl-name }}, you pay for:
 * Data storage used by the instance.
 
 Other consumed resources to be additionally paid for:
-* Space used in {{ objstorage-full-name }} to store backups.
-* Egress traffic from {{ yandex-cloud }} to the internet.
+* The space used in {{ objstorage-full-name }} to store backups.
+* Outgoing traffic from {{ yandex-cloud }} to the internet.
 
 In all calculations, 1 GB = 2<sup>10</sup> MB = 2<sup>20</sup> KB = 2<sup>30</sup> bytes.
 

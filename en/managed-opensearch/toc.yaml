@@ -47,7 +47,7 @@ items:
         items:
           - name: Viewing cluster logs
             href: operations/cluster-logs.md
-          - name: Monitoring the state of clusters and hosts
+          - name: Cluster and host state monitoring
             href: operations/monitoring.md
   - name: Tutorials
     items:

@@ -28,4 +28,4 @@ description: This page provides a list of step-by-step guides for {{ mos-name }}
 ## Logs and monitoring
 
 * [Viewing cluster logs](cluster-logs.md)
-* [Monitoring the state of a cluster and its hosts](monitoring.md)
+* [Cluster and host state monitoring](monitoring.md)

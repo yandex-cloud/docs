@@ -42,6 +42,10 @@ description: Следуя данной инструкции, вы сможете
 
      Где `--id` — идентификатор политики MFA, которую нужно активировать.
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Activate](../../../organization/api-ref/MfaEnforcement/activate.md) для ресурса [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) или вызовом gRPC API [MfaEnforcementService/Activate](../../../organization/api-ref/grpc/MfaEnforcement/activate.md).
+
 {% endlist %}
 
 В результате политика MFA будет активирована и перейдет в статус `Active`, а к учетным записям пользователей, добавленных в целевые группы политики, начнут применяться требования этой политики по использованию дополнительного фактора аутентификации.
@@ -76,6 +80,10 @@ description: Следуя данной инструкции, вы сможете
      ```
 
      Где `--id` — идентификатор политики MFA, которую нужно деактивировать.
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [Deactivate](../../../organization/api-ref/MfaEnforcement/deactivate.md) для ресурса [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) или вызовом gRPC API [MfaEnforcementService/Deactivate](../../../organization/api-ref/grpc/MfaEnforcement/deactivate.md).
 
 {% endlist %}
 

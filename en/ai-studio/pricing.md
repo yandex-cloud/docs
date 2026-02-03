@@ -177,9 +177,9 @@ The cost of using voice agents consists of your fees for speech recognition (inp
 
 #### Using tools in agents {#rules-tools}
 
-The {{ assistant-api }} tools are free of charge. 
+{{ assistant-api }} tool invocation is free of charge. 
 
-The File Search tool in text and voice agents is free of charge.
+The invocation of the File Search tool in text and voice agents is free of charge.
 
 
 

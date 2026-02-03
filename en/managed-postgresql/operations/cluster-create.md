@@ -260,7 +260,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      
      To encrypt the disk with a [custom KMS key](../../kms/concepts/key.md), provide `--disk-encryption-key-id <KMS_key_ID>`. To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
-     To allow access to the cluster from [{{ sf-full-name }}](../../functions/), provide the `--serverless-access` parameter. For more information about setting up access, see [this {{ sf-name }} guide](../../functions/operations/database-connection.md).
+     To allow access to the cluster from [{{ sf-full-name }}](../../functions/), provide the `--serverless-access` parameter. For details on setting up access, see [this {{ sf-name }} guide](../../functions/operations/database-connection.md).
 
      To allow access to the cluster from [{{ yq-full-name }}](../../query/index.yaml), provide `--yandexquery-access=true`. This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage and can be enabled upon request.
 
@@ -375,7 +375,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      
      {% note info %}
 
-     You can also generate a password using {{ connection-manager-name }}. Do it by specifying `generate_password = true` instead of `"password" = "<user_password>"`.
+     You can also generate a password using {{ connection-manager-name }}. To do this, specify `generate_password = true` instead of `"password" = "<user_password>"`.
 
      To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
@@ -412,7 +412,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
 
-     For a complete list of {{ mpg-name }} cluster configuration fields you can update, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
+     For a complete list of configurable {{ mpg-name }} cluster fields, refer to the [{{ TF }} provider guides]({{ tf-provider-mpg }}).
   1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -425,7 +425,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -450,7 +450,8 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          "resources": {
            "resourcePresetId": "<host_class>",
            "diskSize": "<storage_size_in_bytes>",
-           "diskTypeId": "<disk_type>"
+           "diskTypeId": "<disk_type>",
+           "diskEncryptionKeyId": "<KMS_key_ID>"
          },
          "access": {
            "dataLens": <allow_access_from_{{ datalens-name }}>,
@@ -543,6 +544,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          * `resourcePresetId`: [Host class](../concepts/instance-types.md).
          * `diskSize`: Disk size, in bytes.
          * `diskTypeId`: [Disk type](../concepts/storage.md).
+         * `diskEncryptionKeyId`: KMS key ID for disk encryption.
 
        
        * `access`: Cluster access settings for the following {{ yandex-cloud }} services:
@@ -553,7 +555,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          * `dataTransfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
          * `yandexQuery`: [{{ yq-full-name }}](../../query/index.yaml)
 
-         The possible values are `true` or `false`.
+         The possible setting values are `true` or `false`.
 
 
        * `performanceDiagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
@@ -575,7 +577,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        * `password`: User password. The password must be from 8 to 128 characters long.
 
           
-          You can also generate a password using {{ connection-manager-name }}. Do it by specifying `"generatePassword": true` instead of `"password": "<user_password>"`.
+          You can also generate a password using {{ connection-manager-name }}. To do this, specify `"generatePassword": true` instead of `"password": "<user_password>"`.
 
           To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
@@ -609,7 +611,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -635,7 +637,8 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          "resources": {
            "resource_preset_id": "<host_class>",
            "disk_size": "<storage_size_in_bytes>",
-           "disk_type_id": "<disk_type>"
+           "disk_type_id": "<disk_type>",
+           "disk_encryption_key_id": "<KMS_key_ID>"
          },
          "access": {
            "data_lens": <allow_access_from_{{ datalens-name }}>,
@@ -728,6 +731,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          * `resource_preset_id`: [Host class](../concepts/instance-types.md).
          * `disk_size`: Disk size, in bytes.
          * `disk_type_id`: [Disk type](../concepts/storage.md).
+         * `disk_encryption_key_id`: KMS key ID for disk encryption.
 
        
        * `access`: Cluster access settings for the following {{ yandex-cloud }} services:
@@ -760,7 +764,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        * `password`: User password. The password must be from 8 to 128 characters long.
 
           
-          You can also generate a password using {{ connection-manager-name }}. Do it by specifying `"generate_password": true` instead of `"password": "<user_password>"`.
+          You can also generate a password using {{ connection-manager-name }}. To do this, specify `"generate_password": true` instead of `"password": "<user_password>"`.
 
           To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 

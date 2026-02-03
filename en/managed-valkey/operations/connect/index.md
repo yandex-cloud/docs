@@ -82,7 +82,7 @@ Security group configurations differ for sharded and non-sharded clusters.
 
 - Sharded cluster {#sharded}
 
-    [Configure all cluster security groups](../../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port `{{ port-mrd }}` from the your VM’s security group. For clusters with SSL encryption enabled, specify port `{{ port-mrd-tls }}` only.
+    [Configure all cluster security groups](../../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port `{{ port-mrd }}` from your VM’s security group. For clusters with SSL encryption enabled, specify port `{{ port-mrd-tls }}` only.
 
     To do this, create the following inbound rule:
 
@@ -95,9 +95,9 @@ Security group configurations differ for sharded and non-sharded clusters.
 
 {% note info %}
 
-You can specify more granular rules for your security groups, e.g., to allow traffic only in specific subnets.
+You can specify more granular rules for your security groups, such as only allowing traffic within specific subnets.
 
-Make sure to configure the security groups properly for all subnets where the cluster hosts will reside. With incomplete or incorrect security group settings, you may lose access to the cluster if a [manual](../failover.md) or [automatic](../../concepts/replication.md#availability) master failover occurs.
+Make sure to configure the security groups correctly for all subnets where the cluster hosts will reside. With incomplete or incorrect security group settings, you may lose access to the cluster if a [manual](../failover.md) or [automatic](../../concepts/replication.md#availability) master failover occurs.
 
 {% endnote %}
 
@@ -118,7 +118,7 @@ To connect to a host, you need its fully qualified domain name ([FQDN](../../con
 
 * [Request a list of cluster hosts](../hosts.md#list-hosts).
 * In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
-* View the FQDN in the management console:
+* Look up the FQDN in the management console:
 
    1. Navigate to the cluster page.
    1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.

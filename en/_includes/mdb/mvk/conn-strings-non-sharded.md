@@ -320,7 +320,7 @@
 
 - Connecting without SSL {#without-ssl}
 
-    **Code example for connecting via Sentinel:**
+    **Code example for connecting through Sentinel:**
 
     `connect.go`
 
@@ -799,7 +799,7 @@
 
 ### Python {#python}
 
-**Before connecting, install the required dependencies**:
+**Before connecting, install the dependencies**:
 
 ```bash
 sudo apt update && sudo apt install -y python3 python3-pip && \

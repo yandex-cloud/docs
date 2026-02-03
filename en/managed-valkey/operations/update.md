@@ -16,7 +16,7 @@ After creating a cluster, you can:
 * [Change the host class](#change-resource-preset).
 
 
-* [Change the disk type and increase the storage size](#change-disk-size).
+* [Change the disk type and expand the storage](#change-disk-size).
 
 
 * [Set up automatic storage expansion](#disk-size-aut0scale).
@@ -43,15 +43,15 @@ Learn more about other cluster updates:
 
 * [Connecting and reconfiguring {{ VLK }} modules](modules.md).
 
-## Changing a cluster name and description {#change-name-and-description}
+## Changing the cluster name and description {#change-name-and-description}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Select the cluster you need.
+  1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Select your cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enter a new name and description for the cluster.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -64,7 +64,7 @@ Learn more about other cluster updates:
 
   To change the cluster name and description:
 
-  1. See the description of the CLI command for updating a cluster:
+  1. View the description of the CLI command for updating a cluster:
 
      ```bash
      {{ yc-mdb-rd }} cluster update --help
@@ -102,7 +102,7 @@ Learn more about other cluster updates:
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -116,7 +116,7 @@ Learn more about other cluster updates:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -137,15 +137,15 @@ Learn more about other cluster updates:
                     }'
         ```
 
-        Where `updateMask` is a comma-separated string of parameters to update.
+        Where `updateMask` is the list of parameters to update as a single string, separated by commas.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -176,7 +176,7 @@ Learn more about other cluster updates:
 
         Where `update_mask` is the list of parameters to update as an array of strings (`paths[]`).
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -194,9 +194,9 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
     To enable or disable using FQDNs instead of IP addresses:
 
-    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-    1. Select the cluster you need.
+    1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+    1. Select your cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enable or disable **{{ ui-key.yacloud.redis.field_announce-hostnames }}** as needed.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -209,13 +209,13 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
     To enable or disable using FQDNs instead of IP addresses:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-rd }} cluster update --help
         ```
 
-    1. Run this command, specifying the setting value as needed:
+    1. Specify proper values in the cluster update command:
 
         ```bash
         {{ yc-mdb-rd }} cluster update <cluster_name_or_ID> \
@@ -247,7 +247,7 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
         Where `announce_hostnames` is the setting that defines whether to use FQDNs instead of IP addresses: `true` or `false`.
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -261,7 +261,7 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -289,13 +289,13 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
         * `announceHostnames`: [Using FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting), `true` or `false`.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -325,13 +325,13 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
         Where:
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
 
             Here, we provide only one setting.
 
         * `announce_hostnames`: [Using FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting), `true` or `false`.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -347,9 +347,9 @@ For more information about data persistence and its settings, see [Persistence](
 
     To change the persistence mode:
 
-    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-    1. Select the cluster you need.
+    1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+    1. Select your cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select the persistence mode.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -362,13 +362,13 @@ For more information about data persistence and its settings, see [Persistence](
 
     To change the persistence mode:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-rd }} cluster update --help
         ```
 
-    1.  Run this command, specifying the setting value as needed:
+    1.  Specify proper values in the cluster update command:
 
         ```bash
         {{ yc-mdb-rd }} cluster update <cluster_name_or_ID> \
@@ -400,7 +400,7 @@ For more information about data persistence and its settings, see [Persistence](
 
         {% include [persistence-modes](../../_includes/mdb/mvk/persistence-modes.md) %}
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -414,7 +414,7 @@ For more information about data persistence and its settings, see [Persistence](
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -444,13 +444,13 @@ For more information about data persistence and its settings, see [Persistence](
 
             {% include [persistence-modes](../../_includes/mdb/mvk/persistence-modes.md) %}
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -480,7 +480,7 @@ For more information about data persistence and its settings, see [Persistence](
 
         Where:
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
 
             Here, we provide only one setting.
 
@@ -488,7 +488,7 @@ For more information about data persistence and its settings, see [Persistence](
 
            {% include [persistence-modes](../../_includes/mdb/mvk/persistence-modes.md) %}
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -514,9 +514,9 @@ We recommend changing the host class only when your cluster has no active worklo
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Select the cluster you need.
+  1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Select your cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
      
@@ -536,13 +536,13 @@ We recommend changing the host class only when your cluster has no active worklo
 
   To change the [host class](../concepts/instance-types.md) for a cluster:
 
-  1. See the description of the CLI command for updating a cluster:
+  1. View the description of the CLI command for updating a cluster:
 
      ```bash
      {{ yc-mdb-rd }} cluster update --help
      ```
 
-  1. Get the list of available host classes. The `ZONE IDS` column lists the availability zones where you can select the appropriate class:
+  1. Request a list of available host classes. The `ZONE IDS` column lists the availability zones where the relevant class can be selected:
 
      
      ```bash
@@ -594,7 +594,7 @@ We recommend changing the host class only when your cluster has no active worklo
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -608,7 +608,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -640,13 +640,13 @@ We recommend changing the host class only when your cluster has no active worklo
 
         * `configSpec.resources.resourcePresetId`: New [host class](../concepts/instance-types.md). To get the list of supported values, call the [ResourcePreset.List](../api-ref/ResourcePreset/list.md) method.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -686,7 +686,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
         * `config_spec.resources.resource_preset_id`: New [host class](../concepts/instance-types.md). To get the list of supported values, call the [ResourcePreset.List](../api-ref/ResourcePreset/list.md) method.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -704,9 +704,9 @@ The {{ mrd-name }} cluster is unavailable for about five to seven minutes after 
 
   To change the disk type and increase the storage size for a cluster:
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Select the cluster you need.
+  1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Select your cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
 
   
@@ -726,13 +726,13 @@ The {{ mrd-name }} cluster is unavailable for about five to seven minutes after 
 
   To increase the storage size of your {{ VLK }} hosts:
 
-  1. See the description of the CLI command for updating a cluster:
+  1. View the description of the CLI command for updating a cluster:
 
      ```bash
      {{ yc-mdb-rd }} cluster update --help
      ```
 
-  1. Run this command below, specifying the storage size as needed. The new size must be at least as large as the current `disk_size` in the cluster properties.
+  1. Specify the required storage size in the cluster update command: The new size must be at least as large as the current `disk_size` in the cluster properties.
 
      ```bash
      {{ yc-mdb-rd }} cluster update <cluster_name_or_ID> \
@@ -761,7 +761,7 @@ The {{ mrd-name }} cluster is unavailable for about five to seven minutes after 
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -775,7 +775,7 @@ The {{ mrd-name }} cluster is unavailable for about five to seven minutes after 
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -813,13 +813,13 @@ The {{ mrd-name }} cluster is unavailable for about five to seven minutes after 
             * `diskSize`: New storage size, in bytes.
 
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -868,7 +868,7 @@ The {{ mrd-name }} cluster is unavailable for about five to seven minutes after 
             * `disk_size`: New storage size, in bytes.
 
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -884,7 +884,7 @@ For more information about storage and its autoscaling, see [Storage in {{ mrd-n
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
 
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
 
@@ -900,9 +900,9 @@ For more information about storage and its autoscaling, see [Storage in {{ mrd-n
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To set up storage autoscaling:
+  To set up automatic storage expansion:
 
-  1. See the description of the CLI command for updating a cluster:
+  1. View the description of the CLI command for updating a cluster:
 
      ```bash
      {{ yc-mdb-rd }} cluster update --help
@@ -923,7 +923,7 @@ For more information about storage and its autoscaling, see [Storage in {{ mrd-n
 
 - {{ TF }} {#tf}
 
-  To set up storage autoscaling:
+  To set up automatic storage expansion:
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
@@ -943,11 +943,11 @@ For more information about storage and its autoscaling, see [Storage in {{ mrd-n
 
       {% include [autoscale-description](../../_includes/mdb/mvk/terraform/terraform-autoscaling.md) %}
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -955,7 +955,7 @@ For more information about storage and its autoscaling, see [Storage in {{ mrd-n
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -983,17 +983,17 @@ For more information about storage and its autoscaling, see [Storage in {{ mrd-n
 
         Where:
 
-          * `updateMask`: Comma-separated string of settings you want to update.
+          * `updateMask`: Comma-separated list of settings you want to update.
 
         {% include [autoscale-description](../../_includes/mdb/mvk/api/autoscaling-rest.md) %}
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1033,13 +1033,13 @@ For more information about storage and its autoscaling, see [Storage in {{ mrd-n
 
           {% include [autoscale-description](../../_includes/mdb/mvk/api/autoscaling-grpc.md) %}
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
-## Changing {{ VLK }} settings {#change-valkey-config}
+## Updating {{ VLK }} settings {#change-valkey-config}
 
 You can change the DBMS settings for the hosts in your cluster. You can find all the supported settings in [{#T}](../concepts/settings-list.md) and in the [API reference](../api-ref/Cluster/update.md).
 
@@ -1049,9 +1049,9 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
   To change the [DBMS settings](../concepts/settings-list.md) for a cluster:
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Select the cluster you need.
+  1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Select your cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
   1. Configure the available settings according to the [{{ VLK }} documentation](https://valkey.io/documentation).
@@ -1086,7 +1086,7 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
         {% include [requirements-to-password](../../_includes/mdb/mvk/requirements-to-password.md) %}
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1100,7 +1100,7 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1129,19 +1129,19 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
         * `configSpec.redisConfig_<{{ VLK }}_version>`: {{ VLK }} settings. Specify each setting on a new line, separated by commas.
 
-            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest) for the list of {{ VLK }} versions available for this parameter. See [{#T}](../concepts/settings-list.md) for the descriptions and possible values of the settings.
+            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest) for the list of {{ VLK }} versions supporting this option. See [{#T}](../concepts/settings-list.md) for the descriptions and possible values of the settings.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1187,9 +1187,9 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
         * `config_spec.redis_config_<{{ VLK }}_version>`: {{ VLK }} settings. Specify each setting on a new line, separated by commas.
 
-            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest) for the list of {{ VLK }} versions available for this parameter. See [{#T}](../concepts/settings-list.md) for the descriptions and possible values of the settings.
+            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest) for the list of {{ VLK }} versions supporting this option. See [{#T}](../concepts/settings-list.md) for the descriptions and possible values of the settings.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1201,9 +1201,9 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Select the cluster you need.
+  1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Select your cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Change additional cluster settings:
 
@@ -1219,7 +1219,7 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
   To change additional cluster settings:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-rd }} cluster update --help
@@ -1280,7 +1280,7 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
             * `hours`: Backup start hour (UTC) in `HH` format, from `0` to `23`.
             * `minutes`: Backup start minute (UTC) in `mm` format, from `0` to `59`.
 
-        * To set up the [maintenance window](../concepts/maintenance.md) that will also apply to disabled clusters, add the `maintenance_window` section to the cluster description:
+        * To set the [maintenance window](../concepts/maintenance.md) that will also apply to stopped clusters, add the `maintenance_window` section to the cluster description:
 
             ```hcl
             resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
@@ -1309,7 +1309,7 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
             }
             ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1323,7 +1323,7 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1359,15 +1359,15 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
         * `configSpec.backupWindowStart`: [Backup](../concepts/backup.md) window settings.
 
             Here, specify the backup start time:
 
-            * `hours`: From `0` to `23` hours.
-            * `minutes`: From `0` to `59` minutes.
-            * `seconds`: From `0` to `59` seconds.
+            * `hours`: Between `0` and `23` hours.
+            * `minutes`: Between `0` and `59` minutes.
+            * `seconds`: Between `0` and `59` seconds.
             * `nanos`: From `0` to `999999999` nanoseconds.
 
         * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. Provide one of these two parameters:
@@ -1382,13 +1382,13 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
             {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1440,12 +1440,12 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
         * `config_spec.backup_window_start`: [Backup](../concepts/backup.md) window settings.
 
-            Here, specify the backup start time:
+            In this parameter, specify the backup start time:
 
-            * `hours`: From `0` to `23` hours.
-            * `minutes`: From `0` to `59` minutes.
-            * `seconds`: From `0` to `59` seconds.
-            * `nanos`: From `0` to `999999999` nanoseconds.
+            * `hours`: Between `0` and `23` hours.
+            * `minutes`: Between `0` and `59` minutes.
+            * `seconds`: Between `0` and `59` seconds.
+            * `nanos`: Between `0` and `999999999` nanoseconds.
 
         * `maintenance_window`: [Maintenance](../concepts/maintenance.md) window settings, including for stopped clusters. Provide one of these two parameters:
 
@@ -1459,7 +1459,7 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
             {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1479,9 +1479,9 @@ You cannot disable sharding in a cluster where it is already enabled.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-    1. Select the cluster you need.
+    1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+    1. Select your cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enable **{{ ui-key.yacloud.mdb.forms.field_cluster-mode }}**.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -1529,11 +1529,11 @@ You cannot disable sharding in a cluster where it is already enabled.
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1547,7 +1547,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1560,7 +1560,7 @@ You cannot disable sharding in a cluster where it is already enabled.
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>:enable_sharding'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         {% include [enable-sharding-shard-note](../../_includes/mdb/mvk/enable-sharding-shard-note.md) %}
 
@@ -1568,7 +1568,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1590,7 +1590,7 @@ You cannot disable sharding in a cluster where it is already enabled.
             yandex.cloud.mdb.redis.v1.ClusterService.EnableSharding
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         {% include [enable-sharding-shard-note](../../_includes/mdb/mvk/enable-sharding-shard-note.md) %}
 
@@ -1604,7 +1604,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
 - Management console {#console}
 
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the cluster you want to move.
     1. Select **{{ ui-key.yacloud.mdb.clusters.button_action-move }}**.
     1. Select the destination folder for your cluster.
@@ -1648,7 +1648,7 @@ You cannot disable sharding in a cluster where it is already enabled.
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1662,7 +1662,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1687,7 +1687,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1725,9 +1725,9 @@ You cannot disable sharding in a cluster where it is already enabled.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-    1. Select the cluster you need.
+    1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+    1. Select your cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select the security groups for cluster network traffic.
 
@@ -1739,7 +1739,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
     To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-rd }} cluster update --help
@@ -1767,7 +1767,7 @@ You cannot disable sharding in a cluster where it is already enabled.
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1781,7 +1781,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1814,13 +1814,13 @@ You cannot disable sharding in a cluster where it is already enabled.
 
         * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1861,7 +1861,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
         * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

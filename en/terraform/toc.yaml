@@ -41,15 +41,6 @@ items:
       - name: Resources
         expanded: true
         items:
-          - name: ''
-            items:
-              - name: Data Sources
-                items:
-                  - name: datatransfer_endpoint
-                    href: data-sources/datatransfer_endpoint.md
-                    title: ''
-                title: ''
-            title: ''
           - name: Apache Hive Metastore
             items:
               - name: Data Sources
@@ -561,6 +552,15 @@ items:
             title: ''
           - name: Data Transfer
             items:
+              - name: Data Sources
+                items:
+                  - name: datatransfer_endpoint
+                    href: data-sources/datatransfer_endpoint.md
+                    title: ''
+                  - name: datatransfer_transfer
+                    href: data-sources/datatransfer_transfer.md
+                    title: ''
+                title: ''
               - name: Resources
                 items:
                   - name: datatransfer_endpoint

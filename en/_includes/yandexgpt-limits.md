@@ -50,5 +50,14 @@ Number of classes in prompt-based classifiers | 20
 Number of classes in fine-tuned classifiers | 100
 **[Image generation](../ai-studio/concepts/generation/index.md)** |
 Maximum [prompt](../ai-studio/concepts/index.md#prompt) length | 500 characters
+**[AI agents](../ai-studio/concepts/agents/index.md)**|
+Maximum number of agents | 1,000
+Maximum number of files to upload | 10,000
+Maximum file size | 128 MB
+Number of files per upload | 100
+Maximum number of files per search index | 10,000
+Maximum number of search indexes | 1,000
+Maximum number of indexing operations to run | 10
+Maximum length of user chunks | 8,000 characters
 **[MCP servers](../ai-studio/concepts/mcp-hub/index.md#servers)**
 Number of active cloud connections per [availability zone](../overview/concepts/geo-scope.md) | 500

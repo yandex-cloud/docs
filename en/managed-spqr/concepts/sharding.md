@@ -1,6 +1,11 @@
 ---
 title: Sharding in {{ mspqr-name }}
 description: '{{ mspqr-name }} supports horizontal scaling of {{ PG }} data through sharding.'
+keywords:
+  - keyword: SPQR
+  - keyword: Sharding in PostrgeSQL
+  - keyword: Sharded PostrgeSQL
+  - keyword: PostrgeSQL shard
 ---
 
 # Sharding in {{ mspqr-name }}
@@ -30,7 +35,7 @@ With sharding, you can:
 
 * Overcome technical limitations.
 
-    If you need to work with large datasets, your data storage infrastructure may reach the maximum capacity of commercially available hardware, e.g., the disk subsystem will indicate low IOPS. If the application is running at hardware performance limits, it may be a good idea to distribute data across shards. In this case, the read operations will be performed concurrently.
+    If you need to work with large datasets, your data storage infrastructure may reach the maximum capacity of commercially available hardware, e.g., the disk subsystem will indicate low IOPS. If your application is running close to the hardware limits, sharding may help. In this case, data reads will be concurrent.
 
 * Improve fault tolerance.
 
@@ -40,7 +45,7 @@ With sharding, you can:
 
     Query performance may degrade due to resource contention. This usually happens as the number of read operations or CPU time per query increases. Shards handle queries to the same table in parallel, thus avoiding resource (CPU and disk subsystem) contention and reducing query processing time.
 
-## Sharding management in {{ mspqr-name }} {#shard-management}
+## Sharding specifics in {{ mspqr-name }} {#shard-management}
 
 In {{ mspqr-name }}, sharding is managed by the hosts with the `ROUTER` ([routing user queries](https://pg-sharding.tech/sharding/cluster_components/router)) and `COORDINATOR` ([storing shard configuration](https://pg-sharding.tech/sharding/cluster_components/coordinator)) roles.
 

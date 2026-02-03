@@ -1,6 +1,6 @@
 ---
 title: '{{ VLK }} modules'
-description: 'In {{ mrd-name }}, you can use modules ({{ VLK }} kernel extensions). Modules provide functionality to address modern-day needs through the use of high-load services and AI platforms: vector search, efficiently stored JSON data structures, and scalable probability filters. Read this article to learn more about modules and their features.'
+description: 'In {{ mrd-name }}, you can use modules ({{ VLK }} kernel extensions). Modules provide features to solve modern tasks using high-loaded services and AI platforms: vector search, effective storage of JSON data structures, and scalable probabilistic filters. Read this article to learn more about modules and their features.'
 ---
 
 # {{ VLK }} modules

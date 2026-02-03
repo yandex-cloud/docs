@@ -6,7 +6,7 @@
   curl \
     --request GET \
     --header "Authorization: Bearer <значение_IAM-токена>" \
-    https://llm.api.cloud.yandex.net:443/operations/<идентификатор_запроса> | \
+    https://operation.api.cloud.yandex.net:443/operations/<идентификатор_запроса> | \
     jq -r '.response | .image' | base64 -d > image.jpeg
   ```
 

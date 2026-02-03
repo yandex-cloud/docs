@@ -1,4 +1,4 @@
-To set up the [maintenance window](../../../../managed-valkey/concepts/maintenance.md) that will also apply to disabled clusters, add the `maintenance_window` section to the cluster description:
+To set up the [maintenance window](../../../../managed-valkey/concepts/maintenance.md) that will also apply to stopped clusters, add the `maintenance_window` section to the cluster description:
 
 ```hcl
 resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {

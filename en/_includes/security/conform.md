@@ -9,6 +9,8 @@ When a client, acting as an operator, places personal data on {{ yandex-cloud }}
 
 For more information on {{ yandex-cloud }} compliance with Federal Law No. 152-FZ on Personal Data, see [Compliance with FZ-152](/security/standards/152-fz).
 
+For [{{ baremetal-full-name }}](../../baremetal/), a separate [certificate of compliance](https://{{ s3-storage-host }}/yc-compliance/certificates-2025/FZ-152/baremetal/conformance_ru_certificate-10-12-2025.pdf) with the requirements of Federal Law 152-FZ is in effect.
+
 
 
 ## GDPR (General Data Protection Regulation) {#gdpr}

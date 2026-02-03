@@ -117,7 +117,7 @@ Install [Ghost CMS](https://yandex.cloud/ru/marketplace/products/yc/ghost-cms) v
      {% note info %}
 
      **Required parameters**:
-     * **{{ ui-key.yacloud.cloud-apps.label_subnetwork }}** (Host parameters)
+     * **Subnet** (Host parameters)
      * **DNS zone ID** (Host parameters)
 
      Other parameters are optional or set to defaults.
@@ -131,7 +131,7 @@ Install [Ghost CMS](https://yandex.cloud/ru/marketplace/products/yc/ghost-cms) v
 
      **Host parameters**:
 
-     * **{{ ui-key.yacloud.cloud-apps.label_subnetwork }}**: Select a VPC network to deploy a VM in. **This is a required parameter.**
+     * **Subnet**: Select a VPC network to deploy a VM in. **This is a required parameter.**
      * **DNS zone ID**: Select a DNS zone from the list. **This is a required parameter.** Subdomains will be created in the selected DNS zone.
 
      **Domain parameters**:

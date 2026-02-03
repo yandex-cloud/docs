@@ -12,17 +12,17 @@ A [sharded cluster](../concepts/sharding.md) contains one or more master hosts: 
 
     To switch the master in a non-sharded cluster:
 
-    1. In the [management console]({{ link-console-main }}), go to the folder containing the non-sharded cluster.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-    1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder with the non-sharded cluster.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
     1. Next to the host with the `MASTER` role, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_label-title }}**.
     1. In the window that opens, select **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_label_confirmation }}** and click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_button }}**.
 
     To switch the master in a sharded cluster:
 
-    1. In the [management console]({{ link-console-main }}), go to the folder containing the sharded cluster.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-    1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder with the sharded cluster.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
     1. Next to the host with the `MASTER` role, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_label-title }}**.
     1. In the window that opens, click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_button }}**.
 
@@ -51,7 +51,7 @@ A [sharded cluster](../concepts/sharding.md) contains one or more master hosts: 
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -87,7 +87,7 @@ A [sharded cluster](../concepts/sharding.md) contains one or more master hosts: 
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -130,7 +130,7 @@ A [sharded cluster](../concepts/sharding.md) contains one or more master hosts: 
             yandex.cloud.mdb.redis.v1.ClusterService.StartFailover
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the name of the current master, with the [list of hosts in the cluster](hosts.md#list).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the name of the current master with the [list of hosts in the cluster](hosts.md#list).
 
     1. Check the [server response](../api-ref/grpc/Cluster/startFailover.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

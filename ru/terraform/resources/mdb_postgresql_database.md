@@ -71,7 +71,7 @@ resource "yandex_vpc_subnet" "foo" {
 ### Required
 
 - `cluster_id` (String) The ID of the PostgreSQL cluster.
-- `name` (String) The resource name.
+- `name` (String) The name of the PostgreSQL database.
 - `owner` (String) Name of the user assigned as the owner of the database. Forbidden to change in an existing database.
 
 ### Optional

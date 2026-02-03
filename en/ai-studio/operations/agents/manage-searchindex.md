@@ -179,7 +179,7 @@ Create a search index from the pre-uploaded files:
 
       ```text
       Creating a search index...
-      Vector store created: fvt9ef7q28n5b2c9quh8
+      Vector store created: fvt9ef7q28n5********
       Vector store status: in_progress
       Vector store status: in_progress
       Vector store status: in_progress

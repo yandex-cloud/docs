@@ -2,13 +2,13 @@
 
 * [What is the role of {{ mrd-short-name }} in database management and maintenance?](#services)
 
-* [When should I use {{ mrd-short-name }}, and when should I use VMs running databases?](#mdb-advantage)
+* [When should I use {{ mrd-short-name }}, and when should I opt for database VMs?](#mdb-advantage)
 
 * [What is a database host and database cluster?](#what-is-cluster)
 
 * [How do I get started with {{ mrd-short-name }}?](#quickstart)
 
-* [How many database hosts can be in a cluster?](#how-many-hosts)
+* [How many database hosts can there be in a cluster?](#how-many-hosts)
 
 * [How can I access a running database host?](#db-access)
 
@@ -30,7 +30,7 @@
 
 * [Are database host backups enabled by default?](#default-backup)
 
-* [When does a backup run? Is a database cluster available during backups?](#backup-window)
+* [What is the backup schedule? Is a database cluster available during backups?](#backup-window)
 
 * [What metrics and processes can be monitored?](#monitoring)
 

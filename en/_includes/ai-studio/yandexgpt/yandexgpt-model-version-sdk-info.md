@@ -1,1 +1,1 @@
-For more information about accessing a specific model version, see [{#T}](../../../ai-studio/concepts/generation/models.md#addressing-models).
+For more information about accessing a specific model version, see [{#T}](../../../ai-studio/sdk-ref/sync/chat/completions#yandex_cloud_ml_sdk._chat.completions.function.ChatCompletions.md).

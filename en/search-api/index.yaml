@@ -34,12 +34,12 @@ links:
   - title: Restrictions and requirements
     description: Restrictions and requirements
     href: concepts/limits
-  - title: Running queries via API
-    description: Running search queries via API
-    href: operations/web-search
-  - title: XML response format
-    description: XML format of response to a text search query
-    href: concepts/response
+  - title: About {{ search-api-name }}
+    description: Service interface and feature overview
+    href: concepts/index
+  - title: '{{ wordstat-name }}'
+    description: API for viewing search query statistics
+    href: concepts/wordstat
   - title: Pricing policy
     description: Service pricing and cost calculation
     href: pricing
@@ -59,3 +59,4 @@ meta:
     - API v2 interface
     - API
     - generative response
+    - '{{ wordstat-name }} API'

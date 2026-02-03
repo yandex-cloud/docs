@@ -75,6 +75,8 @@ items:
             href: operations/authentication/manage-authorized-keys.md
           - name: Создание временного ключа доступа с помощью {{ sts-name }}
             href: operations/sa/create-sts-key.md
+          - name: Управление эфемерными ключами доступа
+            href: operations/authentication/manage-ephemeral-keys.md
       - name: Доступ сервисов к ресурсам пользователя
         stage: preview
         items:
@@ -153,6 +155,8 @@ items:
             href: concepts/authorization/access-key.md
           - name: '{{ sts-name }}'
             href: concepts/authorization/sts.md
+          - name: Эфемерные ключи
+            href: concepts/authorization/ephemeral-keys.md
           - name: Авторизованный ключ
             href: concepts/authorization/key.md
           - name: OAuth-токен

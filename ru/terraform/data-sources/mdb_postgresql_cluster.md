@@ -37,11 +37,7 @@ output "fqdn" {
 ### Optional
 
 - `cluster_id` (String) The ID of the PostgreSQL cluster.
-- `deletion_protection` (Boolean) The `true` value means that resource is protected from accidental deletion.
-- `description` (String) The resource description.
-- `disk_encryption_key_id` (String) ID of the KMS key for cluster disk encryption.
-- `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `name` (String) The name of the PostgreSQL cluster.
+- `name` (String) The name of PostgreSQL cluster.
 
 ### Read-Only
 
@@ -54,7 +50,11 @@ output "fqdn" {
     Deprecated! To manage databases, please switch to using a separate resource type `yandex_mdb_postgresql_database`. (see [below for nested schema](#nestedatt--database))
 
     {% endnote %}
+- `deletion_protection` (Boolean) The `true` value means that resource is protected from accidental deletion.
+- `description` (String) The resource description.
+- `disk_encryption_key_id` (String) ID of the KMS key used for cluster disk encryption. Encryption can`t be disabled for an existing cluster. If the source cluster is encrypted and you leave this field empty when restoring, the restored cluster will be created without encryption.
 - `environment` (String) Deployment environment of the PostgreSQL cluster.
+- `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `health` (String) Aggregated health of the cluster.
 - `host` (List of Object) A host of the PostgreSQL cluster. (see [below for nested schema](#nestedatt--host))
 - `host_group_ids` (Set of String) Host Group IDs.
@@ -219,6 +219,8 @@ Read-Only:
 - `priority` (Number) Host priority in HA group. It works only when `name` is set.
 
 - `replication_source` (String) Host replication source (fqdn), when replication_source is empty then host is in HA group.
+
+- `replication_source_name` (String) Host replication source name points to host's `name` from which this host should replicate. When not set then host in HA group. It works only when `name` is set.
 
 - `role` (String) Host's role (replica|primary), computed by server.
 

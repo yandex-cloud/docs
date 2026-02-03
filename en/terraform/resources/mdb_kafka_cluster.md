@@ -588,6 +588,7 @@ Optional:
 - `flush_messages` (String) This setting allows specifying an interval at which we will force an fsync of data written to the log.
 - `flush_ms` (String) This setting allows specifying a time interval at which we will force an fsync of data written to the log.
 - `max_message_bytes` (String) The largest record batch size allowed by Kafka (after compression if compression is enabled).
+- `message_timestamp_type` (String) Define whether the timestamp in the message is message create time or log append time. Possible values: LOG_APPEND_TIME or CREATE_TIME.
 - `min_compaction_lag_ms` (String) The minimum time a message will remain uncompacted in the log. Only applicable for logs that are being compacted.
 - `min_insync_replicas` (String) When a producer sets acks to "all" (or "-1"), this configuration specifies the minimum number of replicas that must acknowledge a write for the write to be considered successful.
 - `preallocate` (Boolean, Deprecated) True if we should preallocate the file on disk when creating a new log segment.

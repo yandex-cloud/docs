@@ -49,6 +49,10 @@ description: Следуя данной инструкции, вы сможете
 
      Где `--id` — идентификатор политики MFA, которую нужно удалить.
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Delete](../../../organization/api-ref/MfaEnforcement/delete.md) для ресурса [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) или вызовом gRPC API [MfaEnforcementService/Delete](../../../organization/api-ref/grpc/MfaEnforcement/delete.md).
+
 {% endlist %}
 
 #### См. также {#see-also}

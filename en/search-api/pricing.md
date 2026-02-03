@@ -20,6 +20,8 @@ editable: false
 
 The cost of using {{ search-api-name }} is calculated based on the number of search requests initiated within a calendar month ([reporting period](../billing/concepts/reporting-period.md)).
 
+{{ wordstat-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage and free of charge.
+
 ## Prices for the Russia region {#prices}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}

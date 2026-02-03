@@ -24,7 +24,7 @@ description: Следуя данной инструкции, вы сможете
   grpcurl \
     -H "Authorization: Bearer <IAM-токен>" \
     -d '{"task_type": "<тип_датасета>"}' \
-    llm.api.cloud.yandex.net:443 yandex.cloud.ai.dataset.v1.DatasetService.ListUploadSchemas
+    ai.api.cloud.yandex.net:443 yandex.cloud.ai.dataset.v1.DatasetService.ListUploadSchemas
   ```
   
   Где:

@@ -36,7 +36,7 @@ Rule settings depend on the connection method you select:
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mgp }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: If your cluster and VM are in the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). Otherwise, specify the VM security group.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: If your cluster and VM share the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). Otherwise, specify the VM security group.
 
          1. For outgoing traffic:
 
@@ -81,7 +81,7 @@ To use an SSL connection, get a certificate:
 
 To connect to a master host, you need its [FQDN](../concepts/network.md#hostname). You can use the FQDN of a particular host in the cluster or a [special FQDN](#fqdn-master) always pointing to the primary master host.
 
-Here is a host FQDN example:
+Host FQDN example:
 
 ```text
 {{ host-name }}.{{ dns-zone }}
@@ -89,7 +89,7 @@ Here is a host FQDN example:
 
 ### Getting a host FQDN {#get-fqdn}
 
-There are several ways to get a {{ GP }} host FQDN:
+There are several ways to get a {{ GP }} host's FQDN:
 
 * Look up the FQDN in the management console:
 
@@ -148,7 +148,7 @@ You can only use graphical IDEs to connect to a public cluster using SSL certifi
             1. Click **Download** to download the connection driver.
         1. On the **SSH/SSL** tab:
             1. Enable **Use SSL**.
-            1. In the **CA file** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
+            1. In the **CA file** field, specify the path to the [SSL certificate for your connection](#get-ssl-cert).
     1. Click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
     1. Click **OK** to save the data source.
 
@@ -170,6 +170,68 @@ You can only use graphical IDEs to connect to a public cluster using SSL certifi
     1. Click **Ready** to save the database connection settings.
 
 {% endlist %}
+
+
+## Connecting with IAM authentication {#iam}
+
+You can connect to a {{ GP }} database from the [{{ yandex-cloud }} CLI](../../cli/quickstart.md#install) using IAM authentication. To do this, associate a [Yandex account](../../iam/concepts/users/accounts.md#passport) or [federated account](../../iam/concepts/users/accounts.md#saml-federation) with the {{ GP }} user. You can only use IAM authentication to connect to a public cluster, in which case you do not need an SSL certificate.
+
+Before connecting, install the {{ PG }} client:
+
+```bash
+sudo apt update && sudo apt install --yes postgresql-client
+```
+
+Set up your {{ mgp-name }} cluster for connection:
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+
+  1. Click the name of your cluster.
+
+  1. [Enable public access to the cluster](./update.md#change-public-access).
+ 
+  1. Assign a role to the user account connecting to the database:
+     1. Select the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+     1. Enter the user account’s email.
+     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role}}** and select the `managed-greenplum.clusters.connector` role.
+     1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+
+  1. Create a {{ GP }} user and grant them access to the database:
+     1. Connect to the {{ mgp-name }} cluster using any method of your choice.
+     1. Create a {{ GP }} user, specifying their account’s email as their username.
+
+        ```sql
+        CREATE ROLE "<account_email>"
+            LOGIN
+            ENCRYPTED PASSWORD '<password>';
+        ```
+     1. If required, [configure privileges](./roles-and-users.md#privileges) and attributes of the {{ GP }} user you created.
+
+  1. Add the authentication rule for the user you created:
+     1. Select the **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
+     1. Click **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_edit-rules }}**.
+     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_add-rule }}** and specify its parameters:
+
+        * **{{ ui-key.yacloud.greenplum.cluster.user-auth.title_column-type }}**: Interconnect type.
+        * **{{ ui-key.yacloud.greenplum.cluster.user-auth.title_column-databases }}**: Database name.
+        * **{{ ui-key.yacloud.greenplum.cluster.user-auth.title_column-user }}**: User account's email.
+        * **{{ ui-key.yacloud.greenplum.cluster.user-auth.title_column-address }}**: IP range to connect to the database from.
+        * **{{ ui-key.yacloud.greenplum.cluster.user-auth.title_column-method }}**: `iam`.
+
+     1. Click **{{ ui-key.yacloud.common.save }}**.
+
+{% endlist %}
+
+To connect to the {{ GP }} database, run this command:
+
+```bash
+{{ yc-mdb-gp }} connect <cluster_name_or_ID> --db <DB_name>
+```
+
 
 ## Connecting from {{ pgadmin }} {#connection-pgadmin}
 

@@ -1,13 +1,18 @@
 ---
 title: '{{ mmy-full-name }} release notes'
-description: This section contains {{ mmy-name }} release notes.
+description: This section contains the {{ mmy-name }} release notes.
 ---
 
 # {{ mmy-full-name }} release notes
 
+## December 2025 {#dec-2025}
+
+* Added [detailed metrics](operations/monitoring.md#hosts) for disk usage on cluster hosts.
+* Added execution details for [operations on the cluster](operations/cluster-list.md#list-operations).
+
 ## November 2025 {#nov-2025}
 
-Added the `managed-mysql.restorer` role, which allows restoring clusters from backups. To learn more, see [Access management](security/index.md#managed-mysql-restorer).
+Added the `managed-mysql.restorer` role for restoring clusters from backups. To learn more, see [Access management](security/index.md#managed-mysql-restorer).
 
 ## October 2025 {#oct-2025}
 

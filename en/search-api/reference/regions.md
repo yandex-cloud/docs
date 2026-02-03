@@ -1,6 +1,6 @@
 # Search regions
 
-The region to be given priority when generating search results is determined by the `lr` field value in a search query. You can specify countries, subjects of states, and cities as regions.
+The region to get priority when generating search results is determined by the search query's `lr` field value. You can specify countries, subjects of states, and cities as regions.
 
 For a list of frequently used country IDs, see the table below.
 
@@ -47,3 +47,5 @@ For a list of frequently used Russian region IDs, see the table below.
 || 213 | Moscow | 16 | Yaroslavl ||
 || 23 | Murmansk | | ||
 |#
+
+To [get](../operations/wordstat-getregiontree.md) a complete list of all regions, use the `Wordstat.getRegionsTree` method.

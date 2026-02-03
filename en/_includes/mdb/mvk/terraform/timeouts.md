@@ -10,7 +10,7 @@ Operations exceeding the timeout are aborted.
 
 {% cut "How do I change these limits?" %}
 
-Add the `timeouts` section to the cluster description, such as the following:
+Add the `timeouts` section to your cluster description, such as the following:
 
 ```hcl
 resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {

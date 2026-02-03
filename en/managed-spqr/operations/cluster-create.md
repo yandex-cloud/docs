@@ -2,9 +2,9 @@
 title: Creating a {{ SPQR }} cluster
 description: Follow this guide to create a {{ SPQR }} cluster with standard or advanced sharding.
 keywords:
-  - creating an {{ SPQR }} cluster
-  - '{{ SPQR }} cluster'
-  - '{{ SPQR }}'
+  - keyword: create {{ SPQR }} cluster
+  - keyword: '{{ SPQR }} cluster'
+  - keyword: '{{ SPQR }}'
 ---
 
 # Creating a {{ SPQR }} cluster
@@ -86,7 +86,7 @@ keywords:
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -285,10 +285,10 @@ keywords:
 
            Here, specify the backup start time. Allowed values:
 
-           * `hours`: From `0` to `23` hours.
-           * `minutes`: From `0` to `59` minutes.
-           * `seconds`: From `0` to `59` seconds.
-           * `nanos`: From `0` to `999999999` nanoseconds.
+           * `hours`: Between `0` and `23` hours.
+           * `minutes`: Between `0` and `59` minutes.
+           * `seconds`: Between `0` and `59` seconds.
+           * `nanos`: Between `0` and `999999999` nanoseconds.
 
        * `backupRetainPeriodDays`: Number of days to retain the cluster backup. Possible values: between `7` and `60` days.
 
@@ -347,7 +347,7 @@ keywords:
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -521,7 +521,7 @@ keywords:
            * `config`: Router configuration:
 
              * `show_notice_messages`: Show information notifications, `true` or `false`.
-             * `time_quantiles`: Array of time quantiles for displaying statistics. The default values are `0.5`, `0.75`, `0.9`, `0.95`, `0.99`, `0.999`, `0.9999`.
+             * `time_quantiles`: Array of time quantiles for displaying statistics. The following values are used by default: `0.5`, `0.75`, `0.9`, `0.95`, `0.99`, `0.999`, `0.9999`.
              * `default_route_behavior`: Router's multishard request execution policy. Possible values: `BLOCK` or `ALLOW`.
              * `prefer_same_availability_zone`: Enable priority routing of read requests to the router's availability zone, `true` or `false`.
 
@@ -554,10 +554,10 @@ keywords:
 
          Here, specify the backup start time. Allowed values:
 
-         * `hours`: From `0` to `23` hours.
-         * `minutes`: From `0` to `59` minutes.
-         * `seconds`: From `0` to `59` seconds.
-         * `nanos`: From `0` to `999999999` nanoseconds.
+         * `hours`: Between `0` and `23` hours.
+         * `minutes`: Between `0` and `59` minutes.
+         * `seconds`: Between `0` and `59` seconds.
+         * `nanos`: Between `0` and `999999999` nanoseconds.
 
        * `backup_retain_period_days`: Number of days to retain the cluster backup. Possible values: between `7` and `60` days.
 
