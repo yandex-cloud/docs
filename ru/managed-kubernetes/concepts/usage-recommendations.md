@@ -107,6 +107,50 @@ containers:
 Чтобы автоматически управлять ресурсами подов, настройте политики {{ k8s }}:
 * [Quality of Service for Pods](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/) для создания подов различных классов доступности.
 * [Limit Ranges](https://kubernetes.io/docs/concepts/policy/limit-range/) для установки лимитов на уровне [пространства имен](../concepts/index.md#namespace).
+* [Resource Quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/) для ограничения общего потребления ресурсов в пространстве имен.
+
+### Resource Quota {#resource-quota}
+
+Используйте политику `ResourceQuota` для ограничения ресурсов, которые могут быть использованы в рамках одного пространства имен:
+
+```yaml
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: namespace-quota
+  namespace: my-namespace
+spec:
+  hard:
+    # Вычислительные ресурсы
+    requests.cpu: "10"
+    requests.memory: 20Gi
+    limits.cpu: "20"
+    limits.memory: 40Gi
+    # Количество объектов
+    pods: "50"
+    services: "10"
+    secrets: "20"
+    configmaps: "20"
+    persistentvolumeclaims: "10"
+    # Ресурсы хранилища
+    requests.storage: 100Gi
+```
+
+С помощью `ResourceQuota` можно ограничить:
+
+| Тип ресурса | Параметры | Описание |
+| --- | --- | --- |
+| Вычислительные | `requests.cpu`, `requests.memory`, `limits.cpu`, `limits.memory` | Суммарные запросы и лимиты vCPU и RAM для всех подов в пространстве имен |
+| Хранилище | `requests.storage`, `persistentvolumeclaims` | Общий объем запрашиваемого хранилища и количество PVC |
+| Количество объектов | `pods`, `services`, `secrets`, `configmaps`, `replicationcontrollers`, `deployments.apps`, `statefulsets.apps`, `jobs.batch`, `cronjobs.batch` | Максимальное количество объектов каждого типа |
+| Расширенные ресурсы | `requests.nvidia.com/gpu`, `limits.nvidia.com/gpu` | Ресурсы GPU и другие `extended resources` |
+
+{% note tip %}
+
+Комбинируйте `ResourceQuota` с `LimitRange`: `ResourceQuota` ограничивает суммарное потребление ресурсов в пространстве имен, а `LimitRange` задает значения по умолчанию и границы для отдельных контейнеров.
+
+{% endnote %}
 
 ## Мониторинг и эскалация {#monitoring-escalation}
 
