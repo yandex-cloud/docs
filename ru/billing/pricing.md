@@ -91,6 +91,7 @@ editable: false
 * [{{ serverless-containers-full-name }}](../serverless-containers/pricing.md)
 * [{{ captcha-full-name }}](../smartcaptcha/pricing.md)
 * [{{ sws-full-name }}](../smartwebsecurity/pricing.md)
+* [{{ src-full-name }}]({{ link-src-docs }}/sourcecraft/pricing)
 * [{{ speechkit-full-name }}](../speechkit/pricing.md)
     * [Синтез речи](../speechkit/pricing.md#prices-tts)
     * [{{ brand-voice-name }}](../speechkit/pricing.md#brand-voice)

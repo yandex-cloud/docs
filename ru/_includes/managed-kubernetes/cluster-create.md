@@ -87,7 +87,6 @@
      * **{{ ui-key.yacloud.k8s.clusters.create.field_network-policy }}**, чтобы задействовать Calico.
      * **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**, чтобы задействовать Cilium.
 
-
    * Укажите **{{ ui-key.yacloud.k8s.clusters.create.field_cluster-cidr }}** — диапазон IP-адресов, из которого будут выделяться IP-адреса для [подов](../../managed-kubernetes/concepts/index.md#pod).
    * Укажите **{{ ui-key.yacloud.k8s.clusters.create.field_service-cidr }}** — диапазон IP-адресов, из которого будут выделяться IP-адреса для [сервисов](../../managed-kubernetes/concepts/index.md#service).
    * Задайте маску подсети узлов {{ managed-k8s-name }} и максимальное количество подов в узле.

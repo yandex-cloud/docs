@@ -53,3 +53,4 @@
 * [{#T}](./dhcp.md)
 * [{#T}](./network-restrictions.md)
 * [Bare metal: полный контроль и высокая производительность](https://yandex.cloud/ru/blog/bare-metal-guide)
+* [{{ baremetal-full-name }} получил сертификат высшего уровня защиты персональных данных](https://yandex.cloud/ru/blog/yandex-baremetal-certificate)

@@ -1,4 +1,4 @@
-Приложения в кластере {{ managed-k8s-full-name }} можно защитить от DDoS-атак и ботов с помощью сервиса [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md). Для этого опубликуйте приложения через ресурс Ingress, которому назначен [профиль безопасности](../../smartwebsecurity/concepts/profiles.md) {{ sws-name }} и который использует Ingress-контроллер {{ alb-name }}.
+Приложения в кластере {{ managed-k8s-full-name }} можно защитить от DDoS-атак и ботов с помощью сервиса [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md). Для этого опубликуйте приложения через ресурс Ingress, которому назначен [профиль безопасности](../../smartwebsecurity/concepts/profiles.md) {{ sws-name }} и который использует [контроллер Gwin](../../application-load-balancer/tools/gwin/index.md) или [Ingress-контроллер {{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
 {% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
 
@@ -6,7 +6,7 @@
 
 Чтобы через Ingress создать L7-балансировщик с подключенным профилем безопасности:
 
-1. [Установите Ingress-контроллер {{ alb-name }}](#deploy-controller).
+1. [Установите инструмент для управления балансировщиком](#deploy-controller).
 1. [Создайте тестовое приложение](#deploy-app).
 1. [Создайте профиль безопасности](#create-security-profile).
 1. [Создайте ресурс Ingress](#deploy-ingress).
@@ -40,10 +40,12 @@
 
             Назначьте аккаунту следующие [роли](../../application-load-balancer/operations/k8s-ingress-controller-install.md#before-you-begin) на каталог, в котором будет создан кластер:
 
-            * [alb.editor](../../application-load-balancer/security/index.md#alb-editor),
-            * [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin),
-            * [compute.viewer](../../compute/security/index.md#compute-viewer),
-            * [smart-web-security.editor](../../smartwebsecurity/security/index.md#smart-web-security-editor).
+            * [alb.editor](../../application-load-balancer/security/index.md#alb-editor)
+            * [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin)
+            * [compute.viewer](../../compute/security/index.md#compute-viewer)
+            * [smart-web-security.editor](../../smartwebsecurity/security/index.md#smart-web-security-editor)
+            * [k8s.viewer](../../managed-kubernetes/security/index.md#k8s-viewer)
+            * [certificate-manager.editor](../../certificate-manager/security/index.md#certificate-manager-editor)
 
                 {% note warning %}
 
@@ -54,8 +56,8 @@
         1. Создайте сервисный аккаунт, который будет использоваться кластером и группой узлов.
 
             Назначьте аккаунту следующие [роли](../../managed-kubernetes/security/index.md#sa-annotation) на каталог, в котором будет создан кластер:
-            * [{{ roles.k8s.clusters.agent }}](../../managed-kubernetes/security/index.md#k8s-clusters-agent),
-            * [{{ roles-vpc-public-admin }}](../../vpc/security/index.md#vpc-public-admin).
+            * [{{ roles.k8s.clusters.agent }}](../../managed-kubernetes/security/index.md#k8s-clusters-agent)
+            * [{{ roles-vpc-public-admin }}](../../vpc/security/index.md#vpc-public-admin)
 
         1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
@@ -65,7 +67,7 @@
 
         1. [Создайте кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md). При создании кластера выберите:
 
-            * Cозданный ранее сервисный аккаунт. Используйте его для ресурсов и для узлов.
+            * Созданный ранее сервисный аккаунт. Используйте его для ресурсов и для узлов.
             * Созданные ранее группы безопасности, которые должны быть назначены кластеру.
             * Опцию, которая назначает кластеру публичный адрес. Такой адрес нужен, чтобы можно было использовать {{ k8s }} API из интернета.
 
@@ -143,40 +145,75 @@
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-## Установите Ingress-контроллер {{ alb-name }} {#deploy-controller}
+## Установите инструмент для управления балансировщиком {#deploy-controller}
 
-1. [Установите Ingress-контроллер {{ alb-name }}](../../application-load-balancer/operations/k8s-ingress-controller-install.md) в пространство имен `yc-alb`.
+{% list tabs group=alb_controller %}
 
-    При установке укажите сервисный аккаунт, который [был создан ранее для использования с контроллером](#before-you-begin).
+- Gwin {#gwin}
 
-    Использование отдельного пространства имен `yc-alb` позволит отделить ресурсы контроллера от ресурсов [тестового приложения](#deploy-app) и [Ingress](#deploy-ingress).
+  1. [Установите контроллер Gwin](../../application-load-balancer/tools/gwin/quickstart.md) в пространство имен `gwin-space`.
 
-1. Убедитесь, что контроллер был успешно установлен:
+      При установке укажите сервисный аккаунт, который [был создан ранее для использования с контроллером](#before-you-begin).
 
-    ```bash
-    kubectl logs deployment.apps/yc-alb-ingress-controller -n yc-alb
-    ```
+      Использование отдельного пространства имен `gwin-space` позволит отделить ресурсы контроллера от ресурсов [тестового приложения](#deploy-app) и [Ingress](#deploy-ingress).
 
-    В логах должны содержаться сообщения об успешном старте Ingress-контроллера.
+  1. Убедитесь, что контроллер был успешно установлен:
 
-    {% cut "Пример части результата выполнения команды" %}
+      ```bash
+      kubectl logs deployment.apps/gwin -n gwin-space
+      ```
 
-    ```text
-    ...    INFO    Starting EventSource    {"controller": "ingressgroup", ...}
-    ...    INFO    Starting Controller     {"controller": "ingressgroup"}
-    ...    INFO    Starting EventSource    {"controller": "grpcbackendgroup", "controllerGroup": "alb.yc.io", ...}
-    ...    INFO    Starting Controller     {"controller": "grpcbackendgroup", "controllerGroup": "alb.yc.io", ...}
-    ...    INFO    Starting EventSource    {"controller": "httpbackendgroup", "controllerGroup": "alb.yc.io", ...}
-    ...    INFO    Starting Controller     {"controller": "httpbackendgroup", "controllerGroup": "alb.yc.io", ...}
+      В логах должны содержаться сообщения об успешном старте контроллера Gwin.
 
-    ...
+      {% cut "Пример части результата выполнения команды" %}
 
-    ...    INFO    Starting workers        {"controller": "ingressgroup", ...}
-    ...    INFO    Starting workers        {"controller": "grpcbackendgroup", "controllerGroup": "alb.yc.io", ...}
-    ...    INFO    Starting workers        {"controller": "httpbackendgroup", "controllerGroup": "alb.yc.io", ...}
-    ```
+      ```text
+      level=INFO source=/yc_gwin/cmd/gwin/app/serve.go:467 msg="Server setup completed successfully"
+      level=INFO source=/yc_gwin/cmd/gwin/app/serve.go:488 msg="Starting ALB observer"
+      level=INFO source=/yc_gwin/cmd/gwin/app/serve.go:490 msg="ALB observer started successfully"
+      level=INFO source=/yc_gwin/cmd/gwin/app/serve.go:492 msg="Starting address updater"
+      level=INFO source=/yc_gwin/cmd/gwin/app/serve.go:494 msg="Address updater started successfully"
+      level=INFO source=/yc_gwin/cmd/gwin/app/serve.go:496 msg="All services configured successfully, starting controller manager"
+      ```
 
-    {% endcut %}
+      {% endcut %}
+
+- Ingress-контроллер {#alb-ingress}
+
+  1. [Установите Ingress-контроллер {{ alb-name }}](../../application-load-balancer/operations/k8s-ingress-controller-install.md) в пространство имен `yc-alb`.
+
+      При установке укажите сервисный аккаунт, который [был создан ранее для использования с контроллером](#before-you-begin).
+
+      Использование отдельного пространства имен `yc-alb` позволит отделить ресурсы контроллера от ресурсов [тестового приложения](#deploy-app) и [Ingress](#deploy-ingress).
+
+  1. Убедитесь, что контроллер был успешно установлен:
+
+      ```bash
+      kubectl logs deployment.apps/yc-alb-ingress-controller -n yc-alb
+      ```
+
+      В логах должны содержаться сообщения об успешном старте Ingress-контроллера.
+
+      {% cut "Пример части результата выполнения команды" %}
+
+      ```text
+      ...    INFO    Starting EventSource    {"controller": "ingressgroup", ...}
+      ...    INFO    Starting Controller     {"controller": "ingressgroup"}
+      ...    INFO    Starting EventSource    {"controller": "grpcbackendgroup", "controllerGroup": "alb.yc.io", ...}
+      ...    INFO    Starting Controller     {"controller": "grpcbackendgroup", "controllerGroup": "alb.yc.io", ...}
+      ...    INFO    Starting EventSource    {"controller": "httpbackendgroup", "controllerGroup": "alb.yc.io", ...}
+      ...    INFO    Starting Controller     {"controller": "httpbackendgroup", "controllerGroup": "alb.yc.io", ...}
+
+      ...
+
+      ...    INFO    Starting workers        {"controller": "ingressgroup", ...}
+      ...    INFO    Starting workers        {"controller": "grpcbackendgroup", "controllerGroup": "alb.yc.io", ...}
+      ...    INFO    Starting workers        {"controller": "httpbackendgroup", "controllerGroup": "alb.yc.io", ...}
+      ```
+
+      {% endcut %}
+
+{% endlist %}
 
 ## Создайте тестовое приложение {#deploy-app}
 
@@ -320,62 +357,72 @@
 
 ## Создайте профиль безопасности {#create-security-profile}
 
-Создайте профиль безопасности с простым правилом, чтобы работу профиля было легко [проверить](#check-the-result). Правила в профиле будут разрешать трафик только с определенного IP-адреса.
+{% list tabs group=instructions %}
 
-Создайте профиль безопасности:
+- Консоль управления {#console}
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать профиль.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.action_empty }}** и выберите **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+  Создайте профиль безопасности с простым правилом, чтобы работу профиля было легко [проверить](#check-the-result). Правила в профиле будут разрешать трафик только с определенного IP-адреса.
 
-    Профиль будет содержать несколько преднастроенных правил безопасности:
+  Создайте профиль безопасности:
 
-    * [Правило Smart Protection](../../smartwebsecurity/concepts/rules.md#smart-protection-rules) с полной защитой для всего трафика. Это правило является приоритетным по отношению к базовому правилу по умолчанию.
-    * [Базовое правило](../../smartwebsecurity/concepts/rules.md#base-rules) по умолчанию, которое запрещает весь трафик, не попавший под более приоритетные правила.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать профиль.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.action_empty }}** и выберите **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 
-        {% include [smart-protection-tip](../../_includes/smartwebsecurity/smart-protection-tip.md) %}
+      Профиль будет содержать несколько преднастроенных правил безопасности:
 
-1. Задайте данные профиля:
+      * [Правило Smart Protection](../../smartwebsecurity/concepts/rules.md#smart-protection-rules) с полной защитой для всего трафика. Это правило является приоритетным по отношению к базовому правилу по умолчанию.
+      * [Базовое правило](../../smartwebsecurity/concepts/rules.md#base-rules) по умолчанию, которое запрещает весь трафик, не попавший под более приоритетные правила.
 
-    * **{{ ui-key.yacloud.common.name }}** — имя профиля, например `test-sp1`.
-    * **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** — действие, которое должно выполнять базовое правило.
+          {% include [smart-protection-tip](../../_includes/smartwebsecurity/smart-protection-tip.md) %}
 
-        Оставьте выбранным действие `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}`, чтобы базовое правило запрещало весь трафик.
+  1. Задайте данные профиля:
 
-1. Добавьте правило безопасности:
+      * **{{ ui-key.yacloud.common.name }}** — имя профиля, например `test-sp1`.
+      * **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** — действие, которое должно выполнять базовое правило.
 
-    1. Нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+          Оставьте выбранным действие `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}`, чтобы базовое правило запрещало весь трафик.
 
-    1. Укажите основные настройки правила:
+  1. Добавьте правило безопасности:
 
-        * **{{ ui-key.yacloud.common.name }}** — имя правила, например `test-rule1`.
+      1. Нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
 
-        * **Приоритет** — укажите такое значение, чтобы правило имело приоритет над преднастроенными правилами. Например, можно указать значение `999800`.
+      1. Укажите основные настройки правила:
 
-            {% include [preconfigured-rules-priority](../../_includes/smartwebsecurity/preconfigured-rules-priority.md) %}
+          * **{{ ui-key.yacloud.common.name }}** — имя правила, например `test-rule1`.
 
-        * **Тип правила** — выберите `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`.
+          * **Приоритет** — укажите такое значение, чтобы правило имело приоритет над преднастроенными правилами. Например, можно указать значение `999800`.
 
-        * **Действие** — выберите `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-allow }}`.
+              {% include [preconfigured-rules-priority](../../_includes/smartwebsecurity/preconfigured-rules-priority.md) %}
 
-    1. В блоке **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** настройте условия так, чтобы разрешался трафик только с определенного IP-адреса:
+          * **Тип правила** — выберите `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`.
 
-        1. Выберите область действия правила на трафик `При условии`.
-        1. Выберите условие `IP`.
-        1. Выберите условие на IP `Совпадает или принадлежит диапазону`.
-        1. Укажите публичный IP-адрес, например `203.0.113.200`.
+          * **Действие** — выберите `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-allow }}`.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+      1. В блоке **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** настройте условия так, чтобы разрешался трафик только с определенного IP-адреса:
 
-    В списке правил безопасности появится созданное правило.
+          1. Выберите область действия правила на трафик `При условии`.
+          1. Выберите условие `IP`.
+          1. Выберите условие на IP `Совпадает или принадлежит диапазону`.
+          1. Укажите публичный IP-адрес, например `203.0.113.200`.
 
-1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
-В списке профилей безопасности появится созданный профиль. Запишите идентификатор этого профиля безопасности — он потребуется позднее.
+      В списке правил безопасности появится созданное правило.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+  В списке профилей безопасности появится созданный профиль. Запишите идентификатор этого профиля безопасности — он потребуется позднее.
+
+- {{ TF }} {#tf}
+
+  Если вы использовали файл конфигурации [alb-ready-k8s-cluster.tf](https://github.com/yandex-cloud-examples/yc-alb-mk8s-with-sws-profile/blob/main/alb-ready-k8s-cluster.tf), то профиль безопасности [уже создан](#before-you-begin) и дополнительные действия не требуются.
+
+{% endlist %}
 
 ## Создайте ресурс Ingress {#deploy-ingress}
 
-В этом ресурсе Ingress будут описаны параметры балансировщика {{ alb-name }}. Ingress-контроллер, [установленный ранее](#deploy-controller), развернет балансировщик с указанными параметрами после создания ресурса Ingress.
+В этом ресурсе Ingress будут описаны параметры балансировщика {{ alb-name }}. Инструмент для управления балансировщиком, [установленный ранее](#deploy-controller), развернет балансировщик с указанными параметрами после создания ресурса Ingress.
 
 Согласно правилам Ingress, трафик к виртуальному хосту `demo.example.com` по пути `/app1` будет направляться к бэкенду [service/demo-app1](#deploy-app). [Созданный ранее профиль безопасности](#create-security-profile) будет использоваться, чтобы защитить этот бэкенд.
 
@@ -383,52 +430,108 @@
 
 1. Создайте файл `demo-ingress.yaml` с описанием ресурса Ingress:
 
-    ```yaml
-    apiVersion: networking.k8s.io/v1
-    kind: Ingress
-    metadata:
-      name: demo-ingress
-      annotations:
-        ingress.alb.yc.io/subnets: "<список_идентификаторов_подсетей>"
-        ingress.alb.yc.io/security-groups: "<идентификатор_группы_безопасности>"
-        ingress.alb.yc.io/external-ipv4-address: "auto"
-        ingress.alb.yc.io/group-name: "demo-sws"
-        ingress.alb.yc.io/security-profile-id: "<идентификатор_профиля_безопасности>"
-    spec:
-      rules:
-        - host: demo.example.com
-          http:
-            paths:
-              - path: /app1
-                pathType: Exact
-                backend:
-                  service:
-                    name: demo-app1
-                    port:
-                      number: 80
-    ```
+    {% list tabs group=alb_controller %}
 
-    Где:
+    - Gwin {#gwin}
 
-    * [ingress.alb.yc.io/subnets](../../application-load-balancer/k8s-ref/ingress.md#annot-subnets) — список идентификаторов подсетей, в которых будет расположен балансировщик.
+      ```yaml
+      apiVersion: networking.k8s.io/v1
+      kind: Ingress
+      metadata:
+        name: demo-ingress
+        annotations:
+          gwin.yandex.cloud/subnets: "<список_идентификаторов_подсетей>"
+          gwin.yandex.cloud/securityGroups: "<идентификатор_группы_безопасности>"
+          gwin.yandex.cloud/externalIPv4Address: "auto"
+          gwin.yandex.cloud/groupName: "demo-sws"
+          gwin.yandex.cloud/hosts.securityProfileID: "<идентификатор_профиля_безопасности>"
+      spec:
+        ingressClassName: gwin-default
+        rules:
+          - host: demo.example.com
+            http:
+              paths:
+                - path: /app1
+                  pathType: Exact
+                  backend:
+                    service:
+                      name: demo-app1
+                      port:
+                        number: 80
+      ```
 
-        Если вы [создали инфраструктуру с помощью {{ TF }}](#before-you-begin), используйте идентификатор подсети, которая имеет имя `subnet-a`.
+      Где:
 
-    * [ingress.alb.yc.io/security-groups](../../application-load-balancer/k8s-ref/ingress.md#annot-security-groups) — идентификатор группы, [созданной ранее](#before-you-begin) для балансировщика.
+      * [gwin.yandex.cloud/subnets](../../application-load-balancer/gwin-ref/ingress.md#load-balancer-configuration) — список идентификаторов подсетей, в которых будет расположен балансировщик.
 
-        Если вы создали инфраструктуру с помощью {{ TF }}, укажите идентификатор группы, которая имеет имя `alb-traffic`.
+          Если вы [создали инфраструктуру с помощью {{ TF }}](#before-you-begin), используйте идентификатор подсети, которая имеет имя `subnet-a`.
 
-    * [ingress.alb.yc.io/security-profile-id](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id) — идентификатор профиля безопасности, [созданного ранее](#create-security-profile) в сервисе {{ sws-name }}.
+      * [gwin.yandex.cloud/security-groups](../../application-load-balancer/gwin-ref/ingress.md#load-balancer-configuration) — идентификатор группы, [созданной ранее](#before-you-begin) для балансировщика.
 
-        {% note info %}
+          Если вы создали инфраструктуру с помощью {{ TF }}, укажите идентификатор группы, которая имеет имя `alb-traffic`.
 
-        Профиль безопасности будет применен только к [виртуальным хостам](../../application-load-balancer/tools/k8s-ingress-controller/principles.md#mapping) для ресурса Ingress, в котором задана аннотация. Для ресурса Ingress, который описан выше, профиль будет применен к единственному виртуальному хосту `demo.example.com`.
+      * [gwin.yandex.cloud/hosts.securityProfileID](../../application-load-balancer/gwin-ref/ingress.md#security-configuration) — идентификатор профиля безопасности, [созданного ранее](#create-security-profile) в сервисе {{ sws-name }}.
 
-        Этот ресурс Ingress — единственный в группе Ingress `demo-sws`. Профиль безопасности не будет применен к виртуальным хостам других ресурсов Ingress, если такие ресурсы будут позднее добавлены в группу.
+          {% note info %}
 
-     {% endnote %}
+          Профиль безопасности будет применен только к виртуальным хостам для ресурса Ingress, в котором задана аннотация. Для ресурса Ingress, который описан выше, профиль будет применен к единственному виртуальному хосту `demo.example.com`.
 
-    Подробнее об аннотациях см. в разделе [Поля и аннотации ресурса Ingress](../../application-load-balancer/k8s-ref/ingress.md).
+          Этот ресурс Ingress — единственный в группе Ingress `demo-sws`. Профиль безопасности не будет применен к виртуальным хостам других ресурсов Ingress, если такие ресурсы будут позднее добавлены в группу.
+
+          {% endnote %}
+
+      Подробнее об аннотациях см. в разделе [Поля и аннотации ресурса Ingress](../../application-load-balancer/gwin-ref/ingress.md).
+
+    - Ingress-контроллер {#alb-ingress}
+
+      ```yaml
+      apiVersion: networking.k8s.io/v1
+      kind: Ingress
+      metadata:
+        name: demo-ingress
+        annotations:
+          ingress.alb.yc.io/subnets: "<список_идентификаторов_подсетей>"
+          ingress.alb.yc.io/security-groups: "<идентификатор_группы_безопасности>"
+          ingress.alb.yc.io/external-ipv4-address: "auto"
+          ingress.alb.yc.io/group-name: "demo-sws"
+          ingress.alb.yc.io/security-profile-id: "<идентификатор_профиля_безопасности>"
+      spec:
+        rules:
+          - host: demo.example.com
+            http:
+              paths:
+                - path: /app1
+                  pathType: Exact
+                  backend:
+                    service:
+                      name: demo-app1
+                      port:
+                        number: 80
+      ```
+
+      Где:
+
+      * [ingress.alb.yc.io/subnets](../../application-load-balancer/k8s-ref/ingress.md#annot-subnets) — список идентификаторов подсетей, в которых будет расположен балансировщик.
+
+          Если вы [создали инфраструктуру с помощью {{ TF }}](#before-you-begin), используйте идентификатор подсети, которая имеет имя `subnet-a`.
+
+      * [ingress.alb.yc.io/security-groups](../../application-load-balancer/k8s-ref/ingress.md#annot-security-groups) — идентификатор группы, [созданной ранее](#before-you-begin) для балансировщика.
+
+          Если вы создали инфраструктуру с помощью {{ TF }}, укажите идентификатор группы, которая имеет имя `alb-traffic`.
+
+      * [ingress.alb.yc.io/security-profile-id](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id) — идентификатор профиля безопасности, [созданного ранее](#create-security-profile) в сервисе {{ sws-name }}.
+
+          {% note info %}
+
+          Профиль безопасности будет применен только к [виртуальным хостам](../../application-load-balancer/tools/k8s-ingress-controller/principles.md#mapping) для ресурса Ingress, в котором задана аннотация. Для ресурса Ingress, который описан выше, профиль будет применен к единственному виртуальному хосту `demo.example.com`.
+
+          Этот ресурс Ingress — единственный в группе Ingress `demo-sws`. Профиль безопасности не будет применен к виртуальным хостам других ресурсов Ingress, если такие ресурсы будут позднее добавлены в группу.
+
+      {% endnote %}
+
+      Подробнее об аннотациях см. в разделе [Поля и аннотации ресурса Ingress](../../application-load-balancer/k8s-ref/ingress.md).
+
+    {% endlist %}
 
 1. Создайте ресурс Ingress:
 
@@ -450,14 +553,14 @@
 
     ```bash
     NAME             CLASS    HOSTS              ADDRESS         PORTS   AGE
-    demo-ingress     <none>   demo.example.com   <IP_адрес>      80      ...
+    demo-ingress     <none>   demo.example.com   158.1*.*.*      80      ...
     ```
 
     {% endcut %}
 
 ### Создайте DNS-запись для домена {#create-dns-record}
 
-1. Создайте A-запись для домена `demo.example.com` в зоне `example.com`. В значении укажите IP-адрес балансировщика, который был создан ранее.
+1. [Создайте](../../dns/operations/resource-record-create.md) A-запись для домена `demo.example.com` в зоне `example.com`. В значении укажите IP-адрес балансировщика, который был создан ранее.
 
 1. Дождитесь, пока завершится распространение DNS-записей (DNS propagation).
 

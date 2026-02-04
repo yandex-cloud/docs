@@ -81,6 +81,20 @@ The consumption type goes into the `systag` label.
 | `io.disk*.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second for a given disk |
 | `io.disk*.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a given disk |
 | `io.disk*.write_time`<br/>`DGAUGE`, milliseconds | Average write time for a given disk |
+| `io_quota_utilization_percentage`<br/>`DGAUGE`, % | Average percentage of disk quota usage. |
+| `io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Maximum percentage of disk quota usage. |
+| `monitoring_disk.read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk. |
+| `monitoring_disk.read_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes read from disk |
+| `monitoring_disk.write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk. |
+| `monitoring_disk.write_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes written to disk |
+| `read_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk read request latency |
+| `read_ops`<br/>`DGAUGE`, operations per second | Average number of disk reads |
+| `read_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk reads |
+| `read_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of read latency due to exceeded disk quota |
+| `write_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk write request latency |
+| `write_ops`<br/>`DGAUGE`, operations per second | Average number of disk write operations |
+| `write_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk write operations |
+| `write_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of write latency due to exceeded disk quota |
 
 
 ## RAM metrics {#managed-valkey-ram-metrics}
@@ -97,7 +111,7 @@ The consumption type goes into the `systag` label.
 | `mem.commit_limit_bytes`<br/>`DGAUGE`, bytes | RAM usage, `commit_limit` usage type |
 | `mem.committed_as_bytes`<br/>`DGAUGE`, bytes | RAM usage, `committed_as` usage type |
 | `mem.dirty_bytes`<br/>`DGAUGE`, bytes | RAM usage, `dirty` usage type |
-| `mem.free_bytes`<br/>`DGAUGE`, bytes | Amount of free RAM available, excluding `mem.buffers_bytes` and `mem.cached_bytes` |
+| `mem.free_bytes`<br/>`DGAUGE`, bytes | Amount of free RAM available, excluding `mem.buffers_bytes` and `mem.cached_bytes`. |
 | `mem.guarantee_bytes`<br/>`DGAUGE`, bytes | Guaranteed instance memory |
 | `mem.high_free_bytes`<br/>`DGAUGE`, bytes | RAM usage, `high_free` usage type |
 | `mem.high_total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `high_total` usage type |
@@ -169,14 +183,14 @@ The consumption type goes into the `systag` label.
 | `huge_page_size`<br/>`DGAUGE`, bytes | RAM usage, `huge_page_size` usage type |
 | `huge_pages_free`<br/>`DGAUGE`, bytes | RAM usage, `huge_pages_free` usage type |
 | `huge_pages_total`<br/>`DGAUGE`, bytes | RAM usage, `huge_pages_total` usage type |
-| `icmp_inaddrmaskreps`<br/>`DGAUGE`, count | Number of ICMP address mask reply messages received from the polled node |
+| `icmp_inaddrmaskreps`<br/>`DGAUGE`, count | Number of ICMP address mask reply messages received from the polled node  |
 | `icmp_inaddrmasks`<br/>`DGAUGE`, count | Number of ICMP address mask request messages received |
 | `icmp_incsumerrors`<br/>`DGAUGE`, count | Total IP packets with checksum errors |
 | `icmp_indestunreachs`<br/>`DGAUGE`, count | Number of ICMP destination unreachable messages received |
 | `icmp_inechoreps`<br/>`DGAUGE`, count | Number of ICMP echo reply messages received |
 | `icmp_inechos`<br/>`DGAUGE`, count | Number of ICMP echo request messages received |
-| `icmp_inerrors`<br/>`DGAUGE`, count | Number of bad ICMP packets received, excluding those with checksum errors |
-| `icmp_inmsgs`<br/>`DGAUGE`, count | Total ICMP messages received |
+| `icmp_inerrors`<br/>`DGAUGE`, count | Number of bad ICMP packets received, excluding those with checksum errors  |
+| `icmp_inmsgs`<br/>`DGAUGE`, count | Total ICMP messages received  |
 | `icmp_inparmprobs`<br/>`DGAUGE`, count | Number of ICMP parameter problem messages received |
 | `icmp_inredirects`<br/>`DGAUGE`, count | Number of ICMP redirect messages received |
 | `icmp_insrcquenchs`<br/>`DGAUGE`, count | Number of ICMP source quench messages received |
@@ -193,11 +207,11 @@ The consumption type goes into the `systag` label.
 | `icmp_outparmprobs`<br/>`DGAUGE`, count | Number of ICMP parameter problem messages sent |
 | `icmp_outratelimitglobal`<br/>`DGAUGE`, messages | Number of ICMP messages throttled by global rate limits |
 | `icmp_outratelimithost`<br/>`DGAUGE`, messages | Number of ICMP messages throttled by host-specific rate limits |
-| `icmp_outredirects`<br/>`DGAUGE`, count | Number of ICMP redirect messages sent |
+| `icmp_outredirects`<br/>`DGAUGE`, count | Number of ICMP redirect messages sent  |
 | `icmp_outsrcquenchs`<br/>`DGAUGE`, count | Number of ICMP source quench messages sent |
 | `icmp_outtimeexcds`<br/>`DGAUGE`, count | Number of ICMP time exceeded messages sent |
 | `icmp_outtimestampreps`<br/>`DGAUGE`, count | Number of ICMP timestamp reply messages sent |
-| `icmp_outtimestamps`<br/>`DGAUGE`, count | Number of ICMP timestamp (request) messages sent |
+| `icmp_outtimestamps`<br/>`DGAUGE`, count | Number of ICMP timestamp (request) messages sent  |
 | `icmpmsg_intype<code>`<br/>`DGAUGE`, count | Number of received ICMP messages with the specified [code](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol) |
 | `icmpmsg_outtype<code>`<br/>`DGAUGE`, count | Number of sent ICMP messages with the specified [code](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol) |
 | `inactive`<br/>`DGAUGE`, bytes | RAM usage, `inactive` usage type |
@@ -213,11 +227,11 @@ The consumption type goes into the `systag` label.
 | `ip_fragfails`<br/>`DGAUGE`, count | Number of IP packets dropped due to failed fragmentation which was required in this object, e.g., because of the `Do not fragment` flag being set. |
 | `ip_fragoks`<br/>`DGAUGE`, count | Number of successfully fragmented IP packets  |
 | `ip_inaddrerrors`<br/>`DGAUGE`, count | Number of inbound packets dropped due to an invalid destination IP address in the IP header for the object in question. This count includes invalid addresses, such as `0.0.0.0`, and addresses of unsupported classes, e.g., Class E. For objects that do not act as IP gateways and therefore do not forward packets, this counter includes packets dropped because the destination address was not a local one. |
-| `ip_indelivers`<br/>`DGAUGE`, count | Total IP packets delivered |
+| `ip_indelivers`<br/>`DGAUGE`, count | Total IP packets delivered  |
 | `ip_indiscards`<br/>`DGAUGE`, count | Number of inbound IP packets encountering no issues preventing their further processing but still dropped, e.g., due to lack of buffer space. This counter does not include packets dropped while awaiting reassembly. |
-| `ip_inhdrerrors`<br/>`DGAUGE`, count | Number of inbound packets with header errors |
+| `ip_inhdrerrors`<br/>`DGAUGE`, count | Number of inbound packets with header errors  |
 | `ip_inreceives`<br/>`DGAUGE`, count | Total inbound packets received from interfaces, including those received in error |
-| `ip_inunknownprotos`<br/>`DGAUGE`, count | Number of unknown protocol packets received |
+| `ip_inunknownprotos`<br/>`DGAUGE`, count | Number of unknown protocol packets received  |
 | `ip_outdiscards`<br/>`DGAUGE`, count | Number of outgoing IP packets encountering no issues preventing their transmission to the destination but still dropped, e.g., due to lack of buffer space. Note that the counter would include packets counted in `ip_forwdatagrams` if they met this (discretionary) drop criterion. |
 | `ip_outnoroutes`<br/>`DGAUGE`, count | Number of IP packets dropped because no route to their destination was found. This metric tracks all packets counted in `ip_forwdatagrams` that meet this no-route criterion. This includes any packets a host cannot redirect because all its default gateways are down. |
 | `ip_outrequests`<br/>`DGAUGE`, count | Total IP packets provided by local IP user-level protocols (including ICMP) to IP in requests for transmission. This metric does not include the packets counted in `ip_forwdatagrams`. |
@@ -328,9 +342,9 @@ The consumption type goes into the `systag` label.
 | `tcp_incsumerrors`<br/>`DGAUGE`, count | This value increases when a received TCP packet has an invalid checksum. |
 | `tcp_inerrs`<br/>`DGAUGE`, count | Total segments received with an error, such as invalid TCP checksums |
 | `tcp_insegs`<br/>`DGAUGE`, count | Total segments received, including those received in error |
-| `tcp_maxconn`<br/>`DGAUGE`, count | Maximum allowed number of TCP connections |
+| `tcp_maxconn`<br/>`DGAUGE`, count | Maximum allowed number of TCP connections  |
 | `tcp_outrsts`<br/>`DGAUGE`, count | Number of TCP segments sent with the `RST` flag |
-| `tcp_outsegs`<br/>`DGAUGE`, count | Total TCP segments sent |
+| `tcp_outsegs`<br/>`DGAUGE`, count | Total TCP segments sent  |
 | `tcp_passiveopens`<br/>`DGAUGE`, count | Number of times TCP connections have made a direct transition to the `SYN-RCVD` state from `LISTEN` |
 | `tcp_retranssegs`<br/>`DGAUGE`, count | Total segments retransmitted, i.e., number of TCP segments containing one or more previously transmitted octets that were retransmitted. |
 | `tcp_rtoalgorithm`<br/>`DGAUGE` | Algorithm used to determine the timeout for retransmitting unacknowledged octets |
@@ -340,12 +354,12 @@ The consumption type goes into the `systag` label.
 | `udp_ignoredmulti`<br/>`DGAUGE`, count | Number of UDP multicast packets ignored |
 | `udp_incsumerrors`<br/>`DGAUGE`, count | This value increases when a received UDP packet contains an invalid kernel code checksum. |
 | `udp_indatagrams`<br/>`DGAUGE`, count | Total UDP packets received  |
-| `udp_inerrors`<br/>`DGAUGE`, count | Number of bad UDP packets received, excluding those with checksum errors |
+| `udp_inerrors`<br/>`DGAUGE`, count | Number of bad UDP packets received, excluding those with checksum errors  |
 | `udp_memerrors`<br/>`DGAUGE`, errors | Number of UDP out-of-memory errors |
 | `udp_noports`<br/>`DGAUGE`, count | Total UDP packets received with no application on the destination port |
 | `udp_outdatagrams`<br/>`DGAUGE`, count | Total UDP packets sent from the object in question |
-| `udp_rcvbuferrors`<br/>`DGAUGE`, count | Number of UDP receive buffer errors |
-| `udp_sndbuferrors`<br/>`DGAUGE`, count | Number of UDP send buffer errors |
+| `udp_rcvbuferrors`<br/>`DGAUGE`, count | Number of UDP receive buffer errors  |
+| `udp_sndbuferrors`<br/>`DGAUGE`, count | Number of UDP send buffer errors  |
 | `udplite_ignoredmulti`<br/>`DGAUGE`, count | Number of UDP-Lite multicast packets ignored  |
 | `udplite_incsumerrors`<br/>`DGAUGE`, count | This value increases when a received UDP-Lite packet contains an invalid kernel code checksum. |
 | `udplite_indatagrams`<br/>`DGAUGE`, count | Total UDP-Lite packets received  |

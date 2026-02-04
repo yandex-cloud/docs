@@ -30,7 +30,7 @@ description: This page provides a list of step-by-step guides for {{ mkf-name }}
 
 ## {{ KF }} users {#accounts}
 
-* [User management](cluster-accounts.md)
+* [Managing users](cluster-accounts.md)
 
 ## {{ KF }} connectors {#connectors}
 
@@ -39,10 +39,10 @@ description: This page provides a list of step-by-step guides for {{ mkf-name }}
 
 ## Interfaces
 
-* [{{ kafka-ui }} web interface](kafka-ui-enable.md)
+* [{{ kafka-ui }}](kafka-ui-enable.md)
 
 
 ## Logs and monitoring {#monitoring-and-logs}
 
 * [Viewing cluster logs](cluster-logs.md)
-* [Monitoring the state of clusters and hosts](monitoring.md)
+* [Cluster and host state monitoring](monitoring.md)

@@ -106,7 +106,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. Enter a name for the service account, e.g., `sa-terraform`.
+      1. Enter the service account name, e.g., `sa-terraform`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
@@ -251,7 +251,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
       trusted_cloud_nets = ["10.0.0.0/8", "192.168.0.0/16"]
       ```
 
-   {% cut "terraform.tfvars variable description" %}
+   {% cut "`terraform.tfvars` variable description" %}
 
    | Parameter<br>name | Change<br>required | Description | Type | Example |
    | --- | --- | --- | --- | --- |
@@ -402,7 +402,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 * When deploying NAT instances in two availability zones, use an even number of VMs to evenly distribute them between availability zones.
 * When selecting the number of NAT instances, factor in the [locality of traffic handling by the internal load balancer](../../network-load-balancer/concepts/specifics.md#nlb-int-locality).
 * Once the solution is deployed, use planned downtime windows for maintenance, e.g., removing NAT instances or changing the `yc_availability_zones` setting, during which the system will not process user requests.
-* If you see a high `CPU steal time` value as the {{ container-registry-name }} workload increases, enable a [software-accelerated network](../../vpc/concepts/software-accelerated-network.md) for this NAT instance.
+* If a NAT instance demonstrates a high `CPU steal time` value as the {{ container-registry-name }} workload goes up, enable a [software-accelerated network](../../vpc/concepts/software-accelerated-network.md) for this NAT instance.
 * If you are using your own DNS server, create the following type `A` resource records in its zone file:
 
    | Name | Type | Value |

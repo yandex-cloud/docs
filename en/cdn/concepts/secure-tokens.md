@@ -2,7 +2,7 @@
 
 Using _secure tokens_ , you can restrict access to [CDN resource](./resource.md) files. For example, with secure tokens, you can provide temporary or paid access to files and ensure the security of sensitive data.
 
-Files are accessed via [signed links](#protected-link) with the limited validity period whose query parameters contain a secure token. A CDN server uses a hash to map the received token to the CDN resource's secret key and data provided in an HTTP request and either grants or denies access to the file.
+Files are accessed via [signed links](#protected-link) with a limited validity period, their query parameters containing a secure token. A CDN server uses a hash to map the received token to the CDN resource's secret key and data provided in an HTTP request and either grants or denies access to the file.
 
 You can also use secure tokens to specify a trusted IP address from which to access a CDN resource.
 

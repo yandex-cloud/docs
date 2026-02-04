@@ -160,6 +160,6 @@ The option with simultaneous maximum configuration of all computing resources is
     --- | --- | ---
     20% | 2, 4 | 0.5, 1, 1.5, 2
     50% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4
-    100% | 2, 4, 8, 16, 32, 48, 80 | 1, 2, 4, 8, 10, 12
+    100% | 2, 4, 8, 16, 24, 32, 48, 80 | 1, 2, 4, 8, 10, 12
 
 {% include [amd-platform-preview](../../_includes/compute/amd-platform-preview.md) %}

@@ -34,9 +34,17 @@ To add a [selector](./widgets/controls.md) to a dashboard:
 
      {% endlist %}
 
+   
+   * **Show in tabs**: Select how to display the selector on the dashboard:
+
+     * `Current tab <tab_name>`: Display the selector on the selected tab. This is the default option.
+     * `Selected tabs`: Select one or multiple tabs where you need to display the selector. By default, the current tab is selected.
+     * `All tabs`: Display the selector on all tabs.
+
+
    * **Auto height**: Sets the automatic height for a widget on the dashboard.
    * **Parameters**: Sets a list of selector parameters and their default values. For the widget to work correctly, specify here the selector parameters listed on the [Params](./tabs.md#params) tab.
 
      ![selector-js](../../../_assets/datalens/editor/selector-js-params.png)
 
-1. Click **Add**. The widget will be displayed on the dashboard.
+1. Click **Save**. The widget will be displayed on the dashboard.

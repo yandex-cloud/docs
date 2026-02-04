@@ -17,24 +17,24 @@ description: Следуя данной инструкции, вы узнаете
 - Интерфейс {{ sd-name }} {#cloud-sd}
 
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **Контроль данных** и перейдите на вкладку **Регулярные сканирования**.
-  1. В правом верхнем углу экрана нажмите **Новое сканирование**.
-  1. В блоке **Источники данных** выберите нужный источник данных с бакетами [{{ objstorage-name }}](../../../storage/).
+  1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_scan-jobs }}**.
+  1. В правом верхнем углу экрана нажмите **{{ ui-key.yacloud_org.dspm.scans.label_new-scan }}**.
+  1. В блоке **{{ ui-key.yacloud_org.dspm.scan-jobs.field_data-sources }}** выберите нужный источник данных с бакетами [{{ objstorage-name }}](../../../storage/).
 
       При необходимости [создайте](./create-data-source.md) новый источник данных.
 
-  1. В блоке **Доступ к данным в источниках** выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого будет выполняться сканирование. При необходимости нажмите **Создать новый**, чтобы создать новый сервисный аккаунт.
+  1. В блоке **{{ ui-key.yacloud_org.dspm.scans.section_access_title }}** выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого будет выполняться сканирование. При необходимости нажмите **{{ ui-key.yacloud_org.iam.folder.service-accounts.dialog_select-service-account_create-new-action }}**, чтобы создать новый сервисный аккаунт.
 
       {% include [sa-scan-roles-warning](../../../_includes/security-deck/sa-scan-roles-warning.md) %}
 
-  1. В блоке **Категории данных для поиска** отдельно для текста и для изображений выберите [категории данных](../../concepts/dspm.md#data-source), которые необходимо искать при сканировании:
+  1. В блоке **{{ ui-key.yacloud_org.dspm.scans.section_search-categories_title }}** отдельно для текста и для изображений выберите [категории данных](../../concepts/dspm.md#data-source), которые необходимо искать при сканировании:
 
       {% include [scan-data-types](../../../_includes/security-deck/scan-data-types.md) %}
 
       Вы можете выбрать все доступные категории одновременно и любую их комбинацию.
 
   1. {% include [scan-settings](../../../_includes/security-deck/scan-settings.md) %}
-  1. Нажмите **Создать сканирование**.
+  1. Нажмите **{{ ui-key.yacloud_org.security.dspm.ScanForm.action_create-scan_dvakP }}**.
 
   В результате в списке сканирований появится вновь созданное сканирование, которое вы сможете запускать.
 
@@ -50,20 +50,20 @@ description: Следуя данной инструкции, вы узнаете
 - Интерфейс {{ sd-name }} {#cloud-sd}
 
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **Контроль данных** и перейдите на вкладку **Регулярные сканирования**.
-  1. В правом верхнем углу экрана нажмите **Новое сканирование**.
-  1. В блоке **Источники данных** выберите нужный источник данных с ресурсами [{{ yandex-360 }}]({{ link-yandex }}/support/yandex-360/business/admin/{{ lang }}/).
+  1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_scan-jobs }}**.
+  1. В правом верхнем углу экрана нажмите **{{ ui-key.yacloud_org.dspm.scans.label_new-scan }}**.
+  1. В блоке **{{ ui-key.yacloud_org.dspm.scan-jobs.field_data-sources }}** выберите нужный источник данных с ресурсами [{{ yandex-360 }}]({{ link-yandex }}/support/yandex-360/business/admin/{{ lang }}/).
 
       При необходимости [создайте](./create-data-source.md) новый источник данных.
 
-  1. В блоке **Категории данных для поиска** отдельно для текста и для изображений выберите [категории данных](../../concepts/dspm.md#data-source), которые необходимо искать при сканировании:
+  1. В блоке **{{ ui-key.yacloud_org.dspm.scans.section_search-categories_title }}** отдельно для текста и для изображений выберите [категории данных](../../concepts/dspm.md#data-source), которые необходимо искать при сканировании:
 
       {% include [scan-data-types](../../../_includes/security-deck/scan-data-types.md) %}
 
       Вы можете выбрать все доступные категории одновременно и любую их комбинацию.
 
   1. {% include [scan-settings](../../../_includes/security-deck/scan-settings.md) %}
-  1. Нажмите **Создать сканирование**.
+  1. Нажмите **{{ ui-key.yacloud_org.security.dspm.ScanForm.action_create-scan_dvakP }}**.
 
   В результате в списке сканирований появится вновь созданное сканирование, которое вы сможете запускать.
 

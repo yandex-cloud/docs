@@ -12,11 +12,11 @@ host | Host FQDN
 fqdn | Host FQDN
 
 ## CPU metrics {#managed-greenplum-cpu-metrics}
-These metrics show processor core workload.
+CPU core workload.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `cpu.cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU performance |
+| `cpu.cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU share |
 | `cpu.cpu.guarantee`<br/>`DGAUGE`, count | Guaranteed number of cores |
 | `cpu.cpu.limit`<br/>`DGAUGE`, count | Maximum number of cores in use |
 | `cpu.usage_guest`<br/>`DGAUGE`, % | CPU core usage, `guest` usage type |
@@ -56,9 +56,24 @@ Additional labels: `dev` for the disk ID in the system.
 | `diskio.read_time`<br/>`DGAUGE`, milliseconds | Disk read time |
 | `diskio.reads`<br/>`DGAUGE`, count | Number of disk reads |
 | `diskio.weighted_io_time`<br/>`DGAUGE`, milliseconds | I/O wait time |
-| `diskio.write_bytes`<br/>`DGAUGE`, bytes | Disk write size  |
+| `diskio.write_bytes`<br/>`DGAUGE`, bytes | Disk write size |
 | `diskio.write_time`<br/>`DGAUGE`, milliseconds | Disk write time |
 | `diskio.writes`<br/>`DGAUGE`, count | Number of disk writes |
+| `monitoring_disk.io_quota_utilization_percentage`<br/>`DGAUGE`, % | Average percentage of disk quota usage |
+| `monitoring_disk.io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Maximum percentage of disk quota usage |
+| `monitoring_disk.read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk. |
+| `monitoring_disk.read_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes read from disk |
+| `monitoring_disk.read_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk read request latency |
+| `monitoring_disk.read_ops`<br/>`DGAUGE`, operations per second | Average number of disk reads |
+| `monitoring_disk.read_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk reads |
+| `monitoring_disk.read_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of read latency due to exceeded disk quota |
+| `monitoring_disk.write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk. |
+| `monitoring_disk.write_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes written to disk |
+| `monitoring_disk.write_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk write request latency |
+| `monitoring_disk.write_ops`<br/>`DGAUGE`, operations per second | Average number of disk write operations |
+| `monitoring_disk.write_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk write operations |
+| `monitoring_disk.write_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of write latency due to exceeded disk quota |
+
 
 ## RAM metrics {#managed-greenplum-ram-metrics}
 | Name<br/>Type, units | Description |
@@ -198,7 +213,7 @@ Additional labels: `dev` for the disk ID in the system.
 | `nstat.ipextinbcastpkts`<br/>`DGAUGE`, count | Total inbound broadcast packets received with IP addresses  |
 | `nstat.ipextincepkts`<br/>`DGAUGE`, count | Number of received IP packets with detailed traffic information  |
 | `nstat.ipextincsumerrors`<br/>`DGAUGE`, count | Number of inbound checksum errors with IP addresses and detailed traffic information  |
-| `nstat.ipextinect0pkts`<br/>`DGAUGE`, count | Number of inbound packets with IP addresses and detailed traffic information marked with the `0` ECN (Explicit Congestion Notification) code  |
+| `nstat.ipextinect0pkts`<br/>`DGAUGE`, count | Number of inbound packets with IP addresses and detailed traffic information marked with the `0` ECN (explicit congestion notification) code  |
 | `nstat.ipextinect1pkts`<br/>`DGAUGE`, count | Number of inbound packets with IP addresses and detailed traffic information marked with the `1` ECN code  |
 | `nstat.ipextinmcastoctets`<br/>`DGAUGE`, bytes | Total inbound multicast octets received with IP addresses and detailed traffic information  |
 | `nstat.ipextinmcastpkts`<br/>`DGAUGE`, count | Total inbound multicast packets received with IP addresses and detailed traffic information  |
@@ -354,10 +369,10 @@ Additional labels: `dev` for the disk ID in the system.
 | `gp.connect_percent`<br/>`DGAUGE`, % | Percentage of connections | 
 | `gp.has_alive`<br/>`DGAUGE` | Live segment indicator. It can be either `1` if all segments are healthy or `0` if there are no healthy segments.  |
 | `gp.has_dead`<br/>`DGAUGE` | Dead segment indicator. It can be either `1` if there are failed segments or `0` if there are none.  |
-| `gp.is_alive`<br/>`DGAUGE` | Host health indicator.<br/>It can be either `1` if the database host is healthy or `0` if it is not. | 
-| `gp.is_alive_segment`<br/>`DGAUGE` | Segment host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if it is not. | 
-| `gp.is_dead`<br/>`DGAUGE` | Host health indicator.<br/>It can be either `0` if the database host is healthy or `1` if it is not. | 
-| `gp.is_master`<br/>`DGAUGE` | Host type indicator.<br/>It can be either `1` if it is a DB master host or `0` if it is not. | 
+| `gp.is_alive`<br/>`DGAUGE` | Host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if not. | 
+| `gp.is_alive_segment`<br/>`DGAUGE` | Segment host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if not. | 
+| `gp.is_dead`<br/>`DGAUGE` | Host health indicator.<br/>It can be either `0` if a DB host is healthy or `1` if not. | 
+| `gp.is_master`<br/>`DGAUGE` | Host type indicator.<br/>It can be either `1` if it is a DB master host or `0` if not. | 
 | `gp.master_replication_state`<br/>`DGAUGE` | Master replication state |
 | `gp.percent_xid_wraparound`<br/>`DGAUGE`, % | Using a transaction ID sequence.<br/>Additional labels: `db_name`. | 
 | `gp.ping`<br/>`DGAUGE` | <br/>Additional labels: `can_read`, `is_master`, and `can_write`.| 

@@ -87,7 +87,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
         When selecting the number of hosts, consider the following:
         * If you add more than one host to the cluster, the system automatically adds three {{ ZK }} hosts.
         * You need at least two hosts to enable replication in a {{ mkf-name }} cluster.
-        * High availability of a {{ mkf-name }} cluster depends on meeting [specific conditions](../concepts/ha-cluster.md).
+        * High availability of a {{ mkf-name }} cluster depends on certain [prerequisites](../concepts/ha-cluster.md).
     
      1. Select **{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-zookeeper_pN7ub }}** as the coordination service.
 
@@ -213,7 +213,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
        network_id             = "<network_ID>"
        subnet_ids             = ["<list_of_subnet_IDs>"]
        security_group_ids     = ["<list_of_cluster_security_group_IDs>"]
-       deletion_protection    = <protect_cluster_from_deletion>
+       deletion_protection    = <protect_cluster_against_deletion>
 
        config {
          version          = "<version>"
@@ -251,7 +251,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
      Where:
 
      * `environment`: Cluster environment, `PRESTABLE` or `PRODUCTION`.
-     * `version`: {{ KF }} version, {{ versions.tf.str }}. Additionally, provide the [{{ ZK }} host configuration](../concepts/index.md#zookeeper).
+     * `version`: {{ KF }} version, {{ versions.tf.zookeeper }}. Additionally, provide the [{{ ZK }} host configuration](../concepts/index.md#zookeeper).
      * `zones` and `brokers_count`: Availability zones and number of broker hosts per zone.
      * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
@@ -308,7 +308,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -417,7 +417,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
             * `configSpec`: Cluster configuration:
 
-                * `version`: {{ KF }} version, {{ versions.cli.str }}. Additionally, provide the [{{ ZK }} host configuration](../concepts/index.md#zookeeper).
+                * `version`: {{ KF }} version, {{ versions.cli.zookeeper }}. Additionally, provide the [{{ ZK }} host configuration](../concepts/index.md#zookeeper).
                 * `kafka`: {{ KF }} configuration:
 
                     * `resources.resourcePresetId`: [Host class](../concepts/instance-types.md) ID. You can get the list of available host classes with their IDs by calling the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
@@ -495,7 +495,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -612,7 +612,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
             * `config_spec`: Cluster configuration:
 
-                * `version`: {{ KF }} version, {{ versions.cli.str }}. Additionally, provide the [{{ ZK }} host configuration](../concepts/index.md#zookeeper).
+                * `version`: {{ KF }} version, {{ versions.cli.zookeeper }}. Additionally, provide the [{{ ZK }} host configuration](../concepts/index.md#zookeeper).
                 * `kafka`: {{ KF }} configuration:
 
                     * `resources.resource_preset_id`: [Host class](../concepts/instance-types.md) ID. You can get the list of available host classes with their IDs by calling the [ResourcePreset.list](../api-ref/grpc/ResourcePreset/list.md) method.
@@ -756,7 +756,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
         * You cannot set the number of broker hosts manually if using [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}](../concepts/kraft.md#cluster-topology) as the coordination service.
         * You need to set the number of brokers manually if using [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-split-mode_sbrDd }}](../concepts/kraft.md#cluster-topology) as the coordination service. A new multi-host cluster will automatically get three separate {{ kraft-short-name }} hosts.
         * You need at least two hosts to enable replication in a {{ mkf-name }} cluster.
-        * High availability of a {{ mkf-name }} cluster depends on meeting specific conditions.
+        * High availability of a {{ mkf-name }} cluster depends on certain [prerequisites](../concepts/ha-cluster.md).
       
      1. Under **{{ ui-key.yacloud.kafka.FormSections.field_coordination-service-type_sdoRj }}**, select one of these options:
         * **{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-split-mode_sbrDd }}**: Broker and {{ kraft-short-name }} metadata controller are on separate hosts.
@@ -895,7 +895,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
        network_id          = "<network_ID>"
        subnet_ids          = ["<list_of_subnet_IDs>"]
        security_group_ids  = ["<list_of_cluster_security_group_IDs>"]
-       deletion_protection = <protect_cluster_from_deletion>
+       deletion_protection = <protect_cluster_against_deletion>
 
        config {
          version          = "<version>"
@@ -995,7 +995,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1150,7 +1150,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
                 {% include [rest-user-specs](../../_includes/mdb/mkf/api/rest-user-specs.md) %}
 
-            * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. Select one of these options:
+            * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Select one of these options:
 
                 * `anytime`: At any time (default).
                 * `weeklyMaintenanceWindow`: On schedule:
@@ -1190,7 +1190,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1353,7 +1353,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
                 {% include [rest-user-specs](../../_includes/mdb/mkf/api/grpc-user-specs.md) %}
 
-            * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. Select one of these options:
+            * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Select one of these options:
 
                 * `anytime`: At any time (default).
                 * `weekly_maintenance_window`: On schedule:

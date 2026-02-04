@@ -15,7 +15,7 @@ subcluster_name | Subcluster name
 
 ## CPU metrics {#managed-mysql-cpu-metrics}
 
-These metrics show the processor core workload.
+CPU core workload.
 
 The consumption type goes into the `systag` label.
 
@@ -72,10 +72,24 @@ The consumption type goes into the `systag` label.
 | `io.read_bytes`<br/>`DGAUGE`, bytes per second | Disk read rate | 
 | `io.read_count`<br/>`DGAUGE`, operations per second | Number of read operations per second | 
 | `io.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second | 
-| `io.utilization`<br/>`DGAUGE`, % | Disk utilization disabled for network drives | 
+| `io.utilization`<br/>`DGAUGE`, % | Disk utilization disabled for network drives. | 
 | `io.write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed | 
 | `io.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second | 
 | `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
+| `monitoring_disk.io_quota_utilization_percentage`<br/>`DGAUGE`, % | Average percentage of disk quota usage |
+| `monitoring_disk.io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Maximum percentage of disk quota usage |
+| `monitoring_disk.read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk. |
+| `monitoring_disk.read_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes read from disk |
+| `monitoring_disk.read_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk read request latency |
+| `monitoring_disk.read_ops`<br/>`DGAUGE`, operations per second | Average number of disk reads |
+| `monitoring_disk.read_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk reads |
+| `monitoring_disk.read_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of read latency due to exceeded disk quota |
+| `monitoring_disk.write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk. |
+| `monitoring_disk.write_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes written to disk |
+| `monitoring_disk.write_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk write request latency |
+| `monitoring_disk.write_ops`<br/>`DGAUGE`, operations per second | Average number of disk write operations |
+| `monitoring_disk.write_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk write operations |
+| `monitoring_disk.write_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of write latency due to exceeded disk quota |
 
 ## RAM metrics {#managed-mysql-ram-metrics}
 
@@ -91,7 +105,7 @@ The consumption type goes into the `systag` label.
 | `mem.commit_limit_bytes`<br/>`DGAUGE`, bytes | RAM usage, `commit_limit` usage type |
 | `mem.committed_as_bytes`<br/>`DGAUGE`, bytes | RAM usage, `committed_as` usage type |
 | `mem.dirty_bytes`<br/>`DGAUGE`, bytes | RAM usage, `dirty` usage type |
-| `mem.free_bytes`<br/>`DGAUGE`, bytes | Amount of free RAM available, excluding `mem.buffers_bytes` and `mem.cached_bytes` |
+| `mem.free_bytes`<br/>`DGAUGE`, bytes | Amount of free RAM available, excluding `mem.buffers_bytes` and `mem.cached_bytes`. |
 | `mem.high_free_bytes`<br/>`DGAUGE`, bytes | RAM usage, `high_free` usage type |
 | `mem.high_total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `high_total` usage type |
 | `mem.huge_pages_free_bytes`<br/>`DGAUGE`, bytes | RAM usage, `huge_pages_free` usage type |
@@ -226,7 +240,7 @@ The consumption type goes into the `systag` label.
 | `mysql_config_max_connections`<br/>`DGAUGE`, count | Maximum number of concurrent connections | 
 | `mysql_config_table_open_cache`<br/>`DGAUGE`, count | Number of open tables across all threads | 
 | `mysql_config_thread_cache_size`<br/>`DGAUGE`, number | Number of threads to cache for reuse | 
-| `mysql_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>`1` if the database host is healthy, `0` if not. | 
+| `mysql_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if not. | 
 | `mysql_is_primary`<br/>`DGAUGE`, 0/1 | Master host indicator.<br/>`1` if the database host is a master, `0` if not. | 
 | `mysql_is_replica`<br/>`DGAUGE`, 0/1 | Replica host indicator.<br/>`1` if the database host is a replica, `0` if not. | 
 | `mysql_latency_query_0.5`<br/>`DGAUGE`, milliseconds | Query execution time, median value | 

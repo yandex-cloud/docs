@@ -8,6 +8,8 @@ sourcePath: en/monitoring_includes/metrics-ref/cdn-ref.md
 # {{ cdn-full-name }} metrics
 
 
-This section describes [{{ cdn-name }}](../../cdn/) metrics delivered to {{ monitoring-name }}.
+This section describes the [{{ cdn-name }}](../../cdn/) metrics delivered to {{ monitoring-name }}.
+
+{% include [metrics-note](../../_includes/cdn/metrics-note.md) %}
 
 {% include [cdn-yc.md](../../_includes/monitoring/metrics-ref/cdn-yc.md) %}

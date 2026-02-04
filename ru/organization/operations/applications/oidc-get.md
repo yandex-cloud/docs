@@ -51,6 +51,53 @@ description: Следуя данной инструкции, вы получит
 
 - API {#api}
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Добавьте в конфигурационный файл {{ TF }} блоки `data` и `output`:
+
+     ```hcl
+     data "yandex_organizationmanager_idp_application_oauth_application" "app" {
+       application_id = "<идентификатор_приложения>"
+     }
+     
+     output "my_app_name" {
+       value = data.yandex_organizationmanager_idp_application_oauth_application.app.name
+     }
+     
+     output "my_app_status" {
+       value = data.yandex_organizationmanager_idp_application_oauth_application.app.status
+     }
+     
+     output "my_app_client_id" {
+       value = data.yandex_organizationmanager_idp_application_oauth_application.app.client_grant.client_id
+     }
+     ```
+
+     Где:
+
+     * `data "yandex_organizationmanager_idp_application_oauth_application"` — описание OIDC-приложения в качестве источника данных:
+       * `application_id` — идентификатор приложения.
+     * `output` — выходные переменные, которые содержат информацию о приложении:
+       * `value` — возвращаемое значение.
+
+     Вместо указанных параметров вы можете выбрать любые другие для получения информации. Более подробно о параметрах источника данных `yandex_organizationmanager_idp_application_oauth_application` см. в [документации провайдера]({{ tf-provider-datasources-link }}/organizationmanager_idp_application_oauth_application).
+
+  1. Создайте ресурсы:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} создаст все требуемые ресурсы и отобразит значения выходных переменных в терминале. Чтобы проверить результат, выполните команду:
+
+     ```bash
+     terraform output
+     ```
+
+- API {#api}
+
   Воспользуйтесь методом REST API [Application.Get](../../idp/application/oauth/api-ref/Application/get.md) для ресурса [Application](../../idp/application/oauth/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Get](../../idp/application/oauth/api-ref/grpc/Application/get.md).
 
 {% endlist %}

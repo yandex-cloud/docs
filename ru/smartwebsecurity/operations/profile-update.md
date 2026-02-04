@@ -20,8 +20,9 @@ description: Следуя данной инструкции, вы сможете
       * **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** — `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` или `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
       * **{{ ui-key.yacloud.smart-web-security.form.label_arl-profile }}** — выберите или создайте [профиль ARL](../concepts/arl.md).
       * Выберите или создайте капчу [{{ captcha-name }}](../../smartcaptcha/) для проверки подозрительных запросов.
+      * {% include [choose-or-create-template](../../_includes/smartwebsecurity/choose-or-create-template.md) %}
       * {% include [profile-inspect-request](../../_includes/smartwebsecurity/profile-inspect-request.md) %}
-  1. (Опционально) Включите или отключите использование информации об HTTP-запросах для улучшения моделей машинного обучения в разделе **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
+  1. Включите или отключите использование информации об HTTP-запросах для улучшения моделей машинного обучения в разделе **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}

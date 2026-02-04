@@ -83,7 +83,7 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
     {% include [Managed PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-postgresql.md) %}
 
-    Here is a configuration file example:
+    Here is an example of the configuration file structure:
 
     
     ```hcl
@@ -137,7 +137,7 @@ For OnPremise, all fields are filled in manually.
 
     {% include [On premise PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-postgresql.md) %}
 
-    Here is a configuration file example:
+    Here is an example of the configuration file structure:
 
     
     ```hcl
@@ -203,7 +203,7 @@ For OnPremise, all fields are filled in manually.
     
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.advanced_settings.title }}**:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}**: Maximum size of write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB. This setting does not prevent disk overflow in the source database. You can only use it for {{ PG }} version below 13, and we recommend [monitoring the WAL slot value](../../prepare.md#source-pg) in the source database.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}**: Maximum size of write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB. This setting does not provide a complete guarantee against disk overflow in the source database. We recommend [monitoring the WAL slot value](../../prepare.md#source-pg) in the source database while leveraging the `Max slot wal keep size` [setting](../../prepare.md#wal-setup-recommendation).
           
             {% note warning %}
 

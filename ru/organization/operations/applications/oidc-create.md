@@ -146,6 +146,104 @@ description: Следуя данной инструкции, вы сможете
      updated_at: "2025-10-21T12:37:19.274522Z"
      ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Опишите в конфигурационном файле {{ TF }} параметры [OAuth-клиента](../../concepts/applications.md):
+
+     ```hcl
+     resource "yandex_iam_oauth_client" "example_oauth_client" {
+       name      = "<имя_OAuth-клиента>"
+       folder_id = "<идентификатор_каталога>"
+       scopes    = ["<атрибут1>", "<атрибут2>"]
+     }
+     ```
+
+     Где:
+
+     * `name` — имя OAuth-клиента.
+     * `folder_id` — идентификатор каталога, в котором будет создан OAuth-клиент.
+     * `scopes` — набор атрибутов пользователей, которые будут доступны поставщику услуг. Укажите один или несколько атрибутов в квадратных скобках. Возможные атрибуты:
+       * `openid` — идентификатор пользователя. Обязательный атрибут.
+       * `profile` — дополнительная информация о пользователе, такая как имя, фамилия, аватар.
+       * `email` — адрес электронной почты пользователя.
+       * `address` — место жительства пользователя.
+       * `phone` — номер телефона пользователя.
+       * `groups` — группы пользователей в организации.
+
+     Более подробную информацию о параметрах ресурса `yandex_iam_oauth_client` см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_oauth_client).
+
+  1. Опишите в конфигурационном файле {{ TF }} параметры [секрета](../../concepts/applications.md#oidc-secret) OAuth-клиента:
+
+     ```hcl
+     resource "yandex_iam_oauth_client_secret" "example_oauth_client_secret" {
+       oauth_client_id = "<идентификатор_OAuth-клиента>"
+     }
+     ```
+
+     Где:
+
+     * `oauth_client_id` — идентификатор OAuth-клиента, для которого создается секрет.
+
+     Более подробную информацию о параметрах ресурса `yandex_iam_oauth_client_secret` см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_oauth_client_secret).
+
+  1. Опишите в конфигурационном файле {{ TF }} параметры [OIDC-приложения](../../concepts/applications.md#oidc):
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_application_oauth_application" "example_oidc_app" {
+       organization_id = "<идентификатор_организации>"
+       name            = "<имя_приложения>"
+       description     = "<описание_приложения>"
+       
+       client_grant = {
+         client_id         = "<идентификатор_OAuth-клиента>"
+         authorized_scopes = ["<атрибут1>", "<атрибут2>"]
+       }
+       
+       group_claims_settings = {
+         group_distribution_type = "ALL_GROUPS"
+       }
+       
+       labels = {
+         "<ключ1>" = "<значение1>"
+         "<ключ2>" = "<значение2>"
+       }
+     }
+     ```
+
+     Где:
+
+     * `organization_id` — [идентификатор организации](../organization-get-id.md), в которой нужно создать OIDC-приложение. Обязательный параметр.
+     * `name` — имя OIDC-приложения. Обязательный параметр. Имя должно быть уникальным в пределах организации и соответствовать требованиям:
+
+       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
+
+     * `description` — описание OIDC-приложения. Необязательный параметр.
+     * `client_grant` — параметры подключения к OAuth-клиенту:
+       * `client_id` — идентификатор OAuth-клиента. Обязательный параметр.
+       * `authorized_scopes` — укажите те же атрибуты, которые были указаны при создании OAuth-клиента.
+     * `group_claims_settings` — настройки передачи групп пользователей поставщику услуг:
+       * `group_distribution_type` — если при создании OAuth-клиента вы указали атрибут `groups`, укажите, какие группы пользователей будут переданы поставщику услуг. Возможные значения:
+         * `ALL_GROUPS` — поставщику услуг будут переданы все группы, в которые входит пользователь.
+         * `ASSIGNED_GROUPS` — из всех групп, в которые входит пользователь, поставщику услуг будут переданы только те группы, которые будут явно заданы.
+         * `NONE` — поставщику услуг не будут переданы группы, в которые входит пользователь.
+     * `labels` — список [меток](../../../resource-manager/concepts/labels.md). Необязательный параметр.
+
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_oauth_application` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).
+
+  1. Создайте ресурсы:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [{{ org-full-name }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../../cli/):
+
+     ```bash
+     yc organization-manager idp application oauth application list --organization-id <идентификатор_организации>
+     ```
+
 - API {#api}
 
   1. Воспользуйтесь методом REST API [OAuthClient.Create](../../../iam/api-ref/OAuthClient/create.md) для ресурса [OAuthClient](../../../iam/api-ref/grpc/OAuthClient/index.md) или вызовом gRPC API [OAuthClientService/Create](../../../iam/api-ref/grpc/OAuthClient/create.md).
@@ -236,6 +334,44 @@ description: Следуя данной инструкции, вы сможете
        - https://example.ru
      folder_id: b1g500m2195v********
      status: ACTIVE
+     ```
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. В конфигурационном файле {{ TF }} для ресурса `yandex_iam_oauth_client` укажите параметр `redirect_uris`:
+
+     ```hcl
+     resource "yandex_iam_oauth_client" "example_oauth_client" {
+       name          = "<имя_OAuth-клиента>"
+       folder_id     = "<идентификатор_каталога>"
+
+       ...
+
+       redirect_uris = ["<адрес1>", "<адрес2>"]
+     }
+     ```
+
+     Где:
+
+     * `name` — имя OAuth-клиента.
+     * `folder_id` — идентификатор каталога, в котором будет создан OAuth-клиент.
+     * `redirect_uris` — укажите полученный у поставщика услуг адрес или несколько адресов в квадратных скобках.
+
+     Более подробную информацию о параметрах ресурса `yandex_iam_oauth_client` см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_oauth_client).
+
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     Проверить изменения ресурсов и их настройки можно в [{{ org-full-name }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../../cli/):
+
+     ```bash
+     yc iam oauth-client get <идентификатор_OAuth-клиента>
      ```
 
 - API {#api}

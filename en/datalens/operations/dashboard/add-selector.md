@@ -20,7 +20,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 1. In the panel at the bottom of the page, hold down ![image](../../../_assets/console-icons/sliders.svg) **Selector** and drag it to the required area.
 
    
-   ![image](../../../_assets/datalens/operations/widget-select.png =500x118)
+   ![image](../../../_assets/datalens/operations/widget-select-js.png =650x95)
 
 
 1. Under **Selector settings**, set the source and specify the selector parameters:
@@ -31,6 +31,22 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
      * **Dataset**: Dataset with data for the selector. You can choose a dataset from the list of objects or provide a link. This is a required field.
      * **Field**: Dataset field with selector values. It can be either a dimension or a measure (for more information, see [{#T}](../../dataset/data-model.md#field)). This is a required field.
+
+     
+     * **Show in tabs**: Select how the selector will be displayed on the dashboards:
+
+       * `Current tab <tab_name>`: Display the selector on the specified tab. This is the default option for a single selector.
+       * `Selected tabs`: Select one or multiple tabs where you need to display the selector. By default, the current tab is selected.
+       * `All tabs`: The selector will be displayed on all tabs. This option is available for a single selector.
+       * `From group settings <group_value>`: Selector display will be based on the advanced settings of the selector group widget. This option is available only for a selector within a group.
+
+     * ![image](../../../_assets/console-icons/magnifier.svg) button: Displayed to the right of the **Show in tabs** setting if the **Field** is specified. It allows you to find and group selectors with the same field or parameter in other tabs. To group the current selector with the one you find, click **Group** next to the relevant selector in the list. After grouping, the current selector’s **Show in tabs** setting may get updated automatically, for example:
+
+       * `Current tab`: Switches to `Selected tabs`, i.e., the tabs containing the grouped selectors.
+       * `Selected tabs`: No changes, but the list of tabs will include the tab with the new selector, if not specified previously.
+       * `All tabs`: No changes.
+     
+       The links from the new selector’s tab will apply to the current selector within the relevant tab.
 
      
      * **Selector type**: Drop-down list, input field, calendar, or checkbox.
@@ -75,6 +91,22 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
        ![image](../../../_assets/datalens/selector-settings/field-name.png)
 
+
+     
+     * **Show in tabs**: Select how to display the selector on the dashboard:
+
+       * `Current tab <tab_name>`: Display the selector on the specified tab. This is the default option for a single selector.
+       * `Selected tabs`: Select one or multiple tabs where you need to display the selector. By default, the current tab is selected.
+       * `All tabs`: The selector will be displayed on all tabs. This option is available for a single selector.
+       * `From group settings <group_value>`: Selector display will be based on the advanced settings of the selector group widget. This option is available only for a selector within a group.
+
+     * ![image](../../../_assets/console-icons/magnifier.svg) button: Displayed to the right of the **Show in tabs** setting if the **Field or parameter** is speficied. It allows you to find and group selectors with the same field or parameter in other tabs. To group the current selector with the one you find, click **Group** next to the relevant selector in the list. After grouping, the current selector’s **Show in tabs** setting may get updated automatically, for example:
+
+       * `Current tab`: Switches to `Selected tabs`, i.e., the tabs containing the grouped selectors.
+       * `Selected tabs`: No changes, but the list of tabs will include the tab with the new selector, if not specified previously.
+       * `All tabs`: No changes.
+     
+       The links from the new selector’s tab will apply to the current selector within the relevant tab.
 
      
      * **Selector type**: Drop-down list, input field, calendar, or checkbox.
@@ -129,6 +161,35 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
    * **Apply button**: Adds a widget button which applies the values of all selectors in the widget. The selector values are not applied until you click the button.
    * **Reset button**: Adds a widget button which resets the values of all the widget selectors to their defaults.
    * **Auto height**: Sets the automatic height for a widget on the dashboard. Available for widgets with multiple selectors.
+
+   
+   * Optionally, for a widget with multiple selectors, use the **Show in tabs** field to configure how to display the selector on the dashboard:
+
+     * `Current tab <tab_name>` is default. The selector will be displayed on the specified tab.
+     * `Selected tabs`: Select one or multiple tabs where you need to display the selector. By default, the current tab is selected.
+     * `All tabs`: Display the selector on all tabs.
+     
+     This setting becomes available when you add a second selector to a widget:
+     
+     * Setting value used in the first selector automatically applies to the entire group. You can change it at any time.
+     * For each new selector in the group, the default value is `From group settings <group_value>`.
+
+     When using this setting, consider the following:
+
+     * You cannot save a selector if it has the setting value where the current tab displays no selectors. For example, if you specify `Selected tabs` for a single selector, you can deselect the current tab, but you cannot save the selector.
+     * You cannot save a selector with the `Selected tabs` value if no tabs are selected.
+     * Group settings restrict how you set up each selector within a group. For example, if you select `Current tab` for a group, you must also specify `Current tab` for each selector in this group.
+
+       | **Configuring a group** | **Configuring a selector** |
+       |----------------------|---------------------|
+       | `All tabs` | `Current tab`, `Selected tabs`, `All tabs` |
+       | `Selected tabs` | `Current tab`, `Selected tabs` |
+       | `Current tab`    | `Current tab` |
+
+     * When you delete a selector on the current tab, it is automatically deleted from all tabs.
+     * When you copy and paste a selector, its settings are preserved.
+     * You cannot paste a copied selector if its settings prevent it from being displayed on the current tab.
+
 
      
    * Optionally, for a widget with multiple selectors, customize the selector arrangement. To do this, arrange the selectors as needed by dragging them and adjust the width of each one:

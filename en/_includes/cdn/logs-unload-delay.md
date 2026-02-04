@@ -1,5 +1,5 @@
 {% note warning %}
 
-There may be a log export delay.
+There may be a delay with log export.
 
 {% endnote %}

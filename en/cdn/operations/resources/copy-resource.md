@@ -19,7 +19,7 @@ description: Follow this guide to copy a configuration from one resource to anot
 
       {% note warning %}
 
-      The **{{ ui-key.yacloud.cdn.label_personal-domain }}** parameter must be unique.
+      The **{{ ui-key.yacloud.cdn.label_personal-domain }}** parameter must be unique for each resource.
 
       {% endnote %}
 

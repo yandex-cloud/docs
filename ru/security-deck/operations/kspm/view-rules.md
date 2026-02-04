@@ -17,8 +17,8 @@ description: В данном разделе вы узнаете, как можн
 
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
   1. На панели слева выберите ![file-text](../../../_assets/console-icons/file-text.svg) **{{ ui-key.yacloud_org.app.security.control_rules_rWmUV }}**.
-  1. В верхней части окна нажмите кнопку **{{ ui-key.yacloud_components.cloud-center.action_more }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите [окружение](../../concepts/workspace.md), для которого хотите посмотреть информацию о правилах. При необходимости воспользуйтесь поиском.
-  1. На открывшейся странице **{{ ui-key.yacloud_org.security.controls.ControlsPage.security_control_r4yn7 }}** перейдите на вкладку **{{ ui-key.yacloud_org.security.controls.ControlsPage.kubernetes_jRCmt }}**. Открывшийся раздел содержит список правил контроля, которые входят в состав заданных для текущего окружения [стандартов безопасности](../../concepts/workspace.md#standards).
+  1. В верхней части окна выберите [окружение](../../concepts/workspace.md), для которого хотите посмотреть информацию о правилах.
+  1. На открывшейся странице **{{ ui-key.yacloud_org.security.controls.ControlsPage.security_control_r4yn7 }}** перейдите на вкладку **{{ k8s }}®**. Открывшийся раздел содержит список правил контроля, которые входят в состав заданных для текущего окружения [стандартов безопасности](../../concepts/workspace.md#standards).
 
       Для каждого правила в таблице отображается следующая информация:
       

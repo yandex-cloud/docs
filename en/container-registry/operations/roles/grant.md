@@ -12,9 +12,9 @@ To grant access to a [resource](../../../iam/concepts/access-control/resources-w
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to assign a role for a resource.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Select a [registry](../../concepts/registry.md) or [repository](../../concepts/repository.md) in it.
-  1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. In the window that opens, select a group, user, or [service account](../../../iam/concepts/users/service-accounts.md).
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the role from the list.

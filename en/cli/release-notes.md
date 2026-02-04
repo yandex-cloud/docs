@@ -7,17 +7,17 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
-### Version 0.186.0 (15/01/26) {#version0.186.0}
+### Version 0.186.0 (19/01/26) {#version0.186.0}
 
 #### Changes to the CLI {#cli-0.186.0}
 
-Fixed color display when using `--pager` set to `less` in `yc beta`.
+Fixed color display when using the `--pager` parameter with the `less` value in `yc beta`.
 
 #### Changes to {{ yandex-cloud }} services {#services-0.186.0}
 
 ##### {{ cloud-registry-full-name }} {#cloud-registry-full-name-0.186.0}
 
-Added the `configure-docker` command for the Docker credential helper.
+Added the `configure-docker` command for Docker Credential helper.
 
 ##### {{ data-transfer-name }} {#data-transfer-name-0.186.0}
 
@@ -34,6 +34,12 @@ Added commands for granting access permissions in {{ dataproc-name }}:
 * `yc dataproc cluster set-access-bindings`
 * `yc dataproc cluster add-access-binding`
 * `yc dataproc cluster remove-access-binding`
+  
+##### {{ org-name }} {#org-name-0.186.0}
+
+Added password complexity settings to the following commands:
+* `yc organization-manager idp userpool create`
+* `yc organization-manager idp userpool update`
 
 ## Previous releases {#previous-release}
 
@@ -1557,7 +1563,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### Managed database services {#managed-db}
 
-**Managed Service for Redis**
+**{{ mrd-full-name }}**
 
 * Added the following parameters to the `yc managed-redis cluster create`, `yc managed-redis cluster restore`, and `yc managed-redis cluster update-config` commands:
   * `use-luajit`
@@ -1640,7 +1646,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### Managed database services {#managed-db}
 
-**Managed Service for Redis**
+**{{ mrd-full-name }}**
 
 * Added the following parameters to the `yc managed-redis cluster create`, `yc managed-redis cluster restore`, `yc managed-redis cluster update-config` commands:
   * `--lua-time-limit`
@@ -1744,7 +1750,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * `yc managed-greenplum cluster create` and `yc managed-greenplum cluster restore` now support `--master-host-group-ids` and `--segment-host-group-ids` options for specifying the dedicated host groups to place master hosts and {{ GP }} segments in.
 
-**Managed Service for Redis**
+**{{ mrd-full-name }}**
 
 * Added the `yc managed-redis backup delete` command to delete backups.
 * Changed the default {{ RD }} version to 7.2 as versions 6.2 and 7.0 will no longer be supported.
@@ -1798,7 +1804,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
   * `--close-connection`: Closing the connection after each request.
   * `--share-connection`: Sharing the connection between multiple requests.
 
-**Managed Service for Redis**
+**{{ mrd-full-name }}**
 
 * Added the `--websql-access` parameter to the `yc managed-redis cluster [ create | update | restore ]` commands allowing you to establish access via {{ websql-name }} in {{ RD }}.
 
@@ -1850,7 +1856,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Added the `--disk-size-autoscaling` parameter to the `yc managed-mongodb cluster create` and `yc managed-mongodb cluster update` commands to enable automatic disk scaling.
 
-**Managed Service for Redis**
+**{{ mrd-full-name }}**
 
 * In the `yc managed-redis cluster create` and `yc managed-redis cluster update` commands, the `disk-size-limit` measurement units for `--disk-size-autoscaling` were changed from bytes to gigabytes.
 
@@ -1936,7 +1942,7 @@ Added support for {{ sws-name }}:
 
 ##### Managed database services {#managed-db}
 
-**Managed Service for Redis**
+**{{ mrd-full-name }}**
 
 * Added the `--disk-size-autoscaling` parameter to the `yc managed-redis cluster create` and `yc managed-redis cluster update` commands to enable automatic disk scaling.
 
@@ -2581,9 +2587,9 @@ Fixed the `yc compute instance-group update` command issue where the instance gr
 
 ##### Managed database services {#managed-db}
 
-**Managed Service for Redis**
+**{{ mrd-full-name }}**
 
-* Unified the configuration parameters of Managed Service for Redis clusters for different {{ RD }} versions.
+* Unified the configuration parameters of {{ mrd-full-name }} clusters for different {{ RD }} versions.
 
 **{{ mgp-name }}**
 
@@ -2831,7 +2837,7 @@ Added the following parameters to the `yc serverless container revision deploy` 
 
 * In the `{{ yc-mdb-my }} cluster restore` command with the `--folder-id` parameter, you can provide a folder for cluster recovery.
 
-**Managed Service for Redis**
+**{{ mrd-full-name }}**
 
 * In the `{{ yc-mdb-rd }} cluster restore` command with the `--folder-id` parameter, you can provide a folder for cluster recovery.
 
@@ -3010,7 +3016,7 @@ Added the following parameters to the `yc serverless container revision deploy` 
 
 * Added support for {{ KF }} 3.0, 3.1, and 3.2.
 
-**Managed Service for Redis**
+**{{ mrd-full-name }}**
 
 * {{ RD }} 5.0 and 6.0 are no longer supported.
 
@@ -3041,7 +3047,7 @@ Added the following parameters to the `yc serverless container revision deploy` 
   * `yc managed-greenplum cluster update-config`: Allows updating the configuration parameters of existing clusters.
 
 
-**Managed Service for Redis**
+**{{ mrd-full-name }}**
 
 * Added the following parameters to the `yc managed-redis cluster create`, `yc managed-redis cluster restore`,
   `yc managed-redis hosts add`, `yc managed-redis hosts update`, `yc managed-redis shards add` commands:
@@ -3139,7 +3145,7 @@ Added the following parameters to the `yc serverless container revision deploy` 
 
 ##### Managed database services {#managed-db}
 
-**Managed Service for Redis**
+**{{ mrd-full-name }}**
 
 * Added the `--client-output-buffer-limit-normal` and `--client-output-buffer-limit-pubsub` flags to the `yc managed-redis cluster` command group for `create`, `restore`, `update` (see redis.conf for a description). 
 
@@ -3287,7 +3293,7 @@ Added {{ mgp-name }} primary support commands:
 
 ##### Managed database services {#managed-db}
 
-**Managed Service for Redis**
+**{{ mrd-full-name }}**
 
 * Added the `--persistence-mode` parameter for selecting the persistence level of a {{ RD }} cluster to the following commands:
 
@@ -3527,7 +3533,7 @@ Added the following new flags to the `yc managed-clickhouse cluster create` and 
 
 ##### Managed database services {#managed-db}
 
-**Managed Service for Redis**
+**{{ mrd-full-name }}**
 
 * Added the `--hostnames` parameter to the `yc managed-redis cluster start-failover` command to specify the cluster hosts to switch the master from. You can use this parameter with sharded clusters as well.
 
@@ -3589,7 +3595,7 @@ Added the following new flags to the `yc managed-clickhouse cluster create` and 
   * `--sls-provisioned-rcu`
 
 
-##### Managed Service for Redis
+##### {{ mrd-full-name }}
 
 * The default value of the `--redis-version` parameter in the `yc managed-redis cluster create` command is changed to 6.2.
 
@@ -3677,7 +3683,7 @@ Added the following new flags to the `yc managed-clickhouse cluster create` and 
 
 ##### Managed database services {#managed-db}
 
-**{{ mch-name }}, {{ mes-name }}, {{ mkf-name }}, {{ mmg-name }}, {{ mmy-name }}, {{ mpg-name }}, Managed Service for Redis, {{ mms-name }}**
+**{{ mch-name }}, {{ mes-name }}, {{ mkf-name }}, {{ mmg-name }}, {{ mmy-name }}, {{ mpg-name }}, {{ mrd-full-name }}, {{ mms-name }}**
 
 * `yc <managed DB service name> cluster create` and `yc <managed DB service name> cluster update` commands
 
@@ -3692,7 +3698,7 @@ Added the following new flags to the `yc managed-clickhouse cluster create` and 
 
   Added the `backup-retain-period-days` field representing the number of days to retain automatic backups.
 
-**Managed Service for Redis**
+**{{ mrd-full-name }}**
 
 * Added support for {{ RD }} version 6.2.
 
@@ -3783,7 +3789,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 * `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update` commands.
 
-  Added the `--network-acceleration-type` parameter to specify network type for a node group: standard or software-accelerated.
+  Added the `--network-acceleration-type` setting to specify a node group’s network type: standard or software-accelerated.
 
 * `yc managed-kubernetes cluster create` command.
 
@@ -3829,7 +3835,7 @@ Added support for {{ cloud-logging-full-name }}.
 
   Added the `--num-partitions` and `--default-replication-factor` parameters to set and edit configuration settings of {{ KF }} brokers.
 
-**Managed Service for Redis**
+**{{ mrd-full-name }}**
 
 * `yc managed-redis cluster create\update` commands.
 
@@ -3869,7 +3875,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 #### Managed database services {#managed-db}
 
-**Managed Service for Redis**
+**{{ mrd-full-name }}**
 
 * `yc managed-redis cluster create` command
 
@@ -3968,7 +3974,7 @@ Added commands for managing the allowed IP addresses for pushing and pulling Doc
 
   Added the `admin` role, which allows you to enable {{ KF }} cluster topic management via AdminAPI.
 
-**Managed Service for Redis**
+**{{ mrd-full-name }}**
 
 * `yc managed-redis cluster create` command
 
@@ -4065,7 +4071,7 @@ Added the `yc iam federation list-user-accounts` command for listing federation 
 
 #### Managed database services {#managed-db}
 
-**{{ mmy-name }}, {{ mpg-name }}, {{ mch-name }}, Managed Service for Redis, {{ mmg-name }}, {{ mkf-name }}**
+**{{ mmy-name }}, {{ mpg-name }}, {{ mch-name }}, {{ mrd-full-name }}, {{ mmg-name }}, {{ mkf-name }}**
 
 * `yc <managed DB service name> cluster create`, `yc <managed DB service name> cluster update`, and `yc <managed DB service name> cluster restore` commands
 
@@ -4324,7 +4330,7 @@ These certificates can be used in {{ yandex-cloud }} services to provide connect
 
   The `--global-permissions` flag allows you to grant the `PROCESS` privilege.
 
-**{{ mch-name }}, {{ mmy-name }}, {{ mpg-name }}, Managed Service for Redis, {{ mmg-name }}**
+**{{ mch-name }}, {{ mmy-name }}, {{ mpg-name }}, {{ mrd-full-name }}, {{ mmg-name }}**
 
 * `yc <managed DB service name> cluster update` command
 
@@ -4454,7 +4460,7 @@ Added support for {{ api-gw-full-name }}.
 
 * Added the `yc managed-mysql cluster add-labels` and `yc managed-mysql cluster remove-labels` commands to manage labels.
 
-**Managed Service for Redis**
+**{{ mrd-full-name }}**
 
 * Added support for {{ RD }} version 6.
 
@@ -4518,7 +4524,7 @@ Added support for {{ api-gw-full-name }}.
 
   Added a column with `assign_public_ip` values to the output.
 
-**Managed Service for Redis**
+**{{ mrd-full-name }}**
 
 * `yc managed-redis host list` command
 
@@ -4567,7 +4573,7 @@ Added support for {{ api-gw-full-name }}.
 
   Added the `subnet-name` property to the `--host` parameter to specify a subnet by name.
 
-**{{ mmg-name }}, {{ mch-name }}, Managed Service for Redis**
+**{{ mmg-name }}, {{ mch-name }}, {{ mrd-full-name }}**
 
 * `yc <managed DB service name> cluster list-logs` command.
 
@@ -4640,7 +4646,7 @@ Added support for {{ api-gw-full-name }}.
 
   It allows you to manage ML models in {{ CH }} clusters.
 
-**{{ mmg-name }}, {{ mpg-name }}, {{ mmy-name }}, Managed Service for Redis**
+**{{ mmg-name }}, {{ mpg-name }}, {{ mmy-name }}, {{ mrd-full-name }}**
 
 * `yc <managed DB service name> cluster create`, `yc <managed DB service name> cluster update`, `yc <managed DB service name> cluster restore` commands.
 
@@ -4822,7 +4828,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
   Added renaming a cluster using the `--new-name` parameter.
 
-**Managed Service for Redis**
+**{{ mrd-full-name }}**
 
 * `{{ yc-mdb-rd }} cluster update` command
 
@@ -5148,7 +5154,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 #### Managed database services {#managed-db}
 
-**Managed Service for Redis**
+**{{ mrd-full-name }}**
 
 * `{{ yc-mdb-rd }} shards` command
 

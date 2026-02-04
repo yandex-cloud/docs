@@ -4288,6 +4288,7 @@ default:
           annotations: Аннотации
           evaluation-window:
             anomaly: Окно обучения
+          evaluation-window-key-value: Окно вычисления
           no-data: Обработка отсутствия данных
           notification-channels: Уведомления
           time-shift: Задержка вычисления
@@ -4507,6 +4508,8 @@ default:
           action_apply: Сохранить
       dashboard:
         notify:
+          action:
+            load-more: Загрузить ещё
           placeholder_add-user-action: Добавить
           title:
             notify: Получатели уведомлений от организации
@@ -4520,10 +4523,47 @@ default:
           action:
             console: Cloud Console
       dspm:
+        data-sources:
+          action_add_resources: Добавить группу ресурсов
+          action_create-source: Создать источник
+          label_create-source: Создать источник
+          label_field-name: Имя
+          label_source-info: Информация об источнике
+        scan-categories:
+          card_title_image: На изображениях
+          card_title_text: В тексте
+        scan-jobs:
+          field_data-sources: Источники данных
         scan-resource-group:
+          button_select_bucket: Выбрать бакет
+          button_select_cloud_catalog: Выбрать облако или каталог
+          file_type_all: Все файлы
+          file_type_custom: Свой фильтр
+          file_type_docx_txt: DOC / TXT
+          file_type_html_xml: HTML / XML
+          file_type_images: Изображения
+          file_type_pdf: PDF
+          file_type_pptx: PPT
+          file_type_xlsx_csv: XLS / CSV
+          label_field-excludeRegex: Имя файла не содержит
+          label_field-includeRegex: Имя файла содержит
+          label_include_files: Включать в выборку
           label_include_in_scan: Включать в сканирование
           public_buckets: Публичные бакеты
           title_all_buckets: Все бакеты
+        scans:
+          label_new-scan: Новое сканирование
+          section_access_title: Доступ к данным в источниках
+          section_scan-settings_job-name_label: Имя сканирования
+          section_scan-settings_method_label: Метод сканирования
+          section_scan-settings_schedule_custom: Своё количество дней
+          section_scan-settings_schedule_label: Запуск
+          section_scan-settings_schedule_single: Однократно
+          section_scan-settings_title: Настройки сканирования
+          section_search-categories_title: Категории данных для поиска
+          section:
+            scan-method_title_full: Полное
+            scan-method_title_partial: Частичное
       entity:
         certificate:
           action:
@@ -4640,6 +4680,9 @@ default:
           folders-create:
             button_create: Создать
             field_description: Описание
+        folder:
+          service-accounts:
+            dialog_select-service-account_create-new-action: Создать новый
       kspm:
         TopClustersByErrorsWidget:
           table_clusters: Топ кластеров с нарушениями
@@ -4825,10 +4868,15 @@ default:
         alerts:
           sink:
             action_create: Создать приёмник
+        dspm:
+          title_data-sources: Источники данных
+          title_scan-jobs: Регулярные сканирования
         kspm:
           title_clusters: Кластеры
           title_dashboard: Дашборд
+        label_acl-diagnostics: Диагностика доступа
         label_comp: Соответствие требованиям
+        label_dspm: Контроль данных
         label_kspm: Контроль Kubernetes{trademark}
         label_settings: Параметры Security Deck
       security:
@@ -4848,6 +4896,7 @@ default:
               rules-select_option_all: Все правила
               rules-select_option_selected: Выбранные правила
               section-title: Исключённые правила
+            label_active-exclusion_fjPgA: Активировать исключение
             scopeOfControl_aRkwB: Область действия контроля
             section-title_3YcSF: Причина исключения
             selectResources_bD5MC: Выбрать ресурсы
@@ -4856,6 +4905,11 @@ default:
             exceptions_header_qJD5D: Контроль Kubernetes{trademark}
             exceptions_header_vqsTb: Контроль Kubernetes{trademark}
             scope_filter_header_7CrSm: Контроль конфигурации
+          ControlsExceptionTable:
+            field_author: Автор
+            field_name: Исключение
+            field_rules: Правила
+            field_status: Статус
           ControlsPage:
             exceptions_kw1u7: Исключения
             kubernetes_jRCmt: Kubernetes{trademark}
@@ -4867,6 +4921,9 @@ default:
           ExceptionOverview:
             header_caption_cspm_9dTJt: Контроль конфигурации
             info_type_1dxbZ: Тип исключения
+          ResourceExceptionForm:
+            title_exclude_uK4FD: Не проверять ресурс
+            title_reportCompliance_re4wo: Ресурс проверен вручную
           rule-result:
             controlRule_kr2Bv: Правило контроля
             module_63uuk: Модуль контроля
@@ -4884,6 +4941,28 @@ default:
             field_type_exclude_cigcD: Не проверять ресурс
             field_type_kCG8J: Тип исключения
             field_type_manual_mbKxp: Ресурс проверен
+        dspm:
+          data-sources:
+            bXXxQ: Выбранные ресурсы
+          dataSourceTypes:
+            object_storage_meF3x: Object Storage
+            yandex_360_1TUsr: Яндекс 360
+          infoTypes:
+            value_financial-data_kTC5e: Финансовые данные
+            value_medical-data-images_7EQ2X: Медицинские данные
+            value_other_wUrAZ: Прочее
+            value_personal-data_w5gVm: Персональные данные
+            value_secrets_4CdGy: Секреты
+          ScanForm:
+            action_create-scan_dvakP: Создать сканирование без проверки
+          Yandex360DataSourceForm:
+            action_add_resources_2qrRH: Добавить ресурсы
+            action_configure-connection_v6Gjm: Настроить подключение
+            field_client_id_iVUvK: ClientID
+            field_client_secret_pcFGg: Client secret
+            label_all_disks_5KEY9: Все диски
+            section_organization_resources_title_5u8qX: Общие ресурсы организации
+            section_user_resources_title_aN75p: Пользовательские ресурсы
         kspm:
           TopControlsByErrorsWidget:
             table_controls_rJ32E: Топ правил с нарушениями
@@ -4902,7 +4981,6 @@ default:
             labelNameField: Имя
             labelServiceAccountField: Сервисный аккаунт
           module-cspm_gozhj: Контроль конфигурации (CSPM)
-          module-kspm_n9o93: Контроль Kubernetes{trademark} (KSPM)
           ServiceAccountResourceSelectDialog:
             action_save: Сохранить выбор
           WorkspaceEditPageLayout:
@@ -4953,6 +5031,9 @@ default:
           severity_info_biSRh: Замечание
           severity_low_tqf9A: Низкая критичность
           severity_medium_8LZ4w: Средняя критичность
+      storage:
+        value_private-bucket: Ограниченный
+        value_public-bucket: Публичный
       support:
         switch_tickets: Обращения
         tickets:
@@ -8168,6 +8249,7 @@ default:
           label_connected-security-profiles: Подключенные профили безопасности
           label_create-profile: Создать профиль ARL
           label_profiles: Профили ARL
+          label_rule-action-deny_3kenc: Блокировать запросы свыше лимита
           label_rule-without-grouping: Без группировки
           label_save-rule: Сохранить правило
           section_rules: Правила
@@ -10048,6 +10130,11 @@ default:
         service_account_id_name: Сервисный аккаунт
     yc-serverless-workflows:
       dynamic-forms:
+        ai_studio_agent_properties_message_view_spec_layout_title: Сообщение
+        ai_studio_agent_properties_prompt_template_id_view_spec_layout_title: Идентификатор агента
+        ai_studio_agent_properties_variables_view_spec_item_label: Добавить переменную
+        ai_studio_agent_properties_variables_view_spec_layout_title: Переменные промта
+        ai_studio_agent_title: Агент AI Studio
         common_retry_policy_view_spec_layout_title: Политика повторных попыток
         common_timeout_view_spec_layout_title: Таймаут, мс
         containers_integration_properties_body_view_spec_layout_title: Тело запроса

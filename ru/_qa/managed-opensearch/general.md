@@ -87,6 +87,26 @@ Unable to confirm permission 'data-transfer.transfers.createExternal'
 
 Чтобы исправить ошибку, укажите в настройках эндпоинта {{ OS }} идентификатор подсети, даже если источник и приемник доступны друг для друга без интернета.
 
+
+#### Как обеспечить доступ AI-моделей {{ ai-studio-full-name }} к кластеру {{ mos-name }} для дообучения? {#ai-access}
+
+Воспользуйтесь одним из способов:
+
+* Настройте доступ из интернета к хостам с ролями `DATA` и `MANAGER`:
+
+    1. [Включите](../../managed-opensearch/operations/host-groups.md#update-host-group) опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** в настройках группы хостов с ролями `DATA` и `MANAGER`.
+    1. [Настройте все группы безопасности](../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик на порт `{{ port-mos }}`. Для этого создайте следующее правило для входящего трафика:
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-mos }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+
+* Создайте и настройте NAT-шлюз:
+
+    1. [Создайте NAT шлюз](../../vpc/operations/create-nat-gateway.md).
+    1. [Создайте таблицу маршрутизации](../../vpc/operations/static-route-create.md) с префиксом `0.0.0.0/0` и привяжите ее к подсети, в которой находится группа хостов с ролями `DATA` и `MANAGER`.
+
+
 #### Какую часть работы по управлению и сопровождению баз данных берет на себя {{ mos-short-name }}? {#services}
 
 {% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}

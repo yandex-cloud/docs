@@ -15,7 +15,7 @@ description: Из этой инструкции вы узнаете, как на
 
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
   1. На панели слева выберите ![vector-circle](../../../_assets/console-icons/vector-circle.svg) **{{ ui-key.yacloud_org.app.security.label_workspace_12Kax }}**.
-  1. В верхней части окна нажмите кнопку **{{ ui-key.yacloud_components.cloud-center.action_more }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите нужное окружение. При необходимости воспользуйтесь поиском.
+  1. В верхней части окна выберите нужное окружение.
   1. Перейдите на вкладку **{{ ui-key.yacloud_org.security.workspaces.WorkspacePageLayout.acl_tab }}**.
   1. Чтобы назначить новому пользователю права доступа к окружению, нажмите кнопку ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.security.workspaces.WorkspaceParticipantsForm.action_add-user }}** и в открывшемся окне:
 

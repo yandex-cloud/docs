@@ -15,7 +15,7 @@ subcluster_name | Subcluster name
 
 ## CPU metrics {#managed-postgresql-cpu-metrics}
 
-These metrics show CPU core workload.
+These metrics show the processor core workload.
 
 The consumption type goes into the `systag` label.
 
@@ -53,7 +53,7 @@ The consumption type goes into the `systag` label.
 | `pg_backend_write_bytes`<br>`DGAUGE`, bytes per second | {{ PG }} process data write rate.<br/>Special labels:<ul><li>`backend_type`: Backend type</li><li>`database`: Database name</li><li>`user`: Username</li></ul> |
 
 
-## Disk operation metrics {#managed-postgresql-diskio-metrics}
+## Disk I/O metrics {#managed-postgresql-diskio-metrics}
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
@@ -71,23 +71,23 @@ The consumption type goes into the `systag` label.
 | `io.read_bytes`<br/>`DGAUGE`, bytes per second | Disk read rate |
 | `io.read_count`<br/>`DGAUGE`, operations per second | Number of read operations per second |
 | `io.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second |
-| `io.utilization`<br/>`DGAUGE`, % | Disk utilization disabled for network drives |
+| `io.utilization`<br/>`DGAUGE`, % | Disk utilization disabled for network drives. |
 | `io.write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed |
 | `io.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second |
 | `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
-| `monitoring_disk.io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Maximum percentage of disk I/O quota usage (burst) |
-| `monitoring_disk.io_quota_utilization_percentage`<br/>`DGAUGE`, % | Average percentage of disk I/O quota usage |
-| `monitoring_disk.read_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes read from disk per second |
-| `monitoring_disk.read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk per second |
+| `monitoring_disk.io_quota_utilization_percentage`<br/>`DGAUGE`, % | Average percentage of disk quota usage |
+| `monitoring_disk.io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Maximum percentage of disk quota usage |
+| `monitoring_disk.read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk. |
+| `monitoring_disk.read_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes read from disk |
 | `monitoring_disk.read_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk read request latency |
-| `monitoring_disk.read_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk reads |
 | `monitoring_disk.read_ops`<br/>`DGAUGE`, operations per second | Average number of disk reads |
+| `monitoring_disk.read_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk reads |
 | `monitoring_disk.read_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of read latency due to exceeded disk quota |
-| `monitoring_disk.write_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes written to disk per second |
-| `monitoring_disk.write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk per second |
+| `monitoring_disk.write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk. |
+| `monitoring_disk.write_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes written to disk |
 | `monitoring_disk.write_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk write request latency |
-| `monitoring_disk.write_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk write operations |
 | `monitoring_disk.write_ops`<br/>`DGAUGE`, operations per second | Average number of disk write operations |
+| `monitoring_disk.write_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk write operations |
 | `monitoring_disk.write_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of write latency due to exceeded disk quota |
 
 
@@ -101,10 +101,10 @@ The consumption type goes into the `systag` label.
 | `mem.available_bytes`<br/>`DGAUGE`, bytes | RAM usage, `available` usage type |
 | `mem.buffers_bytes`<br/>`DGAUGE`, bytes | RAM usage, `buffers` usage type |
 | `mem.cached_bytes`<br/>`DGAUGE`, bytes | RAM usage, `cached` usage type |
-| `mem.free_bytes`<br/>`DGAUGE`, bytes | Amount of free RAM available, excluding `mem.buffers_bytes` and `mem.cached_bytes` |
+| `mem.free_bytes`<br/>`DGAUGE`, bytes | Amount of free RAM available, excluding `mem.buffers_bytes` and `mem.cached_bytes`. |
 | `mem.shared_bytes`<br/>`DGAUGE`, bytes | RAM usage, `shared` usage type |
 | `mem.total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `total` usage type |
-| `mem.used_bytes`<br/>`DGAUGE`, bytes | Amount of RAM currently used by running processes |
+| `mem.used_bytes`<br/>`DGAUGE`, bytes | Amount of RAM currently used by running processes. |
 | `oom_count`<br/>`DGAUGE`, count | Number of out-of-memory events |
 
 
@@ -144,7 +144,7 @@ The consumption type goes into the `systag` label.
 | `od_cores.count`<br/>`DGAUGE`, count | Number of on-demand cores.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
 | `pg_log_counter.error_duplicate_table`<br/>`DGAUGE`, count | Number of {{ PG }} errors caused by attempts to create an existing table |
 | `pg_log_counter.error_query_canceled`<br/>`DGAUGE`, count | Number of canceled {{ PG }} queries |
-| `pg_log_counter.fatal_connection_failure`<br/>`DGAUGE`, count | Number of fatal {{ PG }} connection errors |
+| `pg_log_counter.fatal_connection_failure`<br/>`DGAUGE`, count | Number of fatal {{ PG }} connection errors. |
 | `pg_log_counter.fatal_invalid_password`<br/>`DGAUGE`, count | Number of fatal {{ PG }} connection errors due to an invalid password |
 | `postgres.corruption_found`<br/>`DGAUGE`, 0/1 | Indicator of data corruption in the {{ PG }} cluster<br/> `1` if corruption is detected, `0` if not.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
 | `postgres.slru_Clog_blks_hit`<br/>`DGAUGE`, count | Number of Clog page SLRU cache hits (transaction commit log) |
@@ -190,8 +190,8 @@ The consumption type goes into the `systag` label.
 | `postgres_oldest_query_duration`<br/>`DGAUGE`, seconds | Duration of the oldest query |
 | `postgres_oldest_transaction_duration`<br/>`DGAUGE`, seconds | Duration of the oldest transaction |
 | `postgres_pg_total_databases_size`<br/>`DGAUGE`, bytes | Total size of all databases |
-| `postgres_role_conn_limit`<br/>`DGAUGE`, count | Maximum number of concurrent sessions per user.<br/>Special labels:<ul><li>`database`: Database name</li><li>`user`: Username</li></ul> |
-| `postgres_role_sessions`<br/>`DGAUGE`, count | Number of active sessions per user.<br/>Special labels:<ul><li>`database`: Database name</li><li>`user`: Username</li></ul> |
+| `postgres_role_conn_limit`<br/>`DGAUGE`, count | Maximum number of concurrent sessions per user.<br/>Special labels:<ul><li>`database`: Database name.</li><li>`user`: Username</li></ul> |
+| `postgres_role_sessions`<br/>`DGAUGE`, count | Number of active sessions per user.<br/>Special labels:<ul><li>`database`: Database name.</li><li>`user`: Username</li></ul> |
 | `postgres_role_total_conn_limit`<br/>`DGAUGE`, count | Maximum possible number of concurrent sessions for all users |
 | `postgres_total_connections`<br/>`DGAUGE`, count | Number of connections |
 | `postgres_wait_event_CPU_CPU`<br/>`DGAUGE`, count | Number of {{ PG }} processes waiting for CPU time.<br/>Special labels:<ul><li>`database`: Database name</li><li>`user`: Username</li></ul> |
@@ -233,8 +233,8 @@ The consumption type goes into the `systag` label.
 #### Connection pooler metrics {#managed-postgresql-pooler-metrics}
 
 Special labels for Odyssey metrics:
-* `fqdn`: Host FQDN
-* `cid`: Cluster ID
+* `fqdn`: Host FQDN.
+* `cid`: Cluster ID.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
@@ -250,7 +250,7 @@ Special labels for Odyssey metrics:
 | `odyssey.minor_faults`<br/>`DGAUGE`, count | Number of Odyssey process minor memory page faults |
 | `odyssey.num_fds`<br/>`DGAUGE`, count | Number of Odyssey process open file descriptors |
 | `odyssey.running`<br/>`DGAUGE`, 0/1 | Indicates a running Odyssey process.<br/>Special labels:<ul><li>`pgrep`</li><li>`result`</li></ul> |
-| `odyssey.voluntary_context_switches`<br/>`DGAUGE`, count | Number of Odyssey process voluntary context switches|
+| `odyssey.voluntary_context_switches`<br/>`DGAUGE`, count | Number of Odyssey process voluntary context switches |
 | `pooler-avg_query_time`<br/>`DGAUGE`, milliseconds | Average query execution time per database host |
 | `pooler-avg_xact_time`<br/>`DGAUGE`, milliseconds | Average transaction execution time per database host |
 | `pooler-bytes_recieved`<br/>`DGAUGE`, bytes | Size of data received |

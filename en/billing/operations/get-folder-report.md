@@ -97,7 +97,8 @@ The table contains the following columns:
    * {{ mpg-short-name }}, {{ mch-short-name }}, {{ mmg-short-name }}, {{ mmy-short-name }}, {{ mrd-short-name }}, and {{ mkf-name }}: Host ID in the cluster.
    * {{ message-queue-name }}: Request ID.
    * {{ sf-name }}: Function ID.
-   * {{ monitoring-short-name }}, {{ datalens-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }}, and {{ vision-short-name }}: Empty value.
+   * {{ monitoring-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }}, and {{ vision-short-name }}: Empty value.
+   * {{ datalens-short-name }}: {{ datalens-short-name }} instance ID.
    * Technical support: Subscription ID.
 * `service_id`: ID of the service the consumed product belongs to.
 * `service_name`: Name of the service the consumed product belongs to.
@@ -108,7 +109,7 @@ The table contains the following columns:
 * `pricing_quantity`: Number of product units consumed. The decimal separator is a period.
 * `pricing_unit`: Product consumption unit.
 * `cost`: Total cost of consumption. The decimal separator is a period.
-* `credit`: Total discounts. Always negative. The decimal separator is a period.
+* `credit`: Total discounts. Not included in the total cost of consumption (`credit`). Always negative. The decimal separator is a period.
 * `monetary_grant_credit`: Grant discount, including the platform introduction grant. The decimal separator is a period.
 * `volume_incentive_credit`: Consumption volume discount. The decimal separator is a period.
 * `cud_credit`: Discount for the [committed](../concepts/cvos.md) resource volume. The cost of the consumption volume above the committed one equals the sum of the `cost` and `credit` column values. The decimal separator is a period.

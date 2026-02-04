@@ -16,7 +16,7 @@ The diagram shows that the user load and VM network traffic handling are distrib
 
 The processes maintaining the operation of [network disks](../../compute/concepts/disk.md) are separated from the user load and run on compute cores from a separate pool, the service cores labeled as `Core S1` and `Core Sn` in the diagram.
 
-You can isolate VM network traffic from the user load using the [software-accelerated network (SAN)](#san) mechanism.
+You can isolate VM network traffic processing from the user load using the [software-accelerated network (SAN)](#san) mechanism.
 
 ## Software-accelerated network {#san}
 
@@ -43,7 +43,7 @@ This way, SAN ensures there is no contention between user and service loads for 
 
 The [cost](../../compute/pricing.md#software-accelerated-network) of additional hardware resources depends on the [platform](../../compute/concepts/vm-platforms.md) and the number of VM cores.
 
-To enable a software-accelerated network:
+To enable a software-accelerated network, do the following:
 
 * Select the **{{ ui-key.yacloud.component.compute.resources.field_sw-accelerated-net }}** option when [creating a new VM](../../compute/operations/vm-create/create-linux-vm.md) or [reconfigure](../../compute/operations/vm-control/vm-update-resources.md#enable-software-accelerated-network) an existing VM.
 
@@ -51,7 +51,7 @@ To enable a software-accelerated network:
 
 ## Recommendations for using a software-accelerated network {#use-cases}
 
-We recommend enabling a software-accelerated network to speed up request handling:
+We recommend enabling a software-accelerated network to shorten request processing time:
 
 * On VMs with custom DB installations in the case of high [disk](../../compute/concepts/disk.md) and CPU utilization (over 70-80%).
 * If you see a high `CPU steal time` metric value inside a VM.

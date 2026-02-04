@@ -27,7 +27,7 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the parent [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) for the [registry](../concepts/registry.md) containing the Docker image.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Select the registry containing the Docker image or [create](registry/registry-create.md) a new one and [push](docker-image/docker-image-push.md) an image to it.
   1. Open the [repository](../concepts/repository.md) with the Docker image.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the Docker image and select **{{ ui-key.yacloud.cr.image.label_start-scan }}**.
@@ -128,7 +128,7 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the registry with Docker images belongs to.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Choose a registry or [create](registry/registry-create.md) a new one.
   1. Navigate to the **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}** tab.
   1. Click **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
@@ -157,7 +157,7 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the registry with Docker images belongs to.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Choose a registry or [create](registry/registry-create.md) a new one.
   1. Navigate to the **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}** tab.
   1. Click **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.

@@ -43,6 +43,8 @@ To have the parameter value substituted into the dataset-based selector when you
 
 The first parameter of the link is separated from the dashboard path with `?`, and the remaining parameters with `&`. For example, the `{{ link-datalens-main }}/test-dashboard?tab=test&OrderID=123456789` link contains the values for `tab` and `OrderID`.
 
+Using [special prefixes](#parameter-prefixes), you can define an operation to apply to the provided parameter value.
+
 The values in the link will take priority. For example, if the dashboard settings have `region` set to `RU`, and the dashboard link states `?region=KZ`, the `KZ` value will be fed to the widgets.
 
 
@@ -53,6 +55,44 @@ Chart parameters apply only to the chart itself. Thus, you can view the same cha
 You can transmit a parameter value to a wizard chart using field ID ([see the guide](../operations/chart/add-guid.md)).
 
 {% include [datalens-chart-parameters-example](../../_includes/datalens/datalens-chart-parameters-example.md) %}
+
+## Parameter prefixes {#parameter-prefixes}
+
+Prefixes enable you to define an operation to apply to the provided parameter value. Use the `<parameter_name>=<prefix><parameter_value>` format to provide them in URLs.
+
+Prefix | Operation
+------- | --------
+`__eq_` | Equal to
+`__ne_` | Not equal to
+`__gt_` | Greater than
+`__lt_` | Less than
+`__gte_` | Greater than or equal to
+`__lte_` | Less than or equal to
+`__istartswith_` | Starts with (case-insensetive)
+`__startswith_` | Starts with (case-sensetive)
+`__iendswith_` | Ends with (case-insensetive)
+`__endswith_` | Ends with (case-sensetive)
+`__icontains_` | Contains (case-insensetive)
+`__contains_` | Contain (case-sensetive)
+`__noticontains_` | Does not contain (case-insensetive)
+`__notcontains_` | Does not contain (case-sensetive)
+`__leneq_` | Length equal to
+`__lengt_` | Length greater than
+`__lengte_` | Length greater than or equal to
+`__lenlt_` | Length less than
+`__lenlte_` | Length less than or equal to
+`__in_` | Belongs to a set
+`__nin_` | Does not belong to a set
+`__isnull_`    | Empty
+`__isnotnull_` | Not empty
+
+Examples of using parameters with prefixes:
+
+* `{{ link-datalens-main }}/test-dashboard?price=__lte_1000`: `price` parameter value must be less than or equal to `1000`.
+* `{{ link-datalens-main }}/test-dashboard?category=__istartswith_Hous`: Value of the `category` parameter must start with `Hous` or `hous`, e.g., `Housing`, `House`, or `house`.
+* `{{ link-datalens-main }}/test-dashboard?category=__startswith_Hous`: Value of the `category` parameter must start with `Hous`, e.g., `Housing` or `House`.
+* `{{ link-datalens-main }}/test-dashboard?category=__leneq_15`: Value of the `category` parameter must be exactly `15` characters long, e.g., `Garden supplies` or `Kitchen gadgets`.
+* `{{ link-datalens-main }}/test-dashboard?category=__in_Garden%20supplies&__in_Kitchen%20gadgets`: Value of the `category` parameter must belong to the `Garden supplies` or `Kitchen gadgets` set.
 
 ## Special parameters {#special-parameters}
 

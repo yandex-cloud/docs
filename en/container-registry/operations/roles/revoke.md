@@ -7,9 +7,9 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to revoke a role for a resource.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Select a [registry](../../concepts/registry.md) or [repository](../../concepts/repository.md) in it.
-  1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Select a user from the list and click ![image](../../../_assets/console-icons/ellipsis.svg) next to the username.
   1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
   1. Click ![image](../../../_assets/console-icons/xmark.svg) next to the role to revoke.
@@ -33,7 +33,7 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
 
   1. Revoke a role:
      
-     * User:
+     * From a user:
        
        ```bash
        yc container <resource> remove-access-binding <resource_name_or_ID> \
@@ -41,7 +41,7 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
          --user-account-id <user_ID>
        ```
 
-     * [Service account](../../../iam/concepts/users/service-accounts.md):
+     * From a [service account](../../../iam/concepts/users/service-accounts.md):
        
        ```bash
        yc container <resource> remove-access-binding <resource_name_or_ID> \
@@ -49,7 +49,7 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
          --service-account-id <service_account_ID>
        ```
 
-     * All authorized users (the `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md)):
+     * From all authenticated users (the `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md)):
        
        ```bash
        yc container <resource> remove-access-binding <resource_name_or_ID> \

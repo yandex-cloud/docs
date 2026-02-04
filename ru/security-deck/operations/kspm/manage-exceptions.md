@@ -17,15 +17,15 @@ description: Инструкция по управлению исключения
 
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
   1. На панели слева выберите ![file-text](../../../_assets/console-icons/file-text.svg) **{{ ui-key.yacloud_org.app.security.control_rules_rWmUV }}**.
-  1. В верхней части окна нажмите кнопку **{{ ui-key.yacloud_components.cloud-center.action_more }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите [окружение](../../concepts/workspace.md), для которого хотите посмотреть информацию об исключениях из правил контроля. При необходимости воспользуйтесь поиском.
+  1. В верхней части окна выберите [окружение](../../concepts/workspace.md), для которого хотите посмотреть информацию об исключениях из правил контроля.
   1. На открывшейся странице **{{ ui-key.yacloud_org.security.controls.ControlsPage.security_control_r4yn7 }}** перейдите на вкладку **{{ ui-key.yacloud_org.security.controls.ControlsPage.exceptions_kw1u7 }}**.
 
-      Список исключений для правил {{ k8s }} приведен в блоке **{{ ui-key.yacloud_org.security.controls.ControlsExceptionsPage.exceptions_header_qJD5D }}** и содержит следующие поля:
-      * **Исключение** — причина исключения.
-      * **Статус** — активно или неактивно.
-      * **Правила** — список правил, проверка на соответствие с которыми исключена.
-      * **Автор** — пользователь, создавший исключение.
-      * **Дата создания** — дата и время создания исключения.
+      Список исключений для правил {{ k8s }} приведен в блоке **Контроль {{ k8s }}®** и содержит следующие поля:
+      * **{{ ui-key.yacloud_org.security.controls.ControlsExceptionTable.field_name }}** — причина исключения.
+      * **{{ ui-key.yacloud_org.security.controls.ControlsExceptionTable.field_status }}** — активно или неактивно.
+      * **{{ ui-key.yacloud_org.security.controls.ControlsExceptionTable.field_rules }}** — список правил, проверка на соответствие с которыми исключена.
+      * **{{ ui-key.yacloud_org.security.controls.ControlsExceptionTable.field_author }}** — пользователь, создавший исключение.
+      * **{{ ui-key.yacloud.common.created-at }}** — дата и время создания исключения.
 
 {% endlist %}
 
@@ -39,13 +39,13 @@ description: Инструкция по управлению исключения
 
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
   1. На панели слева выберите ![file-text](../../../_assets/console-icons/file-text.svg) **{{ ui-key.yacloud_org.app.security.control_rules_rWmUV }}**.
-  1. В верхней части окна нажмите кнопку **{{ ui-key.yacloud_components.cloud-center.action_more }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите [окружение](../../concepts/workspace.md), в котором вы хотите создать исключение из правил контроля. При необходимости воспользуйтесь поиском.
+  1. В верхней части окна выберите [окружение](../../concepts/workspace.md), в котором вы хотите создать исключение из правил контроля.
   1. На открывшейся странице **{{ ui-key.yacloud_org.security.controls.ControlsPage.security_control_r4yn7 }}** перейдите на вкладку **{{ ui-key.yacloud_org.security.controls.ControlsPage.exceptions_kw1u7 }}**.
-  1. В правом верхнем углу экрана нажмите кнопку **{{ ui-key.yacloud_org.security.controls.ControlsExceptionsPage.action_create }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите `{{ ui-key.yacloud_org.security.controls.ControlsExceptionsPage.exceptions_header_vqsTb }}`. В открывшемся окне:
+  1. В правом верхнем углу экрана нажмите кнопку **{{ ui-key.yacloud_org.security.controls.ControlsExceptionsPage.action_create }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите `Контроль {{ k8s }}®`. В открывшемся окне:
       1. В блоке **{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.scopeOfControl_aRkwB }}** укажите ресурсы, которые требуется исключить при проверке правил контроля {{ k8s }}:
 
           * `{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.allResources_2ax5E }}` — чтобы исключить из проверки все ресурсы, контролируемые в [окружении](../../concepts/workspace.md).
-          * `Выбранные ресурсы` — чтобы исключить из проверки только часть ресурсов. Чтобы выбрать ресурсы, исключаемые из проверки:
+          * `{{ ui-key.yacloud_org.security.dspm.data-sources.bXXxQ }}` — чтобы исключить из проверки только часть ресурсов. Чтобы выбрать ресурсы, исключаемые из проверки:
 
               * Нажмите кнопку ![circle-plus](../../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.selectResources_bD5MC }}**.
               * В открывшемся окне выберите ресурсы, исключаемые из правила, и нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
@@ -56,14 +56,14 @@ description: Инструкция по управлению исключения
 
               * Нажмите кнопку ![circle-plus](../../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.ExceptionRulesSection.action_select-rules }}**.
               * В открывшемся окне выберите правила, проверку на соответствие которым вы хотите исключить. При необходимости воспользуйтесь фильтром или поиском в верхней части окна.
-              * Нажмите кнопку **Сохранить выбор**.
+              * Нажмите кнопку **{{ ui-key.yacloud_org.security.workspaces.ServiceAccountResourceSelectDialog.action_save }}**.
       1. В блоке **{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.section-title_3YcSF }}** в свободной форме укажите причину, по которой вы создаете исключение.
-      1. Выберите ![image](../../../_assets/console-icons/toggle-on.svg) **Активировать исключение**.
+      1. Выберите ![image](../../../_assets/console-icons/toggle-on.svg) **{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.label_active-exclusion_fjPgA }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud_org.security.controls.ControlsExceptionsPage.action_create }}**
 
 {% endlist %}
 
-В результате созданное исключение отобразится в блоке **{{ ui-key.yacloud_org.security.controls.ControlsExceptionsPage.exceptions_header_vqsTb }}** на вкладке **{{ ui-key.yacloud_org.security.controls.ControlsPage.exceptions_kw1u7 }}** страницы **{{ ui-key.yacloud_org.security.controls.ControlsPage.security_control_r4yn7 }}**.
+В результате созданное исключение отобразится в блоке **Контроль {{ k8s }}®** на вкладке **{{ ui-key.yacloud_org.security.controls.ControlsPage.exceptions_kw1u7 }}** страницы **{{ ui-key.yacloud_org.security.controls.ControlsPage.security_control_r4yn7 }}**.
 
 ## Удалить исключение {#delete-exception}
 
@@ -75,7 +75,7 @@ description: Инструкция по управлению исключения
 
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
   1. На панели слева выберите ![file-text](../../../_assets/console-icons/file-text.svg) **{{ ui-key.yacloud_org.app.security.control_rules_rWmUV }}**.
-  1. В верхней части окна нажмите кнопку **{{ ui-key.yacloud_components.cloud-center.action_more }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите [окружение](../../concepts/workspace.md), в котором вы хотите удалить исключение из правил контроля. При необходимости воспользуйтесь поиском.
+  1. В верхней части окна нажмите кнопку выберите [окружение](../../concepts/workspace.md), в котором вы хотите удалить исключение из правил контроля.
   1. На открывшейся странице **{{ ui-key.yacloud_org.security.controls.ControlsPage.security_control_r4yn7 }}** перейдите на вкладку **{{ ui-key.yacloud_org.security.controls.ControlsPage.exceptions_kw1u7 }}**.
   1. В блоке **{{ ui-key.yacloud_org.security.controls.ExceptionOverview.header_caption_cspm_9dTJt }}** в строке с исключением, которое вы хотите удалить, нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
 

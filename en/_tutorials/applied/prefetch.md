@@ -141,7 +141,7 @@ Create two buckets: one will store files and the other, request logs for the fir
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display the settings for the bucket being created. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display the settings for the bucket being created. {{ TF }} will show any errors in the configuration.
   1. Deploy the bucket:
      1. If the configuration does not contain any errors, run this command:
 
@@ -272,7 +272,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -397,7 +397,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. This is a test step; no resources will be created. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. This is a test step; no resources will be created. {{ TF }} will show any errors in the configuration.
   1. Apply the configuration changes:
      1. If the configuration does not contain any errors, run this command:
 
@@ -405,7 +405,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources: type `yes` and press **Enter**.
 
      This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
   1. Enable client redirects for the resource. In the CDN resource settings, add this field at the top of the `options` section:
@@ -423,7 +423,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
      terraform plan
      ```
 
-     If the configuration description is correct, the terminal will display a list of updated resources and their properties. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of updated resources and their properties. {{ TF }} will show any errors in the configuration.
   1. If there are no errors, run this command:
 
      ```bash
@@ -450,12 +450,12 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
 
      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Select the CDN resource you created (the list of resources will contain its primary domain name: `cdn.ycprojectblue.example`).
-     1. On the **{{ ui-key.yacloud.common.overview }}** tab, under **{{ ui-key.yacloud.cdn.label_dns-settings_title }}**, copy the generated domain name to the clipboard in `{{ cname-example-yc }}` format.
+     1. In the **{{ ui-key.yacloud.common.overview }}** tab, under **{{ ui-key.yacloud.cdn.label_dns-settings_title }}**, copy the generated domain name in `{{ cname-example-yc }}` format.
 
    {% endlist %}
 
 1. Navigate to your domain’s DNS settings on your DNS hosting provider’s website.
-1. Edit the [CNAME record](../../dns/concepts/resource-record.md#cname) for `cdn` so that it points to the `.yccdn.cloud.yandex.net` or `.edgecdn.ru` URL you previously copied, e.g.:
+1. Edit the [CNAME record](../../dns/concepts/resource-record.md#cname) for `cdn` so that it points to the `.yccdn.cloud.yandex.net` URL you previously copied, e.g.:
 
    ```http
    cdn CNAME {{ cname-example-yc }}.
@@ -483,7 +483,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
         1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
         1. Under **{{ ui-key.yacloud.common.name }}**, specify `cdn` so that the record matches the `cdn.ycprojectblue.example` domain name.
         1. Select the record **{{ ui-key.yacloud.common.type }}**: `CNAME`.
-        1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the `.yccdn.cloud.yandex.net` or `.edgecdn.ru` URL you copied with a trailing dot.
+        1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the `.yccdn.cloud.yandex.net` URL you copied with a trailing dot.
         1. Click **{{ ui-key.yacloud.common.create }}**.
 
    - CLI {#cli}

@@ -70,7 +70,7 @@ description: Вы можете отслеживать состояние инс�
 1. **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}** — **Меньше или равно**.
 1. **{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}** — 7% от размера хранилища.
 1. **{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}** — 10% от размера хранилища.
-1. **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window }}** — 5 минут.
+1. **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window-key-value }}** — 5 минут.
 1. **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.time-shift }}** — 30 секунд.
 
 ## Статусы инстанса {#statuses}

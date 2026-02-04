@@ -75,7 +75,7 @@ To create a {{ managed-k8s-name }} node group:
    * Select a [platform](../compute/concepts/vm-platforms.md).
    * Specify the required number of vCPUs, [guaranteed vCPU performance](../compute/concepts/performance-levels.md), and the amount of RAM.
    * Optionally, make the VM instance [preemptible](../compute/concepts/preemptible-vm.md) by checking the relevant box.
-   * Optionally, enable a [software-accelerated network](../compute/concepts/software-accelerated-network.md).
+   * Optionally, enable a [software accelerated network](../compute/concepts/software-accelerated-network.md).
 
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_disk }}**:
    * Specify the **{{ ui-key.yacloud.k8s.node-groups.create.field_disk-type }}** for the {{ managed-k8s-name }} group nodes:

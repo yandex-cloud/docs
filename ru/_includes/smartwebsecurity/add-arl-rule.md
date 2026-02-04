@@ -11,4 +11,6 @@
 
 1. {% include [arl-rule-action-over-limit](arl-rule-action-over-limit.md) %}
 
+1. (Опционально) Выберите или [создайте](../../smartwebsecurity/operations/template-create.md) шаблон ответа, который будет возвращаться клиенту при срабатывании правила. По умолчанию используется стандартный шаблон {{ yandex-cloud }}.
+
 1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.arl.label_save-rule }}**.

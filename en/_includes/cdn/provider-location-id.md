@@ -1,4 +1,4 @@
-The shielding servers are located in different geographical locations. Select location ID and name:
+The shielding servers are located in different geographical locations:
 
 | Provider | Location ID | Location name
 | --- | --- | --- |
