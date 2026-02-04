@@ -111,7 +111,7 @@ containers:
 
 ### Resource Quota {#resource-quota}
 
-Используйте `ResourceQuota` для ограничения ресурсов, которые могут быть использованы в рамках одного пространства имен:
+Используйте политику `ResourceQuota` для ограничения ресурсов, которые могут быть использованы в рамках одного пространства имен:
 
 ```yaml
 ---
@@ -141,14 +141,14 @@ spec:
 
 | Тип ресурса | Параметры | Описание |
 | --- | --- | --- |
-| Вычислительные | `requests.cpu`, `requests.memory`, `limits.cpu`, `limits.memory` | Суммарные запросы и лимиты CPU и RAM для всех подов в namespace |
+| Вычислительные | `requests.cpu`, `requests.memory`, `limits.cpu`, `limits.memory` | Суммарные запросы и лимиты vCPU и RAM для всех подов в пространстве имен |
 | Хранилище | `requests.storage`, `persistentvolumeclaims` | Общий объем запрашиваемого хранилища и количество PVC |
 | Количество объектов | `pods`, `services`, `secrets`, `configmaps`, `replicationcontrollers`, `deployments.apps`, `statefulsets.apps`, `jobs.batch`, `cronjobs.batch` | Максимальное количество объектов каждого типа |
-| Расширенные ресурсы | `requests.nvidia.com/gpu`, `limits.nvidia.com/gpu` | Ресурсы GPU и другие extended resources |
+| Расширенные ресурсы | `requests.nvidia.com/gpu`, `limits.nvidia.com/gpu` | Ресурсы GPU и другие `extended resources` |
 
 {% note tip %}
 
-Комбинируйте `ResourceQuota` с `LimitRange`: квота ограничивает суммарное потребление в namespace, а `LimitRange` задает значения по умолчанию и границы для отдельных контейнеров.
+Комбинируйте `ResourceQuota` с `LimitRange`: `ResourceQuota` ограничивает суммарное потребление ресурсов в пространстве имен, а `LimitRange` задает значения по умолчанию и границы для отдельных контейнеров.
 
 {% endnote %}
 
