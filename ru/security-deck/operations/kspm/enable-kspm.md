@@ -40,7 +40,7 @@ description: Инструкция по активации и настройке 
       Вы можете выбрать одновременно несколько стандартов. При этом в блоке **{{ ui-key.yacloud_org.security.workspaces.WorkspaceStandardsForm.modules_title_s8LDi }}** будут отображаться модули {{ sd-name }}, которые будут активированы в создаваемом окружении для проверки ресурсов на соответствие выбранным стандартам и нормативным актам.
 1. Завершите настройку KSPM:
     1. На странице созданного окружения нажмите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud_org.security.workspaces.WorkspacePageLayout.edit_action }}**.
-    1. Перейдите на вкладку **{{ ui-key.yacloud_org.security.workspaces.WorkspaceEditPageLayout.tabKubernetes_rC2uU }}**.
+    1. Перейдите на вкладку **Контроль {{ k8s }}®**.
     1. В блоке **{{ ui-key.yacloud_org.security.workspaces.WorkspaceKspmResourcesForm.section-title_iYCNY }}** выберите облака, каталоги или кластеры в пределах ресурсов окружения, в которых будет производиться контроль за соблюдением правил безопасности {{ k8s }}.
 
         {% note warning %}

@@ -30,7 +30,7 @@ This section explains you how to change the number and performance of vCPUs and 
   1. Click **{{ ui-key.yacloud.common.stop }}** in the top-right corner of the page.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
   1. Wait until the VM status changes to `Stopped`, then click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}** in the top-right corner of the page.
-  1. Change the VM [configuration](../../concepts/performance-levels.md) under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**. To do this:
+  1. Change the VM [configuration](../../concepts/performance-levels.md) under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**. Proceed as follows:
 
       * Go to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab.
       * Select a [platform](../../concepts/vm-platforms.md).

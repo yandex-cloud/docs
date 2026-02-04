@@ -182,7 +182,7 @@ To configure HTTP request and response headers for a resource:
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+     You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
   1. Apply the changes:
      ```bash

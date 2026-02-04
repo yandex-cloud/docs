@@ -54,7 +54,7 @@ To get started with {{ maf-name }}:
 1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
 1. Click **{{ ui-key.yacloud.airflow.button_create-cluster }}**.
 1. Configure your cluster and click **{{ ui-key.yacloud.common.create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
-1. Wait until the cluster is ready: its status on the {{ maf-name }} dashboard will change to **Running** and its state, to **Alive**. This may take a while.
+1. Wait until the cluster is ready to work: its status will change to **Running**, and its state to **Alive**. This may take a while. To check its state, hover over the cluster status in the **{{ ui-key.yacloud.common.availability }}** column.
 
 ## Open the {{ AF }} web interface {#web-gui}
 

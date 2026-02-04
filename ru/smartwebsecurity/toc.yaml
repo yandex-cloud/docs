@@ -75,6 +75,14 @@ items:
             href: operations/validate-availability.md
       - name: Списки адресов
         href: operations/list-create.md
+      - name: Шаблоны ответов
+        items:
+          - name: Создать шаблон
+            href: operations/template-create.md
+          - name: Добавить шаблон к профилю или правилу
+            href: operations/template-attach.md
+          - name: Управлять шаблоном
+            href: operations/template-manage.md
       - name: Обязательные и рекомендуемые правила
         items:
           - name: Правило для капчи
@@ -206,6 +214,8 @@ items:
         href: concepts/botes.md
       - name: Защита доменов
         href: concepts/domain-protect.md
+      - name: Шаблоны ответов
+        href: concepts/response-templates.md
       - name: Логирование
         href: concepts/logging.md
       - name: Квоты и лимиты

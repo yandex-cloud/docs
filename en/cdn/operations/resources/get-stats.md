@@ -21,7 +21,7 @@ For a full list of metrics, see [this reference](../../metrics-yc.md).
   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Select the CDN resource for which you want to get the statistics.
   1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.
-  1. Select the statistics time interval: 1 hour, 3 hours, 1 day, 1 week, or 1 month.
+  1. Select the time period for which you want to view the statistics: 1 hour, 3 hours, 1 day, 1 week, or 1 month.
 
       The tab displays the following dashboards:
 
@@ -47,7 +47,7 @@ For a full list of metrics, see [this reference](../../metrics-yc.md).
   1. In the [management console]({{ link-console-main }}), select the folder where the CDN resource was created.
   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. In the left-hand panel, select ![image](../../../_assets/monitoring/concepts/visualization/legend-goto-chart.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
-  1. In the query, specify the following:
+  1. In the query string, specify the following:
       1. **{{ cdn-name }}**.
       1. Metric you want to visualize.
       1. Metric label.

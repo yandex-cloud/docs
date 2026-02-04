@@ -15,6 +15,8 @@ description: Следуя данной инструкции, вы сможете
   1. Введите имя профиля.
   1. (Опционально) Введите описание.
   1. (Опционально) Добавьте профилю [метки](../../resource-manager/concepts/labels.md).
+  1. (Опционально) Выберите или [создайте](template-create.md) шаблон ответа, который будет возвращаться клиенту при срабатывании любого правила в профиле. По умолчанию используется стандартный шаблон {{ yandex-cloud }}.
+  1. {% include [choose-or-create-template](../../_includes/smartwebsecurity/choose-or-create-template.md) %}
   1. [Добавьте](arl-rule-add.md) правила ARL.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 

@@ -1,9 +1,32 @@
 ---
 title: '{{ compute-full-name }} release notes'
-description: This section contains {{ compute-name }} release notes.
+description: This section contains the {{ compute-name }} release notes.
 ---
 
 # {{ compute-full-name }} release notes
+
+## Q3–Q4 2025 {#q3-q4-2025}
+
+* New VM [platforms](./concepts/vm-platforms.md) are now available:
+  * AMD Zen 4 (`standard-v4a`).
+  * AMD Zen 4 Compute-Optimized (`highfreq-v4a`).
+  * GPU PLATFORM V4 (`gpu-platform-v4`) with [GPU cluster](./concepts/gpus.md#gpu-clusters) support.
+* Introduced the following new VM [hardware generations](./concepts/hardware-generations.md) on `PCI_TOPOLOGY_V2` with increased disk and network interface limits:
+  * `Gen 1.2` with a [BIOS](https://en.wikipedia.org/wiki/BIOS) bootloader.
+  * `Gen 2` with a [UEFI](https://en.wikipedia.org/wiki/UEFI) bootloader.
+* Changed the logic of [instance groups during a zonal incident](./concepts/instance-groups/zonal-inc/overview.md#multi-zone-in) to reduce impact and improve manageability.
+* Added support for [zonal shift of instance groups](./concepts/instance-groups/disable-enable-zone.md).
+* Updated the logic of [reserved instance pools](./concepts/reserved-pools.md); pool management is now also available in the [management console]({{ link-console-main }}/link/compute).
+* Added support for [generating SSH keys](./operations/vm-connect/ssh.md#creating-ssh-keys) in the [management console]({{ link-console-main }}/link/compute).
+* Introduced the [yc compute maintenance](./cli-ref/maintenance/index.md) command group to the {{ yandex-cloud }} CLI to manage VM maintenance.
+* Added the following [{{ at-name }} management events](./at-ref.md#control-plane-events):
+  * `instancegroup.DisableZones`: Zonal shift.
+  * `instancegroup.EnableZones`: Enabling availability zones.
+* Added support for the following new [{{ monitoring-full-name }} metrics](./metrics.md#fs-metrics):
+  * `filestore.index_cumulative_time`: Total time of indexing operations in the file storage.
+  * `filestore.index_latency`: Delay when performing indexing operations in the file storage. 
+* Updated the instance group deletion behavior: you can no longer pause processes in the group being deleted. Also, you cannot run any operations for paused instance groups.
+* Removed the simple VM creation form from the [management console]({{ link-console-main }}/link/compute).
 
 ## Q2 2025 {#q2-2025}
 

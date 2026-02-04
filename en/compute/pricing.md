@@ -29,7 +29,7 @@ For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=
 
 The {{ compute-name }} usage cost includes:
 * VM computing resources:
-  * Type and number of cores (vCPUs).
+  * Type and number of vCPUs.
   * Number of graphics accelerators ([GPUs](concepts/gpus.md)). 
   * Amount of RAM.
 * Operating systems.
@@ -170,12 +170,12 @@ An `intel-6338-c108-m704-n3200x6` dedicated host running for an hour is charged 
 
 ### Using a software-accelerated network {#software-accelerated-network}
 
-In {{ compute-name }}, a [software-accelerated network](./concepts/software-accelerated-network.md) operates on additional vCPUs, which are subject to a fee. The table below shows how many additional vCPUs are required for each platform based on the number of VM vCPUs:
+In {{ compute-name }}, a [software-accelerated network](./concepts/software-accelerated-network.md) operates on additional vCPUs, which are subject to a fee. The table below shows the number of additional vCPUs depending on platform and the number of VM vCPUs:
 
 
 #|
 || **Platform** | **VM vCPUs** | **Additional vCPUs** 
-**for software-accelerated network** ||
+**for a software-accelerated network** ||
 || Intel Broadwell | fewer than 18 | 2 ||
 || ^ | 18 and more | 4 ||
 || Intel Cascade Lake | fewer than 20 | 2 ||
@@ -198,11 +198,13 @@ In {{ compute-name }}, a [software-accelerated network](./concepts/software-acce
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ compute-name }} provides two types of CVoS: for vCPUs and RAM. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
+{{ compute-name }} provides two types of CVoS: for vCPUs and RAM. In the management console, you can see how much you can potentially save with CVoS at your current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
-A CVoS discount is only available for certain types of resources. For unsupported resource types, the relevant CVoS columns under [Prices for the Russia region](#prices) are blank. Currently, you cannot order storage or web traffic this way.
+For resources provided under CVoS, the [Prices for the Russia region](#prices) section presents their CVoS prices separately with expiration date.
+
+Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 

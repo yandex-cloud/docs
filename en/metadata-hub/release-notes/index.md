@@ -66,7 +66,7 @@ Improved metadata profiling and contextual search.
 
 #### New features {#new-features-sep25}
 
-* [{{ connection-manager-name }}](../concepts/connection-manager.md) has entered the [General Availability stage](../../overview/concepts/launch-stages.md); added support for YC CLI and Terraform.
+* [{{ connection-manager-name }}](../concepts/connection-manager.md) has entered the [General Availability stage](../../overview/concepts/launch-stages.md); added support for YC CLI and {{ TF }}.
 
 
 * [{{ metastore-full-name }}](../concepts/metastore.md) has entered the [General Availability stage](../../overview/concepts/launch-stages.md); the use of clusters is now [charged](../pricing.md).

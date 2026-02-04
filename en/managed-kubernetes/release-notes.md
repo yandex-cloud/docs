@@ -9,6 +9,29 @@
 
 {{ managed-k8s-full-name }} [release channels](./concepts/release-channels-and-updates.md) receive updates in the set order. First, updates with new features and improvements are released in the `rapid` channel, after a while, in the `regular` channel, and only then they become available in the `stable` channel.
 
+## Q4 2025 {#q4-2025}
+
+### Improvements {#q4-2025-improvements}
+
+* Added support for {{ k8s }} [1.34](https://kubernetes.io/blog/2025/08/27/kubernetes-v1-34-release/). For more information, see [{#T}](./concepts/release-channels-and-updates.md).
+* Added support for [cluster autoscaling](./concepts/autoscale.md#ca) in response to pod requests for [ephemeral storage](https://kubernetes.io/docs/concepts/storage/ephemeral-storage/).
+* Upgraded the [node-problem-detector](https://github.com/kubernetes/node-problem-detector) component to version [0.8.21](https://github.com/kubernetes/node-problem-detector/releases/tag/v0.8.21). Enabled an endpoint for collecting metrics from this component. 
+* Added the `criticalAddonsOnly` field to the `calico-typha-horizontal-autoscaler` and `calico-typha-vertical-autoscaler` manifests to be able to group system pods on specific nodes.
+
+### Fixes {#q4-2025-problems-solved}
+
+* Fixed the [issue](https://github.com/kubernetes/kubernetes/issues/126440) of containers in pods remaining in `Created` status in clusters with {{ k8s }} versions 1.29 or 1.30.
+* Fixed the [ip-masq-agent](https://github.com/kubernetes-sigs/ip-masq-agent) configuration issue that could lead to traffic loss in clusters with large numbers of `LoadBalancer`-type services under heavy traffic.
+* Fixed the issue where in some cases attempts to create several node groups at the same time resulted in creating one group only.
+* Updated IP address range validation for cluster services (Service CIDR). Now the range cannot be wider than `/12`.
+* Fixed the issue where the user's cluster stop operation would freeze if the service account lacked permissions, e.g., if the service account's permissions were revoked before the cluster was stopped.
+
+### Other updates {#q4-2025-other-changes}
+
+* Added cluster-level permission checks for all operations with clusters and node groups.
+* Changed permissions for access to {{ k8s }} configuration files on cluster nodes to more restrictive values for better security.
+* Now it is impossible to delete a {{ kms-full-name }} encryption key if it is used for encryption in a {{ managed-k8s-full-name }} cluster.
+
 ## Q3 2025 {#q3-2025}
 
 ### New features {#q3-2025-new-features}

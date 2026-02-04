@@ -258,6 +258,8 @@
 
 {% endlist %}
 
+{% include [update time](../../_includes/managed-kubernetes/note-update-time.md) %}
+
 ### Ручное обновление версии кластера {#cluster-manual-upgrade}
 
 При необходимости обновите версию кластера {{ managed-k8s-name }} вручную. За один этап кластер {{ managed-k8s-name }} можно обновить только до следующей минорной версии относительно текущей. Обновление до более новых версий производится в несколько этапов, например: 1.19 → 1.20 → 1.21.
@@ -494,7 +496,6 @@
 
        * `max_unavailable` — максимальное количество недоступных узлов группы при ее обновлении.
 
-
        {% note info %}
 
        Параметры `max_expansion` и `max_unavailable` следует использовать совместно.
@@ -605,6 +606,8 @@
     {% include [note-expansion-group-vm](../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
 
 {% endlist %}
+
+{% include [update time](../../_includes/managed-kubernetes/note-update-time.md) %}
 
 ### Ручное обновление версии группы узлов {#node-group-manual-upgrade}
 
@@ -817,3 +820,9 @@
   * Новые дату и время обновления в формате `YYYY-MM-DDThh:mm:ssZ` в параметре `delayedUntil`. Например: `2026-01-01T21:00:00Z`.
 
 {% endlist %}
+
+{% note info %}
+
+Обновление может начаться позже указанного времени.  
+
+{% endnote %}

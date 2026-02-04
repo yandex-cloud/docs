@@ -24,6 +24,8 @@ You can [add](#add) and [delete](#delete) neural translation while uploading or 
   1. Click **{{ ui-key.yacloud_video.common.action_create }}**.
   1. Click **{{ ui-key.yacloud_video.common.action_accept }}**.
 
+  The [audio track you added](../player-control.md#audio) can be selected when viewing the video in the player menu.
+
 {% endlist %}
 
 

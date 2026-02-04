@@ -11,8 +11,7 @@ _Points of presence_, or PoPs, are geographically distributed physical CDN serve
 
 {% note info %}
 
-We are continuously developing and expanding the {{ cdn-full-name }} network with new points of presence. For the current list of subnets, see [{{ cdn-name }}](../../overview/concepts/public-ips.md#cloud-cdn).
-
+We are continuously developing and expanding the {{ cdn-full-name }} network with new points of presence. For the current list of subnets, see [{{ cdn-name }} public IP address ranges](../../overview/concepts/public-ips.md#cloud-cdn).
 
 {% endnote %}
 

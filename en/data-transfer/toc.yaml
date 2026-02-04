@@ -484,6 +484,8 @@ items:
     items:
       - name: All release notes
         href: release-notes/index.md
+      - name: December 2025
+        href: release-notes/2512.md
       - name: November 2025
         href: release-notes/2511.md
       - name: October 2025

@@ -21,9 +21,7 @@ To create an [origin group](../../concepts/origins.md):
      * Specify an origin.
      * Select the **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.value_active }}` or `{{ ui-key.yacloud.cdn.value_backup }}`. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
      * Add other origins if needed.
-  1. Select the CDN provider. The default provider is `{{ cdn-full-name }}`.
-
-      A CDN resource and its origin group must be associated with the same CDN provider.
+  1. Select the CDN provider. Always set it to `{{ cdn-full-name }}`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -93,8 +91,6 @@ To create an [origin group](../../concepts/origins.md):
      ```
 
 - API {#api}
-
-  If you have not created any origin groups before, connect to the CDN provider. To do this, use the [activate](../../api-ref/Provider/activate.md) REST API method for the [Provider](../../api-ref/Provider/index.md) resource or the [ProviderService/Activate](../../api-ref/grpc/Provider/activate.md) gRPC API call.
 
   Use the [create](../../api-ref/OriginGroup/create.md) REST API method for the [OriginGroup](../../api-ref/OriginGroup/index.md) resource or the [OriginGroupService/Create](../../api-ref/grpc/OriginGroup/create.md) gRPC API call.
 

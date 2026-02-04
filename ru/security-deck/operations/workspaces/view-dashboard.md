@@ -17,7 +17,7 @@ description: Из этой инструкции вы узнаете, как по
 
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
   1. На панели слева выберите ![vector-circle](../../../_assets/console-icons/vector-circle.svg) **{{ ui-key.yacloud_org.app.security.label_workspace_12Kax }}**.
-  1. В верхней части окна нажмите кнопку **{{ ui-key.yacloud_components.cloud-center.action_more }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите нужное [окружение](../../concepts/workspace.md). При необходимости воспользуйтесь поиском.
+  1. В верхней части окна выберите нужное [окружение](../../concepts/workspace.md).
   1. Перейдите на вкладку **{{ ui-key.yacloud_org.security.workspaces.WorkspacePageLayout.overview_tab }}**.
 
       На открывшемся дашборде будет отображена основная информация о результатах проверок безопасности в выбранном окружении. В зависимости от настроенных в окружении модулей {{ sd-name }} дашборд содержит карточки с общими сведениями:
@@ -36,7 +36,7 @@ description: Из этой инструкции вы узнаете, как по
 
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
   1. На панели слева выберите ![vector-circle](../../../_assets/console-icons/vector-circle.svg) **{{ ui-key.yacloud_org.app.security.label_workspace_12Kax }}**.
-  1. В верхней части окна нажмите кнопку **{{ ui-key.yacloud_components.cloud-center.action_more }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите нужное окружение. При необходимости воспользуйтесь поиском.
+  1. В верхней части окна выберите нужное окружение.
   1. Перейдите на вкладку **{{ ui-key.yacloud_org.security.workspaces.WorkspacePageLayout.operations_tab }}**.
 
       На открывшейся странице отобразится список с операциями, выполненными и выполняемыми с выбранным окружением. Список операций содержит следующую информацию об операциях:

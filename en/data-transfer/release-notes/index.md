@@ -1,7 +1,8 @@
 ---
 title: '{{ data-transfer-full-name }} release notes'
-description: This section contains {{ data-transfer-name }} release notes.
+description: This section contains the {{ data-transfer-name }} release notes.
 ---
+
 
 <!-- Changelog begin -->
 
@@ -9,8 +10,10 @@ description: This section contains {{ data-transfer-name }} release notes.
 
 <!-- Changelog end -->
 
+
 # {{ data-transfer-name }} release notes
 
+- [December 2025](2512.md)
 - [November 2025](2511.md)
 - [October 2025](2510.md)
 - [September 2025](2509.md)

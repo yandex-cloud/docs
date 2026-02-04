@@ -7,6 +7,7 @@ description: Various use cases for core infrastructure management systems in {{ 
 
 * [Architecture and protection of a basic internet service](../routing/web-service.md)
 * [{#T}](billing-resource-detailing.md)
+* [{#T}](./info-for-federal-ip-whitelist.md)
 
 ## Fault tolerance and scaling {#fault-tolerance}
 
@@ -25,7 +26,7 @@ description: Various use cases for core infrastructure management systems in {{ 
 ## Tools {#tools}
 
 * [Getting started with {{ TF }}](../infrastructure-management/terraform-quickstart.md)
-* [Terraform data sources](../infrastructure-management/terraform-data-sources.md)
+* [{{ TF }} data sources](../infrastructure-management/terraform-data-sources.md)
 * [Uploading {{ TF }} states to {{ objstorage-full-name }}](../infrastructure-management/terraform-state-storage.md)
 * [Getting started with Packer](../infrastructure-management/packer-quickstart.md)
 * [Building a VM image with infrastructure tools using Packer](../infrastructure-management/packer-custom-image.md)
@@ -40,11 +41,11 @@ description: Various use cases for core infrastructure management systems in {{ 
 ## Network {#routing}
 
 * [Configuring clock synchronization using NTP](../infrastructure-management/ntp.md)
-* [DHCP settings for working with a corporate DNS server](../routing/dhcp-options.md)
+* [DHCP settings for interfacing with a corporate DNS server](../routing/dhcp-options.md)
 * [Routing through a NAT instance](../routing/nat-instance/index.md)
 * [Installing the Cisco CSR 1000v virtual router](../routing/cisco.md)
 * [Installing a Mikrotik CHR virtual router](../routing/mikrotik.md)
-* [Installing an NGINX Ingress Controller with a {{ certificate-manager-name }} certificate](../container-infrastructure/nginx-ingress-certificate-manager.md)
+* [Installing an NGINX ingress controller with a {{ certificate-manager-name }} certificate](../container-infrastructure/nginx-ingress-certificate-manager.md)
 
 ## VPNs {#vpns}
 
@@ -58,7 +59,7 @@ description: Various use cases for core infrastructure management systems in {{ 
 * [Migrating DNS zones from {{ yandex-360 }} to {{ dns-name }}](../infrastructure-management/connect-migration.md)
 * [{#T}](../dataplatform/clickhouse-dns-peering.md)
 * [{#T}](../infrastructure-management/dns-integration.md)
-* [Creating an ACME resolver webhook for responses to DNS01 checks](../infrastructure-management/cert-manager-webhook.md)
+* [Creating an ACME resolver webhook for responses to DNS01 challenges](../infrastructure-management/cert-manager-webhook.md)
 
 ## GPU {#gpu}
 

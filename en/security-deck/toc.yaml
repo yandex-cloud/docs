@@ -110,6 +110,72 @@ items:
         href: security/alerts-roles.md
   - name: Pricing policy
     href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: Alert
+            items:
+              - name: Overview
+                href: api-ref/grpc/Alert/index.md
+              - name: List
+                href: api-ref/grpc/Alert/list.md
+              - name: Get
+                href: api-ref/grpc/Alert/get.md
+              - name: Update
+                href: api-ref/grpc/Alert/update.md
+              - name: ListRelatedResources
+                href: api-ref/grpc/Alert/listRelatedResources.md
+          - name: Comment
+            items:
+              - name: Overview
+                href: api-ref/grpc/Comment/index.md
+              - name: List
+                href: api-ref/grpc/Comment/list.md
+              - name: Create
+                href: api-ref/grpc/Comment/create.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Alert
+            items:
+              - name: Overview
+                href: api-ref/Alert/index.md
+              - name: List
+                href: api-ref/Alert/list.md
+              - name: Get
+                href: api-ref/Alert/get.md
+              - name: Update
+                href: api-ref/Alert/update.md
+          - name: Comment
+            items:
+              - name: Overview
+                href: api-ref/Comment/index.md
+              - name: List
+                href: api-ref/Comment/list.md
+              - name: Create
+                href: api-ref/Comment/create.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes

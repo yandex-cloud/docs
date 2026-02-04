@@ -6,8 +6,8 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the [registry](../../concepts/registry.md) was created.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the [registry](../../concepts/registry.md) was created in.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Select the registry and click the row with its name.
   1. Select the [repository](../../concepts/repository.md) and click the row with its name.
   1. In the left-hand panel, click ![lifecycle](../../../_assets/console-icons/arrows-rotate-right.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
@@ -187,7 +187,7 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
   yc container repository lifecycle-policy update crp6lg1868p3******** --new-name new-policy
   ```
 
-  Where `--new-name` is the new policy name. The naming requirements are as follows:
+  Where `--new-name` is the new policy name. Follow these naming requirements:
 
   {% include [name-format](../../../_includes/name-format.md) %}
 

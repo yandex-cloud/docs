@@ -1,9 +1,23 @@
 ---
 title: '{{ websql-full-name }} release notes'
-description: This section contains {{ websql-name }} release notes.
+description: This section contains the {{ websql-name }} release notes.
 ---
 
 # {{ websql-full-name }} release notes: 2025
+
+## December {#december-2025}
+
+### New features {#new-features-december-2025}
+
+1. {{ websql-name }} now has tabs: you can open your connections and request editor pages in tabs and switch between them without losing your working context.
+
+### Improvements {#improvements-december-2025}
+
+1. Added display of {{ PG }} partitions in the connection tree.
+
+### Fixed issues {#fixes-december-2025}
+
+1. Fixed sorting of indexed columns in the **Indexes** section of the connection tree.
 
 ## November {#november-2025}
 

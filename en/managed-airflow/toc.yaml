@@ -55,7 +55,7 @@ items:
         href: operations/af-interfaces.md
       - name: Logs and monitoring
         items:
-          - name: Monitoring cluster state
+          - name: Cluster state monitoring
             href: operations/monitoring.md
           - name: Viewing cluster logs
             href: operations/cluster-logs.md
@@ -93,6 +93,8 @@ items:
         href: concepts/network.md
       - name: Available {{ AF }} versions
         href: concepts/versions.md
+      - name: '{{ AF }} versioning policy'
+        href: concepts/update-policy.md
       - name: Quotas and limits
         href: concepts/limits.md
       - name: Impersonation

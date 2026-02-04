@@ -1,1 +1,1 @@
-See [{{ cdn-full-name }}](https://tech.cdn.yandex.net/prefixes/yc.json) IP addresses.
+[List of public {{ cdn-full-name }} IP addresses ](https://tech.cdn.yandex.net/prefixes/yc.json)

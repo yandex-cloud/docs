@@ -42,7 +42,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
        --disk-size <storage_size_in_GB> \
        --disk-type <storage_type> \
        --fixed-size <fixed_number_of_nodes_in_group> \
-       --max-expansion <expanding_group_size_when_updating> \
+       --max-expansion <expanding_group_when_updating> \
        --max-unavailable <number_of_unavailable_nodes_when_updating> \
        --location zone=[<availability_zone>],subnet-id=[<subnet_ID>] \
        --memory <amount_of_RAM_in_GB> \
@@ -201,7 +201,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
          <node_group_scaling_settings>
        }
        deploy_policy {
-         max_expansion   = <expanding_group_when_updating>
+         max_expansion   = <expanding_group_during_update>
          max_unavailable = <number_of_unavailable_nodes_when_updating>
        }
        ...
@@ -332,7 +332,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
 - API {#api}
 
-  Use the [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) API method and provide the following in the request:
+  Call the [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) API method and provide the following in the request:
   * [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) ID in the `clusterId` parameter. You can get it with the [list of {{ managed-k8s-name }} clusters in the folder](../kubernetes-cluster/kubernetes-cluster-list.md#list).
   * [{{ managed-k8s-name }} node group configuration](../../concepts/index.md#config) in the `nodeTemplate` parameter.
   * [Network acceleration type](../../../compute/concepts/software-accelerated-network.md) in the `nodeTemplate.networkSettings.type` parameter.

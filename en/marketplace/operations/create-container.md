@@ -8,9 +8,9 @@ You can also create products for {{ compute-full-name }} to run on [Linux](creat
 
 ## Hosting and naming images {#registry}
 
-* A [Helm chart](https://helm.sh/docs/topics/charts/) and all its included docker images must be placed in the publisher [registry](../../container-registry/concepts/registry.md) created in {{ container-registry-full-name }}. To learn about [creating a registry](../../container-registry/operations/registry/registry-create.md) and [uploading an image](../../container-registry/operations/docker-image/docker-image-push.md), see the documentation.
+* The product’s [Helm chart](https://helm.sh/docs/topics/charts/) and all Docker images it includes must reside in the publisher [registry](../../container-registry/concepts/registry.md) created in {{ container-registry-full-name }}. To learn how to [create a registry](../../container-registry/operations/registry/registry-create.md) and [push an image](../../container-registry/operations/docker-image/docker-image-push.md), see the relevant guides.
 
-* The name of the product's Helm chart should follow the format:
+* The product’s Helm chart name must follow this format:
 
    ```
    {{ registry }}/<registry-id>/<vendor-name>/<product-name>/<chart>
@@ -23,7 +23,7 @@ You can also create products for {{ compute-full-name }} to run on [Linux](creat
    * `<product-name>`: Product names.
    * `<chart>`: Helm chart name.
 
-* The names of the product's docker images should follow the format:
+* The product’s Docker image names must follow this format:
 
    ```
    {{ registry }}/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
@@ -34,7 +34,7 @@ You can also create products for {{ compute-full-name }} to run on [Linux](creat
    * `<registry-id>`: Publisher's registry ID.
    * `<vendor-name>`: Names of the product publisher.
    * `<product-name>`: Product names.
-   * `<component-name>`: Name of the product component provided as a docker image.
+   * `<component-name>`: Name of the product component provided as a Docker image.
    * `<tag>`: Docker image tag. Do not use the `latest` tag.
 
 During publication, all the images that come with the product are moved from the publisher's registry to the public `yc-marketplace` registry. The whole product hierarchy defined by the publisher is maintained in the process.
@@ -43,9 +43,9 @@ During publication, all the images that come with the product are moved from the
 
 For more information on using the registry, see [{#T}](../../container-registry/operations/helm-chart/helm-chart-push.md) and [{#T}](../../container-registry/operations/docker-image/docker-image-push.md).
 
-## Helm chart specifics {#special-requirements}
+## Helm chart build features {#special-requirements}
 
-A Helm chart must contain a file named `values.yaml` listing all docker images presented as parameters. The names of Docker images in the `values.yaml` file must start with the `.Values` prefix and refer to images in the publisher's registry to ensure error-free publication and subsequent installation of the product in the user's cluster.
+A Helm chart must contain a file named `values.yaml` listing all Docker images as parameters. The names of Docker images in `values.yaml` must start with the `.Values` prefix and refer to images in the publisher registry to ensure error-free publication and subsequent installation of the product in the user’s cluster.
 
 Generic pod specification without parameters:
 
@@ -71,29 +71,37 @@ images:
   pushgateway: {{ registry }}/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
 ```
 
-## Manifest {#manifest}
+## Product specification {#manifest}
 
-To publish a product, you need a manifest document that describes product deployment parameters. Prepare a manifest and [upload](../../storage/operations/objects/upload.md) it to {{ objstorage-full-name }}.
+To publish a product, you need a specification describing the product’s deployment parameters. Create your product’s specification and [upload](../../storage/operations/objects/upload.md) it to {{ objstorage-full-name }}.
 
-The manifest uses YAML format and contains the following data:
+The product specification uses YAML format and contains the following data:
 
-1. `helm_chart`: Required field. Contains the product's Helm chart name and tag.
-
-   ```yaml
-   helm_chart:
-     name: {{ registry }}/<registry-id>/<vendor-name>/<product-name>/<chart>
-     tag: <tag>
-   ```
-
-1. `requirements`: Required field. Required parameters of the cluster where the product will be deployed. This section must include the `k8s_version` parameter that defines the range of supported {{ k8s }} versions.
+1. `name`: Default name of the app when deployed to the user’s cluster.
 
    ```yaml
-   requirements:
-     k8s_version: ">=1.18"
+   name: "our-app"
    ```
 
-1. `images`: Required field. It contains a list of metadata of the images included in the product. The values of image metadata variables are YAML Path format references to variables from `values.yaml`. Entries can be in one of the following formats:
+1. `helm_charts`: Required field. It contains a list of the product’s Helm chart names and tags. You can specify only one Helm chart.
 
+   ```yaml
+   helm_charts:
+     - name: {{ registry }}/{{ tf-cloud-id }}/Vendor/Product/chart
+       tag: 1.0-0
+       images:
+         - registry: app1.image.registry
+           name_without_registry: app1.image.name
+           tag: app1.image.tag
+         - name_with_registry: app2.config.image.name
+           tag: app2.config.image.tag
+         - full: another-whatever-key.subkey.name
+       # This indicates that all specified values apply to this chart.
+       reuse_values: true
+   ```
+
+   The Helm chart must have the `images` field specified. It contains a list of metadata of the images included in the product. The values of image metadata variables are YAML Path format references to variables from `values.yaml`. Entries can be in one of the following formats:
+   
    * Image name, registry address, and tag are described in separate fields:
 
       ```yaml
@@ -146,6 +154,13 @@ The manifest uses YAML format and contains the following data:
             name: "{{ registry }}/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>"
       ```
 
+1. `requirements`: Required field. Required parameters of the cluster where the product will be deployed. This section must include the `min_k8s_version` parameter that defines the range of supported {{ k8s }} versions.
+
+   ```yaml
+   requirements:
+     min_k8s_version: ">=1.18"
+   ```
+
 1. `user_values`: Optional parameter. It stands for a list of product variables the user can override while installing or modifying an already installed product via the {{ yandex-cloud }} management console. Each variable is described by the required fields below:
    * `name`: YAML Path of the variable from `values.yaml`.
    * `title`: Short name of the variable, either in Russian or English. The value must start with a capital letter.
@@ -178,7 +193,7 @@ The manifest uses YAML format and contains the following data:
           - name: <name>
             disabled: true
             title: <Title>
-            string_value:
+            simple_disabled:
               required: true
               default_value: "simple_string_value"
         ```
@@ -252,8 +267,23 @@ The manifest uses YAML format and contains the following data:
               required: true
               secret: true
               length_restrictions:
-                min: <min_row_length>
-                max: <max_row_length>
+                min: <minimum_string_length>
+                max: <maximum_string_length>
+        ```
+
+      * `list_value`. It may contain fields available for the specified list item type. List items can be of any type supported in `user_values`; however, the list can only contain items of the same type.
+
+        ```yaml
+        user_values:
+          - name: <name>
+            title: <Title>
+            description: <Description>
+            list_value:
+              item:
+               <list_item_type>: 
+                 required: true
+              min_items: <minimum_number_of_list_items>
+              max_items: <maximum_number_of_list_items>
         ```
 
       * `cloudiddisabled`: [Cloud ID](../../resource-manager/concepts/resources-hierarchy.md#cloud) in {{ yandex-cloud }}. If you provide a parameter, the appropriate product field in the management console will not be available for editing and will be automatically pre-filled.
@@ -347,11 +377,11 @@ The manifest uses YAML format and contains the following data:
               required: true
         ```
 
-        To use the value of this field in a helm chart or transmit it in a file during manual installation, add the following code at the end of the `templates/_helpers.tpl` template:
+        To use the value of this field in a Helm chart or provide it in a file during manual installation, add the following code at the end of the `templates/_helpers.tpl` template:
 
         {% note warning %}
 
-        Make sure to put `_generated` after the `name` field value from the manifest.
+        Make sure to put `_generated` after the `name` field value from the specification.
 
         {% endnote %}
 
@@ -361,7 +391,7 @@ The manifest uses YAML format and contains the following data:
         {{- $key := .Values.saAccessKeyFile | fromJson -}}
         {{- $key.access_key.key_id -}}
         not_var{{- else }}
-        {{- .Values.<name_field_value_from_manifest>_generated.accessKeyID -}}
+        {{- .Values.<name_field_value_from_specification>_generated.accessKeyID -}}
         not_var{{- end }}
         not_var{{- end }}
 
@@ -370,7 +400,7 @@ The manifest uses YAML format and contains the following data:
         {{- $key := .Values.saAccessKeyFile | fromJson -}}
         {{- $key.secret -}}
         not_var{{- else }}
-        {{- .Values.<name_field_value_from_manifest>_generated.secretAccessKey -}}
+        {{- .Values.<name_field_value_from_specification>_generated.secretAccessKey -}}
         not_var{{- end }}
         not_var{{- end }}
         ```
@@ -500,9 +530,101 @@ The manifest uses YAML format and contains the following data:
 
 The variable values specified by the user when installing the product in a {{ k8s }} cluster will override the values from the `values.yaml` file.
 
-## Example manifest and corresponding variable file {#examples}
+## Example of a product specification and its respective variable file {#examples}
 
-### Manifest {#manifest}
+### Product specification {#manifest}
+
+```yaml
+name: "our-app" 
+
+helm_charts:
+  - name: {{ registry }}/{{ tf-cloud-id }}/Vendor/Product/chart
+    tag: 1.0-0
+    images:
+      - registry: app1.image.registry
+        name_without_registry: app1.image.name
+        tag: app1.image.tag
+      - name_with_registry: app2.config.image.name
+        tag: app2.config.image.tag
+      - full: another-whatever-key.subkey.name    
+    reuse_values: true
+
+requirements:
+  min_k8s_version: ">=1.18"
+
+# Configurable parameters that might be changed by end user during installation of product. Should be presented in values.yaml
+# Supported types: integer, boolean, string, string selector, integer selector.
+user_values:
+  - name: app.port
+    title:
+      en: Application port
+      ru: Application port
+    description:
+      en: Port that application will listen to
+      ru: Port on which the application accepts incoming requests
+    integer_value:
+      default_value: 8080
+      required: true
+      restrictions:
+        min: 8000
+        max: 9000
+  - name: app.tls.use
+    title:
+      en: TLS
+      ru: TLS
+    description:
+      en: Use TLS
+      ru: Use TLS
+    boolean_value:
+      default_value: true
+  - name: app.admin.password
+    title:
+      en: Admin password
+      ru: Admin password
+    description:
+      en: Password of administrator, should be at least 8 symbols
+      ru: Password of administrator, should be at least 8 symbols
+    string_value:
+      required: true
+      secret: true
+      length_restrictions:
+        min: 8
+        max: 20
+  - name: app.selector.string
+    title:
+      en: Custom string selector
+      ru: String option
+    description:
+      en: One value string selector
+      ru: Selecting a single string value
+    string_selector_value:
+      default_value: opt1
+      required: true
+      values:
+        - opt1
+        - opt2
+        - opt3
+  - name: app.selector.integer
+    title:
+      en: Custom integer selector
+      ru: Number option
+    description:
+      en: One value integer selector
+      ru: Selecting a single integer value
+    integer_selector_value:
+      default_value: 1
+      required: true
+      values:
+        - 1
+        - 2
+        - 3
+
+# Optional: if set to `true`, the Helm chart and Docker images will not be placed in a public repo.
+# This will make the product only installable via Marketplace (and not with `helm install ...`).
+private_artifacts: false
+```
+
+{% cut "Previous version of the product specification" %}
 
 ```yaml
 # Link to helm chart in publisher registry.
@@ -593,6 +715,8 @@ user_values:
 # This will make the product only installable via Marketplace (and not with `helm install ...`).
 private_artifacts: false
 ```
+
+{% endcut %}
 
 ### values.yaml variable file {#values}
 

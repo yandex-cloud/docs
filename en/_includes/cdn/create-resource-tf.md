@@ -28,8 +28,7 @@ Where:
 * `origin_protocol`: Protocol for origins. The default value is `http`. This is an optional setting.
 * `origin_group_id`: [Origin group](../../cdn/concepts/origins.md) ID. This is a required setting. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
 * `secondary_hostnames`: Additional domain names. This is an optional setting.
-* `provider_type`: CDN provider, must match the origin group CDN provider. This is an optional setting. The possible value is: `ourcdn` (default): {{ cdn-full-name }} provider.
-
+* `provider_type`: CDN provider. This is an optional setting. The only possible value is `ourcdn`, the {{ cdn-full-name }} provider.
 * `ssl_certificate`: SSL certificate parameters. This is an optional setting. The possible values are:
 
     * `type`: Certificate type.
@@ -49,8 +48,8 @@ Where:
 
     * `ip_address_acl`: [IP-based access policy](../../cdn/concepts/ip-address-acl.md) parameters:
 
-        * `ip_address_acl`: [List of IP addresses](../../cdn/concepts/ip-address-acl.md#ip-list) for which access to the resource content will be allowed or denied. Separate IP addresses by commas. For each address, specify the subnet prefix in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation), e.g., `192.168.3.2/32` or `2a03:d000:2980:7::8/128`.
-        * `policy_type`: [Policy type](../../cdn/concepts/ip-address-acl.md#policy-type). The possible values are:
+        * `excepted_values`: [List of IP addresses](../../cdn/concepts/ip-address-acl.md#ip-list) allowed or denied access to the resource's content. Separate IP addresses by commas. For each address, specify the subnet prefix in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation), e.g., `192.168.3.2/32` or `2a03:d000:2980:7::8/128`.
+        * `policy_type`: [Policy type](../../cdn/concepts/ip-address-acl.md#policy-type). The possible values are as follows:
 
             * `allow`: ALLOW policy. Access to the resource content will be allowed for any IP addresses other than those specified in the `ip_address_acl.excepted_values` parameter.
             * `deny`: DENY policy. Access to the resource content will be denied for any IP addresses other than those specified in the `ip_address_acl.excepted_values` parameter.

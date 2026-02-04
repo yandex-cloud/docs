@@ -107,6 +107,12 @@ items:
             href: operations/dictionary/add.md
           - name: Delete dictionary
             href: operations/dictionary/delete.md
+      - name: Recalculation tasks
+        items:
+          - name: Tag recalculation
+            href: operations/task-recalculation/tags-recalc.md
+          - name: Assistant recalculation
+            href: operations/task-recalculation/assistants-recalc.md
       - name: External integrations
         items:
           - name: >-
