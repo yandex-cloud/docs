@@ -548,7 +548,7 @@ description: Следуя данной инструкции, вы сможете
 
          * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
          * `diskSize` — размер диска в байтах;
-         * `diskTypeId` — [тип диска](../concepts/storage.md).
+         * `diskTypeId` — [тип диска](../concepts/storage.md);
          * `diskEncryptionKeyId` — идентификатор ключа KMS для шифрования диска.
 
        
@@ -735,7 +735,7 @@ description: Следуя данной инструкции, вы сможете
 
          * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
          * `disk_size` — размер диска в байтах;
-         * `disk_type_id` — [тип диска](../concepts/storage.md).
+         * `disk_type_id` — [тип диска](../concepts/storage.md);
          * `disk_encryption_key_id` — идентификатор ключа KMS для шифрования диска.
 
        

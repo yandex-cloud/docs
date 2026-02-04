@@ -1,9 +1,13 @@
 ---
 title: '{{ mkf-full-name }} release notes'
-description: This section contains {{ mkf-name }} release notes.
+description: This section contains the {{ mkf-name }} release notes.
 ---
 
 # {{ mkf-full-name }} release notes
+
+## December 2025 {#december-2025}
+
+Added support for the all-new {{ KF }} 4.0. This version is available in the `PRODUCTION` environment. For more information about the updates, see [this {{ KF }} guide](https://kafka.apache.org/documentation.html).
 
 ## November 2025 {#november-2025}
 
@@ -49,7 +53,7 @@ Added the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** section to 
 
 ## July 2024 {#jul-2024}
 
-Added automatic increase of disk size. In the [cluster settings](./operations/cluster-update.md), the user can set the disk storage usage threshold and maximum disk size. Upon reaching the threshold, the disk size will automatically increase in fixed increments up to its maximum. You can choose to immediately increase the disk size or to increase it during the next maintenance window.
+Added automatic disk expansion. In the [cluster settings](./operations/cluster-update.md), the user can set the disk storage usage threshold and maximum disk size. Upon reaching the threshold, the disk will automatically expand in fixed increments up to its maximum. You can choose to immediately expand the disk or to expand it during the next maintenance window.
 
 ## March 2024 {#mar-2024}
 

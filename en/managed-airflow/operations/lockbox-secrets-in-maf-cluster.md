@@ -126,7 +126,7 @@ For more information on how to get the FQDN of a {{ PG }} cluster host, see [{#T
 
 1. Upload the `test_lockbox_connection.py` DAG file to the bucket you created earlier. This will automatically create a graph with the same name in the {{ AF }} web interface.
 1. [Open the {{ AF }} web interface](af-interfaces.md#web-gui).
-1. Make sure a new graph named `test_lockbox_connection` has appeared in the **DAGs** section.
+1. Make sure there is a new graph named `test_lockbox_connection` in the **DAGs** section.
 
    It may take a few minutes to load a DAG file from the bucket.
 
@@ -140,7 +140,7 @@ To check the result in the {{ AF }} web interface:
    
 - {{ AF }} version below 3.0 {#version-2}
 
-  1. In the **DAGs** section, click `test_lockbox_connection`.
+  1. In the **DAGs** section, click the `test_lockbox_connection` graph.
   1. Go to the **Graph** section.
   1. Select **check_conn**.
   1. Go to **Logs**.
@@ -148,7 +148,7 @@ To check the result in the {{ AF }} web interface:
 
 - {{ AF }} version 3.0 or higher {#version-3}
 
-  1. In the **DAGs** section, click `test_lockbox_connection`.
+  1. In the **DAGs** section, click the `test_lockbox_connection` graph.
   1. Go to **Tasks**.
   1. Select **check_conn**.
   1. Go to **Tasks Instances**.

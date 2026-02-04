@@ -276,7 +276,7 @@ To create an instance group with an L7 load balancer:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the properties of resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      resource "yandex_iam_service_account" "ig-sa" {

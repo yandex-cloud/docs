@@ -18,7 +18,8 @@ You can only delete an empty [registry](../../concepts/registry.md). Make sure t
 - Management console {#console}
 
   To delete a registry:
-  1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to delete a registry from.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the registry.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Click ![image](../../../_assets/console-icons/ellipsis-vertical.svg) in the line of the registry to delete.
   1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.cr.overview.popup-confirm_button_delete }}**.
@@ -33,7 +34,7 @@ You can only delete an empty [registry](../../concepts/registry.md). Make sure t
      yc container registry delete new-reg
      ```
 
-     The result will be as follows:
+     Result:
 
      ```text
      done
@@ -45,7 +46,7 @@ You can only delete an empty [registry](../../concepts/registry.md). Make sure t
      yc container registry list
      ```
 
-     The result will be as follows:
+     Result:
 
      ```text
      +----+------+-----------+

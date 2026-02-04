@@ -106,6 +106,8 @@ description: Следуя данной инструкции, вы сможете
     * `--daily-maintenance-window` — обновлять ежедневно в выбранное время.
     * `--weekly-maintenance-window` — обновлять в выбранные дни.
 
+      {% include [update time](../../../_includes/managed-kubernetes/note-update-time.md) %}
+
   {% note warning %}
 
   * Не поддерживается использование ключа метаданных `user-data` для донастройки ВМ и передачи пользовательских данных.

@@ -35,7 +35,7 @@ For the resource to run properly, you must have:
 * Rights to all the domain names you entered.
 * Access to DNS settings for domain names. 
 
-  In the settings of your DNS hosting, create a CNAME record for each name linking this name with the CDN load balancer's domain name in `{{ cname-example-yc }}` format. It is displayed when creating a resource, as well as in the management console (on the page of an existing resource). Here is an example of a record for the `cdn.example.com` domain name:
+  For each name, in the settings of your DNS hosting, create a CNAME record linking this name with the domain name of the CDN load balancer in `{{ cname-example-yc }}` format. It is displayed when creating a resource, as well as in the management console (on the page of an existing resource). Here is an example of a record for the `cdn.example.com` domain name:
 
   ``` 
   cdn.example.com. CNAME {{ cname-example-yc }}

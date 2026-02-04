@@ -1,9 +1,26 @@
 ---
 title: '{{ video-full-name }} release notes'
-description: This section contains {{ video-name }} release notes.
+description: This section contains the {{ video-name }} release notes.
 ---
 
 # {{ video-full-name }} release notes
+
+## October – December 2025 {#oct-dec-2025}
+
+* Added [support for presets](concepts/presets.md) that allow you to configure video player appearance and features:
+
+  * Display of the playlist and video descriptions, as well as summarization.
+  * Position and visibility of UI elements.
+  * Color scheme, size, and other visual settings.
+
+    For each channel, two presets are created automatically:
+
+  * **Default Style Preset**: Applies to all videos by default.
+  * **Summarization Style Preset**: Comes with a summarization widget to show a brief video summary.
+
+  You can modify existing presets or create custom ones. You can also select a default preset for the entire channel or apply a preset to a specific video or playlist.
+
+* Added descriptions of player methods and events for the [IFrame SDK](sdk/iframe/).
 
 ## July – September 2025 {#jul-sep-2025}
 

@@ -19,7 +19,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
 * Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
@@ -36,7 +36,7 @@ The support cost includes:
 
 - Manually {#manual}
 
-   1. [Create service accounts](../../iam/operations/sa/create.md):
+   1. [Create these service accounts](../../iam/operations/sa/create.md):
 
       * Service account for the resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../managed-kubernetes/security/index.md#yc-api) for the folder where the {{ managed-k8s-name }} cluster is being created. This service account will be used to create resources for the {{ managed-k8s-name }} cluster.
 
@@ -50,7 +50,7 @@ The support cost includes:
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating it, specify the preconfigured security groups.
+   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with any suitable configuration. When creating it, specify the preconfigured security groups.
    1. [Create a bucket](../../storage/operations/buckets/create.md) in {{ objstorage-full-name }}.
    1. [Grant the `thumbor-sa` service account](../../storage/operations/objects/edit-acl.md) the `READ` permission for the bucket.
 
@@ -83,7 +83,7 @@ The support cost includes:
       * Static access key for bucket creation.
       * Bucket.
 
-   1. Specify the following in the `k8s-for-thumbor.tf` file:
+   1. In `k8s-for-thumbor.tf`, specify the following:
 
       * [Folder ID](../../resource-manager/operations/folder/get-id.md).
       * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
@@ -206,7 +206,7 @@ For a Let's Encrypt® certificate, pass an [ownership check](../../certificate-m
       --origin source=<Thumbor_IP_address>,enabled=true
    ```
 
-   Result example:
+   Example of the result:
 
    ```text
    id: "123***"
@@ -236,7 +236,7 @@ For a Let's Encrypt® certificate, pass an [ownership check](../../certificate-m
 
    Resource domain name example: `{{ domain-name-example }}`
 
-   Sample result:
+   Example of the result:
 
    ```text
    id: bc855oumelrq********
@@ -277,7 +277,7 @@ For a Let's Encrypt® certificate, pass an [ownership check](../../certificate-m
 1. Configure a CNAME record for your domain:
 
    1. Navigate to your domain’s DNS settings on your DNS hosting provider’s website.
-   1. Prepare a CNAME record so that it points to the address on the `.topology.gslb.yccdn.ru` domain you copied earlier. For example, if the website domain name is `{{ domain-name-example }}`, create a CNAME record or replace an existing one for `cdn`:
+   1. Prepare a CNAME record so that it points to the address on the `.yccdn.cloud.yandex.net` domain you copied earlier. For example, if the website domain name is `{{ domain-name-example }}`, create a CNAME record or replace an existing one for `cdn`:
 
       ```http
       cdn CNAME {{ cname-example-yc }}.
@@ -298,10 +298,10 @@ You will see the prepared images of different sizes. Each image carries a [Creat
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
-1. [Delete the objects](../../storage/operations/objects/delete.md) from the buckets.
-1. Delete the other resources depending on how they were created:
+1. [Delete all objects](../../storage/operations/objects/delete.md) from the buckets.
+1. Delete the other resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

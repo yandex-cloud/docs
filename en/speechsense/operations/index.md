@@ -72,6 +72,11 @@ description: This page presents all the guides on how to use {{ speechsense-name
 * [{#T}](dictionary/add.md)
 * [{#T}](dictionary/delete.md)
 
+
+## Recalculation tasks {#task-recalculation}
+* [{#T}](task-recalculation/tags-recalc.md)
+* [{#T}](task-recalculation/assistants-recalc.md)
+
 ## External integrations {#external-integrations}
 
 * [{#T}](external-integrations/create-datalens-connection.md)

@@ -22,6 +22,7 @@
 `smart-web-security.loadBalancers.count` | 1 ||
 || Максимальное суммарное количество [доменов](../smartwebsecurity/concepts/domain-protect.md#domain) в облаке 
 `smart-web-security.loadBalancerDomains.count` | 10 ||
+|| Максимальное суммарное количество [шаблонов ответа](../smartwebsecurity/concepts/response-templates.md) в облаке | 20 ||
 |#
 
 #### Лимиты {#limits}

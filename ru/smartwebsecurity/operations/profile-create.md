@@ -26,14 +26,15 @@ description: Следуя данной инструкции, вы сможете
       * **{{ ui-key.yacloud.smart-web-security.title_no-template }}**. Профиль содержит только базовое правило по умолчанию, включенное для всего трафика.
 
   1. Введите имя профиля.
-  1. (опционально) Введите описание.
-  1. (опционально) Добавьте профилю [метки](../../resource-manager/concepts/labels.md).
+  1. (Опционально) Введите описание.
+  1. (Опционально) Добавьте профилю [метки](../../resource-manager/concepts/labels.md).
   1. В поле **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** выберите, что делать с трафиком, который не попал под условия других правил: `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` или `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
   1. Выберите или создайте [профиль ARL](../operations/arl-profile-create.md), чтобы установить лимиты на количество запросов.
   1. Выберите или создайте капчу [{{ captcha-full-name }}](../../smartcaptcha/) для проверки подозрительных запросов:
 
         {% include [captcha-integration](../../_includes/smartwebsecurity/captcha-integration.md) %}
 
+  1. {% include [choose-or-create-template](../../_includes/smartwebsecurity/choose-or-create-template.md) %}
   1. {% include [profile-inspect-request](../../_includes/smartwebsecurity/profile-inspect-request.md) %}
   
   1. (Опционально) Включите **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.loggingEnable_6eK2x }}** и настройте логирование:

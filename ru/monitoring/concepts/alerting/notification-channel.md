@@ -26,7 +26,7 @@ sourcePath: ru/monitoring_includes/concepts/alerting/notification-channel.md
 После создания канала доступны дополнительные параметры:
 
 * **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.sent-notify-statuses }}**. Выберите статусы алерта, при которых будет отправляться уведомление.
-* **{{ ui-key.yacloud_monitoring.monitoring-alerts.channel-table.repeat }}**. Выберите время, через которое {{ monitoring-short-name }} будет отправлять повторные уведомления о статусе алерта.
+* **{{ ui-key.yacloud_monitoring.monitoring-alerts.channel-table.repeat }}**. Выберите время, через которое {{ monitoring-short-name }} будет отправлять повторные уведомления о статусе алерта. Не действует для статуса `OK`.
 
 ## Статусы отправки {#dispatch-statuses}
 

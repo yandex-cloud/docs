@@ -19,7 +19,7 @@ To delete a Docker image from the registry, you need the `container-registry.ima
 
   To delete a Docker image:
   1. Go to the repository to remove the image from:
-     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
      1. Open the appropriate registry.
      1. Open the repository.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the Docker image you want to delete.

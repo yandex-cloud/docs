@@ -10,7 +10,7 @@ description: Follow this guide to get information about registry access policies
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the registry.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/tray.svg) **{{ ui-key.yacloud.cr.switch_registry }}**.
   1. Select the registry.
   1. The **{{ ui-key.yacloud.cr.registry.label_ip-permissions }}** page will show the registry access policy details.

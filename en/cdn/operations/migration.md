@@ -4,7 +4,7 @@ noIndex: true
 
 # Migrating CDN resources and origin groups to {{ cdn-full-name }}
 
-Starting January 22, 2026, our {{ cdn-name }} partner, EdgeCenter, will stop providing CDN on the Yandex Cloud platform.
+Starting January 22, 2026, our {{ cdn-name }} partner, EdgeCenter (EdgeCDN provider), will stop providing CDN on the Yandex Cloud platform.
 
 {{ yandex-cloud }} will automatically migrate CDN resources and origin groups from EdgeCDN to {{ cdn-full-name }} by January 17, 2026. After the migration, the service will [cost](../pricing.md) the same.
 
@@ -42,13 +42,13 @@ To start using your migrated CDN resources and origin groups:
 
 - Management console {#console}
 
-  If a TLS certificate for the original CDN resource was previously uploaded, select the new CDN resource with {{ cdn-full-name }} for provider in the [management console]({{ link-console-main }}) and make sure your certificate is named in the **{{ ui-key.yacloud.cdn.label_certificate-type }}** section.
+  If you previously uploaded a TLS certificate for the original CDN resource, select the new CDN resource that has {{ cdn-full-name }} as provider in the [management console]({{ link-console-main }}) and make sure your certificate name is specified in the **{{ ui-key.yacloud.cdn.label_certificate-type }}** section.
       
   {% note warning %}
 
   Previously, EdgeCDN supported issuing TLS certificates automatically for CDN resources. In CDN resource settings, such certificate type is shown as **{{ ui-key.yacloud.cdn.md_value_certificate-le }}**. 
 
-  You cannot migrate such certificates from EdgeCDN to {{ cdn-full-name }}. Instead, [issue](../../certificate-manager/operations/managed/cert-create.md) a new Let's Encrypt^®^ certificate or [upload](../../certificate-manager/operations/import/cert-create.md) a custom one through {{ certificate-manager-full-name }} and specify it when migrating your CDN resource.
+  You cannot migrate such certificates from EdgeCDN to {{ cdn-full-name }}. Instead, [issue](../../certificate-manager/operations/managed/cert-create.md) a new Let's Encrypt^®^ certificate or [upload](../../certificate-manager/operations/import/cert-create.md) a custom one through {{ certificate-manager-full-name }} and specify it in the settings of the migrated CDN resource.
 
   {% endnote %}
 
@@ -63,7 +63,7 @@ To start using your migrated CDN resources and origin groups:
     - Management console {#console}
 
       1. Select the CDN resource with the {{ cdn-full-name }} provider you created.
-      1. Under **{{ ui-key.yacloud.cdn.label_dns-settings_title }}**, copy the CNAME value, e.g., `{{ cname-example-yc }}`.
+      1. Under **{{ ui-key.yacloud.cdn.label_dns-settings_title }}**, copy the CNAME value, i.e., `{{ cname-example-yc }}`.
 
     {% endlist %}
 

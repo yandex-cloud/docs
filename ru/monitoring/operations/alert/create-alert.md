@@ -32,7 +32,7 @@ sourcePath: ru/monitoring_includes/operations/alert/create-alert.md
     * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.evaluation-type }}**.
     * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}**.
     * Пороги срабатывания **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}** и **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}**.
-    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window }}**.
+    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window-key-value }}**.
     * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.time-shift }}**.
 
     Подробнее в разделе [{#T}](../../concepts/alerting/alert.md#condition).

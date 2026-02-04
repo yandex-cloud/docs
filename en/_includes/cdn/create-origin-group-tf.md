@@ -19,8 +19,7 @@ resource "yandex_cdn_origin_group" "my_group" {
 Where:
 * `name`: Origin group name.
 * `use_next`: Indicates whether to use the next [origin](../../cdn/concepts/resource.md) on the list.
-* `provider_type`: CDN provider, must match the origin group CDN provider. This is an optional setting. The possible value is: `ourcdn` (default): {{ cdn-full-name }} provider.
-
+* `provider_type`: CDN provider. This is an optional setting. The only possible value is `ourcdn`, the {{ cdn-full-name }} provider.
 * `origin`: Origin specification:
     * `source`: Origin [IP address](../../vpc/concepts/address.md) or domain name.
     * `enabled`: Flag showing whether the origin is enabled.

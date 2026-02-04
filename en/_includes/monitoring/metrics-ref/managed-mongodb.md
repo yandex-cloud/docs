@@ -83,13 +83,20 @@ The consumption type goes into the `systag` label.
 | `io.disk*.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second for a given disk | 
 | `io.disk*.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a given disk |
 | `io.disk*.write_time`<br/>`DGAUGE`, milliseconds | Average write time for a given disk | 
-| `io_quota_utilization_percentage`<br/>`DGAUGE`, % | Average percentage of disk I/O quota usage |
-| `io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Maximum percentage of disk I/O quota usage (burst) |
-| `monitoring_disk.read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk per second |
-| `monitoring_disk.read_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes read from disk per second |
-| `monitoring_disk.write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk per second |
-| `monitoring_disk.write_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes written to disk per second |
-
+| `io_quota_utilization_percentage`<br/>`DGAUGE`, % | Average percentage of disk quota usage. |
+| `io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Maximum percentage of disk quota usage. |
+| `monitoring_disk.read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk. |
+| `monitoring_disk.read_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes read from disk |
+| `monitoring_disk.write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk. |
+| `monitoring_disk.write_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes written to disk |
+| `read_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk read request latency |
+| `read_ops`<br/>`DGAUGE`, operations per second | Average number of disk reads |
+| `read_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk reads |
+| `read_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of read latency due to exceeded disk quota |
+| `write_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk write request latency |
+| `write_ops`<br/>`DGAUGE`, operations per second | Average number of disk write operations |
+| `write_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk write operations |
+| `write_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of write latency due to exceeded disk quota |
 
 ## RAM metrics {#managed-mongodb-ram-metrics}
 
@@ -348,11 +355,11 @@ The consumption type goes into the `systag` label.
 | `write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed | 
 | `write_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes written to disk | 
 | `write_count`<br/>`DGAUGE`, operations per second | Number of writes per second | 
-| `write_latency`<br/>`HIST_RATE`, milliseconds | Distribution histogram for disk write request latency.<br/>`bin` label: Histogram buckets. | 
+| `write_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk write request latency.<br/>`bin` label: Histogram buckets. | 
 | `write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a given disk | 
 | `write_ops`<br/>`DGAUGE`, operations per second | Average number of disk write operations | 
 | `write_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk write operations | 
-| `write_throttler_delay`<br/>`HIST_RATE`, milliseconds | Histogram of write latency due to exceeded disk quota.<br/>`bin` label: Histogram buckets. | 
+| `write_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of write latency due to exceeded disk quota.<br/>`bin` label: Histogram buckets. | 
 | `write_time`<br/>`DGAUGE`, milliseconds | Average disk write time | 
 
 

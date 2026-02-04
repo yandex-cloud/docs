@@ -17,6 +17,7 @@ description: Следуя данной инструкции, вы сможете
       * **{{ ui-key.yacloud.common.name }}**.
       * **{{ ui-key.yacloud.common.description }}**.
       * [**{{ ui-key.yacloud.component.label-set.label_labels }}**](../../resource-manager/concepts/labels.md). Чтобы добавить новую метку, нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+      * {% include [choose-or-create-template](../../_includes/smartwebsecurity/choose-or-create-template.md) %}
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - {{ TF }} {#tf}

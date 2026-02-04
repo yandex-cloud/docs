@@ -8,6 +8,15 @@ description: В разделе представлена история изме�
 
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
 
+## Январь 2026 {#january-2026}
+
+* Добавлена поддержка SMS как фактора [многофакторной аутентификации](concepts/mfa.md). {{ tag-con }}
+
+
+* Добавлен ресурс для управления [доменами](concepts/domains.md): `yandex_organizationmanager_idp_userpool_domain`. {{ tag-tf }}
+* Добавлена поддержка ресурсов для предоставления доступа к внешним SAML и OAuth-приложениям: `yandex_organizationmanager_idp_saml_application_assignment` и `yandex_organizationmanager_idp_oauth_application_assignment`. {{ tag-tf }}
+
+
 ## Декабрь 2025 {#december-2025}
 
 * В командах `yc organization-manager mfa-enforcement create` и `yc organization-manager mfa-enforcement update` добавлен список поддерживаемых значений для параметра `--acr-id`. {{ tag-cli }}

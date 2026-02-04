@@ -84,6 +84,20 @@ The consumption type goes into the `systag` label.
 | `io.disk*.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second for a given disk | 
 | `io.disk*.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a given disk |
 | `io.disk*.write_time`<br/>`DGAUGE`, milliseconds | Average write time for a given disk | 
+| `io_quota_utilization_percentage`<br/>`DGAUGE`, % | Average percentage of disk quota usage |
+| `io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Maximum percentage of disk quota usage |
+| `monitoring_disk.read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk. |
+| `monitoring_disk.read_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes read from disk |
+| `monitoring_disk.write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk. |
+| `monitoring_disk.write_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes written to disk |
+| `read_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk read request latency |
+| `read_ops`<br/>`DGAUGE`, operations per second | Average number of disk reads |
+| `read_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk reads |
+| `read_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of read latency due to exceeded disk quota |
+| `write_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk write request latency |
+| `write_ops`<br/>`DGAUGE`, operations per second | Average number of disk write operations |
+| `write_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk write operations |
+| `write_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of write latency due to exceeded disk quota |
 
 ## RAM metrics {#managed-opensearch-ram-metrics}
 
@@ -99,7 +113,7 @@ The consumption type goes into the `systag` label.
 | `mem.commit_limit_bytes`<br/>`DGAUGE`, bytes | RAM usage, `commit_limit` usage type | 
 | `mem.committed_as_bytes`<br/>`DGAUGE`, bytes | RAM usage, `committed_as` usage type | 
 | `mem.dirty_bytes`<br/>`DGAUGE`, bytes | RAM usage, `dirty` usage type | 
-| `mem.free_bytes`<br/>`DGAUGE`, bytes | Amount of free RAM available, excluding `mem.buffers_bytes` and `mem.cached_bytes` |
+| `mem.free_bytes`<br/>`DGAUGE`, bytes | Amount of free RAM available, excluding `mem.buffers_bytes` and `mem.cached_bytes`. |
 | `mem.guarantee_bytes`<br/>`DGAUGE`, bytes | Guaranteed memory allocation |
 | `mem.high_free_bytes`<br/>`DGAUGE`, bytes | RAM usage, `high_free` usage type | 
 | `mem.high_total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `high_total` usage type | 
@@ -466,7 +480,7 @@ The consumption type goes into the `systag` label.
 | `opensearch_indices_translog_remote_store_upload_total_uploads_started`<br/>`DGAUGE`, count |
 | `opensearch_indices_translog_remote_store_upload_total_uploads_succeeded`<br/>`DGAUGE`, count |
 | `opensearch_indices_translog_size_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_translog_uncommitted_operations`<br/>`DGAUGE`, count |  | 
+| `opensearch_indices_translog_uncommitted_operations`<br/>`DGAUGE`, count |  | 
 | `opensearch_indices_translog_uncommitted_size_in_bytes`<br/>`DGAUGE`, bytes | 
 | `opensearch_indices_warmer_current`<br/>`DGAUGE`, count | 
 | `opensearch_indices_warmer_total_time_in_millis`<br/>`DGAUGE`, milliseconds |
@@ -517,7 +531,7 @@ The consumption type goes into the `systag` label.
 | `opensearch_active_shards_percent_as_number`<br/>`DGAUGE`, count | Percentage of active shards | 
 | `opensearch_active_shards`<br/>`DGAUGE`, count | Number of active shards | 
 | `opensearch_backup_age`<br/>`DGAUGE`, seconds | Most recent backup age |
-| `opensearch_backup_free_space_required`<br/>`DGAUGE`, bytes | Storage size required to restore a cluster from a backup |
+| `opensearch_backup_free_space_required`<br/>`DGAUGE`, bytes | Storage size required to restore a cluster from a backup. |
 | `opensearch_backup_incremental_size`<br/>`DGAUGE`, bytes | Size of files created during the incremental backup |
 | `opensearch_backup_total_size`<br/>`DGAUGE`, bytes | Size of files referenced by the backup |
 | `opensearch_critical_watermark_bytes`<br/>`DGAUGE`, bytes | Critical disk space usage threshold |
@@ -528,7 +542,7 @@ The consumption type goes into the `systag` label.
 | `opensearch_high_watermark_bytes`<br/>`DGAUGE`, bytes | Upper threshold for used disk space |
 | `opensearch_high_watermark_percentage`<br/>`DGAUGE`, percentage | Disk fill upper threshold |
 | `opensearch_initializing_shards`<br/>`DGAUGE`, count | Number of shards currently initializing | 
-| `opensearch_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>`1` if the database host is healthy, `0` if not. | 
+| `opensearch_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if not. | 
 | `opensearch_low_watermark_bytes`<br/>`DGAUGE`, bytes | Lower threshold for used disk space |
 | `opensearch_low_watermark_percentage`<br/>`DGAUGE`, percentage | Disk fill lower threshold |
 | `opensearch_primary_shards_count`<br/>`DGAUGE`, count | Number of primary shards per cluster |

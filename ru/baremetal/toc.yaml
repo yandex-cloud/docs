@@ -80,7 +80,7 @@ items:
             href: concepts/server-configurations.md
           - name: Своя конфигурация сервера
             href: concepts/server-custom-configurations.md
-          - name: Индивидуальная конфигурация сервера
+          - name: Конфигурация сервера под заказ
             href: concepts/server-individual-configurations.md
       - name: Сеть
         expanded: true

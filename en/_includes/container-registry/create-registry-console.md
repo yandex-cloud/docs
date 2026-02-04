@@ -1,5 +1,5 @@
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a registry.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
 1. Click **{{ ui-key.yacloud.cr.overview.button_create }}**.
 1. Specify a name for the registry. Follow these naming requirements:
 

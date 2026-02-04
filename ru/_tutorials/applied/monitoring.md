@@ -531,7 +531,7 @@
       1. В списке **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}** выберите `{{ ui-key.yacloud_monitoring.alert.title_comparison-gt }}`.
       1. В поле **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}** введите `50`.
       1. В поле **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}** введите `70`.
-      1. В списке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window }}** выберите `5 минут`.
+      1. В списке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window-key-value }}** выберите `5 минут`.
   1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** нажмите кнопку **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.edit-notify-methods }}**, затем кнопку **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
   1. В открывшемся окне в поле **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.notification-method }}** выберите `my-message-channel` и нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
   1. В нижней части окна нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.create }}**.

@@ -10,8 +10,7 @@ description: Follow this guide to connect a {{ sws-full-name }} profile to the p
 The way you connect a security profile depends on who manages the [{{ alb-full-name }}](../../application-load-balancer/concepts/index.md):
 
 * If you manage it yourself, use the {{ yandex-cloud }} interfaces.
-
-* If the load balancer is managed by an {{ alb-name }} [ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md), use the [Ingress resource annotation](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
+* If the load balancer is managed by a [controller](../../application-load-balancer/tools/index.md), use an annotation.
 
     {% note warning %}
 
@@ -20,12 +19,6 @@ The way you connect a security profile depends on who manages the [{{ alb-full-n
     If you connect the profile via the {{ yandex-cloud }} interfaces and then update the Ingress resource, the ingress controller will disable support for the security profile due to the lack of annotation.
 
     {% endnote %}
-
-    To learn more about the ingress controller settings, see the [{{ managed-k8s-full-name }} documentation](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
-
-    {% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
-
-    {% include [sws-editor-role](../../_includes/managed-kubernetes/alb-ref/sws-editor-role.md) %}
 
 {% include [security-profile-sa-roles](../../_includes/smartwebsecurity/security-profile-sa-roles.md) %}
 
@@ -175,6 +168,17 @@ To connect a security profile to a virtual host:
 - API {#api}
 
   {% include [api-host](../../_includes/smartwebsecurity/api-host.md) %}
+
+- Annotation {#annotation}
+
+  {% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
+  Use the following annotations:
+
+  * For a [Gwin controller](../../application-load-balancer/tools/gwin/index.md): [HTTPRoute](../../application-load-balancer/gwin-ref/httproute.md#security-configuration) or [RoutePolicy](../../application-load-balancer/gwin-ref/routepolicy.md#cheatsheet).
+  * For an [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md): [Ingress resource annotation](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
+
+      {% include [sws-editor-role](../../_includes/managed-kubernetes/alb-ref/sws-editor-role.md) %}
 
 {% endlist %}
 

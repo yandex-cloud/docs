@@ -11,42 +11,42 @@ You can only create an [assistant](../../concepts/assistants.md) in a [project](
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space you need and select a project.
-1. Open the **Assistants** tab.
-1. Click **Create assistant**.
+1. Select the **{{ ui-key.yc-ui-talkanalytics.assistants.assistants }}** tab.
+1. Click **{{ ui-key.yc-ui-talkanalytics.assistants.create-assistant-key-value }}**.
 1. Configure the new assistant:
 
    * Optionally, enter a name and description for the assistant.
-   * Under **Instruction**:
+   * Under **{{ ui-key.yc-ui-talkanalytics.assistants.prompt }}**:
       * Enter the text of your instruction. You can use ready-made templates if needed.
       * Select the model that the assistant will use.
       * Optionally, add a [knowledge base](../../concepts/assistants.md#tools) the assistant will use while following instructions.
-      * Click **Refine instruction**. The system will refine your instruction based on the selected model.
-   * Under **Result**, add one or more fields that will be used to record and distribute values found in conversations according to the instruction:
+      * Click **{{ ui-key.yc-ui-talkanalytics.assistants.generate-prompt-key-value }}**. The system will refine your instruction based on the selected model.
+   * Under **{{ ui-key.yc-ui-talkanalytics.assistants.result-key-value }}**, add one or more fields. These fields will be used to record and distribute all the values found in dialogs as per the instruction:
       * Enter a name for the field.
       * Select the field type.
       * As a description, provide the information from the instruction to track in this field.
    
    {% note tip %}
    
-   To use ready-made templates for the **Instruction** and **Result** sections, click **Templates** under **Instruction** and select the appropriate template.
+   To use ready-made templates for the **{{ ui-key.yc-ui-talkanalytics.assistants.prompt }}** and **{{ ui-key.yc-ui-talkanalytics.assistants.result-key-value }}** sections, click **{{ ui-key.yc-ui-talkanalytics.assistants.templates }}** under **{{ ui-key.yc-ui-talkanalytics.assistants.prompt }}** and select a suitable template.
    
    {% endnote %}
 
-1. Enable the **Usage** section to activate the assistant. 
+1. Enable the **{{ ui-key.yc-ui-talkanalytics.assistants.applying }}** section to activate the assistant. 
 
    {% note warning %}
 
-   [Charges](../../pricing.md) for using the assistant will apply as soon as you enable it. Assistant usage can only be enabled manually in the project. To get analyzed, dialogs must be uploaded after activating the assistant.
+   Once the assistant is activated, you start [paying](../../pricing.md) for it. The assistant feature in your project is activated manually. The assistant analyzes only the dialogs uploaded after it is activated.
 
    {% endnote %}
 
-   Select the conversations for the assistant to analyze:
-   * **All conversations**: The assistant will analyze all conversations in the project.
-   * **Selected conversations**: The assistant will only analyze conversations matching the criteria defined in the filters.
-      Add the required filters by clicking ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-talkanalytics.common.add-filter }}**.
+   Select the dialogs you want the assistant to analyze:
+   * **{{ ui-key.yc-ui-talkanalytics.assistants.all-dialogs-key-value }}**: All dialogs in the project.
+   * **{{ ui-key.yc-ui-talkanalytics.assistants.filtered-dialogs-key-value }}**: Only dialogs that satisfy the filtering criteria.
+      Add the necessary filters by clicking ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-talkanalytics.common.add-filter }}**.
 
-1. Under **Testing**, you can test the assistant on a sample of conversations before creating it. To do this, add the required filters by clicking ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-talkanalytics.common.add-filter }}**.
+1. Under **{{ ui-key.yc-ui-talkanalytics.assistants.testing-key-value }}**, you can test the assistant on a selection of dialogs before you create it. Do it by adding the necessary filters using the ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-talkanalytics.common.add-filter }}** button.
 
-1. Click **Create**.
+1. Click **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
    
    

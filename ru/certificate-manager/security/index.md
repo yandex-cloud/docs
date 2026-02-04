@@ -38,7 +38,7 @@ description: Управление доступом в сервисе для по
 
 {% include [certificate-manager.viewer](../../_roles/certificate-manager/viewer.md) %}
 
-#### certificate-manager.editor {#certificate-manager.editor}
+#### certificate-manager.editor {#certificate-manager-editor}
 
 {% include [certificate-manager.editor](../../_roles/certificate-manager/editor.md) %}
 

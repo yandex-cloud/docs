@@ -89,7 +89,7 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
      {% include [vm-platform-cli](../../../_includes/compute/vm-platform-cli.md) %}
 
      Where:
-     * `--name`: Name of the preemptible VM. Follow these naming requirements:
+     * `--name`: Name of the preemptible VM. The naming requirements are as follows:
 
        {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -327,7 +327,7 @@ To change the type of a VM, such as making it non-preemptible:
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 

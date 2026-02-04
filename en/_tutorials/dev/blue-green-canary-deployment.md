@@ -220,7 +220,7 @@ All resources you create will belong to the same [cloud network](../../vpc/conce
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration. 
 
   1. Deploy the cloud resources.
 
@@ -310,7 +310,7 @@ All resources you create will belong to the same [cloud network](../../vpc/conce
      }
      ```
 
-     For more information about `yandex_storage_bucket`, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
+     For more information about the `yandex_storage_bucket` resource, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Make sure the configuration files are correct.
 
@@ -321,7 +321,7 @@ All resources you create will belong to the same [cloud network](../../vpc/conce
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration. 
 
   1. Deploy the cloud resources.
 
@@ -435,7 +435,7 @@ All resources you create will belong to the same [cloud network](../../vpc/conce
         }
         ```
 
-        For more information about `yandex_storage_object`, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/storage_object).
+        For more information about the `yandex_storage_object` resource, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/storage_object).
 
      1. Make sure the configuration files are correct.
 
@@ -446,7 +446,7 @@ All resources you create will belong to the same [cloud network](../../vpc/conce
            terraform plan
            ```
 
-        If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
+        If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration. 
 
      1. Deploy the cloud resources.
 
@@ -609,7 +609,7 @@ To create security groups:
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration. 
 
   1. Deploy the cloud resources.
 
@@ -863,7 +863,7 @@ To create security groups:
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration. 
 
   1. Deploy the cloud resources.
 
@@ -1075,7 +1075,7 @@ To create security groups:
      }
      ```
 
-     For more information about `yandex_alb_load_balancer`, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
+     For more information about the `yandex_alb_load_balancer` resource, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/alb_load_balancer).
 
   1. Make sure the configuration files are correct.
 
@@ -1086,7 +1086,7 @@ To create security groups:
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration. 
 
   1. Deploy the cloud resources.
 
@@ -1248,7 +1248,7 @@ To create security groups:
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
 
   1. Deploy the cloud resources.
 
@@ -1258,7 +1258,7 @@ To create security groups:
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources: type `yes` and press **Enter**.
 
      This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
@@ -1277,7 +1277,7 @@ To create security groups:
       terraform plan
       ```
 
-     If the configuration description is correct, the terminal will display a list of updated resources and their properties. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of updated resources and their properties. {{ TF }} will show any errors in the configuration.
   
   1. If there are no errors, run this command:
 
@@ -1426,7 +1426,7 @@ To configure DNS:
            terraform plan
            ```
 
-        If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
+        If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration. 
 
      1. Deploy the cloud resources.
 

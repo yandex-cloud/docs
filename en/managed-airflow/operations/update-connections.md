@@ -7,7 +7,7 @@ description: You can connect to a {{ maf-name }} database using software and upd
 
 {% note warning %}
 
-This guide is suitable for {{ AF }} 3.0 and lower.
+This guide is suitable for {{ AF }} 3.0 and lower. Starting from {{ AF }} version 3.0, direct access to databases is restricted.
 
 {% endnote %}
 

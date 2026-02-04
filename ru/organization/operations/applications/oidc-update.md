@@ -103,6 +103,74 @@ description: Следуя данной инструкции, вы сможете
      updated_at: "2025-10-21T12:37:19.274522Z"
      ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. В конфигурационном файле {{ TF }} измените параметры [OIDC-приложения](../../concepts/applications.md#oidc):
+
+    ```hcl
+    resource "yandex_organizationmanager_idp_application_oauth_application" "example_oidc_app" {
+      application_id   = "<идентификатор_приложения>"
+      organization_id = "<идентификатор_организации>"
+      name            = "<новое_имя_приложения>"
+      description     = "<новое_описание_приложения>"
+      
+      client_grant = {
+        client_id         = "<идентификатор_OAuth-клиента>"
+        authorized_scopes = ["<атрибут1>", "<атрибут2>"]
+      }
+      
+      group_claims_settings = {
+        group_distribution_type = "ALL_GROUPS"
+      }
+      
+      labels = {
+        "<ключ1>" = "<значение1>"
+        "<ключ2>" = "<значение2>"
+      }
+    }
+    ```
+
+    Где:
+
+    * `application_id` — идентификатор OIDC-приложения. Обязательный параметр.
+    * `organization_id` — [идентификатор организации](../organization-get-id.md), в которой находится OIDC-приложение. Обязательный параметр.
+    * `name` — новое имя OIDC-приложения. Имя должно быть уникальным в пределах организации и соответствовать требованиям:
+
+      {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
+
+    * `description` — новое описание OIDC-приложения. Необязательный параметр.
+    * `client_grant` — параметры подключения к OAuth-клиенту:
+      * `client_id` — идентификатор OAuth-клиента. Обязательный параметр.
+      * `authorized_scopes` — новый набор атрибутов пользователей, которые будут доступны поставщику услуг. Укажите один или несколько атрибутов в квадратных скобках. Возможные атрибуты:
+        * `openid` — идентификатор пользователя. Обязательный атрибут.
+        * `profile` — дополнительная информация о пользователе, такая как имя, фамилия, аватар.
+        * `email` — адрес электронной почты пользователя.
+        * `address` — место жительства пользователя.
+        * `phone` — номер телефона пользователя.
+        * `groups` — группы пользователей в организации.
+    * `group_claims_settings` — настройки передачи групп пользователей поставщику услуг:
+      * `group_distribution_type` — если при создании OAuth-клиента вы указали атрибут `groups`, укажите, какие группы пользователей будут переданы поставщику услуг. Возможные значения:
+        * `ALL_GROUPS` — поставщику услуг будут переданы все группы, в которые входит пользователь.
+        * `ASSIGNED_GROUPS` — из всех групп, в которые входит пользователь, поставщику услуг будут переданы только те группы, которые будут явно заданы.
+        * `NONE` — поставщику услуг не будут переданы группы, в которые входит пользователь.
+    * `labels` — список [меток](../../../resource-manager/concepts/labels.md). Необязательный параметр.
+
+    Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_oauth_application` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).
+
+  1. Примените изменения:
+
+    {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+    Проверить изменения ресурсов и их настройки можно в [{{ org-full-name }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../../cli/):
+
+    ```bash
+    yc organization-manager idp application oauth application get <идентификатор_приложения>
+    ```
+
 - API {#api}
 
   Воспользуйтесь методом REST API [Application.Update](../../idp/application/oauth/api-ref/Application/update.md) для ресурса [Application](../../idp/application/oauth/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Update](../../idp/application/oauth/api-ref/grpc/Application/update.md).
@@ -178,9 +246,52 @@ description: Следуя данной инструкции, вы сможете
      status: ACTIVE
      ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. В конфигурационном файле {{ TF }} измените параметры OAuth-клиента:
+
+    ```hcl
+    resource "yandex_iam_oauth_client" "example_oauth_client" {
+      oauth_client_id = "<идентификатор_OAuth-клиента>"
+      name           = "<новое_имя_OAuth-клиента>"
+      redirect_uris  = ["<адрес1>", "<адрес2>"]
+      scopes         = ["<атрибут1>", "<атрибут2>"]
+    }
+    ```
+
+    Где:
+
+    * `oauth_client_id` — идентификатор OAuth-клиента. Обязательный параметр.
+    * `name` — новое имя OAuth-клиента. Необязательный параметр.
+    * `redirect_uris` — новый список адресов Redirect URI. Укажите один или несколько адресов в квадратных скобках. Необязательный параметр.
+    * `scopes` — новый набор атрибутов пользователей, которые будут доступны поставщику услуг. Укажите один или несколько атрибутов в квадратных скобках. Возможные атрибуты:
+      * `openid` — идентификатор пользователя. Обязательный атрибут.
+      * `profile` — дополнительная информация о пользователе, такая как имя, фамилия, аватар.
+      * `email` — адрес электронной почты пользователя.
+      * `address` — место жительства пользователя.
+      * `phone` — номер телефона пользователя.
+      * `groups` — группы пользователей в организации.
+
+    Более подробную информацию о параметрах ресурса `yandex_iam_oauth_client` см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_oauth_client).
+
+  1. Примените изменения:
+
+    {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+    Проверить изменения ресурсов и их настройки можно в [{{ org-full-name }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../../cli/):
+
+    ```bash
+    yc iam oauth-client get <идентификатор_OAuth-клиента>
+    ```
+
 - API {#api}
 
   Воспользуйтесь методом REST API [OAuthClient.Update](../../../iam/api-ref/OAuthClient/update.md) для ресурса [OAuthClient](../../../iam/api-ref/grpc/OAuthClient/index.md) или вызовом gRPC API [OAuthClientService/Update](../../../iam/api-ref/grpc/OAuthClient/update.md).
+
 
 {% endlist %}
 
@@ -227,6 +338,37 @@ description: Следуя данной инструкции, вы сможете
      ```
 
      Не забудьте указать новый секрет в настройках на стороне поставщика услуг. При необходимости обратитесь к документации или в службу поддержки вашего поставщика услуг.
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. В конфигурационном файле {{ TF }} создайте новый секрет OAuth-клиента:
+
+    ```hcl
+    resource "yandex_iam_oauth_client_secret" "example_oauth_client_secret" {
+      oauth_client_id = "<идентификатор_OAuth-клиента>"
+    }
+    ```
+
+    Где:
+
+    * `oauth_client_id` — идентификатор OAuth-клиента, для которого создается новый секрет. Обязательный параметр.
+
+    Более подробную информацию о параметрах ресурса `yandex_iam_oauth_client_secret` см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_oauth_client_secret).
+
+  1. Примените изменения:
+
+    {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+    Проверить изменения ресурсов и их настройки можно в [{{ org-full-name }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../../cli/):
+
+    ```bash
+    yc iam oauth-client-secret list --oauth-client-id <идентификатор_OAuth-клиента>
+    ```
+
 
 - API {#api}
 

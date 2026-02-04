@@ -159,7 +159,7 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -188,7 +188,7 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
 - Management console {#console}
 
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the cluster name.
+  1. Click the name of your cluster.
   1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
   1. Select the node group you need.
   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
@@ -271,7 +271,7 @@ Adding [taints](../../concepts/index.md#taints-tolerations) results in recreatio
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -310,7 +310,7 @@ Removing [taints](../../concepts/index.md#taints-tolerations) results in recreat
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -392,7 +392,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -408,7 +408,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
 - Management console {#console}
 
-  To update a cloud label, you will need to remove and recreate it:
+  To update a cloud label, you will have to remove and recreate it:
 
     1. Navigate to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Click the cluster name.
@@ -417,7 +417,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
     1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
     1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click the cross next to the label to remove it.
     1. Click **{{ui-key.yacloud.component.label-set.button_add-label }}** and enter a new key and/or value for the label.
-    1. Press **Enter** and click **{{ ui-key.yacloud.common.save }}**.
+    1. Press **Enter**, then click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -461,7 +461,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -512,7 +512,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -632,7 +632,7 @@ After you update the metadata, the node group status will temporarily change to 
 
             You can get the node group name with the [list of node groups in the folder](./node-group-list.md#list).
 
-            You can request a list of existing metadata with [detailed information about the node group](./node-group-list.md#get).
+            You can get a list of existing metadata with [detailed information about the node group](./node-group-list.md#get).
 
             {% note tip %}
 
@@ -664,13 +664,13 @@ After you update the metadata, the node group status will temporarily change to 
 
             You can get the node group name with the [list of node groups in the folder](./node-group-list.md#list).
 
-            You can request a list of existing metadata with [detailed information about the node group](./node-group-list.md#get).
+            You can get a list of existing metadata with [detailed information about the node group](./node-group-list.md#get).
 
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-        For more information about creating this file, see [{#T}](./node-group-create.md).
+        Learn how to create this file in [{#T}](./node-group-create.md).
 
     1. To add, edit, or delete metadata with a specific key, edit the list of keys and values in the `instance_template.metadata` parameter. If there is no such parameter, add it.
 
@@ -705,7 +705,7 @@ After you update the metadata, the node group status will temporarily change to 
 
         {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 

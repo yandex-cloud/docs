@@ -12,11 +12,11 @@ node | Broker type: `leader`, `follower`, or `replica`
 subcluster_name | Subcluster type: `zookeeper_subcluster` or `kafka_subcluster`
 
 ## CPU metrics {#managed-kafka-cpu-metrics}
-CPU core workload.
+These metrics show the processor core workload.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU performance | 
+| `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU share | 
 | `cpu.guarantee`<br/>`DGAUGE`, count | Guaranteed number of cores | 
 | `cpu.limit`<br/>`DGAUGE`, count | Maximum number of cores in use | 
 | `cpu.guest`<br/>`DGAUGE`, % | CPU core usage, `guest` usage type | 
@@ -42,7 +42,7 @@ CPU core workload.
 | `disk.used_bytes`<br/>`DGAUGE`, bytes | Used space | 
 | `disk.used_inodes`<br/>`DGAUGE`, count | Used inodes |
 
-## Disk operation metrics {#managed-kafka-diskio-metrics}
+## Disk I/O metrics {#managed-kafka-diskio-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `io.avg_read_time`<br/>`DGAUGE`, milliseconds | Average disk read time | 
@@ -63,6 +63,20 @@ CPU core workload.
 | `io.write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed | 
 | `io.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second | 
 | `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
+| `io_quota_utilization_percentage`<br/>`DGAUGE`, % | Average percentage of disk quota usage |
+| `io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Maximum percentage of disk quota usage |
+| `read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk. |
+| `read_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes read from disk |
+| `read_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk read request latency |
+| `read_ops`<br/>`DGAUGE`, operations per second | Average number of disk reads |
+| `read_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk reads |
+| `read_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of read latency due to exceeded disk quota |
+| `write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk. |
+| `write_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes written to disk |
+| `write_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk write request latency |
+| `write_ops`<br/>`DGAUGE`, operations per second | Average number of disk write operations |
+| `write_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk write operations |
+| `write_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of write latency due to exceeded disk quota |
 
 ## RAM metrics {#managed-kafka-ram-metrics}
 | Name<br/>Type, units | Description |
@@ -95,11 +109,11 @@ CPU core workload.
 #|
 || **Name**<br/>**Type, units** | **Description** ||
 || `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs`<br/>`DGAUGE`, milliseconds | Leader broker switch rate per unit of time. In a normal state, it is `0`. Its value may increase during maintenance, which does not indicate a problem.<br/>Additional labels: `quantile`. ||
-|| `kafka_controller_KafkaController_ActiveControllerCount`<br/>`DGAUGE`, count | Number of active controllers. ||
+|| `kafka_controller_KafkaController_ActiveControllerCount`<br/>`DGAUGE`, count | Number of active controllers ||
 || `kafka_controller_KafkaController_GlobalTopicCount`<br/>`DGAUGE`, count | Number of topics ||
 || `kafka_controller_KafkaController_OfflinePartitionsCount`<br/>`DGAUGE`, count | Number of offline partitions. ||
-|| `kafka_controller_KafkaController_PreferredReplicaImbalanceCount`<br/>`DGAUGE`, count | Imbalance count in the preferred replica. In a normal state, it is `0`. ||
-|| `kafka_group_topic_partition_lag`<br/>`DGAUGE`, count | Message lag: Difference between the consumer offset and the partition's latest offset. ||
+|| `kafka_controller_KafkaController_PreferredReplicaImbalanceCount`<br/>`DGAUGE`, count | Number of imbalanced replicas in the preferred distribution. In a normal state, it is `0`. ||
+|| `kafka_group_topic_partition_lag`<br/>`DGAUGE`, count | Message lag, i.e., difference between the consumer offset and the partition’s latest offset. ||
 || `kafka_group_topic_partition_offset`<br/>`DGAUGE`, count | Partition's current consumer group offset. ||
 || `kafka_log_Log_LogStartOffset`<br/>`DGAUGE`, count | Partition's first offset. ||
 || `kafka_log_Log_LogEndOffset`<br/>`DGAUGE`, count | Partition's last offset. ||
@@ -144,7 +158,7 @@ It can be either `1` if a broker is alive or `0` if it is not. ||
 || `kafka_server_ReplicaManager_OfflineReplicaCount`<br/>`DGAUGE`, count | Number of partitions with no leader broker. These partitions do not support message writes or reads. ||
 || `kafka_server_ReplicaManager_PartitionCount`<br/>`DGAUGE`, count | Number of partitions per broker ||
 || `kafka_server_ReplicaManager_ReassigningPartitions`<br/>`DGAUGE`, count | Number of partitions with the leader being reassigned ||
-|| `kafka_server_ReplicaManager_UnderMinIsrPartitionCount`<br/>`DGAUGE`, count | Number of partitions with in-sync replica (ISR) count below the set minimum ||
+|| `kafka_server_ReplicaManager_UnderMinIsrPartitionCount`<br/>`DGAUGE`, count | Number of partitions with in-sync replica (ISR) count below the minimum value specified in the settings ||
 || `kafka_server_ReplicaManager_UnderReplicatedPartitions`<br/>`DGAUGE`, count | Number of partitions with ISR count below the replication factor ||
 || `kafka_server_ZooKeeperClientMetrics_ZooKeeperRequestLatencyMs`<br/>`DGAUGE`, milliseconds | Request latency in {{ ZK }}.<br/>Additional labels: `quantile`. ||
 || `kafka_shard_count`<br/>`DGAUGE`, count | Number of active shards ||

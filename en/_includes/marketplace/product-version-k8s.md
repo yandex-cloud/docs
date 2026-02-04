@@ -4,7 +4,7 @@
 
 1. In the **{{ ui-key.yacloud_portal.marketplace_v2.version.label_tariff }}** field, select the service plan you created or create a new one.
 
-1. In the **{{ ui-key.yacloud_portal.marketplace_v2.version.label_k8s-manifest }}** field, insert a valid link to the manifest previously uploaded to {{ objstorage-full-name }}. For more information about the manifest and product requirements for {{ managed-k8s-name }}, see [{#T}](../../marketplace/operations/create-container.md).
+1. In the **{{ ui-key.yacloud_portal.marketplace_v2.version.label_k8s-manifest }}** field, paste the valid link to the product specification previously uploaded to {{ objstorage-full-name }}. For more information on product specifications and requirements for {{ managed-k8s-name }}, see [{#T}](../../marketplace/operations/create-container.md).
 
 1. {% include [product-info](product-info.md) %}
 

@@ -19,8 +19,9 @@ To access a [registry](../../concepts/registry.md), use its ID or name. For info
 - Management console {#console}
 
   To update the name of a [registry](../../concepts/registry.md):
-  1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to update the registry in.
-  1. Click ![image](../../../_assets/console-icons/ellipsis-vertical.svg) in the line of the registry to change.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the registry.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. Click ![image](../../../_assets/console-icons/ellipsis-vertical.svg) in the row of the registry to update.
   1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
   1. In the window that opens, enter the registry name.
   1. (Optional) Update labels.
@@ -89,10 +90,11 @@ To access a [registry](../../concepts/registry.md), use its ID or name. For info
 - Management console {#console}
 
   To add or delete an [IP address](../../../vpc/concepts/address.md) and configure access to a registry:
-  1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}** in the folder to update the registry in.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the registry.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Click the name of the registry you need, select ![ip-address.svg](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.cr.registry.label_ip-permissions }}**, and click **{{ ui-key.yacloud.cr.registry.button_update-ip-permissions }}**.
   1. Click **{{ ui-key.yacloud.common.add }}** and specify the IP address and permission to perform an action with the registry: `PULL` to pull Docker images from the registry or `PUSH` to push them to the registry.
-  1. Click ![image](../../../_assets/console-icons/xmark.svg) in the line of the IP address from which you need to delete the permissions.
+  1. Click ![image](../../../_assets/console-icons/xmark.svg) in the row of the IP address from which you need to delete the permissions.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}

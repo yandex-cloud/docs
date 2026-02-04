@@ -24,7 +24,7 @@ Make sure to specify the following [resource](concepts/resource.md) settings:
 
 Make sure that:
 
-* The resource settings allow end-user access to content.
+* The resource settings allow end user access to content.
 * Origins return files in response to direct requests, bypassing the CDN.
 * Origins allow and correctly process requests that match the resource settings:
 

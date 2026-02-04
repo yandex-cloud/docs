@@ -163,7 +163,7 @@ Total size of [non-replicated SSDs](../compute/concepts/disk.md#disks-types) | 2
 [Symmetric keys](../kms/concepts/key.md) | 1
 **{{ mpg-name }}** |
 [{{ PG }} clusters](../managed-postgresql/concepts/index.md) | 1
-Total number of database host vCPUs  | 6
+Total number of database host vCPUs | 6
 Total database host RAM | 24 GB
 Total database host [storage](../managed-postgresql/concepts/storage.md) size | 99 GB
 **{{ managed-k8s-name }}** |

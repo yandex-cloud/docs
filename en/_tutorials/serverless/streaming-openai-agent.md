@@ -1,9 +1,23 @@
 
 
-In this tutorial, you will create an agent with response streaming via [web sockets](https://{{ lang }}.wikipedia.org/wiki/WebSocket) on [{{ sf-full-name }}](../../functions/) and [{{ api-gw-full-name }}](../../api-gateway/). To access [{{ yagpt-full-name }}](../../ai-studio/quickstart/yandexgpt.md), the function will use the [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/).
+In this tutorial, you will create an agent with response streaming via [web sockets](https://{{ lang }}.wikipedia.org/wiki/WebSocket) on [{{ sf-full-name }}](../../functions/) and [{{ api-gw-full-name }}](../../api-gateway/). The function will use the [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) to access [the {{ foundation-models-full-name }}](../../ai-studio/quickstart/yandexgpt.md) models.
 
-Agents may take a long time to respond when handling complex requests, e.g., generation of large texts with reasoning, search operations, or indexing. In such cases, it is essential to monitor progress and receive incremental results in real time. Response streaming enables immediate output of tokens, phrases, intermediate messages, step statuses, and logs, followed by the final response, without waiting for the entire scenario to complete. This enhances the perceived speed, provides a more interactive UI/UX, and enables users to cancel, retry, and dynamically update the interface. [Streaming](https://openai.github.io/openai-agents-python/streaming/) is supported by most frameworks, including the OpenAI Agents SDK.
+When an agent handles complex requests, it may take a long time to respond. For example, this may occur when generating large texts with reasoning, performing search operations, or indexing. In such cases, it is essential to monitor progress and receive incremental results in real time. Response streaming enables immediate output of tokens, phrases, intermediate messages, step statuses, and logs, followed by the final response, without waiting for the entire scenario to complete. This enhances perceived speed, provides a more interactive UI/UX, and enables users to cancel, retry, and dynamically update the interface. Streaming is supported by most frameworks. The OpenAI Agents SDK also supports [streaming](https://openai.github.io/openai-agents-python/streaming/).
 
+![streaming-openai-agent](../../_assets/tutorials/streaming-openai-agent.svg)
+
+On the diagram:
+
+1. A user establishes a WebSocket connection to the [API gateway](../../api-gateway/concepts/index.md) and sends a request to the AI agent over it.
+1. The API gateway forwards the request to the [function](../../functions/concepts/function.md) handler.
+1. The function handler creates and runs the AI agent using the OpenAI Agent SDK in streaming mode. In this mode, the agent will stream data from the model as it becomes available, without waiting for the complete response.
+1. The AI agent augments the user request with additional context and sends it to the [text generation model](../../ai-studio/concepts/generation/index.md).
+1. A [service account](../../iam/concepts/users/service-accounts.md) provides the AI agent with the [Text Generation API](../../ai-studio/text-generation/api-ref/index.md) access using an [API key](../../iam/concepts/authorization/api-key.md).
+1. The service account grants the function access to the [secret](../../lockbox/concepts/secret.md) containing the service account API key.
+1. The function retrieves the service account API key from the secret.
+1. The model sends the generated response to the AI agent.
+1. The AI agent streams data from the model as it becomes available. The data is immediately forwarded to the WebSocket connection the user established earlier using the [{{ api-gw-name }} Web Socket Connection Service](../../api-gateway/apigateway/websocket/api-ref/Connection/send.md). The function then terminates.
+1. The API gateway forwards the response to the user.
 
 To create an agent:
 
@@ -74,7 +88,7 @@ The infrastructure support cost for this tutorial includes:
 
 ## Prepare the project files {#prepare-files}
 
-To complete this tutorial, you need files containing the function code and the API gateway specification.
+To follow this guide, you need files containing the function code and the API gateway specification.
 
 {% list tabs %}
 
@@ -129,7 +143,7 @@ To complete this tutorial, you need files containing the function code and the A
           return sdk.client(ConnectionServiceStub)
 
       def stream_to_websocket(connection_id: str, message: str):
-          """Sending message to WebSocket connection"""
+          """Sending messages to the WebSocket connetion"""
           websocket_service = get_websocket_service()
           request = SendToConnectionRequest(
               connection_id=connection_id,
@@ -139,7 +153,7 @@ To complete this tutorial, you need files containing the function code and the A
           websocket_service.Send(request)
 
       async def process_stream(agent: Agent, run_config: RunConfig, connection_id: str, input_text: str):
-          """Processing agent stream and sending to WebSocket"""
+          """Processing the agent stream and sending to WebSocket"""
           result = Runner.run_streamed(
               agent,
               input=input_text,
@@ -235,7 +249,7 @@ To complete this tutorial, you need files containing the function code and the A
 
 ## Create a service account {#create-sa}
 
-Using the service account, the function will get access to the secret and {{ yagpt-name }}, and the API gateway will get access to the function.
+The function will use the service account to get access to the secret and {{ foundation-models-name }} model, and the API gateway will get access to the function.
 
 {% list tabs group=instructions %}
 
@@ -244,7 +258,7 @@ Using the service account, the function will get access to the secret and {{ yag
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create your infrastructure.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter the service account name: `agent-streamer-sa`.
+  1. Name the service account: `agent-streamer-sa`.
   1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select these [roles](../../iam/roles-reference.md):
       * `serverless.functions.invoker`
       * `lockbox.payloadViewer`
@@ -341,7 +355,7 @@ Using the service account, the function will get access to the secret and {{ yag
 
 ## Create an API key {#create-api-key}
 
-The function will use the API key to get access to {{ yagpt-name }}.
+The function will use the API key to get access to the {{ foundation-models-name }} model.
 
 {% list tabs group=instructions %}
 
@@ -352,7 +366,7 @@ The function will use the API key to get access to {{ yagpt-name }}.
   1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field, select the `yc.ai.languageModels.execute` [scope](../../iam/concepts/authorization/api-key.md#scoped-api-keys).
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. Save the ID and secret key to later create the function.
+  1. Save the ID and secret key you got, as you will need them later when creating the function.
 
       {% note alert %}
 
@@ -589,9 +603,9 @@ The function will be created based on the archive with its code and dependencies
 
 ## Create an API gateway {#create-gateway}
 
-Create the API gateway for access to the function.
+Create the API gateway for accessing the function.
 
-1. Open the `gateway-spec.yaml` file and specify the following:
+1. Open the `gateway-spec.yaml` file and specify the following in it:
 
     * `function_id`: `agent-streamer` function ID.
     * `service_account_id`: `agent-streamer-sa` service account ID.
@@ -604,9 +618,9 @@ Create the API gateway for access to the function.
 
       1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
       1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
-      1. In the **{{ ui-key.yacloud.common.name }}** field, enter `agent-streamer-gateway` as the API gateway name.
+      1. In the **{{ ui-key.yacloud.common.name }}** field, enter `agent-streamer-gateway` as the name of the API gateway.
       1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, paste the contents of the `gateway-spec.yaml` file.
-      1. If you prefer to opt out of logging so as not to pay for {{ cloud-logging-name }}, disable the **{{ ui-key.yacloud.logging.field_logging }}** option.
+      1. If you prefer to opt out of logging so as not to pay {{ cloud-logging-name }}, disable the **{{ ui-key.yacloud.logging.field_logging }}** option.
       1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
       1. Select the created API gateway. Save the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_wss_domain }}** field value as you will need it at the next step.
 
