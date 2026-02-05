@@ -1195,6 +1195,12 @@ These virtual columns will have the same names as in the partitioned path, but s
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#use_hive_partitioning).
 
+- `show_data_lake_catalogs_in_system_tables`: Enables or disables showing data lake catalogs in system tables.
+
+  Default value: **false** for versions 25.10 and higher, **true** for versions 25.9 and lower.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#show_data_lake_catalogs_in_system_tables).
+
 - `compile`: The setting is deprecated and has no effect.
 
 - `min_count_to_compile`: The setting is deprecated and has no effect.

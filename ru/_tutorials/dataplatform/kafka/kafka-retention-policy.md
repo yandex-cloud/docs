@@ -33,6 +33,9 @@
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте кластер {{ mkf-name }}](../../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации. При создании кластера включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+
+    {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
 1. [Создайте топик](../../../managed-kafka/operations/cluster-topics.md#create-topic) для обмена сообщениями между производителем и потребителем со следующими параметрами:
     * **{{ ui-key.yacloud.common.name }}** — `messages`;
     * **{{ ui-key.yacloud.kafka.label_partitions }}** — `1`.

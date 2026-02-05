@@ -1,0 +1,1 @@
+On the dashboard at the top, there is a summary of the results, which highlights the most common violations, and a diagram for severity of identified violations of a safety standard or regulation.

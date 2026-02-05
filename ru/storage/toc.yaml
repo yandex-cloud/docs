@@ -35,6 +35,8 @@ items:
             href: operations/buckets/policy.md
           - name: Настройка публичного доступа к бакету
             href: operations/buckets/bucket-availability.md
+          - name: Запретить доступ со статическими ключами
+            href: operations/buckets/disable-statickey-auth.md
           - name: Доступ в бакет с помощью {{ sts-name }}
             href: operations/buckets/create-sts-key.md
           - name: Доступ в бакет с помощью эфемерного ключа доступа

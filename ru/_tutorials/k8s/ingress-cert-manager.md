@@ -75,7 +75,7 @@
 1. Узнайте [IP-адрес](../../vpc/concepts/address.md) Ingress-контроллера (значение в колонке `EXTERNAL-IP`):
 
    ```bash
-   kubectl get svc
+   kubectl get svc -n <пространство_имен_приложения_Ingress_NGINX>
    ```
 
    Результат:

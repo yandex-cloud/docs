@@ -1097,21 +1097,6 @@ items:
                     title: ''
                 title: ''
             title: ''
-          - name: Managed Service for SQLServer
-            items:
-              - name: Data Sources
-                items:
-                  - name: mdb_sqlserver_cluster
-                    href: data-sources/mdb_sqlserver_cluster.md
-                    title: ''
-                title: ''
-              - name: Resources
-                items:
-                  - name: mdb_sqlserver_cluster
-                    href: resources/mdb_sqlserver_cluster.md
-                    title: ''
-                title: ''
-            title: ''
           - name: Managed Service for Sharded PostgreSQL
             items:
               - name: Resources

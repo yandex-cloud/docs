@@ -69,9 +69,11 @@
 
     1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей [конфигурации](../../managed-clickhouse/concepts/instance-types.md) со следующими настройками:
 
-        * С публичным доступом к хостам кластера.
         * С базой данных `db1`.
         * С пользователем `user1`.
+        * С публичным доступом к хостам кластера.
+
+            {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
     
     1. Если вы используете группы безопасности в кластере {{ mch-name }}, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.

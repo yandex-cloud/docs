@@ -26,8 +26,10 @@
 
 - Вручную {#manual}
 
+    {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
     1. [Создайте кластер-источник {{ mos-name }}](../../../managed-opensearch/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе.
-    1. В той же [зоне доступности](../../../overview/concepts/geo-scope.md) [создайте кластер-приемник {{ mch-name }}](../../../managed-clickhouse/operations/cluster-create.md#create-cluster) любой подходящей конфигурации, с хостами в публичном доступе.
+    1. В той же [зоне доступности](../../../overview/concepts/geo-scope.md) [создайте кластер-приемник {{ mch-name }}](../../../managed-clickhouse/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе.
 
        Если вы планируете подключаться к кластеру через сервис {{ websql-full-name }}, включите в настройках кластера настройку **{{ ui-key.yacloud.mdb.cluster.overview.label_access-websql-service }}**.
 

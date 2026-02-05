@@ -30,6 +30,8 @@
 
         [Создайте кластер-приемник](../../../managed-opensearch/operations/cluster-create.md) {{ mos-name }} любой подходящей конфигурации с хостами в публичном доступе.
 
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
     - {{ TF }} {#tf}
 
         1. {% include [terraform-install](../../../_includes/terraform-install.md) %}

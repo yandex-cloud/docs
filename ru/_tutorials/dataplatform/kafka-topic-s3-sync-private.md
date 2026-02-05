@@ -50,9 +50,11 @@
 
         1. [Создайте кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей [конфигурации](../../managed-kafka/concepts/instance-types.md) со следующими настройками:
 
+            * Сеть `my-private-network`.
             * Один хост-брокер.
             * Публичный доступ к хостам кластера.
-            * Сеть `my-private-network`.
+
+                {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
         
         1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../../managed-kafka/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.

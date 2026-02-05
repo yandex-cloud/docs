@@ -152,7 +152,9 @@
 
   * В поле **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** выберите бакет, [созданный ранее](#before-you-begin).
 
-  * В меню **{{ ui-key.yacloud.mdb.forms.section_subclusters }}** включите в настройках опцию **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}**. Это позволит подключаться к хостам подкластеров без использования промежуточной виртуальной машины.
+  * В меню **{{ ui-key.yacloud.mdb.forms.section_subclusters }}** включите в настройках опцию **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}**.
+
+      {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
 - {{ TF }} {#tf}
 

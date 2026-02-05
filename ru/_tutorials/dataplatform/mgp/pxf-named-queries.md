@@ -43,6 +43,8 @@
 
     1. [Создайте кластер](../../../managed-postgresql/operations/cluster-create.md) {{ mpg-name }} с хостами в публичном доступе.
 
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
     1. В подсети кластера {{ mpg-name }} [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
 
 - {{ TF }} {#tf}

@@ -42,7 +42,7 @@ To revoke a subject's access (role) for a resource:
 
       * To revoke access from the whole group, [open](./view-permissions.md) the list of accesses for that group and follow the guide on how to revoke directly assigned access.
 
-{% endlist %}
+    {% endlist %}
 
 #### See also {#see-also}
 

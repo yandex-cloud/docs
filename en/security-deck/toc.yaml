@@ -42,6 +42,8 @@ items:
             href: operations/kspm/use-kspm.md
           - name: Viewing control rules
             href: operations/kspm/view-rules.md
+          - name: Performing security compliance checks
+            href: operations/kspm/check-compliance.md
           - name: Managing exceptions to control rules
             href: operations/kspm/manage-exceptions.md
       - name: Cloud Infrastructure Entitlement Management ({{ ciem-name }})
@@ -58,6 +60,8 @@ items:
             href: operations/cspm/index.md
           - name: View control and violation rules
             href: operations/cspm/view-rules.md
+          - name: Performing security compliance checks
+            href: operations/cspm/check-compliance.md
           - name: Managing exceptions to control rules
             href: operations/cspm/manage-exceptions.md
   - name: Concepts
@@ -68,6 +72,8 @@ items:
         href: concepts/workspace.md
       - name: '{{ alerts-name }} in {{ sd-name }}'
         href: concepts/alerts.md
+      - name: Compliance UI
+        href: concepts/standard-compliance.md
       - name: '{{ ycdr-full-name }} ({{ ycdr-name }})'
         href: concepts/ycdr.md
       - name: Data Security Posture Management ({{ dspm-name }})
@@ -90,6 +96,8 @@ items:
         href: diagnostics/index.md
       - name: KSPM errors
         href: diagnostics/kspm-diagnostics.md
+      - name: DSPM errors
+        href: diagnostics/dspm-diagnostics.md
   - name: Access management
     items:
       - name: Common {{ sd-name }} roles

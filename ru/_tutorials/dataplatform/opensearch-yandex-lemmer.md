@@ -29,6 +29,8 @@
             * Подключены плагины `yandex-lemmer` и `analysis-icu`.
             * Включен публичный доступ к группе хостов с ролью `DATA`.
 
+            {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
         1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../../managed-opensearch/operations/connect.md#configuring-security-groups) и допускают подключение к кластеру.
 
     * С помощью {{ TF }} {#tf}

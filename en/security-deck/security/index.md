@@ -17,6 +17,8 @@ For more information about role inheritance, see [Inheritance of access permissi
 
 ## Roles this service has {#roles-list}
 
+{% include [roles-security-deck-general](../../_mermaid/roles/security-deck-general.md) %}
+
 In {{ sd-name }}, you can manage access using both service and primitive roles.
 
 ### Service roles {#service-roles}

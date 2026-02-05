@@ -63,9 +63,9 @@
 
         {% endnote %}
 
-    1. [Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации со следующими настройками:
+    1. [Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации с публичным доступом к группе хостов с ролью `DATA`.
 
-        * Публичный доступ к группе хостов с ролью `DATA`.
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
 - С помощью {{ TF }} {#tf}
 
@@ -279,6 +279,8 @@
     - Вручную {#manual}
 
         [Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации с публичным доступом к группе хостов с ролью `DATA`.
+
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
     - С помощью {{ TF }} {#tf}
 

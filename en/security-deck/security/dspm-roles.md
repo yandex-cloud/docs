@@ -1,11 +1,13 @@
 ---
 title: '{{ dspm-name }} service roles in {{ sd-full-name }}'
-description: This page enlists roles required to control access to the Data Security Posture Management ({{ dspm-name }}) module in {{ sd-name }}.
+description: This page lists the service roles required to control access to Data Security Posture Management ({{ dspm-name }}) in {{ sd-name }}.
 ---
 
 # Data Security Posture Management ({{ dspm-name }}) service roles
 
 With [DSPM](../concepts/dspm.md) service roles, you can manage user access to the DSPM resources and their settings, as well as to the results of scans of sources for sensitive information.
+
+{% include [roles-security-deck-dspm](../../_mermaid/roles/security-deck-dspm.md) %}
 
 #### dspm.worker {#dspm-worker}
 

@@ -1,6 +1,6 @@
 ---
 title: Data Security Posture Management in {{ sd-full-name }}
-description: Data Security Posture Management, or {{ dspm-name }}, is a {{ sd-name }} module that helps detect sensitive information stored in {{ objstorage-full-name }} buckets, as well as assess its impact on security posture and compliance with regulations and industry standards.
+description: Data Security Posture Management, or {{ dspm-name }}, is a {{ sd-name }} module that helps you detect sensitive information stored in {{ objstorage-full-name }} buckets for assessment of its security posture impact and compliance with industry standards and regulations.
 ---
 
 # Data Security Posture Management ({{ dspm-name }})
@@ -45,7 +45,9 @@ You can add multiple buckets, folders, and/or clouds as well as create multiple 
 
 ### Data categories {#data-categories}
 
-When setting up a new scan, you can specify the category of data to search for. You can select all the available categories at once or any combination of them.
+When creating a new scan, you can select data categories separately for text and images.
+
+You can select all the available categories at once or any combination of them.
 
 Data categories available for scanning:
 

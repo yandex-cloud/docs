@@ -40,8 +40,6 @@ Before you start using {{ dspm-name }}, [set up](../../quickstart-overview.md#co
   1. If you want to add resources with different scan scope selection settings to the same data source, click **Add resource group** and repeat steps `4` and `5` in the section that appears.
 
       You can add any number of resource groups to a single data source for scanning.
-  1. Under **Information about source**, indicate the data source name you will use to select this source when [creating a scan](./create-scan.md). Follow these naming requirements:
-      {% include [name-format](../../../_includes/name-format.md) %}
 
   1. {% include [source-info](../../../_includes/security-deck/source-info.md) %}
   1. Click **Create source**.

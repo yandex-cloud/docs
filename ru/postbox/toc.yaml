@@ -144,3 +144,5 @@ items:
     href: public-talks.md
   - name: История изменений
     href: release-notes.md
+  - name: Вопросы и ответы
+    href: qa/index.md

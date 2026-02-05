@@ -72,6 +72,8 @@
         * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `data-proc-security-group`.
         * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** для подкластеров — предоставлен.
 
+            {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
 - {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}

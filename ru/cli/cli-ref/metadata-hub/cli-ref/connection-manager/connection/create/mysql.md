@@ -26,6 +26,9 @@ Description of the connection. ||
 || `--labels` | `key=value[,key=value...]`
 
 A list of connection labels as key-value pairs. ||
+|| `--secret-folder-id` | `string`
+
+Folder where the LockBox secret associated with the connection will be created. Defaults to the connection folder ID ||
 || `--databases` | `value[,value]`
 
 Databases list. ||

@@ -201,6 +201,8 @@
 
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите ![image](../../_assets/console-icons/pencil.svg) и включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. Нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
         * В поле **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** выберите `{{ ui-key.yacloud.common.disabled }}`.

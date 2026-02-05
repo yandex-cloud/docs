@@ -33,6 +33,8 @@
 
         1. [Создайте кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации с публичным доступом к группе хостов с ролью `DATA`.
 
+            {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
         1. Если вы используете группы безопасности в кластере, убедитесь, что они настроены правильно и допускают подключение к кластеру [{{ mos-name }}](../../managed-opensearch/operations/connect.md#configuring-security-groups).
 
     - С помощью {{ TF }} {#tf}

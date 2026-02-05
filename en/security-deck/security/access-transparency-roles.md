@@ -7,6 +7,8 @@ description: This page lists the roles required to analyze {{ atr-name }} data i
 
 With {{ atr-name }} service roles, you can set up the module and view analytical information about the actions {{ yandex-cloud }} engineers perform with your organization's resources during maintenance, when handling [support requests](../../support/overview.md), or for security purposes.
 
+{% include [roles-security-deck-transparency](../../_mermaid/roles/security-deck-transparency.md) %}
+
 #### access-transparency.viewer {#access-transparency-viewer}
 
 {% include [access-transparency.viewer](../../_roles/access-transparency/viewer.md) %}

@@ -40,7 +40,7 @@
 
         * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
-            Хосты-брокеры станут доступны из интернета.
+            {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
     1. [Создайте топик](../../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `messages` для обмена сообщениями между производителем и потребителем.
 

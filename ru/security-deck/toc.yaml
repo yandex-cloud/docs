@@ -73,7 +73,11 @@ items:
       - name: '{{ alerts-name }} в {{ sd-name }}'
         href: concepts/alerts.md
       - name: Интерфейс соответствия требованиям
-        href: concepts/standard-compliance.md
+        items:
+          - name: Обзор
+            href: concepts/standard-compliance/index.md
+          - name: Базовые правила безопасности облачной платформы {{ yandex-cloud }}
+            href: concepts/standard-compliance/yc-security-baseline.md
       - name: '{{ ycdr-full-name }} ({{ ycdr-name }})'
         href: concepts/ycdr.md
       - name: Контроль данных ({{ dspm-name }})

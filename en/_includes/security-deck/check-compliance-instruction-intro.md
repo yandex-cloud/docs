@@ -1,0 +1,3 @@
+The [compliance UI](../../security-deck/concepts/standard-compliance.md) allows you to view the [sets of requirements](../../security-deck/concepts/standard-compliance.md#security-rule-sets) currently active in an [environment](../../security-deck/concepts/workspace.md), browse through [control rule](../../security-deck/concepts/standard-compliance.md#security-rule-sets) lists included in the requirement sets, and manage exceptions.
+
+To check your infrastructure for compliance with security standards (requirement sets) which currently apply in the environment:

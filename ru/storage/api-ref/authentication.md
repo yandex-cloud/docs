@@ -26,6 +26,8 @@ description: Для выполнения операций через API в ма
 
   Для аутентификации в [AWS S3 API](../s3/api-ref/) и работы с {{ TF }} и другими [поддерживаемыми инструментами](../tools/) вы можете использовать [статический ключ доступа](../../iam/concepts/authorization/access-key.md). Статический ключ доступа выпускается на [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), и все действия с использованием этого ключа выполняются от имени этого сервисного аккаунта. Подробнее см. [Как пользоваться S3 API](../../storage/s3/).
 
+  {% include [statickey-access-note](../../_includes/storage/statickey-access-note.md) %}
+
   
   {% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
 
