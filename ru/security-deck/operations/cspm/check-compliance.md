@@ -34,4 +34,4 @@ description: В данном разделе вы узнаете, как испо
 
 #### См. также {#see-also}
 
-* [{#T}](../../concepts/standard-compliance.md)
+* [{#T}](../../concepts/standard-compliance/index.md)

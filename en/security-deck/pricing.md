@@ -38,9 +38,9 @@ If you cancel your {{ atr-name }} subscription in the [management console]({{ li
 
 When performing [data scan](operations/dspm/create-scan.md), {{ dspm-name }} sends requests to files in {{ objstorage-full-name }} buckets. Such requests are charged as per the [{{ objstorage-name }} pricing policy](../storage/pricing.md). Using {{ dspm-name }} is charged separately.
 
-### Kubernetes® Security Posture Management (KSPM) {#kspm-rules}
+### {{ k8s }}® Security Posture Management (KSPM) {#kspm-rules}
 
-The cost of using the {{ k8s }}® Security Posture Management (KSPM) module is calculated monthly based on the number of worker nodes in [{{ managed-k8s-full-name }}](../managed-kubernetes/) clusters that are connected for scanning. Payment is made for each KSPM worker node per month.
+The cost for using {{ k8s }}® Security Posture Management (KSPM) is monthly-based and depends on the number of worker nodes in [{{ managed-k8s-full-name }}](../managed-kubernetes/) clusters for scanning.
 
 ## Prices for the Russia region {#prices}
 
@@ -77,12 +77,17 @@ Let’s assume you set up scanning a bucket with 50 text files, their overall si
 {% include [usd-scan-by-amount](../_pricing_examples/security-deck/usd-scan-by-amount.md) %}
 
 
-### Kubernetes® Security Posture Management (KSPM) {#kspm-pricing}
+### {{ k8s }}® Security Posture Management (KSPM) {#kspm-pricing}
+
+{% note warning %}
+
+These prices apply starting February 2, 2026.
+
+{% endnote %}
 
 
 
 {% include notitle [usd.md](../_pricing/security-deck/kspm/usd.md) %}
 
 
-The monthly price is calculated based on 720 hours per month.
-
+The monthly price is based on 720 hours per month.

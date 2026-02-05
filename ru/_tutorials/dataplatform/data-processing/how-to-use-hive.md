@@ -37,6 +37,8 @@ SQL-запрос для Hive можно передать двумя способ
     * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** — выберите бакет для результатов обработки.
     * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** — включите опцию для доступа к хостам всех подкластеров.
 
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
 ### Передача SQL-запроса в команде на запуск задачи {#sql-in-cli}
 
 1. Создайте внешнюю таблицу (external table) для данных примера в формате Parquet. Таблица будет содержать список перелетов между городами США в 2018-м году. Выполните следующий запрос с помощью CLI {{ yandex-cloud }}:
@@ -290,6 +292,8 @@ SQL-запрос для Hive можно передать двумя способ
         * `YARN`.
     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — выберите созданный ранее сервисный аккаунт.
     * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** — включите опцию для доступа к хостам всех подкластеров.
+
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
 ### Запуск задания с помощью Hive CLI {#run-job-hive-shell}
 

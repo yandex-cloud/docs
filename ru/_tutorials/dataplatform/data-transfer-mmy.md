@@ -22,6 +22,8 @@
 
 ## Перед началом работы {#before-you-begin}
 
+{% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
 1. [Создайте кластер-источник {{ mmy-name }}](../../managed-mysql/operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
 
     * с базой данных `db1`;

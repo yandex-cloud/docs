@@ -37,7 +37,7 @@
 
 - Вручную {#manual}
 
-    1. [Создайте кластер](../../managed-clickhouse/operations/cluster-create.md) {{ mch-name }}:
+    1. [Создайте кластер](../../managed-clickhouse/operations/cluster-create.md) {{ mch-name }} с хостами в публичном доступе и настройками:
 
         * **{{ ui-key.yacloud.mdb.forms.base_field_name }}** — `chcluster`.
         * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}** — выберите нужный тип дисков.
@@ -53,7 +53,7 @@
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `tutorial`.
 
-        Хосты кластера должны быть доступны из интернета.
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
     1. [Создайте два дополнительных шарда](../../managed-clickhouse/operations/shards.md#add-shard) с именами `shard2`, `shard3`.
     1. [Добавьте в кластер три хоста {{ ZK }}](../../managed-clickhouse/operations/zk-hosts.md#add-zk).

@@ -17,6 +17,8 @@
 
 ## Перед началом работы {#before-you-begin}
 
+{% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
 1. [Создайте _кластер-источник_](../../managed-postgresql/operations/cluster-create.md) со следующими настройками:
 
     * с хостами в публичном доступе;

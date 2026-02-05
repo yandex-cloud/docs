@@ -22,6 +22,8 @@
 
     - Вручную {#manual}
 
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
         1. [Создайте кластер-источник {{ mkf-full-name }}](../../../managed-kafka/operations/cluster-create.md#create-cluster) любой подходящей конфигурации c хостами в публичном доступе.
 
         1. [Создайте в кластере-источнике топик](../../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `sensors`.

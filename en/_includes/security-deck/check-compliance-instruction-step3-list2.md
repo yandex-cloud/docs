@@ -1,0 +1,1 @@
+Below the dashboard is a table listing the control rules included into the selected set of requirements. For each rule, the table displays the following information:

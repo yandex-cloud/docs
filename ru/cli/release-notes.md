@@ -7,6 +7,22 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.190.0 (05.02.26) {#version0.190.0}
+
+
+#### Изменения в сервисах {{ yandex-cloud }}
+
+
+##### {{ connection-manager-name }}
+Добавлен флаг `--secret-folder-id` для команд создания подключения `yc metadata-hub connection-manager connection create`.
+
+
+##### {{ sw-name }}
+Исправлен пример cron-выражения для расписания: 
+  * `yc serverless workflow create`
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.189.0 (02.02.26) {#version0.189.0}
 
 
@@ -15,8 +31,6 @@ description: На странице представлены релизы CLI, а
 
 ##### {{ connection-manager-name }}
 Добавлен флаг `--secret-folder-id` для команд создания подключения.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.188.0 (26.01.26) {#version0.188.0}
 

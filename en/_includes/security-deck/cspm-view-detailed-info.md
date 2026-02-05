@@ -1,17 +1,23 @@
-To learn more about a security control rule, click the table row with its name. The detailed info window that opens includes the following tabs:
+To learn more about a security control rule, click the table row with its name. You will see a window with rule details, which has the following tabs:
 
 {% list tabs %}
 
 - {{ ui-key.yacloud_org.security.controls.RulePageLayout.tab_overview_s9riS }}
 
-  In addition to the data shown in the [general rule info](../../security-deck/concepts/cspm.md#general-info) table, the **{{ ui-key.yacloud_org.security.controls.RulePageLayout.tab_overview_s9riS }}** tab contains:
-  
+  The **{{ ui-key.yacloud_org.security.controls.RulePageLayout.tab_overview_s9riS }}** tab contains:
+
+  * Rule ID.
+  * [Set of security requirements](../../security-deck/concepts/standard-compliance.md#security-rule-sets) the rule applies to.
   * Date and time of the most recent security check.
+  * Check method:
+
+      * `automatic`: Rule is checked automatically once every eight hours.
+      * `manual`: Rule has to be checked manually.
   * Details on the monitored features, their configurations, or actions performed with them.
 
 - {{ ui-key.yacloud_org.security.controls.RulePageLayout.tab_violations_dkbdT }}
 
-  The **{{ ui-key.yacloud_org.security.controls.RulePageLayout.tab_violations_dkbdT }}** tab lists security violations detected during checks. Detected violations will not appear in this list if they satisfy the [exception](../../security-deck/concepts/cspm.md#exceptions) criteria specified for the rule.
+  The **{{ ui-key.yacloud_org.security.controls.RulePageLayout.tab_violations_dkbdT }}** tab lists control rule violations detected during the checks. Detected violations will not appear in this list if they satisfy the [exception](../../security-deck/concepts/cspm.md#exceptions) criteria specified for the rule.
 
 - {{ ui-key.yacloud_org.security.controls.ControlsPage.exceptions_kw1u7 }}
 
@@ -19,6 +25,6 @@ To learn more about a security control rule, click the table row with its name. 
 
 - {{ ui-key.yacloud_org.security.controls.RulePageLayout.tab_recommendations_qq61Z }}
 
-  The **{{ ui-key.yacloud_org.security.controls.RulePageLayout.tab_recommendations_qq61Z }}** tab provides guides and solutions to help you perform the actions required by the rule.
+  The **{{ ui-key.yacloud_org.security.controls.RulePageLayout.tab_recommendations_qq61Z }}** tab provides guides and solutions to assist you with rule compliance.
 
 {% endlist %}

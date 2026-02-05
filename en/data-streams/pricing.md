@@ -37,7 +37,6 @@ Pricing for provisioned resources is based on the allocated throughput limit per
 
 ### Cost calculation examples {#price-example}
 
-
 Let’s assume a single-shard stream receives two messages per second (50 KB each). The record retention period is 12 hours.
 
 The cost of data processing per month (for a 31-day month) will be:
@@ -68,7 +67,7 @@ If the data storage time is one hour, the time of resource usage by multiple str
 
 With extended storage, data is stored for up to 7 days.
 
-The minimum storage size for the provided storage limit is 50 GB per segment.
+With the provided storage limit, the minimum storage amount is 50 GB per segment.
 
 
 ## On-demand pricing {#on-demand}

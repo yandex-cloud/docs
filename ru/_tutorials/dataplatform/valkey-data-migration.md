@@ -44,6 +44,8 @@
 
     1. [Создайте кластер](../../managed-valkey/operations/cluster-create.md) {{ mrd-name }} любой подходящей конфигурации. Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите поддержку TLS и публичный доступ для хостов при создании кластера.
 
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
     1. (Опционально) [Создайте промежуточную виртуальную машину Linux](../../compute/operations/vm-create/create-linux-vm.md) в {{ compute-full-name }} в той же сети, что и кластер {{ mrd-name }} в следующей конфигурации:
 
         * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите образ [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).

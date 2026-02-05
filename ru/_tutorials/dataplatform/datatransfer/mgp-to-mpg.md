@@ -24,6 +24,8 @@
 
 - Вручную {#manual}
 
+    {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
     1. [Создайте кластер-источник {{ GP }}](../../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с именем пользователя-администратора `gp-user` и хостами в публичном доступе.
 
     1. [Создайте кластер-приемник {{ mpg-full-name }}](../../../managed-postgresql/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе. При создании кластера укажите:

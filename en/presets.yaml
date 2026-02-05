@@ -4908,7 +4908,6 @@ default:
             field_status: Status
           ControlsPage:
             exceptions_kw1u7: Exceptions
-            kubernetes_jRCmt: Kubernetes{trademark}
             security_control_r4yn7: Security control rules
           ControlsPageLayout:
             configuration_w7Kw7: Configuration
@@ -4977,6 +4976,7 @@ default:
             labelDescriptionField: Description
             labelNameField: Name
             labelServiceAccountField: Service account
+          label_rule-kind_3PswX: Rule type
           module-cspm_gozhj: Configuration Monitoring (CSPM)
           ServiceAccountResourceSelectDialog:
             action_save: Save selection

@@ -164,6 +164,9 @@ Read-Only:
 - `query_log_retention_size` (Number) The maximum size that query_log can grow to before old data will be removed.
 - `query_log_retention_time` (Number) The maximum time that query_log records will be retained before removal.
 - `query_masking_rules` (Attributes List) Query masking rules configuration. (see [below for nested schema](#nestedatt--clickhouse--config--query_masking_rules))
+- `query_metric_log_enabled` (Boolean) Enables or disables query_metric_log system table.
+- `query_metric_log_retention_size` (Number) The maximum size that query_metric_log can grow to before old data will be removed. If set to **0**, automatic removal of query_metric_log data based on size is disabled.
+- `query_metric_log_retention_time` (Number) The maximum time that query_metric_log records will be retained before removal. If set to **0**, automatic removal of query_metric_log data based on time is disabled.
 - `query_thread_log_enabled` (Boolean) Enable or disable query_thread_log system table.
 - `query_thread_log_retention_size` (Number) The maximum size that query_thread_log can grow to before old data will be removed.
 - `query_thread_log_retention_time` (Number) The maximum time that query_thread_log records will be retained before removal.

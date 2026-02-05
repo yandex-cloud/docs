@@ -28,10 +28,12 @@
 
     1. [Создайте кластер-приемник {{ mpg-name }}](../../managed-postgresql/operations/cluster-create.md) любой подходящей [конфигурации](../../managed-postgresql/concepts/instance-types.md) со следующими настройками:
 
-        * Выделен публичный доступ к хостам кластера.
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `pg-user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_пользователя>`.
+        * Выделен публичный доступ к хостам кластера.
+
+            {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
     
     1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../../managed-postgresql/operations/connect.md#configuring-security-groups) и допускают подключение к нему.

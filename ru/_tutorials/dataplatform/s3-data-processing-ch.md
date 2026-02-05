@@ -69,9 +69,11 @@
 
     1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей [конфигурации](../../managed-clickhouse/concepts/instance-types.md) со следующими настройками:
 
-        * С публичным доступом к хостам кластера.
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `user1`.
+        * С публичным доступом к хостам кластера.
+
+            {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
 - {{ TF }} {#tf}
 

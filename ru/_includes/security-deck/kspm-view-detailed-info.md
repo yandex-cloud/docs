@@ -7,7 +7,7 @@
   Вкладка **{{ ui-key.yacloud_org.security.controls.RulePageLayout.tab_overview_s9riS }}** содержит:
 
   * идентификатор правила;
-  * [набор требований](../../security-deck/concepts/standard-compliance.md#security-rule-sets) безопасности, к которому относится данное правило;
+  * [набор требований](../../security-deck/concepts/standard-compliance/index.md#security-rule-sets) безопасности, к которому относится данное правило;
   * информацию о дате и времени последней проверки безопасности;
   * способ проверки:
 

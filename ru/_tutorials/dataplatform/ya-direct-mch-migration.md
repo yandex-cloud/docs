@@ -94,6 +94,9 @@
 
         1. В {{ objstorage-short-name }} [создайте бакет](../../storage/operations/buckets/create.md).
         1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
+
+            {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
         1. Если вы используете группы безопасности в кластере {{ mch-name }}, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
 
     - {{ TF }} {#tf}

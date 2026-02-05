@@ -23,6 +23,8 @@
 
 - Вручную {#manual}
 
+    {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
     1. Создайте кластер-источник {{ mpg-name }} любой подходящей [конфигурации](../../../managed-postgresql/concepts/instance-types.md) с хостами в публичном доступе и следующими настройками:
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `pg-user`.

@@ -40,7 +40,9 @@
 
     1. [Создайте кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации c хостами в публичном доступе.
 
-    1. [Создайте в кластере {{ mkf-name }} топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `sensors`. 
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
+    1. [Создайте в кластере {{ mkf-name }} топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `sensors`.
 
     1. [Создайте в кластере {{ mkf-name }} пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `mkf-user` и правами доступа `ACCESS_ROLE_PRODUCER` и `ACCESS_ROLE_CONSUMER` к созданному топику.
 

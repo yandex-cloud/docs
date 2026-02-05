@@ -24,6 +24,8 @@
 
 - Вручную {#manual}
 
+    {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
     1. [Создайте кластер-источник {{ mpg-name }}](../../../managed-postgresql/operations/cluster-create.md#create-cluster) в любой [зоне доступности](../../../overview/concepts/geo-scope.md), с хостами любой подходящей конфигурации в публичном доступе, и следующими настройками:
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `mpg_db`.

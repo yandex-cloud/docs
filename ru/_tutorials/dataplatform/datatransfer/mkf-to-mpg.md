@@ -25,6 +25,8 @@
 
     - Вручную {#manual}
 
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
         1. [Создайте кластер-источник {{ mkf-name }}](../../../managed-kafka/operations/cluster-create.md#create-cluster) в любой [зоне доступности](../../../overview/concepts/geo-scope.md), любой подходящей конфигурации и с публичным доступом.
 
         1. [Создайте в кластере-источнике топик](../../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `sensors`.
