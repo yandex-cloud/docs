@@ -291,7 +291,7 @@ items:
         href: concepts/mtu-mss.md
       - name: DHCP settings
         href: concepts/dhcp-options.md
-      - name: Software-accelerated network
+      - name: Software accelerated network
         href: concepts/software-accelerated-network.md
       - name: Quotas and limits
         href: concepts/limits.md

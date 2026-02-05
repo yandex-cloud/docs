@@ -331,7 +331,7 @@ When informing {{ org-full-name }} that a user has been authenticated, the IdP s
         --data '@body.json' \
         "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
       ```
-  {% endlist %}
+    {% endlist %}
 
 {% include [federation-certificates-note](../../_includes/organization/federation-certificates-note.md) %}
 

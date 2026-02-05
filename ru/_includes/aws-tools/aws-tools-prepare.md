@@ -31,6 +31,8 @@
 
 
   Авторизация статическими ключами необходима для обращения напрямую к HTTP API и поддерживается инструментами, перечисленными в разделе [{#T}](../../storage/tools/index.md).
+  
+  {% include [statickey-access-note](../../_includes/storage/statickey-access-note.md) %}
 
   
   {% include [store-aws-key-in-lockbox](../storage/store-aws-key-in-lockbox.md) %}

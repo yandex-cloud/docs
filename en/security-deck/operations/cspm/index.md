@@ -6,4 +6,5 @@ description: This section contains a step-by-step guide on how to use {{ cspm-na
 # Cloud Security Posture Management ({{ cspm-name }})
 
 * [{#T}](view-rules.md).
+* [{#T}](check-compliance.md).
 * [{#T}](manage-exceptions.md).

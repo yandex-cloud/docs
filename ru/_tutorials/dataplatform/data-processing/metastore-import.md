@@ -131,6 +131,8 @@
         * **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}** у подкластеров {{ dataproc-name }} — `dataproc-subnet`.
         * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** у хоста-мастера — включен.
 
+            {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
 
 - {{ TF }} {#tf}
 

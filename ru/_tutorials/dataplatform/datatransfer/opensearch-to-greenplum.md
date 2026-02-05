@@ -30,6 +30,8 @@
 
 - Вручную {#manual}
 
+    {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
     1. [Создайте кластер-источник {{ mos-name }}](../../../managed-opensearch/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе.
     1. В той же [зоне доступности](../../../overview/concepts/geo-scope.md) [создайте кластер-приемник {{ GP }}](../../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации. При создании кластера:
         * Включите публичный доступ для хостов.

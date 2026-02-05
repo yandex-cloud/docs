@@ -6,3 +6,4 @@ description: In this tutorial, you will learn about possible errors related to {
 # Troubleshooting in {{ sd-full-name }}
 
 * [{#T}](kspm-diagnostics.md).
+* [{#T}](dspm-diagnostics.md).

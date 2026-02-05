@@ -37,7 +37,7 @@ Workflow network id. ||
 Service account id. ||
 || `--schedule-cron-expression` | `string`
 
-Cron expression for workflow schedule. Example: '0/1 * * * ? *'. ||
+Cron expression for workflow schedule. Example: '0/1 * * * * *'. ||
 || `--schedule-timezone` | `string`
 
 Timezone for workflow schedule, e.g. Europe/Moscow. Defaults to your local timezone. ||

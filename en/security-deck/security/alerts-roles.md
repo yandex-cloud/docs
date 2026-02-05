@@ -7,6 +7,8 @@ description: This page lists the service roles required to control access to the
 
 With the [{{ alerts-name }}](../concepts/alerts.md) service roles, you can manage the module's resources and access to them.
 
+{% include [roles-security-deck-alerts](../../_mermaid/roles/security-deck-alerts.md) %}
+
 #### security-deck.alertSinks.user {#security-deck-alertSinks-user}
 
 {% include [security-deck.alertSinks.user](../../_roles/security-deck/alertSinks/user.md) %}

@@ -27,7 +27,7 @@ Before you start using {{ dspm-name }}, [set up](../../quickstart-overview.md#co
 
       {% include [sa-scan-roles-warning](../../../_includes/security-deck/sa-scan-roles-warning.md) %}
 
-  1. Under **Data search categories**, select the [data categories](../../concepts/dspm.md#data-source) to scan for:
+  1. Under **Data search categories**, select the [data categories](../../concepts/dspm.md#data-source) to scan for, separately for text and images:
 
       {% include [scan-data-types](../../../_includes/security-deck/scan-data-types.md) %}
 
@@ -56,7 +56,7 @@ Before you start using {{ dspm-name }}, [set up](../../quickstart-overview.md#co
 
       If necessary, [create](./create-data-source.md) a new data source.
 
-  1. Under **Data search categories**, select the [data categories](../../concepts/dspm.md#data-source) to scan for:
+  1. Under **Data search categories**, select the [data categories](../../concepts/dspm.md#data-source) to scan for, separately for text and images:
 
       {% include [scan-data-types](../../../_includes/security-deck/scan-data-types.md) %}
 

@@ -37,6 +37,8 @@
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `user1`.
 
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
     1. Если вы используете группы безопасности в кластере, убедитесь, что они настроены правильно и допускают подключение к кластеру [{{ mch-name }}](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
     

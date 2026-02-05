@@ -284,7 +284,7 @@
   1. Выполните команду:
 
      ```bash
-     kubectl edit deployment ingress-nginx-controller
+     kubectl edit deployment ingress-nginx-controller -n <пространство_имен_приложения_Ingress_NGINX>
      ```
 
   1. В открывшемся окне добавьте параметр `--default-ssl-certificate`:
@@ -414,7 +414,7 @@ spec:
 1. Узнайте IP-адрес Ingress-контроллера (значение в колонке `EXTERNAL-IP`):
 
    ```bash
-   kubectl get svc
+   kubectl get svc -n <пространство_имен_приложения_Ingress_NGINX>
    ```
 
    Результат:

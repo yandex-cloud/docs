@@ -34,24 +34,12 @@ For a cost calculation, use [our calculator](https://yandex.cloud/en/prices?stat
 
 The cost depends on the service plan you choose, which covers your organization and can only be changed by its owner or administrator. You can use one billing account to pay for technical support of multiple organizations that may have different support service plans. For the services available under various plans, see [Requesting technical support](overview.md).
 
-### Before December 31, 2025 {#prices-before-2026}
-
 
 
 
 Service plan | Basic           | Business                       | Premium
 --- |-------------------|------------------------------|--------
  **Cost** | Free of charge | {{ sku|USD|support.organization.business.fixed_consumption.v1|string }} per month charged to the billing account selected at the time of service plan activation plus 5% of the organization's resource consumption cost, regardless of which billing account the resources are linked to. | Upon request
-
-
-### Starting January 1, 2026 {#prices-from-2026}
-
-
-
-
-Service plan | Basic           | Business                       | Premium
---- |-------------------|------------------------------|--------
- **Cost** | Free of charge | {{ sku|USD|support.organization.business.fixed_consumption.v1|string }} per month from the billing account selected at the time of service plan activation and 5% of the organization's resource consumption cost, regardless of which billing account the organization's resources are linked to. | Upon request
 
 
 The support cost is calculated based on the [cost of consumed paid resources](../billing/pricing.md). If a billing account is awarded a [grant](../billing/concepts/bonus-account.md), it will be counted towards payment for the support plan.

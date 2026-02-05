@@ -11,6 +11,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](buckets/delete.md)
 * [{#T}](buckets/limit-max-volume.md)
 * [{#T}](buckets/bucket-availability.md)
+* [{#T}](buckets/disable-statickey-auth.md)
 * [{#T}](buckets/encrypt.md)
 * [{#T}](buckets/lifecycles.md)
 * [{#T}](buckets/cors.md)

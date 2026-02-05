@@ -4912,7 +4912,6 @@ default:
             field_status: Статус
           ControlsPage:
             exceptions_kw1u7: Исключения
-            kubernetes_jRCmt: Kubernetes{trademark}
             security_control_r4yn7: Правила контроля безопасности
           ControlsPageLayout:
             configuration_w7Kw7: Конфигурация
@@ -4980,6 +4979,7 @@ default:
             labelDescriptionField: Описание
             labelNameField: Имя
             labelServiceAccountField: Сервисный аккаунт
+          label_rule-kind_3PswX: Тип правила
           module-cspm_gozhj: Контроль конфигурации (CSPM)
           ServiceAccountResourceSelectDialog:
             action_save: Сохранить выбор

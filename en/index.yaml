@@ -225,7 +225,7 @@ links:
   - title: Virtual Private Cloud
     description: Cloud-based network management
     href: vpc/
-  - name: '{{ ydb-name }}'
+  - title: '{{ ydb-name }}'
     description: Distributed fault-tolerant SQL DBMS
     href: ydb/
   - title: WebSQL

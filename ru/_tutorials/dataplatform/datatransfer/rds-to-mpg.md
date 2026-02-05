@@ -55,6 +55,8 @@
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `mpg_user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_приемника>`.
 
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
     1. Убедитесь, что группа безопасности кластера {{ mpg-name }} [настроена правильно](../../../managed-postgresql/operations/connect.md#configuring-security-groups) и допускает подключение к кластеру через интернет.
     1. Настройте [NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) в интернет для подсети, в которой расположен кластер-приемник.
     1. [Скачайте сертификат AWS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html#UsingWithRDS.SSL.RegionCertificates) для региона, в котором расположен инстанс Amazon RDS for {{ PG }}.

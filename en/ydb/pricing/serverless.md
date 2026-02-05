@@ -56,7 +56,7 @@ Below, you can find the rules for calculating the cost of requests to {{ ydb-sho
 * [Special APIs](ru-special.md).
 * [Topic operations](ru-topics.md).
 
-#### Pricing for Request Unit consumption {#prices-ru}
+#### Pricing for request unit consumption {#prices-ru}
 
 * **Actual consumption (on-demand)**. The cost of using {{ ydb-short-name }} for a certain period is the number of spent RUs multiplied by the price per RU minus the monthly [free package](../../billing/concepts/serverless-free-tier.md#ydb). If there were no requests to the database or if the amount of RUs spent in the current month is less than the free package, there is no charge for the actual RU consumption.
 * **Provisioned capacity**. If your load is predictable and has a fixed component, you can reduce the cost of using {{ ydb-short-name }} by paying for some (or all) RUs you spent on an hourly basis. To do this, set a non-zero value of the _Provisioned capacity, RU/s_ property. After that, you will be charged according to a special pricing plan, the rate for which is set to RU/s per hour, with billing per second. The RUs consumed within the specified capacity are not added to the RUs spent at the on-demand rate.
