@@ -48,7 +48,7 @@
 
    ```kotlin
    val webView = findViewById<WebView>(R.id.webViewCaptcha)
-   webView.loadUrl("URL_страницы_с_капчей?sitekey=<ключ_клиентской_части>&invisible=true")
+   webView.loadUrl("URL_страницы_с_капчей?sitekey=<ключ_клиента>&invisible=true")
    ```
 
    Где:
@@ -84,20 +84,25 @@
 ## Получите результат прохождения капчи {#get-result}
 
 1. Сохраните токен прохождения капчи. Он вернется в методе `onGetToken(token: String)`, когда сервис обработает попытку.
-1. Для проверки токена отправьте POST-запрос на адрес `https://{{ captcha-domain }}/validate`, передав параметры в формате `x-www-form-urlencoded`:
+1. Чтобы узнать результат проверки, отправьте POST-запрос на адрес `https://{{ captcha-domain }}/validate` с типом содержимого `x-www-form-urlencoded`:
 
    {% include [query-parameters](../../_includes/smartcaptcha/query-parameters.md) %}
 
    {% note info %}
 
-   Данная логика должна выполняться на бэкенде. В само Android-приложение секретный ключ `secret` попасть не должен.
+   Данная логика должна выполняться на бэкенде. В само Android-приложение ключ сервера `secret` попасть не должен.
 
    {% endnote %}
 
    >Пример запроса:
    >
    >```text
-   >https://{{ captcha-domain }}/validate?secret=<ключ_сервера>&ip=<IP-адрес_пользователя>&token=<токен>
+   >POST https://{{ captcha-domain }}/validate HTTP/1.1
+   >Content-Type: application/x-www-form-urlencoded
+   >
+   >     secret=<ключ_сервера>&
+   >     token=<токен>&
+   >     ip=<IP-адрес_пользователя>
    >```
 
 1. Получите [ответ с сервера](../../smartcaptcha/concepts/validation.md). Он содержит JSON-объект с полями `status` и `message`.

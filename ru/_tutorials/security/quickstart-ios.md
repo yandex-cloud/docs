@@ -60,7 +60,8 @@
    }
    ```
 
-1. После получения токена из метода `captchaDidFinish` отправьте POST-запрос на сервер для проверки `https://{{ captcha-domain }}/validate`, передав параметры в формате `x-www-form-urlencoded`:
+1. Схраните токен прохождения капчи. Он вернется в методе `captchaDidFinish`, когда сервис обработает попытку.
+1. Чтобы узнать результат проверки, отправьте POST-запрос на адрес `https://{{ captcha-domain }}/validate` с типом содержимого `x-www-form-urlencoded`:
 
    {% include [query-parameters](../../_includes/smartcaptcha/query-parameters.md) %}
 
