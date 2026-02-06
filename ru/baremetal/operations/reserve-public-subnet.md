@@ -66,6 +66,10 @@ description: Следуя данной инструкции, вы сможете
      * `--description` — описание подсети. Необязательный параметр.
      * `--labels` — [метки](../../resource-manager/concepts/labels.md) подсети. Необязательный параметр.
 
+- API {#api}
+
+  Чтобы арендовать новую выделенную публичную подсеть, воспользуйтесь методом REST API [create](../api-ref/PublicSubnet/create.md) для ресурса [PublicSubnet](../api-ref/PublicSubnet/index.md) или вызовом gRPC API [PublicSubnetService/Create](../api-ref/grpc/PublicSubnet/create.md).
+
 {% endlist %}
 
 ### Преобразовать эфемерную публичную подсеть в выделенную {#transform-ephemeral-to-dedicated}
@@ -119,11 +123,15 @@ description: Следуя данной инструкции, вы сможете
      * `--description` — описание подсети. Необязательный параметр.
      * `--labels` — [метки](../../resource-manager/concepts/labels.md) подсети. Необязательный параметр.
 
+- API {#api}
+
+  Чтобы преобразовать эфемерную публичную подсеть в выделенную, воспользуйтесь методом REST API [update](../api-ref/PublicSubnet/update.md) для ресурса [PublicSubnet](../api-ref/PublicSubnet/index.md) или вызовом gRPC API [PublicSubnetService/Update](../api-ref/grpc/PublicSubnet/update.md).
+
 {% endlist %}
 
 ## Примеры {#examples}
 
-### Аренда новой выделенную публичной подсети {#reserve-new-subnet-example}
+### Аренда новой выделенной публичной подсети {#reserve-new-subnet-example}
 
 Арендуйте новую выделенную публичную подсеть размером `/29`:
 
@@ -160,11 +168,84 @@ description: Следуя данной инструкции, вы сможете
     env: test
   ```
 
+- API {#api}
+
+  ```bash
+  curl -X POST \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer <IAM-токен>" \
+    -d '{
+      "folderId": "b1g07hj5r6i4********",
+      "name": "new-public-subnet",
+      "description": "New public subnet",
+      "hardwarePoolIds": [
+        "ru-central1-m3"
+      ],
+      "prefixLength": "29",
+      "labels": {
+        "key": "public-subnet"
+      }
+    }' \
+    "https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/publicSubnets"
+  ```
+
+  Где:
+
+  * `<IAM-токен>` — IAM-токен для аутентификации.
+  * `folderId` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
+  * `hardwarePoolIds` — идентификаторы [пулов](../concepts/servers.md#server-pools).
+  * `prefixLength` — размер заказываемой подсети.
+  * `name` — имя публичной подсети. Требования к имени:
+    
+    {% include [name-format](../../_includes/name-format.md) %}
+    
+  * `description` — описание подсети. Необязательный параметр.
+  * `labels` — метки подсети. Необязательный параметр.
+
+  Результат:
+
+  ```bash
+  {
+    "done": true,
+    "metadata": {
+      "@type": "type.googleapis.com/yandex.cloud.baremetal.v1alpha.CreatePublicSubnetMetadata",
+      "publicSubnetId": "ly52xefxa2hi********"
+    },
+    "response": {
+      "@type": "type.googleapis.com/yandex.cloud.baremetal.v1alpha.PublicSubnet",
+      "id": "ly52xefxa2hi********",
+      "cloudId": "b1gia87mbaom********",
+      "folderId": "b1g07hj5r6i4********",
+      "name": "new-public-subnet",
+      "description": "New public subnet",
+      "zoneId": "ru-central1-m",
+      "hardwarePoolId": "ru-central1-m3",
+      "type": "EPHEMERAL",
+      "prefixLength": "29",
+      "cidr": "10.0.*.*/29",
+      "dhcpOptions": {
+          "startIp": "10.0.*.*",
+          "endIp": "10.0.*.*"
+        },
+      "gatewayIp": "10.0.*.*"
+      "createdAt": "2025-12-14T14:42:58.372557Z"
+      "labels": {
+        "env": "test"
+      },
+    "id": "ly5hcnsbx3l4********",
+    "description": "Public subnet create",
+    "createdAt": "2025-12-14T14:42:58.375290Z",
+    "createdBy": "ajeb9l33h6mu********",
+    "modifiedAt": "2025-12-14T14:42:58.375290Z"
+  }
+  ```
+  Отслеживайте статус операции по полю `done`.
+
 {% endlist %}
 
 ### Преобразование эфемерной публичной подсети в выделенную {#transform-ephemeral-to-dedicated-example}
 
-Измените типа публичной подсети с `ephemeral` на `dedicated`:
+Измените тип публичной подсети с `ephemeral` на `dedicated`:
 
 {% list tabs group=instructions %}
 
@@ -194,5 +275,70 @@ description: Следуя данной инструкции, вы сможете
   gateway_ip: 94.139.248.185
   created_at: "2025-06-26T14:11:49.458568Z"
   ```
+- API {#api}
+
+  ```bash
+  curl -X PATCH \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer <IAM-токен>" \
+    -d '{
+      "updateMask": "type,hardwarePoolIds,name,description",
+      "type": "DEDICATED",
+      "hardwarePoolIds": ["ru-central1-m3"],
+      "name": "transformed-public-subnet",
+      "description": "Transformed dedicated public subnet"
+    }' \
+    "https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/publicSubnets/<идентификатор_подсети>"
+  ```
+
+  Где:
+  
+  * `updateMask` — список параметров для обновления, разделенный запятыми.
+  * `type` — новый тип подсети. Значение `DEDICATED` для преобразования в выделенную подсеть.
+  * `name` — имя выделенной подсети. Требования к имени:
+    
+    {% include [name-format](../../_includes/name-format.md) %}
+    
+  * `description` — описание выделенной подсети. Необязательный параметр.
+  
+  Результат:
+
+  ```bash
+  {
+    "done": true,
+    "metadata": {
+      "@type": "type.googleapis.com/yandex.cloud.baremetal.v1alpha.CreatePublicSubnetMetadata",
+      "publicSubnetId": "ly52xefxa2hi********"
+    },
+    "response": {
+      "@type": "type.googleapis.com/yandex.cloud.baremetal.v1alpha.PublicSubnet",
+      "id": "ly52xefxa2hi********",
+      "cloudId": "b1gia87mbaom********",
+      "folderId": "b1g07hj5r6i4********",
+      "name": "new-public-subnet",
+      "description": "New public subnet",
+      "zoneId": "ru-central1-m",
+      "hardwarePoolId": "ru-central1-m3",
+      "type": "DEDICATED",
+      "prefixLength": "29",
+      "cidr": "10.0.*.*/29",
+      "dhcpOptions": {
+          "startIp": "10.0.*.*",
+          "endIp": "10.0.*.*"
+        },
+      "gatewayIp": "10.0.*.*"
+      "createdAt": "2025-12-14T14:42:58.372557Z"
+      "labels": {
+        "env": "test"
+      },
+    "id": "ly5hcnsbx3l4********",
+    "description": "Public subnet create",
+    "createdAt": "2025-12-14T14:42:58.375290Z",
+    "createdBy": "ajeb9l33h6mu********",
+    "modifiedAt": "2025-12-14T14:42:58.375290Z"
+  }
+  ```
+
+  Отслеживайте статус операции по полю `done`.
 
 {% endlist %}

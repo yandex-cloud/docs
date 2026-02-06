@@ -24,7 +24,7 @@ description: Следуя данной инструкции, вы сможете
 
 #### Подготовьте файл с образом {#prepare-file}
 
-{% include [image-create-requirements](../../../_includes/compute/image-create-requirements.md) %}
+{% include [image-create-requirements-gen2](../../../_includes/compute/image-create-requirements-gen2.md) %}
 
 {% include [available-image-format](../../../_includes/compute/available-image-format.md) %}
 

@@ -2,9 +2,9 @@
 
 Create a [function](../../functions/concepts/function.md) with a [Python](https://python.org/) application that runs a simple query against a [{{ ydb-full-name }}](../../ydb/) database.
 
-A function with an associated [service account](../../iam/concepts/users/service-accounts.md) is authorized in {{ ydb-short-name }} via the metadata service.
+Use a metadata service to authorize your function with an associated [service account](../../iam/concepts/users/service-accounts.md) in {{ ydb-short-name }}.
 
-The application creates a {{ ydb-short-name }} database connection driver, a session, and a transaction, and runs a query using the `ydb` library. This library is installed as a [dependency](../../functions/lang/python/dependencies.md) when creating a function version. The DB connection parameters are passed to the application via environment variables.
+The application creates a {{ ydb-short-name }} database connection driver, a session, and a transaction, and runs a query using the `ydb` library. This library is installed as a [dependency](../../functions/lang/python/dependencies.md) when creating a function version. The database connection parameters are provided to the application using environment variables.
 
 To create a function and connect to the database:
 1. [Get your cloud ready](#before-begin).
@@ -21,7 +21,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support cost for this scenario includes:
+The infrastructure support cost for this tutorial includes:
 * Fee for using the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 * Fee for running queries against the database (see [{{ ydb-name }} pricing](../../ydb/pricing/serverless.md)).
 
@@ -71,7 +71,7 @@ The infrastructure support cost for this scenario includes:
 
 - Management console {#console}
 
-  1. In the [Management console]({{ link-console-main }}), select the folder you want to create a function in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Enter a name and description for the function. The naming requirements are as follows:
@@ -140,9 +140,9 @@ The infrastructure support cost for this scenario includes:
 - Management console {#console}
 
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
-  1. Click **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** and check out the testing results.
+  1. Click **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** and check out the test results.
 
-     If a DB connection is established and a query is executed, the function status will change to `Done` and its output will contain the following text:
+     If your database is connected and successfully queried, the function status will change to `Done` and its output will contain the following text:
 
      ```json
      {
@@ -156,5 +156,5 @@ The infrastructure support cost for this scenario includes:
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
-1. [Delete the DB](../../ydb/operations/manage-databases.md#delete-db).
+1. [Delete the database](../../ydb/operations/manage-databases.md#delete-db).
 1. [Delete the function](../../functions/operations/function/function-delete.md).

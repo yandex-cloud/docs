@@ -14,8 +14,13 @@
 `billing.speechsenseSpaceBindings.count` | 100 ||
 || Количество [экземпляров {{ tracker-name }}]({{ link-tracker-cloudless }}), привязанных к одному платежному аккаунту 
 `billing.trackerBindings.count` | 5 ||
+|| Количество [экземпляров {{ src-full-name }}]({{ link-src-docs }}), привязанных к одному платежному аккаунту
+`billing.sourceCraftBindings.count` | 5 ||
+|| Количество [экземпляров Яндекс 360](https://360.yandex.ru/business/help/), привязанных к одному платежному аккаунту
+`billing.yandex360Bindings.count` | 5 ||
+|| Количество экземпляров [Алиса Про](https://yandex.ru/support/yandex-360/business/alice-pro/ru/?utm_source=b2bsupport), привязанных к одному платежному аккаунту
+`billing.aliceProBindings.count` | 5 ||
 |#
-
 
 #### Лимиты {#dataproc-limits}
 

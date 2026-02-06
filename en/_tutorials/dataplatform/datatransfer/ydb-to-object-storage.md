@@ -1,9 +1,9 @@
 # Loading data from {{ ydb-full-name }} to {{ objstorage-full-name }} using {{ data-transfer-full-name }}
 
 
-You can migrate data from {{ ydb-name }} to {{ objstorage-name }} using {{ data-transfer-name }}. Proceed as follows:
+You can migrate data from {{ ydb-name }} to {{ objstorage-name }} using {{ data-transfer-name }}. To do this:
 
-1. [Prepare the test data](#prepare-data).
+1. [Prepare your test data](#prepare-data).
 1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
@@ -12,7 +12,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../../ydb/pricing/index.md)). Its pricing is based on deployment mode:
+* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
 
     * In serverless mode, you pay for data operations and storage volume, including stored backups.
     * In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
@@ -23,13 +23,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Getting started {#before-you-begin}
 
 
-Set up the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    1. [Create a {{ ydb-name }} database](../../../ydb/operations/manage-databases.md) with your preferred configuration.
+    1. [Create a {{ ydb-name }} database](../../../ydb/operations/manage-databases.md) of your preferred configuration.
 
     1. [Create an {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md).
 
@@ -56,7 +56,7 @@ Set up the infrastructure:
         * Endpoints.
         * Transfer.
 
-    1. Specify the following in the `ydb-to-object-storage.tf` file:
+    1. In the `ydb-to-object-storage.tf` file, specify the following:
         * `folder_id`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
         * `bucket_name`: Bucket name consistent with the [naming conventions](../../../storage/concepts/bucket.md#naming).
 
@@ -111,7 +111,7 @@ Set up the infrastructure:
     COMMIT;
     ```
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
 {% list tabs group=instructions %}
 
@@ -129,7 +129,7 @@ Set up the infrastructure:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}**: `UNCOMPRESSED`
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}**: `from_YDB`
 
-    1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/ydb.md) of the `{{ ydb-short-name }}` type and specify the DB connection settings in it:
+    1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/ydb.md) of the `{{ ydb-short-name }}` type with the following database connection settings:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-short-name }} database from the list.
 
@@ -137,7 +137,7 @@ Set up the infrastructure:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select the service account you created earlier.
 
 
-    1. [Create](../../../data-transfer/operations/transfer.md#create) a **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}**-type transfer configured to use the new endpoints.
+    1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** type that will use the endpoints you created.
 
     1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
 
@@ -145,9 +145,9 @@ Set up the infrastructure:
 
     1. In the `ydb-to-object-storage.tf` file, specify the following variables:
 
-        * `target_endpoint_id`: ID of the target endpoint.
-        * `source_endpoint_id`: ID of the source endpoint.
-        * `transfer_enabled`: `1` to create a transfer.
+        * `target_endpoint_id`: Target endpoint ID.
+        * `source_endpoint_id`: Source endpoint ID.
+        * `transfer_enabled`: Set to `1` to create a transfer.
 
     1. Validate your {{ TF }} configuration files using this command:
 
@@ -169,7 +169,7 @@ Set up the infrastructure:
 
 Make sure the data has been migrated from {{ ydb-name }} to the {{ objstorage-name }} bucket:
 
-1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
+1. In the [management console]({{ link-console-main }}), select the folder containing your bucket.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Select the bucket from the list.
 1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
@@ -177,11 +177,11 @@ Make sure the data has been migrated from {{ ydb-name }} to the {{ objstorage-na
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the other resources depending on how they were created:
+1. Delete the other resources depending on how you created them:
 
    {% list tabs group=instructions %}
 

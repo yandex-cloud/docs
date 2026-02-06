@@ -95,7 +95,7 @@ To move an {{ KF }} host to a different availability zone in a {{ mkf-name }} cl
 
    - REST API {#api}
 
-       1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+       1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
           {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -132,13 +132,13 @@ To move an {{ KF }} host to a different availability zone in a {{ mkf-name }} cl
           * `subnetIds`: Array of strings. Each string is a subnet ID. If there is only one subnet in the new availability zone, you do not need to specify `subnetIds`.
           * `zoneId`: New availability zone for the cluster.
 
-          You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+          You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-       1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+       1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    - gRPC API {#grpc-api}
 
-       1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+       1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
            {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -178,7 +178,7 @@ To move an {{ KF }} host to a different availability zone in a {{ mkf-name }} cl
 
             Where:
 
-            * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+            * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
                Specify the relevant parameters:
                * `subnet_ids`: To change the list of subnets.
@@ -186,7 +186,7 @@ To move an {{ KF }} host to a different availability zone in a {{ mkf-name }} cl
             * `subnet_ids`: Array of strings. Each string is a subnet ID. If there is only one subnet in the new availability zone, you do not need to specify `subnet_ids`.
             * `zone_id`: New availability zone for the cluster.
 
-            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
        1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -226,7 +226,7 @@ To move an {{ KF }} host to a different availability zone in a {{ mkf-name }} cl
 
 {% endnote %}
 
-If you create an {{ KF }} 3.5 cluster out of more than one broker host, three separate {{ ZK }} hosts will be automatically added to the cluster. Each host is assigned a subnet from different availability zones. After you create a cluster, you cannot change its subnet in the availability zone.
+If you create an {{ KF }} 3.5 cluster out of more than one broker host, three dedicated {{ ZK }} hosts will be automatically added to the cluster. Each host is assigned a subnet from different availability zones. After you create a cluster, you cannot change its subnet in the availability zone.
 
 The migration process of an {{ KF }} 3.5 cluster depends on which availability zones {{ KF }} and {{ ZK }} hosts reside in prior to migration and how many subnets each zone contains. See [these examples](#examples) to better understand how migration works.
 
@@ -256,7 +256,7 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} 3.5 clust
 
    - REST API {#api}
 
-       1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+       1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
            {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -269,13 +269,13 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} 3.5 clust
                --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/hosts'
            ```
 
-           You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+           You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
        1. Check the [server response](../api-ref/Cluster/listHosts.md#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) to make sure your request was successful. You will find the availability zone in the `hosts[].zoneId` field of the response.
 
    - gRPC API {#grpc-api}
 
-       1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+       1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
            {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -297,7 +297,7 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} 3.5 clust
                yandex.cloud.mdb.kafka.v1.ClusterService.ListHosts
            ```
 
-           You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+           You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
        1. Check the [server response](../api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) to make sure your request was successful. You will find the availability zone in the `hosts[].zone_id` field of the response.
 
@@ -356,7 +356,7 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} 3.5 clust
 
       1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-         For more information about creating this file, see [{#T}](cluster-create.md).
+         Learn how to create this file in [{#T}](cluster-create.md).
 
       1. In the {{ mkf-name }} cluster description, change the list of availability zones under `zones`:
 
@@ -446,9 +446,9 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} 3.5 clust
             If the cluster hosts are placed in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-c` availability zones, and you change the availability zones to `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d`, specify a subnet only if the `{{ region-id }}-d` zone has multiple subnets. Otherwise, you do not need to specify it.
           * `zoneId`: New availability zones for the cluster. Their total number must not decrease.
 
-          You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+          You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-       1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+       1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    - gRPC API {#grpc-api}
 
@@ -486,7 +486,7 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} 3.5 clust
 
            Where:
 
-           * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+           * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
               Specify the relevant parameters:
               * `subnet_ids`: To change the list of subnets.
@@ -499,7 +499,7 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} 3.5 clust
              If the cluster hosts are placed in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-c` availability zones, and you change the availability zones to `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d`, specify a subnet only if the `{{ region-id }}-d` zone has multiple subnets. Otherwise, you do not need to specify it.
            * `zone_id`: New availability zones for the cluster. Their total number must not decrease.
 
-           You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+           You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
        1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -527,7 +527,7 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} cluster v
 
       1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-         For more information about creating this file, see [{#T}](cluster-create.md).
+         Learn how to create this file in [{#T}](cluster-create.md).
 
       1. In the {{ mkf-name }} cluster description, change the availability zone in the `zones` parameter:
 
@@ -598,9 +598,9 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} cluster v
           * `subnetIds`: Array of strings. Each string is a subnet ID. Specify only the subnet in the target availability zone.
           * `zoneId`: New availability zones for the cluster. Specify only the target availability zone.
 
-          You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+          You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-       1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+       1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    - gRPC API {#grpc-api}
 
@@ -645,7 +645,7 @@ To move {{ KF }} hosts to a different availability zone in an {{ KF }} cluster v
            * `subnetIds`: Array of strings. Each string is a subnet ID. Specify only the subnet in the target availability zone.
            * `zoneId`: New availability zones for the cluster. Specify only the target availability zone.
 
-           You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+           You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
        1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

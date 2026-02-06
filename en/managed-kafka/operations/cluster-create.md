@@ -73,7 +73,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
         {% note info %}
 
-        For an {{ KF }} cluster with multiple broker hosts, specify subnets in each availability zone even if you plan to place broker hosts only in some of them. You need these subnets to deploy three [{{ ZK }}](../concepts/index.md) hosts, one per availability zone. For more information, see [Resource relationships](../concepts/index.md).
+        For an {{ KF }} cluster with multiple broker hosts, specify subnets in each availability zone even if you plan to place broker hosts only in some of them. These subnets are required to host three [{{ ZK }} hosts](../concepts/index.md), one in each availability zone. For more information, see [Resource relationships](../concepts/index.md).
 
         {% endnote %}
 
@@ -108,7 +108,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
   To create a {{ mkf-name }} cluster:
 
-  1. View the description of the CLI command to create a {{ mkf-name }} cluster:
+  1. See the description of the CLI command for creating a {{ mkf-name }} cluster:
 
      ```bash
      {{ yc-mdb-kf }} cluster create --help
@@ -203,7 +203,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
      * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-     Here is an example of the configuration file structure:
+     Here is a configuration file example:
 
      
      ```hcl
@@ -253,7 +253,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
      * `environment`: Cluster environment, `PRESTABLE` or `PRODUCTION`.
      * `version`: {{ KF }} version, {{ versions.tf.zookeeper }}. Additionally, provide the [{{ ZK }} host configuration](../concepts/index.md#zookeeper).
      * `zones` and `brokers_count`: Availability zones and number of broker hosts per zone.
-     * `deletion_protection`: Cluster deletion protection, `true` or `false`.
+     * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
 
        {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
 
@@ -308,7 +308,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -426,7 +426,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
                 * `zookeeper`: {{ ZK }} configuration:
 
-                    * `resources.resourcePresetId`: Host class ID. You can get the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
+                    * `resources.resourcePresetId`: Host class ID. You can get the list of available host classes with their IDs by calling the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
                     * `resources.diskSize`: Disk size, in bytes.
                     * `resources.diskTypeId`: Disk type.
 
@@ -459,10 +459,10 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
                 * `anytime`: Any time (default).
                 * `weeklyMaintenanceWindow`: On schedule:
-                    * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                    * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                     * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
-            * `deletionProtection`: Cluster protection against accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
             
@@ -495,7 +495,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -552,7 +552,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
                   "enabled": <enable_sending_requests_to_{{ KF }}_API>
                 },
                 "disk_size_autoscaling": {
-                  <automatic_storage_size_increase_parameters>
+                  <automatic_storage_expansion_parameters>
                 },
                 "kafka_ui_config": {
                   "enabled": <use_Kafka_UI>
@@ -643,7 +643,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
                 * `kafka_ui_config`: Use [{{ kafka-ui }}](../concepts/kafka-ui.md). For access to {{ kafka-ui }}, specify `enabled: true`.
 
 
-            * `topic_specs`: Topic settings as an array of elements. Each element is for a separate topic and has the following structure:
+            * `topic_specs`: Topic settings as an array of elements, one per topic. Each element has the following structure:
 
                 {% include [grpc-topic-specs](../../_includes/mdb/mkf/api/grpc-topic-specs.md) %}
 
@@ -655,10 +655,10 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
                 * `anytime`: Any time (default).
                 * `weekly_maintenance_window`: On schedule:
-                    * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                    * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                     * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
-            * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
             
@@ -687,7 +687,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
               --data '@body.json'
             ```
 
-    1. Check the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -754,7 +754,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
         When selecting the number of hosts, consider the following:
         * You cannot set the number of broker hosts manually if using [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}](../concepts/kraft.md#cluster-topology) as the coordination service.
-        * You need to set the number of brokers manually if using [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-split-mode_sbrDd }}](../concepts/kraft.md#cluster-topology) as the coordination service. A new multi-host cluster will automatically get three separate {{ kraft-short-name }} hosts.
+        * You need to set the number of brokers manually if using [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-split-mode_sbrDd }}](../concepts/kraft.md#cluster-topology) as the coordination service. A new multi-host cluster will automatically get three dedicated {{ kraft-short-name }} hosts.
         * You need at least two hosts to enable replication in a {{ mkf-name }} cluster.
         * High availability of a {{ mkf-name }} cluster depends on certain [prerequisites](../concepts/ha-cluster.md).
       
@@ -769,7 +769,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
           You cannot set the number of broker hosts manually.
 
-  1. If you specified more than one broker host, under **{{ ui-key.yacloud.kafka.section_kraft-resources }}**, specify the properties of the [{{ kraft-short-name }}](../concepts/index.md) hosts to place in each of the selected availability zones.
+  1. If you specified more than one broker host, under **{{ ui-key.yacloud.kafka.section_kraft-resources }}**, specify the properties of the [{{ kraft-short-name }} hosts](../concepts/index.md) to place in each of the selected availability zones.
   1. Specify additional {{ mkf-name }} cluster settings, if required:
 
      {% include [extra-settings](../../_includes/mdb/mkf/extra-settings.md) %}
@@ -786,7 +786,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
   To create a {{ mkf-name }} cluster:
 
-  1. View the description of the CLI command to create a {{ mkf-name }} cluster:
+  1. See the description of the CLI command for creating a {{ mkf-name }} cluster:
 
      ```bash
      {{ yc-mdb-kf }} cluster create --help
@@ -885,7 +885,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
      * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-     Here is an example of the configuration file structure:
+     Here is a configuration file example:
 
      
      ```hcl
@@ -941,7 +941,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
        * `zones = ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"] brokers_count = 1`: Three availability zones with one broker host per zone.
        * `zones = ["<one_availability_zone>"] brokers_count = 3`: One availability zone with three broker hosts.
 
-     * `deletion_protection`: Cluster deletion protection, `true` or `false`.
+     * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
 
        {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
 
@@ -995,7 +995,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1113,7 +1113,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
                 * `kraft`: [{{ kraft-short-name }}](../concepts/kraft.md) configuration:
 
-                    * `resources.resourcePresetId`: Host class ID. You can get the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
+                    * `resources.resourcePresetId`: Host class ID. You can get the list of available host classes with their IDs by calling the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
                     * `resources.diskSize`: Disk size, in bytes.
                     * `resources.diskTypeId`: Disk type.
 
@@ -1131,8 +1131,8 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
                 * `assignPublicIp`: Access to broker hosts from the internet, `true` or `false`.
 
 
-                * `schemaRegistry`: Manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), `true` or `false`. The default value is `false`. You will not be able to edit this setting once you create a {{ mkf-name }} cluster.
-                * `restApiConfig`: {{ KF }} REST API configuration. For access to sending requests to the {{ KF }} REST API, specify `enabled: true`.
+                * `schemaRegistry`: Manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), `true` or `false`. The default value is `false`. You will not be able to edit this setting once you create the {{ mkf-name }} cluster.
+                * `restApiConfig`: {{ KF }} REST API configuration. To enable sending {{ KF }} REST API requests, specify `enabled: true`.
                 * `diskSizeAutoscaling`: Storage [utilization thresholds](../concepts/storage.md#auto-rescale) (as a percentage of the total storage size) that will trigger storage expansion when reached:
 
                   {% include [autoscale-settings](../../_includes/mdb/mkf/api/rest-autoscale-settings.md) %}
@@ -1150,14 +1150,14 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
                 {% include [rest-user-specs](../../_includes/mdb/mkf/api/rest-user-specs.md) %}
 
-            * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Select one of these options:
+            * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including those for stopped clusters. Select one of these options:
 
                 * `anytime`: At any time (default).
                 * `weeklyMaintenanceWindow`: On schedule:
-                    * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                    * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                     * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
-            * `deletionProtection`: Cluster protection against accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
             
@@ -1190,7 +1190,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1247,7 +1247,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
                   "enabled": <enable_sending_requests_to_{{ KF }}_API>
                 },
                 "disk_size_autoscaling": {
-                  <automatic_storage_size_increase_parameters>
+                  <automatic_storage_expansion_parameters>
                 },
                 "kafka_ui_config": {
                   "enabled": <use_Kafka_UI>
@@ -1335,7 +1335,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
 
                 * `schema_registry`: Manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), `true` or `false`. The default value is `false`. You will not be able to edit this setting once you create the {{ mkf-name }} cluster.
-                * `rest_api_config`: {{ KF }} REST API configuration. For access to sending requests to the {{ KF }} REST API, specify `enabled: true`.
+                * `rest_api_config`: {{ KF }} REST API configuration. To enable sending {{ KF }} REST API requests, specify `enabled: true`.
                 * `disk_size_autoscaling`: To prevent the cluster disk space from running out, set the storage [utilization thresholds](../concepts/storage.md#auto-rescale) (as a percentage of the total storage size) that will trigger storage expansion when reached:
 
                   {% include [autoscale-settings](../../_includes/mdb/mkf/api/grpc-autoscale-settings.md) %}
@@ -1345,7 +1345,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
                 * `kafka_ui_config`: Use [{{ kafka-ui }}](../concepts/kafka-ui.md). For access to {{ kafka-ui }}, specify `enabled: true`.
 
 
-            * `topic_specs`: Topic settings as an array of elements. Each element is for a separate topic and has the following structure:
+            * `topic_specs`: Topic settings as an array of elements, one per topic. Each element has the following structure:
 
                 {% include [grpc-topic-specs](../../_includes/mdb/mkf/api/grpc-topic-specs.md) %}
 
@@ -1353,14 +1353,14 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
                 {% include [rest-user-specs](../../_includes/mdb/mkf/api/grpc-user-specs.md) %}
 
-            * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Select one of these options:
+            * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, including those for stopped clusters. Select one of these options:
 
                 * `anytime`: At any time (default).
                 * `weekly_maintenance_window`: On schedule:
-                    * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                    * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                     * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
-            * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
             
@@ -1389,13 +1389,13 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
               --data '@body.json'
             ```
 
-    1. Check the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
 ## Creating a cluster copy {#duplicate}
 
-You can create an {{ KF }} cluster with the settings of another one created earlier. Do this by importing the original {{ KF }} cluster configuration into {{ TF }}. Then you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. The import feature is handy when the original {{ KF }} cluster has a lot of settings and you need to create a similar one.
+You can create an {{ KF }} cluster with the settings of another one created earlier. To do this, import the original {{ KF }} cluster configuration to {{ TF }}. This way, can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when you want to replicate a {{ KF }} cluster with multiple settings.
 
 To create an {{ KF }} cluster copy:
 
@@ -1435,28 +1435,28 @@ To create an {{ KF }} cluster copy:
         ```
 
     1. Copy it from the terminal and paste it into the `.tf` file.
-    1. Move the file to the new `imported-cluster` directory.
-    1. Modify the copied configuration to prepare it for creating a new cluster:
+    1. Place the file in the new `imported-cluster` directory.
+    1. Edit the copied configuration so that you can create a new cluster from it:
 
         * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Delete `created_at`, `health`, `host`, `id`, and `status`.
         * Add the `subnet_ids` argument with the list of subnet IDs for each availability zone.
-        * If the `maintenance_window` section contains `type = "ANYTIME"`, delete the `hour` setting.
+        * If you have `type = "ANYTIME"` in the `maintenance_window` section, delete the `hour` argument.
         * Optionally, make further changes if you need a customized configuration.
 
-    1. Navigate to the `imported-cluster` directory and [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
+    1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
-    1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, as you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Move the configuration file to the `imported-cluster` directory and [specify its settings](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
+    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 
-    1. Validate your {{ TF }} configuration:
+    1. Make sure the {{ TF }} configuration files are correct:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will display any configuration errors detected in your files.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -1532,7 +1532,7 @@ To create an {{ KF }} cluster copy:
 
   * Deletion protection: Enabled.
 
-  The configuration file for this {{ mkf-name }} cluster is as follows:
+  The configuration file for this {{ mkf-name }} cluster looks like this:
 
   ```hcl
   resource "yandex_mdb_kafka_cluster" "mykf" {
@@ -1673,7 +1673,7 @@ In our example, we use the [configuration](../concepts/kraft.md#cluster-topology
   * Public access: Enabled.
   * Security group: `kafka-sg` allowing all incoming and outgoing traffic.
 
-  The configuration file for this {{ mkf-name }} cluster is as follows:
+  The configuration file for this {{ mkf-name }} cluster looks like this:
 
   ```hcl
   resource "yandex_mdb_kafka_cluster" "kafka-kraft" {
@@ -1822,7 +1822,7 @@ In our example, we use the [configuration](../concepts/kraft.md#cluster-topology
   * Public access: Enabled.
   * Security group: `kafka-sg` allowing all incoming and outgoing traffic.
 
-  The configuration file for this {{ mkf-name }} cluster is as follows:
+  The configuration file for this {{ mkf-name }} cluster looks like this:
 
   ```hcl
   resource "yandex_mdb_kafka_cluster" "kafka-kraft-mh" {
@@ -1979,7 +1979,7 @@ In our example, we use the [configuration](../concepts/kraft.md#cluster-topology
   * Public access: Enabled.
   * Security group: `kafka-sg` allowing all incoming and outgoing traffic.
 
-  The configuration file for this {{ mkf-name }} cluster is as follows:
+  The configuration file for this {{ mkf-name }} cluster looks like this:
 
   ```hcl
   resource "yandex_mdb_kafka_cluster" "kafka-zk-mh" {

@@ -68,6 +68,12 @@ description: Следуя данной инструкции, вы сможете
       * `--uri` — ссылка на образ, полученная в {{ objstorage-name }}.
       * `--labels` — метки образа. Необязательный параметр.
 
+- API {#api}
+
+  Чтобы создать образ в {{ baremetal-name }}, воспользуйтесь методом REST API [create](../api-ref/Image/create.md) для ресурса [Image](../api-ref/Image/index.md) или вызовом gRPC API [ImageService/Create](../api-ref/grpc/Image/create.md).
+  
+  {% include [create-baremetal-image-api](../../_includes/baremetal/create-baremetal-image-api.md) %}
+
 {% endlist %}
 
 ## Удалите образ из {{ objstorage-name }} {#delete-image}

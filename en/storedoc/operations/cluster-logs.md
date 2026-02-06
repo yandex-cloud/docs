@@ -1,6 +1,6 @@
 # Viewing {{ SD }} cluster logs
 
-{{ mmg-name }} allows you to [get a cluster log snippet](#get-log) for the selected period and [view logs in real time](#get-log-stream).
+{{ mmg-name }} enables retrieval of [cluster log snippets](#get-log) for a chosen period and [real-time log viewing](#get-log-stream).
 
 {% include [log-duration](../../_includes/mdb/log-duration.md) %}
 
@@ -10,15 +10,15 @@
 
 - Management console {#console}
 
-    1. Go to the [page]({{ link-console-main }}) of the folder where the cluster resides.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+    1. Navigate to the [page of the folder]({{ link-console-main }}) that contains your cluster.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
     1. Click the name of your cluster and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_logs }}** tab.
-    1. Specify a time period for the log entries you want to view: enter it manually or select in the calendar using the date input field.
-    1. Specify the hosts and logging level in the row with the date input field, if required.
+    1. Specify a time period for the log entries to be displayed: enter it manually or click the date field to choose from a calendar.
+    1. If needed, specify the hosts and logging level in the row containing the date field.
 
-    You will see a list of log entries for the time period you specified. To view detailed information about an event, click the relevant entry in the list.
+    You will see a list of log entries for the chosen time period. To see details of a specific event, click its entry in the list.
 
-    If there are too many entries and not all of them are displayed, click **{{ ui-key.yacloud.common.label_load-more }}** at the end of the list.
+    If the list is too long to display all entries at once, click **{{ ui-key.yacloud.common.label_load-more }}** at the end of the list.
 
 - CLI {#cli}
 
@@ -26,13 +26,13 @@
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. View the description of the CLI command for viewing cluster logs:
+    1. See the description of the CLI command for viewing cluster logs:
 
         ```bash
         {{ yc-mdb-mg }} cluster list-logs --help
         ```
 
-    1. Run the following command to get cluster logs (our example only shows some of the available parameters):
+    1. Run the command below to get cluster logs. Note that this example does not show all available command options:
 
         ```bash
         {{ yc-mdb-mg }} cluster list-logs <cluster_name_or_ID> \
@@ -47,17 +47,17 @@
         Where:
 
         * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
-        * `--service-type`: Type of the service for which you want to output entries (`mongod`, `mongos`, `mongocfg`, or `audit`).
-        * `--columns`: List of output data columns:
-            * `component`: Type of component to log. e.g., `CONTROL`.
-            * `context`: Name of the executable module, e.g., `signalProcessingThread`.
+        * `--service-type`: Service type for log entries. Possible values are `mongod`, `mongos`, `mongocfg`, and `audit`.
+        * `--columns`: List of output columns:
+            * `component`: Type of logged component, e.g, `CONTROL`.
+            * `context`: Executable module name, e.g., `signalProcessingThread`.
             * `hostname`: [Host name](hosts.md#list-hosts).
-            * `message`: Message output by the component.
-            * `severity`: Logging level, e.g., `I` or `W` (`Info` and `Warning`, respectively).
+            * `message`: Component’s log message.
+            * `severity`: Logging level, e.g., `I` (`Info`), `W` (`Warning`), etc.
 
             {% note info %}
 
-            The list of data columns depends on the selected `--service-type`.
+            The list of output columns depends on the selected `--service-type`.
 
             {% endnote %}
 
@@ -65,11 +65,11 @@
         * {% include [logs since time](../../_includes/cli/logs/since.md) %}
         * {% include [logs until time](../../_includes/cli/logs/until.md) %}
 
-    You can get the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster’s name and ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -88,12 +88,12 @@
 
         Where:
 
-        * `serviceType`: Type of the service for which you want to get logs:
+        * `serviceType`: Source service type for logs:
 
           * `MONGOD`: {{ SD }} operations log.
           * `AUDIT`: Audit log.
 
-        * `columnFilter`: List of output data columns:
+        * `columnFilter`: List of output columns:
           
           {% include [column-filter-list](../../_includes/mdb/api/column-filter-list.md) %}
 
@@ -103,13 +103,13 @@
 
             * `toTime`: End of the time range in the same format as `fromTime`.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.mongodb.v1.ListClusterLogsResponse) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.mongodb.v1.ListClusterLogsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -138,12 +138,12 @@
 
         Where:
 
-        * `service_type`: Type of the service for which you want to get logs:
+        * `service_type`: Source service type for logs:
         
           * `MONGOD`: {{ SD }} operations log.
           * `AUDIT`: Audit log.
 
-        * `column_filter`: List of output data columns:
+        * `column_filter`: List of output columns:
 
           {% include [column-filter-list](../../_includes/mdb/api/column-filter-list.md) %}
 
@@ -153,15 +153,15 @@
 
             * `to_time`: End of the time range in the same format as `from_time`.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/listLogs.md#yandex.cloud.mdb.mongodb.v1.ListClusterLogsResponse) to make sure your request was successful.
 
 {% endlist %}
 
-## Getting a cluster log stream {#get-log-stream}
+## Streaming cluster logs {#get-log-stream}
 
-This method allows you to get cluster logs in real time.
+This method allows you to stream cluster logs in real time.
 
 {% list tabs group=instructions %}
 
@@ -177,11 +177,11 @@ This method allows you to get cluster logs in real time.
     {{ yc-mdb-mg }} cluster list-logs <cluster_name_or_ID> --follow
     ```
 
-    You can get the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster’s name and ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -201,12 +201,12 @@ This method allows you to get cluster logs in real time.
 
         Where:
 
-        * `serviceType`: Type of the service for which you want to get logs:
+        * `serviceType`: Source service type for logs:
 
           * `MONGOD`: {{ SD }} operations log.
           * `AUDIT`: Audit log.
 
-        * `columnFilter`: List of output data columns:
+        * `columnFilter`: List of output columns:
 
           {% include [column-filter-list](../../_includes/mdb/api/column-filter-list.md) %}
 
@@ -216,19 +216,19 @@ This method allows you to get cluster logs in real time.
 
             * `toTime`: End of the time range in the same format as `fromTime`.
 
-        * `filter`: Log filter. You can filter logs so that the stream contains only the logs you need.
+        * `filter`: Log filter. You can use a filter to stream only the logs you need.
 
-            For more information about filters and their syntax, see the [API reference](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.mongodb.v1.StreamClusterLogsRequest).
+            To learn more about filters and their syntax, see the [API reference](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.mongodb.v1.StreamClusterLogsRequest).
 
             {% include [stream-logs-filter](../../_includes/mdb/api/stream-logs-filter.md) %}
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.mongodb.v1.StreamLogRecord) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.mongodb.v1.StreamLogRecord) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -258,12 +258,12 @@ This method allows you to get cluster logs in real time.
 
         Where:
 
-        * `service_type`: Type of the service for which you want to get logs:
+        * `service_type`: Source service type for logs:
 
           * `MONGOD`: {{ SD }} operations log.
           * `AUDIT`: Audit log.
 
-        * `column_filter`: List of data columns:
+        * `column_filter`: List of output columns:
 
           {% include [column-filter-list](../../_includes/mdb/api/column-filter-list.md) %}
 
@@ -273,14 +273,14 @@ This method allows you to get cluster logs in real time.
         
             * `to_time`: End of the time range in the same format as `from_time`.
 
-        * `filter`: Log filter. You can filter logs so that the stream contains only the logs you need.
+        * `filter`: Log filter. You can use a filter to stream only the logs you need.
 
-          For more information about filters and their syntax, see the [API reference](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.mongodb.v1.StreamClusterLogsRequest).
+          To learn more about filters and their syntax, see the [API reference](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.mongodb.v1.StreamClusterLogsRequest).
 
           {% include [stream-logs-filter](../../_includes/mdb/api/stream-logs-filter.md) %}
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.mongodb.v1.StreamLogRecord) to make sure your request was successful.    
+    1. Check the [server response](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.mongodb.v1.StreamLogRecord) to make sure your request was successful.    
 
 {% endlist %}

@@ -2,11 +2,11 @@
 
 To use [{{ mkf-msr }}](../../../managed-kafka/concepts/managed-schema-registry.md#msr) with {{ mkf-name }}:
 
-1. [Create the producer and consumer scripts on the local machine](#create-scripts).
+1. [Create producer and consumer scripts on your local machine](#create-scripts).
 1. [Check that {{ mkf-msr }} runs correctly](#check-schema-registry).
 1. [Delete the resources you created](#clear-out).
 
-This tutorial describes how to register a single data schema. For information on how to register multiple data schemas, see the [Confluent Schema Registry](https://docs.confluent.io/platform/current/control-center/topics/schema.html) documentation.
+This tutorial describes how to register a single data schema. For information on how to register multiple data schemas, see [this Confluent Schema Registry article](https://docs.confluent.io/platform/current/control-center/topics/schema.html).
 
 
 ## Required paid resources {#paid-resources}
@@ -15,22 +15,22 @@ The infrastructure support cost includes:
 
 * Fee for the {{ mkf-name }} cluster computing resources and storage (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
 * Fee for [VM](../../../compute/concepts/vm.md) computing resources and disks (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
-* Fee for using a [public IP address](../../../vpc/concepts/ips.md) (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+* Fee for a [public IP address](../../../vpc/concepts/ips.md) (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-1. [Create a {{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-create.md) in any suitable configuration. When creating a cluster, enable **{{ ui-key.yacloud.kafka.field_schema-registry }}** and **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+1. [Create a {{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-create.md) of any suitable configuration. When creating a cluster, enable **{{ ui-key.yacloud.kafka.field_schema-registry }}** and **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
     1. [Create a topic](../../../managed-kafka/operations/cluster-topics.md#create-topic) named `messages` for exchanging messages between the producer and the consumer.
     1. [Create a user](../../../managed-kafka/operations/cluster-accounts.md#create-account) named `user` and [grant them permissions](../../../managed-kafka/operations/cluster-accounts.md#grant-permission) for the `messages` topic:
         * `ACCESS_ROLE_CONSUMER`
         * `ACCESS_ROLE_PRODUCER`
 
-1. In the network hosting the {{ mkf-name }} cluster, [create a VM](../../../compute/operations/vm-create/create-linux-vm.md) with [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) and a public IP address.
+1. In the network hosting the {{ mkf-name }} cluster, [create a VM](../../../compute/operations/vm-create/create-linux-vm.md) running [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) with a public IP address.
 
 
-1. If you are using security groups, [configure them](../../../managed-kafka/operations/connect/index.md#configuring-security-groups) to allow all required traffic between the {{ mkf-name }} cluster and the VM.
+1. If using security groups, [configure them](../../../managed-kafka/operations/connect/index.md#configuring-security-groups) to allow all required traffic between your {{ mkf-name }} cluster and VM.
 
 
 ## Create producer and consumer scripts {#create-scripts}
@@ -39,7 +39,7 @@ The infrastructure support cost includes:
 
 1. [Connect](../../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 
-1. Install the necessary Python packages:
+1. Install the required Python packages:
 
     ```bash
     sudo apt-get update && \

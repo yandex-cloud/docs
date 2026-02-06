@@ -5,6 +5,9 @@ description: Различные сценарии использованияпр�
 
 # Практические руководства {{ marketplace-name }}
 
+* [{#T}](s2s-vpn.md)
+* [{#T}](ghost-cms-cloudapp.md)
+
 ## Использование продуктов {{ marketplace-name }} в {{ managed-k8s-full-name }} {#marketplace-tutorials}
 
 * [{#T}](argo-cd.md)
@@ -22,4 +25,3 @@ description: Различные сценарии использованияпр�
 * [{#T}](thumbor.md)
 * [{#T}](istio.md)
 * [{#T}](hashicorp-vault.md)
-* [{#T}](s2s-vpn.md)

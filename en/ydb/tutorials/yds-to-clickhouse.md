@@ -1,5 +1,5 @@
 ---
-title: Saving a {{ yds-full-name }} data stream in {{ mch-full-name }}
+title: Saving a data stream from {{ yds-full-name }} to {{ mch-full-name }}
 description: With {{ data-transfer-name }}, you can deliver data from {{ yds-name }} to {{ mch-name }}.
 canonical: '{{ link-docs }}/tutorials/dataplatform/yds-to-clickhouse'
 ---

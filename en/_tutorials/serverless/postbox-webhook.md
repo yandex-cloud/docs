@@ -29,16 +29,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure support costs include:
 
 * Fee for {{ ydb-short-name }} operations and data storage (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
-* {{ yds-short-name }} data storage fee (see [{{ yds-full-name }} pricing](../../data-streams/pricing.md)).
-* Fee for function invocation count, computing resources allocated to run the function, and outbound traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Fee for {{ yds-short-name }} data storage (see [{{ yds-full-name }} pricing](../../data-streams/pricing.md)).
+* Fee for the number of function calls, computing resources allocated to run the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 * Fee for using {{ postbox-name }} (see [{{ postbox-full-name }} pricing](../../postbox/pricing.md)).
 
 
 ## Create service accounts {#service-accounts}
 
-Create two [service accounts](../../iam/concepts/users/service-accounts.md):
+Create these two [service accounts](../../iam/concepts/users/service-accounts.md):
 
-* `yds-functions` to call [{{ sf-name }}](../../functions/concepts/function.md) and write events to [{{ yds-short-name }}](../../data-streams/concepts/glossary.md#stream-concepts).
+* `yds-functions` to call the function in [{{ sf-name }}](../../functions/concepts/function.md) and write events to [{{ yds-short-name }}](../../data-streams/concepts/glossary.md#stream-concepts).
 * `postbox-user` to send emails via {{ postbox-name }}.
 
 {% include [create-service-accounts](../_tutorials_includes/events-from-postbox-to-yds/create-service-accounts.md) %}
@@ -73,7 +73,7 @@ To create a data stream for {{ postbox-name }} events, you need a {{ ydb-name }}
 {% include [create-yds-stream](../_tutorials_includes/events-from-postbox-to-yds/create-yds-stream.md) %}
 
 
-## Create {{ postbox-name }} resources {#postbox}
+## Set up {{ postbox-name }} resources {#postbox}
 
 {% include [create-pb-resources-intro](../_tutorials_includes/events-from-postbox-to-yds/create-pb-resources-intro.md) %}
 
@@ -93,7 +93,7 @@ To create a data stream for {{ postbox-name }} events, you need a {{ ydb-name }}
 {% include [check-domain](../../_includes/postbox/check-domain.md) %}
 
 
-## Create {{ sf-name }} resources {#serverless-functions}
+## Set up {{ sf-name }} resources {#serverless-functions}
 
 Create a [function](../../functions/concepts/function.md) to send a webhook and a [trigger](../../functions/concepts/trigger/index.md) to call that function upon event logging to the data stream.
 
@@ -210,7 +210,7 @@ Create a [function](../../functions/concepts/function.md) to send a webhook and 
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** field, enter the trigger name: `postbox-events-trigger`.
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_data-streams }}`.
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
-  1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}**, select the data stream named `postbox-events-stream` and the `yds-functions` service account.
+  1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}**, select the `postbox-events-stream` data stream and the `yds-functions` service account.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select the `postbox-webhook` function and the `yds-functions` service account.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -234,7 +234,7 @@ Create a [function](../../functions/concepts/function.md) to send a webhook and 
         {% endlist %}
 
     * View the [function logs](../../functions/operations/function/function-logs.md) and [trigger monitoring charts](../../functions/operations/trigger/trigger-monitoring.md).
-    * Make sure the webhooks for the sent email events were triggered in the external system.
+    * Check that the webhooks for the sent email events were triggered in the external system.
 
 After completing this tutorial, you will be able to trigger webhooks in external systems in response to {{ postbox-full-name }} email sending events.
 

@@ -1,6 +1,6 @@
 ---
 title: Information about clusters in {{ mkf-name }}
-description: You can get detailed information about each {{ mkf-name }} cluster you created. To get a list of database clusters in a folder, navigate to the folder dashboard and go to {{ mkf-name }}.
+description: You can get detailed information about each {{ mkf-name }} cluster you created. To get a list of database clusters in a folder, go to the folder dashboard and select {{ mkf-name }}.
 ---
 
 # Information about existing clusters in {{ mkf-name }}
@@ -59,7 +59,7 @@ You can get detailed information about each {{ mkf-name }} cluster you created.
       You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-  1. View the [server response](../api-ref/Cluster/list.md#yandex.cloud.mdb.kafka.v1.ListClustersResponse) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/list.md#yandex.cloud.mdb.kafka.v1.ListClustersResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -109,7 +109,7 @@ You can get detailed information about each {{ mkf-name }} cluster you created.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get information about the {{ KF }} cluster, run the following command:
+  To get information about an {{ KF }} cluster, run this command:
 
   ```
   {{ yc-mdb-kf }} cluster get <cluster_name_or_ID>
@@ -132,7 +132,7 @@ You can get detailed information about each {{ mkf-name }} cluster you created.
           --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>'
       ```
 
-      You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.kafka.v1.Cluster) to make sure your request was successful.
 
@@ -160,7 +160,7 @@ You can get detailed information about each {{ mkf-name }} cluster you created.
           yandex.cloud.mdb.kafka.v1.ClusterService.Get
       ```
 
-      You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.kafka.v1.Cluster) to make sure your request was successful.
 
@@ -181,7 +181,7 @@ All actions with {{ mkf-name }} clusters are logged as a list of operations. Eac
   1. In the [management console]({{ link-console-main }}), open the folder containing your cluster.
   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
-  1. Select the cluster you need.
+  1. Select the cluster.
   1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the cluster you selected.
 
      You will see the list of operations with this cluster.
@@ -210,7 +210,7 @@ All actions with {{ mkf-name }} clusters are logged as a list of operations. Eac
 
   You can get the cluster ID and name with the [list of clusters in the folder](#list-clusters).
 
-  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format under `--format`:
+  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using `--format`:
 
   ```bash
   yc managed-kafka cluster list-operations c9qk2926qqu9******** --format yaml
@@ -334,7 +334,7 @@ All actions with {{ mkf-name }} clusters are logged as a list of operations. Eac
               --url 'https://{{ api-host-operation }}/operations/<operation_ID>'
           ```
 
-       1. View the [server response](../api-ref/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+       1. Check the [server response](../api-ref/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    - gRPC API {#grpc-api}
 
@@ -359,7 +359,7 @@ All actions with {{ mkf-name }} clusters are logged as a list of operations. Eac
               yandex.cloud.operation.OperationService.Get
           ```
 
-       1. View the [server response](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+       1. Check the [server response](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    {% endlist %}
 

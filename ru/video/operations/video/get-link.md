@@ -35,9 +35,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [get-video-link-rest](../../../_includes/video/get-video-link-rest.md) %}
 
-  Где:
-  * `<IAM-токен>` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md), необходимый для [аутентификации](../../api-ref/authentication.md) в {{ video-name }} API.
-  * `<идентификатор_видео>` — идентификатор видео, ссылку на которое вы хотите получить.
+  {% include [get-link-api-parameters-description](../../../_includes/video/get-link-api-parameters-description.md) %}
 
   {% include [get-video-link-output](../../../_includes/video/get-video-link-output.md) %}
 
@@ -47,9 +45,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [get-video-link-grpc](../../../_includes/video/get-video-link-grpc.md) %}
 
-  Где:
-  * `<IAM-токен>` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md), необходимый для [аутентификации](../../api-ref/authentication.md) в {{ video-name }} API.
-  * `<идентификатор_видео>` — идентификатор видео, ссылку на которое вы хотите получить.
+  {% include [get-link-api-parameters-description](../../../_includes/video/get-link-api-parameters-description.md) %}
 
   {% include [get-video-link-output](../../../_includes/video/get-video-link-output.md) %}
 

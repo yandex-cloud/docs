@@ -336,6 +336,10 @@ items:
         items:
           - name: Все руководства
             href: tutorials/index.md
+          - name: Развертывание S2S VPN с помощью strongSwan в {{ yandex-cloud }}
+            href: tutorials/s2s-vpn.md
+          - name: Установка Ghost CMS CloudApp в {{ objstorage-name }}
+            href: tutorials/ghost-cms-cloudapp.md
           - name: >-
               Использование продуктов {{ marketplace-name }} в {{
               managed-k8s-name }}
@@ -378,12 +382,6 @@ items:
                 href: tutorials/istio.md
               - name: Использование HashiCorp Vault для хранения секретов
                 href: tutorials/hashicorp-vault.md
-              - name: >-
-                  Развертывание S2S VPN с помощью strongSwan в {{ yandex-cloud
-                  }}
-                href: tutorials/s2s-vpn.md
-              - name: Установка Ghost CMS CloudApp в {{ objstorage-name }}
-                href: tutorials/ghost-cms-cloudapp.md
       - name: Концепции
         items:
           - name: Подписка

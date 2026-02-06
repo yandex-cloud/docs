@@ -11,23 +11,23 @@ Starting March 1, 2025, support for {{ KF }} 2.8, 3.0, 3.1, 3.2, and 3.3 is disc
 
 {% endnote %}
 
-You can find the list of supported versions in the [{{ KF }} versioning policy](../concepts/update-policy.md) section. We recommend updating {{ KF }} step by step without skipping any versions. For example, the upgrade sequence from version 3.1 to 3.5 is: 3.1 → 3.2 → 3.3 → 3.4 → 3.5.
+You can find the list of supported versions in the [{{ KF }} versioning policy](../concepts/update-policy.md) section. We recommend upgrading {{ KF }} step by step, without skipping any versions. For example, upgrade from version 3.1 to 3.5 in the following sequence: 3.1 → 3.2 → 3.3 → 3.4 → 3.5.
 
-Learn more about minor version updates and host maintenance in [Maintenance](../concepts/maintenance.md).
+To learn more about minor version updates and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
 ## Before upgrading a version {#before-update}
 
-Make sure this does not affect your applications: review the {{ KF }} [change log](https://kafka.apache.org/downloads).
+Make sure this does not affect your applications: review the {{ KF }} [release notes](https://kafka.apache.org/downloads).
 
 ## Upgrading a cluster {#start-update}
 
 {% note alert %}
 
-Once upgraded, you cannot roll an {{ KF }} cluster back to the previous version.
+Once your {{ KF }} version is upgraded, you cannot revert the cluster to the previous version.
 
 {% endnote %}
 
-During an upgrade, topics may be unavailable if their [replication factor](../concepts/settings-list.md#settings-topic-replication-factor) is 1.
+During an upgrade, topics may be unavailable if their [replication factor](../concepts/settings-list.md#settings-topic-replication-factor) is `1`.
 
 {% list tabs group=instructions %}
 
@@ -45,7 +45,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. Get a list of your {{ mkf-short-name }} clusters:
+    1. Get the list of your {{ mkf-short-name }} clusters:
 
         ```bash
         {{ yc-mdb-kf }} cluster list
@@ -68,9 +68,9 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
-    1. In the `config` section of the required {{ mkf-name }} cluster, add the `version` field (the {{ KF }} version) or edit the existing one:
+    1. In the `config` section of the {{ mkf-name }} cluster, add the `version` field (the {{ KF }} version) or update its value if it already exists:
 
         ```hcl
         resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
@@ -127,7 +127,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 

@@ -1,6 +1,6 @@
-Create files with cluster connection parameters: a file for the producer and a file for the consumer.
+Create two configuration files to connect to the cluster: one for the producer and one for the consumer.
 
-The files have the same content, only the user details are different:
+These files have the same content and differ only in user credentials:
 
 ```ini
 sasl.mechanism=SCRAM-SHA-512

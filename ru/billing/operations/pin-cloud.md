@@ -9,31 +9,41 @@ description: Следуя данной инструкции, вы сможете
 
 ## Что нужно для привязки облака {#bind-roles}
 
-Перед привязкой [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) убедитесь, что [платежный аккаунт](../concepts/billing-account.md) прошел активацию ([статус](../concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`), а пользователь обладает одновременно [ролями](../../iam/concepts/access-control/roles.md):
-* [resource-manager.clouds.owner](../../resource-manager/security/index.md#resource-manager-clouds-owner) на облако.
-* `billing.accounts.editor` и выше в платежном аккаунте. Подробнее о ролях читайте в разделе [Управление доступом](../security/index.md#roles-list).
+Перед привязкой [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) убедитесь, что соблюдены следующие условия:
+1. [Платежный аккаунт](../concepts/billing-account.md) прошел активацию (находится в [статусе](../concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`).
+1. Пользователь обладает одновременно [ролями](../../iam/concepts/access-control/roles.md):
+   * [resource-manager.clouds.owner](../../resource-manager/security/index.md#resource-manager-clouds-owner) на облако;
+   * [billing.accounts.editor](../security/index.md##billing-accounts-editor) и выше в платежном аккаунте.
 
 ## Как привязать облако {#bind-cloud}
 
-Чтобы привязать облако к платежному аккаунту или сменить привязку облака с одного аккаунта на другой:
+Чтобы привязать облако к платежному аккаунту или перепривязать облако к другому аккаунту:
 
 {% list tabs group=instructions %}
 
 - {{ billing-interface }} {#billing}
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
-  1. Выберите платежный аккаунт, к которому вы хотите привязать облако.
-  1. Перейдите на страницу ![image](../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud_org.billing.account.entities.label_title }}**.
+  1. Выберите платежный аккаунт, к которому хотите привязать облако.
+  1. На панели слева выберите ![image](../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud_org.billing.account.entities.label_title }}**.
   1. Нажмите ![image](../../_assets/console-icons/link.svg) **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}** в верхнем правом углу страницы.
-  1. В поле **{{ ui-key.yacloud_org.billing.account.entities.label_type }}** выберите, тип привязываемой сущности из списка, а затем выберите облако или сервис.
+
+     ![image](../../_assets/billing/billing-pin-cloud-1-4.png)
+  
+  1. В поле **{{ ui-key.yacloud_org.billing.account.entities.label_type }}** выберите нужный тип сущности из списка, а затем — ресурс, который хотите привязать к платежному аккаунту.
   1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}** — добавленное облако или сервис появится в списке.
-  1. Погасите задолженность на старом платежном аккаунте, если изменяли привязку облака.
+  1. Погасите задолженность на старом платежном аккаунте, если перепривязали облако.
+
+     ![image](../../_assets/billing/billing-pin-cloud-5-6.png) 
 
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  Чтобы привязать облако, у [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) должна быть [назначена роль](../security/index.md#set-role) не ниже `billing.accounts.editor` на платежный аккаунт.
+  Для привязки облака у [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) должна быть [назначена роль](../security/index.md#set-role) не ниже `billing.accounts.editor` на платежный аккаунт, к которому будет привязано облако.
+
+  Чтобы привязать облако к платежному аккаунту:
+  
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
      ```hcl
@@ -45,7 +55,7 @@ description: Следуя данной инструкции, вы сможете
 
      Где:
      * `billing_account_id` — идентификатор платежного аккаунта, к которому вы хотите привязать облако.
-     * `cloud_id` — идентификатор облака, к которому будет привязан платежный аккаунт.
+     * `cloud_id` — идентификатор облака, которое вы хотите привязать к платежному аккаунту.
 
      Более подробную информацию о параметрах ресурса `yandex_billing_cloud_binding` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/billing_cloud_binding).
   1. Создайте ресурсы:
@@ -60,11 +70,11 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-Если вы переносите облако из-за того, что хотите перестать использовать старый платежный аккаунт, проверьте, что в нем подключен бесплатный тарифный план «Базовый». В противном случае даже если в нем не останется привязанных облаков, начисления за платный тарифный план продолжат списываться.
+Если вы хотите перестать использовать старый платежный аккаунт, проверьте, что в нем подключен бесплатный тарифный план «Базовый», чтобы предотвратить списания. В противном случае, даже если у аккаунта не останется привязанных облаков, начисления за платный тарифный план продолжат списываться.
 
 {% note warning %}
 
-Обратите внимание, что привязка облака (или другого контейнера) к [заблокированному аккаунту](../concepts/billing-account-statuses.md) приведет к остановке всех ваших ресурсов.
+Привязка облака или другого контейнера к [заблокированному аккаунту](../concepts/billing-account-statuses.md) приведет к остановке всех ваших ресурсов.
 
 {% endnote %}
 

@@ -1,4 +1,4 @@
-# Developing CRUD APIs for movie services
+# Developing CRUD APIs for a movie service
 
 
 With serverless technology, you can create a [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) API for a movie data service.
@@ -7,7 +7,7 @@ The CRUD API runs inside a [container](../../serverless-containers/concepts/cont
 
 The container is configured in the [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification)-based [{{ api-gw-full-name }}](../../api-gateway/concepts/index.md) specification to handle specific HTTP requests.
 
-The container will communicate with {{ ydb-name }} and handle external HTTP requests via an API gateway using the [Amazon DynamoDB](https://aws.amazon.com/ru/dynamodb/)-compatible [HTTP API](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html). The CRUD API is written in TypeScript and runs on Node.js 16.
+The container will communicate with {{ ydb-name }} and handle external HTTP requests via the API gateway using the [Amazon DynamoDB](https://aws.amazon.com/dynamodb/)-compatible [HTTP API](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html). The CRUD API is written in TypeScript and runs on Node.js 16.
 
 To deploy a project:
 1. [Set up your environment](#setup-environment).
@@ -27,8 +27,8 @@ If you no longer need the resources you created, [delete](#clear-out) them.
 
 The cost of CRUD API resources includes:
 * Fee for {{ ydb-short-name }} operations and data storage (see [{{ ydb-name }} pricing for serverless mode](../../ydb/pricing/serverless.md)).
-* Fee for container invocation count, computing resources allocated to run the application, and outbound traffic (see [{{ serverless-containers-name }} pricing](../../serverless-containers/pricing.md)).
-* Fee for the number of requests to the API gateway and outbound traffic (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
+* Fee for the number of container invocations, computing resources allocated to the application, and outgoing traffic (see [{{ serverless-containers-name }} pricing](../../serverless-containers/pricing.md)).
+* Fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
 
 ## Set up your environment {#setup-environment}
 
@@ -38,7 +38,7 @@ The cost of CRUD API resources includes:
 
   1. [Install WSL](https://docs.microsoft.com/en-us/windows/wsl/install) to run a Linux environment.
   1. Run the Linux subsystem (by default, Ubuntu).
-  1. Configure the environment as described in this tutorial for Linux.
+  1. Set up the environment as described in this guide for Linux.
 
 - Linux {#linux}
 
@@ -48,7 +48,7 @@ The cost of CRUD API resources includes:
 
   {% endnote %}
 
-  1. Install the following tools in the specified order by running the relevant commands in your terminal:
+  1. Install the following tools in the specified order by running the relevant commands in the terminal:
      * [Curl](https://curl.se/) and [Git](https://git-scm.com/):
 
        ```bash
@@ -131,7 +131,7 @@ The cost of CRUD API resources includes:
 
 - macOS {#macos}
 
-  1. Install the following tools in the specified order by running the relevant commands in your terminal:
+  1. Install the following tools in the specified order by running the relevant commands in the terminal:
      * [Homebrew](https://brew.sh):
 
        ```bash
@@ -201,9 +201,9 @@ The cost of CRUD API resources includes:
 
 {% endlist %}
 
-## Initiate {{ TF }} {#init-terraform}
+## Initialize {{ TF }} {#init-terraform}
 
-1. Clone a repository with source files for the CRUD API project:
+1. Clone the repository with source files for the CRUD API project:
 
    ```bash
    git clone https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website.git
@@ -239,7 +239,7 @@ The cost of CRUD API resources includes:
    echo $FOLDER_ID
    ```
 
-1. Run the {{ TF }} initialization command:
+1. Run the {{ TF }} init command:
 
    ```bash
    terraform init
@@ -266,7 +266,7 @@ Our project uses a [{{ ydb-short-name }}]({{ link-cloud-services }}/ydb) databas
    * `movies_database_document_api_endpoint`: Document API endpoint of the database.
    * `movies_database_path`: Relative path to the database.
 
-   Use the [management console]({{ link-console-main }}) or the `yc ydb database list` CLI command to check that the `movies-database` DB has been successfully created.
+   Use the [management console]({{ link-console-main }}) or the `yc ydb database list` CLI command to check that `movies-database` has been successfully created.
 1. Export the `movies_database_document_api_endpoint` and `movies_database_path` values from the previous command output to environment variables:
 
    ```bash
@@ -348,17 +348,17 @@ Our project uses a [{{ ydb-short-name }}]({{ link-cloud-services }}/ydb) databas
 
    Each table supports two indexes:
    * The `movies` table supports an index to quickly find a movie by its ID and an index to sort movies by popularity.
-   * The `votes` table supports an index to locate a user's rating for a movie and an index to get all ratings for a movie.
+   * The `votes` table supports an index to locate a user rating for a movie and an index to get all ratings for a movie.
 
 ## Implement CRUD operations {#implement-operations}
 
-Every time you create, read, update, or delete data, the database layer is involved. These actions are collectively called CRUD operations.
+Every time you create, read, update, or delete data, the database layer is involved. These actions are known as CRUD operations.
 
 In the [Document API](../../ydb/docapi/api-ref/), you access the database using the [AWS SDK for JavaScript v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/index.html):
-* [model.ts](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/src/model.ts) defines the `Movie` and `Vote` models via the TypeScript interface.
-* [repository.ws](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/src/repository.ts) implements CRUD operations for using these entities.
+* The [model.ts](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/src/model.ts) file defines the `Movie` and `Vote` models via the TypeScript interface.
+* The [repository.ws](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/src/repository.ts) file implements CRUD operations for using these entities.
 
-All data-related operations use [IAM tokens](../../iam/concepts/authorization/iam-token.md) for authorization. Any operation begins by calling the [metadata service](../../serverless-containers/operations/sa.md) to get an IAM token.
+All data-related operations use [IAM tokens](../../iam/concepts/authorization/iam-token.md) for authorization. Any operation begins with calling the [metadata service](../../serverless-containers/operations/sa.md) to get an IAM token.
 
 ### Create a service account {#create-sa}
 
@@ -394,25 +394,25 @@ All data-related operations use [IAM tokens](../../iam/concepts/authorization/ia
 
    Where:
 
-   * `--role`: Role you want to assign.
+   * `--role`: Role being assigned.
    * `--subject serviceAccount`: Service account ID.
 
-   The service account gets the roles for the following purposes:
+   The service account gets the roles for the following:
    * Invoking a container in [{{ serverless-containers-name }}]({{ link-cloud-services }}/serverless-containers).
    * Running operations in [{{ ydb-short-name }}]({{ link-cloud-services }}/ydb).
 
    Make sure to assign the roles for the entire folder rather than an individual resource.
 
-### Compile the application's TypeScript source code {#compile-app}
+### Compile the application TypeScript source code {#compile-app}
 
-1. Go to the repository root directory and install required dependencies with this command:
+1. Go to the repository root directory and install the relevant dependencies with this command:
 
    ```bash
    cd <path_to_sls-web-application_directory>
    npm ci
    ```
 
-   After running it, your project will include the `node_modules` directory with all required dependencies.
+   After running it, your project will include the `node_modules` directory with all the dependencies you installed.
 1. Run your project build:
 
    ```bash
@@ -423,15 +423,15 @@ All data-related operations use [IAM tokens](../../iam/concepts/authorization/ia
 
 ## Develop a REST API {#develop-rest-api}
 
-The [openapi/api.yaml](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/openapi/api.yaml) file already contains an OpenAPI specification that describes the main operations with movies and ratings.
+The [openapi/api.yaml](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/openapi/api.yaml) file already contains an OpenAPI specification that describes basic operations with movies and ratings.
 
-To implement the service according to the specification, you will use [OpenAPI Backend](https://github.com/anttiviljami/openapi-backend) in combination with [Express](https://expressjs.com). The [app.ts](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/src/app.ts) file describes the required classes, operation mappings, and HTTP service initialization.
+To implement the service based on this specification, you will use [OpenAPI Backend](https://github.com/anttiviljami/openapi-backend) in combination with [Express](https://expressjs.com). The [app.ts](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/src/app.ts) file describes the required classes, operation mappings, and HTTP service initialization.
 
 ### Deploy your application in {{ serverless-containers-name }} {#deploy-container}
 
 Build your application as a Docker image and run it in [{{ serverless-containers-name }}]({{ link-cloud-services }}/serverless-containers):
-1. In the [OpenAPI specifications](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/openapi/api.yaml) (`api.yaml`), enter the ID of the previously created service account in the `x-yc-apigateway.service_account_id` field.
-1. The [container-registry.tf](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/deploy/container-registry.tf) file defines the configuration of the registry and repository that will store the application Docker image. Go to the `deploy` directory and create resources in [{{ container-registry-full-name }}]({{ link-cloud-services }}/container-registry):
+1. In the [OpenAPI specification](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/openapi/api.yaml) (`api.yaml`), enter the ID of the service account you created in the `x-yc-apigateway.service_account_id` field.
+1. The [container-registry.tf](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/deploy/container-registry.tf) file defines the configuration of the registry and repository to push the application Docker image to. Go to the `deploy` directory and create resources in [{{ container-registry-full-name }}]({{ link-cloud-services }}/container-registry):
 
    ```bash
    cd <path_to_deploy_directory>
@@ -440,7 +440,7 @@ Build your application as a Docker image and run it in [{{ serverless-containers
    ```
 
    Confirm creating the resources by typing `yes` in the terminal and pressing **Enter**.
-1. In the command output, the `movies_api_repository_name` variable contains the name of the repository to upload the Docker image to. Export it to the environment variable:
+1. In the command output, the `movies_api_repository_name` variable contains the name of the repository to push the Docker image to. Export it to the environment variable:
 
    ```bash
    export MOVIES_API_REPOSITORY_NAME=<repository_name>
@@ -453,7 +453,7 @@ Build your application as a Docker image and run it in [{{ serverless-containers
    yc container registry configure-docker
    ```
 
-1. The [Dockerfile](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/Dockerfile) describes the configuration for building the Docker image. Build the image and push it to the repository:
+1. The [Dockerfile](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/Dockerfile) describes the configuration for building a Docker image. Build the image and push it to the repository you created:
 
    ```bash
    docker build -t ${MOVIES_API_REPOSITORY_NAME}:0.0.1 .
@@ -472,14 +472,14 @@ Build your application as a Docker image and run it in [{{ serverless-containers
 
    * `--name`: Container name.
    * `--folder-id`: Folder ID.
-1. The command output gives the new container ID. Export it to the environment variable:
+1. The command output shows the new container ID. Export it to the environment variable:
 
    ```bash
    export MOVIES_API_CONTAINER_ID=<container_ID>
    echo $MOVIES_API_CONTAINER_ID
    ```
 
-1. Create a container [revision](../../serverless-containers/concepts/container.md) from Docker image `0.0.1`:
+1. Create a container [revision](../../serverless-containers/concepts/container.md) from the Docker image `0.0.1`:
 
    ```bash
    yc sls container revisions deploy \
@@ -499,7 +499,7 @@ Build your application as a Docker image and run it in [{{ serverless-containers
    * `--folder-id`: Folder ID.
    * `--container-id`: Container ID.
    * `--memory`: Memory available for the container.
-   * `--cores`: Number of vCPUs available to the container.
+   * `--cores`: Number of vCPUs available for the container.
    * `--execution-timeout`: Execution timeout.
    * `--concurrency`: Maximum number of concurrent container invocations. If the number of container invocations exceeds the `--concurrency` value, {{ serverless-containers-name }} scales the container up by running its additional instances.
    * `--environment`: Environment variables. The application reads the Document API endpoint from the `DOCUMENT_API_ENDPOINT` environment variable.
@@ -508,7 +508,7 @@ Build your application as a Docker image and run it in [{{ serverless-containers
 
 ### Deploy your API in {{ api-gw-name }} {#deploy-api-gw}
 
-1. In the [OpenAPI specifications](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/openapi/api.yaml) (`api.yaml`), replace `${MOVIES_API_CONTAINER_ID}` with the ID of the container you created.
+1. In the [OpenAPI specification](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/openapi/api.yaml) (`api.yaml`), replace `${MOVIES_API_CONTAINER_ID}` with the ID of the container you created.
 1. The [api-gateway.tf](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/deploy/api-gateway.tf) file describes the {{ TF }} configuration for creating an [API gateway](../../api-gateway/concepts/index.md). Deploy an API gateway:
 
    ```bash
@@ -526,7 +526,7 @@ Build your application as a Docker image and run it in [{{ serverless-containers
 ## Test the new CRUD API {#test-api}
 
 To test the new CRUD API, run the following HTTP requests using the `curl` command:
-1. Retrieve a movie list:
+1. Get a movie list:
 
    ```bash
    curl "${MOVIES_API_GATEWAY_DOMAIN}/movies?limit=10"
@@ -547,7 +547,7 @@ To test the new CRUD API, run the following HTTP requests using the `curl` comma
      }'
    ```
 
-1. Retrieve movie details:
+1. Get movie details:
 
    ```bash
    curl \
@@ -569,7 +569,7 @@ To test the new CRUD API, run the following HTTP requests using the `curl` comma
      }'
    ```
 
-1. Retrieve a movie list:
+1. Get a movie list:
 
    ```bash
    curl \
@@ -591,13 +591,13 @@ To stop paying for the resources you created with {{ TF }}, delete them. In the 
 terraform destroy
 ```
 
-Confirm the resource deletion by typing `yes` in the terminal and pressing **Enter**.
+Confirm deleting the resources by typing `yes` in the terminal and pressing **Enter**.
 
 #### See also {#see-also}
 
 * [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [{{ TF }} reference. {{ yandex-cloud }} provider]({{ tf-provider-link }}).
 * [Document table](../../ydb/operations/schema.md).
-* [x-yc-apigateway-integration](../../api-gateway/concepts/extensions/containers.md).
+* [x-yc-apigateway-integration extension](../../api-gateway/concepts/extensions/containers.md).
 * [{#T}](../../serverless-containers/concepts/logs.md).
 * [{#T}](../../serverless-containers/operations/monitoring.md).

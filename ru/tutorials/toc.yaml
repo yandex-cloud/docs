@@ -267,6 +267,10 @@ items:
           Получение сведений для запроса на включение ресурса в белый список
           Минцифры
         href: security/info-for-federal-ip-whitelist.md
+      - name: >-
+          Загрузка объектов в бакет {{ objstorage-name }} с помощью эфемерного
+          ключа доступа
+        href: security/ephemeral-key-storage.md
   - name: Хранение и восстановление данных
     items:
       - name: Все руководства

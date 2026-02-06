@@ -92,7 +92,7 @@ Learn more about other cluster updates:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see this [{{ TF }} provider guide]({{ tf-provider-mkf }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-mkf }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -131,7 +131,7 @@ Learn more about other cluster updates:
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -289,7 +289,7 @@ We recommend changing broker host class only when your cluster has no active wor
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -472,7 +472,7 @@ We recommend changing broker host class only when your cluster has no active wor
 
         Learn how to create this file in [Creating a cluster](cluster-create.md).
 
-    1. In the {{ mkf-name }} cluster description, edit the `resource_preset_id` parameter value in the `zookeeper.resources` section to specify a [new {{ ZK }} host class](../concepts/instance-types.md):
+    1. In the {{ mkf-name }} cluster description, edit the `resource_preset_id` parameter value in the `zookeeper.resources` section to specify a new {{ ZK }} [host class](../concepts/instance-types.md):
 
         ```hcl
         resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
@@ -494,7 +494,7 @@ We recommend changing broker host class only when your cluster has no active wor
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -676,7 +676,7 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
 
         Learn how to create this file in [Creating a cluster](cluster-create.md).
 
-    1. In the {{ mkf-name }} cluster description, edit the `resource_preset_id` parameter value in the `kraft.resources` section to specify a [new {{ kraft-short-name }} host class](../concepts/instance-types.md):
+    1. In the {{ mkf-name }} cluster description, edit the `resource_preset_id` parameter value in the `kraft.resources` section to specify a new {{ kraft-short-name }} [host class](../concepts/instance-types.md):
 
         ```hcl
         resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
@@ -698,7 +698,7 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -901,7 +901,7 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -953,7 +953,7 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1052,7 +1052,7 @@ You may need to additionally [configure security groups](connect/index.md#config
         {{ yc-mdb-kf }} cluster update --help
         ```
 
-    1. Run the following command with the list of settings you want to update:
+    1. Run the following command with the list of settings to update:
 
         
         ```bash
@@ -1091,7 +1091,7 @@ You may need to additionally [configure security groups](connect/index.md#config
 
     1. {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
-    1. To activate cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to the cluster description:
+    1. To enable cluster protection from accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
         ```hcl
         resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
@@ -1124,7 +1124,7 @@ You may need to additionally [configure security groups](connect/index.md#config
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see this [{{ TF }} provider guide]({{ tf-provider-mkf }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-mkf }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -1183,11 +1183,11 @@ You may need to additionally [configure security groups](connect/index.md#config
         * `configSpec.restApiConfig.enabled`: Set to `true` to enable sending {{ KF }} REST API requests. You will not be able to edit this setting once it is enabled.
 
 
-        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. Select one of these options:
+        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including those for stopped clusters. Select one of these options:
 
             * `anytime`: At any time (default).
             * `weeklyMaintenanceWindow`: On schedule:
-                * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                 * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
         * `deletionProtection`: To enable (`true`) or disable (`false`) cluster protection from accidental deletion.
@@ -1196,7 +1196,7 @@ You may need to additionally [configure security groups](connect/index.md#config
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1267,7 +1267,7 @@ You may need to additionally [configure security groups](connect/index.md#config
 
             * `anytime`: Any time.
             * `weekly_maintenance_window`: On schedule:
-                * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                 * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
         * `deletion_protection`: To enable (`true`) or disable (`false`) cluster protection from accidental deletion.
@@ -1357,7 +1357,7 @@ You may need to additionally [configure security groups](connect/index.md#config
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -1410,7 +1410,7 @@ You may need to additionally [configure security groups](connect/index.md#config
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1493,13 +1493,13 @@ You may need to additionally [configure security groups](connect/index.md#config
 
     To move a cluster:
 
-    1. View the description of the CLI command for moving a cluster:
+    1. See the description of the CLI command for moving a cluster:
 
         ```bash
         {{ yc-mdb-kf }} cluster move --help
         ```
 
-    1. Specify the destination folder in the cluster move command:
+    1. Run this command, providing the destination folder:
 
         ```bash
         {{ yc-mdb-kf }} cluster move <cluster_name_or_ID> \
@@ -1514,7 +1514,7 @@ You may need to additionally [configure security groups](connect/index.md#config
 
         Learn how to create this file in [Creating a cluster](./cluster-create.md).
 
-    1. In the {{ mkf-name }} cluster description, edit or add the `folder_id` parameter value:
+    1. In the {{ mkf-name }} cluster description, edit the `folder_id` value. If the argument does not exist, add it:
 
         ```hcl
         resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
@@ -1531,7 +1531,7 @@ You may need to additionally [configure security groups](connect/index.md#config
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see this [{{ TF }} provider guide]({{ tf-provider-mkf }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-mkf }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -1556,7 +1556,7 @@ You may need to additionally [configure security groups](connect/index.md#config
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 

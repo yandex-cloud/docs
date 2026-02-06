@@ -1,6 +1,6 @@
 ---
 title: Delivering data to {{ mch-full-name }} using {{ data-transfer-full-name }}
-description: Follow this guide to set up data delivery to {{ mch-name }} using {{ data-transfer-name }}.
+description: Follow this tutorial to set up data delivery to {{ mch-name }} using {{ data-transfer-name }}.
 canonical: '{{ link-docs }}/tutorials/dataplatform/data-transfer-mkf-mch'
 ---
 

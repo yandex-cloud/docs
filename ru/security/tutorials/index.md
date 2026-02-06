@@ -72,6 +72,7 @@ description: Различные практические руководства 
 * [{#T}](data-encryption-and-key-management/static-key-in-lockbox/index.md)
 * [{#T}](data-encryption-and-key-management/wlif-github-integration.md)
 * [{#T}](data-encryption-and-key-management/wlif-gitlab-integration.md)
+* [{#T}](data-encryption-and-key-management/ephemeral-key-storage.md)
 
 
 ## Сбор, мониторинг и анализ аудитных логов {#audit-logs}

@@ -1,6 +1,6 @@
 ---
 title: Migrating {{ SD }} cluster hosts to a different availability zone
-description: Follow this guide to relocate hosts in an {{ SD }} cluster to a different availability zone.
+description: In this tutorial, you will learn how to migrate {{ SD }} cluster hosts to a different availability zone.
 ---
 
 # Migrating {{ SD }} cluster hosts to a different availability zone
@@ -14,15 +14,15 @@ description: Follow this guide to relocate hosts in an {{ SD }} cluster to a dif
 
    - Management console {#console}
 
-      1. Go to the [folder]({{ link-console-main }}) page.
-      1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+      1. Open the [folder dashboard]({{ link-console-main }}).
+      1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
       1. Click the name of your {{ mmg-name }} cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
       1. Specify the following host settings:
 
-         * Availability zone to move your hosts to.
+         * Target availability zone for your hosts.
          * New subnet.
-         * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to make the host accessible from outside {{ yandex-cloud }}, if required.
+         * To make the host accessible from outside {{ yandex-cloud }}, select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
       1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
@@ -45,13 +45,13 @@ description: Follow this guide to relocate hosts in an {{ SD }} cluster to a dif
 
       Command specifics:
 
-      * You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
-      * Possible `type` values: `mongod`, `mongos`, `mongocfg`, or `mongoinfra`. The host type depends on the [sharding type](../concepts/sharding.md#shard-management).
-      * In the `zone-id` parameter, specify the target availability zone for your hosts.
+      * You can get the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters).
+      * Possible `type` values are `mongod`, `mongos`, `mongocfg`, and `mongoinfra`. The host type depends on the [sharding type](../concepts/sharding.md#shard-management).
+      * In the `zone-id` argument, provide the target availability zone for your hosts.
 
    - {{ TF }} {#tf}
 
-      1. Add a host manifest to the {{ TF }} configuration file describing your infrastructure:
+      1. Add the host manifest to the {{ TF }} configuration file describing your infrastructure:
 
          ```hcl
          resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
@@ -66,21 +66,21 @@ description: Follow this guide to relocate hosts in an {{ SD }} cluster to a dif
          }
          ```
 
-         Possible `type` values: `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`. The host type depends on the [sharding type](../concepts/sharding.md#shard-management).
+         Possible `type` values are `MONGOD`, `MONGOINFRA`, `MONGOS`, and `MONGOCFG`. The host type depends on the [sharding type](../concepts/sharding.md#shard-management).
 
-         In the `zone` parameter, specify the target availability zone for your hosts.
+         In the `zone` argument, provide the target availability zone for your hosts.
 
-      1. Make sure the settings are correct.
+      1. Validate your configuration.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      1. Confirm updating the resources.
+      1. Confirm resource changes.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    - REST API {#api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
             {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -109,25 +109,25 @@ description: Follow this guide to relocate hosts in an {{ SD }} cluster to a dif
                       }'
             ```
 
-            Where `hostSpecs` is the array of new hosts. One array element contains settings for a single host:
+            Where `hostSpecs` is an array of new hosts, in which each element contains the settings for a single host:
 
             * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
             * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-            * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
+            * `assignPublicIp`: Controls whether the host is accessible via a public IP address, `true` or `false`.
             * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`. For a non-sharded cluster, use `MONGOD`.
             * `shardName`: Shard name in a sharded cluster.
-            * `hidden`: The host will either be visible (`false`) or hidden (`true`).
-            * `secondaryDelaySecs`: Host's lag behind the master.
-            * `priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
-            * `tags`: Host labels.
+            * `hidden`: Determines whether the host is hidden, `true` or `false`.
+            * `secondaryDelaySecs`: Host's replication lag behind the master.
+            * `priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
+            * `tags`: Host tags.
 
-            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
-      1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+      1. Check the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    - gRPC API {#grpc-api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
             {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -161,19 +161,19 @@ description: Follow this guide to relocate hosts in an {{ SD }} cluster to a dif
                yandex.cloud.mdb.mongodb.v1.ClusterService.AddHosts
             ```
             
-            Where `host_specs` is the array of new hosts. One array element contains settings for a single host:
+            Where `host_specs` is an array of new hosts, in which each element contains the settings for a single host:
 
             * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
             * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-            * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
+            * `assign_public_ip`: Controls whether the host is accessible via a public IP address, `true` or `false`.
             * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`. For a non-sharded cluster, use `MONGOD`.
             * `shard_name`: Shard name in a sharded cluster.
-            * `hidden`: The host will either be visible (`false`) or hidden (`true`).
-            * `secondary_delay_secs`: Host's lag behind the master.
-            * `priority`: Host priority for promotion to master if the [primary master fails](../concepts/replication.md#master-failover).
-            * `tags`: Host labels.
+            * `hidden`: Determines whether the host is hidden, `true` or `false`.
+            * `secondary_delay_secs`: Host’s replication lag behind the master.
+            * `priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
+            * `tags`: Host tags.
 
-            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
       1. Check the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -181,7 +181,7 @@ description: Follow this guide to relocate hosts in an {{ SD }} cluster to a dif
 
 1. To connect to the database after migration, specify the new host’s FQDN in your backend or client, e.g., in your application code or graphical IDE. Delete the original host's FQDN in your source availability zone.
 
-   To get the FQDN, request the list of hosts in the cluster:
+   You can get this FQDN from the list of hosts in your cluster:
 
    ```bash
    {{ yc-mdb-mg }} host list --cluster-name <cluster_name>
@@ -189,7 +189,7 @@ description: Follow this guide to relocate hosts in an {{ SD }} cluster to a dif
 
    You will see the FQDN under `NAME` in the command output.
 
-   To learn how to get host FQDN in the [management console]({{ link-console-main }}), see [this guide](connect/index.md#get-fqdn).
+   For details on how to get a host’s FQDN in the [management console]({{ link-console-main }}), see [this guide](connect/index.md#get-fqdn).
 
 1. Delete the hosts in the source availability zone:
 
@@ -197,10 +197,10 @@ description: Follow this guide to relocate hosts in an {{ SD }} cluster to a dif
 
    - Management console {#console}
 
-      1. Go to the [folder]({{ link-console-main }}) page.
-      1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-      1. Click the name of the {{ mmg-name }} cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
-      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
+      1. Open the [folder dashboard]({{ link-console-main }}).
+      1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+      1. Locate the {{ mmg-name }} cluster you need in the list, click its name, and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
+      1. Find the host you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
    - CLI {#cli}
 
@@ -212,8 +212,8 @@ description: Follow this guide to relocate hosts in an {{ SD }} cluster to a dif
 
    - {{ TF }} {#tf}
 
-      1. In your {{ TF }} infrastructure configuration file, delete the `host` sections with the source availability zone from your cluster description.
-      1. Make sure the settings are correct.
+      1. In your {{ TF }} infrastructure configuration file, locate your cluster description and delete the `host` sections with the source availability zone.
+      1. Validate your configuration.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -223,7 +223,7 @@ description: Follow this guide to relocate hosts in an {{ SD }} cluster to a dif
 
    - REST API {#api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
             {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -242,15 +242,15 @@ description: Follow this guide to relocate hosts in an {{ SD }} cluster to a dif
                        }'
             ```
 
-            Where `hostNames` is an array with the names of hosts to delete. To find out the host name, [get a list of hosts in the cluster](hosts.md#list-hosts).
+            Where `hostNames` is the array containing the host you want to delete. You can get the host name from the [list of hosts in your cluster](hosts.md#list-hosts).
 
-            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
-      1. View the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+      1. Check the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    - gRPC API {#grpc-api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
             {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -274,15 +274,15 @@ description: Follow this guide to relocate hosts in an {{ SD }} cluster to a dif
                yandex.cloud.mdb.mongodb.v1.ClusterService.DeleteHosts
             ```
 
-            Where `host_names` is an array with the names of hosts to delete. To find out the host name, [get a list of hosts in the cluster](hosts.md#list-hosts).
+            Where `host_names` is an array containing the host names you want to delete. You can get the host name from the [list of hosts in your cluster](hosts.md#list-hosts).
 
-            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
-      1. View the [server response](../api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+      1. Check the [server response](../api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    {% endlist %}
 
-1. Wait for the cluster state to change to **Alive**. In the [management console]({{ link-console-main }}), navigate to the folder with the cluster. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**. You can see the cluster state in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+1. Wait for the cluster state to change to **Alive**. In the [management console]({{ link-console-main }}), navigate to the folder containing your cluster. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service. You can check the cluster state in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 

@@ -1,9 +1,9 @@
 # Delivering data from an {{ KF }} queue to {{ PG }} using {{ data-transfer-full-name }}
 
 
-You can set up data transfer from a {{ mkf-name }} topic to {{ mpg-name }} using {{ data-transfer-full-name }}. Proceed as follows:
+You can set up data transfer from a {{ mkf-name }} topic to {{ mpg-name }} using {{ data-transfer-full-name }}. To do so:
 
-1. [Prepare the test data](#prepare-data).
+1. [Prepare your test data](#prepare-data).
 1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
@@ -12,14 +12,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mkf-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
-* {{ mpg-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* {{ mkf-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
+* {{ mpg-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-1. Set up the infrastructure:
+1. Set up your infrastructure:
 
     {% list tabs group=instructions %}
 
@@ -29,11 +29,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         1. [In the source cluster, create a topic](../../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
 
-        1. [In the source cluster, create a user](../../../managed-kafka/operations/cluster-accounts.md#create-account) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` access permissions for the topic.
+        1. [In the source cluster, create a user](../../../managed-kafka/operations/cluster-accounts.md#create-account) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` access permissions for the new topic.
 
-        1. In the same availability zone, [create a {{ mpg-name }} target cluster](../../../managed-postgresql/operations/cluster-create.md#create-cluster) in any appropriate configuration with `pg-user` as the admin user and publicly available hosts.
+        1. In the same availability zone, [create a {{ mpg-name }} target cluster](../../../managed-postgresql/operations/cluster-create.md#create-cluster) of any suitable configuration with `pg-user` as admin and publicly accessible hosts.
 
-        1. Make sure the cluster security groups are properly configured and allow inbound cluster connections:
+        1. Make sure the cluster security groups are configured correctly and allow inbound cluster connections:
             * [{{ mkf-name }}](../../../managed-kafka/operations/connect/index.md#configuring-security-groups).
             * [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups).
 
@@ -48,17 +48,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             This file describes:
 
-            * [Networks](../../../vpc/concepts/network.md#network) and [subnets](../../../vpc/concepts/network.md#subnet) where your clusters will be hosted.
+            * [Networks](../../../vpc/concepts/network.md#network) and [subnets](../../../vpc/concepts/network.md#subnet) that will host your clusters.
             * [Security groups](../../../vpc/concepts/security-groups.md) for cluster access.
             * {{ mkf-name }} source cluster.
             * {{ mpg-name }} target cluster.
             * Target endpoint.
             * Transfer.
 
-        1. In the `kafka-postgresql.tf` file, specify the following:
+        1. In `kafka-postgresql.tf`, specify the following:
 
-            * {{ KF }} and {{ PG }} versions
-            * {{ KF }} and {{ PG }} user passwords
+            * {{ KF }} and {{ PG }} versions.
+            * {{ KF }} and {{ PG }} user passwords.
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -139,10 +139,10 @@ Create a local `sample.json` file with the following test data:
 
 ## Set up and activate the transfer {#prepare-transfer}
 
-1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/kafka.md) with the `{{ KF }}` type and specify the following items for it:
+1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/kafka.md) of the `{{ KF }}` type and specify the following for it:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}**: `sensors`.
-    * `json` conversion rules. In the **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** field, select `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}` and copy and paste the following field specification into the form that opens:
+    * `json` conversion rules. In the **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** field, select `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`, copy the following field specification, and paste it into the form that opens:
 
     {% cut "sensors-specification" %}
 
@@ -190,7 +190,7 @@ Create a local `sample.json` file with the following test data:
 
     {% endcut %}
 
-1. Create a target endpoint and set up the transfer:
+1. Create a target endpoint and a transfer:
 
     {% list tabs group=instructions %}
 
@@ -203,7 +203,7 @@ Create a local `sample.json` file with the following test data:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: `db1`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`.
-        1. [Create](../../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type transfer configured to use the new endpoints.
+        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the endpoints you created.
         1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     - {{ TF }} {#tf}
@@ -211,7 +211,7 @@ Create a local `sample.json` file with the following test data:
         1. In the `kafka-postgresql.tf` file, specify the following variables:
 
             * `kf_source_endpoint_id`: Source endpoint ID.
-            * `transfer_enabled`: `1` to create a target endpoint and a transfer.
+            * `transfer_enabled`: Set to `1` to create a target endpoint and a transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -225,13 +225,13 @@ Create a local `sample.json` file with the following test data:
 
             {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-        1. The transfer will activate automatically upon creation. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     {% endlist %}
 
 ## Test your transfer {#verify-transfer}
 
-Make sure that the data from the topic in the source {{ mkf-name }} cluster is being transferred to the {{ mpg-name }} database:
+Make sure data from the {{ mkf-name }} source cluster topic is being transferred to the {{ mpg-name }} database:
 
 1. Send data from `sample.json` to the {{ mkf-name }} `sensors` topic using `jq` and `kafkacat`:
 
@@ -243,13 +243,13 @@ Make sure that the data from the topic in the source {{ mkf-name }} cluster is b
         -X security.protocol=SASL_SSL \
         -X sasl.mechanisms=SCRAM-SHA-512 \
         -X sasl.username="mkf-user" \
-        -X sasl.password="<source_cluster_user_password>" \
+        -X sasl.password="<user_password_in_source_cluster>" \
         -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
     ```
 
     To learn more about setting up an SSL certificate and using `kafkacat`, see [{#T}](../../../managed-kafka/operations/connect/clients.md).
 
-1. Make sure the data from the source {{ mkf-name }} cluster has been moved to the {{ mpg-name }} database:
+1. Make sure the data from the source {{ mkf-name }} cluster has been transferred to the {{ mpg-name }} database:
 
     1. [Connect to the {{ mpg-name }} database](../../../managed-postgresql/operations/connect.md).
     1. Check that the `sensors` table contains the data that was sent:
@@ -266,11 +266,11 @@ Before deleting the resources, [deactivate the transfer](../../../data-transfer/
 
 {% endnote %}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete other resources using the same method used for their creation:
+1. Delete the other resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

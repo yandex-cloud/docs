@@ -1,17 +1,17 @@
 ---
 title: Code examples for connecting to an {{ KF }} cluster in {{ mkf-full-name }}
-description: Use these examples to connect to a database in an {{ KF }} cluster from your app code.
+description: Use these examples to connect to a database in an {{ KF }} cluster from your application code.
 ---
 
 # Code examples for connecting to an {{ KF }} cluster
 
-You can connect to public {{ KF }} cluster hosts only if using an [SSL certificate](index.md#get-ssl-cert). The examples below assume that the `{{ crt-local-file }}` certificate is located in this directory:
+You can only connect to public {{ KF }} cluster hosts using an [SSL certificate](index.md#get-ssl-cert). The examples below assume that the `{{ crt-local-file }}` certificate is located in this directory:
 
 * `{{ crt-local-dir }}` for Ubuntu.
 * `$HOME\.kafka\` for Windows.
 
 
-Connections without an SSL certificate are only supported for hosts that are not publicly accessible. If this is the case, internal virtual network traffic will not be encrypted for database connections.
+Connecting without an SSL certificate is only supported for non-public hosts. If this is the case, internal virtual network traffic will not be encrypted when connecting to a database.
 
 Before connecting, [configure security groups](index.md#configuring-security-groups) for the cluster, if required.
 
@@ -20,7 +20,7 @@ Before connecting, [configure security groups](index.md#configuring-security-gro
 
 The examples were tested in the following environment:
 
-* {{ yandex-cloud }} virtual machine running Ubuntu 20.04 LTS.
+* {{ yandex-cloud }} VM running Ubuntu 20.04 LTS
 * Bash: `5.0.16`.
 * Python: `3.8.2`, pip3: `20.0.2`.
 * Node.JS: `10.19.0`, npm: `6.14.4`.
@@ -72,7 +72,7 @@ Before connecting:
 
 - Connecting without SSL {#without-ssl}
 
-    1. Code example for delivering messages to a topic:
+    1. Code example for sending messages to a topic:
 
         `cs-project/producer/Program.cs`
 
@@ -195,7 +195,7 @@ Before connecting:
 
 - Connecting with SSL {#with-ssl}
 
-    1. Code example for delivering messages to a topic:
+    1. Code example for sending messages to a topic:
 
         `cs-project/producer/Program.cs`
 
@@ -308,7 +308,7 @@ Before connecting:
         }
         ```
 
-    1. Building and launching applications:
+    1. Building and running applications:
 
         ```bash
         cd ~/cs-project/consumer && dotnet build && \
@@ -400,7 +400,7 @@ Before connecting:
 
 - Connecting without SSL {#without-ssl}
 
-    1. Code example for delivering a message to a topic:
+    1. Code example for sending a message to a topic:
 
         `producer/main.go`
 
@@ -552,7 +552,7 @@ Before connecting:
 
 - Connecting with SSL {#with-ssl}
 
-    1. Code example for delivering a message to a topic:
+    1. Code example for sending a message to a topic:
 
         `producer/main.go`
 
@@ -844,7 +844,7 @@ Before connecting:
    ```
    {% endcut %}
 
-   Refer to the relevant project pages in the Maven repository for up-to-date versions of the dependencies:
+   For current versions of the dependencies, refer to the relevant project pages in the Maven repository:
    - [kafka-clients](https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients)
    - [jackson-databind](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind)
    - [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple)
@@ -859,7 +859,7 @@ Before connecting:
 
 - Connecting without SSL {#without-ssl}
 
-  1. Code example for delivering messages to a topic:
+  1. Code example for sending messages to a topic:
 
       `producer/src/java/com/example/App.java`
 
@@ -981,7 +981,7 @@ Before connecting:
 
 - Connecting with SSL {#with-ssl}
 
-  1. Go to the folder where the Java certificate store will be located:
+  1. Go to the folder where the Java certificate store will reside:
 
      ```bash
      cd /etc/security
@@ -989,7 +989,7 @@ Before connecting:
 
   1. {% include [keytool-importcert](../../../_includes/mdb/keytool-importcert.md) %}
 
-  1. Code example for delivering messages to a topic:
+  1. Code example for sending messages to a topic:
 
       `producer/src/java/com/example/App.java`
 
@@ -1136,7 +1136,7 @@ npm install node-rdkafka
 
 - Connecting without SSL {#without-ssl}
 
-  1. Code example for delivering messages to a topic:
+  1. Code example for sending messages to a topic:
 
       `producer.js`
 
@@ -1231,7 +1231,7 @@ npm install node-rdkafka
 
 - Connecting with SSL {#with-ssl}
 
-  1. Code example for delivering messages to a topic:
+  1. Code example for sending messages to a topic:
 
       `producer.js`
 
@@ -1347,7 +1347,7 @@ pip3 install kafka-python lz4 python-snappy crc32c
 
 - Connecting without SSL {#without-ssl}
 
-  1. Code example for delivering a message to a topic:
+  1. Code example for sending a message to a topic:
 
      `producer.py`
 
@@ -1399,7 +1399,7 @@ pip3 install kafka-python lz4 python-snappy crc32c
 
 - Connecting with SSL {#with-ssl}
 
-  1. Code example for delivering a message to a topic:
+  1. Code example for sending a message to a topic:
 
       `producer.py`
 
@@ -1469,7 +1469,7 @@ pip install confluent_kafka
 
 - Connecting without SSL {#without-ssl}
 
-  1. Code example for delivering a message to a topic:
+  1. Code example for sending a message to a topic:
 
       `producer.py`
 
@@ -1536,7 +1536,7 @@ pip install confluent_kafka
 
 - Connecting with SSL {#with-ssl}
 
-  1. Code example for delivering a message to a topic:
+  1. Code example for sending a message to a topic:
 
       `producer.py`
 

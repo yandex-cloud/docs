@@ -1,15 +1,15 @@
 Where:
 
-* `planned-usage-threshold`: Storage utilization percentage to trigger a storage increase in the next [maintenance window](../../../managed-kafka/concepts/maintenance.md#maintenance-window).
+* `planned-usage-threshold`: Storage usage percentage to trigger a storage expansion during the next [maintenance window](../../../managed-kafka/concepts/maintenance.md#maintenance-window).
 
-   Use a percentage value between `0` and `100`. The default value is `0` (automatic increase is disabled).
+   Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
 
-   If you set this parameter, configure the maintenance schedule.
+   If you set this condition, configure the maintenance schedule.
 
-* `emergency-usage-threshold`: Storage utilization percentage to trigger an immediate storage increase.
+* `emergency-usage-threshold`: Storage usage percentage to trigger an immediate storage expansion.
 
-   Use a percentage value between `0` and `100`. The default value is `0` (automatic increase is disabled). This parameter value must be greater than or equal to `planned-usage-threshold`.
+   Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled. The value of this setting must be greater than or equal to `planned-usage-threshold`.
 
-* `disk-size-limit`: Maximum storage size, in bytes, that can be set when utilization reaches one of the specified percentages.
+* `disk-size-limit`: Maximum storage size, in bytes, that can be set when storage usage reaches one of the specified thresholds.
 
-   If the value is `0`, automatic increase of storage size will be disabled.
+   If you set it to `0`, automatic storage expansion will be disabled.

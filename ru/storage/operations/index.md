@@ -10,20 +10,24 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](buckets/create.md)
 * [{#T}](buckets/delete.md)
 * [{#T}](buckets/limit-max-volume.md)
-* [{#T}](buckets/bucket-availability.md)
-* [{#T}](buckets/disable-statickey-auth.md)
 * [{#T}](buckets/encrypt.md)
 * [{#T}](buckets/lifecycles.md)
 * [{#T}](buckets/cors.md)
-* [{#T}](buckets/versioning.md)
+* [{#T}](buckets/iam-access.md)
 * [{#T}](buckets/edit-acl.md)
 * [{#T}](buckets/policy.md)
+* [{#T}](buckets/bucket-availability.md)
+* [{#T}](buckets/disable-statickey-auth.md)
+* [{#T}](buckets/create-sts-key.md)
+* [{#T}](buckets/manage-ephemeral-keys.md)
 * [{#T}](buckets/access-via-vpc.md)
+* [{#T}](buckets/versioning.md)
 * [{#T}](buckets/enable-logging.md)
 * [{#T}](buckets/configure-object-lock.md)
 * [{#T}](buckets/tagging.md)
 * [{#T}](buckets/get-info.md)
 * [{#T}](buckets/get-stats.md)
+
 
 ## Объекты {#objects}
 
@@ -43,6 +47,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](objects/edit-acl.md)
 * [{#T}](objects/tagging.md)
 * [{#T}](objects/object-meta.md)
+
 
 ## Хостинг статических сайтов {#hosting}
 

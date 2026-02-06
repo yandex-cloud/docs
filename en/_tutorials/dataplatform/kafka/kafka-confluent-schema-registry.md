@@ -1,34 +1,34 @@
 
-In {{ mkf-name }}, you can use a built-in [{{ mkf-msr }}](../../../managed-kafka/concepts/managed-schema-registry.md#msr) data format schema registry. To learn more, see [{#T}](../../../managed-kafka/tutorials/managed-schema-registry.md). If you need [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html), use the information from this guide.
+In {{ mkf-name }}, you can use the integrated [{{ mkf-msr }}](../../../managed-kafka/concepts/managed-schema-registry.md#msr). For more information, see [{#T}](../../../managed-kafka/tutorials/managed-schema-registry.md). To use [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html), follow this tutorial.
 
 {% note info %}
 
-The guide has been tested on Confluent Schema Registry 6.2 and a VM running Ubuntu 20.04 LTS. We cannot guarantee the performance if newer versions are used.
+We tested this tutorial with Confluent Schema Registry 6.2 and a VM running Ubuntu 20.04 LTS. We do not guarantee support for newer versions.
 
 {% endnote %}
 
-To use Confluent Schema Registry together with {{ mkf-name }}:
+To use Confluent Schema Registry with {{ mkf-name }}:
 
-1. [Create a topic for notifications about changes in data format schemas](#create-schemas-topic).
-1. [Install and configure Confluent Schema Registry on a VM](#configure-vm).
+1. [Create a topic for notifications about data format schema changes](#create-schemas-topic).
+1. [Install and configure Confluent Schema Registry on your VM](#configure-vm).
 1. [Create producer and consumer scripts](#create-scripts).
-1. [Make sure that Confluent Schema Registry is working correctly](#check-schema-registry).
+1. [Make sure Confluent Schema Registry works correctly](#check-schema-registry).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* VM fee: using computing resources, storage, and public IP address (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
+* {{ mkf-name }} cluster fee, which covers the use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* VM fee, which covers the use of computing resources, storage, and public IP address (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-1. [Create a {{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-create.md) with any suitable configuration.
+1. [Create a {{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-create.md) of any suitable configuration.
 
     1. [Create a topic](../../../managed-kafka/operations/cluster-topics.md#create-topic) named `messages` for exchanging messages between the producer and the consumer.
     1. [Create a user](../../../managed-kafka/operations/cluster-accounts.md#create-account) named `user` and [grant them permissions](../../../managed-kafka/operations/cluster-accounts.md#grant-permission) for the `messages` topic:
@@ -36,30 +36,30 @@ The support cost includes:
         * `ACCESS_ROLE_PRODUCER`
 
 
-1. In the network hosting the {{ mkf-name }} cluster, [create a VM](../../../compute/operations/vm-create/create-linux-vm.md) with [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) from {{ marketplace-name }} and with a public IP address.
+1. In the network hosting the {{ mkf-name }} cluster, [create a VM](../../../compute/operations/vm-create/create-linux-vm.md) running [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) from {{ marketplace-name }} with a public IP address.
 
 
 
-1. If you are using security groups, [configure them](../../../managed-kafka/operations/connect/index.md#configuring-security-groups) to allow all required traffic between the {{ mkf-name }} cluster and the VM.
+1. If using security groups, [configure them](../../../managed-kafka/operations/connect/index.md#configuring-security-groups) to allow all required traffic between your {{ mkf-name }} cluster and VM.
 
-1. In the VM security group, [create a rule](../../../vpc/operations/security-group-add-rule.md) for incoming traffic that allows connections via port `8081` which is used by the producer and consumer to access the schema registry:
+1. In the VM security group, [create](../../../vpc/operations/security-group-add-rule.md) an inbound rule that allows connections via port `8081` which is used by the producer and consumer to access the schema registry:
 
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `8081`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0` or address ranges of the subnets where the producer and consumer run.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0` or address ranges of the subnets used by the producer and the consumer.
 
 
-## Create a topic for notifications about changes in data format schemas {#create-schemas-topic}
+## Create a topic for notifications about data format schema changes {#create-schemas-topic}
 
 1. [Create a service topic](../../../managed-kafka/operations/cluster-topics.md#create-topic) named `_schemas` with the following settings:
 
-    * **{{ ui-key.yacloud.kafka.label_partitions }}**: `1`
-    * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}**: `Compact`
+    * **{{ ui-key.yacloud.kafka.label_partitions }}**: `1`.
+    * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}**: `Compact`.
 
     {% note warning %}
 
-    The specified settings of the **{{ ui-key.yacloud.kafka.label_partitions }}** and **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}** values are necessary for Confluent Schema Registry to work.
+    These values for **{{ ui-key.yacloud.kafka.label_partitions }}** and **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}** are required for Confluent Schema Registry to run correctly.
 
     {% endnote %}
 
@@ -67,11 +67,11 @@ The support cost includes:
     * `ACCESS_ROLE_CONSUMER`
     * `ACCESS_ROLE_PRODUCER`
 
-    Confluent Schema Registry will interact with `_schemas` as this user.
+    Confluent Schema Registry will use this account to work with `_schemas`.
 
-## Install and configure Confluent Schema Registry on a VM {#configure-vm}
+## Install and configure Confluent Schema Registry on your VM {#configure-vm}
 
-1. [Connect to the virtual machine over SSH](../../../compute/operations/vm-connect/ssh.md).
+1. [Connect to the VM over SSH](../../../compute/operations/vm-connect/ssh.md).
 
 1. Add the Confluent Schema Registry repository:
 
@@ -92,7 +92,7 @@ The support cost includes:
 
 1. [Get an SSL certificate](../../../managed-kafka/operations/connect/index.md#get-ssl-cert).
 
-1. Create secure storage for the certificate:
+1. Create a secure store for the certificate:
 
     ```bash
     sudo keytool \
@@ -113,9 +113,9 @@ The support cost includes:
     };
     ```
 
-1. Edit the `/etc/schema-registry/schema-registry.properties` file with Confluent Schema Registry settings:
+1. Edit the `/etc/schema-registry/schema-registry.properties` file containing Confluent Schema Registry settings:
 
-    1. Comment out the line:
+    1. Comment out the line as follows:
 
         ```ini
         kafkastore.bootstrap.servers=PLAINTEXT://localhost:9092
@@ -156,7 +156,7 @@ The support cost includes:
         ...
         ```
 
-1. Update the details about the systemd modules:
+1. Update the `systemd` module details:
 
     ```bash
     sudo systemctl daemon-reload
@@ -168,7 +168,7 @@ The support cost includes:
     sudo systemctl start confluent-schema-registry.service
     ```
 
-1. Enable automatic start of Confluent Schema Registry after OS restart:
+1. Set Confluent Schema Registry to start automatically after a system reboot:
 
     ```bash
     sudo systemctl enable confluent-schema-registry.service
@@ -178,7 +178,7 @@ The support cost includes:
 
 {% include [Schema registry scripts explanation](./schema-registry-scripts-explanation.md) %}
 
-1. Install the necessary Python packages:
+1. Install the required Python packages:
 
     ```bash
     sudo pip3 install avro confluent_kafka
@@ -315,7 +315,7 @@ The support cost includes:
     avroProducer.flush()
     ```
 
-## Make sure that Confluent Schema Registry is working correctly {#check-schema-registry}
+## Make sure Confluent Schema Registry works correctly {#check-schema-registry}
 
 {% include [Check schema registry](./check-schema-registry.md) %}
 
