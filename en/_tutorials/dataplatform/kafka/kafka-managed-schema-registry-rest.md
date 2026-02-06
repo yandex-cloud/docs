@@ -1,38 +1,38 @@
-In {{ mkf-name }} clusters, you can work with [{{ mkf-msr }}](../../../managed-kafka/concepts/managed-schema-registry.md#msr) either [using {{ KF }} clients](../../../managed-kafka/tutorials/managed-schema-registry.md) for various programming languages or the [REST API](../../../managed-kafka/concepts/available-apis.md#managed-kafka-api).
+In {{ mkf-name }} clusters, you can work with [{{ mkf-msr }}](../../../managed-kafka/concepts/managed-schema-registry.md#msr) either [using {{ KF }} clients](../../../managed-kafka/tutorials/managed-schema-registry.md) for various programming languages or via the [REST API](../../../managed-kafka/concepts/available-apis.md#managed-kafka-api).
 
-{{ mkf-name }} also provides the [REST API for {{ KF }}](../../../managed-kafka/concepts/available-apis.md#managed-kafka-api). Among other things, this API allows you to send and receive messages without using third-party producers and consumers. These features will also be demonstrated in this tutorial.
+{{ mkf-name }} also provides the [REST API for {{ KF }}](../../../managed-kafka/concepts/available-apis.md#managed-kafka-api). Among other things, this API enables you to send and receive messages without using third-party producers and consumers. This tutorial will also demonstrate these features.
 
-To get to know the REST API for {{ mkf-msr }} and {{ KF }}:
+To explore the REST API features for {{ mkf-msr }} and {{ KF }}:
 
 1. [Create data format schemas](#create-schemas).
 1. [Send messages to a topic](#send-messages).
-1. [Get messages from a topic](#receive-messages).
+1. [Read messages from the topic](#receive-messages).
 1. [Delete the resources you created](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
+* {{ mkf-name }} cluster fee, which covers the use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
 * Fee for using public IP addresses (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-### Prepare the infrastructure {#deploy-infrastructure}
+### Set up your infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    1. [Create a {{ mkf-name }}](../../../managed-kafka/operations/cluster-create.md) cluster with any suitable configuration.
+    1. [Create a {{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-create.md) of any suitable configuration.
 
         When creating a cluster, enable the following options:
 
         * **{{ ui-key.yacloud.kafka.field_schema-registry }}**.
 
-            The cluster will deploy a {{ mkf-msr }} schema registry, and the REST API for {{ mkf-msr }} will become available.
+            The cluster will deploy a {{ mkf-msr }} schema registry, making the REST API for {{ mkf-msr }} available.
 
         * **{{ ui-key.yacloud.kafka.field_rest-api-config }}**.
 
@@ -49,7 +49,7 @@ The support cost includes:
         * `ACCESS_ROLE_CONSUMER`
         * `ACCESS_ROLE_PRODUCER`
 
-        This user will be able to send and receive messages within the topic, as well as [perform any operations on subjects in {{ mkf-msr }}](../../../managed-kafka/concepts/managed-schema-registry.md#msr-auth) that are associated with the topic.
+        This user will be able to send and receive messages within the topic, as well as [perform any operations on {{ mkf-msr }} subjects](../../../managed-kafka/concepts/managed-schema-registry.md#msr-auth) that are associated with the topic.
 
     1. [Complete all pre-configuration steps to connect to the cluster](../../../managed-kafka/operations/connect/index.md).
 
@@ -63,9 +63,9 @@ The support cost includes:
     sudo apt install curl -y
     ```
 
-    It will be used to make requests to the API.
+    It will be used to send API requests.
 
-    For convenience, this tutorial will use the [--user](https://curl.se/docs/manpage.html#-u) cURL option when making requests to the API. If this option is used, cURL will automatically add to the request the [Authorization](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) HTTP header with the value required for [authorization](../../../managed-kafka/concepts/available-apis.md#managed-kafka-api-usage).
+    For convenience, this tutorial will use the [--user](https://curl.se/docs/manpage.html#-u) cURL option when sending requests to the API. With this option used, cURL will automatically add the [Authorization](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) HTTP header with the value required for [authorization](../../../managed-kafka/concepts/available-apis.md#managed-kafka-api-usage) to the request.
 
     {% note tip %}
 
@@ -73,7 +73,7 @@ The support cost includes:
 
     {% endnote %}
 
-1. Install the [jq](https://github.com/jqlang/jq) utility:
+1. Install [jq](https://github.com/jqlang/jq):
 
     ```bash
     sudo apt install jq -y
@@ -87,13 +87,13 @@ The support cost includes:
     "schema": "{\"type\": \"record\", \"name\": \"Obj\", \"fields\":[...]}"
     ```
 
-    For convenience, in this tutorial, schemas are presented as JSON documents with indentations and line breaks; and when making requests to the API, schemas are converted to the required format using `jq`.
+    For convenience, this tutorial shows schemas as JSON documents with indentations and line breaks. When sending API requests, schemas are formatted as required using `jq`.
 
     {% note tip %}
 
-    After you request the REST API using cURL, you get the server response as a single JSON string.
+    When sending a REST API request via `cURL`, the server response comes as a single JSON string.
 
-    You can additionally process the output of the commands featured in this tutorial with the help of `jq` to make the server's response more readable.
+    You can further process the command output from this tutorial using `jq` to make the server response more readable.
 
     {% endnote %}
 
@@ -103,7 +103,7 @@ The support cost includes:
 
 This tutorial uses the [Avro](https://avro.apache.org/docs/1.12.0/specification/) type schemas.
 
-You can use other types of schemas supported in {{ mkf-msr }}.
+You can use other schema types supported in {{ mkf-msr }}.
 
 {% endnote %}
 
@@ -162,7 +162,7 @@ Create the relevant data format schemas:
 
     The [subject name for the schema](../../../managed-kafka/concepts/managed-schema-registry#subjects) must consist of the name of the topic the schema will be used in (`messages`) and the `-key` suffix.
 
-    Use the [POST /subjects/(subject)/versions](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/schema-registry/develop/api.html#post--subjects-(string-%20subject)-versions) REST API method for {{ mkf-msr }} and send the following request:
+    Call the [POST /subjects/(subject)/versions](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/schema-registry/develop/api.html#post--subjects-(string-%20subject)-versions) REST API method for {{ mkf-msr }}, e.g., via the following request:
 
     ```bash
     jq \
@@ -181,7 +181,7 @@ Create the relevant data format schemas:
 
     The response to the request will return the new schema ID, e.g., `{"id":1}`.
 
-1. Create a `schema-value.json` file containing the data format schema for the {{ KF }} message value.
+1. Create a file named `schema-value.json` containing the data format schema for the {{ KF }} message value.
 
     {% cut "schema-value.json" %}
 
@@ -212,7 +212,7 @@ Create the relevant data format schemas:
 
     The [subject name for the schema](../../../managed-kafka/concepts/managed-schema-registry#subjects) must consist of the name of the topic the schema will be used in (`messages`) and the `-value` suffix.
 
-    Use the [POST /subjects/(subject)/versions](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/schema-registry/develop/api.html#post--subjects-(string-%20subject)-versions) REST API method for {{ mkf-msr }} and send the following request:
+    Call the [POST /subjects/(subject)/versions](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/schema-registry/develop/api.html#post--subjects-(string-%20subject)-versions) REST API method for {{ mkf-msr }}, e.g., via the following request:
 
     ```bash
     jq \
@@ -235,7 +235,7 @@ Create the relevant data format schemas:
 
 1. Get the data format schema IDs for the key and the value.
 
-    Use the `GET /schemas` REST API method for {{ mkf-msr }} and send the following request:
+    Call the `GET /schemas` REST API method for {{ mkf-msr }}, e.g., via the following request:
 
     ```bash
     curl \
@@ -245,9 +245,9 @@ Create the relevant data format schemas:
         --header 'Accept: application/vnd.schemaregistry.v1+json'
     ```
 
-    The response to the request contains data format schema IDs (`id`). These IDs will be used later.
+    The response to the request contains data format schema IDs (`id`). You will need these IDs later.
 
-    {% cut "Sample response" %}
+    {% cut "Response example:" %}
 
      For brevity, the data format schema named `schema` in the form of JSON strings is not provided.
 
@@ -307,7 +307,7 @@ Create the relevant data format schemas:
 
 1. Send messages to the `messages` topic.
 
-    Use the [POST /topics/(topic)](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/kafka-rest/api.html#post--topics-(string-topic_name)) REST API method for {{ KF }} and send the following request:
+    Call the [POST /topics/(topic)](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/kafka-rest/api.html#post--topics-(string-topic_name)) REST API method for {{ KF }}, e.g., via the following request:
 
     ```bash
     jq \
@@ -328,7 +328,7 @@ Create the relevant data format schemas:
 
     The schema ID values ​​were obtained earlier by requesting the `GET /schemas` endpoint.
 
-    {% cut "Example of response to query" %}
+    {% cut "Response example:" %}
 
     ```json
     {
@@ -349,11 +349,11 @@ Create the relevant data format schemas:
 
     {% endcut %}
 
-## Get messages from a topic {#receive-messages}
+## Read messages from the topic {#receive-messages}
 
 1. Create a consumer named `my-consumer` in the consumer group named `my-group`.
 
-    Use the [POST /consumers/(group)](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/kafka-rest/api.html#post--consumers-(string-group_name)) REST API method for {{ KF }} and send the following request:
+    Call the [POST /consumers/(group)](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/kafka-rest/api.html#post--consumers-(string-group_name)) REST API method for {{ KF }}, e.g., via the following request:
 
     ```bash
     curl \
@@ -369,7 +369,7 @@ Create the relevant data format schemas:
                 }'
     ```
 
-    {% cut "Example of response to query" %}
+    {% cut "Response example:" %}
 
     ```json
     {
@@ -380,9 +380,9 @@ Create the relevant data format schemas:
 
     {% endcut %}
 
-1. Subscribe to the `messages` topic for the consumer named `my-consumer` from the consumer group named `my-group`.
+1. Subscribe to the `messages` topic as `my-consumer` from the`my-group` consumer group.
 
-    Use the [POST /consumers/(group)/instances/(instance)/subscription](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/kafka-rest/api.html#post--consumers-(string-group_name)-instances-(string-instance)-subscription) REST API method for {{ KF }} and send the following request:
+    Call the [POST /consumers/(group)/instances/(instance)/subscription](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/kafka-rest/api.html#post--consumers-(string-group_name)-instances-(string-instance)-subscription) REST API method for {{ KF }}, e.g., via the following request:
 
     ```bash
     curl \
@@ -394,11 +394,11 @@ Create the relevant data format schemas:
         --data '{"topics": ["messages"]}'
     ```
 
-    The API server does not return a response to this request, only an HTTP status.
+    The API server does not return a response body for this request, only an HTTP status code.
 
-1. Get all messages from the `messages` topic for the consumer named `my-consumer` from the consumer group named `my-group`.
+1. Read all messages from the `messages` topic as `my-consumer` from the `my-group` consumer group.
 
-    Use the [GET /consumers/(group)/instances/(instance)/records](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/kafka-rest/api.html#get--consumers-(string-group_name)-instances-(string-instance)-records) REST API method for {{ KF }} and send the following request:
+    Call the [GET /consumers/(group)/instances/(instance)/records](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/kafka-rest/api.html#get--consumers-(string-group_name)-instances-(string-instance)-records) REST API method for {{ KF }}, e.g., via the following request:
 
     ```bash
     curl \
@@ -410,7 +410,7 @@ Create the relevant data format schemas:
 
     If the response to the request contains messages that were sent earlier, this means the producer and consumer are successfully interpreting the messages in accordance with the specified data format schemas.
 
-    {% cut "Example of response to query" %}
+    {% cut "Response example:" %}
 
     ```json
     [
@@ -453,5 +453,5 @@ Create the relevant data format schemas:
 
 Delete the resources you no longer need to avoid paying for them:
 
-* [Delete the {{ mkf-name }}](../../../managed-kafka/operations/cluster-delete.md) cluster.
+* [Delete the {{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-delete.md).
 * If you reserved public static IP addresses, release and [delete them](../../../vpc/operations/address-delete.md).

@@ -27,9 +27,9 @@
 
     {% include [mkf-schema-registry-alert](schema-registry-alert.md) %}
 
-* **{{ ui-key.yacloud.kafka.field_rest-api-config }}**: Enable this setting to allow sending requests to the {{ KF }} API.
+* To allow sending requests to the {{ KF }} API, enable **{{ ui-key.yacloud.kafka.field_rest-api-config }}**.
 
-    It is implemented based on the [Karapace](https://github.com/Aiven-Open/karapace) open-source tool. The Karapace API is compatible with the [Confluent REST Proxy API](https://docs.confluent.io/platform/current/kafka-rest/api.html) with only minor exceptions.
+    It is implemented using [Karapace](https://github.com/Aiven-Open/karapace), an open-source tool. The Karapace API is compatible with the [Confluent REST Proxy API](https://docs.confluent.io/platform/current/kafka-rest/api.html) with only minor exceptions.
 
     {% note warning %}
 
@@ -38,5 +38,5 @@
     {% endnote %}
 
 
-* **{{ ui-key.yacloud.kafka.field_kafka-ui }}**: Enable this setting to use the [{{ KF }} web UI](../../../managed-kafka/concepts/kafka-ui.md).
+* To use the [{{ KF }} web interface](../../../managed-kafka/concepts/kafka-ui.md), enable **{{ ui-key.yacloud.kafka.field_kafka-ui }}**.
 

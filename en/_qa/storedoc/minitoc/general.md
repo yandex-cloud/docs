@@ -1,20 +1,20 @@
 * [What is {{ mmg-short-name }}?](#what-is)
 
-* [What is {{ mmg-short-name }}'s share of database management and maintenance work?](#services)
+* [What is the role of {{ mmg-short-name }} in database management and maintenance?](#services)
 
-* [Not sure when to use {{ mmg-short-name }} or VMs with databases?](#mdb-advantage)
+* [When should I use {{ mmg-short-name }} and when database-hosting VMs?](#mdb-advantage)
 
-* [What is a database host and database cluster?](#what-is-cluster)
+* [What is a database host and what is a database cluster?](#what-is-cluster)
 
 * [How do I get started with {{ mmg-short-name }}?](#quickstart)
 
-* [How many database hosts can there be in one cluster?](#how-many-hosts)
+* [How many database hosts can a cluster contain?](#how-many-hosts)
 
-* [How can I access a running DB host?](#db-access)
+* [How can I access a running database host?](#db-access)
 
 * [How many clusters can I create within a single cloud?](#db-limit)
 
-* [How are DB clusters maintained?](#service-window)
+* [How are database clusters maintained?](#service-window)
 
 * [Which {{ SD }} version does {{ mmg-short-name }} use?](#dbms-version)
 
@@ -26,12 +26,12 @@
 
 * [How can I change the computing resources and storage size for a database cluster?](#resources-change)
 
-* [Is database host backup enabled by default?](#default-backup)
+* [Are database host backups enabled by default?](#default-backup)
 
-* [When are backups performed? Is a database cluster available during a backup?](#backup-window)
+* [What is the backup schedule? Can I access my database cluster during backup?](#backup-window)
 
-* [Can I change the retention period of automatic backups?](#backup-retain-days)
+* [Can I change the retention period for automatic backups?](#backup-retain-days)
 
-* [What metrics and processes can be tracked using monitoring?](#monitoring)
+* [What metrics and processes can be monitored?](#monitoring)
 
-* [How do I set up an alert that triggers as soon as a certain percentage of disk space has been used up?](#disk-space-percentage)
+* [How can I configure an alert for when disk usage reaches a certain percentage?](#disk-space-percentage)

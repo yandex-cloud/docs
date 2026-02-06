@@ -1,16 +1,16 @@
 ---
-title: Creating an {{ SD }} cluster
-description: Follow this guide to create a {{ SD }} cluster.
+title: Creating a {{ SD }} cluster
+description: In this tutorial, you will learn how to create a {{ SD }} cluster.
 ---
 
-# Creating an {{ SD }} cluster
+# Creating a {{ SD }} cluster
 
-A {{ SD }} cluster is one or more database hosts between which you can configure [replication](../concepts/replication.md). Replication is on by default in any cluster consisting of more than one host: the primary host accepts write requests and asynchronously replicates the changes in the secondary hosts.
+A {{ SD }} cluster consists of one or multiple database hosts, with the option to configure [replication](../concepts/replication.md) between them. Any cluster with more than one host has replication enabled by default. In this setup, the primary host accepts write requests and asynchronously replicates changes to secondary hosts.
 
 
 {% note info %}
 
-* The number of hosts you can create together with a {{ SD }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
+* The number of hosts you can create with a {{ SD }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
 * The available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
 {% endnote %}
@@ -25,7 +25,7 @@ A {{ SD }} cluster is one or more database hosts between which you can configure
 ## Creating a cluster {#create-cluster}
 
 
-To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mmg.editor }} role or higher](../security/index.md#roles-list). For information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
+To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role along with the [{{ roles.mmg.editor }} role or higher](../security/index.md#roles-list). For details on assigning roles, see [this {{ iam-name }} article](../../iam/operations/roles/grant.md).
 
 
 {% list tabs group=instructions %}
@@ -36,18 +36,18 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your database cluster.
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
 
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
-      * Enter a name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the cloud.
-      * Optionally, enter a cluster **{{ ui-key.yacloud.mdb.forms.base_field_description }}**.
-      * Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
+      * In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, specify your cluster name. The cluster name must be unique within the cloud.
+      * Optionally, specify your cluster **{{ ui-key.yacloud.mdb.forms.base_field_description }}**.
+      * Select your cluster environment. Note that you cannot change the environment once the cluster is created:
 
           * `PRODUCTION`: For stable versions of your applications.
-          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
+          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by an SLA. However, it receives new features, improvements, and bug fixes earlier. In the prestable environment, you can test new versions for compatibility with your application.
 
       * Specify the DBMS version.
       * Select the sharding type:
@@ -101,11 +101,11 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          
          * Click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
          * Select the [availability zone](../../overview/concepts/geo-scope.md).
-         * Select a [subnet](../../vpc/concepts/network.md#subnet) in the specified availability zone. If there is no subnet, create one.
-         * If the host must be available outside {{ yandex-cloud }}, enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+         * Select a [subnet](../../vpc/concepts/network.md#subnet) in the chosen availability zone. If your network has no subnets, create one:
+         * To allow external access to the host from outside {{ yandex-cloud }}, enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
-         
-         To ensure fault tolerance, you need at least 3 hosts for `local-ssd` and `network-ssd-nonreplicated` disk types. For more information, see [Storage](../concepts/storage.md).
+     
+         To ensure fault tolerance while using `local-ssd` and `network-ssd-nonreplicated` disks, you need a minimum of 3 hosts. For more information, see [Storage](../concepts/storage.md).
 
          
          By default, hosts are created in different availability zones. Read more about [host management](hosts.md).
@@ -124,7 +124,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings.md) %}
 
-  1. [Configure the DBMS](../concepts/settings-list.md#dbms-cluster-settings), if required.
+  1. If necessary, configure [database settings](../concepts/settings-list.md#dbms-cluster-settings).
 
       {% include [mmg-settings-dependence](../../_includes/mdb/mmg/note-info-settings-dependence.md) %}
 
@@ -139,16 +139,16 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   To create a {{ mmg-name }} cluster:
 
   
-  1. Check whether the folder has any subnets for the cluster hosts:
+  1. Verify that your folder has subnets for cluster host placement:
 
      ```bash
      yc vpc subnet list
      ```
 
-     If your folder has no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+     If your folder contains no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
-  1. View the description of the CLI command for creating a cluster:
+  1. See the description of the CLI command for creating a cluster:
 
       ```bash
       {{ yc-mdb-mg }} cluster create --help
@@ -339,7 +339,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        environment         = "<environment>"
        network_id          = yandex_vpc_network.<network_name>.id
        security_group_ids  = [ "<list_of_security_group_IDs>" ]
-       deletion_protection = <protect_cluster_against_deletion>
+       deletion_protection = <protect_cluster_from_deletion>
 
        cluster_config {
          version = "<Yandex_StoreDoc_version>"
@@ -615,18 +615,18 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Create a cluster.
+  1. Create the cluster.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      After this, all required resources will be created in the specified folder, and the [host FQDNs](../concepts/network.md#hostname) will be displayed in the terminal. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+      This will create all required resources in the specified folder, and you will see the [host FQDNs](../concepts/network.md#hostname) in the terminal. You can verify that the new resources have appeared and check their configuration in the [management console]({{ link-console-main }}).
 
       {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -647,7 +647,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             ...
             "<security_group_N_ID>"
           ],
-          "deletionProtection": <protect_cluster_against_deletion>,
+          "deletionProtection": <protect_cluster_from_deletion>,
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
               "day": "<day_of_week>",
@@ -714,8 +714,8 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             },
             { <similar_settings_for_host_2> },
             { ... },
-            { <similar_configuration_for_host_N> }
-          ]
+            { <similar_settings_for_host_N> }
+          ],
         }
         ```
 
@@ -945,36 +945,36 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
         Where:
 
-        * `folderId`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `folderId`: Folder ID. You can get it from the [list of your cloud folders](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
-        * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be deployed in.
+        * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) where your cluster will be deployed.
 
         
         * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
-        * `deletionProtection`: Cluster protection against accidental deletion, `true` or `false`.
+        * `deletionProtection`: Cluster deletion protection, `true` or `false`.
 
           {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. In `maintenanceWindow`, provide one of the following values:
+        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. In `maintenanceWindow`, provide one of the following values:
 
           * `anytime`: Maintenance can occur at any time.
-          * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
+          * `weeklyMaintenanceWindow`: Maintenance occurs once a week at the specified time:
 
-            * `day`: Day of week, in `DDD` format.
-            * `hour`: Hour of the day, in `HH` format. The values range from `1` to `24` hours.
+            * `day`: Day of the week, in `DDD` format.
+            * `hour`: Hour of the day, in `HH` format. Allowed values range from `1` to `24` hours.
 
         * `configSpec`: Cluster settings:
 
             * `version`: {{ SD }} version, 5.0, 6.0, or 7.0.
-            * `mongod`, `mongoinfra`, `mongos`, `mongocfg`: Host types.
+            * `mongod`: Host type.
 
               * `resources`: Cluster resources:
 
                 * `resourcePresetId`: [Host class](../concepts/instance-types.md).
-                * `diskSize`: Disk size, in bytes.
+                * `diskSize`: Disk size in bytes.
                 * `diskTypeId`: [Disk type](../concepts/storage.md).
 
             * `backupWindowStart`: [Backup](../concepts/backup.md) window settings.
@@ -986,25 +986,25 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
               * `seconds`: Between `0` and `59` seconds.
               * `nanos`: Between `0` and `999999999` nanoseconds.
 
-            * `backupRetainPeriodDays`: Backup retention in days.
+            * `backupRetainPeriodDays`: Backup retention time in days.
 
             * `performanceDiagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
               * `profilingEnabled`: Enable [profiler](tools.md#explore-profiler), `true` or `false`.
 
-        * `databaseSpecs`: Database settings as an array of elements, one per database. Each element contains the `name` parameter with the database name.
+        * `databaseSpecs`: Database settings as an array of elements, one per database. Each element contains a database `name`.
 
             {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
         * `userSpecs`: User settings as an array of elements, one per user. Each element has the following structure:
 
           * `name`: Username.
-          * `password`: User password.
-          * `permissions`: User permissions settings:
+          * `password`: Password.
+          * `permissions`: User permissions:
 
-            * `databaseName`: Name of the database to which the user will have access.
-            * `roles`: Array of user roles. Each role is provided as a separate string in the array. For a list of possible values, see [Users and roles](../concepts/users-and-roles.md).
+            * `databaseName`: Name of the database the user can access.
+            * `roles`: User roles as an array of strings, one per role. Possible values are listed in [Users and roles](../concepts/users-and-roles.md).
 
-            For each database, add a separate element with permission settings to the `permissions` array.
+            In the `permissions` array, add a separate element with permission settings for each database.
 
         * `hostSpecs`: Cluster host settings as an array of elements, one per host. Each element has the following structure:
 
@@ -1036,11 +1036,11 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           --data "@body.json"
       ```
 
-  1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1062,7 +1062,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             ...
             "<security_group_N_ID>"
           ],
-          "deletion_protection": <protect_cluster_against_deletion>,
+          "deletion_protection": <protect_cluster_from_deletion>,
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<day_of_week>",
@@ -1129,7 +1129,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             },
             { <similar_settings_for_host_2> },
             { ... },
-            { <similar_configuration_for_host_N> }
+            { <similar_settings_for_host_N> }
           ]
         }
         ```
@@ -1360,26 +1360,26 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
         Where:
 
-        * `folder_id`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `folder_id`: Folder ID. You can get it from the [list of your cloud folders](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
-        * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) where the cluster will be deployed.
+        * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) where your cluster will be deployed.
 
         
         * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
-        * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`.
+        * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
           {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. In `maintenance_window`, provide one of the following values:
+        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. In `maintenance_window`, provide one of the following values:
 
-          * `anytime`: Maintenance can take place at any time.
-          * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
+          * `anytime`: Maintenance can occur at any time.
+          * `weekly_maintenance_window`: Maintenance occurs once a week at the specified time:
 
-            * `day`: Day of week, in `DDD` format.
-            * `hour`: Hour of the day, in `HH` format. The values range from `1` to `24` hours.
+            * `day`: Day of the week, in `DDD` format.
+            * `hour`: Hour of the day, in `HH` format. Allowed values range from `1` to `24` hours.
 
         * `config_spec`: Cluster settings:
 
@@ -1401,25 +1401,25 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
               * `seconds`: Between `0` and `59` seconds.
               * `nanos`: Between `0` and `999999999` nanoseconds.
 
-            * `backup_retain_period_days`: Backup retention in days.
+            * `backup_retain_period_days`: Backup retention time in days.
 
             * `performance_diagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
-              * `profiling_enabled`: Enable [profiler](tools.md#explore-profiler), `true` or `false`.
+              * `profiling_enabled`: Enable the [profiler](tools.md#explore-profiler), `true` or `false`.
 
-        * `database_specs`: Database settings as an array of elements, one per database. Each element contains the `name` parameter with the database name.
+        * `database_specs`: Database settings as an array of elements, one per database. Each element contains a database `name`.
 
             {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
         * `user_specs`: User settings as an array of elements, one per user. Each element has the following structure:
 
           * `name`: Username.
-          * `password`: User password.
-          * `permissions`: User permission settings:
+          * `password`: Password.
+          * `permissions`: User permissions:
 
-            * `database_name`: Name of the database to which the user will have access.
-            * `roles`: Array of user roles. Each role is provided as a separate string in the array. For a list of possible values, see [Users and roles](../concepts/users-and-roles.md).
+            * `database_name`: Name of the database the user can access.
+            * `roles`: User roles as an array of strings, one per role. Possible values are listed in [Users and roles](../concepts/users-and-roles.md).
 
-            For each database, add a separate element with permission settings to the `permissions` array.
+            In the `permissions` array, add a separate element with permission settings for each database.
 
         * `host_specs`: Cluster host settings as an array of elements, one per host. Each element has the following structure:
 
@@ -1455,14 +1455,14 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           < body.json
       ```
 
-  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
 
 {% note warning %}
 
-If you specified security group IDs when creating a cluster, you may need to additionally [configure security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
+If you specified security group IDs when creating a cluster, you may need to [configure these security groups](connect/index.md#configuring-security-groups) to enable cluster access.
 
 {% endnote %}
 
@@ -1470,9 +1470,9 @@ If you specified security group IDs when creating a cluster, you may need to add
 
 ## Creating a cluster copy {#duplicate}
 
-You can create an {{ SD }} cluster with the settings of another one created earlier. To do this, import the original {{ SD }} cluster configuration to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. The import feature is useful when you need to replicate a {{ SD }} cluster packed with settings.
+You can create a new {{ SD }} cluster based on the configuration of an existing one by importing the source {{ SD }} cluster configuration into {{ TF }}. This lets you either create an exact replica or use the imported configuration as a baseline for customization. Using import is convenient when you need to replicate a {{ SD }} cluster with multiple settings.
 
-To create an {{ SD }} cluster copy:
+To create a {{ SD }} cluster copy:
 
 {% list tabs group=instructions %}
 
@@ -1483,7 +1483,7 @@ To create an {{ SD }} cluster copy:
     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. In the same working directory, place a `.tf` file with the following contents:
+    1. In your current working directory, create a `.tf` file with the following contents:
 
         ```hcl
         resource "yandex_mdb_mongodb_cluster" "old" { }
@@ -1495,9 +1495,9 @@ To create an {{ SD }} cluster copy:
         export STOREDOC_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can get the ID with the [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
+        You can get the cluster ID from the [list of clusters in your folder](../operations/cluster-list.md#list-clusters).
 
-    1. Import the original {{ SD }} cluster settings to the {{ TF }} configuration:
+    1. Import the original {{ SD }} cluster configuration into {{ TF }}:
 
         ```bash
         terraform import yandex_mdb_mongodb_cluster.old ${STOREDOC_CLUSTER_ID}
@@ -1510,23 +1510,23 @@ To create an {{ SD }} cluster copy:
         ```
 
     1. Copy it from the terminal and paste it into the `.tf` file.
-    1. Place the file in the new `imported-cluster` directory.
-    1. Edit the copied configuration so that you can create a new cluster from it:
+    1. Move the file to the new `imported-cluster` directory.
+    1. Modify the copied configuration to prepare it for creating a new cluster:
 
-        * Specify the new cluster name in the `resource` string and the `name` parameter.
-        * Delete `created_at`, `health`, `id`, `sharded`, and `status`.
-        * In the `host` sections, delete `health` and `name`.
-        * If you have `type = "ANYTIME"` in the `maintenance_window` section, delete the `hour` argument.
-        * Delete all `user` sections (if any). You can add database users with a separate `yandex_mdb_mongodb_user` resource.
-        * Optionally, make further changes if you need a customized configuration.
+        * Specify the new cluster name in the `resource` string and in the `name` argument.
+        * Delete the `created_at`, `health`, `id`, `sharded`, and `status` arguments.
+        * In the `host` sections, delete the `health` and `name` arguments.
+        * If the `maintenance_window` section contains `type = "ANYTIME"`, delete the `hour` argument.
+        * Delete all `user` sections. Use `yandex_mdb_mongodb_user` resource to add database users.
+        * Optionally, you can customize the configuration further as needed.
 
-    1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
+    1. Navigate to the `imported-cluster` directory and [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
 
-    1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, as you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
+    1. Move the configuration file to the `imported-cluster` directory and [specify its settings](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
 
-    1. Make sure the {{ TF }} configuration files are correct:
+    1. Validate your {{ TF }} configuration:
 
         ```bash
         terraform validate
@@ -1560,10 +1560,10 @@ To create an {{ SD }} cluster copy:
   * Environment: `production`.
   * Network: `{{ network-name }}`.
   * Security group ID: `{{ security-group }}`.
-  * One `{{ host-class }}` host in the `b0rcctk2rvtr********` subnet, in the `{{ region-id }}-a` availability zone.
+  * `{{ host-class }}` host in the `b0rcctk2rvtr********` subnet and the `{{ region-id }}-a` availability zone.
   * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
-  * One user: `user1`, password: `user1user1`.
-  * One database: `db1`.
+  * Username: `user1`, password: `user1user1`.
+  * Database: `db1`.
   * Deletion protection: Enabled.
 
 
@@ -1589,7 +1589,7 @@ To create an {{ SD }} cluster copy:
 
 - {{ TF }} {#tf}
 
-  Create a {{ mmg-name }} cluster and its network with the following test specifications:
+  Create a {{ mmg-name }} cluster and its supporting network, using the following test specifications:
 
   * Name: `mymg`.
   * Version: `{{ versions.tf.latest }}`.
@@ -1604,10 +1604,10 @@ To create an {{ SD }} cluster copy:
     * Availability zone: `{{ region-id }}-a`.
     * Range: `10.5.0.0/24`.
 
-  * Security group: `mymg-sg`. The group rules allow TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
+  * Security group: `mymg-sg`. Rules in this security group must allow incoming public TCP connections on port `{{ port-mmg }}`.
   * Network SSD storage: `{{ disk-type-example }}`.
   * Storage size: 20 GB.
-  * `user1` user.
+  * Username: `user1`.
   * Password: `user1user1`.
   * Database: `db1`.
   * Deletion protection: Enabled.
@@ -1682,16 +1682,16 @@ To create an {{ SD }} cluster copy:
 
 {% endlist %}
 
-### Creating sharded clusters {#creating-a-sharded-cluster}
+### Creating a sharded cluster {#creating-a-sharded-cluster}
 
-You can create {{ mmg-name }} clusters with [standard](#std-sharding) or [advanced](#adv-sharding) sharding. For more information about sharding types, see [Sharding management](../concepts/sharding.md#shard-management).
+You can create {{ mmg-name }} clusters with [standard](#std-sharding) or [advanced](#adv-sharding) sharding. To learn more about sharding types, see [Sharding management](../concepts/sharding.md#shard-management).
 
 ##### **Standard sharding** {#std-sharding}
 
-Create a {{ mmg-name }} cluster and a network for it with multiple hosts:
+Create a multi-host {{ mmg-name }} cluster along with its supporting network:
 
-* One `MONGOD` host
-* Three `MONGOINFRA` hosts
+* One `MONGOD` host.
+* Three `MONGOINFRA` hosts.
 
 Cluster test specifications:
 
@@ -1700,7 +1700,7 @@ Cluster test specifications:
 * Deletion protection: Enabled.
 * Version: `{{ versions.tf.latest }}`.
 * Database: `db1`.
-* `user1` user.
+* Username: `user1`.
 * Password: `user1user1`.
 * `MONGOD` host class: `{{ host-class }}`.
 * `MONGOINFRA` host class: `c3-c2-m4`.
@@ -1854,13 +1854,13 @@ Network specifications:
 
 {% endlist %}
 
-##### **Advanced sharding** {#adv-sharding}
+#### Advanced sharding {#adv-sharding}
 
-Create a {{ mmg-name }} cluster and a network for it with multiple hosts:
+Create a multi-host {{ mmg-name }} cluster along with its supporting network:
 
-* One `MONGOD` host
-* Two `MONGOS` hosts
-* Three `MONGOCFG` hosts
+* One `MONGOD` host.
+* Two `MONGOS` hosts.
+* Three `MONGOCFG` hosts.
 
 Cluster test specifications:
 
@@ -1869,7 +1869,7 @@ Cluster test specifications:
 * Deletion protection: Enabled.
 * Version: `{{ versions.tf.latest }}`.
 * Database: `db1`.
-* `user1` user.
+* Username: `user1`.
 * Password: `user1user1`.
 * Host class: `{{ host-class }}`.
 * Network SSD storage: `{{ disk-type-example }}`.
@@ -1881,7 +1881,7 @@ Network specifications:
 * Network: `mynet`.
 
 
-* Security group: `mymg-sg` with `{{ security-group }}` ID. In {{ TF }}, a group is created with the rule allowing TCP connections to the cluster from the internet on port `{{ port-mmg }}`.
+* Security group: `mymg-sg` with `{{ security-group }}` ID. {{ TF }} creates a group containing a rule allowing incoming public TCP connections on port `{{ port-mmg }}`.
 * Subnet: `mysubnet`. 
 * Range: `10.5.0.0/24` (only for {{ TF }}).
 

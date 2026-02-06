@@ -1,8 +1,8 @@
 ---
-title: Setting up {{ KFC }} to work with {{ mkf-full-name }} clusters
-description: '{{ KFC }} is a tool for streaming data between {{ KF }} and other data stores.'
+title: Configuring {{ KFC }} to work with a {{ mkf-full-name }} cluster
+description: '{{ KFC }} is designed to move data between {{ KF }} and other data storages.'
 ---
 
-# Configuring {{ KFC }} for {{ mkf-full-name }} clusters
+# Configuring {{ KFC }} to work with a {{ mkf-full-name }} cluster
 
 {% include [kafka-connect](../../_tutorials/dataplatform/mkf-kafka-connect.md) %}

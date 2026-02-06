@@ -5,7 +5,7 @@ description: Из статьи вы узнаете, как получить до
 
 # Доступ к бакету с помощью эфемерного ключа доступа
 
-{% include [manage-ephemeral-keys](../../../_includes/iam/manage-ephemeral-keys.md) %}
+{% include [ephemeral-key-storage](../../../_tutorials/security/ephemeral-key-storage.md) %}
 
 
 #### См. также {#see-also}

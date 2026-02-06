@@ -256,6 +256,11 @@ items:
           - name: Получение значения секрета {{ lockbox-name }} на стороне {{ GL }}
             href: >-
               tutorials/data-encryption-and-key-management/wlif-gitlab-integration.md
+          - name: >-
+              Загрузка объектов в бакет {{ objstorage-name }} с помощью
+              эфемерного ключа доступа
+            href: >-
+              tutorials/data-encryption-and-key-management/ephemeral-key-storage.md
       - name: Сбор, мониторинг и анализ аудитных логов
         items:
           - name: Поиск событий {{ yandex-cloud }} в {{ yq-name }}

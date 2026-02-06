@@ -47,20 +47,26 @@ description: Следуя данной инструкции, вы сможете
 
     - CLI {#cli}
 
-       1. Выполните команду:
+      1. Выполните команду:
 
-          ```bash
-          yc baremetal boot-image create \
-            --name <имя_образа> \
-            --uri "<ссылка_на_образ>"
-          ```
+         ```bash
+         yc baremetal boot-image create \
+           --name <имя_образа> \
+           --uri "<ссылка_на_образ>"
+         ```
 
-          Где:
-          * `--name` — имя образа. Требования к имени:
+         Где:
+         * `--name` — имя образа. Требования к имени:
             
-              {% include [name-format](../../../_includes/name-format.md) %}
+             {% include [name-format](../../../_includes/name-format.md) %}
 
-          * `--uri` — ссылка на образ, полученная в {{ objstorage-name }} на предыдущем шаге.
+         * `--uri` — ссылка на образ, полученная в {{ objstorage-name }} на предыдущем шаге.
+
+    - API {#api}
+
+      Чтобы создать образ в {{ baremetal-name }}, воспользуйтесь методом REST API [create](../../api-ref/Image/create.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/Create](../../api-ref/grpc/Image/create.md).
+      
+      {% include [create-baremetal-image-api](../../../_includes/baremetal/create-baremetal-image-api.md) %}
 
     {% endlist %}
 

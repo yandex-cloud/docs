@@ -1,12 +1,12 @@
-{% note warning "Time limits" %}
+{% note warning "Timeouts" %}
 
-The {{ TF }} provider limits the amount of time for all {{ mkf-name }} cluster operations to complete to 60 minutes.
+The {{ TF }} provider limits the time for all operations with the {{ mkf-name }} cluster to 60 minutes.
 
-Operations exceeding the set timeout are interrupted.
+Operations exceeding the timeout are aborted.
 
 {% cut "How do I change these limits?" %}
 
-Add the `timeouts` block to the cluster description, for example:
+Add the `timeouts` section to your cluster description, such as the following:
 
 ```hcl
 resource "yandex_mdb_kafka_cluster" "<cluster_name>" {

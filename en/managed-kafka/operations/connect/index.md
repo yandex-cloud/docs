@@ -1,5 +1,5 @@
 ---
-title: Pre-configuring {{ KF }} cluster connection in {{ mkf-full-name }}
+title: Pre-configuring an {{ KF }} cluster connection in {{ mkf-full-name }}
 description: Follow this guide to pre-configure a connection to hosts in an {{ KF }} cluster.
 ---
 
@@ -8,27 +8,27 @@ description: Follow this guide to pre-configure a connection to hosts in an {{ K
 
 You can connect to {{ mkf-name }} cluster hosts:
 
-* Over the internet if you configured [public access](../cluster-update.md#change-sg-set) for the cluster. You can only connect to this type of cluster using an [SSL connection](#get-ssl-cert).
-* From {{ yandex-cloud }} virtual machines located in the same [cloud network](../../../vpc/concepts/network.md). If the cluster is not publicly available, you do not need to use an SSL connection to connect to such VMs.
+* Over the internet if you configured [public access](../cluster-update.md#change-sg-set) for your cluster. This cluster allows connections only via [SSL](#get-ssl-cert).
+* From {{ yandex-cloud }} virtual machines located in the same [cloud network](../../../vpc/concepts/network.md). If the cluster is not publicly accessible, you do not need to use SSL to connect from these VMs.
 
 You can connect to an {{ KF }} cluster both with encryption (`SASL_SSL`, port {{ port-mkf-ssl }}) and without it (`SASL_PLAINTEXT`, port {{ port-mkf-text }}).
 
 
 To connect to an {{ KF }} cluster:
 
-1. [Create users](../cluster-accounts.md#create-account) for clients (producers and consumers) with access to the required topics.
+1. [Create users](../cluster-accounts.md#create-account) for clients (producers and consumers) with access to the appropriate topics.
 1. Connect the clients to the cluster:
    * Producers using the [Kafka Producer API](https://kafka.apache.org/documentation/#producerapi).
    * Consumers using the [Kafka Consumer API](https://kafka.apache.org/documentation/#consumerapi).
 
-There are ready-made {{ KF }} API implementations for most popular programming languages. To view use examples, see the [Code examples](code-examples.md) section.
+There are ready-made {{ KF }} API implementations for most popular programming languages. For use cases, see [Code examples](code-examples.md).
 
 
 ## Configuring security groups {#configuring-security-groups}
 
 {% include [sg-rules](../../../_includes/mdb/sg-rules-connect.md) %}
 
-Rule settings depend on the chosen connection method:
+Rule settings depend on the connection method you select:
 
 {% list tabs group=connection_method %}
 
@@ -36,61 +36,61 @@ Rule settings depend on the chosen connection method:
 
   [Configure all cluster security groups](../../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port {{ port-mkf-ssl }} from any IP address. To do this, create the following inbound rule:
 
-  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mkf-ssl }}`
-  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mkf-ssl }}`.
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-  To allow the use of [{{ mkf-name }} API](../../concepts/available-apis.md), e.g., to work with [{{ mkf-msr }}](../../concepts/managed-schema-registry.md), add a rule for incoming traffic:
+  To allow the use of [{{ mkf-name }} API](../../concepts/available-apis.md), e.g., to work with [{{ mkf-msr }}](../../concepts/managed-schema-registry.md), add the following inbound rule:
 
-  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`
-  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`.
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
 - From a {{ yandex-cloud }} VM {#cloud}
 
-  1. [Configure all the cluster security groups](../../../vpc/operations/security-group-add-rule.md) to allow incoming traffic from the security group where the VM is located on ports {{ port-mkf-ssl }} and {{ port-mkf-text }}. To do this, create the following inbound rule in these groups:
+  1. [Configure all cluster security groups](../../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on ports {{ port-mkf-ssl }} and {{ port-mkf-text }} from your VM’s security group. To do this, create the following inbound rule in these groups:
 
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mkf-ssl }}-{{ port-mkf-text }}`
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: If your cluster and VM are in the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). Otherwise, specify the VM security group.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mkf-ssl }}-{{ port-mkf-text }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: If your cluster and VM share the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). Otherwise, specify the VM security group.
 
-     To allow the use of [{{ mkf-name }} API](../../concepts/available-apis.md), e.g., to work with [{{ mkf-msr }}](../../concepts/managed-schema-registry.md), add a rule for incoming traffic:
+     To allow the use of [{{ mkf-name }} API](../../concepts/available-apis.md), e.g., to work with [{{ mkf-msr }}](../../concepts/managed-schema-registry.md), add the following inbound rule:
 
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-  1. [Configure the VM security group](../../../vpc/operations/security-group-add-rule.md) to allow VM connections and traffic between the VM and the cluster hosts.
+  1. [Configure the VM security group](../../../vpc/operations/security-group-add-rule.md) to allow VM connections and traffic between the VM and cluster hosts.
 
-     For example, you can set the following rules for a VM:
+     For example, you can set the following rules for your VM:
 
      * For incoming traffic:
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-       This rule allows VM connections over SSH.
+       This rule allows inbound VM connections over SSH.
 
      * For outgoing traffic:
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`)
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-       This rule allows all outgoing traffic, thus enabling you not only to connect to the cluster but also to install all required certificates and tools on your VM.
+       This rule allows all outgoing traffic, thus enabling you not only to connect to the cluster but also to install the certificates and utilities your VM needs for the connection.
 
 {% endlist %}
 
 {% note info %}
 
-You can specify more granular rules for your security groups, such as allowing traffic only within specific subnets.
+You can specify more granular rules for your security groups, such as only allowing traffic within specific subnets.
 
-Make sure to configure the security groups properly for all subnets where the cluster hosts will reside. With incomplete or incorrect security group settings, you may lose access to the cluster.
+Make sure to configure the security groups correctly for all subnets where the cluster hosts will reside. With incomplete or incorrect security group settings, you may lose access to the cluster.
 
 {% endnote %}
 
@@ -107,7 +107,7 @@ This certificate is also used to access the [{{ mkf-short-name }} REST API](../.
 
 ## Getting FQDNs of {{ KF }} hosts {#get-fqdn}
 
-To connect to a host, you will need its [FQDN](../../concepts/network.md#hostname). Example of a {{ KF }} host FQDN:
+To connect to a host, you need its fully qualified domain name ([FQDN](../../concepts/network.md#hostname)). Example of an {{ KF }} host FQDN:
 
 ```text
 {{ host-name }}.{{ dns-zone }}
@@ -115,13 +115,13 @@ To connect to a host, you will need its [FQDN](../../concepts/network.md#hostnam
 
 You can get the FQDN by doing one of the following:
 
-* View the FQDN in the management console:
+* Look up the FQDN in the management console:
 
-    1. Open to the cluster page.
+    1. Navigate to the cluster page.
     1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-    1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** value.
+    1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
-* In the [management console]({{ link-console-main }}), copy the cluster connection command. This command contains the broker host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. It contains the broker host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
 
 * [Get the list of cluster hosts](../cluster-hosts.md#list-hosts) using the CLI or API.
 

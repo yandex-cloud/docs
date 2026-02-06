@@ -50,6 +50,10 @@ description: Следуя данной инструкции, вы сможете
      * `--description` — описание VRF. Необязательный параметр.
      * `--labels` — метки VRF. Необязательный параметр.
 
+- API {#api}
+
+  Чтобы создать VRF, воспользуйтесь методом REST API [create](../api-ref/Vrf/create.md) для ресурса [Vrf](../api-ref/Vrf/index.md) или вызовом gRPC API [VrfService/Create](../api-ref/grpc/Vrf/create.md).
+  
 {% endlist %}
 
 ## Пример {#examples}
@@ -67,7 +71,7 @@ description: Следуя данной инструкции, вы сможете
     --labels env=test
   ```
 
-  Результат:  
+  Результат:
   
   ```text
   id: ly52l2lzaq5uw********
@@ -80,4 +84,63 @@ description: Следуя данной инструкции, вы сможете
     env: test
   ```
 
+- API {#api}
+
+  ```bash
+  curl -X POST \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer <IAM-токен>" \
+    -d '{
+       "folderId": "b1g07hj5r6i4********",
+       "name": "baremetal-vrf",
+       "description": "Test baremetal VRF",
+       "labels": {
+         "key": "vrf"
+       }
+    }' \
+    "https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/vrfs"
+  ```
+
+  Где:
+
+  * `<IAM-токен>` — IAM-токен для аутентификации.
+  * `folderId` — идентификатор каталога.
+  * `name` — имя образа. Требования к имени:
+
+    {% include [name-format](../../_includes/name-format.md) %}
+  
+  * `description` — описание VRF. Необязательный параметр.
+  * `labels` — метки VRF. Необязательный параметр.
+
+  Результат:
+
+  ```bash
+  {
+    "done": true,
+    "metadata": {
+      "@type": "type.googleapis.com/yandex.cloud.baremetal.v1alpha.CreateVrfMetadata",
+      "vrfId": "ly5uyq2gbxu2********"
+    },
+    "response": {
+      "@type": "type.googleapis.com/yandex.cloud.baremetal.v1alpha.Vrf",
+      "labels": {
+        "key": "vrf"
+      },
+      "id": "ly5uyq2gbxu2********",
+      "cloudId": "b1gia87mbaom********",
+      "folderId": "b1g07hj5r6i4********",
+      "name": "baremetal-vrf",
+      "description": "Test baremetal VRF",
+      "createdAt": "2025-12-07T21:22:16.493703Z"
+    },
+    "id": "ly53ac2rdtrk********",
+    "description": "VRF create",
+    "createdAt": "2025-12-07T21:22:16.521291Z",
+    "createdBy": "ajeb9l33h6mu********",
+    "modifiedAt": "2025-12-07T21:22:16.521291Z"
+  }
+  ```
+
+  Отслеживайте статус операции по полю `done`.
+  
 {% endlist %}

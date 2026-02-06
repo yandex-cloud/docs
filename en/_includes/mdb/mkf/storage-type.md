@@ -7,12 +7,12 @@ When creating a cluster, you can select the following disk types for data storag
   You can only expand this type of storage in 93 GB increments.
 
 
-* **Ultra high-speed network SSDs with three replicas** (`network-ssd-io-m3`): Network disks that deliver performance equivalent to non-replicated SSDs while ensuring redundancy.
+* **Ultra high-speed network SSDs with three replicas** (`network-ssd-io-m3`): Network disks that deliver performance equivalent to non-replicated SSDs, while maintaining full data redundancy.
 
   You can only increase the size of these disks in 93 GB increments.
 
 
-* **Local SSDs** (`local-ssd`): The highest-performing disks.
+* **Local SSDs** (`local-ssd`): Highest-performing disks.
 
   You can expand such a storage as follows:
 

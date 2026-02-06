@@ -7,7 +7,7 @@
 
 {% list tabs group=instructions %}
 
-- CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../cli-install.md) %}
 
@@ -54,7 +54,7 @@
 
 {% list tabs group=instructions %}
 
-- CLI {#cli}
+- AWS CLI {#cli}
 
   1. Убедитесь, что у аккаунта, для которого вы создали эфемерный ключ доступа, есть доступ к бакету, к которому вы хотите получить доступ с помощью ключа. Если доступа нет, [назначьте](../../iam/operations/sa/assign-role-for-sa.md) аккаунту нужную [роль](../../storage/security/index.md#roles-list), например [storage.viewer](../../storage/security/index.md#storage-viewer), на бакет.
 

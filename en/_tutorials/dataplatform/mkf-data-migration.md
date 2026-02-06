@@ -4,15 +4,15 @@ There are two ways to migrate topics from an {{ KF }} _source cluster_ to a {{ m
 
 * [Using the built-in {{ mkf-full-name }} MirrorMaker connector](#kf-connector).
 
-  This method is easy to configure and does not require you to create an intermediate VM.
+  This method is easy to configure and does not require creating an intermediate VM.
 
-* [Using the MirrorMaker 2.0 utility](#kf-mirrormaker).
+* [Using MirrorMaker 2.0](#kf-mirrormaker).
 
-  To use this method, first install and configure the utility on an intermediate VM. Use this method only if it is not possible to migrate data using the built-in MirrorMaker connector for whatever reason.
+  This requires setting up the utility manually on an intermediate virtual machine. Use this method only if it is not possible to migrate data using the built-in MirrorMaker connector for whatever reason.
 
-Both methods are also suitable for [migrating](../../managed-kafka/operations/host-migration.md#one-host) a {{ mkf-name }} cluster with one host to a different availability zone.
+Both methods are also suitable for [migrating](../../managed-kafka/operations/host-migration.md#one-host) a single-host {{ mkf-name }} cluster to a different availability zone.
 
-## Data migration using {{ mkf-full-name }} Connector {#kf-connector}
+## Migrating data using {{ mkf-full-name }} Connector {#kf-connector}
 
 1. [Create a connector](#create-cluster-connector).
 1. [Check the target cluster topic for data](#check-data-mkf-connector).
@@ -20,10 +20,10 @@ Both methods are also suitable for [migrating](../../managed-kafka/operations/ho
 
 ## Required paid resources {#paid-resources-connector}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ mkf-name }} cluster fee, which covers the use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
 ### Create a cluster and a connector {#create-cluster-connector}
@@ -32,27 +32,27 @@ The support cost includes:
 
 - Manually {#manual}
 
-    1. Prepare the target cluster:
+    1. Set up the target cluster:
         * Create an [admin user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `admin-cloud`.
-        * Enable [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics).
-        * Configure [security groups](../../managed-kafka/operations/connect/index.md#configuring-security-groups) if it is required for connection to the target cluster.
+        * Enable the [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics) property.
+        * Configure [security groups](../../managed-kafka/operations/connect/index.md#configuring-security-groups) if required for the target cluster connection.
 
-    1. In the source cluster, create the `admin-source` authorized to manage topics via the Admin API.
-    1. Make sure that the network hosting the source cluster is configured to allow source cluster connections from the internet.
+    1. In the source cluster, create the `admin-source` user authorized to manage topics via the Admin API.
+    1. Make sure the source cluster’s network settings allow cluster connections from the internet.
     1. [For the target cluster, create a connector](../../managed-kafka/operations/cluster-connector.md#create-connector) of the `MirrorMaker` type, configured as follows:
 
-        * **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-topics }}**: List of topics to migrate. You can also specify a regular expression for selecting topics. To migrate all topics, put `.*`.
+        * **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-topics }}**: List of topics to migrate. You can also specify a regular expression for selecting topics. To migrate all topics, specify `.*`.
         * Under **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-source-cluster }}**, specify the parameters for connecting to the source cluster:
           * **{{ ui-key.yacloud.kafka.field_connector-alias }}**: Source cluster prefix in the connector settings. The default value is `source`. Topics in the target cluster will be created with the specified prefix.
-          * **{{ ui-key.yacloud.kafka.field_connector-bootstrap-servers }}**: Comma-separated list of source cluster broker host FQDNs with port numbers, for example:
+          * **{{ ui-key.yacloud.kafka.field_connector-bootstrap-servers }}**: Comma-separated list of the FQDNs of the source cluster broker hosts with the port numbers, such as follows:
 
               ```text
               FQDN1:9091,FQDN2:9091,...,FQDN:9091
               ```
 
-          * **{{ ui-key.yacloud.kafka.field_connector-sasl-username }}**, **{{ ui-key.yacloud.kafka.field_connector-sasl-password }}**: Username and password of the previously created `admin-source` user.
-          * **{{ ui-key.yacloud.kafka.field_connector-sasl-mechanism }}**: Username and password encryption mechanism, `SCRAM-SHA-512`.
-          * **{{ ui-key.yacloud.kafka.field_connector-security-protocol }}**: Select a connector connection protocol:
+          * **{{ ui-key.yacloud.kafka.field_connector-sasl-username }}** and **{{ ui-key.yacloud.kafka.field_connector-sasl-password }}**: Username and password of the previously created `admin-source` user.
+          * **{{ ui-key.yacloud.kafka.field_connector-sasl-mechanism }}**: Authentication mechanism for username and password validation, `SCRAM-SHA-512`.
+          * **{{ ui-key.yacloud.kafka.field_connector-security-protocol }}**: Select the connection protocol for the connector:
             * `SASL_PLAINTEXT`: For connecting to the source cluster without SSL.
             * `SASL_SSL`: For SSL connections to the source cluster.
 
@@ -71,26 +71,26 @@ The support cost includes:
 
         * Network.
         * Subnet.
-        * Default security group and rules required to connect to the cluster from the internet.
-        * {{ mkf-name }} target cluster with the [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics) setting on.
+        * Default security group and inbound internet rules for the cluster.
+        * {{ mkf-name }} target cluster with [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics) set to `true`.
         * `admin-cloud` [admin user](../../managed-kafka/operations/cluster-accounts.md#create-account) for the target cluster.
         * MirrorMaker connector for the target cluster.
 
-    1. Specify the following in the `kafka-mirrormaker-connector.tf` file:
+    1. In the `kafka-mirrormaker-connector.tf` file, specify the following:
 
         * Source cluster username and passwords for the source and target cluster users.
         * FQDNs of the source cluster broker hosts.
         * Source and target cluster aliases.
-        * Filter template for the topics to be transferred.
+        * Filter pattern for topics to migrate.
         * {{ KF }} version.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -98,7 +98,7 @@ The support cost includes:
 
         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-Once created, the connector is automatically activated and data migration begins.
+Once the connector is created, it is automatically activated and data migration starts.
 
 {% endlist %}
 
@@ -117,16 +117,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources-mirrormaker}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ mkf-name }} cluster fee: using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* VM fee: using computing resources, storage, and, optionally, public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* {{ mkf-name }} cluster fee, which covers the use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* VM fee, which covers the use of computing resources, storage, and, optionally, public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 
 ### Getting started {#before-you-begin}
 
-#### Prepare the infrastructure {#deploy-infrastructure}
+#### Set up your infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -135,9 +135,9 @@ The support cost includes:
     1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md):
 
         * With the `admin-cloud` [admin user](../../managed-kafka/operations/cluster-accounts.md#create-account).
-        * With [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics) activated.
+        * With the [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics) property enabled.
 
-    1. [Create a new Linux VM](../../compute/operations/vm-create/create-linux-vm.md) for MirrorMaker on the same network the target cluster is on. To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} network, enable public access when creating it.
+    1. [Create a new Linux VM](../../compute/operations/vm-create/create-linux-vm.md) for MirrorMaker in the same network as the target cluster. To be able to connect to the VM not only from within the {{ yandex-cloud }} network but also from a local machine, enable public access when creating it.
 
 - {{ TF }} {#tf}
 
@@ -152,25 +152,25 @@ The support cost includes:
 
         * Network.
         * Subnet.
-        * Default security group and rules required to connect to the cluster and VM from the internet.
-        * {{ mkf-name }} cluster with the [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics) setting on.
+        * Default security group and inbound internet rules for your cluster and VM.
+        * {{ mkf-name }} cluster with [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics) set to `true`.
         * `admin-cloud` {{ KF }} [admin user](../../managed-kafka/operations/cluster-accounts.md#create-account).
         * Virtual machine with public internet access.
 
-    1. Specify the following in the `kafka-mirror-maker.tf` file:
+    1. In the `kafka-mirror-maker.tf` file, specify the following:
 
         * {{ KF }} version.
         * {{ KF }} admin user password.
-        * ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list.md) with Ubuntu and no GPU, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
-        * Username and path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file for accessing the virtual machine. By default, the specified username is ignored in the image that is currently used. A user with the `ubuntu` username is created instead. Use it to connect to the VM.
+        * Public Ubuntu [image](../../compute/operations/images-with-pre-installed-software/get-list.md) ID (non-GPU), e.g., [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
+        * Username and path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for VM access. By default, the pre-configured image ignores the specified username and automatically creates a user named `ubuntu`. Use it to connect to the VM.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -182,9 +182,9 @@ The support cost includes:
 
 #### Configure additional settings {#additional-settings}
 
-1. In the source cluster, create the `admin-source` authorized to manage topics via the Admin API.
+1. In the source cluster, create the `admin-source` user authorized to manage topics via the Admin API.
 
-1. [Connect](../../compute/operations/vm-connect/ssh.md) to a virtual machine over SSH.
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 
     1. Install the JDK:
 
@@ -192,22 +192,22 @@ The support cost includes:
         sudo apt update && sudo apt install --yes default-jdk
         ```
 
-    1. [Download](https://kafka.apache.org/downloads) and unpack the {{ KF }} archive with the same version number as the version installed in the target cluster. For example, for version 2.8:
+    1. [Download](https://kafka.apache.org/downloads) and unpack the {{ KF }} archive with the same version as installed on the target cluster, e.g., {{ KF }} 2.8:
 
         ```bash
         wget https://archive.apache.org/dist/kafka/2.8.0/kafka_2.12-2.8.0.tgz && \
         tar -xvf kafka_2.12-2.8.0.tgz
         ```
 
-    1. Install the [kafkacat](https://github.com/edenhill/kcat) utility:
+    1. Install [kafkacat](https://github.com/edenhill/kcat):
 
         ```bash
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Make sure that you can use it to [connect to the source and target clusters via SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+        Make sure you can use it to [connect to the source and target clusters over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-1. Configure a firewall and [security groups](../../managed-kafka/operations/connect/index.md#configuring-security-groups) if it is required to connect MirrorMaker to the target and the source clusters.
+1. Configure a firewall and [security groups](../../managed-kafka/operations/connect/index.md#configuring-security-groups) if required for MirrorMaker connection to the target and source clusters.
 
 ### Configure MirrorMaker {#configure-mirrormaker}
 
@@ -219,7 +219,7 @@ The support cost includes:
    mkdir --parents /home/<home_directory>/mirror-maker
    ```
 
-1. Choose a password at least 6 characters long for a certificate store, create a store, and add there an SSL certificate for connecting to the cluster:
+1. Choose a password of at least 6 characters for a certificate store, create the store, and add the SSL certificate for cluster connection:
 
    ```bash
    sudo keytool --noprompt -importcert -alias {{ crt-alias }} \
@@ -298,20 +298,20 @@ The support cost includes:
    source->target.emit.checkpoints.enabled=true
    ```
 
-   Notes on MirrorMaker configuration:
+   MirrorMaker configuration notes:
 
    * It performs one-way replication (`source->cloud.enabled = true`, `cloud->source.enabled = false`).
-   * In the `topics` parameter, list the topics you want to migrate. You can also specify a regular expression for selecting topics. To migrate all topics, put `.*`. In this configuration, all the topics will be replicated.
-   * Topic names in the target cluster are the same as in the source.
-   * `<R>` is [the parameter that sets the replication factor for MirrorMaker service topics](../../managed-kafka/concepts/settings-list.md#settings-topic-replication-factor). The value of this parameter should not exceed the smaller of the number of brokers in the source cluster or the number of brokers in the target cluster.
-   * `<M>` is [the default replication factor](../../managed-kafka/concepts/settings-list.md#settings-topic-replication-factor) defined for topics in the target cluster.
-   * `<T>` is the number of concurrent MirrorMaker processes. To distribute replication load evenly, we recommend a value of at least `2`. For more information, see the relevant [{{ KF }} documentation](https://kafka.apache.org/documentation/#georeplication-config-syntax).
+   * In the `topics` parameter, list the topics you want to migrate. You can also specify a regular expression for selecting topics. To migrate all topics, specify `.*`. This configuration replicates all topics.
+   * Topic names in the target cluster cluster match those in the source cluster.
+   * `<R>` stands for the [replication factor](../../managed-kafka/concepts/settings-list.md#settings-topic-replication-factor) for MirrorMaker service topics. Its value should not exceed the lesser of the broker counts in the source and target clusters.
+   * `<M>` stands for the [default replication factor](../../managed-kafka/concepts/settings-list.md#settings-topic-replication-factor) defined for topics in the target cluster.
+   * `<T>` stands for the number of concurrent MirrorMaker processes. To distribute replication load evenly, we recommend a value of at least `2`. For more information, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#georeplication-config-syntax).
 
-   You can request {{ mkf-name }} broker FQDNs with the [list of hosts in the cluster](../../managed-kafka/operations/cluster-hosts.md).
+   You can get the {{ mkf-name }} broker FQDNs with the [list of hosts in the cluster](../../managed-kafka/operations/cluster-hosts.md).
 
 ### Start replication {#replication-start}
 
-Launch MirrorMaker on the VM as follows:
+Run MirrorMaker on the VM as follows:
 
 ```bash
 <Apache_Kafka_installation_path>/bin/connect-mirror-maker.sh /home/<home_directory>/mirror-maker/mm2.properties
@@ -321,7 +321,7 @@ Launch MirrorMaker on the VM as follows:
 
 {% include [check-topics](../_tutorials_includes/check-mkf-topic.md) %}
 
-To learn more about MirrorMaker 2.0, see the [{{ KF }} documentation](https://cwiki.apache.org/confluence/display/KAFKA/KIP-382%3A+MirrorMaker+2.0).
+To learn more about using MirrorMaker 2.0, see [this {{ KF }} article](https://cwiki.apache.org/confluence/display/KAFKA/KIP-382%3A+MirrorMaker+2.0).
 
 ### Delete the resources you created {#clear-out}
 
@@ -332,7 +332,7 @@ Delete the resources you no longer need to avoid paying for them:
 - Manually {#manual}
 
     * [Delete the {{ mkf-full-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
-    * [Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md).
+    * [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
     * If you reserved public static IP addresses, release and [delete them](../../vpc/operations/address-delete.md).
 
 - {{ TF }} {#tf}

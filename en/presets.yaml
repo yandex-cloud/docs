@@ -1326,12 +1326,6 @@ default:
         12_month: dn2yqrddp3zyw3no5aty
         3_month: dn2qmfirxcmthwlqocxk
         6_month: dn2ynwho4s5ee7od5jdo
-      ba_i210_h_1_10g:
-        1_day: dn2ooklmvsgthmwmbb6s
-        1_month: dn2ss3v25mlaergdxiry
-        12_month: dn2a7mewl7zfddch2oa3
-        3_month: dn2hkgcgczbcyunvbgkj
-        6_month: dn2mkelhng5noncue2h6
       ba_i211_8s_10g:
         1_day: dn23os41prg8rcrk1e2q
         1_month: dn2h8c7qqre739ol0sii
@@ -1536,6 +1530,18 @@ default:
         12_month: dn2k2zqaoqzwhfdwxuwd
         3_month: dn2nkrdoxtldsqcw6sxy
         6_month: dn2ep4zl2llvx2j63glh
+      la_i109_s_1_10g:
+        1_day: dn2zgcjjjuzfd5oed7vl
+        1_month: dn2edz7oes4zlxahffho
+        12_month: dn2zgj65klqob6zmmc4q
+        3_month: dn24gzpgs6nag43ub65g
+        6_month: dn2h5m7ryj7mswsoclgf
+      la_i110_s_1_10g:
+        1_day: dn2en7sxanjpwvrrpiof
+        1_month: dn2jwzbvnw6hghewhy4z
+        12_month: dn27kmrcjjbe6lrdsgcl
+        3_month: dn2v2vb5tlsukuzzn4hx
+        6_month: dn2milwf2eoxiskqwh3d
       la-i100-h:
         1_day: dn2t33wjf2qexcjgwqfm
         1_month: dn2a7ztltvaxx4jix3j4
@@ -1834,75 +1840,75 @@ default:
         storage: dn2iqvpuvujh28ggku9h
   sku|KZT|ai:
     mt:
-      detect|string: ₸2548.8930
-      translate|string: ₸2548.8930
+      detect|string: ₸2548.89
+      translate|string: ₸2548.89
   sku|KZT|airflow:
     cluster:
       generic:
         ram:
-          v1|number: 4.698
-          v1|string: ₸4.6980
+          v1|number: 4.7
+          v1|string: ₸4.70
         vcpu:
-          v1|number: 13.9821
-          v1|string: ₸13.9821
+          v1|number: 13.98
+          v1|string: ₸13.98
   sku|KZT|alb:
     balancer:
-      active|number: 12.4161
-      active|string: ₸12.4161
+      active|number: 12.42
+      active|string: ₸12.42
   sku|KZT|api-gateway:
     requests:
       v1|pricingRate:
         '0':
-          1|number: 671.1429
-          1|string: ₸671.1429
+          1|number: 671.14
+          1|string: ₸671.14
   sku|KZT|audit-trails:
     events:
       data_plane:
-        v1|number: 201.3429
-        v1|string: ₸201.3429
+        v1|number: 201.34
+        v1|string: ₸201.34
   sku|KZT|backup:
     protected_vms:
-      v2|month|number: 1335.5743
-      v2|month|string: ₸1335.5743
+      v2|month|number: 1335.57
+      v2|month|string: ₸1335.57
     used_space:
       v1|month|number: 23.49
       v1|month|string: ₸23.49
   sku|KZT|cloud_desktop:
     hdd:
-      v1|month|number: 22.3714
-      v1|month|string: ₸22.3714
+      v1|month|number: 22.37
+      v1|month|string: ₸22.37
     ram:
-      v1|number: 2.2268
-      v1|string: ₸2.2268
+      v1|number: 2.23
+      v1|string: ₸2.23
     ssd:
-      v1|month|number: 82.0286
-      v1|month|string: ₸82.0286
+      v1|month|number: 82.03
+      v1|month|string: ₸82.03
     vcpu:
       c50:
-        v1|number: 4.2982
-        v1|string: ₸4.2982
+        v1|number: 4.3
+        v1|string: ₸4.30
   sku|KZT|cns:
     notification_events:
-      mts_marketing_event|number: 27.7054
-      mts_marketing_event|string: ₸27.7054
+      mts_marketing_event|number: 27.71
+      mts_marketing_event|string: ₸27.71
       push_event:
         v2|pricingRate:
-          1|number: 512.6786
-          1|string: ₸512.6786
-      vimpelcom_marketing_1|number: 40.1339
-      vimpelcom_marketing_1|string: ₸40.1339
-      vimpelcom_marketing_2|number: 39.6679
-      vimpelcom_marketing_2|string: ₸39.6679
+          1|number: 512.68
+          1|string: ₸512.68
+      vimpelcom_marketing_1|number: 40.13
+      vimpelcom_marketing_1|string: ₸40.13
+      vimpelcom_marketing_2|number: 39.67
+      vimpelcom_marketing_2|string: ₸39.67
     notifications_packet_events:
-      vimpelcom_marketing_1|number: 97.875
-      vimpelcom_marketing_1|string: ₸97.8750
-      vimpelcom_marketing_2|number: 72.6036
-      vimpelcom_marketing_2|string: ₸72.6036
-      vimpelcom_marketing_3|number: 138.5786
-      vimpelcom_marketing_3|string: ₸138.5786
+      vimpelcom_marketing_1|number: 97.88
+      vimpelcom_marketing_1|string: ₸97.88
+      vimpelcom_marketing_2|number: 72.6
+      vimpelcom_marketing_2|string: ₸72.60
+      vimpelcom_marketing_3|number: 138.58
+      vimpelcom_marketing_3|string: ₸138.58
     notifications:
-      sender_name_registration_event|number: 51785.7167
-      sender_name_registration_event|string: ₸51785.7167
+      sender_name_registration_event|number: 51785.72
+      sender_name_registration_event|string: ₸51785.72
   sku|KZT|compute:
     filesystem:
       hdd:
@@ -1914,100 +1920,100 @@ default:
     hostgroup:
       cpu:
         c100:
-          v3|number: 6.6151
-          v3|string: ₸6.6151
+          v3|number: 6.62
+          v3|string: ₸6.62
       localssd:
         v1|number: 0.0684
         v1|string: ₸0.0684
       ram:
-        v3|number: 1.7522
-        v3|string: ₸1.7522
+        v3|number: 1.75
+        v3|string: ₸1.75
     vm:
       cpu:
         c100:
-          v2|number: 6.6555
-          v3|number: 5.8725
-          v3|string: ₸5.8725
+          v2|number: 6.66
+          v3|number: 5.87
+          v3|string: ₸5.87
         c20:
-          v3|number: 2.4609
-          v3|string: ₸2.4609
+          v3|number: 2.46
+          v3|string: ₸2.46
       ram:
-        v2|number: 1.7338
-        v3|number: 1.566
-        v3|string: ₸1.5660
+        v2|number: 1.73
+        v3|number: 1.57
+        v3|string: ₸1.57
   sku|KZT|datalens:
     users:
       v1|string: ₸4950.00
   sku|KZT|datatransfer:
     compute:
       cpu:
-        v1|number: 7.3266
-        v1|string: ₸7.3266
+        v1|number: 7.33
+        v1|string: ₸7.33
       ram:
-        v1|number: 1.9575
-        v1|string: ₸1.9575
+        v1|number: 1.96
+        v1|string: ₸1.96
     rows:
       v1|pricingRate:
-        100|number: 15.1007
-        100|string: ₸15.1007
+        100|number: 15.1
+        100|string: ₸15.10
   sku|KZT|dns:
     requests:
       public:
         authoritative:
-          v1|number: 178.9714
-          v1|string: ₸178.9714
+          v1|number: 178.97
+          v1|string: ₸178.97
         recursive:
           v1|pricingRate:
-            1|number: 178.9714
-            1|string: ₸178.9714
+            1|number: 178.97
+            1|string: ₸178.97
   sku|KZT|foundation_models:
     image_generation:
-      v1|string: ₸11.3929
+      v1|string: ₸11.39
     realtime_audio:
       input:
         v1|string: ₸0.1346
       output:
         v1|string: ₸0.1036
     text_classification:
-      v1|string: ₸0.7768
+      v1|string: ₸0.78
     text_embedding:
       v1|number: 0.0518
       v1|string: ₸0.0518
     text_generation_alt:
-      v1|number: 1.0357
+      v1|number: 1.04
     text_generation:
-      v1|number: 1.0357
-      v1|string: ₸1.0357
+      v1|number: 1.04
+      v1|string: ₸1.04
   sku|KZT|gitlab:
-    backup|month|number: 10.7382
-    backup|month|string: ₸10.7382
+    backup|month|number: 10.74
+    backup|month|string: ₸10.74
     instance:
-      disk|month|number: 72.763
-      disk|month|string: ₸72.7630
+      disk|month|number: 72.76
+      disk|month|string: ₸72.76
       free:
-        cpu|number: 9.396
-        cpu|string: ₸9.3960
-        ram|number: 2.5168
-        ram|string: ₸2.5168
+        cpu|number: 9.4
+        cpu|string: ₸9.40
+        ram|number: 2.52
+        ram|string: ₸2.52
   sku|KZT|identity-hub:
     users:
-      101-500|number: 2536.6512
-      501-1000|number: 2276.8736
+      101-500|number: 2536.65
+      501-1000|number: 2276.87
   sku|KZT|kms:
     api:
       asymmetric:
         heavy:
-          v1|number: 80.5371
-          v1|string: ₸80.5371
-        v1|number: 32.2149
-        v1|string: ₸32.2149
+          v1|number: 80.54
+          v1|string: ₸80.54
+        v1|number: 32.21
+        v1|string: ₸32.21
       v1:
-        encryptdecrypt|number: 16.1074
-        encryptdecrypt|string: ₸16.1074
+        encryptdecrypt|number: 16.11
+        encryptdecrypt|string: ₸16.11
     storage:
       asymmetric:
-        v1|number: 16.1074
-        v1|string: ₸16.1074
+        v1|number: 16.11
+        v1|string: ₸16.11
       v1:
         software|number: 0.0224
         software|string: ₸0.0224
@@ -2016,127 +2022,127 @@ default:
       test_results:
         v1|number: 0
         v1|pricingRate:
-          2160000|number: 0.2796
+          2160000|number: 0.28
     test_execution:
       v1|number: 0
       v1|pricingRate:
-        180000|number: 2.7964
+        180000|number: 2.8
   sku|KZT|lockbox:
     api:
       v1:
-        get|number: 19.3289
-        get|string: ₸19.3289
+        get|number: 19.33
+        get|string: ₸19.33
     storage:
       v1:
-        active_secrets|number: 0.1398
-        active_secrets|string: ₸0.1398
+        active_secrets|number: 0.14
+        active_secrets|string: ₸0.14
   sku|KZT|mdb:
     cluster:
       clickhouse:
         v3:
           cpu:
-            c100|number: 9.6197
-            c100|string: ₸9.6197
-          ram|number: 2.6286
-          ram|string: ₸2.6286
+            c100|number: 9.62
+            c100|string: ₸9.62
+          ram|number: 2.63
+          ram|string: ₸2.63
       greenplum:
         v2:
           cpu:
             c100:
-              dedicated|number: 6.7114
-              dedicated|string: ₸6.7114
+              dedicated|number: 6.71
+              dedicated|string: ₸6.71
           ram:
-            dedicated|number: 1.7338
-            dedicated|string: ₸1.7338
+            dedicated|number: 1.73
+            dedicated|string: ₸1.73
         v3:
           cpu:
-            c100|number: 12.0246
-            c100|string: ₸12.0246
-          ram|number: 3.1879
-          ram|string: ₸3.1879
+            c100|number: 12.02
+            c100|string: ₸12.02
+          ram|number: 3.19
+          ram|string: ₸3.19
       kafka:
         v3:
           cpu:
-            c100|number: 8.4452
-            c100|string: ₸8.4452
-          ram|number: 2.2371
-          ram|string: ₸2.2371
+            c100|number: 8.45
+            c100|string: ₸8.45
+          ram|number: 2.24
+          ram|string: ₸2.24
       local-nvme:
-        greenplum|month|number: 72.763
-        greenplum|month|string: ₸72.7630
+        greenplum|month|number: 72.76
+        greenplum|month|string: ₸72.76
       mongodb:
         v3:
           cpu:
-            c100|number: 8.9486
-            c100|string: ₸8.9486
-          ram|number: 5.0336
-          ram|string: ₸5.0336
+            c100|number: 8.95
+            c100|string: ₸8.95
+          ram|number: 5.03
+          ram|string: ₸5.03
       mysql:
         v3:
           cpu:
-            c100|number: 9.396
-            c100|string: ₸9.3960
-          ram|number: 2.5727
-          ram|string: ₸2.5727
+            c100|number: 9.4
+            c100|string: ₸9.40
+          ram|number: 2.57
+          ram|string: ₸2.57
       network-hdd:
-        ch|month|number: 17.8971
-        ch|month|string: ₸17.8971
-        greenplum|month|number: 17.8971
-        greenplum|month|string: ₸17.8971
-        kafka|month|number: 17.8971
-        kafka|month|string: ₸17.8971
-        mysql|month|number: 17.8971
-        mysql|month|string: ₸17.8971
-        pg|month|number: 17.8971
-        pg|month|string: ₸17.8971
+        ch|month|number: 17.9
+        ch|month|string: ₸17.90
+        greenplum|month|number: 17.9
+        greenplum|month|string: ₸17.90
+        kafka|month|number: 17.9
+        kafka|month|string: ₸17.90
+        mysql|month|number: 17.9
+        mysql|month|string: ₸17.90
+        pg|month|number: 17.9
+        pg|month|string: ₸17.90
       network-nvme:
-        ch|month|number: 72.763
-        ch|month|string: ₸72.7630
-        kafka|month|number: 72.763
-        kafka|month|string: ₸72.7630
-        redis|month|number: 72.763
-        redis|month|string: ₸72.7630
+        ch|month|number: 72.76
+        ch|month|string: ₸72.76
+        kafka|month|number: 72.76
+        kafka|month|string: ₸72.76
+        redis|month|number: 72.76
+        redis|month|string: ₸72.76
       opensearch:
         v3:
           cpu:
-            c100|number: 9.396
-            c100|string: ₸9.3960
-          ram|number: 3.915
-          ram|string: ₸3.9150
+            c100|number: 9.4
+            c100|string: ₸9.40
+          ram|number: 3.92
+          ram|string: ₸3.92
       pg:
         v3:
           cpu:
-            c100|number: 9.1164
-            c100|string: ₸9.1164
-          ram|number: 2.4609
-          ram|string: ₸2.4609
+            c100|number: 9.12
+            c100|string: ₸9.12
+          ram|number: 2.46
+          ram|string: ₸2.46
       redis:
         v3:
           cpu:
-            c100|number: 8.4452
-            c100|string: ₸8.4452
-          ram|number: 2.2371
-          ram|string: ₸2.2371
+            c100|number: 8.45
+            c100|string: ₸8.45
+          ram|number: 2.24
+          ram|string: ₸2.24
     dataproc:
       v2:
         cpu:
-          c100|number: 0.6711
+          c100|number: 0.67
         ram|number: 0.1678
     zk:
       clickhouse:
         v3:
           cpu:
-            c50|number: 3.915
-            c50|string: ₸3.9150
-          ram|number: 1.566
-          ram|string: ₸1.5660
+            c50|number: 3.92
+            c50|string: ₸3.92
+          ram|number: 1.57
+          ram|string: ₸1.57
       kafka:
         v3:
           cpu:
-            c50|number: 3.915
-            c50|string: ₸3.9150
-          ram|number: 1.566
-          ram|string: ₸1.5660
+            c50|number: 3.92
+            c50|string: ₸3.92
+          ram|number: 1.57
+          ram|string: ₸1.57
   sku|KZT|monitoring:
     point:
       prometheus:
@@ -2149,78 +2155,78 @@ default:
       write|string: ₸54.81
   sku|KZT|network:
     public_fips:
-      deallocated|number: 1.7338
-      deallocated|string: ₸1.7338
-    public_fips|number: 1.3423
-    public_fips|string: ₸1.3423
+      deallocated|number: 1.73
+      deallocated|string: ₸1.73
+    public_fips|number: 1.34
+    public_fips|string: ₸1.34
   sku|KZT|postbox:
     email:
       count:
         v1|pricingRate:
-          10|number: 357.3214
-          10|string: ₸357.3214
-          2|number: 409.1072
-          2|string: ₸409.1072
-          50|number: 305.5357
-          50|string: ₸305.5357
+          10|number: 357.32
+          10|string: ₸357.32
+          2|number: 409.11
+          2|string: ₸409.11
+          50|number: 305.54
+          50|string: ₸305.54
   sku|KZT|searchapi:
     generative:
       requests:
-        v3|number: 25.8929
+        v3|number: 25.89
     requests:
       async:
-        v3|number: 155.3572
-        v3|string: ₸155.3572
+        v3|number: 155.36
+        v3|string: ₸155.36
       image:
         sync:
-          v3|string: ₸4660.7145
+          v3|string: ₸4660.71
       night:
         async:
-          v3|string: ₸129.4643
+          v3|string: ₸129.46
         sync:
-          v3|string: ₸1864.2858
+          v3|string: ₸1864.29
       sync:
-        v3|number: 2485.7144
-        v3|string: ₸2485.7144
+        v3|number: 2485.71
+        v3|string: ₸2485.71
   sku|KZT|security_deck:
     dspm:
       scanned:
         files:
-          v1|number: 776.7858
-          v1|string: ₸776.7858
+          v1|number: 776.79
+          v1|string: ₸776.79
         text:
-          v1|number: 2386.2858
-          v1|string: ₸2386.2858
+          v1|number: 2386.29
+          v1|string: ₸2386.29
   sku|KZT|serverless:
     containers:
       compute:
         cpu|pricingRate:
-          5|number: 26.8457
-          5|string: ₸26.8457
+          5|number: 26.85
+          5|string: ₸26.85
         memory|pricingRate:
-          10|number: 17.8971
-          10|string: ₸17.8971
+          10|number: 17.9
+          10|string: ₸17.90
       invocations|pricingRate:
-        1|number: 89.4857
-        1|string: ₸89.4857
+        1|number: 89.49
+        1|string: ₸89.49
     functions:
       compute:
         v1|pricingRate:
-          10|number: 30.5929
-          10|string: ₸30.5929
+          10|number: 30.59
+          10|string: ₸30.59
       invocations:
         v1|pricingRate:
-          1|number: 89.4857
-          1|string: ₸89.4857
+          1|number: 89.49
+          1|string: ₸89.49
   sku|KZT|spark:
     cluster:
       generic:
         ram:
-          v2|number: 2.1122
-          v2|string: ₸2.1122
+          v2|number: 2.11
+          v2|string: ₸2.11
         vcpu:
-          v2|number: 8.0149
-          v2|string: ₸8.0149
+          v2|number: 8.01
+          v2|string: ₸8.01
   sku|KZT|speechkit:
     stt_long_running_deferred:
       v1|number: 0.0129
@@ -2229,39 +2235,39 @@ default:
       v1|number: 0.0518
       v1|string: ₸0.0518
     stt:
-      v1|number: 0.8286
-      v1|string: ₸0.8286
+      v1|number: 0.83
+      v1|string: ₸0.83
     tts_gpu:
-      v1|number: 6835.7146
-      v1|string: ₸6835.7146
+      v1|number: 6835.71
+      v1|string: ₸6835.71
     tts:
       v3_bvcc_request:
-        v1|string: ₸0.8286
+        v1|string: ₸0.83
       v3_bvprem_request:
-        v1|string: ₸0.8286
+        v1|string: ₸0.83
       v3_request:
-        v1|number: 0.8286
-        v1|string: ₸0.8286
+        v1|number: 0.83
+        v1|string: ₸0.83
   sku|KZT|speechsense:
     analysis:
       assistant:
-        v1|number: 0.7768
-        v1|string: ₸0.7768
+        v1|number: 0.78
+        v1|string: ₸0.78
       audio|number: 0.0518
       audio|pricingRate:
         30000000|number: 0.0259
         6000000|number: 0.0311
       text:
-        v2|number: 7.1464
+        v2|number: 7.15
         v2|pricingRate:
-          100000|number: 5.2821
-          100000|string: ₸5.2821
-          1000000|string: ₸2.1750
-          2500000|string: ₸1.5536
-          500000|number: 3.1071
-          500000|string: ₸3.1071
-        v2|string: ₸7.1464
-      v1|number: 0.1191
+          100000|number: 5.28
+          100000|string: ₸5.28
+          1000000|string: ₸2.18
+          2500000|string: ₸1.55
+          500000|number: 3.11
+          500000|string: ₸3.11
+        v2|string: ₸7.15
+      v1|number: 0.12
       v1|pricingRate:
         150000000|number: 0.0259
         30000000|number: 0.0518
@@ -2270,175 +2276,175 @@ default:
   sku|KZT|storage:
     api:
       get:
-        cold|number: 5.4251
-        ice|number: 10.8501
+        cold|number: 5.43
+        ice|number: 10.85
         standard|pricingRate:
-          10|number: 2.1812
-          10|string: ₸2.1812
+          10|number: 2.18
+          10|string: ₸2.18
       network:
         inet:
           egress|pricingRate:
-            100|number: 8.5571
-            100|string: ₸8.5571
+            100|number: 8.56
+            100|string: ₸8.56
       put:
-        cold|number: 6.5996
-        ice|number: 13.1991
+        cold|number: 6.6
+        ice|number: 13.2
         standard|pricingRate:
-          10|number: 2.6846
+          10|number: 2.68
     bucket:
       used_space:
-        cold|month|number: 5.9843
-        ice|month|number: 2.9922
-        ice|month|string: ₸2.9922
-        ice|number: 0.0042
-        ice|string: ₸0.0042
+        cold|month|number: 5.98
+        ice|month|number: 2.99
+        ice|month|string: ₸2.99
+        ice|number: 0.004156
+        ice|string: ₸0.004156
         standard|pricingRate:
-          720|month|number: 11.2416
-          720|month|string: ₸11.2416
+          720|month|number: 11.24
+          720|month|string: ₸11.24
           720|number: 0.0156
           720|string: ₸0.0156
   sku|KZT|support:
     organization:
       business:
         fixed_consumption:
-          v1|number: 15535.715
-          v1|string: ₸15535.7150
+          v1|number: 15535.72
+          v1|string: ₸15535.72
   sku|KZT|sws:
     antiddos:
-      traffic|number: 5.6446
-      traffic|string: ₸5.6446
+      traffic|number: 5.64
+      traffic|string: ₸5.64
     proxy-server:
-      v1|number: 12.4286
-      v1|string: ₸12.4286
+      v1|number: 12.43
+      v1|string: ₸12.43
     requests:
       v1|number: 0
       v1|pricingRate:
         '0':
-          01|number: 139821.435
-          01|string: ₸139821.4350
-        1|number: 19575.0009
-        1|string: ₸19575.0009
-        10|number: 1118.5715
-        10|string: ₸1118.5715
+          01|number: 139821.44
+          01|string: ₸139821.44
+        1|number: 19575
+        1|string: ₸19575.00
+        10|number: 1118.57
+        10|string: ₸1118.57
         100|number: 783
         100|string: ₸783.00
-        1000|number: 279.6429
+        1000|number: 279.64
     waf:
       requests:
         v1|pricingRate:
           '0':
-            01|number: 139821.435
-          1|number: 19575.0009
-          10|number: 1118.5715
+            01|number: 139821.44
+          1|number: 19575
+          10|number: 1118.57
           100|number: 783
-          1000|number: 279.6429
+          1000|number: 279.64
   sku|KZT|trino:
     cluster:
       generic:
         ram:
-          v1|number: 2.8223
-          v1|string: ₸2.8223
+          v1|number: 2.82
+          v1|string: ₸2.82
         vcpu:
-          v1|number: 10.5746
-          v1|string: ₸10.5746
+          v1|number: 10.57
+          v1|string: ₸10.57
   sku|KZT|video:
     cdn:
       traffic:
-        egress|number: 5.3691
-        egress|string: ₸5.3691
+        egress|number: 5.37
+        egress|string: ₸5.37
     transcoding:
       vod:
-        v1|number: 5.5929
-        v1|string: ₸5.5929
+        v1|number: 5.59
+        v1|string: ₸5.59
   sku|KZT|vision_ocr:
     driver_license_text_detection:
-      v1|string: ₸3.6250
+      v1|string: ₸3.63
     handwriting_and_printed_text_detection:
-      v1|string: ₸7.7679
+      v1|string: ₸7.77
     license_plates:
-      v1|string: ₸0.6732
+      v1|string: ₸0.67
     passport_text_detection:
-      v1|string: ₸3.6250
+      v1|string: ₸3.63
     printed_text_detection:
-      v1|string: ₸0.6732
+      v1|string: ₸0.67
     text_and_table_text_detection:
-      v1|string: ₸6.2143
+      v1|string: ₸6.21
     vehicle_certificate_text_detection:
-      v1|string: ₸3.6250
+      v1|string: ₸3.63
   sku|KZT|ydb:
     v1:
       serverless:
         requests|pricingRate:
-          1|number: 119.5753
-          1|string: ₸119.5753
+          1|number: 119.58
+          1|string: ₸119.58
   sku|KZT|yds:
     events:
       puts|pricingRate:
-        2|number: 6.5996
-        2|string: ₸6.5996
+        2|number: 6.6
+        2|string: ₸6.60
     reserved_resources:
       128k:
-        12h|number: 0.7457
-        12h|string: ₸0.7457
+        12h|number: 0.75
+        12h|string: ₸0.75
   sku|KZT|yq:
     network:
       ingress:
         v1|pricingRate:
-          10|number: 3.3557
-          10|string: ₸3.3557
+          10|number: 3.36
+          10|string: ₸3.36
   sku|KZT|yt:
     compute-nodes:
       cpu:
-        v3|number: 7.048
+        v3|number: 7.05
       ram:
-        v3|number: 1.8798
+        v3|number: 1.88
     master-nodes:
       cpu:
-        v3|number: 7.048
+        v3|number: 7.05
       ram:
-        v3|number: 1.8798
+        v3|number: 1.88
     proxy-nodes:
       cpu:
-        v3|number: 7.048
+        v3|number: 7.05
       ram:
-        v3|number: 1.8798
+        v3|number: 1.88
     storage-nodes:
       cpu:
-        v3|number: 7.048
+        v3|number: 7.05
       ram:
-        v3|number: 1.8798
+        v3|number: 1.88
     storage:
       hdd:
-        v1|month|number: 19.5957
+        v1|month|number: 19.6
       ssd-nonreplicated:
-        v1|month|number: 59.0616
+        v1|month|number: 59.06
     system-nodes:
       cpu:
-        v3|number: 7.048
+        v3|number: 7.05
       ram:
-        v3|number: 1.8798
+        v3|number: 1.88
     tablet-nodes:
       cpu:
-        v3|number: 7.048
+        v3|number: 7.05
       ram:
-        v3|number: 1.8798
+        v3|number: 1.88
   sku|RUB|ai:
     mt:
-      detect|string: ₽500.4033
-      translate|string: ₽500.4033
+      detect|string: ₽500.40
+      translate|string: ₽500.40
   sku|RUB|airflow:
     cluster:
       generic:
         ram:
-          v1|number: 0.9223
-          v1|string: ₽0.9223
+          v1|number: 0.92
+          v1|string: ₽0.92
         vcpu:
-          v1|number: 2.745
-          v1|string: ₽2.7450
+          v1|number: 2.75
+          v1|string: ₽2.75
   sku|RUB|alb:
     balancer:
-      active|number: 2.4376
-      active|string: ₽2.4376
+      active|number: 2.44
+      active|string: ₽2.44
   sku|RUB|api-gateway:
     requests:
       v1|pricingRate:
@@ -2448,51 +2454,51 @@ default:
   sku|RUB|audit-trails:
     events:
       data_plane:
-        v1|number: 39.528
-        v1|string: ₽39.5280
+        v1|number: 39.53
+        v1|string: ₽39.53
   sku|RUB|backup:
     protected_vms:
-      v2|month|number: 262.2024
-      v2|month|string: ₽262.2024
+      v2|month|number: 262.2
+      v2|month|string: ₽262.20
     used_space:
-      v1|month|number: 4.6116
-      v1|month|string: ₽4.6116
+      v1|month|number: 4.61
+      v1|month|string: ₽4.61
   sku|RUB|cloud_desktop:
     hdd:
-      v1|month|number: 4.392
-      v1|month|string: ₽4.3920
+      v1|month|number: 4.39
+      v1|month|string: ₽4.39
     ram:
-      v1|number: 0.4372
-      v1|string: ₽0.4372
+      v1|number: 0.44
+      v1|string: ₽0.44
     ssd:
-      v1|month|number: 16.104
-      v1|month|string: ₽16.1040
+      v1|month|number: 16.1
+      v1|month|string: ₽16.10
     vcpu:
       c50:
-        v1|number: 0.8438
-        v1|string: ₽0.8438
+        v1|number: 0.84
+        v1|string: ₽0.84
   sku|RUB|cns:
     notification_events:
-      mts_marketing_event|number: 5.4392
-      mts_marketing_event|string: ₽5.4392
+      mts_marketing_event|number: 5.44
+      mts_marketing_event|string: ₽5.44
       push_event:
         v2|pricingRate:
           1|number: 100.65
           1|string: ₽100.65
-      vimpelcom_marketing_1|number: 7.8792
-      vimpelcom_marketing_1|string: ₽7.8792
-      vimpelcom_marketing_2|number: 7.7877
-      vimpelcom_marketing_2|string: ₽7.7877
+      vimpelcom_marketing_1|number: 7.88
+      vimpelcom_marketing_1|string: ₽7.88
+      vimpelcom_marketing_2|number: 7.79
+      vimpelcom_marketing_2|string: ₽7.79
     notifications_packet_events:
-      vimpelcom_marketing_1|number: 19.215
-      vimpelcom_marketing_1|string: ₽19.2150
-      vimpelcom_marketing_2|number: 14.2537
-      vimpelcom_marketing_2|string: ₽14.2537
-      vimpelcom_marketing_3|number: 27.206
-      vimpelcom_marketing_3|string: ₽27.2060
+      vimpelcom_marketing_1|number: 19.21
+      vimpelcom_marketing_1|string: ₽19.21
+      vimpelcom_marketing_2|number: 14.25
+      vimpelcom_marketing_2|string: ₽14.25
+      vimpelcom_marketing_3|number: 27.21
+      vimpelcom_marketing_3|string: ₽27.21
     notifications:
-      sender_name_registration_event|number: 10166.6667
-      sender_name_registration_event|string: ₽10166.6667
+      sender_name_registration_event|number: 10166.67
+      sender_name_registration_event|string: ₽10166.67
   sku|RUB|compute:
     filesystem:
       hdd:
@@ -2504,8 +2510,8 @@ default:
     hostgroup:
       cpu:
         c100:
-          v3|number: 1.2987
-          v3|string: ₽1.2987
+          v3|number: 1.3
+          v3|string: ₽1.30
       localssd:
         v1|number: 0.0134
         v1|string: ₽0.0134
@@ -2515,16 +2521,16 @@ default:
     vm:
       cpu:
         c100:
-          v2|number: 1.3066
-          v3|number: 1.1529
-          v3|string: ₽1.1529
+          v2|number: 1.31
+          v3|number: 1.15
+          v3|string: ₽1.15
         c20:
-          v3|number: 0.4831
-          v3|string: ₽0.4831
+          v3|number: 0.48
+          v3|string: ₽0.48
       ram:
-        v2|number: 0.3404
-        v3|number: 0.3074
-        v3|string: ₽0.3074
+        v2|number: 0.34
+        v3|number: 0.31
+        v3|string: ₽0.31
   sku|RUB|datalens:
     users:
       v1|number: 990
@@ -2532,28 +2538,28 @@ default:
   sku|RUB|datatransfer:
     compute:
       cpu:
-        v1|number: 1.4384
-        v1|string: ₽1.4384
+        v1|number: 1.44
+        v1|string: ₽1.44
       ram:
         v1|number: 0.3843
         v1|string: ₽0.3843
     rows:
       v1|pricingRate:
-        100|number: 2.9646
-        100|string: ₽2.9646
+        100|number: 2.96
+        100|string: ₽2.96
   sku|RUB|dns:
     requests:
       public:
         authoritative:
-          v1|number: 35.136
-          v1|string: ₽35.1360
+          v1|number: 35.14
+          v1|string: ₽35.14
         recursive:
           v1|pricingRate:
-            1|number: 35.136
-            1|string: ₽35.1360
+            1|number: 35.14
+            1|string: ₽35.14
   sku|RUB|foundation_models:
     image_generation:
-      v1|string: ₽2.2367
+      v1|string: ₽2.24
     realtime_audio:
       input:
         v1|string: ₽0.0264
@@ -2570,16 +2576,16 @@ default:
       v1|number: 0.2033
       v1|string: ₽0.2033
   sku|RUB|gitlab:
-    backup|month|number: 2.1082
-    backup|month|string: ₽2.1082
+    backup|month|number: 2.11
+    backup|month|string: ₽2.11
     instance:
-      disk|month|number: 14.285
-      disk|month|string: ₽14.2850
+      disk|month|number: 14.28
+      disk|month|string: ₽14.28
       free:
-        cpu|number: 1.8446
-        cpu|string: ₽1.8446
-        ram|number: 0.4941
-        ram|string: ₽0.4941
+        cpu|number: 1.84
+        cpu|string: ₽1.84
+        ram|number: 0.49
+        ram|string: ₽0.49
   sku|RUB|identity-hub:
     users:
       101-500|number: 498
@@ -2606,17 +2612,17 @@ default:
     api:
       asymmetric:
         heavy:
-          v1|number: 15.8112
-          v1|string: ₽15.8112
-        v1|number: 6.3245
-        v1|string: ₽6.3245
+          v1|number: 15.81
+          v1|string: ₽15.81
+        v1|number: 6.32
+        v1|string: ₽6.32
       v1:
-        encryptdecrypt|number: 3.1622
-        encryptdecrypt|string: ₽3.1622
+        encryptdecrypt|number: 3.16
+        encryptdecrypt|string: ₽3.16
     storage:
       asymmetric:
-        v1|number: 3.1622
-        v1|string: ₽3.1622
+        v1|number: 3.16
+        v1|string: ₽3.16
       v1:
         software|number: 0.0044
         software|string: ₽0.0044
@@ -2629,103 +2635,103 @@ default:
     test_execution:
       v1|number: 0
       v1|pricingRate:
-        180000|number: 0.549
+        180000|number: 0.55
   sku|RUB|lockbox:
     api:
       v1:
-        get|number: 3.7947
-        get|string: ₽3.7947
+        get|number: 3.79
+        get|string: ₽3.79
     storage:
       v1:
-        active_secrets|number: 0.0275
-        active_secrets|string: ₽0.0275
+        active_secrets|number: 0.0274
+        active_secrets|string: ₽0.0274
   sku|RUB|mdb:
     cluster:
       clickhouse:
         v3:
           cpu:
-            c100|number: 1.8886
-            c100|string: ₽1.8886
-          ram|number: 0.5161
-          ram|string: ₽0.5161
+            c100|number: 1.89
+            c100|string: ₽1.89
+          ram|number: 0.52
+          ram|string: ₽0.52
       greenplum:
         v2:
           cpu:
             c100:
-              dedicated|number: 1.3176
-              dedicated|string: ₽1.3176
+              dedicated|number: 1.32
+              dedicated|string: ₽1.32
           ram:
-            dedicated|number: 0.3404
-            dedicated|string: ₽0.3404
+            dedicated|number: 0.34
+            dedicated|string: ₽0.34
         v3:
           cpu:
-            c100|number: 2.3607
-            c100|string: ₽2.3607
-          ram|number: 0.6259
-          ram|string: ₽0.6259
+            c100|number: 2.36
+            c100|string: ₽2.36
+          ram|number: 0.63
+          ram|string: ₽0.63
       kafka:
         v3:
           cpu:
-            c100|number: 1.658
-            c100|string: ₽1.6580
-          ram|number: 0.4392
-          ram|string: ₽0.4392
+            c100|number: 1.66
+            c100|string: ₽1.66
+          ram|number: 0.44
+          ram|string: ₽0.44
       local-nvme:
-        greenplum|month|number: 14.285
-        greenplum|month|string: ₽14.2850
+        greenplum|month|number: 14.28
+        greenplum|month|string: ₽14.28
       mongodb:
         v3:
           cpu:
-            c100|number: 1.7568
-            c100|string: ₽1.7568
-          ram|number: 0.9882
-          ram|string: ₽0.9882
+            c100|number: 1.76
+            c100|string: ₽1.76
+          ram|number: 0.99
+          ram|string: ₽0.99
       mysql:
         v3:
           cpu:
-            c100|number: 1.8446
-            c100|string: ₽1.8446
-          ram|number: 0.5051
-          ram|string: ₽0.5051
+            c100|number: 1.84
+            c100|string: ₽1.84
+          ram|number: 0.51
+          ram|string: ₽0.51
       network-hdd:
-        ch|month|number: 3.5136
-        ch|month|string: ₽3.5136
-        greenplum|month|number: 3.5136
-        greenplum|month|string: ₽3.5136
-        kafka|month|number: 3.5136
-        kafka|month|string: ₽3.5136
-        mysql|month|number: 3.5136
-        mysql|month|string: ₽3.5136
-        pg|month|number: 3.5136
-        pg|month|string: ₽3.5136
+        ch|month|number: 3.51
+        ch|month|string: ₽3.51
+        greenplum|month|number: 3.51
+        greenplum|month|string: ₽3.51
+        kafka|month|number: 3.51
+        kafka|month|string: ₽3.51
+        mysql|month|number: 3.51
+        mysql|month|string: ₽3.51
+        pg|month|number: 3.51
+        pg|month|string: ₽3.51
       network-nvme:
-        ch|month|number: 14.285
-        ch|month|string: ₽14.2850
-        kafka|month|number: 14.285
-        kafka|month|string: ₽14.2850
-        redis|month|number: 14.285
-        redis|month|string: ₽14.2850
+        ch|month|number: 14.28
+        ch|month|string: ₽14.28
+        kafka|month|number: 14.28
+        kafka|month|string: ₽14.28
+        redis|month|number: 14.28
+        redis|month|string: ₽14.28
       opensearch:
         v3:
           cpu:
-            c100|number: 1.8446
-            c100|string: ₽1.8446
-          ram|number: 0.7686
-          ram|string: ₽0.7686
+            c100|number: 1.84
+            c100|string: ₽1.84
+          ram|number: 0.77
+          ram|string: ₽0.77
       pg:
         v3:
           cpu:
-            c100|number: 1.7897
-            c100|string: ₽1.7897
-          ram|number: 0.4831
-          ram|string: ₽0.4831
+            c100|number: 1.79
+            c100|string: ₽1.79
+          ram|number: 0.48
+          ram|string: ₽0.48
       redis:
         v3:
           cpu:
-            c100|number: 1.658
-            c100|string: ₽1.6580
-          ram|number: 0.4392
-          ram|string: ₽0.4392
+            c100|number: 1.66
+            c100|string: ₽1.66
+          ram|number: 0.44
+          ram|string: ₽0.44
     dataproc:
       v2:
         cpu:
@@ -2735,31 +2741,31 @@ default:
       clickhouse:
         v3:
           cpu:
-            c50|number: 0.7686
-            c50|string: ₽0.7686
-          ram|number: 0.3074
-          ram|string: ₽0.3074
+            c50|number: 0.77
+            c50|string: ₽0.77
+          ram|number: 0.31
+          ram|string: ₽0.31
       kafka:
         v3:
           cpu:
-            c50|number: 0.7686
-            c50|string: ₽0.7686
-          ram|number: 0.3074
-          ram|string: ₽0.3074
+            c50|number: 0.77
+            c50|string: ₽0.77
+          ram|number: 0.31
+          ram|string: ₽0.31
   sku|RUB|monitoring:
     point:
       prometheus:
-        export|number: 7.686
-        export|string: ₽7.6860
-      write|number: 10.7604
+        export|number: 7.69
+        export|string: ₽7.69
+      write|number: 10.76
       write|pricingRate:
-        50|number: 6.1488
-        50|string: ₽6.1488
-      write|string: ₽10.7604
+        50|number: 6.15
+        50|string: ₽6.15
+      write|string: ₽10.76
   sku|RUB|network:
     public_fips:
-      deallocated|number: 0.3404
-      deallocated|string: ₽0.3404
+      deallocated|number: 0.34
+      deallocated|string: ₽0.34
     public_fips|number: 0.2635
     public_fips|string: ₽0.2635
   sku|RUB|postbox:
@@ -2768,14 +2774,14 @@ default:
         v1|pricingRate:
           10|number: 70.15
           10|string: ₽70.15
-          2|number: 80.3167
-          2|string: ₽80.3167
-          50|number: 59.9833
-          50|string: ₽59.9833
+          2|number: 80.32
+          2|string: ₽80.32
+          50|number: 59.98
+          50|string: ₽59.98
   sku|RUB|searchapi:
     generative:
       requests:
-        v3|number: 5.0833
+        v3|number: 5.08
     requests:
       async:
         v3|number: 30.5
@@ -2785,7 +2791,7 @@ default:
           v3|string: ₽915.00
       night:
         async:
-          v3|string: ₽25.4167
+          v3|string: ₽25.42
         sync:
           v3|string: ₽366.00
       sync:
@@ -2804,23 +2810,23 @@ default:
     containers:
       compute:
         cpu|pricingRate:
-          5|number: 5.2704
-          5|string: ₽5.2704
+          5|number: 5.27
+          5|string: ₽5.27
         memory|pricingRate:
-          10|number: 3.5136
-          10|string: ₽3.5136
+          10|number: 3.51
+          10|string: ₽3.51
       invocations|pricingRate:
-        1|number: 17.568
-        1|string: ₽17.5680
+        1|number: 17.57
+        1|string: ₽17.57
     functions:
       compute:
         v1|pricingRate:
-          10|number: 6.0061
-          10|string: ₽6.0061
+          10|number: 6.01
+          10|string: ₽6.01
       invocations:
         v1|pricingRate:
-          1|number: 17.568
-          1|string: ₽17.5680
+          1|number: 17.57
+          1|string: ₽17.57
   sku|RUB|smart_captcha:
     check:
       requests:
@@ -2836,12 +2842,12 @@ default:
           v2|number: 0.4147
           v2|string: ₽0.4147
         vcpu:
-          v2|number: 1.5735
-          v2|string: ₽1.5735
+          v2|number: 1.57
+          v2|string: ₽1.57
   sku|RUB|speechkit:
     stt_long_running_deferred:
-      v1|number: 0.0025
-      v1|string: ₽0.0025
+      v1|number: 0.002542
+      v1|string: ₽0.002542
     stt_long_running:
       v1|number: 0.0102
       v1|string: ₽0.0102
@@ -2869,15 +2875,15 @@ default:
         30000000|number: 0.0051
         6000000|number: 0.0061
       text:
-        v2|number: 1.403
+        v2|number: 1.4
         v2|pricingRate:
-          100000|number: 1.037
-          100000|string: ₽1.0370
-          1000000|string: ₽0.4270
+          100000|number: 1.04
+          100000|string: ₽1.04
+          1000000|string: ₽0.43
           2500000|string: ₽0.3050
           500000|number: 0.61
           500000|string: ₽0.61
-        v2|string: ₽1.4030
+        v2|string: ₽1.40
       v1|number: 0.0234
       v1|pricingRate:
         150000000|number: 0.0051
@@ -2887,33 +2893,33 @@ default:
   sku|RUB|storage:
     api:
       get:
-        cold|number: 1.0651
-        ice|number: 2.1301
+        cold|number: 1.07
+        ice|number: 2.13
         standard|pricingRate:
-          10|number: 0.4282
-          10|string: ₽0.4282
+          10|number: 0.43
+          10|string: ₽0.43
       network:
         inet:
           egress|pricingRate:
-            100|number: 1.6799
-            100|string: ₽1.6799
+            100|number: 1.68
+            100|string: ₽1.68
       put:
-        cold|number: 1.2956
-        ice|number: 2.5913
+        cold|number: 1.3
+        ice|number: 2.59
         standard|pricingRate:
-          10|number: 0.527
+          10|number: 0.53
     bucket:
       used_space:
-        cold|month|number: 1.1749
-        ice|month|number: 0.5874
-        ice|month|string: ₽0.5874
-        ice|number: 0.0008
-        ice|string: ₽0.0008
+        cold|month|number: 1.17
+        ice|month|number: 0.59
+        ice|month|string: ₽0.59
+        ice|number: 0.000816
+        ice|string: ₽0.000816
         standard|pricingRate:
-          720|month|number: 2.207
-          720|month|string: ₽2.2070
-          720|number: 0.0031
-          720|string: ₽0.0031
+          720|month|number: 2.21
+          720|month|string: ₽2.21
+          720|number: 0.003065
+          720|string: ₽0.003065
   sku|RUB|support:
     organization:
       business:
@@ -2922,8 +2928,8 @@ default:
           v1|string: ₽3050.00
   sku|RUB|sws:
     antiddos:
-      traffic|number: 1.1082
-      traffic|string: ₽1.1082
+      traffic|number: 1.11
+      traffic|string: ₽1.11
     proxy-server:
       v1|number: 2.44
       v1|string: ₽2.44
@@ -2953,46 +2959,46 @@ default:
     cluster:
       generic:
         ram:
-          v1|number: 0.5541
-          v1|string: ₽0.5541
+          v1|number: 0.55
+          v1|string: ₽0.55
         vcpu:
-          v1|number: 2.076
-          v1|string: ₽2.0760
+          v1|number: 2.08
+          v1|string: ₽2.08
   sku|RUB|video:
     cdn:
       traffic:
-        egress|number: 1.0541
-        egress|string: ₽1.0541
+        egress|number: 1.05
+        egress|string: ₽1.05
     transcoding:
       vod:
-        v1|number: 1.098
-        v1|string: ₽1.0980
+        v1|number: 1.1
+        v1|string: ₽1.10
   sku|RUB|vision_ocr:
     driver_license_text_detection:
-      v1|string: ₽0.7117
+      v1|string: ₽0.71
     handwriting_and_printed_text_detection:
-      v1|string: ₽1.5250
+      v1|string: ₽1.52
     license_plates:
       v1|string: ₽0.1322
     passport_text_detection:
-      v1|string: ₽0.7117
+      v1|string: ₽0.71
     printed_text_detection:
       v1|string: ₽0.1322
     text_and_table_text_detection:
       v1|string: ₽1.22
     vehicle_certificate_text_detection:
-      v1|string: ₽0.7117
+      v1|string: ₽0.71
   sku|RUB|ydb:
     v1:
       serverless:
         requests|pricingRate:
-          1|number: 23.4752
-          1|string: ₽23.4752
+          1|number: 23.48
+          1|string: ₽23.48
   sku|RUB|yds:
     events:
       puts|pricingRate:
-        2|number: 1.2956
-        2|string: ₽1.2956
+        2|number: 1.3
+        2|string: ₽1.30
     reserved_resources:
       128k:
         12h|number: 0.1464
@@ -3001,115 +3007,115 @@ default:
     network:
       ingress:
         v1|pricingRate:
-          10|number: 0.6588
-          10|string: ₽0.6588
+          10|number: 0.66
+          10|string: ₽0.66
   sku|RUB|yt:
     compute-nodes:
       cpu:
-        v3|number: 1.3837
+        v3|number: 1.38
       ram:
-        v3|number: 0.3691
+        v3|number: 0.37
     master-nodes:
       cpu:
-        v3|number: 1.3837
+        v3|number: 1.38
       ram:
-        v3|number: 0.3691
+        v3|number: 0.37
     proxy-nodes:
       cpu:
-        v3|number: 1.3837
+        v3|number: 1.38
       ram:
-        v3|number: 0.3691
+        v3|number: 0.37
     storage-nodes:
       cpu:
-        v3|number: 1.3837
+        v3|number: 1.38
       ram:
-        v3|number: 0.3691
+        v3|number: 0.37
     storage:
       hdd:
-        v1|month|number: 3.8471
+        v1|month|number: 3.85
       ssd-nonreplicated:
-        v1|month|number: 11.5951
+        v1|month|number: 11.6
     system-nodes:
       cpu:
-        v3|number: 1.3837
+        v3|number: 1.38
       ram:
-        v3|number: 0.3691
+        v3|number: 0.37
     tablet-nodes:
       cpu:
-        v3|number: 1.3837
+        v3|number: 1.38
       ram:
-        v3|number: 0.3691
+        v3|number: 0.37
   sku|USD|ai:
     mt:
-      detect|string: $4.101666
-      translate|string: $4.101666
+      detect|string: $4.10
+      translate|string: $4.10
   sku|USD|airflow:
     cluster:
       generic:
         ram:
-          v1|number: 0.00756
-          v1|string: $0.007560
+          v1|number: 0.0076
+          v1|string: $0.0076
         vcpu:
           v1|number: 0.0225
-          v1|string: $0.022500
+          v1|string: $0.0225
   sku|USD|alb:
     balancer:
-      active|number: 0.01998
-      active|string: $0.019980
+      active|number: 0.02
+      active|string: $0.02
   sku|USD|api-gateway:
     requests:
       v1|pricingRate:
         '0':
           1|number: 1.08
-          1|string: $1.080000
+          1|string: $1.08
   sku|USD|audit-trails:
     events:
       data_plane:
         v1|number: 0.324
-        v1|string: $0.324000
+        v1|string: $0.3240
   sku|USD|backup:
     protected_vms:
-      v2|month|number: 2.1492
-      v2|month|string: $2.149200
+      v2|month|number: 2.15
+      v2|month|string: $2.15
     used_space:
       v1|month|number: 0.0378
-      v1|month|string: $0.037800
+      v1|month|string: $0.0378
   sku|USD|cloud_desktop:
     hdd:
       v1|month|number: 0.036
-      v1|month|string: $0.036000
+      v1|month|string: $0.0360
     ram:
-      v1|number: 0.003583
-      v1|string: $0.003583
+      v1|number: 0.0036
+      v1|string: $0.0036
     ssd:
       v1|month|number: 0.132
-      v1|month|string: $0.132000
+      v1|month|string: $0.1320
     vcpu:
       c50:
-        v1|number: 0.006917
-        v1|string: $0.006917
+        v1|number: 0.0069
+        v1|string: $0.0069
   sku|USD|cns:
     notification_events:
-      mts_marketing_event|number: 0.044583
-      mts_marketing_event|string: $0.044583
+      mts_marketing_event|number: 0.0446
+      mts_marketing_event|string: $0.0446
       push_event:
         v2|pricingRate:
-          1|number: 0.825
-          1|string: $0.825000
-      vimpelcom_marketing_1|number: 0.064583
-      vimpelcom_marketing_1|string: $0.064583
-      vimpelcom_marketing_2|number: 0.063833
-      vimpelcom_marketing_2|string: $0.063833
+          1|number: 0.82
+          1|string: $0.82
+      vimpelcom_marketing_1|number: 0.0646
+      vimpelcom_marketing_1|string: $0.0646
+      vimpelcom_marketing_2|number: 0.0638
+      vimpelcom_marketing_2|string: $0.0638
     notifications_packet_events:
       vimpelcom_marketing_1|number: 0.1575
-      vimpelcom_marketing_1|string: $0.157500
-      vimpelcom_marketing_2|number: 0.116833
-      vimpelcom_marketing_2|string: $0.116833
+      vimpelcom_marketing_1|string: $0.1575
+      vimpelcom_marketing_2|number: 0.1168
+      vimpelcom_marketing_2|string: $0.1168
       vimpelcom_marketing_3|number: 0.223
-      vimpelcom_marketing_3|string: $0.223000
+      vimpelcom_marketing_3|string: $0.2230
     notifications:
-      sender_name_registration_event|number: 83.33332
-      sender_name_registration_event|string: $83.333320
+      sender_name_registration_event|number: 83.33
+      sender_name_registration_event|string: $83.33
   sku|USD|compute:
     filesystem:
       hdd:
@@ -3121,55 +3127,55 @@ default:
     hostgroup:
       cpu:
         c100:
-          v3|number: 0.010645
-          v3|string: $0.010645
+          v3|number: 0.0106
+          v3|string: $0.0106
       localssd:
         v1|number: 0.00011
         v1|string: $0.000110
       ram:
-        v3|number: 0.00282
-        v3|string: $0.002820
+        v3|number: 0.0028
+        v3|string: $0.0028
     vm:
       cpu:
         c100:
-          v2|number: 0.01071
-          v3|number: 0.00945
-          v3|string: $0.009450
+          v2|number: 0.0107
+          v3|number: 0.0094
+          v3|string: $0.0094
         c20:
           v3|number: 0.00396
           v3|string: $0.003960
       ram:
-        v2|number: 0.00279
-        v3|number: 0.00252
-        v3|string: $0.002520
+        v2|number: 0.0028
+        v3|number: 0.0025
+        v3|string: $0.0025
   sku|USD|datalens:
     users:
-      v1|string: $8.249997
+      v1|string: $8.25
   sku|USD|datatransfer:
     compute:
       cpu:
-        v1|number: 0.01179
-        v1|string: $0.011790
+        v1|number: 0.0118
+        v1|string: $0.0118
       ram:
         v1|number: 0.00315
         v1|string: $0.003150
     rows:
       v1|pricingRate:
         100|number: 0.0243
-        100|string: $0.024300
+        100|string: $0.0243
   sku|USD|dns:
     requests:
       public:
         authoritative:
-          v1|number: 0.288
-          v1|string: $0.288000
+          v1|number: 0.29
+          v1|string: $0.29
         recursive:
           v1|pricingRate:
-            1|number: 0.288
-            1|string: $0.288000
+            1|number: 0.29
+            1|string: $0.29
   sku|USD|foundation_models:
     image_generation:
-      v1|string: $0.018333
+      v1|string: $0.0183
     realtime_audio:
       input:
         v1|string: $0.000217
@@ -3186,35 +3192,35 @@ default:
       v1|number: 0.001667
       v1|string: $0.001667
   sku|USD|gitlab:
-    backup|month|number: 0.01728
-    backup|month|string: $0.017280
+    backup|month|number: 0.0173
+    backup|month|string: $0.0173
     instance:
-      disk|month|number: 0.11709
-      disk|month|string: $0.117090
+      disk|month|number: 0.1171
+      disk|month|string: $0.1171
       free:
-        cpu|number: 0.01512
-        cpu|string: $0.015120
+        cpu|number: 0.0151
+        cpu|string: $0.0151
         ram|number: 0.00405
         ram|string: $0.004050
   sku|USD|identity-hub:
     users:
-      101-500|number: 4.081967
-      501-1000|number: 3.663934
+      101-500|number: 4.08
+      501-1000|number: 3.66
   sku|USD|kms:
     api:
       asymmetric:
         heavy:
-          v1|number: 0.1296
-          v1|string: $0.129600
-        v1|number: 0.05184
-        v1|string: $0.051840
+          v1|number: 0.13
+          v1|string: $0.13
+        v1|number: 0.0518
+        v1|string: $0.0518
       v1:
-        encryptdecrypt|number: 0.02592
-        encryptdecrypt|string: $0.025920
+        encryptdecrypt|number: 0.0259
+        encryptdecrypt|string: $0.0259
     storage:
       asymmetric:
-        v1|number: 0.02592
-        v1|string: $0.025920
+        v1|number: 0.0259
+        v1|string: $0.0259
       v1:
         software|number: 0.000036
         software|string: $0.000036
@@ -3231,8 +3237,8 @@ default:
   sku|USD|lockbox:
     api:
       v1:
-        get|number: 0.031104
-        get|string: $0.031104
+        get|number: 0.0311
+        get|string: $0.0311
     storage:
       v1:
         active_secrets|number: 0.000225
@@ -3242,88 +3248,88 @@ default:
       clickhouse:
         v3:
           cpu:
-            c100|number: 0.01548
-            c100|string: $0.015480
-          ram|number: 0.00423
-          ram|string: $0.004230
+            c100|number: 0.0155
+            c100|string: $0.0155
+          ram|number: 0.0042
+          ram|string: $0.0042
       greenplum:
         v2:
           cpu:
             c100:
               dedicated|number: 0.0108
-              dedicated|string: $0.010800
+              dedicated|string: $0.0108
           ram:
-            dedicated|number: 0.00279
-            dedicated|string: $0.002790
+            dedicated|number: 0.0028
+            dedicated|string: $0.0028
         v3:
           cpu:
-            c100|number: 0.01935
-            c100|string: $0.019350
-          ram|number: 0.00513
-          ram|string: $0.005130
+            c100|number: 0.0193
+            c100|string: $0.0193
+          ram|number: 0.0051
+          ram|string: $0.0051
       kafka:
         v3:
           cpu:
-            c100|number: 0.01359
-            c100|string: $0.013590
+            c100|number: 0.0136
+            c100|string: $0.0136
           ram|number: 0.0036
-          ram|string: $0.003600
+          ram|string: $0.0036
       local-nvme:
-        greenplum|month|number: 0.11709
-        greenplum|month|string: $0.117090
+        greenplum|month|number: 0.1171
+        greenplum|month|string: $0.1171
       mongodb:
         v3:
           cpu:
             c100|number: 0.0144
-            c100|string: $0.014400
+            c100|string: $0.0144
           ram|number: 0.0081
-          ram|string: $0.008100
+          ram|string: $0.0081
       mysql:
         v3:
           cpu:
-            c100|number: 0.01512
-            c100|string: $0.015120
-          ram|number: 0.00414
-          ram|string: $0.004140
+            c100|number: 0.0151
+            c100|string: $0.0151
+          ram|number: 0.0041
+          ram|string: $0.0041
       network-hdd:
         ch|month|number: 0.0288
-        ch|month|string: $0.028800
+        ch|month|string: $0.0288
         greenplum|month|number: 0.0288
-        greenplum|month|string: $0.028800
+        greenplum|month|string: $0.0288
         kafka|month|number: 0.0288
-        kafka|month|string: $0.028800
+        kafka|month|string: $0.0288
         mysql|month|number: 0.0288
-        mysql|month|string: $0.028800
+        mysql|month|string: $0.0288
         pg|month|number: 0.0288
-        pg|month|string: $0.028800
+        pg|month|string: $0.0288
       network-nvme:
-        ch|month|number: 0.11709
-        ch|month|string: $0.117090
-        kafka|month|number: 0.11709
-        kafka|month|string: $0.117090
-        redis|month|number: 0.11709
-        redis|month|string: $0.117090
+        ch|month|number: 0.1171
+        ch|month|string: $0.1171
+        kafka|month|number: 0.1171
+        kafka|month|string: $0.1171
+        redis|month|number: 0.1171
+        redis|month|string: $0.1171
       opensearch:
         v3:
           cpu:
-            c100|number: 0.01512
-            c100|string: $0.015120
+            c100|number: 0.0151
+            c100|string: $0.0151
           ram|number: 0.0063
-          ram|string: $0.006300
+          ram|string: $0.0063
       pg:
         v3:
           cpu:
-            c100|number: 0.01467
-            c100|string: $0.014670
+            c100|number: 0.0147
+            c100|string: $0.0147
           ram|number: 0.00396
           ram|string: $0.003960
       redis:
         v3:
           cpu:
-            c100|number: 0.01359
-            c100|string: $0.013590
+            c100|number: 0.0136
+            c100|string: $0.0136
           ram|number: 0.0036
-          ram|string: $0.003600
+          ram|string: $0.0036
     dataproc:
       v2:
         cpu:
@@ -3334,112 +3340,112 @@ default:
         v3:
           cpu:
             c50|number: 0.0063
-            c50|string: $0.006300
-          ram|number: 0.00252
-          ram|string: $0.002520
+            c50|string: $0.0063
+          ram|number: 0.0025
+          ram|string: $0.0025
       kafka:
         v3:
           cpu:
             c50|number: 0.0063
-            c50|string: $0.006300
-          ram|number: 0.00252
-          ram|string: $0.002520
+            c50|string: $0.0063
+          ram|number: 0.0025
+          ram|string: $0.0025
   sku|USD|monitoring:
     point:
       prometheus:
         export|number: 0.063
-        export|string: $0.063000
+        export|string: $0.0630
       write|number: 0.0882
       write|pricingRate:
-        50|number: 0.0504
-        50|string: $0.050400
-      write|string: $0.088200
+        50|number: 0.05
+        50|string: $0.05
+      write|string: $0.0882
   sku|USD|network:
     public_fips:
-      deallocated|number: 0.00279
-      deallocated|string: $0.002790
+      deallocated|number: 0.0028
+      deallocated|string: $0.0028
     public_fips|number: 0.00216
     public_fips|string: $0.002160
   sku|USD|postbox:
     email:
       count:
         v1|pricingRate:
-          10|number: 0.575
-          10|string: $0.575000
-          2|number: 0.658333
-          2|string: $0.658333
-          50|number: 0.491667
-          50|string: $0.491667
+          10|number: 0.57
+          10|string: $0.57
+          2|number: 0.66
+          2|string: $0.66
+          50|number: 0.49
+          50|string: $0.49
   sku|USD|searchapi:
     generative:
       requests:
-        v3|number: 0.041667
+        v3|number: 0.0417
     requests:
       async:
         v3|number: 0.25
-        v3|string: $0.250000
+        v3|string: $0.25
       image:
         sync:
-          v3|string: $7.499999
+          v3|string: $7.50
       night:
         async:
-          v3|string: $0.208333
+          v3|string: $0.21
         sync:
-          v3|string: $3.000000
+          v3|string: $3.00
       sync:
-        v3|number: 3.999999
-        v3|string: $3.999999
+        v3|number: 4
+        v3|string: $4.00
   sku|USD|security_deck:
     access_transparency:
       subscription:
-        v1|number: 583.335972
-        v1|string: $583.335972
+        v1|number: 583.34
+        v1|string: $583.34
     dspm:
       scanned:
         files:
           v1|number: 1.25
-          v1|string: $1.250000
+          v1|string: $1.25
         text:
-          v1|number: 3.839999
-          v1|string: $3.839999
+          v1|number: 3.84
+          v1|string: $3.84
   sku|USD|serverless:
     containers:
       compute:
         cpu|pricingRate:
           5|number: 0.0432
-          5|string: $0.043200
+          5|string: $0.0432
         memory|pricingRate:
           10|number: 0.0288
-          10|string: $0.028800
+          10|string: $0.0288
       invocations|pricingRate:
         1|number: 0.144
-        1|string: $0.144000
+        1|string: $0.1440
     functions:
       compute:
         v1|pricingRate:
-          10|number: 0.04923
-          10|string: $0.049230
+          10|number: 0.0492
+          10|string: $0.0492
       invocations:
         v1|pricingRate:
           1|number: 0.144
-          1|string: $0.144000
+          1|string: $0.1440
   sku|USD|smart_captcha:
     check:
       requests:
         v1|pricingRate:
           10|number: 0.9
-          10|string: $0.900000
+          10|string: $0.90
           100|number: 0.63
-          100|string: $0.630000
+          100|string: $0.63
   sku|USD|spark:
     cluster:
       generic:
         ram:
-          v2|number: 0.003399
-          v2|string: $0.003399
+          v2|number: 0.0034
+          v2|string: $0.0034
         vcpu:
-          v2|number: 0.012897
-          v2|string: $0.012897
+          v2|number: 0.0129
+          v2|string: $0.0129
   sku|USD|speechkit:
     stt_long_running_deferred:
       v1|number: 0.000021
@@ -3451,8 +3457,8 @@ default:
       v1|number: 0.001333
       v1|string: $0.001333
     tts_gpu:
-      v1|number: 10.999998
-      v1|string: $10.999998
+      v1|number: 11
+      v1|string: $11.00
     tts:
       v3_bvcc_request:
         v1|string: $0.001333
@@ -3476,12 +3482,12 @@ default:
         v2|number: 0.0115
         v2|pricingRate:
           100000|number: 0.0085
-          100000|string: $0.008500
-          1000000|string: $0.003500
-          2500000|string: $0.002500
+          100000|string: $0.0085
+          1000000|string: $0.0035
+          2500000|string: $0.0025
           500000|number: 0.005
-          500000|string: $0.005000
-        v2|string: $0.011500
+          500000|string: $0.0050
+        v2|string: $0.0115
       v1|number: 0.000192
       v1|pricingRate:
         150000000|number: 0.000042
@@ -3491,65 +3497,65 @@ default:
   sku|USD|storage:
     api:
       get:
-        cold|number: 0.00873
-        ice|number: 0.01746
+        cold|number: 0.0087
+        ice|number: 0.0175
         standard|pricingRate:
-          10|number: 0.00351
-          10|string: $0.003510
+          10|number: 0.0035
+          10|string: $0.0035
       network:
         inet:
           egress|pricingRate:
-            100|number: 0.01377
-            100|string: $0.013770
+            100|number: 0.0138
+            100|string: $0.0138
       put:
-        cold|number: 0.01062
-        ice|number: 0.02124
+        cold|number: 0.0106
+        ice|number: 0.0212
         standard|pricingRate:
-          10|number: 0.00432
+          10|number: 0.0043
     bucket:
       used_space:
-        cold|month|number: 0.00963
-        ice|month|number: 0.004815
-        ice|month|string: $0.004815
-        ice|number: 0.000007
-        ice|string: $0.000007
+        cold|month|number: 0.0096
+        ice|month|number: 0.0048
+        ice|month|string: $0.0048
+        ice|number: 0.000006687
+        ice|string: $0.000006687
         standard|pricingRate:
-          720|month|number: 0.01809
-          720|month|string: $0.018090
+          720|month|number: 0.0181
+          720|month|string: $0.0181
           720|number: 0.000025
           720|string: $0.000025
   sku|USD|support:
     organization:
       business:
         fixed_consumption:
-          v1|number: 24.999996
-          v1|string: $24.999996
+          v1|number: 25
+          v1|string: $25.00
   sku|USD|sws:
     antiddos:
-      traffic|number: 0.009083
-      traffic|string: $0.009083
+      traffic|number: 0.0091
+      traffic|string: $0.0091
     proxy-server:
       v1|number: 0.02
-      v1|string: $0.020000
+      v1|string: $0.02
     requests:
       v1|number: 0
       v1|pricingRate:
         '0':
-          01|number: 224.999964
-          01|string: $224.999964
-        1|number: 31.499995
-        1|string: $31.499995
+          01|number: 225
+          01|string: $225.00
+        1|number: 31.5
+        1|string: $31.50
         10|number: 1.8
-        10|string: $1.800000
+        10|string: $1.80
         100|number: 1.26
-        100|string: $1.260000
+        100|string: $1.26
         1000|number: 0.45
     waf:
       requests:
         v1|pricingRate:
           '0':
-            01|number: 224.999964
-          1|number: 31.499995
+            01|number: 225
+          1|number: 31.5
           10|number: 1.8
           100|number: 1.26
           1000|number: 0.45
@@ -3557,86 +3563,86 @@ default:
     cluster:
       generic:
         ram:
-          v1|number: 0.004542
-          v1|string: $0.004542
+          v1|number: 0.0045
+          v1|string: $0.0045
         vcpu:
-          v1|number: 0.017017
-          v1|string: $0.017017
+          v1|number: 0.017
+          v1|string: $0.0170
   sku|USD|video:
     cdn:
       traffic:
-        egress|number: 0.00864
-        egress|string: $0.008640
+        egress|number: 0.0086
+        egress|string: $0.0086
     transcoding:
       vod:
         v1|number: 0.009
-        v1|string: $0.009000
+        v1|string: $0.0090
   sku|USD|vision_ocr:
     driver_license_text_detection:
-      v1|string: $0.005833
+      v1|string: $0.0058
     handwriting_and_printed_text_detection:
-      v1|string: $0.012500
+      v1|string: $0.0125
     license_plates:
       v1|string: $0.001083
     passport_text_detection:
-      v1|string: $0.005833
+      v1|string: $0.0058
     printed_text_detection:
       v1|string: $0.001083
     text_and_table_text_detection:
-      v1|string: $0.010000
+      v1|string: $0.01
     vehicle_certificate_text_detection:
-      v1|string: $0.005833
+      v1|string: $0.0058
   sku|USD|ydb:
     v1:
       serverless:
         requests|pricingRate:
-          1|number: 0.19242
-          1|string: $0.192420
+          1|number: 0.1924
+          1|string: $0.1924
   sku|USD|yds:
     events:
       puts|pricingRate:
-        2|number: 0.01062
-        2|string: $0.010620
+        2|number: 0.0106
+        2|string: $0.0106
     reserved_resources:
       128k:
         12h|number: 0.0012
-        12h|string: $0.001200
+        12h|string: $0.0012
   sku|USD|yt:
     compute-nodes:
       cpu:
-        v3|number: 0.011342
+        v3|number: 0.0113
       ram:
-        v3|number: 0.003025
+        v3|number: 0.003
     master-nodes:
       cpu:
-        v3|number: 0.011342
+        v3|number: 0.0113
       ram:
-        v3|number: 0.003025
+        v3|number: 0.003
     proxy-nodes:
       cpu:
-        v3|number: 0.011342
+        v3|number: 0.0113
       ram:
-        v3|number: 0.003025
+        v3|number: 0.003
     storage-nodes:
       cpu:
-        v3|number: 0.011342
+        v3|number: 0.0113
       ram:
-        v3|number: 0.003025
+        v3|number: 0.003
     storage:
       hdd:
-        v1|month|number: 0.031533
+        v1|month|number: 0.0315
       ssd-nonreplicated:
-        v1|month|number: 0.095041
+        v1|month|number: 0.095
     system-nodes:
       cpu:
-        v3|number: 0.011342
+        v3|number: 0.0113
       ram:
-        v3|number: 0.003025
+        v3|number: 0.003
     tablet-nodes:
       cpu:
-        v3|number: 0.011342
+        v3|number: 0.0113
       ram:
-        v3|number: 0.003025
+        v3|number: 0.003
   ui-key:
     data-catalog:
       console:
@@ -4443,6 +4449,7 @@ default:
           button_enable-edm-action: Enable EDM
           dashboard-info:
             section_contract: Information about the agreement
+            title_main: Account information
           entities:
             label_title: Clouds and services
             label_type: Type
@@ -8190,6 +8197,7 @@ default:
         label_input_data: Input data
         label_input-data: Input data
         label_network: Network
+        label_output_data: Output data
         label_output-data: Output data
         label_run-workflow: Execute
         label_service: Workflows
@@ -9137,6 +9145,8 @@ default:
                     Serializer:
                       Debezium:
                         confluent_sr:
+                          ca_cert:
+                            title: CA certificate
                           password:
                             title: Password
                           title: On Premise Schema Registry
@@ -9145,8 +9155,14 @@ default:
                           username:
                             title: Username
                         converter_settings:
+                          avro:
+                            title: Avro (via Schema Registry)
+                          disabled:
+                            title: Disabled
                           json:
                             title: JSON (via Schema Registry)
+                          protobuf:
+                            title: Protobuf (via Schema Registry)
                         key_converter_settings:
                           title: Key schema type
                         parameters:

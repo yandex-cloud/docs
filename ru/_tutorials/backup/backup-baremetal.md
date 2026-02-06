@@ -154,6 +154,10 @@
 
       {% include [server-lease-cli-general](../../_includes/baremetal/instruction-steps/server-lease-cli-general.md) %}
 
+- API {#api}
+
+  Чтобы арендовать тестовый сервер, воспользуйтесь методом REST API [create](../../baremetal/api-ref/Server/create.md) для ресурса [Server](../../baremetal/api-ref/Server/index.md) или вызовом gRPC API [ServerService/Create](../../baremetal/api-ref/grpc/Server/create.md).
+
 {% endlist %}
 
 Сохраните имя и идентификатор сервера, они понадобятся в дальнейшем.

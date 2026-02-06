@@ -2,7 +2,7 @@
 canonical: '{{ link-docs }}/tutorials/dataplatform/fetch-data-from-mkf'
 ---
 
-# Data delivery in {{ mch-name }}
+# Delivering data to {{ mkf-full-name }}
 
 {% include notitle [article-body](../../_tutorials/dataplatform/mkf-datasource-for-mch.md) %}
 

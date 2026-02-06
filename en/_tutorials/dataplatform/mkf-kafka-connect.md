@@ -2,46 +2,46 @@
 
 {% note info %}
 
-{{ mkf-name }} has built-in support for certain connectors and allows you to manage them. For a list of available connectors, see [{#T}](../../managed-kafka/concepts/connectors.md). If you need other connectors or want to manage Kafka Connect manually, refer to this tutorial.
+{{ mkf-name }} has native support for certain connectors and enable you to manage them. For a list of available connectors, see [{#T}](../../managed-kafka/concepts/connectors.md). If you need other connectors or want to manage Kafka Connect manually, refer to this tutorial.
 
 {% endnote %}
 
-{{ KFC }} is a tool for streaming data between {{ KF }} and other data storages.
+{{ KFC }} is designed to move data between {{ KF }} and other data storages.
 
-Data in {{ KFC }} is handled using _processes_ called workers. You can deploy the tool either in distributed mode with multiple workers or standalone mode with a single worker.
+{{ KFC }} processes data using _workers_. You can deploy the tool either in distributed mode with multiple workers or in standalone mode with a single worker.
 
-Data is moved using _connectors_ that are run in separate worker threads.
+_Connectors_ move data while running in separate threads of a worker.
 
-To learn more about Kafka Connect, see the documentation [{{ KF }}](https://kafka.apache.org/documentation/#connect).
+To learn more about Kafka Connect, see [this {{ KF }} article](https://kafka.apache.org/documentation/#connect).
 
-Next, we will configure {{ KFC }} to interact with a {{ mkf-name }} cluster. The tool will be deployed on a [{{ yandex-cloud }} VM](../../compute/concepts/vm.md) as a separate installation. SSL encryption will be used to protect the connection.
+Next, we describe how to configure {{ KFC }} to work with a {{ mkf-name }} cluster. You will deploy {{ KFC }} on a [{{ yandex-cloud }} VM](../../compute/concepts/vm.md) as a separate installation. To protect the connection, you will use SSL encryption.
 
 
-We will also set up a simple [FileStreamSource](https://docs.confluent.io/home/connect/filestream_connector.html) connector. {{ KFC }} will use it to read data from a test JSON file and provide this data to a cluster topic.
+You will also set up a simple [FileStreamSource](https://docs.confluent.io/home/connect/filestream_connector.html) connector. {{ KFC }} will use it to read data from a test JSON file and provide this data to a cluster topic.
 
 {% note info %}
 
-You can use any other {{ KFC }} connector to interact with {{ mkf-name }} clusters.
+You can use any other {{ KFC }} connector to work with {{ mkf-name }} clusters.
 
 {% endnote %}
 
 To configure {{ KFC }} to work with a {{ mkf-name }} cluster:
 
 1. [Configure the VM](#prepare-vm).
-1. [Prepare the test data](#prepare-test-data).
+1. [Prepare your test data](#prepare-test-data).
 1. [Configure {{ KFC }}](#configure-kafka-connect).
-1. [Run {{ KFC }} and test it](#test-kafka-connect).
+1. [Run and test {{ KFC }}](#test-kafka-connect).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* VM fee: using computing resources, storage, and public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* {{ mkf-name }} cluster fee, which covers the use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* VM fee, which covers the use of computing resources, storage, and public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -50,7 +50,7 @@ The support cost includes:
 
 - Manually {#manual}
 
-    1. [Create a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) with any suitable configuration.
+    1. [Create a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) of any suitable configuration.
     1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `messages` for exchanging messages between {{ KFC }} and the {{ mkf-name }} cluster.
     1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `user` and [grant them permissions](../../managed-kafka/operations/cluster-accounts.md#grant-permission) for the `messages` topic:
 
@@ -58,8 +58,8 @@ The support cost includes:
         * `ACCESS_ROLE_PRODUCER`
 
         
-    1. In the network hosting the {{ mkf-name }} cluster, [create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) and a public IP address.
-    1. If you are using security groups, [configure them](../../managed-kafka/operations/connect/index.md#configure-security-groups) to allow all required traffic between the {{ mkf-name }} cluster and the VM.
+    1. In the network hosting the {{ mkf-name }} cluster, [create a VM](../../compute/operations/vm-create/create-linux-vm.md) running [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) with a public IP address.
+    1. If using security groups, [configure them](../../managed-kafka/operations/connect/index.md#configure-security-groups) to allow all required traffic between your {{ mkf-name }} cluster and VM.
 
 
 - {{ TF }} {#tf}
@@ -77,20 +77,20 @@ The support cost includes:
         * Subnet.
 
         
-        * Default security group and rules required to connect to the cluster and VM from the internet.
+        * Default security group and inbound internet rules for your cluster and VM.
 
 
-        * Virtual machine with [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
+        * Virtual machine running [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
         * Properly configured {{ mkf-name }} cluster.
 
-    1. In the file, specify the password for the user named `user` you are going to use to access the {{ mkf-name }} cluster, as well as the username and the public part of the SSH key for the virtual machine. If the virtual machine will be running Ubuntu 20.04 from the recommended [image list](../../compute/operations/images-with-pre-installed-software/get-list.md), the username you put here will be ignored. In which case use `ubuntu` for username to establish the [connection](#prepare-vm).
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. In the file, specify the password for the user named `user` you are going to use to access the {{ mkf-name }} cluster, as well as the username and the public part of the SSH key for the virtual machine. If the VM runs Ubuntu 20.04 from the recommended [image list](../../compute/operations/images-with-pre-installed-software/get-list.md), the username you put here will be ignored. That being the case, use `ubuntu` as username for the [connection](#prepare-vm).
+    1. Validate your {{ TF }} configuration files using this command:
 
        ```bash
        terraform validate
        ```
 
-       If there are any errors in the configuration files, {{ TF }} will point them out.
+       {{ TF }} will display any configuration errors detected in your files.
     1. Create the required infrastructure:
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -102,10 +102,10 @@ The support cost includes:
 ## Configure the VM {#prepare-vm}
 
 
-1. [Connect to the virtual machine over SSH](../../compute/operations/vm-connect/ssh.md).
+1. [Connect to the VM over SSH](../../compute/operations/vm-connect/ssh.md).
 
 
-1. Install JDK and the [kcat](https://docs.confluent.io/platform/current/app-development/kafkacat-usage.html) utility:
+1. Install the JDK and [kcat](https://docs.confluent.io/platform/current/app-development/kafkacat-usage.html):
 
     ```bash
     sudo apt update && \
@@ -113,7 +113,7 @@ The support cost includes:
     sudo apt install kafkacat
     ```
     
-    Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+    Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
 1. [Download](https://downloads.apache.org/kafka/) and unpack the archive containing {{ KF }}:
 
@@ -121,20 +121,20 @@ The support cost includes:
     wget https://downloads.apache.org/kafka/3.1.0/kafka_2.12-3.1.0.tgz && tar -xvf kafka_2.12-3.1.0.tgz --strip 1 --directory /opt/kafka/
     ```
 
-    This example uses {{ KF }} version `3.1.0`.
+    This example uses {{ KF }} `3.1.0`.
 
 1. [Get an SSL certificate](../../managed-kafka/operations/connect#get-ssl-cert).
 
 1. {% include [keytool-importcert](../../_includes/mdb/keytool-importcert.md) %}
 
-1. Create a folder with worker settings and copy the store there:
+1. Create a folder with worker settings and copy the store into it:
 
     ```bash
     sudo mkdir --parents /etc/kafka-connect-worker && \
     sudo cp ssl /etc/kafka-connect-worker/client.truststore.jks
     ```
 
-## Prepare the test data {#prepare-test-data}
+## Prepare your test data {#prepare-test-data}
 
 Create a file named `/var/log/sample.json` with test data. This file contains data from car sensors in JSON format:
 
@@ -179,7 +179,7 @@ Create a file named `/var/log/sample.json` with test data. This file contains da
 
     {{ KFC }} will connect to the {{ mkf-name }} cluster as the user named `user` [created earlier](#before-you-begin).
 
-    You can request the FQDNs of broker hosts with the [list of cluster hosts](../../managed-kafka/operations/cluster-hosts.md).
+    You can get the broker host FQDNs with the [list of cluster hosts](../../managed-kafka/operations/cluster-hosts.md).
 
 1. Create a file named `/etc/kafka-connect-worker/file-connector.properties` with connector settings:
 
@@ -193,10 +193,10 @@ Create a file named `/var/log/sample.json` with test data. This file contains da
 
     Where:
 
-    * `file`: Name of the file the connector will read data from.
-    * `topic`: Name of the {{ mkf-name }} cluster topic the connector will feed data to.
+    * `file`: Name of the file from which the connector will read data.
+    * `topic`: Name of the {{ mkf-name }} cluster topic to which the connector will write data.
 
-## Run {{ KFC }} and test it {#test-kafka-connect}
+## Run and test {{ KFC }} {#test-kafka-connect}
 
 1. To send test data to the cluster, run the worker on the VM:
 
@@ -220,7 +220,7 @@ Create a file named `/var/log/sample.json` with test data. This file contains da
         -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
     ```
 
-    You can request the FQDNs of broker hosts with the [list of cluster hosts](../../managed-kafka/operations/cluster-hosts.md).
+    You can get the broker host FQDNs with the [list of cluster hosts](../../managed-kafka/operations/cluster-hosts.md).
 
     In the command output, you will see the contents of the `/var/log/sample.json` test file provided in the previous step.
 
@@ -234,7 +234,7 @@ Delete the resources you no longer need to avoid paying for them:
 
     
     1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
-    1. If you reserved a public static IP address for the VM, [delete it](../../vpc/operations/address-delete.md).
+    1. If you reserved a public static IP address for your virtual machine, [delete it](../../vpc/operations/address-delete.md).
     1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
 
 

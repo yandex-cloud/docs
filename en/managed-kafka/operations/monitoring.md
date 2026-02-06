@@ -1,9 +1,9 @@
 ---
-title: '{{ KF }} cluster and host state monitoring'
-description: In this guide, you will learn how to monitor the state of an {{ KF }} cluster and hosts.
+title: Monitoring the state of an {{ KF }} cluster and its hosts
+description: In this guide, you will learn how to monitor the state of of {{ KF }} clusters and their hosts.
 ---
 
-# {{ KF }} cluster and host state monitoring
+# Monitoring the state of an {{ KF }} cluster and its hosts
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -13,7 +13,7 @@ description: In this guide, you will learn how to monitor the state of an {{ KF 
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
-## Cluster state monitoring {#monitoring-cluster}
+## Monitoring the cluster state {#monitoring-cluster}
 
 To view detailed information on the state of a {{ mkf-name }} cluster:
 
@@ -24,15 +24,15 @@ To view detailed information on the state of a {{ mkf-name }} cluster:
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
-
+  
   1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
   The page displays the following charts:
 
   * **Alive brokers**: Number of functional brokers for each host with the `KAFKA` role.
-  * **Offline partitions**: Displays the parameter values below:
+  * **Offline partitions**: Displays the values of the settings below:
       * `OfflineReplicaCount`: Number of partitions with no leader broker. These partitions do not support message writes or reads.
-      * `Underreplicated partitions`: Number of partitions with ISR count below the replication factor.
+      * `Underreplicated partitions`: Number of partitions with in-sync replica (ISR) count below the replication factor.
       * `Under min ISR partitions`: Number of partitions with ISR count below the minimum value specified in the [settings](../concepts/settings-list.md).
   * **Errors**: Number of failed requests by error type.
   * **Free space**: Free disk space for each host with the `KAFKA` role, in bytes.
@@ -42,12 +42,12 @@ To view detailed information on the state of a {{ mkf-name }} cluster:
   * **Replicated bytes**: Replication data streaming rate for each host with the `KAFKA` role, in bytes per second.
   * **Partitions**: Total number of partition replicas.
   * **Replication lag [messages]**: Greatest replication lag for each host with the `KAFKA` role, in messages.
-  * **Request time (0.95 quantile)**: Request processing time in the 0.95 quantile by request type.
-  * **Requests**: Request rate by request type, in requests per second.
+  * **Request time (0.95 quantile)**: Request processing time at the 95th percentile by request type.
+  * **Requests**: Request rate by type, in requests per second.
 
 {% endlist %}
 
-## Host state monitoring {#monitoring-hosts}
+## Monitoring the state of hosts {#monitoring-hosts}
 
 To view detailed information on the state of individual {{ mkf-name }} hosts:
 
@@ -66,8 +66,8 @@ To view detailed information on the state of individual {{ mkf-name }} hosts:
   * **Memory usage**: Amount of RAM used, in bytes. At high workloads, the `Free` value goes down, while the other values go up.
   * **Disk read/write bytes**: Speed of disk operations, in bytes per second.
   * **Disk IOPS**: Number of disk operations per second.
-  * **Network bytes**: Network data exchange rate, in bytes per second.
-  * **Network packets**: Network packet rate, in packets per second.
+  * **Network bytes**: Speed of network data exchange, in bytes per second.
+  * **Network packets**: Number of network packets exchanged per second.
   * **Free space**: Free disk space, in bytes.
 
 {% endlist %}
@@ -95,7 +95,7 @@ To configure state indicator alerts for a [cluster](#monitoring-cluster) and [ho
 
 The recommended thresholds for some metrics are as follows:
 
-| Metric                            | Designation                                             | `{{ ui-key.yacloud_monitoring.alert.label_alarm }}`                    | `{{ ui-key.yacloud_monitoring.alert.label_warning }}`                  |
+| Metric                            | Internal metric name                                             | `{{ ui-key.yacloud_monitoring.alert.label_alarm }}`                    | `{{ ui-key.yacloud_monitoring.alert.label_warning }}`                  |
 |------------------------------------|---------------------------------------------------------|----------------------------|----------------------------|
 | Number of healthy hosts  | `kafka_is_alive`                                        | `<number_of_hosts> - 2`  | `<number_of_hosts> - 1`  |
 | Partition replication state      | `kafka_server_ReplicaManager_UnderReplicatedPartitions` | —                          | `More than 0`                 |
@@ -107,14 +107,14 @@ For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert.label_
 * `{{ ui-key.yacloud_monitoring.alert.label_alarm }}`: `96,636,764,160` bytes (90%)
 * `{{ ui-key.yacloud_monitoring.alert.label_warning }}`: `85,899,345,920` bytes (80%)
 
-You can check the current storage size in the [cluster details](cluster-list.md#get-cluster). For a complete list of supported metrics, see [this {{ monitoring-name }} guide](../../monitoring/metrics-ref/managed-kafka-ref.md).
+You can view the current storage size in the [cluster details](cluster-list.md#get-cluster). For a complete list of supported metrics, see [this {{ monitoring-name }} guide](../../monitoring/metrics-ref/managed-kafka-ref.md).
 
 
 ## Cluster state and status {#cluster-health-and-status}
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 
-To check the cluster's state and status:
+To check the cluster state and status:
 
 1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
 1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.

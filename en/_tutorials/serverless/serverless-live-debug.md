@@ -1,4 +1,4 @@
-# Interactive debugging of {{ sf-full-name }} functions
+# Interactive debugging of functions in {{ sf-full-name }}
 
 
 In this tutorial, you will set up a system to interactively debug [functions](../../functions/concepts/function.md) in {{ sf-full-name }} by redirecting requests to a local server. For more information about this solution, see the [yc-serverless-live-debug](https://github.com/yandex-cloud/yc-serverless-live-debug) repository.
@@ -6,7 +6,7 @@ In this tutorial, you will set up a system to interactively debug [functions](..
 To set up the interactive function debugging system:
 
 1. [Get your cloud ready](#prepare-cloud).
-1. [Install the required utilities](#install-utilities).
+1. [Install the required tools](#install-utilities).
 1. [Create a cloud administrator service account](#create-account).
 1. [Deploy your resources](#create-resources).
 1. [Run the debugging service](#run-client).
@@ -29,7 +29,7 @@ The infrastructure support costs include:
 ## Install the required tools {#install-utilities}
 
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-1. Create a folder named `live-debug-test` and open it:
+1. Create the `live-debug-test` directory and open it:
 
     ```
     mkdir live-debug-test
@@ -67,7 +67,7 @@ The infrastructure support costs include:
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      To create a service account, run the following command:
+      To create a service account, run this command:
 
       ```bash
       yc iam service-account create --name sa-live-debug
@@ -106,7 +106,7 @@ The infrastructure support costs include:
           * `description`: Service account description. This is an optional parameter.
           * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. It defaults to the value specified in the provider settings.
 
-          For more information about `yandex_iam_service_account` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/iam_service_account).
+          For more information about `yandex_iam_service_account` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iam_service_account).
     
       1. Make sure the configuration files are correct.
 
@@ -117,7 +117,7 @@ The infrastructure support costs include:
               terraform plan
               ```
 
-          If the configuration description is correct, the terminal will display information about the service account. If the configuration contains any errors, Terraform will point them out. 
+          If the configuration description is correct, the terminal will display information about the service account. If the configuration contains any errors, {{ TF }} will show them. 
 
       1. Deploy the cloud resources.
 
@@ -139,11 +139,11 @@ The infrastructure support costs include:
 
     - Management console {#console}
 
-      1. On the management console [home page]({{ link-console-main }}), select the cloud.
+      1. On the management console [home page]({{ link-console-main }}), select your cloud.
       1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Find the `sa-live-debug` account in the list and click ![image](../../_assets/console-icons/ellipsis.svg).
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-      1. Click **{{ ui-key.yacloud_components.acl.action.add-role }}** in the window that opens and select the `{{ roles-admin }}` role.
+      1. Click **{{ ui-key.yacloud_components.acl.action.add-role }}** in the window that opens and select `{{ roles-admin }}`.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
     - CLI {#cli}
@@ -190,7 +190,7 @@ The infrastructure support costs include:
                terraform plan
               ```
 
-              If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+              If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
 
       1. Deploy the cloud resources.
 
@@ -208,7 +208,7 @@ The infrastructure support costs include:
 
 ## Deploy your resources {#create-resources}
 
-1. Set up the CLI profile to run operations under the service account:
+1. Set up the CLI profile to run operations on behalf of the service account:
 
     {% list tabs group=instructions %}
 
@@ -237,7 +237,7 @@ The infrastructure support costs include:
           key_algorithm: RSA_2048
           ```
 
-      1. Create a CLI profile to run operations under the service account:
+      1. Create a CLI profile to run operations on behalf of the service account:
 
           ```
           yc config profile create sa-live-debug
@@ -260,7 +260,7 @@ The infrastructure support costs include:
           * `service-account-key`: Service account authorized key file.
           * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
 
-      1. Add your credentials to the environment variables:
+      1. Add the credentials to the environment variables:
 
           ```
           export YC_TOKEN=$(yc iam create-token)
@@ -279,13 +279,13 @@ The infrastructure support costs include:
 
 ## Run the debugging service {#run-client}
 
-1. In the `live-debug-test` folder, create a file named `live-debug.config.ts`:
+1. In the `live-debug-test` directory, create a file named `live-debug.config.ts`:
 
     ```
     nano live-debug.config.ts
     ```
 
-1. Copy the code with the following configuration to the `live-debug.config.ts` file:
+1. Copy the code with the following configuration to `live-debug.config.ts`:
 
     ```
     import { defineConfig } from '@yandex-cloud/serverless-live-debug';
@@ -340,7 +340,7 @@ For more information about usage examples, see the [yc-serverless-live-debug](ht
 
 ## How to delete the resources you created {#clear-out}
 
-Delete the folder with the resources required for interactive debugging of {{ sf-name }}:
+Delete the folder with the resources required for interactive debugging of functions in {{ sf-name }}:
 
 {% list tabs group=instructions %}
 

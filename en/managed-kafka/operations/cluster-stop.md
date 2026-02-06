@@ -40,9 +40,9 @@ You can stop and restart an {{ KF }} cluster as needed. When stopped, a cluster 
        --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>:stop'
      ```
 
-     You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -67,9 +67,9 @@ You can stop and restart an {{ KF }} cluster as needed. When stopped, a cluster 
        yandex.cloud.mdb.kafka.v1.ClusterService.Stop
      ```
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Topic/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Topic/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -113,9 +113,9 @@ You can restart clusters with the `Stopped` status.
        --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>:start'
      ```
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/start.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/start.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -140,8 +140,8 @@ You can restart clusters with the `Stopped` status.
        yandex.cloud.mdb.kafka.v1.ClusterService.Start
      ```
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Topic/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Topic/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

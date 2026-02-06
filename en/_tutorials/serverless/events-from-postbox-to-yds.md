@@ -1,4 +1,4 @@
-# Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and analyzing them with {{ datalens-full-name }}
+# Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and analyzing them using {{ datalens-full-name }}
 
 
 In this tutorial, you will set up streaming of [{{ postbox-full-name }}](../../postbox/index.yaml) events to [{{ yds-full-name }}](../../data-streams/index.yaml) and their visualization in [{{ datalens-full-name }}](../../datalens/index.yaml) for further analysis. Sending emails generates events.
@@ -10,7 +10,7 @@ To set up event streaming and visualization:
 1. [Get your cloud ready](#before-begin).
 1. [Create service accounts](#service-accounts).
 1. [Create a static access key](#static-key).
-1. [Set up a {{ ydb-name }} database](#ydb).
+1. [Configure your {{ ydb-name }} database](#ydb).
 1. [Create a data stream in {{ yds-name }}](#stream).
 1. [Set up {{ postbox-name }} resources](#postbox).
 1. [Set up {{ sf-name }} resources](#serverless-functions).
@@ -30,17 +30,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure support costs include:
 
 * Fee for {{ ydb-short-name }} operations and data storage (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
-* {{ yds-short-name }} data storage fee (see [{{ yds-full-name }} pricing](../../data-streams/pricing.md)).
-* Fee for function invocation count, computing resources allocated to run the function, and outbound traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Fee for {{ yds-short-name }} data storage (see [{{ yds-full-name }} pricing](../../data-streams/pricing.md)).
+* Fee for the number of function calls, computing resources allocated to run the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 * Fee for using {{ postbox-full-name }} (see [{{ postbox-name }} pricing](../../postbox/pricing.md)).
 * Fee for the {{ datalens-short-name }} plan (see [{{ datalens-full-name }} pricing](../../datalens/pricing.md)).
 
 
 ## Create service accounts {#service-accounts}
 
-Create two [service accounts](../../iam/concepts/users/service-accounts.md):
+Create these two [service accounts](../../iam/concepts/users/service-accounts.md):
 
-* `yds-functions` to call [{{ sf-name }}](../../functions/concepts/function.md) and write data to the {{ ydb-short-name }} [database](../../ydb/concepts/resources.md#database).
+* `yds-functions` to call the function in [{{ sf-name }}](../../functions/concepts/function.md) and write data to the {{ ydb-short-name }} [database](../../ydb/concepts/resources.md#database).
 * `postbox-user` to send emails via {{ postbox-name }}.
 
 {% include [create-service-accounts](../_tutorials_includes/events-from-postbox-to-yds/create-service-accounts.md) %}
@@ -50,9 +50,9 @@ Create two [service accounts](../../iam/concepts/users/service-accounts.md):
 {% include [create-static-key](../_tutorials_includes/events-from-postbox-to-yds/create-static-key.md) %}
 
 
-## Set up a {{ ydb-name }} database {#ydb}
+## Configure your {{ ydb-name }} database {#ydb}
 
-You can use any DBMS suitable for analytical tasks as event storage. In this tutorial, we use a {{ ydb-name }} [serverless database](../../ydb/concepts/resources.md#serverless). For other DBMS, the SQL query for creating a table and code for loading events into that table may be different.
+You can use any DBMS suitable for analytical tasks as an event storage. In this tutorial, we will use a {{ ydb-name }} [serverless database](../../ydb/concepts/resources.md#serverless). For other DBMS’s, the SQL query for creating a table and code for loading events into that table may be different.
 
 
 ### Create a database {#create-db}
@@ -78,9 +78,9 @@ You can use any DBMS suitable for analytical tasks as event storage. In this tut
 
 - Management console {#console}
 
-  1. On the **{{ ui-key.yacloud.ydb.databases.label_title }}** page, select the new `postbox-events-ydb` DB.
-  1. To open the DB root directory, navigate to the ![image](../../_assets/console-icons/folder.svg) **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
-  1. To create a DB query, click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** in the top-right corner.
+  1. On the **{{ ui-key.yacloud.ydb.databases.label_title }}** page, select the new `postbox-events-ydb` database.
+  1. To open the database root directory, navigate to the ![image](../../_assets/console-icons/folder.svg) **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+  1. To query your database, click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** in the top-right corner.
   1. In the **{{ ui-key.yacloud.ydb.sql.label_query }}** box that opens, enter the following:
 
       ```sql
@@ -119,7 +119,7 @@ You can use any DBMS suitable for analytical tasks as event storage. In this tut
 {% include [create-yds-stream](../_tutorials_includes/events-from-postbox-to-yds/create-yds-stream.md) %}
 
 
-## Create {{ postbox-name }} resources {#postbox}
+## Set up {{ postbox-name }} resources {#postbox}
 
 {% include [create-pb-resources-intro](../_tutorials_includes/events-from-postbox-to-yds/create-pb-resources-intro.md) %}
 
@@ -139,9 +139,9 @@ You can use any DBMS suitable for analytical tasks as event storage. In this tut
 {% include [check-domain](../../_includes/postbox/check-domain.md) %}
 
 
-## Create {{ sf-name }} resources {#serverless-functions}
+## Set up {{ sf-name }} resources {#serverless-functions}
 
-Create a [function](../../functions/concepts/function.md) to send data from the stream to the DB, and a [trigger](../../functions/concepts/trigger/index.md) to invoke the function when events are logged in the data stream.
+Create a [function](../../functions/concepts/function.md) to send data from the stream to the database, and a [trigger](../../functions/concepts/trigger/index.md) to invoke the function when events are logged to the data stream.
 
 
 ### Get the function code {#code}
@@ -169,7 +169,7 @@ Create a [function](../../functions/concepts/function.md) to send data from the 
 {% endlist %}
 
 
-### Get the DB connection details {#db-details}
+### Get the database connection credentials {#db-details}
 
 {% list tabs group=instructions %}
 
@@ -177,22 +177,22 @@ Create a [function](../../functions/concepts/function.md) to send data from the 
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-  1. Select the DB for which you need to get the endpoint and path.
+  1. Select the database for which you need to get the endpoint and path.
 
-      * The DB endpoint is specified under **{{ ui-key.yacloud.ydb.overview.section_connection }}** in the first part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`):
+      * The database endpoint is specified under **{{ ui-key.yacloud.ydb.overview.section_connection }}** in the first part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`):
 
-          >For example, the endpoint of a serverless DB is `{{ ydb.ep-serverless }}`.
+          >For example, the endpoint of a serverless database is `{{ ydb.ep-serverless }}`.
 
-      * The DB path is specified under **{{ ui-key.yacloud.ydb.overview.section_connection }}** in the second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`).
+      * The database path is specified under **{{ ui-key.yacloud.ydb.overview.section_connection }}** in the second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`).
 
-          >Here is an example of a DB path: `{{ ydb.path-serverless }}`.
+          >Here is an example of a database path: `{{ ydb.path-serverless }}`.
 
 {% endlist %}
 
 
 ### Create a function {#function}
 
-To create a function, you will need the function code and DB connection details.
+To create a function, you will need the function code and database connection credentials.
 
 {% list tabs group=instructions %}
 
@@ -224,8 +224,8 @@ To create a function, you will need the function code and DB connection details.
 
               Key | Description | Value (example)
               :--- | :--- | :---
-              `YDB_DATABASE` | DB path     | `/{{ region-id }}/b1go123e9vjq********/etnu15kr22********`
-              `YDB_ENDPOINT` | DB endpoint | `grpcs://ydb.serverless.yandexcloud.net:2135`
+              `YDB_DATABASE` | Database path     | `/{{ region-id }}/b1go123e9vjq********/etnu15kr22********`
+              `YDB_ENDPOINT` | Database endpoint | `grpcs://ydb.serverless.yandexcloud.net:2135`
               `YDB_TABLE`    | Table name | `postbox_events`
 
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
@@ -245,7 +245,7 @@ To create a function, you will need the function code and DB connection details.
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** field, enter the trigger name: `postbox-events-trigger`.
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_data-streams }}`.
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
-  1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}**, select the data stream named `postbox-events-stream` and the `yds-functions` service account.
+  1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}**, select the `postbox-events-stream` data stream and the `yds-functions` service account.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select the `postbox-events-function` function and the `yds-functions` service account.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -266,7 +266,7 @@ To create a function, you will need the function code and DB connection details.
 
           {% include [test-function-machinery-check-yds](../_tutorials_includes/events-from-postbox-to-yds/test-function-machinery-check-yds.md) %}
 
-      * Check the DB:
+      * Check the database:
 
           1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
           1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -303,7 +303,7 @@ To monitor the emails you send, set up a [connection](../../datalens/concepts/co
 
   1. Click **Create connection**.
   1. In the window that opens, select a workbook for your new connection and click **Create**.
-  1. Enter a connection name, e.g., `postbox-events-connection`, and click **Create**.
+  1. Enter `postbox-events-connection` as your connection name, and click **Create**.
 
 {% endlist %}
 
@@ -316,11 +316,11 @@ To monitor the emails you send, set up a [connection](../../datalens/concepts/co
 
   1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
   1. In the left-hand panel, select ![circles-intersection](../../_assets/console-icons/circles-intersection.svg) **Datasets** and click **Create dataset**.
-  1. In the window that opens, select the workbook your new connection is in and click **Create**.
+  1. In the window that opens, select the workbook with your new connection and click **Create**.
   1. Under **Connections**, click ![plus](../../_assets/console-icons/plus.svg) **Add** and select the `postbox-events-connection` connection you created earlier.
   1. Under **Tables**, select the `postbox-events` table and drag it to the right.
   1. Click **Save**.
-  1. In the window that opens, specify `postbox-events-dataset` and click **Create**.
+  1. In the window that opens, enter `postbox-events-dataset` and click **Create**.
 
 {% endlist %}
 
@@ -338,7 +338,7 @@ In this tutorial, we will create the [Events by day](#events-by-days) and [Event
 
   1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
   1. In the left-hand panel, select ![chart-column](../../_assets/console-icons/chart-column.svg) **Charts**. Click **Create chart** and select **Chart in Wizard**.
-  1. In the window that opens, select the workbook your new connection is in and click **Create**.
+  1. In the window that opens, select the workbook with your new connection and click **Create**.
   1. In the left-hand section, click ![circles-intersection](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and select `postbox-events-dataset`.
   1. Select **Column chart** as the [chart type](../../datalens/visualization-ref/line-chart.md).
   1. Drag the dimensions as follows:
@@ -348,7 +348,7 @@ In this tutorial, we will create the [Events by day](#events-by-days) and [Event
       * `eventtype` to the **Colors** section: This enables using a different color for each event type.
 
   1. Click **Save**.
-  1. In the window that opens, specify the chart name, `Events by day`, and click **Save**.
+  1. In the window that opens, enter `Events by day` as the chart name, and click **Save**.
 
 {% endlist %}
 
@@ -361,7 +361,7 @@ In this tutorial, we will create the [Events by day](#events-by-days) and [Event
 
   1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
   1. In the left-hand panel, select ![chart-column](../../_assets/console-icons/chart-column.svg) **Charts**. Click **Create chart** and select **Chart in Wizard**.
-  1. In the window that opens, select the workbook your new connection is in and click **Create**.
+  1. In the window that opens, select the workbook with your new connection and click **Create**.
   1. In the left-hand section, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and select `postbox-events-dataset`.
   1. Select **Table** as the [chart type](../../datalens/visualization-ref/line-chart.md).
   1. Drag the following dimensions to the **Columns** section:
@@ -377,7 +377,7 @@ In this tutorial, we will create the [Events by day](#events-by-days) and [Event
 
   1. Drag the `delivery_timestamp` dimension to the **Sorting** section to sort the table by delivery time.
   1. Click **Save**.
-  1. In the window that opens, specify the chart name, `Event list`, and click **Save**.
+  1. In the window that opens, enter `Event list` as the chart name, and click **Save**.
 
 {% endlist %}
 
@@ -390,7 +390,7 @@ In this tutorial, we will create the [Events by day](#events-by-days) and [Event
 
   1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
   1. In the left-hand panel, select ![layout-cells-large](../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and click **Create dashboard**.
-  1. In the window that opens, select the workbook your new connection is in and click **Create**.
+  1. In the window that opens, select the workbook with your new connection and click **Create**.
   1. Add `Events by day`, `Event list`, and other charts you created earlier to your dashboard:
 
       1. In the bottom panel, click **Chart**.
@@ -400,7 +400,7 @@ In this tutorial, we will create the [Events by day](#events-by-days) and [Event
 
   1. Use your mouse to resize and move the charts around.
   1. Click **Save**.
-  1. In the window that opens, name the dashboard: `postbox-events-dashboard`.
+  1. In the window that opens, enter `postbox-events-dashboard` as the dashboard name.
   1. Click **Create**.
 
 {% endlist %}

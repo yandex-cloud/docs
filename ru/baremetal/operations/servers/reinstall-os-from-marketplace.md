@@ -62,65 +62,158 @@ description: Следуя данной инструкции, вы сможете
       * {% include [server-lease-cli-os](../../../_includes/baremetal/instruction-steps/server-lease-cli-os.md) %}
       * {% include [server-lease-cli-storage](../../../_includes/baremetal/instruction-steps/server-lease-cli-storage.md) %}
 
+- API {#api}
+
+  Чтобы переустановить операционную систему сервера, воспользуйтесь методом REST API [reinstall](../../api-ref/Server/reinstall.md) для ресурса [Server](../../api-ref/Server/index.md) или вызовом gRPC API [ServerService/Reinstall](../../api-ref/grpc/Server/reinstall.md).
+
 {% endlist %}
 
 ## Пример {#example}
 
 Переустановите операционную систему:
 
- {% list tabs group=instructions %}
+{% list tabs group=instructions %}
 
- - CLI {#cli}
+- CLI {#cli}
 
-   ```bash
-   yc baremetal server reinstall \
-     --name demo-baremetal-server \
-     --os-settings "image-id=ly5vtno2mjr3k4iuecur,password-plain-text=FDrxicR********,ssh-key-public=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQ********"
-   ```
+  ```bash
+  yc baremetal server reinstall \
+    --name demo-baremetal-server \
+    --os-settings "image-id=ly5vtno2mjr3k4iuecur,password-plain-text=FDrxicR********,ssh-key-public=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQ********"
+  ```
 
-   Результат:
+  Результат:
 
-   ```text
-   done (22m47s)
-   id: ly5u2442ulmz********
-   cloud_id: b1gia87mbaom********
-   folder_id: b1g0ijbfaqsn********
-   name: demo-baremetal-server
-   description: My first BareMetal server
-   zone_id: ru-central1-m
-   hardware_pool_id: ru-central1-m4
-   status: RUNNING
-   os_settings:
-     image_id: ly5vtno2mjr3k4iuecur
-     ssh_public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQYnYYjAoj********
-     storages:
-       - partitions:
-           - type: EXT3
-             size_gib: "9"
-             mount_point: /boot
-           - type: SWAP
-             size_gib: "4"
-           - type: EXT4
-             mount_point: /
-         raid:
-           type: RAID10
-           disks:
-             - id: ly54aes2ecmb********
-               type: HDD
-               size_gib: "1862"
-             - id: ly5nrgud6zrt********
-               type: HDD
-               size_gib: "1862"
-             - id: ly5yf2ylmchh********
-               type: HDD
-               size_gib: "1862"
-             - id: ly5loug77ciu********
-               type: HDD
-               size_gib: "1862"
-   configuration_id: ly5lymxdltk3xitpkrmi
-   created_at: "2025-07-09T07:23:39.323794Z"
-   labels:
-     env: test
-   ```
+  ```text
+  done (22m47s)
+  id: ly5u2442ulmz********
+  cloud_id: b1gia87mbaom********
+  folder_id: b1g0ijbfaqsn********
+  name: demo-baremetal-server
+  description: My first BareMetal server
+  zone_id: ru-central1-m
+  hardware_pool_id: ru-central1-m4
+  status: RUNNING
+  os_settings:
+    image_id: ly5vtno2mjr3k4iuecur
+    ssh_public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQYnYYjAoj********
+    storages:
+      - partitions:
+          - type: EXT3
+            size_gib: "9"
+            mount_point: /boot
+          - type: SWAP
+            size_gib: "4"
+          - type: EXT4
+            mount_point: /
+        raid:
+          type: RAID10
+          disks:
+            - id: ly54aes2ecmb********
+              type: HDD
+              size_gib: "1862"
+            - id: ly5nrgud6zrt********
+              type: HDD
+              size_gib: "1862"
+            - id: ly5yf2ylmchh********
+              type: HDD
+              size_gib: "1862"
+            - id: ly5loug77ciu********
+              type: HDD
+              size_gib: "1862"
+  configuration_id: ly5lymxdltk3xitpkrmi
+  created_at: "2025-07-09T07:23:39.323794Z"
+  labels:
+    env: test
+  ```
+
+- API {#api}
+
+  ```bash
+  curl -X POST \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer <IAM-токен>" \
+    -d '{
+    "osSettingsSpec": {
+    "imageId": "ly5vyzcggvci********",
+    "storages": [
+      {
+        "partitions": [
+          {
+            "type": "EXT3",
+            "sizeGib": "9",
+            "mountPoint": "/boot"
+          },
+          {
+            "type": "SWAP",
+            "sizeGib": "4"
+          },
+          {
+            "type": "EXT4",
+            "mountPoint": "/"
+          }
+        ],
+        "raid": {
+          "disks": [
+            {
+              "id": "ly536lgz5cdo********",
+              "type": "HDD",
+              "sizeGib": "1862"
+            },
+            {
+              "id": "ly55nr77qcgq********",
+              "type": "HDD",
+              "sizeGib": "1862"
+            },
+            {
+              "id": "ly57e5ouat4r********",
+              "type": "HDD",
+              "sizeGib": "1862"
+            },
+            {
+              "id": "ly5g77vbnavh********",
+              "type": "HDD",
+              "sizeGib": "1862"
+            }
+          ],
+          "type": "RAID10"
+        }
+       }
+      ],
+      "sshPublicKey": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMYMj0PbB7ObhwL0z3y+vN0BfNK********",
+      "passwordLockboxSecret": {
+        "secretId": "e6q44i0gmlrh********",
+        "versionId": "e6q3ba84ur0a********",
+        "key": "password"
+      }
+     }
+    }' \
+    "https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers/<идентификатор_сервера>:reinstall"
+  ```
+
+  Где:
+
+  * `<идентификатор_сервера>` — идентификатор сервера, который нужно изменить. Чтобы узнать идентификатор, воспользуйтесь [инструкцией](get-info.md).
+
+  {% include [ossettingsspec-api-legend](../../../_includes/baremetal/ossettingsspec-api-legend.md) %}
+
+  Результат:
+
+  ```bash
+  {
+    "done": false,
+    "metadata": {
+      "@type": "type.googleapis.com/yandex.cloud.baremetal.v1alpha.ReinstallServerMetadata",
+      "serverId": "ly56xpblirh4********"
+    },
+    "id": "ly5ryflh7v5p********",
+    "description": "Server reinstall",
+    "createdAt": "2025-12-07T20:47:23.928014Z",
+    "createdBy": "ajeb9l33h6mu********",
+    "modifiedAt": "2025-12-07T20:47:23.928014Z"
+  }
+  ```
+
+  Отслеживайте статус операции по полю `done`.
 
 {% endlist %}

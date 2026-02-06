@@ -1,7 +1,7 @@
 # Loading data from {{ yandex-direct }} to a {{ mch-full-name }} data mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{ data-transfer-full-name }}
 
 
-You can transfer data from {{ yandex-direct }} to {{ mch-name }} using {{ sf-name }}, {{ objstorage-name }}, and {{ data-transfer-name }}. Proceed as follows:
+You can transfer data from {{ yandex-direct }} to {{ mch-name }} using {{ sf-name }}, {{ objstorage-name }}, and {{ data-transfer-name }}. To do this:
 
 1. [Transfer your data from {{ yandex-direct }} to {{ objstorage-name }} using {{ sf-name }}](#direct-objstorage).
 1. [Transfer your data from {{ objstorage-name }} to {{ mch-name }} using {{ data-transfer-name }}](#objstorage-mch).
@@ -22,14 +22,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Prepare the test data to load from {{ yandex-direct }}:
 
-    1. [Register the test application in {{ yandex-oauth }}](https://yandex.ru/dev/direct/doc/dg/concepts/register.html#oauth).
+    1. [Register your test application in {{ yandex-oauth }}](https://yandex.ru/dev/direct/doc/dg/concepts/register.html#oauth).
 
         Select **Web services** as the platform. In the **Redirect URI** field, paste the URL for debugging: `https://oauth.yandex.ru/verification_code`.
 
-    1. [Get a debug token](https://yandex.ru/dev/id/doc/ru/tokens/debug-token) for the application.
+    1. [Get a debug token](https://yandex.ru/dev/id/doc/ru/tokens/debug-token) for your application.
     1. [Request](https://yandex.ru/dev/direct/doc/dg/concepts/register.html#request) test access to {{ yandex-direct }} for the application and wait for approval.
     1. [Set up the sandbox](https://yandex.ru/dev/direct/doc/dg/concepts/sandbox-init.html) in {{ yandex-direct }} with the **Client** role.
-    1. (Optional) Check your setup by sending a request to the sandbox API from the application:
+    1. Optionally, check your setup by sending a request to the sandbox API from the application:
 
         {% cut "Request example" %}
 
@@ -78,7 +78,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         {% endcut %}
 
-1. Prepare your {{ yandex-cloud }} infrastructure:
+1. Set up your {{ yandex-cloud }} infrastructure:
 
     {% list tabs group=resources %}
 
@@ -93,8 +93,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `app_token:<application_debug_token>`
 
         1. [Create a bucket](../../storage/operations/buckets/create.md) in {{ objstorage-short-name }}.
-        1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
-        1. If using security groups, make sure they are [configured correctly](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) and allow inbound connections to your {{ mch-name }} cluster.
+        1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) of any suitable configuration with publicly accessible hosts.
+        1. If using security groups, make sure they are [configured correctly](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) and allow connections to your {{ mch-name }} cluster.
 
     - {{ TF }} {#tf}
 
@@ -109,19 +109,19 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             * [Network](../../vpc/concepts/network.md#network).
             * [Subnet](../../vpc/concepts/network.md#subnet).
-            * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to a {{ mch-name }} cluster.
+            * [Security group](../../vpc/concepts/security-groups.md) and rules for connecting to a {{ mch-name }} cluster.
             * Service account with the `storage.uploader` and `lockbox.payloadViewer` roles.
             * Static key for the service account.
             * {{ lockbox-name }} secret.
             * {{ objstorage-short-name }} bucket.
-            * {{ sf-name }} serverless function.
+            * Function in {{ sf-name }}.
             * {{ mch-name }} target cluster.
             * {{ mch-name }} target endpoint.
             * Transfer.
 
         1. In the `ya-direct-to-mch.tf` file, specify the following variables:
 
-            * `folder_id`: Cloud folder ID matching the one in your provider settings.
+            * `folder_id`: Cloud folder ID, same as in the provider settings.
             * `app_token`: Application debug token.
             * `bucket_name`: {{ objstorage-short-name }} bucket name. The name must be unique within the service.
             * `ch_password`: {{ mch-name }} cluster admin user password.
@@ -160,7 +160,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endnote %}
 
-1. Create and configure [a function in the {{ sf-name }} service](../../functions/concepts/function.md):
+1. Create and configure [a function in {{ sf-name }}](../../functions/concepts/function.md):
 
     {% list tabs group=resources %}
 
@@ -177,7 +177,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**: Enter the bucket name in the `key=value` format:
 
                 * Key: `BUCKET`.
-                * Value: Name of the bucket created earlier (without the `s3://` prefix).
+                * Value: Name of the bucket you created (without the `s3://` prefix).
 
             * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**: Specify the path to the three previously created {{ lockbox-name }} secrets as environment variables:
 
@@ -194,7 +194,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         1. In the `ya-direct-to-mch.tf` file, specify the following variables:
 
             * `path_to_zip_cf`: Path to the ZIP archive file with the function code.
-            * `create_function`: `1` to create a function.
+            * `create_function`: Set to `1` to create a function.
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -249,7 +249,7 @@ You will see a Parquet file in the bucket.
         1. In the `ya-direct-to-mch.tf` file, specify the following variables:
 
             * `source_endpoint_id`: Source endpoint ID.
-            * `transfer_enabled`: `1` to create a transfer.
+            * `transfer_enabled`: Set to `1` to create a transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -269,7 +269,7 @@ You will see a Parquet file in the bucket.
 
 1. Make sure the {{ objstorage-name }} source data was transferred to the {{ mch-name }} database:
 
-    1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) via `clickhouse-client`.
+    1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`.
 
     1. Run this query:
 
@@ -293,12 +293,12 @@ You will see a Parquet file in the bucket.
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the objects](../../storage/operations/objects/delete.md) from the bucket.
-1. Delete other resources using the same method used for their creation:
+1. Delete the other resources depending on how you created them:
 
    {% list tabs group=resources %}
 

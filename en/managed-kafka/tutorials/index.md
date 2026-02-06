@@ -1,6 +1,6 @@
 # {{ mkf-name }} tutorials
 
-You can use {{ mkf-name }} to transfer data between databases. Sources and targets can be {{ mkf-name }} clusters, third-party {{ KF }} clusters, or {{ yandex-cloud }} managed databases.
+You can use {{ mkf-name }} to transfer data between databases. {{ mkf-name }} clusters, third-party {{ KF }} clusters, or {{ yandex-cloud }} managed databases can be used as sources and targets.
 
 ## Moving data from {{ KF }} {#moving-data}
 

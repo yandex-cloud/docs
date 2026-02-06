@@ -13,3 +13,4 @@ description: Различные сценарии использования {{ i
 * [{#T}](wlif-k8s-integration.md)
 * [{#T}](wlif-managed-k8s-integration.md)
 * [{#T}](ci-cd-github-functions.md)
+* [{#T}](ephemeral-key-storage.md)

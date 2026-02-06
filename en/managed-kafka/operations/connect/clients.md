@@ -3,26 +3,26 @@ title: Connecting to an {{ KF }} cluster in {{ mkf-full-name }}
 description: Follow this guide to connect to {{ KF }} cluster hosts using command line tools and from a Docker container.
 ---
 
-# Connecting to a {{ KF }} cluster from applications
+# Connecting to an {{ KF }} cluster from applications
 
-This section provides settings for connection to {{ mkf-name }} cluster hosts using [command line tools](#command-line-tools) and from a [Docker container](#docker). To learn how to connect from your application code, see [Code examples](code-examples.md).
+This section provides settings for connecting to {{ mkf-name }} cluster hosts using [command line tools](#command-line-tools) and from a [Docker container](#docker). To learn how to connect from your application code, see [Code examples](code-examples.md).
 
-You can connect to public {{ KF }} cluster hosts only if using an [SSL certificate](index.md#get-ssl-cert). The examples below assume that the `{{ crt-local-file }}` certificate is located in this directory:
+You can only connect to public {{ KF }} cluster hosts using an [SSL certificate](index.md#get-ssl-cert). The examples below assume that the `{{ crt-local-file }}` certificate is located in this directory:
 
 * `{{ crt-local-dir }}` for Ubuntu.
 * `$HOME\.kafka\` for Windows.
 
 
-Connections without an SSL certificate are only supported for hosts that are not publicly accessible. If this is the case, internal virtual network traffic will not be encrypted for database connections.
+Connecting without an SSL certificate is only supported for non-public hosts. If this is the case, internal virtual network traffic will not be encrypted when connecting to a database.
 
 Before connecting, [configure security groups](index.md#configuring-security-groups) for the cluster, if required.
 
 
 The examples for Linux were tested in the following environment:
 
-* {{ yandex-cloud }} virtual machine running Ubuntu 20.04 LTS
-* OpenJDK: `11.0.24`
-* Bash: `5.0.16`
+* {{ yandex-cloud }} VM running Ubuntu 20.04 LTS.
+* OpenJDK: `11.0.24`.
+* Bash: `5.0.16`.
 
 The examples for Windows were tested in the following environment:
 
@@ -36,7 +36,7 @@ The examples for Windows were tested in the following environment:
 
 ### kafkacat {#bash-zsh}
 
-The [kafkacat](https://github.com/edenhill/kcat), or `kcat`, utility is an open source app that can function as a universal data producer or consumer without installing Java Runtime Environment.
+[kafkacat](https://github.com/edenhill/kcat), or `kcat`, is an open source tool for producing and consuming data without installing Java Runtime Environment.
 
 Before connecting, install the required dependencies:
 
@@ -46,7 +46,7 @@ sudo apt update && sudo apt install -y kafkacat
 
 {% note info %}
 
-On Ubuntu 24.04 and higher, use `kcat`.
+On Ubuntu 24.04 or higher, use `kcat`.
 
 {% endnote %}
 
@@ -54,7 +54,7 @@ On Ubuntu 24.04 and higher, use `kcat`.
 
 - Connecting without SSL {#without-ssl}
 
-  1. Run this command for receiving messages from a topic:
+  1. Run the following command to receive messages from the topic:
 
       ```bash
       kafkacat -C \
@@ -66,9 +66,9 @@ On Ubuntu 24.04 and higher, use `kcat`.
                -X sasl.password="<consumer_password>" -Z
       ```
 
-     The command will continuously read new messages from the topic.
+     This command will continuously read new messages from the topic.
 
-  1. In a separate terminal, run the command for sending a message to a topic:
+  1. In a separate terminal, run the following command to send a message to the topic:
 
       ```bash
       echo "test message" | kafkacat -P \
@@ -83,13 +83,13 @@ On Ubuntu 24.04 and higher, use `kcat`.
 
 - Connecting with SSL {#with-ssl}
 
-  1. Run this command for receiving messages from a topic:
+  1. Run the following command to receive messages from the topic:
 
      {% include [default-get-string](../../../_includes/mdb/mkf/default-get-string.md) %}
 
-     The command will continuously read new messages from the topic.
+     This command will continuously read new messages from the topic.
 
-  1. In a separate terminal, run the command for sending a message to a topic:
+  1. In a separate terminal, run the following command to send a message to the topic:
 
      {% include [default-get-string](../../../_includes/mdb/mkf/default-send-string.md) %}
 
@@ -111,7 +111,7 @@ Before connecting:
     sudo apt update && sudo apt install --yes default-jdk
     ```
 
-1. Download the [archive with binary files](https://kafka.apache.org/downloads) for the {{ KF }} version run by the cluster. Your Scala version is irrelevant.
+1. Download the [archive with binary files](https://kafka.apache.org/downloads) for the {{ KF }} version running in your cluster. Your Scala version is irrelevant.
 
 1. Unpack the archive.
 
@@ -121,24 +121,24 @@ Before connecting:
 
     1. {% include [connect-properties-no-ssl](../../../_includes/mdb/mkf/connect-properties-no-ssl.md) %}
 
-    1. Run this command for receiving messages from a topic:
+    1. Run the following command to receive messages from the topic:
 
         ```bash
-        <path_to_folder_with_Apache_Kafka_files>/bin/kafka-console-consumer.sh \
-          --consumer.config <path_to_file_with_parameters_for_consumer> \
+        <path_to_directory_with_Apache_Kafka_files>/bin/kafka-console-consumer.sh \
+          --consumer.config <path_to_file_with_consumer_configuration> \
           --bootstrap-server <broker_FQDN>:9092 \
           --topic <topic_name> \
           --property print.key=true \
           --property key.separator=":"
         ```
 
-        The command will continuously read new messages from the topic.
+        This command will continuously read new messages from the topic.
 
-    1. In a separate terminal, run the command for sending a message to a topic:
+    1. In a separate terminal, run the following command to send a message to the topic:
 
         ```bash
-        echo "key:test message" | <path_to_folder_with_Apache_Kafka_files>/bin/kafka-console-producer.sh \
-          --producer.config <path_to_file_with_parameters_for_producer> \
+        echo "key:test message" | <path_to_directory_with_Apache_Kafka_files>/bin/kafka-console-producer.sh \
+          --producer.config <path_to_file_with_producer_configuration> \
           --bootstrap-server <broker_FQDN>:9092 \
           --topic <topic_name> \
           --property parse.key=true \
@@ -147,7 +147,7 @@ Before connecting:
 
 - Connecting with SSL {#with-ssl}
 
-    1. Go to the folder where the Java certificate store will be located:
+    1. Go to the folder where the Java certificate store will reside:
 
         ```bash
         cd /etc/security
@@ -155,9 +155,9 @@ Before connecting:
 
     1. {% include [keytool-importcert](../../../_includes/mdb/keytool-importcert.md) %}
 
-    1. Create files with cluster connection parameters: a file for the producer and a file for the consumer.
+    1. Create two configuration files to connect to the cluster: one for the producer and one for the consumer.
 
-        The files have the same content, only the user details are different:
+        These files have the same content and differ only in user credentials:
 
         ```ini
         sasl.mechanism=SCRAM-SHA-512
@@ -169,24 +169,24 @@ Before connecting:
         ssl.truststore.password=<certificate_store_password>
         ```
 
-    1. Run this command for receiving messages from a topic:
+    1. Run the following command to receive messages from the topic:
 
         ```bash
-        <path_to_folder_with_Apache_Kafka_files>/bin/kafka-console-consumer.sh \
-          --consumer.config <path_to_file_with_parameters_for_consumer> \
+        <path_to_directory_with_Apache_Kafka_files>/bin/kafka-console-consumer.sh \
+          --consumer.config <path_to_file_with_consumer_configuration> \
           --bootstrap-server <broker_FQDN>:9091 \
           --topic <topic_name> \
           --property print.key=true \
           --property key.separator=":"
         ```
 
-        The command will continuously read new messages from the topic.
+        This command will continuously read new messages from the topic.
 
-    1. In a separate terminal, run the command for sending a message to a topic:
+    1. In a separate terminal, run the following command to send a message to the topic:
 
         ```bash
-        echo "key:test message" | <path_to_folder_with_Apache_Kafka_files>/bin/kafka-console-producer.sh \
-          --producer.config <path_to_file_with_parameters_for_producer> \
+        echo "key:test message" | <path_to_directory_with_Apache_Kafka_files>/bin/kafka-console-producer.sh \
+          --producer.config <path_to_file_with_producer_configuration> \
           --bootstrap-server <broker_FQDN>:9091 \
           --topic <topic_name> \
           --property parse.key=true \
@@ -203,7 +203,7 @@ Before connecting:
 
 {% include [kafka-cli-tools-intro](../../../_includes/mdb/mkf/kafka-cli-tools-intro.md) %}
 
-While mentioning `.sh` scripts, the documentation for the tools is relevant for Windows as well. The tools are the same whichever the platform, only the scripts that run them are different, for example:
+While mentioning `.sh` scripts, the documentation for the tools is relevant for Windows as well. The tools are the same across platforms, and only the scripts that run them differ, as shown below:
 
 * `bin/kafka-console-producer.sh` for Linux (Bash)/macOS (Zsh).
 * `bin\windows\kafka-console-producer.bat` for Windows (PowerShell).
@@ -212,13 +212,13 @@ Before connecting:
 
 1. Install the latest available version of [Microsoft OpenJDK](https://docs.microsoft.com/en-us/java/openjdk/download).
 
-1. Download the [archive with binary files](https://kafka.apache.org/downloads) for the {{ KF }} version run by the cluster. Your Scala version is irrelevant.
+1. Download the [archive with binary files](https://kafka.apache.org/downloads) for the {{ KF }} version running in your cluster. Your Scala version is irrelevant.
 
 1. Unpack the archive.
 
    {% note tip %}
 
-   Unpack the {{ KF }} files to the disk's root folder, e.g., `C:\kafka_2.12-2.6.0\`.
+   Unpack the {{ KF }} files to the disk root folder, e.g., `C:\kafka_2.12-2.6.0\`.
 
    If the path to the {{ KF }} executables and batch files is too long, you will get the `The input line is too long` error when trying to run them.
 
@@ -230,24 +230,24 @@ Before connecting:
 
   1. {% include [connect-properties-no-ssl](../../../_includes/mdb/mkf/connect-properties-no-ssl.md) %}
 
-  1. Run this command for receiving messages from a topic:
+  1. Run the following command to receive messages from the topic:
 
       ```powershell
-      <path_to_folder_with_Apache_Kafka_files>\bin\windows\kafka-console-consumer.bat `
-          --consumer.config <path_to_file_with_parameters_for_consumer> `
+      <path_to_directory_with_Apache_Kafka_files>\bin\windows\kafka-console-consumer.bat `
+          --consumer.config <path_to_file_with_consumer_configuration> `
           --bootstrap-server <broker_FQDN>:9092 `
           --topic <topic_name> `
           --property print.key=true `
           --property key.separator=":"
       ```
 
-     The command will continuously read new messages from the topic.
+     This command will continuously read new messages from the topic.
 
-  1. In a separate terminal, run the command for sending a message to a topic:
+  1. In a separate terminal, run the following command to send a message to the topic:
 
       ```powershell
-      echo "key:test message" | <path_to_folder_with_Apache_Kafka_files>\bin\windows\kafka-console-producer.bat `
-          --producer.config <path_to_file_with_parameters_for_producer> `
+      echo "key:test message" | <path_to_directory_with_Apache_Kafka_files>\bin\windows\kafka-console-producer.bat `
+          --producer.config <path_to_file_with_producer_configuration> `
           --bootstrap-server <broker_FQDN>:9092 `
           --topic <topic_name> `
           --property parse.key=true `
@@ -266,9 +266,9 @@ Before connecting:
        --noprompt
      ```
 
-  1. Create files with cluster connection parameters: a file for the producer and a file for the consumer.
+  1. Create two configuration files to connect to the cluster: one for the producer and one for the consumer.
 
-     The files have the same content, only the user details are different:
+     These files have the same content and differ only in user credentials:
 
      ```ini
      sasl.mechanism=SCRAM-SHA-512
@@ -280,7 +280,7 @@ Before connecting:
      ssl.truststore.password=<certificate_store_password>
      ```
 
-     Specify the full path to the certificate store as the `ssl.truststore.location` parameter value, for example:
+     Specify the full path to the certificate store as the `ssl.truststore.location` parameter value. Here is an example:
 
      ```ini
      ssl.truststore.location=C:\\Users\\Administrator\\.kafka\\ssl
@@ -298,24 +298,24 @@ Before connecting:
 
      {% endnote %}
 
-  1. Run this command for receiving messages from a topic:
+  1. Run the following command to receive messages from the topic:
 
       ```powershell
-      <path_to_folder_with_Apache_Kafka_files>\bin\windows\kafka-console-consumer.bat `
-          --consumer.config <path_to_file_with_parameters_for_consumer> `
+      <path_to_directory_with_Apache_Kafka_files>\bin\windows\kafka-console-consumer.bat `
+          --consumer.config <path_to_file_with_consumer_configuration> `
           --bootstrap-server <broker_FQDN>:9091 `
           --topic <topic_name> `
           --property print.key=true `
           --property key.separator=":"
       ```
 
-     The command will continuously read new messages from the topic.
+     This command will continuously read new messages from the topic.
 
-  1. In a separate terminal, run the command for sending a message to a topic:
+  1. In a separate terminal, run the following command to send a message to the topic:
 
       ```powershell
-      echo "key:test message" | <path_to_folder_with_Apache_Kafka_files>\bin\windows\kafka-console-producer.bat `
-          --producer.config <path_to_file_with_parameters_for_producer> `
+      echo "key:test message" | <path_to_directory_with_Apache_Kafka_files>\bin\windows\kafka-console-producer.bat `
+          --producer.config <path_to_file_with_producer_configuration> `
           --bootstrap-server <broker_FQDN>:9091 `
           --topic <topic_name> `
           --property parse.key=true `
@@ -330,7 +330,7 @@ Before connecting:
 
 ## Before you connect from a Docker container {#docker}
 
-To connect to a {{ mkf-name }} cluster from a Docker container, add the following lines to the Dockerfile:
+To connect to a {{ mkf-name }} cluster from a Docker container, add the following lines to your Dockerfile:
 
 {% list tabs group=connection %}
 

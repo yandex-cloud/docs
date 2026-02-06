@@ -3,7 +3,7 @@
 
 You can migrate data from {{ objstorage-name }} to the {{ ydb-name }} table using {{ data-transfer-name }}. To do this:
 
-1. [Prepare the test data](#prepare-data).
+1. [Prepare your test data](#prepare-data).
 1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
@@ -13,7 +13,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Required paid resources {#paid-resources}
 
 * {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). The cost depends on the deployment mode:
+* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
 
 	* In serverless mode, you pay for data operations and storage volume, including stored backups.
   	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
@@ -30,7 +30,7 @@ Set up your infrastructure:
 
     1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) of your preferred configuration.
 
-    1. If you selected {{ dd }} DB mode, [create](../../vpc/operations/security-group-create.md) and [configure](../../ydb/operations/connection.md#configuring-security-groups) a security group in the network hosting the DB.
+    1. If you selected {{ dd }} database mode, [create](../../vpc/operations/security-group-create.md) and [configure](../../ydb/operations/connection.md#configuring-security-groups) a security group in the network hosting your database.
 
     1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md).
 
@@ -51,10 +51,10 @@ Set up your infrastructure:
 
         This file describes:
 
-        * Service account to use when working with the {{ ydb-name }} bucket and database.
-        * {{ lockbox-name }} secret which will store the static key of the service account to configure the source endpoint.
-        * Source {{ objstorage-name }} bucket.
-        * Target {{ ydb-name }} cluster.
+        * Service account to use for accessing the {{ ydb-name }} bucket and database.
+        * {{ lockbox-name }} secret for the service account static key required to configure the source endpoint.
+        * {{ objstorage-name }} source bucket.
+        * {{ ydb-name }} target cluster.
         * Target endpoint.
         * Transfer.
 
@@ -81,7 +81,7 @@ Set up your infrastructure:
 
 ## Prepare your test data {#prepare-data}
 
-1. Prepare two CSV files with test data:
+1. Create two CSV files with test data:
 
     * `demo_data1.csv`:
 
@@ -110,7 +110,7 @@ Set up your infrastructure:
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: {{ objstorage-name }} bucket name.
 
         
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public component of the service account’s static key. If you created your infrastructure using {{ TF }}, [copy the key’s value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Service account’s static access key ID. If you created your infrastructure using {{ TF }}, [copy the key’s value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Service account’s secret access key. If you created your infrastructure using {{ TF }}, [copy the key’s value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
 
 
@@ -126,7 +126,7 @@ Set up your infrastructure:
 
     Keep the default values for all other settings.
 
-1. Create a target endpoint and set up the transfer:
+1. Create a target endpoint and a transfer:
 
     {% list tabs group=instructions %}
 
@@ -140,7 +140,7 @@ Set up your infrastructure:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select the `s3-ydb-account` service account.
 
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**-type that will use the endpoints you created.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the endpoints you created.
 
         1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
@@ -167,7 +167,7 @@ Set up your infrastructure:
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 Make sure the transfer works correctly by testing copying and replication.
 
@@ -181,7 +181,7 @@ Make sure the transfer works correctly by testing copying and replication.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
     1. Select your database from the list.
     1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
-    1. Make sure the {{ ydb-name }} database contains a table named `table1` with the test data.
+    1. Check that the {{ ydb-name }} database contains the `table1` table with test data.
 
 - CLI {#cli}
 
@@ -223,7 +223,7 @@ Make sure the transfer works correctly by testing copying and replication.
         1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Select your database from the list.
         1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
-        1. Make sure `table1` now contains the new data.
+        1. Check that `table1` now contains the new data.
 
     - CLI {#cli}
 

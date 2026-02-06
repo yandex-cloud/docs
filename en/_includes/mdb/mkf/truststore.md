@@ -1,8 +1,8 @@
-TrustStore is a trusted certificate store used in JKS files. It serves for authenticating a client when connecting to the server. The server validates the client using certificates stored in TrustStore. However, the client stores the private key and the certificate on their side in KeyStore.
+A _TrustStore_ is a trusted certificate store used in JKS (Java KeyStore) files. It serves for authenticating a client connecting to the server. The server validates the client using certificates stored in the TrustStore. The client stores its private key and certificate locally in a KeyStore.
 
-In the example below, TrustStore is used to connect to a {{ mkf-name }} cluster. With no TrustStore created, the {{ KF }} web interface will lack information about the cluster.
+The example below uses a TrustStore to connect to the {{ mkf-name }} cluster. With no TrustStore created, the {{ KF }} web UI will lack information about the cluster.
 
-To use TrustStore:
+To use a TrustStore:
 
 1. Create an SSL certificate:
 
@@ -19,9 +19,9 @@ To use TrustStore:
    mkdir /truststore
    ```
 
-   It will store the `truststore.jks` file. You need a separate directory so that the file path is correctly recognized in commands and configuration files.
+   It will store the `truststore.jks` file. You need a separate directory to ensure the file path is correctly recognized in commands and configuration files.
 
-1. Upload the `YandexCA.crt` certificate to the `truststore.jks` file:
+1. Import the `YandexCA.crt` certificate into the `truststore.jks` file:
 
    ```bash
    sudo keytool -import \
@@ -30,4 +30,4 @@ To use TrustStore:
                 -keystore /truststore/truststore.jks
    ```
 
-   You will be prompted to create a password. Memorize it: you will need it to deploy the {{ KF }} web interface.
+   You will be prompted to create a password. Note it down, as you will need it to deploy the {{ KF }} web UI.

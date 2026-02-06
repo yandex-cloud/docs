@@ -19,6 +19,6 @@
 
    The certificate will be saved to the `$HOME\.kafka\{{ crt-local-file }}` file.
 
-   Corporate policies and antivirus software can block the download of certificates. For more information, see [FAQ](../../../managed-kafka/qa/index.md#get-ssl-error).
+   Your corporate security policies and antivirus software may block the certificate download. For more information, see [FAQ](../../../managed-kafka/qa/index.md#get-ssl-error).
 
 {% endlist %}
