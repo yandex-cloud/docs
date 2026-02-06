@@ -16,9 +16,49 @@
           {% include [no-subnet-overlapping-warn](../../_tutorials/_tutorials_includes/bm-vrf-and-vpc-interconnect/no-subnet-overlapping-warn.md) %}
       1. Чтобы создать приватное соединение с указанными CIDR подсетей, нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-{% endlist %}
+  В результате на странице с информацией о VRF в блоке **{{ ui-key.yacloud.baremetal.title_vrf-interconnect-section }}** отобразится идентификатор созданного соединения и его статус.
 
-В результате на странице с информацией о VRF в блоке **{{ ui-key.yacloud.baremetal.title_vrf-interconnect-section }}** отобразится идентификатор созданного соединения и его статус.
+- API {#api}
+
+  Чтобы создать приватное соединение с облачными сетями, воспользуйтесь методом REST API [PrivateCloudConnection.Create](../../baremetal/api-ref/PrivateCloudConnection/create.md) или вызовом gRPC API [PrivateCloudConnectionService/Create](../../baremetal/api-ref/grpc/PrivateCloudConnection/create.md).
+
+  Выполните запрос:
+
+  ```bash
+  curl -X POST \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer <IAM-токен>" \
+    -d '{
+      "routingInstanceId":"fokrf2in3c7********",
+      "vrfId":"ly5uyq2gbxu2********"
+      }' \
+    "https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/privateCloudConnections"
+  ```
+
+  Где:
+
+  * `routingInstanceId` — идентификатор [Routing Instance](../../cloud-router/concepts/routing-instance.md) в {{ cr-name }}.
+  * `vrfId` — идентификатор VRF, который подключается к Routing Instance. Чтобы получить идентификатор VRF, воспользуйтесь методом [VrfService.List](../../baremetal/api-ref/Vrf/list.md).
+
+  Результат:
+
+  ```json
+  {
+    "done": false,
+    "id": "arpas4mne3********",
+    "description": "Create private cloud connection",
+    "createdAt": "2024-01-01T12:00:00Z",
+    "createdBy": "user-id",
+    "modifiedAt": "2024-01-01T12:00:00Z",
+    "metadata": {
+      "privateCloudConnectionId": "kor4msi1aqq********"
+    }
+  }
+  ```
+
+  Операция создания приватного соединения выполняется асинхронно. Отслеживайте статус операции по полю `done`.
+
+{% endlist %}
 
 {% note info %}
 

@@ -40,20 +40,143 @@ description: 'Следуя данной инструкции, вы сможет�
       yc baremetal server get <имя_или_идентификатор_сервера>
       ```
 
+- API {#api}
+
+  Чтобы получить информацию о сервере, воспользуйтесь методом REST API [get](../../api-ref/Server/get.md) для ресурса [Server](../../api-ref/Server/index.md) или вызовом gRPC API [ServerService/Get](../../api-ref/grpc/Server/get.md).
+
 {% endlist %}
 
 ## Пример {#example}
 
 Получите информацию о сервере:
 
- {% list tabs group=instructions %}
+{% list tabs group=instructions %}
 
- - CLI {#cli}
+- CLI {#cli}
 
-   ```bash
-   yc baremetal server get demo-baremetal-server
-   ```
+  ```bash
+  yc baremetal server get demo-baremetal-server
+  ```
 
-   {% include [server-lease-cli-result](../../../_includes/baremetal/instruction-steps/server-lease-cli-result.md) %}
+  {% include [server-lease-cli-result](../../../_includes/baremetal/instruction-steps/server-lease-cli-result.md) %}
+
+- API {#api}
+
+  ```bash
+  curl -X GET \
+   -H "Content-Type: application/json" \
+   -H "Authorization: Bearer <IAM-токен>" \
+   -d '{}' \
+   "https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers/<идентификатор_сервера>"
+  ```
+
+  Где:
+
+  * `<IAM-токен>` — IAM-токен для аутентификации.
+  * `<идентификатор_сервера>` — идентификатор сервера.
+
+  Результат:
+
+  ```json
+  {
+    "osSettings": {
+      "storages": [
+        {
+          "partitions": [
+            {
+              "type": "EXT3",
+              "sizeGib": "9",
+              "mountPoint": "/boot"
+            },
+            {
+              "type": "SWAP",
+              "sizeGib": "4"
+            },
+            {
+              "type": "EXT4",
+              "mountPoint": "/"
+            }
+          ],
+          "raid": {
+            "disks": [
+              {
+                "id": "ly536lgz5cdo********",
+                "type": "HDD",
+                "sizeGib": "1862"
+              },
+              {
+                "id": "ly55nr77qcgq********",
+                "type": "HDD",
+                "sizeGib": "1862"
+              },
+              {
+                "id": "ly57e5ouat4r********",
+                "type": "HDD",
+                "sizeGib": "1862"
+              },
+              {
+                "id": "ly5g77vbnavh********",
+                "type": "HDD",
+                "sizeGib": "1862"
+              }
+            ],
+            "type": "RAID10"
+          }
+        }
+      ],
+      "imageId": "ly5vyzcggvci********",
+      "sshPublicKey": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMYMj0PbB7ObhwL0z3y+vN0BfNKwLm0u7DWw4D********"
+    },
+    "networkInterfaces": [
+      {
+        "privateSubnet": {
+          "privateSubnetId": "ly55shvlzvy4********"
+        },
+        "id": "ly5j33j44gtc********",
+        "macAddress": "00:25:90:e9:49:98"
+      },
+      {
+        "publicSubnet": {
+          "publicSubnetId": "ly5bss2zvuae********"
+        },
+        "id": "ly5rmqqchyep********",
+        "macAddress": "00:25:90:e9:49:99"
+      }
+    ],
+    "id": "ly56xpblirh4********",
+    "cloudId": "b1gia87mbaom********",
+    "folderId": "b1g07hj5r6i4********",
+    "name": "bm-server-test",
+    "zoneId": "ru-central1-m",
+    "hardwarePoolId": "ru-central1-m4",
+    "status": "PROVISIONING",
+    "configurationId": "ly5fcdnlzp7j********",
+    "createdAt": "2025-12-07T19:09:42.520760Z"
+  }
+  ```
+
+  Где:
+
+  * `id` — идентификатор сервера.
+  * `cloudId` — идентификатор облака.
+  * `folderId` — идентификатор каталога.
+  * `name` — имя сервера.
+
+    {% include [name-format](../../../_includes/name-format.md) %}
+
+  * `zoneId` — идентификатор зоны доступности.
+  * `hardwarePoolId` — идентификатор [пула](../../concepts/servers.md#server-pools) размещения сервера.
+  * `status` — статус сервера. Возможные значения:
+    * `PROVISIONING` — сервер ожидает выделения из пула оборудования.
+    * `RUNNING` — сервер работает нормально.
+    * `STOPPED` — сервер остановлен.
+    * `ERROR` — сервер столкнулся с проблемой и не может работать.
+    * `DELETING` — сервер удаляется.
+    * `REINSTALLING` — переустанавливается операционная система сервера.
+  * `configurationId` — идентификатор [конфигурации сервера](../../concepts/server-configurations.md).
+  * `osSettings` — (опционально) настройки операционной системы сервера. Будет пустым, если сервер создан без ОС.
+  * `networkInterfaces` — сетевые интерфейсы, подключенные к серверу.
+  * `disks` — диски, подключенные к серверу.
+  * `createdAt` — время создания в формате RFC3339.  
 
 {% endlist %}

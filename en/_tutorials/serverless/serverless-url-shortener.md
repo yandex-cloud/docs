@@ -3,7 +3,7 @@
 
 In this tutorial, you will create a URL shortener using {{ yandex-cloud }} serverless technology.
 
-This tool accepts user requests via a public [API gateway](../../api-gateway/concepts/index.md). The user receives an HTML page with a URL input field from [hosting](../../storage/concepts/hosting.md). The [function](../../functions/concepts/function.md) sends the entered URL for storage in a [serverless database](../../ydb/concepts/serverless-and-dedicated.md#serverless), shortens it, and returns it to the user. When the user follows the shortened URL, the function retrieves the full URL from the database and and performs a redirect.
+This tool accepts user requests via a public [API gateway](../../api-gateway/concepts/index.md). The user receives an HTML page with a URL input field from a [hosting](../../storage/concepts/hosting.md) service. The [function](../../functions/concepts/function.md) sends the entered URL for storage to a [serverless database](../../ydb/concepts/serverless-and-dedicated.md#serverless), shortens it, and returns it to the user. When the user follows the shortened URL, the function retrieves the full URL from the database and and performs a redirect.
 
 To configure and test the tool:
 1. [Get your cloud ready](#before-begin).
@@ -22,7 +22,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost of resources for our scenario includes:
+The cost of resources for completing this tutorial includes:
 * Fee for using the storage (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * Fee for database queries (see [{{ ydb-name }} pricing](../../ydb/pricing/serverless.md)).
 * Fee for function invocations (see [{{ sf-name }} pricing](../../functions/pricing.md)).
@@ -116,7 +116,7 @@ To create a bucket, upload your URL shortener's HTML page to it, and configure i
 
 ## Create a service account {#service-account}
 
-To create a service account for communication between the shortener components:
+To create a service account to enable interaction between the shortener components:
 
 {% list tabs group=instructions %}
 
@@ -148,7 +148,7 @@ To create a database in {{ ydb-name }} and configure it to store URLs:
   1. Enter the database name: `for-serverless-shortener`.
   1. Select **{{ ui-key.yacloud.ydb.forms.label_serverless-type }}** as the database type.
   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
-  1. Wait until the database is up and running.
+  1. Wait for the database to run.
 
      While being created, your database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
   1. Click the database name.
@@ -201,7 +201,7 @@ To create and set up a URL shortening function:
 
 
      def decode(event, body):
-       # The request body can be encoded.
+       # The request body may be encoded.
        is_base64_encoded = event.get('isBase64Encoded')
        if is_base64_encoded:
          body = str(base64.b64decode(body), 'utf-8')
@@ -390,9 +390,9 @@ To publish your URL shortener via {{ api-gw-name }}:
      {% endcut %}
 
      Edit the specification code as follows:
-     * Replace `<service_account_id>` with the ID of the service account you created earlier.
-     * Replace `<function_id>` with the ID of the function you created earlier.
-     * Replace `<bucket_name>` with the name of the bucket you created earlier.
+     * Replace `<service_account_id>` with the ID of the service account you created.
+     * Replace `<function_id>` with the ID of the function you created.
+     * Replace `<bucket_name>` with the name of the bucket you created.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
   1. Click the name of the API gateway you created.
   1. Copy the `url` value from the specification.
@@ -403,7 +403,7 @@ To publish your URL shortener via {{ api-gw-name }}:
 
 ## Test the URL shortener {#test-shortener}
 
-To make sure your shortener components communicate properly:
+To make sure your shortener components interact properly:
 1. In your browser, open the previously copied URL.
 1. In the input field, enter the URL you want to shorten.
 1. Click **Shorten**.

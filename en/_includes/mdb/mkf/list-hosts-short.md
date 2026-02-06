@@ -25,9 +25,9 @@
             --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/hosts'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](../../../managed-kafka/operations/cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](../../../managed-kafka/operations/cluster-list.md#list-clusters).
 
-    1. Check the [server response](../../../managed-kafka/api-ref/Cluster/listHosts.md#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) to make sure your request was successful. The FQDN is specified in the response under `hosts[].name`.
+    1. Check the [server response](../../../managed-kafka/api-ref/Cluster/listHosts.md#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) to make sure your request was successful. You will find the FQDN in the `hosts[].name` field of the response.
 
 - gRPC API {#grpc-api}
 
@@ -47,8 +47,8 @@
             yandex.cloud.mdb.kafka.v1.ClusterService.ListHosts
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](../../../managed-kafka/operations/cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](../../../managed-kafka/operations/cluster-list.md#list-clusters).
 
-    1. Check the [server response](../../../managed-kafka/api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) to make sure your request was successful. The FQDN is specified in the response under `hosts[].name`.
+    1. Check the [server response](../../../managed-kafka/api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) to make sure your request was successful. You will find the FQDN in the `hosts[].name` field of the response.
 
 {% endlist %}

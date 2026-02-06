@@ -133,7 +133,7 @@ MaxPatrol SIEM uses [static access keys](../../iam/concepts/authorization/access
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
-  1. In the list that opens, select the `maxpatrol-sa` service account.
+  1. In the list that opens, select `maxpatrol-sa`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Enter a description for the key and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
@@ -165,7 +165,7 @@ MaxPatrol SIEM uses [static access keys](../../iam/concepts/authorization/access
 
   {% note alert %}
 
-  Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the key value again.
+  Save `key_id` and `secret`. You will not be able to get the key value again.
 
   {% endnote %}
 
@@ -184,9 +184,9 @@ The database is required for the stream in `{{ yds-name }}`.
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
   1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_ydb }}**.
-  1. Set **{{ ui-key.yacloud.ydb.forms.label_field_name }}** to `maxpatrol-db`.
+  1. Specify **{{ ui-key.yacloud.ydb.forms.label_field_name }}**: `maxpatrol-db`.
   1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
-  1. Leave other parameters at their defaults.
+  1. Keep the default values for all other parameters.
   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
   Wait for the database status to change to `Running`.
@@ -218,7 +218,7 @@ The database is required for the stream in `{{ yds-name }}`.
 
       For more information about the `yc ydb database create` command, see the [CLI reference](../../cli/cli-ref/ydb/cli-ref/database/create.md).
 
-  1. Check the status of the created database:
+  1. Check the status of the new database:
 
       ```bash
       yc ydb database get maxpatrol-db
@@ -231,7 +231,7 @@ The database is required for the stream in `{{ yds-name }}`.
 
 ### Create a data stream {#create-stream}
 
-This is the data stream to which the trail will upload organization resource logs.
+The trail will upload organization resource logs to this data stream.
 
 {% list tabs group=instructions %}
 
@@ -240,8 +240,8 @@ This is the data stream to which the trail will upload organization resource log
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
   1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_data-streams }}**.
   1. In the **{{ ui-key.yacloud.data-streams.label_database }}** field, select `maxpatrol-db`.
-  1. Set **{{ ui-key.yacloud.common.name }}** to `maxpatrol-stream`.
-  1. Leave other parameters at their defaults.
+  1. Specify the **{{ ui-key.yacloud.common.name }}**: `maxpatrol-stream`.
+  1. Keep the default values for all other parameters.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
   Wait for the data stream status to change to `Running`.
@@ -251,7 +251,7 @@ This is the data stream to which the trail will upload organization resource log
 
 ## Create a trail {#create-trail}
 
-The trail will collect management audit logs for all your organization's resources and upload them to the `maxpatrol-stream` data stream.
+The trail will collect management event audit logs for all your organization's resources and upload them to the `maxpatrol-stream` data stream.
 
 {% list tabs group=instructions %}
 
@@ -259,7 +259,7 @@ The trail will collect management audit logs for all your organization's resourc
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
   1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_audit-trails }}**.
-  1. **{{ ui-key.yacloud.common.name }}** the new trail: `maxpatrol-trail`.
+  1. Specify the **{{ ui-key.yacloud.common.name }}** for the new trail: `maxpatrol-trail`.
   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, configure the destination object:
       * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_dataStream }}`.
       * **{{ ui-key.yacloud.audit-trails.label_stream-name }}**: Select `maxpatrol-stream`.
@@ -274,24 +274,24 @@ The trail will collect management audit logs for all your organization's resourc
 
 {% endlist %}
 
-For more information about creating a trail, see [this guide](../../audit-trails/operations/create-trail.md).
+For more information about creating a trail, see [{#T}](../../audit-trails/operations/create-trail.md).
 
 ## Configure MaxPatrol SIEM {#configure-maxpatrol}
 
 
-### Create accounts {#static-key-account}
+### Create credentials {#static-key-account}
 
-You can use accounts to store secrets. Create accounts named `static-key-id` and `static-key-private` for your ID and [secret access key](#create-static-keys):
+You can use credentials to store secrets. Create credentials named `static-key-id` and `static-key-private` for your ID and [secret access key](#create-static-keys):
 
 1. Log in to the MaxPatrol SIEM web interface.
 1. Under **Data collection**, click **Accounts**.
-1. Click **Add account** → **Password** and specify the following parameters:
+1. Click **Add account** → **Password** and specify the following:
     * **Name**: `static-key-id`.
     * **Password**: [Static key](#create-static-keys) ID.
     * **Confirm password**: Reenter static key ID.
 1. Click **Save**.
 
-Similarly, create an account named `static-key-private` containing the secret key.
+Similarly, create a credential named `static-key-private` containing the secret key.
 
 
 ### Create a data collection task {#create-task}
@@ -319,7 +319,7 @@ Create and run a data collection task with the {{ yds-full-name }} profile:
         1. In the **Network addresses** field, enter `yandex-cloud`.
     1. Click **Save and run**.
 
-To view the logs, go to the event review page:
+To view logs, go to the events page:
 1. Go the to the **Data collection tasks** page.
 1. Click `YDS-logs-task`.
 1. Click **Events collected** → **Select**.

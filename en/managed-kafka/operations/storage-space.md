@@ -1,21 +1,21 @@
 ---
 title: Managing disk space in a {{ mkf-name }} cluster
-description: You can monitor storage usage and increase its size either manually or automatically.
+description: You can monitor storage usage and increase storage size either manually or automatically.
 ---
 
 # Managing disk space in a {{ mkf-name }} cluster
 
-As soon as the [storage](../concepts/storage.md) is 97% full, the host automatically enters read-only mode. To avoid issues with writing to the topic, use one of the following methods:
+When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatically switches to read-only mode. To prevent issues with topic writes, use one of the following methods:
 
 
-* [Set up alerts in {{ monitoring-full-name }}](#set-alert) to monitor storage utilization.
+* [Set up alerts in {{ monitoring-full-name }}](#set-alert) to monitor storage usage.
 
 
 * [Increase the storage size](#change-disk-size) to automatically disable read-only mode.
-* [Set up automatic increase of storage size](#disk-size-autoscale) to prevent situations where the disk runs out of free space and the host switches to read-only mode.
+* [Set up automatic storage expansion](#disk-size-autoscale) to prevent the disk from running out of free space and the host from switching to read-only mode.
 
 
-## Set up alerts in {{ monitoring-full-name }} {#set-alert}
+## Setting up alerts in {{ monitoring-full-name }} {#set-alert}
 
 1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
 1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
@@ -40,9 +40,9 @@ As soon as the [storage](../concepts/storage.md) is 97% full, the host automatic
         * **{{ ui-key.yacloud_monitoring.alert.status_warn }}**: `95` (95% of the storage size).
         * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}**: `90` (90% of the storage size).
         * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}**: Preferred metric update period.
-        * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.time-shift }}**: Preferred time shift backward, in seconds. It allows to keep the alert from triggering when multiple metrics are specified and collected at different intervals. To learn more about the calculation delay, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/alerting/alert.md#evaluation-delay).
+        * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.time-shift }}**: Preferred time shift backward, in seconds. It allows to keep the alert from triggering when multiple metrics are specified and collected at different intervals. To learn more about the evaluation delay, see [this {{ monitoring-full-name }} guide](../../monitoring/concepts/alerting/alert.md#evaluation-delay).
 
-    1. **Notifications**: Add the previously created notification channel.
+    1. **Notifications**: Add the notification channel you created earlier.
 
 
 ## Increasing your storage size {#change-disk-size}
@@ -57,10 +57,10 @@ As soon as the [storage](../concepts/storage.md) is 97% full, the host automatic
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
     1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-    1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-    1. Edit the settings in the **{{ ui-key.yacloud.mdb.forms.section_storage }}** section.
+    1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+    1. Edit the settings under **{{ ui-key.yacloud.mdb.forms.section_storage }}**.
 
-        You cannot change the disk type for an {{ KF }} cluster once you create it.
+        You cannot change the disk type for an {{ KF }} cluster once the cluster is created.
 
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -70,7 +70,7 @@ As soon as the [storage](../concepts/storage.md) is 97% full, the host automatic
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To increase the hosts' storage size:
+    To increase your host storage size:
 
     1. See the description of the CLI command for updating a cluster:
 
@@ -78,23 +78,23 @@ As soon as the [storage](../concepts/storage.md) is 97% full, the host automatic
         {{ yc-mdb-kf }} cluster update --help
         ```
 
-    1. To change the size of the broker host storage, run the command:
+    1. To resize your broker host storage, run this command:
 
         ```bash
         {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> \
            --disk-size <storage_size>
         ```
 
-        If no size units are specified, gigabytes are used.
+        If you specify no size units, gigabytes are used.
 
-    1. To change the size of the {{ ZK }} host storage, run the command:
+    1. To resize {{ ZK }} host storage, run this command:
 
         ```bash
         {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> \
            --zookeeper-disk-size <disk_size>
         ```
 
-        If no size units are specified, gigabytes are used.
+        If you specify no size units, gigabytes are used.
 
     You cannot change the disk type for an {{ KF }} cluster once the cluster is created.
 
@@ -104,7 +104,7 @@ As soon as the [storage](../concepts/storage.md) is 97% full, the host automatic
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. In the {{ mkf-name }} cluster description, change the `disk_size` value in the `kafka.resources` and `zookeeper.resources` sections for {{ KF }} and {{ ZK }} hosts, respectively:
 
@@ -179,14 +179,14 @@ As soon as the [storage](../concepts/storage.md) is 97% full, the host automatic
         * `updateMask`: Comma-separated string of settings you want to update.
 
             Specify the relevant parameters:
-            * `configSpec.kafka.resources.diskSize`: To change the broker host storage size.
-            * `configSpec.zookeeper.resources.diskSize`: To change the {{ ZK }} host storage size. Use only for {{ KF }} 3.5 clusters.
-        * `configSpec.kafka.resources.diskSize`: Broker host storage size in bytes.
+            * `configSpec.kafka.resources.diskSize`: To resize the broker host storage.
+            * `configSpec.zookeeper.resources.diskSize`: To resize the {{ ZK }} host storage. Use only for {{ KF }} 3.5 clusters.
+        * `configSpec.kafka.resources.diskSize`: Broker host storage size, in bytes.
         * `configSpec.zookeeper.resources.diskSize`: {{ ZK }} host storage size, in bytes. Use only for {{ KF }} 3.5 clusters.
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
 
 * gRPC API {#grpc-api}
 
@@ -237,9 +237,9 @@ As soon as the [storage](../concepts/storage.md) is 97% full, the host automatic
         * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             Specify the relevant parameters:
-            * `config_spec.kafka.resources.disk_size`: To change the broker host storage size.
-            * `config_spec.brokers_count`: To change the {{ ZK }} host storage size. Use only for {{ KF }} 3.5 clusters.
-        * `config_spec.kafka.resources.disk_size`: Broker host storage size in bytes.
+            * `config_spec.kafka.resources.disk_size`: To resize the broker host storage.
+            * `config_spec.brokers_count`: To resize the {{ ZK }} host storage. Use only for {{ KF }} 3.5 clusters.
+        * `config_spec.kafka.resources.disk_size`: Broker host storage size, in bytes.
         * `config_spec.zookeeper.resources.disk_size`: {{ ZK }} host storage size, in bytes. Use only for {{ KF }} 3.5 clusters.
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
@@ -248,9 +248,9 @@ As soon as the [storage](../concepts/storage.md) is 97% full, the host automatic
 
 {% endlist %}
 
-## Set up automatic storage expansion {#disk-size-autoscale}
+## Setting up automatic storage expansion {#disk-size-autoscale}
 
-Set up [automatic storage increase](../concepts/storage.md#auto-rescale) to prevent the cluster from running out of disk space and the hosts from switching to read-only mode.
+Set up [automatic storage expansion](../concepts/storage.md#auto-rescale) to prevent the cluster from running out of disk space and the hosts from switching to read-only mode.
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
@@ -275,7 +275,7 @@ Set up [automatic storage increase](../concepts/storage.md#auto-rescale) to prev
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To set up storage autoscaling:
+    To set up automatic storage expansion:
 
     1. See the description of the CLI command for updating a cluster:
 
@@ -283,7 +283,7 @@ Set up [automatic storage increase](../concepts/storage.md#auto-rescale) to prev
         {{ yc-mdb-kf }} cluster update --help
         ```
 
-    1. Set the maximum storage size and conditions for its increase in the update cluster command:
+    1. Run this command, specifying the maximum storage size and the conditions for expansion:
 
         ```bash
         {{ yc-mdb-kf }} cluster update <cluster_ID_or_name> \
@@ -327,15 +327,15 @@ Set up [automatic storage increase](../concepts/storage.md#auto-rescale) to prev
         * `updateMask`: Comma-separated string of settings you want to update.
 
             Specify the relevant parameters:
-            * `configSpec.diskSizeAutoscaling.plannedUsageThreshold`: To change the storage utilization percentage to trigger a scheduled increase.
-            * `configSpec.diskSizeAutoscaling.emergencyUsageThreshold`: To change the storage utilization percentage to trigger a non-scheduled increase.
-            * `configSpec.diskSizeAutoscaling.diskSizeLimit`: To change the maximum storage size during autoscaling.
+            * `configSpec.diskSizeAutoscaling.plannedUsageThreshold`: To change the storage usage percentage to trigger a scheduled expansion.
+            * `configSpec.diskSizeAutoscaling.emergencyUsageThreshold`: To change the storage usage percentage to trigger a non-scheduled expansion.
+            * `configSpec.diskSizeAutoscaling.diskSizeLimit`: To change the maximum storage size during automatic expansion.
 
         {% include [autoscale-settings](../../_includes/mdb/mkf/api/rest-autoscale-settings.md) %}
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
 
 * gRPC API {#grpc-api}
 
@@ -382,9 +382,9 @@ Set up [automatic storage increase](../concepts/storage.md#auto-rescale) to prev
         * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             Specify the relevant parameters:
-            * `config_spec.disk_size_autoscaling.planned_usage_threshold`: To change the storage utilization percentage to trigger a scheduled increase.
-            * `config_spec.disk_size_autoscaling.emergency_usage_threshold`: To change the storage utilization percentage to trigger a non-scheduled increase.
-            * `config_spec.disk_size_autoscaling.disk_size_limit`: To change the maximum storage size during autoscaling.
+            * `config_spec.disk_size_autoscaling.planned_usage_threshold`: To change the storage usage percentage to trigger a scheduled expansion.
+            * `config_spec.disk_size_autoscaling.emergency_usage_threshold`: To change the storage usage percentage to trigger a non-scheduled expansion.
+            * `config_spec.disk_size_autoscaling.disk_size_limit`: To change the maximum storage size during automatic expansion.
 
         {% include [autoscale-settings](../../_includes/mdb/mkf/api/grpc-autoscale-settings.md) %}
 

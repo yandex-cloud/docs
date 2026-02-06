@@ -1,6 +1,6 @@
 ---
 title: Delivering data from {{ mkf-full-name }} to {{ yds-full-name }} using {{ data-transfer-full-name }}
-description: A {{ yds-name }} stream can get data from {{ KF }} topics in real time.
+description: A stream in {{ yds-name }} can ingest data from {{ KF }} topics in real time.
 ---
 
 # Delivering data from {{ mkf-full-name }} to {{ yds-full-name }} using {{ data-transfer-full-name }}

@@ -1,6 +1,6 @@
 ## Environment {#environment}
 
-Select the environment where you want to create the {{ mkf-name }} cluster (you cannot change the environment once the cluster is created):
+Select the environment where you want to create your {{ mkf-name }} cluster (note that you cannot change the environment once the cluster is created):
   * `PRODUCTION`: For stable versions of your apps.
   * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
 
@@ -8,28 +8,28 @@ Select the environment where you want to create the {{ mkf-name }} cluster (you 
 
 Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the [platform](../../../compute/concepts/vm-platforms.md), host type, and host class.
 
-The host class defines the technical specifications of [VMs](../../../compute/concepts/vm.md) the {{ KF }} nodes are deployed on. All available options are listed under [Host classes](../../../managed-kafka/concepts/instance-types.md).
+The host class defines the specifications of [virtual machines](../../../compute/concepts/vm.md) {{ KF }} nodes will be deployed on. All available options are listed under [Host classes](../../../managed-kafka/concepts/instance-types.md).
 
 When you [change the host class](../../../managed-kafka/operations/cluster-update.md#change-brokers) for a {{ mkf-name }} cluster, the specifications of all existing instances also change.
 
 ## Default host configuration {#default-config}
 
-{{ ZK }} and {{ kraft-short-name }} hosts have the following default configuration:
+{{ ZK }} and {{ kraft-short-name }} hosts have the following configuration by default:
 
 * [Host class](../../../managed-kafka/concepts/instance-types.md): `s3-c2-m8`
 * Disk size: `10` GB
 * [Disk type](../../../managed-kafka/concepts/storage.md): `network-ssd`
 
-## Automatic increase of storage size {#auto-rescale}
+## Automatic storage expansion {#auto-rescale}
 
-To prevent the cluster disk space from running out, create a cluster that will [increase the storage space automatically](../../../managed-kafka/concepts/storage.md#auto-rescale).
+To prevent the cluster from running out of disk space, create a cluster with [automatic storage expansion](../../../managed-kafka/concepts/storage.md#auto-rescale):
 
 ```bash
 {{ yc-mdb-kf }} cluster create \
 ...
 --disk-size-autoscaling disk-size-limit=<maximum_storage_size_in_bytes>,`
-                        `planned-usage-threshold=<scheduled_increase_percentage>,`
-                        `emergency-usage-threshold=<immediate_increase_percentage> \
+                        `planned-usage-threshold=<scheduled_expansion_percentage>,`
+                        `emergency-usage-threshold=<immediate_expansion_percentage> \
 ...
 ```
 
@@ -39,7 +39,7 @@ To prevent the cluster disk space from running out, create a cluster that will [
 
 ## Cluster status {#status}
 
-Wait until the {{ mkf-name }} cluster is ready: its status on the {{ mkf-name }} dashboard will change to `Running`, and its state, to `Alive`. This may take some time.
+Wait until the {{ mkf-name }} cluster is ready: its status on the {{ mkf-name }} dashboard will change to `Running`, and its state, to `Alive`. This may take a while.
 
 ## Availability zone and cluster creation warning {#note-warning}
 
@@ -49,9 +49,9 @@ If you create a {{ mkf-name }} cluster with a single [availability zone](../../.
         
 {% endnote %}
 
-## Maintenance time setup {#maintenance}
+## Maintenance window setup {#maintenance}
 
-To set up a [maintenance window](../../../managed-kafka/concepts/maintenance.md) (including for disabled {{ mkf-name }} clusters), provide the required value in the `--maintenance-window` parameter when creating your cluster:
+To set up a [maintenance window](../../../managed-kafka/concepts/maintenance.md) (including for stopped {{ mkf-name }} clusters), provide the relevant value in the `--maintenance-window` parameter when creating your cluster:
 
 ```bash
 {{ yc-mdb-kf }} cluster create \

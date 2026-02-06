@@ -3,7 +3,7 @@
 
 A stream in {{ yds-name }} can receive data from {{ KF }} topics in real time.
 
-To run data delivery:
+To start data delivery:
 
 1. [Create a target stream in {{ yds-name }}](#create-target-yds).
 1. [Set up and activate the transfer](#prepare-transfer).
@@ -14,9 +14,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mkf-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mkf-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its pricing is based on deployment mode:
+* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
 
 	* In serverless mode, you pay for data operations and storage volume, including stored backups.
   	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
@@ -36,8 +36,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
     - Manually {#manual}
 
 
-        1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) with any suitable configuration.
-        1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) with your preferred configuration.
+        1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) of any suitable configuration.
+        1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) of your preferred configuration.
         1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
         1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the new topic.
 
@@ -54,7 +54,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             * [Network](../../vpc/concepts/network.md#network).
             * [Subnet](../../vpc/concepts/network.md#subnet).
-            * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mkf-name }} cluster.
+            * [Security group](../../vpc/concepts/security-groups.md) and the rule required for connecting to the {{ mkf-name }} cluster.
             * {{ mkf-name }} source cluster.
             * {{ KF }} topic.
             * {{ KF }} user.
@@ -85,7 +85,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-    The source cluster's new {{ KF }} topic, `sensors`, will receive test data from car sensors in JSON format:
+    The new source cluster {{ KF }} topic named `sensors` will receive test data from car sensors in JSON format:
 
     ```json
     {
@@ -103,7 +103,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Install these tools:
 
-    - [kafkacat](https://github.com/edenhill/kcat): For reading from and writing to {{ KF }} topics.
+    - [kafkacat](https://github.com/edenhill/kcat): For data reads and writes in {{ KF }} topics.
 
         ```bash
         sudo apt update && sudo apt install --yes kafkacat
@@ -111,7 +111,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-    - [jq](https://stedolan.github.io/jq/) for stream processing of JSON files.
+    - [jq](https://stedolan.github.io/jq/): For stream processing of JSON files.
 
         ```bash
         sudo apt update && sudo apt-get install --yes jq
@@ -119,7 +119,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a target stream in {{ yds-name }} {#create-target-yds}
 
-[Create a target stream in {{ yds-name }}](../../data-streams/operations/aws-cli/create.md) for a {{ ydb-name }} database.
+[Create a target stream in {{ yds-name }}](../../data-streams/operations/aws-cli/create.md) for your {{ ydb-name }} database.
 
 ## Set up and activate the transfer {#prepare-transfer}
 
@@ -210,7 +210,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the stream in {{ yds-name }}.
 
     
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select or create a service account with the `yds.editor` role.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select an existing service account or create a new one with the `yds.editor` role.
 
 
 1. Create a transfer:
@@ -219,7 +219,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - Manually {#manual}
 
-        1. [Create](../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type transfer configured to use the new endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the endpoints you created.
 
             If you want to transform data during the transfer, specify the relevant transformers in the transfer settings:
 
@@ -229,13 +229,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - {{ TF }} {#tf}
 
-        1. In the `data-transfer-mkf-ydb.tf` file, specify the following variables:
+        1. In the `data-transfer-mkf-ydb.tf` file, specify these variables:
 
-            * `source_endpoint_id`: ID of the source endpoint.
-            * `target_endpoint_id`: ID of the target endpoint.
-            * `transfer_enabled`: `1` to create a transfer.
+            * `source_endpoint_id`: Source endpoint ID.
+            * `target_endpoint_id`: Target endpoint ID.
+            * `transfer_enabled`: Set to `1` to create a transfer.
 
-        1. If you want to transform data during the transfer, add the `transformation` section with a list of the transformers you need to the `yandex_datatransfer_transfer` resource:
+        1. If you want to transform data during the transfer, add the `transformation` section with a list of relevant transformers to the `yandex_datatransfer_transfer` resource:
 
             ```hcl
             resource "yandex_datatransfer_transfer" "mkf-ydb-transfer" {
@@ -273,14 +273,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            The transfer will activate automatically upon creation.
+            The transfer will be activated automatically upon creation.
 
     {% endlist %}
 
 ## Test the transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
-1. Make sure the data from the topic in the {{ mkf-name }} source cluster moves to the specified stream in {{ yds-name }}:
+1. Make sure data from the {{ mkf-name }} source cluster topic is being transferred to the stream in {{ yds-name }}:
 
     1. Create a file named `sample.json` with test data:
 
@@ -332,7 +332,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
            -X security.protocol=SASL_SSL \
            -X sasl.mechanisms=SCRAM-SHA-512 \
            -X sasl.username="<username_in_source_cluster>" \
-           -X sasl.password="<source_cluster_user_password>" \
+           -X sasl.password="<user_password_in_source_cluster>" \
            -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
         ```
 
@@ -348,7 +348,7 @@ Before deleting the resources, [deactivate the transfer](../../data-transfer/ope
 
 {% endnote %}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).

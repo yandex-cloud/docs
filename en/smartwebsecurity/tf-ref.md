@@ -23,7 +23,7 @@ description: This page provides information about the {{ TF }} provider’s reso
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [security_profile]({{ tf-provider-datasources-link }}/yandex_sws_security_profile) | [Security profile](./concepts/profiles.md) information |
+| [security_profile]({{ tf-provider-datasources-link }}/sws_security_profile) | [Security profile](./concepts/profiles.md) information |
 | [sws_waf_profile]({{ tf-provider-datasources-link }}/sws_waf_profile) | [WAF profile](./concepts/waf.md) information |
 | [sws_waf_rule_set_descriptor]({{ tf-provider-datasources-link }}/sws_waf_rule_set_descriptor) | [Basic rule set](./concepts/waf.md#rules-set) information |
 | [sws_advanced_rate_limiter_profile]({{ tf-provider-datasources-link }}/sws_advanced_rate_limiter_profile) | [ARL profile](./concepts/arl.md) information |

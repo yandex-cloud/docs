@@ -1,20 +1,20 @@
 ---
 title: Information about clusters in {{ mmg-short-name }}
-description: You can get detailed information about each {{ mmg-short-name }} cluster you created. To get a list of database clusters in a folder, go to the folder dashboard and select {{ mmg-name }}.
+description: You can request detailed information for each {{ mmg-short-name }} cluster you have created. To get a list of database clusters in your folder, navigate to the folder dashboard and select {{ mmg-name }}.
 ---
 
 # Information about existing {{ SD }} clusters
 
-You can get detailed information about each {{ mmg-short-name }} cluster you created.
+You can request detailed information for each {{ mmg-short-name }} cluster you have created.
 
-## Getting a list of database clusters in a folder {#list-clusters}
+## Getting a list of database clusters in your folder {#list-clusters}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. Go to the [folder]({{ link-console-main }}) page.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Open the [folder dashboard]({{ link-console-main }}).
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
 
 - CLI {#cli}
 
@@ -41,7 +41,7 @@ You can get detailed information about each {{ mmg-short-name }} cluster you cre
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -56,14 +56,14 @@ You can get detailed information about each {{ mmg-short-name }} cluster you cre
       ```
 
       
-      You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      You can get the folder ID from the [list of your cloud folders](../../resource-manager/operations/folder/get-id.md).
 
 
   1. Check the [server response](../api-ref/Cluster/list.md#yandex.cloud.mdb.mongodb.v1.ListClustersResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -86,22 +86,22 @@ You can get detailed information about each {{ mmg-short-name }} cluster you cre
       ```
 
       
-      You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      You can get the folder ID from the [list of your cloud folders](../../resource-manager/operations/folder/get-id.md).
 
 
   1. Check the [server response](../api-ref/grpc/Cluster/list.md#yandex.cloud.mdb.mongodb.v1.ListClustersResponse) to make sure your request was successful.
 
 {% endlist %}
 
-## Getting detailed information about a cluster {#get-cluster}
+## Getting cluster details {#get-cluster}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. Go to the [folder]({{ link-console-main }}) page.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Click the cluster name.
+  1. Open the [folder dashboard]({{ link-console-main }}).
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+  1. Click the name of your cluster.
 
 - CLI {#cli}
 
@@ -109,17 +109,17 @@ You can get detailed information about each {{ mmg-short-name }} cluster you cre
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get information about a {{ SD }} cluster, run the following command:
+  To get {{ SD }} cluster details, run the following command:
 
   ```bash
   {{ yc-mdb-mg }} cluster get <cluster_name_or_ID>
   ```
 
-  You can get the cluster ID and name with the [list of clusters in the folder](#list-clusters).
+  You can get the cluster’s name and ID from the [list of clusters in your folder](#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -132,13 +132,13 @@ You can get detailed information about each {{ mmg-short-name }} cluster you cre
             --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can get the cluster ID from the [list of clusters in your folder](#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.mongodb.v1.Cluster) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -160,15 +160,15 @@ You can get detailed information about each {{ mmg-short-name }} cluster you cre
             yandex.cloud.mdb.mongodb.v1.ClusterService.Get
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can get the cluster ID from the [list of clusters in your folder](#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.mongodb.v1.Cluster) to make sure your request was successful.
 
 {% endlist %}
 
-## Viewing operations with clusters {#list-operations}
+## Viewing cluster operations {#list-operations}
 
-All actions with {{ mmg-name }} clusters are logged as a list of operations. Each operation gets its own unique ID.
+All actions performed on {{ mmg-name }} clusters are logged, with each operation assigned a unique ID.
 
 ### Getting a list of operations {#get-operations}
 
@@ -176,17 +176,17 @@ All actions with {{ mmg-name }} clusters are logged as a list of operations. Eac
 
 - Management console {#console}
 
-  To view operations with all {{ mmg-name }} clusters, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.mongodb.switch_operations }}** in the left-hand panel. In the list that opens, you will also see operations for the deleted resources.
+  To view operations for all {{ mmg-name }} clusters, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.mongodb.switch_operations }}** in the left-hand panel. The list that opens displays operations for both active and deleted resources.
 
-  You can get a list of operations for a cluster as follows:
+  You can get a list of cluster operations as follows:
 
   1. In the [management console]({{ link-console-main }}), open the folder containing your cluster.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mongodb.switch_list }}**.
-  1. Select the cluster you need.
-  1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.mongodb.switch_operations }}** panel for the cluster you selected.
+  1. Select your cluster.
+  1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.mongodb.switch_operations }}** panel for the selected cluster.
 
-     You will see the list of operations with this cluster.
+     You will see the list of cluster operations.
 
 - CLI {#cli}
 
@@ -194,7 +194,7 @@ All actions with {{ mmg-name }} clusters are logged as a list of operations. Eac
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of operations for a {{ mmg-name }} cluster, run this command:
+  To get a list of {{ mmg-name }} cluster operations, run this command:
 
   ```bash
   yc managed-mongodb cluster list-operations <cluster_name_or_ID>
@@ -210,9 +210,9 @@ All actions with {{ mmg-name }} clusters are logged as a list of operations. Eac
   +----------------------+---------------------+----------------------+---------------------+--------+------------------------+
   ```
 
-  You can get the cluster ID and name with the [list of clusters in the folder](#list-clusters).
+  You can get the cluster’s name and ID from [list of clusters in your folder](#list-clusters).
 
-  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using `--format`:
+  By default, operation details are displayed in text format. To get more detailed information, specify the `yaml` or `json` output format using the `--format` argument:
 
   ```bash
   yc managed-mongodb cluster list-operations c9qk2926qqu9******** --format yaml
@@ -237,7 +237,7 @@ All actions with {{ mmg-name }} clusters are logged as a list of operations. Eac
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -250,13 +250,13 @@ All actions with {{ mmg-name }} clusters are logged as a list of operations. Eac
           --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/operations'
       ```
 
-      You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+      You can get the cluster ID from the [list of clusters in your folder](#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.mdb.mongodb.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -278,7 +278,7 @@ All actions with {{ mmg-name }} clusters are logged as a list of operations. Eac
           yandex.cloud.mdb.mongodb.v1.ClusterService.ListOperations
       ```
 
-      You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+      You can get the cluster ID from the [list of clusters in your folder](#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.mdb.mongodb.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
@@ -286,9 +286,9 @@ All actions with {{ mmg-name }} clusters are logged as a list of operations. Eac
 
 ### Getting operation details {#get-operations-info}
 
-1. [Get the list of operations](#get-operations) for your cluster.
+1. [Get the list of cluster operations](#get-operations).
 1. Copy the ID of the operation you need.
-1. Get the operation details:
+1. Get operation details:
 
    {% list tabs group=instructions %}
 
@@ -323,7 +323,7 @@ All actions with {{ mmg-name }} clusters are logged as a list of operations. Eac
 
     - REST API {#api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
           {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -336,11 +336,11 @@ All actions with {{ mmg-name }} clusters are logged as a list of operations. Eac
               --url 'https://{{ api-host-operation }}/operations/<operation_ID>'
           ```
 
-      1. View the [server response](../api-ref/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+      1. Check the [server response](../api-ref/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
     - gRPC API {#grpc-api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
           {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -362,7 +362,7 @@ All actions with {{ mmg-name }} clusters are logged as a list of operations. Eac
               yandex.cloud.operation.OperationService.Get
           ```
 
-      1. View the [server response](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+      1. Check the [server response](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    {% endlist %}
 

@@ -1,6 +1,6 @@
 ---
 title: '{{ ydb-full-name }} use cases'
-description: Different use cases for {{ ydb-full-name }} in {{ yandex-cloud }}.
+description: Various {{ ydb-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ ydb-name }} tutorials
@@ -26,7 +26,7 @@ description: Different use cases for {{ ydb-full-name }} in {{ yandex-cloud }}.
 * [Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and analyzing them using {{ datalens-full-name }}](events-from-postbox-to-yds.md)
 * [{#T}](mkf-yds-stream.md)
 * [{#T}](mkf-ydb-stream.md)
-* [Interactive debugging of {{ sf-name }} functions](serverless-live-debug.md)
+* [Interactive debugging of functions in {{ sf-name }}](serverless-live-debug.md)
 * [{#T}](terraform-state-lock.md)
 * [{#T}](serverless-url-shortener.md)
 * [{#T}](api-gw-integration.md)

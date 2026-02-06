@@ -1,9 +1,9 @@
 # {{ api-gw-name }} protection with {{ sws-name }}
 
 
-{{ api-gw-full-name }} supports integration with [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md). This allows you to set up DDoS and bot protection for an API gateway at [OSI](https://en.wikipedia.org/wiki/OSI_model) application level (L7).
+{{ api-gw-full-name }} supports integration with [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md). This allows you to set up DDoS and bot protection for an API gateway at the [OSI model](https://en.wikipedia.org/wiki/OSI_model) application layer (L7).
 
-With {{ sws-name }} profiles, you can configure protection using various conditions. For example, you can set a [request limit](../../smartwebsecurity/concepts/arl.md) with parameter-based request grouping or configure IP-based request blocking. To do this:
+With {{ sws-name }} profiles, you can configure protection using various conditions. For example, you can set a [request limit](../../smartwebsecurity/concepts/arl.md) with parameter-based request grouping or configure user IP-based request blocking. To do this:
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Create an ARL profile and {{ sws-name }} profile](#create-arl-and-sws-profiles).
@@ -24,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   1. [Create an ARL profile](../../smartwebsecurity/operations/arl-profile-create.md) named `arl-profile`.
 
-  1. [Add to it a rule](../../smartwebsecurity/operations/arl-rule-add.md) with a request limit and request grouping based on the `token` parameter. Specify the following settings:
+  1. [Add to it a rule](../../smartwebsecurity/operations/arl-rule-add.md) with a request limit and request grouping by `token`. Specify the following settings:
 
       * **Name**: `query-limit-rule`
       * **{{ ui-key.yacloud.smart-web-security.arl.column_rule-priority }}**: `999900`
@@ -35,7 +35,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   1. [Create a security profile](../../smartwebsecurity/operations/profile-create.md) named `sws-profile` using a preset template. When creating it, select the previously created `arl-profile` in the **{{ ui-key.yacloud.smart-web-security.form.label_arl-profile }}** field.
 
-  1. To set up IP-based blocking, [add a rule](../../smartwebsecurity/operations/rule-add.md) with the following settings to the {{ sws-name }} profile:
+  1. To set up user IP-based blocking, [add the rule](../../smartwebsecurity/operations/rule-add.md) with the following settings to the {{ sws-name }} profile:
 
       * **Name**: `ip-block-rule`.
       * **{{ ui-key.yacloud.smart-web-security.arl.column_rule-priority }}**: `999700`.
@@ -59,8 +59,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       This file describes:
 
-      * ARL profile that sets a request limit and request grouping by the `token` parameter.
-      * {{ sws-name }} profile that uses the ARL profile and, in addition, enables IP-based blocking.
+      * ARL profile that sets a request limit and request grouping by `token`.
+      * {{ sws-name }} profile that uses the ARL profile as well as enables IP-based blocking.
       * API gateway configured to work with the {{ sws-name }} profile.
 
   1. In the local variables section of the `api-gw-sws-integration.tf` file, specify the following:
@@ -71,13 +71,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * `allowed_ips`: List of IP addresses allowed to access the API gateway.
       * `api-gw-name`: API gateway name.
 
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate
       ```
 
-      {{ TF }} will show any errors found in your configuration files.
+      {{ TF }} will display any configuration errors detected in your files.
 
   1. Create the required infrastructure:
 
@@ -127,13 +127,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. In the local variables section, specify `create-api-gw = 1`.
 
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate
       ```
 
-      {{ TF }} will show any errors found in your configuration files.
+      {{ TF }} will display any configuration errors detected in your files.
 
   1. Create the required infrastructure:
 
@@ -227,7 +227,7 @@ Test the {{ sws-name }} settings:
 
 # Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need, depending on how they were created:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need depending on how you created them:
 
 {% list tabs group=instructions %}
 

@@ -67,7 +67,7 @@ You can:
 
      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Connector/list.md#yandex.cloud.mdb.kafka.v1.ListConnectorsResponse) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Connector/list.md#yandex.cloud.mdb.kafka.v1.ListConnectorsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -131,7 +131,7 @@ You can:
     ...
     ```
 
-    You can get the connector name with the [list of cluster connectors](#list) and the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the connector name with the [list of cluster connectors](#list), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -148,7 +148,7 @@ You can:
        --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/connectors/<connector_name>'
      ```
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the connector name with the [list of connectors in the cluster](#list).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the connector name, with the [list of cluster connectors](#list).
 
   1. Check the [server response](../api-ref/Connector/get.md#yandex.cloud.mdb.kafka.v1.Connector) to make sure your request was successful.
 
@@ -194,7 +194,7 @@ You can:
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify:
 
         * Connector name.
-        * Task limit: Number of concurrent processes. To distribute replication load evenly, we recommend a value of at least `2`.
+        * Task limit: Number of concurrent tasks. To distribute replication load evenly, we recommend a value of at least `2`.
 
     1. Under **{{ ui-key.yacloud.kafka.section_properties }}**, specify the connector properties in the following format:
 
@@ -242,7 +242,7 @@ You can:
          --external-cluster alias=<external_cluster_prefix>,`
                            `bootstrap-servers=<list_of_broker_host_FQDNs>,`
                            `security-protocol=<security_protocol>,`
-                           `sasl-mechanism=<encryption_mechanism>,`
+                           `sasl-mechanism=<authentication_mechanism>,`
                            `sasl-username=<username>,`
                            `sasl-password=<user_password>,`
                            `ssl-truststore-certificates=<certificates_in_PEM_format>
@@ -259,7 +259,7 @@ You can:
 
   To create an [S3 Sink](#settings-s3) connector:
 
-  1. View the description of the CLI command to create a connector:
+  1. See the description of the CLI command for creating a connector:
 
       ```bash
       {{ yc-mdb-kf }} connector-s3-sink create --help
@@ -290,7 +290,7 @@ You can:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. To create a MirrorMaker connector, add the `yandex_mdb_kafka_connector` resource with the `connector_config_mirrormaker` configuration section:
 
@@ -311,7 +311,7 @@ You can:
                 bootstrap_servers           = "<list_of_broker_host_FQDNs>"
                 sasl_username               = "<username>"
                 sasl_password               = "<user_password>"
-                sasl_mechanism              = "<encryption_mechanism>"
+                sasl_mechanism              = "<authentication_mechanism>"
                 security_protocol           = "<security_protocol>"
                 ssl-truststore-certificates = "<PEM_certificate_contents>"
               }
@@ -410,7 +410,7 @@ You can:
 
        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Connector/list.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Connector/list.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -542,7 +542,7 @@ Specify the MirrorMaker connector parameters as follows:
         * `ingress`: For a target cluster.
         * `egress`: For a source cluster.
 
-    * `--tasks-max`: Number of concurrent processes. To distribute replication load evenly, we recommend a value of at least `2`.
+    * `--tasks-max`: Number of concurrent tasks. To distribute replication load evenly, we recommend a value of at least `2`.
     * `--properties`: Comma-separated list of additional connector settings in `<key>:<value>` format. Here are some examples of keys:
 
         * `key.converter`
@@ -565,7 +565,7 @@ Specify the MirrorMaker connector parameters as follows:
             * `plaintext`, `sasl_plaintext`: To connect without SSL.
             * `ssl`, `sasl_ssl`: To connect with SSL.
 
-        * `sasl-mechanism`: Username and password encryption mechanism.
+        * `sasl-mechanism`: Authentication mechanism for username and password validation.
         * `sasl-username`: Username for the connector to access the external cluster.
         * `sasl-password`: User password for the connector to access the external cluster.
         * `ssl-truststore-certificates`: List of PEM certificates.
@@ -598,7 +598,7 @@ Specify the MirrorMaker connector parameters as follows:
 
             * **sasl_username**: Username for the connector to access the cluster.
             * **sasl_password**: User password for the connector to access the cluster.
-            * **sasl_mechanism**: Username and password encryption mechanism.
+            * **sasl_mechanism**: Authentication mechanism for username and password validation.
             * **security_protocol**: Connection protocol for the connector:
                 * `PLAINTEXT`, `SASL_PLAINTEXT`: To connect without SSL.
                 * `SSL`, `SASL_SSL`: To connect with SSL.
@@ -628,7 +628,7 @@ Specify the MirrorMaker connector parameters as follows:
 
             * `saslUsername`: Username for the connector to access the cluster.
             * `saslPassword`: User password for the connector to access the cluster.
-            * `saslMechanism`: Username and password encryption mechanism.
+            * `saslMechanism`: Authentication mechanism for username and password validation.
             * `securityProtocol`: Connection protocol for the connector:
                 * `PLAINTEXT`, `SASL_PLAINTEXT`: To connect without SSL.
                 * `SSL`, `SASL_SSL`: To connect with SSL.
@@ -661,7 +661,7 @@ Specify the MirrorMaker connector parameters as follows:
 
             * `sasl_username`: Username for the connector to access the cluster.
             * `sasl_password`: User password for the connector to access the cluster.
-            * `sasl_mechanism`: Username and password encryption mechanism.
+            * `sasl_mechanism`: Authentication mechanism for username and password validation.
             * `security_protocol`: Connection protocol for the connector:
                 * `PLAINTEXT`, `SASL_PLAINTEXT`: To connect without SSL.
                 * `SSL`, `SASL_SSL`: To connect with SSL.
@@ -850,7 +850,7 @@ Specify the S3 Sink connector parameters as follows:
 
     To edit a [MirrorMaker](#settings-mm2) connector:
 
-    1. View the description of the CLI command to edit a connector:
+    1. See the description of the CLI command for editing a connector:
 
         ```bash
         {{ yc-mdb-kf }} connector-mirrormaker update --help
@@ -871,7 +871,7 @@ Specify the S3 Sink connector parameters as follows:
 
     To update an [S3 Sink](#settings-s3) connector:
 
-    1. View the description of the CLI command to edit a connector:
+    1. See the description of the CLI command for editing a connector:
 
         ```bash
         {{ yc-mdb-kf }} connector-s3-sink update --help
@@ -885,7 +885,7 @@ Specify the S3 Sink connector parameters as follows:
            --tasks-max=<new_task_limit>
         ```
 
-        You can get the connector name with the [list of cluster connectors](#list) and the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the connector name with the [list of cluster connectors](#list), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -893,7 +893,7 @@ Specify the S3 Sink connector parameters as follows:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. Edit the parameter values in the `yandex_mdb_kafka_connector` resource description:
 
@@ -916,7 +916,7 @@ Specify the S3 Sink connector parameters as follows:
                     bootstrap_servers           = "<list_of_broker_host_FQDNs>"
                     sasl_username               = "<username>"
                     sasl_password               = "<user_password>"
-                    sasl_mechanism              = "<encryption_mechanism>"
+                    sasl_mechanism              = "<authentication_mechanism>"
                     security_protocol           = "<security_protocol>"
                     ssl-truststore-certificates = "<PEM_certificate_contents>"
                   }
@@ -1000,7 +1000,7 @@ Specify the S3 Sink connector parameters as follows:
 
             Specify the relevant parameters:
             * `connectorSpec.tasksMax`: To change the connector task limit.
-            * `connectorSpec.properties`: To change the connector's advanced properties.
+            * `connectorSpec.properties`: To change the connector’s advanced properties.
             * `connectorSpec.connectorConfigMirrormaker.<configuring_Mirrormaker_connector>`: To update the [Mirrormaker](#settings-mm2) connector settings.
             * `connectorSpec.connectorConfigS3Sink.<configuring_S3_Sink_connector>`: To update the [S3 Sink](#settings-s3) connector settings.
 
@@ -1067,12 +1067,12 @@ Specify the S3 Sink connector parameters as follows:
 
             Specify the relevant parameters:
             * `connector_spec.tasks_max`: To change the connector task limit.
-            * `connector_spec.properties`: To change the connector's advanced properties.
+            * `connector_spec.properties`: To change the connector’s advanced properties.
             * `connector_spec.connector_config_mirrormaker.<configuring_Mirrormaker_connector>`: To update the [Mirrormaker](#settings-mm2) connector settings.
             * `connector_spec.connector_config_s3_sink.<configuring_S3_Sink_connector>`: To update the [S3 Sink](#settings-s3) connector settings.
         * `connector_spec`: Specify the MirrorMaker or S3 Sink connector settings.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters) and the connector name with the [list of connectors in the cluster](#list).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters), and the connector name, with the [list of connectors in the cluster](#list).
 
     1. Check the [server response](../api-ref/grpc/Connector/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1153,7 +1153,7 @@ To pause a connector:
           yandex.cloud.mdb.kafka.v1.ConnectorService.Pause
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters) and the connector name with the [list of connectors in the cluster](#list).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters), and the connector name, with the [list of connectors in the cluster](#list).
 
     1. Check the [server response](../api-ref/grpc/Connector/pause.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1198,7 +1198,7 @@ To pause a connector:
          --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/connectors/resume/<connector_name>'
        ```
 
-       You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters) and the connector name with the [list of connectors in the cluster](#list).
+       You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters), and the connector name, with the [list of connectors in the cluster](#list).
 
     1. Check the [server response](../api-ref/Connector/resume.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1235,7 +1235,7 @@ To pause a connector:
 
 ## Importing a connector to {{ TF }} {#import}
 
-You can import existing connectors to manage them with {{ TF }}.
+You can import the existing connectors to manage them with {{ TF }}.
 
 {% list tabs group=instructions %}
 
@@ -1253,7 +1253,7 @@ You can import existing connectors to manage them with {{ TF }}.
         terraform import yandex_mdb_kafka_connector.<connector_name> <cluster_ID>:<connector_name>
         ```
 
-        To learn more about importing connectors, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_connector#import).
+        To learn more about importing connectors, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_connector#import).
 
 {% endlist %}
 
@@ -1286,7 +1286,7 @@ You can import existing connectors to manage them with {{ TF }}.
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. Delete the `yandex_mdb_kafka_connector` resource with the connector description.
     1. Make sure the settings are correct.
@@ -1314,7 +1314,7 @@ You can import existing connectors to manage them with {{ TF }}.
          --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/connectors/<connector_name>'
        ```
 
-       You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters) and the connector name with the [list of connectors in the cluster](#list).
+       You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters), and the connector name, with the [list of connectors in the cluster](#list).
 
     1. Check the [server response](../api-ref/Connector/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1343,7 +1343,7 @@ You can import existing connectors to manage them with {{ TF }}.
           yandex.cloud.mdb.kafka.v1.ConnectorService.Delete
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters) and the connector name with the [list of connectors in the cluster](#list).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters), and the connector name, with the [list of connectors in the cluster](#list).
 
     1. Check the [server response](../api-ref/grpc/Connector/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

@@ -73,34 +73,268 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [server-lease-cli-general](../../../_includes/baremetal/instruction-steps/server-lease-cli-general.md) %}
 
+- API {#api}
+
+  Чтобы арендовать сервер, воспользуйтесь методом REST API [create](../../api-ref/Server/create.md) для ресурса [Server](../../api-ref/Server/index.md) или вызовом gRPC API [ServerService/Create](../../api-ref/grpc/Server/create.md).
+
 {% endlist %}
 
 После того как вы арендуете сервер, вы в любой момент сможете установить или переустановить на нем операционную систему из публичного образа в {{ marketplace-name }} или из собственного ISO-образа. Подробнее см. в инструкциях [{#T}](./reinstall-os-from-marketplace.md) и [{#T}](./reinstall-os-from-own-image.md).
 
 ## Пример {#example}
 
- Арендуйте сервер с публичным образом ОС:
+Арендуйте сервер с публичным образом ОС:
 
- {% list tabs group=instructions %}
+{% list tabs group=instructions %}
 
- - CLI {#cli}
+- CLI {#cli}
 
-   ```bash
-   yc baremetal server create \
-     --hardware-pool-id ru-central1-m4 \
-     --configuration-id ly5lymxdltk3xitpkrmi \
-     --storage "partition={type=EXT3,size-gib=1000,mount-point=/},partition={type=EXT4,size-gib=500,mount-point=/root},raid-type=RAID0,disk={id=1,size-gib=1862,type=HDD},disk={id=2,size-gib=1862,type=HDD}" \
-     --storage "partition={type=EXT3,size-gib=1000,mount-point=/boot},partition={type=SWAP,size-gib=10},disk={id=3,size-gib=1862,type=HDD}" \
-     --os-settings "image-id=ly5vhn4lapeva2qs3bx5,ssh-key-public=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQYnYYjAoj********,password-lockbox-secret={secret-id=e6qmvglkitn6********,version-id=e6qquvv4kh8e********,key=password}" \
-     --rental-period-id 1-day \
-     --network-interfaces private-subnet-id=ly5ztavbezrf******** \
-     --network-interfaces public-subnet-id=ly5o6l7pxmk2********* \
-     --name demo-baremetal-server \
-     --description "My first BareMetal server" \
-     --labels env=test
-   ```
+  ```bash
+  yc baremetal server create \
+    --hardware-pool-id ru-central1-m4 \
+    --configuration-id ly5lymxdltk3******** \
+    --storage "partition={type=EXT3,size-gib=1000,mount-point=/},partition={type=EXT4,size-gib=500,mount-point=/root},raid-type=RAID0,disk={id=1,size-gib=1862,type=HDD},disk={id=2,size-gib=1862,type=HDD}" \
+    --storage "partition={type=EXT3,size-gib=1000,mount-point=/boot},partition={type=SWAP,size-gib=10},disk={id=3,size-gib=1862,type=HDD}" \
+    --os-settings "image-id=ly5vhn4lapev********,ssh-key-public=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQYnYYjAoj********,password-lockbox-secret={secret-id=e6qmvglkitn6********,version-id=e6qquvv4kh8e********,key=password}" \
+    --rental-period-id 1-day \
+    --network-interfaces private-subnet-id=ly5ztavbezrf******** \
+    --network-interfaces public-subnet-id=ly5o6l7pxmk2********* \
+    --name demo-baremetal-server \
+    --description "My first BareMetal server" \
+    --labels env=test
+  ```
 
-   {% include [server-lease-cli-result](../../../_includes/baremetal/instruction-steps/server-lease-cli-result.md) %}
+  {% include [server-lease-cli-result](../../../_includes/baremetal/instruction-steps/server-lease-cli-result.md) %}
+
+- API {#api}
+
+  ```bash
+  curl -X POST \
+   -H "Content-Type: application/json" \
+   -H "Authorization: Bearer <IAM-токен>" \
+   -d '{
+     "folderId": "b1g07hj5r6i4********",
+     "name": "bm-test-server",
+     "description": "New Test Baremetal Server",
+     "hardwarePoolId": "ru-central1-m3",
+     "configurationId": "ly5fcdnlzp7j********",
+     "rentalPeriodId": "1-day",
+     "networkInterfaces": [
+       {
+         "privateSubnet": {
+           "privateSubnetId": "ly52xefxa2hi********"
+         }
+       },
+       {
+         "publicSubnet": {
+           "publicSubnetId": "ly52yjugkj57********"
+         }
+       }
+     ],
+     "osSettingsSpec": {
+       "imageId": "ly5vyzcggvci********",
+       "storages": [
+         {
+           "partitions": [
+             {
+               "type": "EXT3",
+               "sizeGib": "9",
+               "mountPoint": "/boot"
+             },
+             {
+               "type": "SWAP",
+               "sizeGib": "4"
+             },
+             {
+               "type": "EXT4",
+               "mountPoint": "/"
+             }
+           ],
+           "raid": {
+             "type": "RAID10",
+             "disks": [
+               {
+                 "id": "1",
+                 "type": "HDD",
+                 "sizeGib": "1862"
+               },
+               {
+                 "id": "2",
+                 "type": "HDD",
+                 "sizeGib": "1862"
+               },
+               {
+                 "id": "3",
+                 "type": "HDD",
+                 "sizeGib": "1862"
+               },
+               {
+                 "id": "4",
+                 "type": "HDD",
+                 "sizeGib": "1862"
+               }
+             ]
+           }
+         }
+       ],
+       "sshPublicKey": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMYMj0PbB7ObhwL0********",
+       "passwordLockboxSecret": {
+         "secretId": "e6q44i0gmlrh********",
+         "versionId": "e6q3ba84ur0a********",
+         "key": "password"
+       }
+     },
+     "labels": {
+       "key": "bms"
+     }
+   }' \
+   "POST https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers/<идентификатор_сервера>"
+  ```
+
+  Где:
+  * `folderId` — идентификатор [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан сервер.
+  * `name` — имя сервера. Имя должно быть уникальным в рамках каталога.
+
+    {% include [name-format](../../../_includes/name-format.md) %}
+
+  * `description` — описание сервера. Необязательный параметр.
+  * `labels` — метки ресурса в формате `ключ:значение`. Необязательный параметр.
+  * `hardwarePoolId` — идентификатор [пула](../../concepts/servers.md#server-pools), из которого будет арендован сервер.
+  * `configurationId` — идентификатор [конфигурации сервера](../../concepts/server-configurations.md).
+  * `rentalPeriodId` — период аренды сервера. Возможные значения: `1-day`, `1-month`, `3-months`, `6-months` или `1-year`.
+  * `networkInterfaces[]` — сетевые интерфейсы:
+    * `id` — идентификатор сетевого интерфейса. Не указывается при создании сервера.
+    * `privateSubnetId` — идентификатор [приватной подсети](../../concepts/network.md#private-subnet).
+    * `publicSubnetId` — идентификатор [выделенной публичной подсети](../../concepts/network.md#public-subnet). Необязательный параметр.
+
+      {% note warning %}
+
+      {% include [public-subnet-no-dhcp](../../../_includes/baremetal/public-subnet-no-dhcp.md) %}
+
+      {% endnote %}
+
+  {% include [ossettingsspec-api-legend](../../../_includes/baremetal/ossettingsspec-api-legend.md) %}
+
+  Результат:
+
+  ```bash
+  {
+    "id": "e0q5abc123def4********",
+    "description": "Server create",
+    "createdAt": "2025-12-14T18:03:38.240Z",
+    "createdBy": "ajeb9l33h6mu********",
+    "modifiedAt": "2025-12-14T18:03:38.240Z",
+    "done": true,
+    "metadata": {
+      "serverId": "ly56xpblirh4********"
+    },
+    "response": {
+      "id": "ly56xpblirh4********",
+      "cloudId": "b1g07hj5r6i4********",
+      "folderId": "b1g07hj5r6i4********",
+      "name": "bm-test-server",
+      "description": "New Test Baremetal Server",
+      "zoneId": "ru-central1",
+      "hardwarePoolId": "ru-central1-m3",
+      "status": "PROVISIONING",
+      "osSettings": {
+        "imageId": "ly5vyzcggvci********",
+        "sshPublicKey": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMYMj0PbB7ObhwL0z3********",
+        "storages": [
+          {
+            "partitions": [
+              {
+                "type": "EXT3",
+                "sizeGib": "9",
+                "mountPoint": "/boot"
+              },
+              {
+                "type": "SWAP",
+                "sizeGib": "4"
+              },
+              {
+                "type": "EXT4",
+                "mountPoint": "/"
+              }
+            ],
+            "raid": {
+              "type": "RAID10",
+              "disks": [
+                {
+                  "id": "1",
+                  "type": "HDD",
+                  "sizeGib": "1862"
+                },
+                {
+                  "id": "2",
+                  "type": "HDD",
+                  "sizeGib": "1862"
+                },
+                {
+                  "id": "3",
+                  "type": "HDD",
+                  "sizeGib": "1862"
+                },
+                {
+                  "id": "4",
+                  "type": "HDD",
+                  "sizeGib": "1862"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "networkInterfaces": [
+        {
+          "id": "e0q5abc123def4********",
+          "macAddress": "00:1a:4b:23:*:*",
+          "ipAddress": "192.168.*.*",
+          "privateSubnet": {
+            "privateSubnetId": "ly52xefxa2hi********"
+          }
+        },
+        {
+          "id": "e0q5abc123def4********",
+          "macAddress": "00:1a:4b:23:*:*",
+          "ipAddress": "93.158.*.*",
+          "publicSubnet": {
+            "publicSubnetId": "ly52yjugkj57********"
+          }
+        }
+      ],
+      "configurationId": "ly5fcdnlzp7j********",
+      "disks": [
+        {
+          "id": "1",
+          "type": "HDD",
+          "sizeGib": "1862"
+        },
+        {
+          "id": "2",
+          "type": "HDD",
+          "sizeGib": "1862"
+        },
+        {
+          "id": "3",
+          "type": "HDD",
+          "sizeGib": "1862"
+        },
+        {
+          "id": "4",
+          "type": "HDD",
+          "sizeGib": "1862"
+        }
+      ],
+      "createdAt": "2025-12-14T18:03:38.240Z",
+      "labels": {
+        "key": "bms"
+      }
+    }
+  }
+  ```
+
+  Отслеживайте статус операции по полю `done`.
 
 {% endlist %}
 

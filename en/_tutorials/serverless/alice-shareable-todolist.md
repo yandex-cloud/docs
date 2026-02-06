@@ -1,7 +1,7 @@
-# Creating a skill for Alice and a website with authorization
+# Building a skill for Alice and a website with authorization
 
 
-In this tutorial, you will develop a [skill for Alice](https://yandex.ru/dev/dialogs/alice/doc/ru/about) and deploy a web app to create, read, and edit to-do lists using Alice, and share such lists with other website users.
+In this tutorial, you will build a [skill for Alice](https://yandex.ru/dev/dialogs/alice/doc/ru/about) and deploy a web app to create, read, and edit to-do lists using Alice, as well as share such lists with other website users.
 
 The project's data is stored in a [{{ objstorage-full-name }}](../../storage/) bucket and [{{ ydb-full-name }}](../../ydb/) database. [{{ sf-full-name }}](../../functions/) process requests; [{{ api-gw-full-name }}](../../api-gateway/) enables service interaction.
 
@@ -46,7 +46,7 @@ The infrastructure support costs include:
 
   1. [Install Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install) to use Linux.
   1. Run WSL (Ubuntu by default).
-  1. Configure the environment as described in this guide for Linux.
+  1. Set up the environment as described in this guide for Linux.
 
 - Linux {#linux}
 
@@ -86,7 +86,7 @@ The infrastructure support costs include:
 
 ### Create a bucket {#create-bucket}
 
-Create a [bucket](../../storage/concepts/bucket.md) to store static data in:
+Create a [bucket](../../storage/concepts/bucket.md) to store static data:
 
 {% list tabs group=instructions %}
 
@@ -128,7 +128,7 @@ Create a {{ ydb-short-name }} database in [Serverless mode](../../ydb/concepts/s
   1. In the [management console]({{ link-console-main }}), select the folder where you created the bucket.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-  1. Specify a **{{ ui-key.yacloud.ydb.forms.label_field_name }}** for the database. Follow these naming requirements:
+  1. Specify a **{{ ui-key.yacloud.ydb.forms.label_field_name }}** for the database. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -147,7 +147,7 @@ Create a {{ ydb-short-name }} database in [Serverless mode](../../ydb/concepts/s
 
 {% list tabs %}
 
-- Interface {{ yandex-oauth }}
+- {{ yandex-oauth }} interface
 
   1. Go to the [Yandex OAuth website]({{ ya-oauth-url }}) and log in.
   1. Click **Create app**.
@@ -163,9 +163,9 @@ Create a {{ ydb-short-name }} database in [Serverless mode](../../ydb/concepts/s
   1. Click **Save and continue**.
   1. Under **Permissions**, select `Access to user avatar` and click **Save and continue**.
   1. Under **Email address**, specify your email address and click **Save and continue**.
-  1. Verify the data and click **Everything is correct. Create the app**.
+  1. Check the data and click **Everything is correct. Create the app**.
 
-  You can read more about the service features in the {{ yandex-oauth }} [documentation](https://yandex.com/dev/oauth/doc/dg/tasks/register-client.html).
+  You can read more about the {{ yandex-oauth }} features in [this guide](https://yandex.com/dev/oauth/doc/dg/tasks/register-client.html).
 
 {% endlist %}
 
@@ -173,7 +173,7 @@ Create a {{ ydb-short-name }} database in [Serverless mode](../../ydb/concepts/s
 
 Configure the project using the values you got when creating your resources.
 
-### Create the secrets file {#set-variables-secure-config}
+### Create a file with secrets {#set-variables-secure-config}
 
 Create a file named `secure-config.json` with secrets:
 
@@ -204,9 +204,9 @@ Create a file named `secure-config.json` with secrets:
 {% endlist %}
 
 
-### Create the configuration file {#set-variables-variables}
+### Create a configuration file {#set-variables-variables}
 
-Create a file named `variables.json` with project deployment configuration:
+Create a file named `variables.json` with the project deployment configuration:
 
 {% list tabs group=programming_language %}
 
@@ -234,7 +234,7 @@ Create a file named `variables.json` with project deployment configuration:
       * `yc-profile`: {{ yandex-cloud }} CLI [profile name](../../cli/operations/profile/profile-list.md).
       * `secure-config-path`: Path to the `secure-config.json` [secrets file](#set-variables-secure-config).
       * `storage-bucket`: Name of the bucket you created for storing static data.
-      * `gateway-id`: API gateway `gate-1` ID.
+      * `gateway-id`: `gate-1` API gateway ID.
 
 {% endlist %}
 
@@ -263,7 +263,7 @@ To create tables in the database, navigate to the project files folder and run t
 Get an [OAuth token](../../iam/concepts/authorization/oauth-token.md):
 
 1. Go to [{{ yandex-oauth }}]({{ link-cloud-oauth }}). Before issuing a token, the service may request data access.
-1. Save the new token: you will need it for code uploading.
+1. Save the token: you will need it for uploading code.
 
 
 ### Upload the backend code to {{ sf-name }} {#deploy-backend}
@@ -303,7 +303,7 @@ Use {{ TF }} to automate your operations. Before you start, [initialize it](../.
 
 ### Upload the frontend code to {{ objstorage-name }} {#deploy-frontend}
 
-To deploy the frontend web app, build the static files and upload them to {{ objstorage-name }}.
+To deploy the frontend web app, compile the static files and upload them to {{ objstorage-name }}.
 
 {% list tabs group=programming_language %}
 
@@ -316,14 +316,14 @@ To deploy the frontend web app, build the static files and upload them to {{ obj
       npm run build
       ```
 
-      If during the compilation you encounter the
+      If during the compilation you get:
 
-      * `ERR_OSSL_EVP_UNSUPPORTED` error, create a `NODE_OPTIONS` variable:
+      * `ERR_OSSL_EVP_UNSUPPORTED` error, create the `NODE_OPTIONS` variable:
 
          ```bash
          export NODE_OPTIONS=--openssl-legacy-provider
          ```
-      * `npm ERR! Could not resolve dependency`, run the command:
+      * `npm ERR! Could not resolve dependency`, run this command:
 
           ```bash
           npm install --legacy-peer-deps && npm install --force
@@ -419,7 +419,7 @@ To upload the current specification to {{ api-gw-name }}, run this command:
 {% endlist %}
 
 
-## Register a skill for Alice {#register-skill}
+## Register your skill for Alice {#register-skill}
 
 ### Create a dialog {#create-dialog}
 
@@ -428,14 +428,14 @@ To upload the current specification to {{ api-gw-name }}, run this command:
 - Yandex Dialogs console
 
   1. Go to [Yandex Dialogs](https://dialogs.yandex.ru/) and log in to the console.
-  1. Click **Create dialog** and select the `Skill` dialog type.
+  1. Click **Create dialog** and select the `Skill` type.
   1. In the **Skill name** field, specify `To-do lists`.
-  1. Under **Backend**, enable **Yandex Cloud function** and from the list select the `todolist-alice` function you created earlier in {{ sf-name }}.
+  1. Under **Backend**, enable **Yandex Cloud function** and from the list, select the `todolist-alice` function you created earlier in {{ sf-name }}.
   1. Enable **Use data storage in the skill**.
   1. Fill in the required fields under **Publication in folder**. Configure the other settings as needed. For example, you can specify various word forms to trigger the skill, select a voice, or set access type.
   1. Click **Save** at the bottom of the page.
 
-  For more information, see the Yandex Dialogs [documentation](https://yandex.ru/dev/dialogs/alice/doc/publish.html).
+  For more information, see [this Yandex Dialogs guide](https://yandex.ru/dev/dialogs/alice/doc/publish.html).
 
 {% endlist %}
 
@@ -470,12 +470,12 @@ To upload the current specification to {{ api-gw-name }}, run this command:
 
   1. Go to the **Settings** tab.
   1. Go to the **Intents** tab and click **Create**.
-  1. Add intents for every action possible in the dialog. The intents you make reside are in the project's `yc-serverless-alice-shareable-todolist/intents` folder.
+  1. Add intents for every action possible in the dialog. The intents you make reside in the project's `yc-serverless-alice-shareable-todolist/intents` folder.
   1. Enter the following:
 
-      * **Name**: Any name you want displayed in the interface.
-      * **ID**: Intent ID equal to the name of the file in the `intents` folder.
-      * **Grammar**: Grammar text equal to the contents of the file in the `intents` folder.
+      * **Name**: Any name to display in the interface.
+      * **ID**: Intent ID matching the file name in the `intents` folder.
+      * **Grammar**: Grammar text matching the file contents in the `intents` folder.
 
   1. Click **Save**.
   1. To complete creating the dialog, click **Submit for moderation** on the right side of the page.
@@ -532,7 +532,7 @@ To debug the skill, use the **Testing** tab in the [Yandex Dialogs](https://dia
   3. Eggs
   ```
 
-- On the surface
+- Using a device
 
   To start a dialog, use any device or service supported by [Alice](https://yandex.ru/alice).
 

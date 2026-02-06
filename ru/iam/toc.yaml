@@ -119,6 +119,10 @@ items:
             href: tutorials/wlif-managed-k8s-integration.md
           - name: Настройка CI/CD между {{ sf-name }} и GitHub
             href: tutorials/ci-cd-github-functions.md
+      - name: >-
+          Загрузка объектов в бакет {{ objstorage-name }} с помощью эфемерного
+          ключа доступа
+        href: tutorials/ephemeral-key-storage.md
   - name: Концепции
     items:
       - name: Обзор

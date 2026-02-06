@@ -10,6 +10,8 @@
 
 {% endnote %}
 
+На домене должен быть установлен [X.509‑сертификат](https://{{ lang }}.wikipedia.org/wiki/X.509), соответствующий требованиям [IETF](https://www.ietf.org/) (RFC [2459](https://www.ietf.org/rfc/rfc2459.txt)/[3280](https://www.ietf.org/rfc/rfc3280.txt)/[5280](https://www.ietf.org/rfc/rfc5280.txt)). Для сертификатов с алгоритмом [ECDSA](https://{{ lang }}.wikipedia.org/wiki/ECDSA) поддерживается только кривая P‑256.
+
 Чтобы подключить домен к API-шлюзу:
 
 {% list tabs group=instructions %}
@@ -53,7 +55,7 @@
 
         1. Выберите API-шлюз.
         1. В открывшемся окне перейдите в раздел ![image](../../_assets/api-gateway/domain-icon.svg) **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_domains }}**.
-        1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.domains.button_add }}**, выберите сертификат и введите имя домена ([FQDN](../../glossary/fqdn.md)).
+        1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.domains.button_add }}**, выберите сертификат и введите имя домена ([FQDN](../../glossary/fqdn.md)).           
 
     1. Если вы пропустили шаг 1 и не разместили CNAME-запись, создайте ANAME-запись в {{ dns-full-name }}:
 

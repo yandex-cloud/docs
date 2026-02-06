@@ -9,7 +9,7 @@ The VPC Private Endpoints feature in {{ vpc-full-name }} is at the [Preview](../
 {% endnote %}
 
 
-You can synchronize data from {{ KF }} topics to a {{ objstorage-full-name }} bucket without using the internet via a service connection in the user network hosting the {{ mkf-name }} cluster. To do this:
+You can synchronize data from {{ KF }} topics to a {{ objstorage-full-name }} bucket without using the internet via a service connection in the user network hosting the {{ mkf-name }} cluster. To do so:
 
 1. [Send data to the topic](#send-data).
 1. [Make sure the bucket is not accessible from the external network](#check-bucket-access).
@@ -22,15 +22,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* Fee for an {{ objstorage-name }} bucket: Covers data storage and bucket operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* {{ mkf-name }} cluster fee: Covers the use of computating resources allocated to hosts and disk space (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
-* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket fee, which covers data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ mkf-name }} cluster fee, which covers the use of computing resources allocated to hosts and disk space (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* Fee for public IP addresses assigned to cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
 
-1. Set up the infrastructure:
+1. Set up your infrastructure:
 
     {% list tabs group=resources %}
 
@@ -48,14 +48,14 @@ The support cost for this solution includes:
             * **Resource**: `<bucket_name>` and `<bucket_name>/*`.
             * **Condition**: Select the `yc:private-endpoint-id` key from the list and specify the ID of the created service connection as its value.
 
-        1. [Create a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) of any suitable [configuration](../../managed-kafka/concepts/instance-types.md) and the following settings:
+        1. [Create a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) of any suitable [configuration](../../managed-kafka/concepts/instance-types.md) with the following settings:
 
             * Broker hosts: One
             * Access to cluster hosts: Public
             * Network: `my-private-network`
 
         
-        1. If using security groups in your cluster, make sure they are [configured correctly](../../managed-kafka/operations/connect/index.md#configuring-security-groups) and allow connecting to the cluster.
+        1. If using security groups, make sure they are [configured correctly](../../managed-kafka/operations/connect/index.md#configuring-security-groups) and allow connections to your cluster.
 
 
         1. [In the cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `my-private-topic`.
@@ -69,7 +69,7 @@ The support cost for this solution includes:
             * Select the **S3 Sink** connector type.
             * In the **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-topics }}** field, specify `my-private-topic`.
             * Under **{{ ui-key.yacloud.kafka.field_connector-s3-connection }}**, specify the following settings:
-               * **{{ ui-key.yacloud.kafka.field_connector-bucket-name }}**: Bucket you created previously.
+               * **{{ ui-key.yacloud.kafka.field_connector-bucket-name }}**: Bucket you created earlier.
                * **{{ ui-key.yacloud.kafka.field_connector-endpoint }}**: `storage.pe.yandexcloud.net`.
                * **{{ ui-key.yacloud.kafka.field_connector-access-key-id }}**, **{{ ui-key.yacloud.kafka.field_connector-secret-access-key }}**: ID and secret key of the previously created static access key.
 
@@ -103,8 +103,8 @@ The support cost for this solution includes:
             * `tf_account_name`: Service account name, the same as the one in the provider settings.
             * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
             * `mkf_version`: {{ KF }} version.
-            * `mkf_user_password`: {{ KF }} user password.
-            * `vm_image_id`: ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list.md).
+            * `mkf_user_password`: {{ KF }} password.
+            * `vm_image_id`: ID of the public VM [image](../../compute/operations/images-with-pre-installed-software/get-list.md).
             * `vm_username` and `vm_ssh_key`: Username and absolute path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), for access to the VM.
 
         1. Validate your {{ TF }} configuration files using this command:
@@ -123,7 +123,7 @@ The support cost for this solution includes:
 
     {% endlist %}
 
-1. Make sure that {{ dns-full-name }} has the `*.storage.pe.yandexcloud.net` record in the `.` [service zone](../../dns/concepts/dns-zone.md#service-zones) of the new network.
+1. Make sure {{ dns-full-name }} now has the `*.storage.pe.yandexcloud.net` record in the `.` [service zone](../../dns/concepts/dns-zone.md#service-zones) of the new network.
 1. Install [kafkacat](https://github.com/edenhill/kcat) to write data to the {{ KF }} topic.
 
     ```bash
@@ -208,19 +208,19 @@ This result means {{ KF }} topic data has been successfully synchronized via the
 
 ## Delete the resources you created {#clear-out}
 
-Some resources incur charges. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs group=resources %}
 
 - Manually {#manual}
 
-    * [Delete](../../managed-kafka/operations/cluster-delete.md) the {{ mkf-name }} cluster.
-    * [Delete](../../storage/operations/buckets/delete.md) the {{ objstorage-name }} bucket. Before deleting the bucket, [delete](../../storage/operations/objects/delete.md) all its objects.
-    * [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.
+    * [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
+    * [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md). Before deleting the bucket, [delete](../../storage/operations/objects/delete.md) all its objects.
+    * [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
 
 - {{ TF }} {#tf}
 
-    First, [delete](../../storage/operations/objects/delete.md) all objects from the bucket you created [previously](#before-you-begin).
+    First, [delete](../../storage/operations/objects/delete.md) all objects from the bucket you [created earlier](#before-you-begin).
 
     {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 

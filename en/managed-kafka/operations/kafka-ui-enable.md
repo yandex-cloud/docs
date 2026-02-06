@@ -4,7 +4,7 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
 
 {% include [roles-for-kafka-ui](../../_includes/mdb/mkf/roles-for-kafka-ui.md) %}
 
-## Enabling the web interface {#enable-kafka-ui}
+## Enabling the web UI {#enable-kafka-ui}
 
 {% list tabs group=instructions %}
 
@@ -28,7 +28,7 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
      ```bash
      {{ yc-mdb-kf }} cluster update --help
      ```
-  1. Enable the {{ KF }} web interface on your cluster using `--kafka-ui-enabled`:
+  1. Enable the {{ KF }} web UI on your cluster using `--kafka-ui-enabled`:
 
      ```bash
      {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> \
@@ -42,7 +42,7 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
   
      Learn how to create this file in [Creating a cluster](cluster-create.md).
   
-  1. To enable the {{ KF }} web interface, add a `config.kafka_ui` section to the cluster description. In this section, provide the `enabled` parameter set to `true`:
+  1. To enable the {{ KF }} web UI, add the `config.kafka_ui` section to the cluster description. In this section, provide `enabled` set to `true`:
 
         ```hcl
         resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
@@ -63,7 +63,7 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see this [{{ TF }} provider guide]({{ tf-provider-mkf }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-mkf }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -100,7 +100,7 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
 
        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -149,7 +149,7 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
 
 {% endlist %}
 
-## Getting a link to the web interface {#get-link}
+## Getting a link to the web UI {#get-link}
 
 {% list tabs group=instructions %}
 
@@ -187,11 +187,11 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
          --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>'
      ```
   
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
   
   1. Check the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.kafka.v1.Cluster) to make sure your request was successful.
 
-     You can find the link to the {{ KF }} web interface in the `config.kafkaUiConfig.url` parameter.
+     You can find the link to the {{ KF }} web UI in the `config.kafkaUiConfig.url` parameter.
 
 - gRPC API {#grpc-api}
 
@@ -217,7 +217,7 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
           yandex.cloud.mdb.kafka.v1.ClusterService.Get
       ```
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.kafka.v1.Cluster) to make sure your request was successful.
 

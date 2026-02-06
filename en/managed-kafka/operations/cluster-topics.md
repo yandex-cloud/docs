@@ -41,7 +41,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
        {% include [topic-name](../../_includes/mdb/mkf/note-info-topic-name.md) %}
 
      * Number of topic partitions.
-     * Replication factor. This value should not exceed the number of brokers in the cluster. The minimum value is `1`. The maximum value is `3`. The default value is:
+     * Replication factor. This value should not exceed the number of brokers in the cluster. The minimum value is `1`. The maximum value is `3`. The default value is as follows:
        * For a cluster with one or two brokers: `1`.
        * For a cluster with three or more brokers: `3`.
   1. Under **{{ ui-key.yacloud.kafka.section_topic-config }}**, specify the [topic settings](../concepts/settings-list.md#topic-settings).
@@ -77,7 +77,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     To learn how to create this file, see [Creating a cluster](cluster-create.md).
+     Learn how to create this file in [Creating a cluster](cluster-create.md).
   1. Add the `yandex_mdb_kafka_topic` resource and specify the [topic settings](../concepts/settings-list.md#topic-settings) in the `topic_config`, if required:
 
      ```hcl
@@ -108,7 +108,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -140,7 +140,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -204,7 +204,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the topic in question and select **{{ ui-key.yacloud.common.edit }}**.
   1. Change the basic topic settings:
      * Number of topic partitions.
-     * Replication factor. This value should not exceed the number of brokers in the cluster. The minimum value is `1`. The maximum value is `3`. The default value is:
+     * Replication factor. This value should not exceed the number of brokers in the cluster. The minimum value is `1`. The maximum value is `3`. The default value is as follows:
        * For a cluster with one or two brokers: `1`.
        * For a cluster with three or more brokers: `3`.
   1. Change [additional topic settings](../concepts/settings-list.md#topic-settings).
@@ -236,7 +236,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     To learn how to create this file, see [Creating a cluster](cluster-create.md).
+     Learn how to create this file in [Creating a cluster](cluster-create.md).
   1. Edit the parameter values in the `yandex_mdb_kafka_topic` resource description:
 
      ```hcl
@@ -265,7 +265,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -311,7 +311,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -363,7 +363,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
      Where:
 
-     * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+     * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
        In this case, list all topic settings to update.
 
@@ -401,7 +401,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -420,7 +420,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -472,7 +472,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -491,7 +491,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -513,7 +513,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
        yandex.cloud.mdb.kafka.v1.TopicService.Get
      ```
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the topic name with the [list of topics in the cluster](#list-topics).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the topic name, with the [list of topics in the cluster](#list-topics).
 
   1. Check the [server response](../api-ref/grpc/Topic/list.md#yandex.cloud.mdb.kafka.v1.Topic) to make sure your request was successful.
 
@@ -732,7 +732,7 @@ When upgrading to a new {{ TF }} provider version, the state file and configurat
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     To learn how to create this file, see [Creating a cluster](cluster-create.md).
+     Learn how to create this file in [Creating a cluster](cluster-create.md).
   1. Delete the `yandex_mdb_kafka_topic` resource with the topic description.
   1. Make sure the settings are correct.
 
@@ -746,7 +746,7 @@ When upgrading to a new {{ TF }} provider version, the state file and configurat
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -765,7 +765,7 @@ When upgrading to a new {{ TF }} provider version, the state file and configurat
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -787,7 +787,7 @@ When upgrading to a new {{ TF }} provider version, the state file and configurat
        yandex.cloud.mdb.kafka.v1.TopicService.Delete
      ```
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the topic name with the [list of topics in the cluster](#list-topics).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the topic name, with the [list of topics in the cluster](#list-topics).
 
   1. Check the [server response](../api-ref/grpc/Topic/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

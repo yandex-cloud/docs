@@ -9,7 +9,7 @@ You can delete an {{ KF }} cluster if you no longer need it. All data in the clu
 
 ## Before deleting a cluster {#before-you-delete}
 
-If deletion protection is on for the cluster, [disable it](cluster-update.md#change-additional-settings).
+[Disable deletion protection](cluster-update.md#change-additional-settings) for the cluster if it is enabled.
 
 ## Deleting a cluster {#delete}
 
@@ -20,7 +20,7 @@ If deletion protection is on for the cluster, [disable it](cluster-update.md#cha
   1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a cluster.
   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster in question and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
-  1. Read the warning displayed.
+  1. Read the warning message.
   1. In the window that opens, click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
 
 - CLI {#cli}
@@ -58,7 +58,7 @@ If deletion protection is on for the cluster, [disable it](cluster-update.md#cha
 
      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -83,8 +83,8 @@ If deletion protection is on for the cluster, [disable it](cluster-update.md#cha
        yandex.cloud.mdb.kafka.v1.ClusterService.Delete
      ```
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

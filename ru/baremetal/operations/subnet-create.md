@@ -80,6 +80,10 @@ description: Следуя данной инструкции, вы сможете
      
          {% include [default-dhcp](../../_includes/baremetal/instruction-steps/default-dhcp.md) %}
 
+- API {#api}
+
+  Чтобы создать приватную подсеть, воспользуйтесь методом REST API [create](../api-ref/PrivateSubnet/create.md) для ресурса [PrivateSubnet](../api-ref/PrivateSubnet/index.md) или вызовом gRPC API [PrivateSubnetService/Create](../api-ref/grpc/PrivateSubnet/create.md).
+
 {% endlist %}
 
 ## Пример {#examples}
@@ -122,5 +126,92 @@ description: Следуя данной инструкции, вы сможете
   labels:
     env: test
   ```
+
+- API {#api}
+
+  ```bash
+  curl -X POST \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer <IAM-токен>" \
+    -d '{
+      "folderId": "b1g07hj5r6i4********",
+      "hardwarePoolId": "ru-central1-m3",
+      "name": "demo-private-subnet",
+      "description": "My first private subnet",
+      "labels": {
+        "env": "test"
+      },
+      "vrfOptionsSpec": {
+        "vrfId": "ly5uyq2gbxu2********",
+        "cidr": "10.0.*.*/8",
+        "dhcpOptions": {
+          "startIp": "10.0.*.*",
+          "endIp": "10.0.*.*"
+        },
+        "gatewayIp": "10.0.*.*"
+      }
+    }' \
+    "https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/privateSubnets"
+  ```
+
+  Где:
+
+  * `<IAM-токен>` — IAM-токен для аутентификации.
+  * `folderId` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
+  * `hardwarePoolId` — идентификатор [пула](../concepts/servers.md#server-pools), из которого будет арендован сервер.
+  * `name` — имя подсети. Требования к имени:
+    
+    {% include [name-format](../../_includes/name-format.md) %}
+    
+  * `description` — описание подсети. Необязательный параметр.
+  * `labels` — метки подсети. Необязательный параметр.
+  * `vrfId` — идентификатор [виртуального сегмента сети (VRF)](../concepts/network.md#vrf-segment).
+  * `cidr` — [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация) подсети.
+  * `gatewayIp` — IP-адрес шлюза. Необязательный параметр.
+  * `startIp`, `endIp` — диапазон адресов для DHCP. Необязательный параметр.
+
+  Результат:
+
+  ```bash
+  {
+    "done": true,
+    "metadata": {
+      "@type": "type.googleapis.com/yandex.cloud.baremetal.v1alpha.CreatePrivateSubnetMetadata",
+      "privateSubnetId": "ly52xefxa2hi********"
+    },
+    "response": {
+      "@type": "type.googleapis.com/yandex.cloud.baremetal.v1alpha.PrivateSubnet",
+      "vrfOptions": {
+        "dhcpOptions":
+        {
+          "startIp": "10.0.*.*",
+          "endIp": "10.0.*.*"
+        },
+        "vrfId": "ly5licxve4z3********",
+        "cidr": "10.0.*.*/8",
+        "gatewayIp": "10.0.*.*"
+      },
+      "labels": {
+        "env": "test"
+      },
+      "id": "ly52xefxa2hi********",
+      "cloudId": "b1gia87mbaom********",
+      "folderId": "b1g07hj5r6i4********",
+      "name": "demo-private-subnet",
+      "description": "My first private subnet",
+      "status": "READY",
+      "zoneId": "ru-central1-m",
+      "hardwarePoolId": "ru-central1-m3",
+      "createdAt": "2025-12-14T14:42:58.372557Z"
+    },
+    "id": "ly5hcnsbx3l4********",
+    "description": "Private subnet create",
+    "createdAt": "2025-12-14T14:42:58.375290Z",
+    "createdBy": "ajeb9l33h6mu********",
+    "modifiedAt": "2025-12-14T14:42:58.375290Z"
+  }
+  ```
+
+  Отслеживайте статус операции по полю `done`.
 
 {% endlist %}

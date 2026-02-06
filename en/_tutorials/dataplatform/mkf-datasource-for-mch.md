@@ -7,13 +7,13 @@ To set up data delivery from {{ mkf-name }} to {{ mch-name }}:
 1. [Set up {{ KF }} integration for your {{ mch-name }} cluster](#configure-mch-for-kf).
 1. [Create Kafka-engine tables in your {{ mch-name }} cluster](#create-kf-table).
 1. [Send test data to your {{ mkf-name }} topics](#send-sample-data-to-kf).
-1. [Verify that the test data appears in the {{ mch-name }} cluster tables](#fetch-sample-data).
+1. [Check {{ mch-name }} cluster tables for test data](#fetch-sample-data).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note warning %}
 
-This tutorial uses a single-host {{ CH }} cluster. If your cluster has more than one {{ CH }} host, arrange the SQL queries below as [distributed queries]({{ ch.docs }}/sql-reference/statements/create/table) with your cluster name in curly brackets: `CREATE ... ON CLUSTER '{cluster}'`. Additionally, in queries with the `MergeTree` table engine specified, use `ReplicatedMergeTree` instead.
+This tutorial uses a single-host {{ CH }} cluster. If your cluster has more than one {{ CH }} host, use a [distributed query]({{ ch.docs }}/sql-reference/statements/create/table) by specifying your cluster name in the SQL statements below: `CREATE ... ON CLUSTER '{cluster}'`. Additionally, use the `ReplicatedMergeTree` table engine to replace `MergeTree` wherever it appears in the statements.
 
 {% endnote %}
 
@@ -22,26 +22,26 @@ This tutorial uses a single-host {{ CH }} cluster. If your cluster has more than
 
 The support cost for this solution includes:
 
-* {{ mkf-name }} cluster fee: Covers the use of computational resources allocated to hosts (including {{ ZK }} hosts) and disk storage (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* {{ mch-name }} cluster fee: Covers the use of computational resources allocated to hosts (including {{ ZK }} hosts) and disk storage (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ mkf-name }} cluster fee, which covers the use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* {{ mch-name }} cluster fee, which covers the use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-### Set up the infrastructure {#deploy-infrastructure}
+### Set up your infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    1. [Create the required number of {{ mkf-name }} clusters](../../managed-kafka/operations/cluster-create.md) with your preferred [configuration](../../managed-kafka/concepts/instance-types.md). Enable public access to your clusters during creation so you can connect to them from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
+    1. [Create the required number of {{ mkf-name }} clusters](../../managed-kafka/operations/cluster-create.md) of any suitable [configuration](../../managed-kafka/concepts/instance-types.md). To be able to connect to the clusters not only from within the {{ yandex-cloud }} network but also from a local machine, enable public access when creating them.
 
-    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with a single shard and a database named `db1`. Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
+    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with a single shard and a database named `db1`. To be able to connect to the cluster not only from within the {{ yandex-cloud }} network but also from your local machine, enable public access when creating it.
 
         {% note info %}
 
-        Integration with {{ KF }} is available during [cluster creation](../../managed-clickhouse/operations/cluster-create.md). In this tutorial, however, we will configure the integration [at a later stage](#configure-mch-for-kf).
+        Integration with {{ KF }} is available during [cluster creation](../../managed-clickhouse/operations/cluster-create.md). In this tutorial, however, we will configure the integration [at a later step](#configure-mch-for-kf).
 
         {% endnote %}
 
@@ -54,12 +54,12 @@ The support cost for this solution includes:
 
     1. [Create the required number of topics](../../managed-kafka/operations/cluster-topics.md#create-topic) in {{ mkf-name }} clusters. Make sure the topic names are unique.
 
-    1. To enable access to topics for [producers and consumers](../../managed-kafka/concepts/producers-consumers.md), [create](../../managed-kafka/operations/cluster-accounts.md#create-account) two users in each {{ mkf-name }} cluster:
+    1. To enable the [producer and consumer](../../managed-kafka/concepts/producers-consumers.md) to access topics, [create](../../managed-kafka/operations/cluster-accounts.md#create-account) two users in each {{ mkf-name }} cluster:
 
-        - Producer: A user assigned the `ACCESS_ROLE_PRODUCER` role.
-        - Consumer: A user assigned the `ACCESS_ROLE_CONSUMER` role.
+        - With the `ACCESS_ROLE_PRODUCER` role for the producer.
+        - With the `ACCESS_ROLE_CONSUMER` role for the consumer.
 
-        Usernames are not required to be unique across clusters.
+        Usernames may be the same across clusters.
 
 - {{ TF }} {#tf}
 
@@ -68,17 +68,17 @@ The support cost for this solution includes:
     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. Download the [data-from-kafka-to-clickhouse.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-fetch-data-from-kafka/blob/main/data-from-kafka-to-clickhouse.tf) configuration file to your current working directory.
+    1. Download the [data-from-kafka-to-clickhouse.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-fetch-data-from-kafka/blob/main/data-from-kafka-to-clickhouse.tf) configuration file to the same working directory.
 
         This file describes:
 
         * Network.
         * Subnet.
-        * Default security group and inbound internet rules for the cluster
+        * Default security group and inbound internet rules for the cluster.
         * {{ mkf-name }} cluster.
         * Topic and two {{ mkf-name }} users for producer and consumer access.
 
-            To create multiple topics or clusters, duplicate these resource blocks and provide a unique name for each. Usernames are not required to be unique across clusters.
+            To create multiple topics or clusters, duplicate the sections with their descriptions and provide a unique name for each. Usernames may be the same across clusters.
 
         * {{ mch-name }} cluster with a single shard and a database named `db1`.
 
@@ -89,13 +89,13 @@ The support cost for this solution includes:
         * Names of topics in the {{ mkf-name }} clusters.
         * Username and password that will be used to access your {{ mch-name }} cluster.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
        ```bash
        terraform validate
        ```
 
-       {{ TF }} will show any errors found in your configuration files.
+       {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -115,7 +115,7 @@ The support cost for this solution includes:
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Verify that you can use it to [establish SSL connections to your {{ mkf-name }} clusters](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+        Make sure you can use it to [establish SSL connections to your {{ mkf-name }} clusters](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
     - [clickhouse-client]({{ ch.docs }}/interfaces/cli/): For connecting to a database within the {{ mch-name }} cluster.
 
@@ -138,7 +138,7 @@ The support cost for this solution includes:
 
             {% include [ClickHouse client config](../../_includes/mdb/mch/client-config.md) %}
 
-        Verify that you can [establish an SSL connection to the {{ mch-name }} cluster](../../managed-clickhouse/operations/connect/clients.md) via clickhouse-client.
+        Verify that you can [establish an SSL connection to the {{ mch-name }} cluster](../../managed-clickhouse/operations/connect/clients.md) via `clickhouse-client`.
 
     - [jq](https://stedolan.github.io/jq/): For stream processing of JSON files.
 
@@ -154,20 +154,20 @@ The support cost for this solution includes:
 
     Configuration depends on how many {{ mkf-name }} clusters you have:
 
-    * Single {{ KF }} cluster: Provide authentication data in the [{{ CH }} settings](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces), under **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Kafka**. The {{ mch-name }} cluster will use these credentials for all topics.
+    * Single {{ KF }} cluster: Provide authentication data in the [{{ CH }} settings](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces), under **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Kafka**. The {{ mch-name }} cluster will use these credentials when accessing any topic.
 
         Authentication data:
 
         * **Sasl mechanism**: `SCRAM-SHA-512`.
-        * **Sasl password**: [User password for the consumer](#before-you-begin).
-        * **Sasl username**: [Username for the consumer](#before-you-begin).
+        * **Sasl password**: [Consumer user password](#before-you-begin).
+        * **Sasl username**: [Consumer username](#before-you-begin).
         * **Security protocol**: `SASL_SSL`.
 
-    * Multiple {{ KF }} clusters: Create enough [named collections]({{ ch.docs }}/operations/named-collections) containing authentication data for each {{ mkf-name }} topic:
+    * Multiple {{ KF }} clusters: Create the required number of [named collections]({{ ch.docs }}/operations/named-collections) containing authentication data for each {{ mkf-name }} topic:
 
         1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database on your {{ mch-name }} cluster via `clickhouse-client`.
 
-        1. Run the following query as many times as needed providing the authentication data for each topic:
+        1. Run the following query as many times as needed, providing the authentication data for each topic:
 
             ```sql
             CREATE NAMED COLLECTION <collection_name> AS
@@ -198,7 +198,7 @@ The support cost for this solution includes:
             }
             ```
 
-        - Multiple {{ KF }} clusters: Uncomment the `clickhouse.config.kafka_topic` section and specify credentials for each {{ mkf-name }} topic:
+        - Multiple {{ KF }} clusters: Uncomment the `clickhouse.config.kafka_topic` section and specify the credentials for each {{ mkf-name }} topic:
 
             ```hcl
             config {
@@ -214,9 +214,9 @@ The support cost for this solution includes:
             }
             ```
 
-            For multiple topics, duplicate the `kafka_topic` section for each one, specifying the relevant topic names.
+            If your clusters have more than one topic, duplicate the `kafka_topic` section for each one, specifying the relevant topic names.
 
-    1. Check if the settings are correct.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -228,13 +228,13 @@ The support cost for this solution includes:
 
 ## Create Kafka-engine tables in your {{ mch-name }} cluster {#create-kf-table}
 
-Suppose your {{ KF }} topics receive car sensor data in JSON format. This data will be transmitted as {{ KF }} messages, each containing a string in the following format:
+Let's assume your {{ KF }} topics receive some car sensor data in JSON format. This data will be transmitted as {{ KF }} messages, each containing a string like this:
 
 ```json
 {"device_id":"iv9a94th6rzt********","datetime":"2020-06-05 17:27:00","latitude":"55.70329032","longitude":"37.65472196","altitude":"427.5","speed":"0","battery_voltage":"23.5","cabin_temperature":"17","fuel_level":null}
 ```
 
-For `Kafka` table inserts, the {{ mch-name }} cluster will use the [JSONEachRow format]({{ ch.docs }}/interfaces/formats/#jsoneachrow) that parses rows from {{ KF }} messages into the required column values.
+For `Kafka` table inserts, the {{ mch-name }} cluster will use the [JSONEachRow format]({{ ch.docs }}/interfaces/formats/#jsoneachrow), which converts rows from {{ KF }} messages into the required column values.
 
 For each {{ KF }} topic, create a separate table for incoming data in your {{ mch-name }} cluster:
 
@@ -284,9 +284,9 @@ For each {{ KF }} topic, create a separate table for incoming data in your {{ mc
 
     {% endlist %}
 
-These tables will be automatically populated with messages consumed from {{ mkf-name }} topics. When reading data, {{ mch-name }} uses the [previously configured credentials](#configure-mch-for-kf) for the [`ACCESS_ROLE_CONSUMER` role account](#before-you-begin).
+These tables will be automatically populated with messages consumed from {{ mkf-name }} topics. When reading data, {{ mch-name }} uses the [previously configured settings](#configure-mch-for-kf) for [users with the `ACCESS_ROLE_CONSUMER` role](#before-you-begin).
 
-For more details on creating `Kafka`-engine tables, see this [{{ CH }} article]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
+For more information about creating `Kafka` tables, see [this {{ CH }} article]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
 
 ## Send test data to your {{ mkf-name }} topics {#send-sample-data-to-kf}
 
@@ -344,11 +344,11 @@ For more details on creating `Kafka`-engine tables, see this [{{ CH }} article](
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file-root }} -Z
     ```
 
-Data is sent using the credentials of the account with the [`ACCESS_ROLE_PRODUCER` role](#before-you-begin). To learn more about setting up an SSL certificate and using `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
+Data is sent using the credentials of users with the [`ACCESS_ROLE_PRODUCER` role](#before-you-begin). To learn more about setting up an SSL certificate and using `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
-## Verify that the test data appears in the {{ mch-name }} cluster tables {#fetch-sample-data}
+## Check {{ mch-name }} cluster tables for test data {#fetch-sample-data}
 
-To access the data, use a materialized view. Once a materialized view is attached to a `Kafka` table, it starts gathering data in the background automatically. This enables the system to continuously consume messages from {{ KF }} and convert them to the required format using `SELECT`.
+To access the data, use a materialized view. Once a materialized view is attached to a `Kafka` table, it starts collecting data in the background automatically. This enables the system to continuously consume messages from {{ KF }} and convert them to the required format using `SELECT`.
 
 {% note info %}
 
@@ -382,7 +382,7 @@ To create a materialized view:
         AS SELECT * FROM db1.<table_name_for_topic>;
     ```
 
-To retrieve all data from your materialized view:
+To get all data from the materialized view:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database on your {{ mch-name }} cluster via `clickhouse-client`.
 1. Run this query:
@@ -391,9 +391,9 @@ To retrieve all data from your materialized view:
     SELECT * FROM db1.<view_name>;
     ```
 
-This query will return data sent to the respective {{ mkf-name }} topic.
+This query will return a table with data sent to the respective {{ mkf-name }} topic.
 
-To learn more about working with data received from {{ KF }}, see this [{{ CH }} article]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
+To learn more about working with data received from {{ KF }}, see [this {{ CH }} article]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
 
 ## Delete the resources you created {#clear-out}
 

@@ -1,10 +1,10 @@
 # Viewing {{ KF }} cluster logs
 
-{{ mkf-name }} allows you to [get a cluster log snippet](#get-log) for the selected period and [view logs in real time](#get-log-stream).
+{{ mkf-name }} allows you to [get a cluster log snippet](#get-log) for the selected time period and [view logs in real time](#get-log-stream).
 
 {% note info %}
 
-Here, the log is the system log of the cluster and its hosts. This log is not related to the partition log for the {{ KF }} topic where the broker writes messages received from message producers.
+In this context, the log refers to the system logs of a cluster and its hosts. This log has nothing to do with the {{ KF }} topic partition log where the broker writes messages from producers.
 
 {% endnote %}
 
@@ -28,7 +28,7 @@ Here, the log is the system log of the cluster and its hosts. This log is not re
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. See the description of the CLI command for viewing cluster logs:
+    1. View the description of the CLI command for viewing cluster logs:
 
         ```bash
         {{ yc-mdb-kf }} cluster list-logs --help
@@ -51,8 +51,8 @@ Here, the log is the system log of the cluster and its hosts. This log is not re
         * `--columns`: List of log columns to draw data from.
             * `hostname`: [Host name](cluster-hosts.md).
             * `message`: Message output by the component.
-            * `severity`: Logging level. Output example: `INFO`.
-            * `origin`: Message origin. Output examples: `kafka_server` or `kafka_controller`.
+            * `severity`: Logging level, e.g., `INFO`.
+            * `origin`: Message origin, e.g., `kafka_server` or `kafka_controller`.
 
         * {% include [logs filter](../../_includes/cli/logs/filter.md) %}
         * {% include [logs since time](../../_includes/cli/logs/since.md) %}
@@ -94,7 +94,7 @@ Here, the log is the system log of the cluster and its hosts. This log is not re
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 
-    1. View the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -144,7 +144,7 @@ Here, the log is the system log of the cluster and its hosts. This log is not re
 
 {% endlist %}
 
-## Getting a log entry stream {#get-log-stream}
+## Getting a log stream {#get-log-stream}
 
 This method allows you to get cluster logs in real time.
 
@@ -207,7 +207,7 @@ This method allows you to get cluster logs in real time.
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 
-    1. View the [server response](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.kafka.v1.StreamLogRecord) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.kafka.v1.StreamLogRecord) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 

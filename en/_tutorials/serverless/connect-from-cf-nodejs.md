@@ -2,15 +2,15 @@
 
 {% note info %}
 
-This guide is intended for Linux users. On Windows, you can follow it in [WSL](https://docs.microsoft.com/en-us/windows/wsl/about).
+This tutorial is intended for Linux users. On Windows, you can follow it in [WSL](https://docs.microsoft.com/en-us/windows/wsl/about).
 
 {% endnote %}
 
 You will create a [function](../../functions/concepts/function.md) with a [Node.js app]({{ ydb.docs }}/reference/ydb-sdk/example/example-nodejs) that will run simple queries against a [{{ ydb-short-name }}](https://ydb.tech/) database. You will deploy your app using Bash scripts and use the `tcs` command to compile it.
 
-A function with an associated [service account](../../iam/concepts/users/service-accounts.md) is authorized in {{ ydb-short-name }} via the metadata service.
+Use a metadata service to authorize your function with an associated [service account](../../iam/concepts/users/service-accounts.md) in {{ ydb-short-name }}.
 
-The application creates a {{ ydb-short-name }} database connection driver, a session, and a transaction, and runs a query using the `ydb` library. This library is installed as a [dependency](../../functions/lang/nodejs/dependencies.md) when creating a [function version](../../functions/concepts/function.md#version). The DB connection parameters are passed to the application via environment variables.
+The application creates a {{ ydb-short-name }} database connection driver, a session, and a transaction, and runs a query using the `ydb` library. This library is installed as a [dependency](../../functions/lang/nodejs/dependencies.md) when creating a [function version](../../functions/concepts/function.md#version). The database connection parameters are provided to the application using environment variables.
 
 To set up a connection to a {{ ydb-short-name }} database:
 1. [Get your cloud ready](#before-begin).
@@ -29,7 +29,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support cost for this scenario includes:
+The infrastructure support cost for this tutorial includes:
 * Fee for using the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 * Fee for running queries against the database (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
 
@@ -88,7 +88,7 @@ The infrastructure support cost for this scenario includes:
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter the service account name: `sa-function`.
+  1. Name the service account: `sa-function`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `{{ roles-editor }}`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -144,16 +144,16 @@ The infrastructure support cost for this scenario includes:
      }
      ```
 
-     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account).
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory with your configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -161,7 +161,7 @@ The infrastructure support cost for this scenario includes:
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources: type `yes` and press **Enter**.
 
 - API {#api}
 
@@ -208,7 +208,7 @@ The infrastructure support cost for this scenario includes:
 
 - {{ TF }} {#tf}
 
-  1. In the configuration file, describe the authorized key parameters:
+  1. In the configuration file, describe the authorized key properties:
 
      ```hcl
      resource "yandex_iam_service_account_key" "sa-auth-key" {
@@ -217,16 +217,16 @@ The infrastructure support cost for this scenario includes:
      }
      ```
 
-     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account_key).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_key).
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory with your configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -234,7 +234,7 @@ The infrastructure support cost for this scenario includes:
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources: type `yes` and press **Enter**.
 
 - API {#api}
 
@@ -259,7 +259,7 @@ The infrastructure support cost for this scenario includes:
   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
      Wait for the database to start. While being created, the database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
-  1. Click the name of the database you created.
+  1. Click the database name.
   1. Save the value of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field from the **{{ ui-key.yacloud.ydb.overview.section_connection }}** section. You will need it at the next step.
 
 {% endlist %}
@@ -346,7 +346,7 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the function.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Select the `func-test-ydb` function.
+  1. Select `func-test-ydb`.
   1. Navigate to the **{{ ui-key.yacloud.common.overview }}** tab.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field, click the link.
   1. In your browser address bar, add the `api_key` parameter to the link, e.g., `?api_key=b95`:
@@ -355,7 +355,7 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
       https://functions.yandexcloud.net/efghm9el0ja9********?api_key=b95
       ```
 
-  1. A successful DB connection will create a table named `b95` with a single record added to it. A message in JSON format will appear on the page, e.g.:
+  1. If you database is connected, a table named `b95` with a single record will be created. A JSON message will appear on the page, e.g.:
 
      ```json
      {
@@ -368,5 +368,5 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
-1. [Delete the DB](../../ydb/operations/manage-databases.md#delete-db).
+1. [Delete the database](../../ydb/operations/manage-databases.md#delete-db).
 1. [Delete the function](../../functions/operations/function/function-delete.md).

@@ -9,5 +9,5 @@ canonical: '{{ link-docs }}/tutorials/dataplatform/schema-registry-overview'
 Such schemas are stored in a schema registry. For {{ mkf-name }}, you can:
 
 * Use an [integrated registry](./managed-schema-registry.md).
-* Using an [integrated registry](./managed-schema-registry-rest.md) through the REST API.
+* Use an [integrated registry](./managed-schema-registry-rest.md) through the REST API.
 * Set up and use the [Confluent registry](./confluent-schema-registry.md).
