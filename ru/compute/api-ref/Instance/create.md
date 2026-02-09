@@ -410,6 +410,14 @@ apiPlayground:
               - diskSpec
           - required:
               - diskId
+      PhysicalLocalDiskSpec:
+        type: object
+        properties:
+          kmsKeyId:
+            description: |-
+              **string**
+              ID of KMS key for disk encryption
+            type: string
       AttachedLocalDiskSpec:
         type: object
         properties:
@@ -419,8 +427,17 @@ apiPlayground:
               Required field. Size of the disk, specified in bytes.
             type: string
             format: int64
+          physicalLocalDisk:
+            description: |-
+              **[PhysicalLocalDiskSpec](#yandex.cloud.compute.v1.PhysicalLocalDiskSpec)**
+              Local disk configuration
+              Includes only one of the fields `physicalLocalDisk`.
+            $ref: '#/definitions/PhysicalLocalDiskSpec'
         required:
           - size
+        oneOf:
+          - required:
+              - physicalLocalDisk
       AttachedFilesystemSpec:
         type: object
         properties:
@@ -845,7 +862,12 @@ POST https://compute.{{ api-host }}/compute/v1/instances
   ],
   "localDiskSpecs": [
     {
-      "size": "string"
+      "size": "string",
+      // Includes only one of the fields `physicalLocalDisk`
+      "physicalLocalDisk": {
+        "kmsKeyId": "string"
+      }
+      // end of the list of possible fields
     }
   ],
   "filesystemSpecs": [
@@ -1246,6 +1268,20 @@ Placement group ID. ||
 || size | **string** (int64)
 
 Required field. Size of the disk, specified in bytes. ||
+|| physicalLocalDisk | **[PhysicalLocalDiskSpec](#yandex.cloud.compute.v1.PhysicalLocalDiskSpec)**
+
+Local disk configuration
+
+Includes only one of the fields `physicalLocalDisk`. ||
+|#
+
+## PhysicalLocalDiskSpec {#yandex.cloud.compute.v1.PhysicalLocalDiskSpec}
+
+#|
+||Field | Description ||
+|| kmsKeyId | **string**
+
+ID of KMS key for disk encryption ||
 |#
 
 ## AttachedFilesystemSpec {#yandex.cloud.compute.v1.AttachedFilesystemSpec}
@@ -1577,7 +1613,15 @@ The maximum string length in characters is 100. ||
     "localDisks": [
       {
         "size": "string",
-        "deviceName": "string"
+        "deviceName": "string",
+        // Includes only one of the fields `physicalLocalDisk`
+        "physicalLocalDisk": {
+          "kmsKey": {
+            "keyId": "string",
+            "versionId": "string"
+          }
+        }
+        // end of the list of possible fields
       }
     ],
     "filesystems": [
@@ -2015,6 +2059,32 @@ Serial number that is reflected into the /dev/disk/by-id/ tree
 of a Linux operating system running within the instance.
 
 This value can be used to reference the device for mounting, resizing, and so on, from within the instance. ||
+|| physicalLocalDisk | **[PhysicalLocalDisk](#yandex.cloud.compute.v1.PhysicalLocalDisk)**
+
+Local disk configuration
+
+Includes only one of the fields `physicalLocalDisk`. ||
+|#
+
+## PhysicalLocalDisk {#yandex.cloud.compute.v1.PhysicalLocalDisk}
+
+#|
+||Field | Description ||
+|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+
+Key encryption key info. ||
+|#
+
+## KMSKey {#yandex.cloud.compute.v1.KMSKey}
+
+#|
+||Field | Description ||
+|| keyId | **string**
+
+ID of KMS symmetric key ||
+|| versionId | **string**
+
+Version of KMS symmetric key ||
 |#
 
 ## AttachedFilesystem {#yandex.cloud.compute.v1.AttachedFilesystem}

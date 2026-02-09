@@ -132,7 +132,7 @@ items:
                 href: operations/resources/delete-instance.md
           - name: Классификация
             items:
-              - name: Использовать классификаторы по промту
+              - name: Использовать классификаторы по промпту
                 href: operations/classifier/readymade.md
               - name: Использовать дообученные классификаторы
                 href: operations/classifier/additionally-trained.md

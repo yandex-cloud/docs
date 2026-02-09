@@ -3,8 +3,8 @@
 **Dedicated instance mode**
 
 #|
-|| Type of limitation | Default value ||
-|| Total number of processor cores for all database hosts per cloud
+|| Type of limit | Default value ||
+|| Total number of CPU cores for all database hosts per cloud
 `ydb.dedicatedComputeCores.count` | 64 ||
 || Total virtual memory for all database hosts per cloud
 `ydb.dedicatedComputeMemory.size` | 256 GB ||
@@ -19,11 +19,11 @@
 **Serverless mode**
 
 #|
-|| Type of limitation | Default value ||
+|| Type of limit | Default value ||
 || Maximum number of databases
 `ydb.serverlessDatabases.count` | 4 ||
-|| Maximum number of serverless queries per second, per cloud
-`ydb.serverlessRequestUnitsPerSecond.count` | 1,000 RU ||
+|| Maximum number of serverless request units per second, per cloud
+`ydb.serverlessRequestUnitsPerSecond.count` | 1,000 RUs ||
 || Maximum number of schema operations^*^ per day in a single serverless database
 `ydb.schemaOperationsPerDay.count` | 1,000 ||
 || Maximum number of schema operations^*^ per minute in a single serverless database
@@ -36,4 +36,4 @@
 `ydb.serverlessProvisionedCapacity.count` | 1,000 ||
 |#
 
-^*^Transactions with quotas: creating, updating, and deleting table schemas, getting a table description, getting a list of tables, and creating and deleting directories.
+^*^Operations with quotas: creating, updating, and deleting table schemas, getting a table description, getting a list of tables, and creating and deleting directories.

@@ -1,409 +1,118 @@
 ---
 subcategory: Managed Service for Trino
-page_title: 'Yandex: yandex_trino_catalog'
-description: Get information about Trino catalog.
 sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/trino_catalog.md
 ---
 
-# yandex_trino_catalog (Data Source)
+# yandex_trino_catalog (DataSource)
 
 Catalog for Managed Trino cluster.
 
-## Example usage
 
-```terraform
-//
-// Get information about Trino catalog by name
-//
-data "yandex_trino_catalog" "trino_catalog_by_name" {
-  cluster_id = yandex_trino_cluster.trino.id
-  name       = "catalog"
-}
+## Arguments & Attributes Reference
+
+- `clickhouse` [FW-Block]. Configuration for Clickhouse connector.
+  - `additional_properties` (Map Of String). Additional properties.
+  - `connection_manager` [FW-Block]. Configuration for connection manager connection.
+    - `connection_id` (**Required**)(String). Connection ID.
+    - `connection_properties` (Map Of String). Additional connection properties.
+    - `database` (**Required**)(String). Database.
+  - `on_premise` [FW-Block]. Configuration for on-premise connection.
+    - `connection_url` (**Required**)(String). Connection to the clickhouse.
+    - `password` (**Required**)(String). Password of the clickhouse user.
+    - `user_name` (**Required**)(String). Name of the clickhouse user.
+- `cluster_id` (**Required**)(String). ID of the Trino cluster. Provided by the client when the Catalog is created.
+- `delta_lake` [FW-Block]. Configuration for DeltaLake connector.
+  - `additional_properties` (Map Of String). Additional properties.
+  - `file_system` [FW-Block]. File system configuration.
+    - `external_s3` [FW-Block]. Describes External S3 compatible file system.
+      - `aws_access_key` (**Required**)(String). AWS access key ID for S3 authentication.
+      - `aws_endpoint` (**Required**)(String). AWS S3 compatible endpoint URL.
+      - `aws_region` (**Required**)(String). AWS region for S3 storage.
+      - `aws_secret_key` (**Required**)(String). AWS secret access key for S3 authentication.
+    - `s3` [FW-Block]. Describes YandexCloud native S3 file system.
+  - `metastore` [FW-Block]. Metastore configuration.
+    - `uri` (**Required**)(String). The resource description.
+- `description` (String). The resource description.
+- `greenplum` [FW-Block]. Configuration for Greenplum/Cloudberry connector.
+  - `additional_properties` (Map Of String). Additional properties.
+  - `connection_manager` [FW-Block]. Configuration for connection manager connection.
+    - `connection_id` (**Required**)(String). Connection ID.
+    - `connection_properties` (Map Of String). Additional connection properties.
+    - `database` (**Required**)(String). Database.
+  - `on_premise` [FW-Block]. Configuration for on-premise connection.
+    - `connection_url` (**Required**)(String). Connection to the clickhouse.
+    - `password` (**Required**)(String). Password of the clickhouse user.
+    - `user_name` (**Required**)(String). Name of the clickhouse user.
+- `hive` [FW-Block]. Configuration for Hive connector.
+  - `additional_properties` (Map Of String). Additional properties.
+  - `file_system` [FW-Block]. File system configuration.
+    - `external_s3` [FW-Block]. Describes External S3 compatible file system.
+      - `aws_access_key` (**Required**)(String). AWS access key ID for S3 authentication.
+      - `aws_endpoint` (**Required**)(String). AWS S3 compatible endpoint URL.
+      - `aws_region` (**Required**)(String). AWS region for S3 storage.
+      - `aws_secret_key` (**Required**)(String). AWS secret access key for S3 authentication.
+    - `s3` [FW-Block]. Describes YandexCloud native S3 file system.
+  - `metastore` [FW-Block]. Metastore configuration.
+    - `uri` (**Required**)(String). The resource description.
+- `hudi` [FW-Block]. Configuration for Hudi connector.
+  - `additional_properties` (Map Of String). Additional properties.
+  - `file_system` [FW-Block]. File system configuration.
+    - `external_s3` [FW-Block]. Describes External S3 compatible file system.
+      - `aws_access_key` (**Required**)(String). AWS access key ID for S3 authentication.
+      - `aws_endpoint` (**Required**)(String). AWS S3 compatible endpoint URL.
+      - `aws_region` (**Required**)(String). AWS region for S3 storage.
+      - `aws_secret_key` (**Required**)(String). AWS secret access key for S3 authentication.
+    - `s3` [FW-Block]. Describes YandexCloud native S3 file system.
+  - `metastore` [FW-Block]. Metastore configuration.
+    - `uri` (**Required**)(String). The resource description.
+- `iceberg` [FW-Block]. Configuration for Iceberg connector.
+  - `additional_properties` (Map Of String). Additional properties.
+  - `file_system` [FW-Block]. File system configuration.
+    - `external_s3` [FW-Block]. Describes External S3 compatible file system.
+      - `aws_access_key` (**Required**)(String). AWS access key ID for S3 authentication.
+      - `aws_endpoint` (**Required**)(String). AWS S3 compatible endpoint URL.
+      - `aws_region` (**Required**)(String). AWS region for S3 storage.
+      - `aws_secret_key` (**Required**)(String). AWS secret access key for S3 authentication.
+    - `s3` [FW-Block]. Describes YandexCloud native S3 file system.
+  - `metastore` [FW-Block]. Metastore configuration.
+    - `uri` (**Required**)(String). The resource description.
+- `id` (*Read-Only*) (String). The resource identifier.
+- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
+- `mysql` [FW-Block]. Configuration for MySQL connector.
+  - `additional_properties` (Map Of String). Additional properties.
+  - `connection_manager` [FW-Block]. Configuration for MySQL connection manager connection.
+    - `connection_id` (**Required**)(String). Connection ID.
+    - `connection_properties` (Map Of String). Additional connection properties.
+  - `on_premise` [FW-Block]. Configuration for on-premise connection.
+    - `connection_url` (**Required**)(String). Connection to the clickhouse.
+    - `password` (**Required**)(String). Password of the clickhouse user.
+    - `user_name` (**Required**)(String). Name of the clickhouse user.
+- `name` (**Required**)(String). The resource name.
+- `oracle` [FW-Block]. Configuration for Oracle connector.
+  - `additional_properties` (Map Of String). Additional properties.
+  - `on_premise` [FW-Block]. Configuration for on-premise connection.
+    - `connection_url` (**Required**)(String). Connection to the clickhouse.
+    - `password` (**Required**)(String). Password of the clickhouse user.
+    - `user_name` (**Required**)(String). Name of the clickhouse user.
+- `postgresql` [FW-Block]. Configuration for Postgresql connector.
+  - `additional_properties` (Map Of String). Additional properties.
+  - `connection_manager` [FW-Block]. Configuration for connection manager connection.
+    - `connection_id` (**Required**)(String). Connection ID.
+    - `connection_properties` (Map Of String). Additional connection properties.
+    - `database` (**Required**)(String). Database.
+  - `on_premise` [FW-Block]. Configuration for on-premise connection.
+    - `connection_url` (**Required**)(String). Connection to the clickhouse.
+    - `password` (**Required**)(String). Password of the clickhouse user.
+    - `user_name` (**Required**)(String). Name of the clickhouse user.
+- `sqlserver` [FW-Block]. Configuration for SQLServer connector.
+  - `additional_properties` (Map Of String). Additional properties.
+  - `on_premise` [FW-Block]. Configuration for on-premise connection.
+    - `connection_url` (**Required**)(String). Connection to the clickhouse.
+    - `password` (**Required**)(String). Password of the clickhouse user.
+    - `user_name` (**Required**)(String). Name of the clickhouse user.
+- `tpcds` [FW-Block]. Configuration for TPCDS connector.
+  - `additional_properties` (Map Of String). Additional properties.
+- `tpch` [FW-Block]. Configuration for TPCH connector.
+  - `additional_properties` (Map Of String). Additional properties.
 
-//
-// Get information about Trino catalog by id
-//
-data "yandex_trino_catalog" "trino_catalog_by_id" {
-  cluster_id = yandex_trino_cluster.trino.id
-  id         = "<tirno-catalog-id>"
-}
-```
-
-<!-- schema generated by tfplugindocs -->
-## Schema
-
-### Required
-
-- `cluster_id` (String) ID of the Trino cluster.
-
-### Optional
-
-- `id` (String) The resource identifier.
-- `name` (String) The resource name.
-- `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
-
-### Read-Only
-
-- `clickhouse` (Attributes) Configuration for Clickhouse connector. (see [below for nested schema](#nestedatt--clickhouse))
-- `delta_lake` (Attributes) Configuration for Delta Lake connector. (see [below for nested schema](#nestedatt--delta_lake))
-- `description` (String) The resource description.
-- `greenplum` (Attributes) Configuration for Greenplum/Cloudberry connector. (see [below for nested schema](#nestedatt--greenplum))
-- `hive` (Attributes) Configuration for Hive connector. (see [below for nested schema](#nestedatt--hive))
-- `hudi` (Attributes) Configuration for Hudi connector. (see [below for nested schema](#nestedatt--hudi))
-- `iceberg` (Attributes) Configuration for Iceberg connector. (see [below for nested schema](#nestedatt--iceberg))
-- `labels` (Map of String) A set of key/value label pairs which assigned to resource.
-- `mysql` (Attributes) Configuration for MySQL connector. (see [below for nested schema](#nestedatt--mysql))
-- `oracle` (Attributes) Configuration for Oracle connector. (see [below for nested schema](#nestedatt--oracle))
-- `postgresql` (Attributes) Configuration for Postgresql connector. (see [below for nested schema](#nestedatt--postgresql))
-- `sqlserver` (Attributes) Configuration for SQLServer connector. (see [below for nested schema](#nestedatt--sqlserver))
-- `tpcds` (Attributes) Configuration for TPCDS connector. (see [below for nested schema](#nestedatt--tpcds))
-- `tpch` (Attributes) Configuration for TPCH connector. (see [below for nested schema](#nestedatt--tpch))
-
-<a id="nestedblock--timeouts"></a>
-### Nested Schema for `timeouts`
-
-Optional:
-
-- `read` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
-
-
-<a id="nestedatt--clickhouse"></a>
-### Nested Schema for `clickhouse`
-
-Read-Only:
-
-- `additional_properties` (Map of String) Additional properties.
-- `connection_manager` (Attributes) Configuration for connection manager connection. (see [below for nested schema](#nestedatt--clickhouse--connection_manager))
-- `on_premise` (Attributes) Configuration for on-premise connection. (see [below for nested schema](#nestedatt--clickhouse--on_premise))
-
-<a id="nestedatt--clickhouse--connection_manager"></a>
-### Nested Schema for `clickhouse.connection_manager`
-
-Read-Only:
-
-- `connection_id` (String) Connection ID.
-- `connection_properties` (Map of String) Additional connection properties.
-- `database` (String) Database.
-
-
-<a id="nestedatt--clickhouse--on_premise"></a>
-### Nested Schema for `clickhouse.on_premise`
-
-Read-Only:
-
-- `connection_url` (String) Connection URL.
-- `password` (String, Sensitive) Password of the user.
-- `user_name` (String) Name of the user.
-
-
-
-<a id="nestedatt--delta_lake"></a>
-### Nested Schema for `delta_lake`
-
-Read-Only:
-
-- `additional_properties` (Map of String) Additional properties.
-- `file_system` (Attributes) File system configuration. (see [below for nested schema](#nestedatt--delta_lake--file_system))
-- `metastore` (Attributes) Metastore configuration. (see [below for nested schema](#nestedatt--delta_lake--metastore))
-
-<a id="nestedatt--delta_lake--file_system"></a>
-### Nested Schema for `delta_lake.file_system`
-
-Read-Only:
-
-- `external_s3` (Attributes) Describes External S3 compatible file system. (see [below for nested schema](#nestedatt--delta_lake--file_system--external_s3))
-- `s3` (Attributes) Describes YandexCloud native S3 file system. (see [below for nested schema](#nestedatt--delta_lake--file_system--s3))
-
-<a id="nestedatt--delta_lake--file_system--external_s3"></a>
-### Nested Schema for `delta_lake.file_system.external_s3`
-
-Read-Only:
-
-- `aws_access_key` (String, Sensitive) AWS access key ID for S3 authentication.
-- `aws_endpoint` (String) AWS S3 compatible endpoint URL.
-- `aws_region` (String) AWS region for S3 storage.
-- `aws_secret_key` (String, Sensitive) AWS secret access key for S3 authentication.
-
-
-<a id="nestedatt--delta_lake--file_system--s3"></a>
-### Nested Schema for `delta_lake.file_system.s3`
-
-
-
-<a id="nestedatt--delta_lake--metastore"></a>
-### Nested Schema for `delta_lake.metastore`
-
-Read-Only:
-
-- `uri` (String) The resource description.
-
-
-
-<a id="nestedatt--greenplum"></a>
-### Nested Schema for `greenplum`
-
-Read-Only:
-
-- `additional_properties` (Map of String) Additional properties.
-- `connection_manager` (Attributes) Configuration for connection manager connection. (see [below for nested schema](#nestedatt--greenplum--connection_manager))
-- `on_premise` (Attributes) Configuration for on-premise connection. (see [below for nested schema](#nestedatt--greenplum--on_premise))
-
-<a id="nestedatt--greenplum--connection_manager"></a>
-### Nested Schema for `greenplum.connection_manager`
-
-Read-Only:
-
-- `connection_id` (String) Connection ID.
-- `connection_properties` (Map of String) Additional connection properties.
-- `database` (String) Database.
-
-
-<a id="nestedatt--greenplum--on_premise"></a>
-### Nested Schema for `greenplum.on_premise`
-
-Read-Only:
-
-- `connection_url` (String) Connection URL.
-- `password` (String, Sensitive) Password of the user.
-- `user_name` (String) Name of the user.
-
-
-
-<a id="nestedatt--hive"></a>
-### Nested Schema for `hive`
-
-Read-Only:
-
-- `additional_properties` (Map of String) Additional properties.
-- `file_system` (Attributes) File system configuration. (see [below for nested schema](#nestedatt--hive--file_system))
-- `metastore` (Attributes) Metastore configuration. (see [below for nested schema](#nestedatt--hive--metastore))
-
-<a id="nestedatt--hive--file_system"></a>
-### Nested Schema for `hive.file_system`
-
-Read-Only:
-
-- `external_s3` (Attributes) Describes External S3 compatible file system. (see [below for nested schema](#nestedatt--hive--file_system--external_s3))
-- `s3` (Attributes) Describes YandexCloud native S3 file system. (see [below for nested schema](#nestedatt--hive--file_system--s3))
-
-<a id="nestedatt--hive--file_system--external_s3"></a>
-### Nested Schema for `hive.file_system.external_s3`
-
-Read-Only:
-
-- `aws_access_key` (String, Sensitive) AWS access key ID for S3 authentication.
-- `aws_endpoint` (String) AWS S3 compatible endpoint URL.
-- `aws_region` (String) AWS region for S3 storage.
-- `aws_secret_key` (String, Sensitive) AWS secret access key for S3 authentication.
-
-
-<a id="nestedatt--hive--file_system--s3"></a>
-### Nested Schema for `hive.file_system.s3`
-
-
-
-<a id="nestedatt--hive--metastore"></a>
-### Nested Schema for `hive.metastore`
-
-Read-Only:
-
-- `uri` (String) The resource description.
-
-
-
-<a id="nestedatt--hudi"></a>
-### Nested Schema for `hudi`
-
-Read-Only:
-
-- `additional_properties` (Map of String) Additional properties.
-- `file_system` (Attributes) File system configuration. (see [below for nested schema](#nestedatt--hudi--file_system))
-- `metastore` (Attributes) Metastore configuration. (see [below for nested schema](#nestedatt--hudi--metastore))
-
-<a id="nestedatt--hudi--file_system"></a>
-### Nested Schema for `hudi.file_system`
-
-Read-Only:
-
-- `external_s3` (Attributes) Describes External S3 compatible file system. (see [below for nested schema](#nestedatt--hudi--file_system--external_s3))
-- `s3` (Attributes) Describes YandexCloud native S3 file system. (see [below for nested schema](#nestedatt--hudi--file_system--s3))
-
-<a id="nestedatt--hudi--file_system--external_s3"></a>
-### Nested Schema for `hudi.file_system.external_s3`
-
-Read-Only:
-
-- `aws_access_key` (String, Sensitive) AWS access key ID for S3 authentication.
-- `aws_endpoint` (String) AWS S3 compatible endpoint URL.
-- `aws_region` (String) AWS region for S3 storage.
-- `aws_secret_key` (String, Sensitive) AWS secret access key for S3 authentication.
-
-
-<a id="nestedatt--hudi--file_system--s3"></a>
-### Nested Schema for `hudi.file_system.s3`
-
-
-
-<a id="nestedatt--hudi--metastore"></a>
-### Nested Schema for `hudi.metastore`
-
-Read-Only:
-
-- `uri` (String) The resource description.
-
-
-
-<a id="nestedatt--iceberg"></a>
-### Nested Schema for `iceberg`
-
-Read-Only:
-
-- `additional_properties` (Map of String) Additional properties.
-- `file_system` (Attributes) File system configuration. (see [below for nested schema](#nestedatt--iceberg--file_system))
-- `metastore` (Attributes) Metastore configuration. (see [below for nested schema](#nestedatt--iceberg--metastore))
-
-<a id="nestedatt--iceberg--file_system"></a>
-### Nested Schema for `iceberg.file_system`
-
-Read-Only:
-
-- `external_s3` (Attributes) Describes External S3 compatible file system. (see [below for nested schema](#nestedatt--iceberg--file_system--external_s3))
-- `s3` (Attributes) Describes YandexCloud native S3 file system. (see [below for nested schema](#nestedatt--iceberg--file_system--s3))
-
-<a id="nestedatt--iceberg--file_system--external_s3"></a>
-### Nested Schema for `iceberg.file_system.external_s3`
-
-Read-Only:
-
-- `aws_access_key` (String, Sensitive) AWS access key ID for S3 authentication.
-- `aws_endpoint` (String) AWS S3 compatible endpoint URL.
-- `aws_region` (String) AWS region for S3 storage.
-- `aws_secret_key` (String, Sensitive) AWS secret access key for S3 authentication.
-
-
-<a id="nestedatt--iceberg--file_system--s3"></a>
-### Nested Schema for `iceberg.file_system.s3`
-
-
-
-<a id="nestedatt--iceberg--metastore"></a>
-### Nested Schema for `iceberg.metastore`
-
-Read-Only:
-
-- `uri` (String) The resource description.
-
-
-
-<a id="nestedatt--mysql"></a>
-### Nested Schema for `mysql`
-
-Read-Only:
-
-- `additional_properties` (Map of String) Additional properties.
-- `connection_manager` (Attributes) Configuration for MySQL connection manager connection. (see [below for nested schema](#nestedatt--mysql--connection_manager))
-- `on_premise` (Attributes) Configuration for on-premise connection. (see [below for nested schema](#nestedatt--mysql--on_premise))
-
-<a id="nestedatt--mysql--connection_manager"></a>
-### Nested Schema for `mysql.connection_manager`
-
-Read-Only:
-
-- `connection_id` (String) Connection ID.
-- `connection_properties` (Map of String) Additional connection properties.
-
-
-<a id="nestedatt--mysql--on_premise"></a>
-### Nested Schema for `mysql.on_premise`
-
-Read-Only:
-
-- `connection_url` (String) Connection URL.
-- `password` (String, Sensitive) Password of the user.
-- `user_name` (String) Name of the user.
-
-
-
-<a id="nestedatt--oracle"></a>
-### Nested Schema for `oracle`
-
-Read-Only:
-
-- `additional_properties` (Map of String) Additional properties.
-- `on_premise` (Attributes) Configuration for on-premise connection. (see [below for nested schema](#nestedatt--oracle--on_premise))
-
-<a id="nestedatt--oracle--on_premise"></a>
-### Nested Schema for `oracle.on_premise`
-
-Read-Only:
-
-- `connection_url` (String) Connection URL.
-- `password` (String, Sensitive) Password of the user.
-- `user_name` (String) Name of the user.
-
-
-
-<a id="nestedatt--postgresql"></a>
-### Nested Schema for `postgresql`
-
-Read-Only:
-
-- `additional_properties` (Map of String) Additional properties.
-- `connection_manager` (Attributes) Configuration for connection manager connection. (see [below for nested schema](#nestedatt--postgresql--connection_manager))
-- `on_premise` (Attributes) Configuration for on-premise connection. (see [below for nested schema](#nestedatt--postgresql--on_premise))
-
-<a id="nestedatt--postgresql--connection_manager"></a>
-### Nested Schema for `postgresql.connection_manager`
-
-Read-Only:
-
-- `connection_id` (String) Connection ID.
-- `connection_properties` (Map of String) Additional connection properties.
-- `database` (String) Database.
-
-
-<a id="nestedatt--postgresql--on_premise"></a>
-### Nested Schema for `postgresql.on_premise`
-
-Read-Only:
-
-- `connection_url` (String) Connection URL.
-- `password` (String, Sensitive) Password of the user.
-- `user_name` (String) Name of the user.
-
-
-
-<a id="nestedatt--sqlserver"></a>
-### Nested Schema for `sqlserver`
-
-Read-Only:
-
-- `additional_properties` (Map of String) Additional properties.
-- `on_premise` (Attributes) Configuration for on-premise connection. (see [below for nested schema](#nestedatt--sqlserver--on_premise))
-
-<a id="nestedatt--sqlserver--on_premise"></a>
-### Nested Schema for `sqlserver.on_premise`
-
-Read-Only:
-
-- `connection_url` (String) Connection URL.
-- `password` (String, Sensitive) Password of the user.
-- `user_name` (String) Name of the user.
-
-
-
-<a id="nestedatt--tpcds"></a>
-### Nested Schema for `tpcds`
-
-Read-Only:
-
-- `additional_properties` (Map of String) Additional properties.
-
-
-<a id="nestedatt--tpch"></a>
-### Nested Schema for `tpch`
-
-Read-Only:
-
-- `additional_properties` (Map of String) Additional properties.
 

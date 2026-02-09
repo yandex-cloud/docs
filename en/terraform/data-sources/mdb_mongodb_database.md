@@ -1,13 +1,11 @@
 ---
 subcategory: Managed Service for MongoDB
-page_title: 'Yandex: yandex_mdb_mongodb_database'
-description: Get information about a Yandex Managed MongoDB database.
 sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/mdb_mongodb_database.md
 ---
 
-# yandex_mdb_mongodb_database (Data Source)
+# yandex_mdb_mongodb_database (DataSource)
 
-Get information about a Yandex Managed MongoDB database. For more information, see [the official documentation](https://yandex.cloud/docs/managed-mongodb/).
+Manages a MongoDB Database within the Yandex Cloud. For more information, see [the official documentation](https://yandex.cloud/docs/managed-mongodb/).
 
 ## Example usage
 
@@ -25,10 +23,10 @@ output "owner" {
 }
 ```
 
-## Argument Reference
+## Arguments & Attributes Reference
 
-The following arguments are supported:
+- `cluster_id` (**Required**)(String). The ID of MongoDB Cluster.
+- `id` (*Read-Only*) (String). The resource identifier.
+- `name` (**Required**)(String). The name of the database.
 
-* `cluster_id` - (Required) The ID of the MongoDB cluster.
 
-* `name` - (Required) The name of the MongoDB cluster.

@@ -87,7 +87,12 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
   ],
   "local_disk_specs": [
     {
-      "size": "int64"
+      "size": "int64",
+      // Includes only one of the fields `physical_local_disk`
+      "physical_local_disk": {
+        "kms_key_id": "string"
+      }
+      // end of the list of possible fields
     }
   ],
   "filesystem_specs": [
@@ -488,6 +493,20 @@ Placement group ID. ||
 || size | **int64**
 
 Required field. Size of the disk, specified in bytes. ||
+|| physical_local_disk | **[PhysicalLocalDiskSpec](#yandex.cloud.compute.v1.PhysicalLocalDiskSpec)**
+
+Local disk configuration
+
+Includes only one of the fields `physical_local_disk`. ||
+|#
+
+## PhysicalLocalDiskSpec {#yandex.cloud.compute.v1.PhysicalLocalDiskSpec}
+
+#|
+||Field | Description ||
+|| kms_key_id | **string**
+
+ID of KMS key for disk encryption ||
 |#
 
 ## AttachedFilesystemSpec {#yandex.cloud.compute.v1.AttachedFilesystemSpec}
@@ -811,7 +830,15 @@ The maximum string length in characters is 100. ||
     "local_disks": [
       {
         "size": "int64",
-        "device_name": "string"
+        "device_name": "string",
+        // Includes only one of the fields `physical_local_disk`
+        "physical_local_disk": {
+          "kms_key": {
+            "key_id": "string",
+            "version_id": "string"
+          }
+        }
+        // end of the list of possible fields
       }
     ],
     "filesystems": [
@@ -1211,6 +1238,32 @@ Serial number that is reflected into the /dev/disk/by-id/ tree
 of a Linux operating system running within the instance.
 
 This value can be used to reference the device for mounting, resizing, and so on, from within the instance. ||
+|| physical_local_disk | **[PhysicalLocalDisk](#yandex.cloud.compute.v1.PhysicalLocalDisk)**
+
+Local disk configuration
+
+Includes only one of the fields `physical_local_disk`. ||
+|#
+
+## PhysicalLocalDisk {#yandex.cloud.compute.v1.PhysicalLocalDisk}
+
+#|
+||Field | Description ||
+|| kms_key | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+
+Key encryption key info. ||
+|#
+
+## KMSKey {#yandex.cloud.compute.v1.KMSKey}
+
+#|
+||Field | Description ||
+|| key_id | **string**
+
+ID of KMS symmetric key ||
+|| version_id | **string**
+
+Version of KMS symmetric key ||
 |#
 
 ## AttachedFilesystem {#yandex.cloud.compute.v1.AttachedFilesystem}

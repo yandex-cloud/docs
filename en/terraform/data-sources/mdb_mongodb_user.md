@@ -1,13 +1,11 @@
 ---
 subcategory: Managed Service for MongoDB
-page_title: 'Yandex: yandex_mdb_mongodb_user'
-description: Get information about a Yandex Managed MongoDB User.
 sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/mdb_mongodb_user.md
 ---
 
-# yandex_mdb_mongodb_user (Data Source)
+# yandex_mdb_mongodb_user (DataSource)
 
-Get information about a Yandex Managed MongoDB user. For more information, see [the official documentation](https://yandex.cloud/docs/managed-mongodb/).
+Manages a MongoDB user within the Yandex Cloud. For more information, see [the official documentation](https://yandex.cloud/docs/managed-mongodb/).
 
 ## Example usage
 
@@ -25,22 +23,14 @@ output "permission" {
 }
 ```
 
-## Argument Reference
+## Arguments & Attributes Reference
 
-The following arguments are supported:
+- `cluster_id` (**Required**)(String). The ID of the cluster to which user belongs to.
+- `id` (*Read-Only*) (String). The resource identifier.
+- `name` (**Required**)(String). The name of the user.
+- `password` (**Required**)(String). The password of the user.
+- `permission` [Block]. Set of permissions granted to the user.
+  - `database_name` (**Required**)(String). The name of the database that the permission grants access to.
+  - `roles` (Set Of String). The roles of the user in this database. For more information see [the official documentation](https://yandex.cloud/docs/managed-mongodb/concepts/users-and-roles).
 
-* `cluster_id` - (Required) The ID of the MongoDB cluster.
 
-* `name` - (Required) The name of the MongoDB user.
-
-## Attributes Reference
-
-In addition to the arguments listed above, the following computed attributes are exported:
-
-* `password` - The password of the user.
-* `permission` - Set of permissions granted to the user. The structure is documented below.
-
-The `permission` block supports:
-
-* `database_name` - The name of the database that the permission grants access to.
-* `roles` - List of strings. The roles of the user in this database. For more information see [the official documentation](https://yandex.cloud/docs/managed-mongodb/concepts/users-and-roles).
