@@ -7,7 +7,7 @@ To view detailed information about a specific {{ k8s }} control rule, click the 
   The **{{ ui-key.yacloud_org.security.controls.RulePageLayout.tab_overview_s9riS }}** tab contains:
 
   * Rule ID.
-  * [Set of security requirements](../../security-deck/concepts/standard-compliance.md#security-rule-sets) the rule applies to.
+  * [Set of security requirements](../../security-deck/concepts/standard-compliance/index.md#security-rule-sets) the rule applies to.
   * Date and time of the most recent security check.
   * Check method:
 

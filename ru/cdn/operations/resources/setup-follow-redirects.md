@@ -157,10 +157,6 @@ description: Следуя данной инструкции, вы сможете
 
       ```bash
       grpcurl \
-        -format json \
-        -import-path ~/cloudapi/ \
-        -import-path ~/cloudapi/third_party/googleapis/ \
-        -proto ~/cloudapi/yandex/cloud/cdn/v1/resource_service.proto \
         -rpc-header "Authorization: Bearer $IAM_TOKEN" \
         -d '{
               "folder_id": "b12m81qm6abc********",

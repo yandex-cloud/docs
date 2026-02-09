@@ -84,8 +84,28 @@ editable: false
 
 ## Тарификация по фактическому использованию {#on-demand}
 
+Для расчета стоимости запросов в {{ yds-full-name }} используется понятие _единица запроса (RU — Request Unit)_. Каждый выполненный запрос, в зависимости от его типа, сложности и размера данных приводит к потреблению определенного количества RU. Итоговая стоимость всех выполненных запросов к {{ yds-full-name }} складывается из стоимости каждого запроса, выраженной в RU.
+
+Правила расчета стоимости запросов к {{ yds-full-name }} в Request Units:
+* [Операции с топиками](../ydb/pricing/ru-topics.md).
+
 При тарификации по фактическому использованию:
-* Потоки данных, хранящие данные в [Serverless базах данных {{ ydb-short-name }}](../ydb/concepts/serverless-and-dedicated.md#serverless), тарифицируются по [правилам тарификации для бессерверного режима {{ ydb-short-name }}](../ydb/pricing/serverless.md).
+* До 19 февраля 2026 года потоки данных, размещенные в [Serverless базах данных {{ ydb-short-name }}](../ydb/concepts/serverless-and-dedicated.md#serverless), тарифицируются по [правилам тарификации для бессерверного режима {{ ydb-short-name }}](../ydb/pricing/serverless.md). С 20 Февраля 2026 года даты стоимость рассчитывается по приведенной ниже таблице.
+
+  
+  {% list tabs group=pricing %}
+
+  - Цены в рублях {#prices-rub}
+
+    {% include [serverless-rub.md](../_pricing/data-streams/rub-serverless.md) %}
+
+  - Цены в тенге {#prices-kzt}
+
+    {% include [serverless-kzt](../_pricing/data-streams/kzt-serverless.md) %}
+
+  {% endlist %}
+
+
 
 * Потоки данных, хранящие данные в [Dedicated базах данных {{ ydb-short-name }}](../ydb/concepts/serverless-and-dedicated.md#dedicated), отдельно не тарифицируются (оплачивается только dedicated база, см. [правила тарификации для dedicated баз](../ydb/pricing/dedicated.md)).
 

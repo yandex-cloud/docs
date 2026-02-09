@@ -19,6 +19,10 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
+Если в качестве внешних узлов планируется использовать виртуальные машины {{ compute-full-name }}, то при их [создании](../../compute/operations/index.md#vm-create) нужно указать в метаданных для ключа `user-data` параметр `disable_root: false`. Если параметр не указан, в кластере появятся [ошибки](../qa/troubleshooting.md#vm-as-external-node).
+
+{% include [external-node-metadata-example](../../_includes/managed-kubernetes/external-node-metadata-example.md) %}
+
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md) любой подходящей конфигурации.

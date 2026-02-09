@@ -1,13 +1,11 @@
 ---
-subcategory: Virtual Private Cloud (VPC)
-page_title: 'Yandex: yandex_vpc_security_group_rule'
-description: Get information about a Yandex VPC Security Group Rule.
+subcategory: Virtual Private Cloud
 sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/vpc_security_group_rule.md
 ---
 
-# yandex_vpc_security_group_rule (Data Source)
+# yandex_vpc_security_group_rule (DataSource)
 
-Get information about a Yandex VPC Security Group Rule. For more information, see [Yandex Cloud VPC](https://yandex.cloud/docs/vpc/concepts/security-groups).
+
 
 ## Example usage
 
@@ -21,26 +19,21 @@ data "yandex_vpc_security_group_rule" "rule1" {
 }
 ```
 
-This data source used to define Security Group Rule that can be used by other resources.
+## Arguments & Attributes Reference
 
-## Argument Reference
+- `description` (String). The resource description.
+- `direction` (**Required**)(String). Direction of the Security group rule. Can be `ingress` (inbound network traffic to the VPC network) or `egress` (outbound network traffic from the VPC network).
+- `from_port` (Number). Minimum port number. Applicable for TCP and UDP protocols.
+- `id` (*Read-Only*) (String). The resource identifier.
+- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
+- `port` (Number). Port number (if applied to a single port).
+- `predefined_target` (String). Special-purpose targets. The `self_security_group` target refers to this particular security group. The `loadbalancer_healthchecks` target represents [NLB health check nodes](https://yandex.cloud/docs/network-load-balancer/concepts/health-check).
+- `protocol` (String). Specific network protocol. Can be one of `ANY`, `TCP`, `UDP`, `ICMP`, `IPV6_ICMP`.
+- `rule_id` (**Required**)(String). 
+- `security_group_binding` (**Required**)(String). The id of target security group which rule belongs to.
+- `security_group_id` (String). Target security group ID for this Security group rule.
+- `to_port` (Number). Maximum port number. Applicable for TCP and UDP protocols.
+- `v4_cidr_blocks` (List Of String). The list of IPv4 CIDR prefixes for this Security group rule.
+- `v6_cidr_blocks` (List Of String). The list of IPv6 CIDR prefixes for this Security group rule. Not supported yet.
 
-The following arguments are supported:
 
-* `security_group_binding` (Required) - ID of Security Group that owns the rule.
-* `rule_id` - (Required) - ID of the Security Group Rule.
-
-## Attributes Reference
-
-The following attribute is exported:
-* `description` - Description of the rule.
-* `direction` - Direction of the rule. Can be `ingress` (inbound) or `egress` (outbound).
-* `labels` - Labels to assign to this rule.
-* `protocol` - One of `ANY`, `TCP`, `UDP`, `ICMP`, `IPV6_ICMP`.
-* `from_port` - Minimum port number.
-* `to_port` - Maximum port number.
-* `port` - Port number (if applied to a single port).
-* `security_group_id` - Target security group ID for this rule.
-* `predefined_target` - Special-purpose targets. `self_security_group` refers to this particular security group. `loadbalancer_healthchecks` represents [loadbalancer health check nodes](https://yandex.cloud/docs/network-load-balancer/concepts/health-check).
-* `v4_cidr_blocks` - The blocks of IPv4 addresses for this rule.
-* `v6_cidr_blocks` - The blocks of IPv6 addresses for this rule.

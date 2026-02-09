@@ -4,12 +4,12 @@ In {{ ydb-name }}, you can create a database in two modes: [serverless](../conce
 
 You can use the management console or {{ yandex-cloud }} CLI to:
 
-* [Create and update parameters of a serverless database](#serverless).
-* [Create and update parameters of a dedicated database](#dedicated).
+* [Create and update the parameters of a serverless database](#serverless).
+* [Create and update the parameters of a dedicated database](#dedicated).
 * [View a list of databases](#list-db).
 * [Delete a database](#delete-db).
 
-## Creating and updating parameters of a serverless database {#serverless}
+## Creating and updating the parameters of a serverless database {#serverless}
 
 ### Creating a serverless database {#create-db-serverless}
 
@@ -17,10 +17,10 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
+  1. In the [management console]({{ link-console-main }}), select the folder for your database.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-  1. Enter the **{{ ui-key.yacloud.ydb.forms.label_field_name }}** of the DB. Follow these naming requirements:
+  1. Enter a **{{ ui-key.yacloud.ydb.forms.label_field_name }}** for your database. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -30,10 +30,10 @@ You can use the management console or {{ yandex-cloud }} CLI to:
       - `OLTP`
       - `OLAP (Analytics β)`
 
-  1. You will be suggested default values for DB parameters. They are selected for you to get started in the most efficient way. You can change them right away or later, if required. For more information about the DB settings, see [Serverless and dedicated modes](../concepts/serverless-and-dedicated.md).
+  1. The default values we set will help you get started in the most efficient way. You can change them right away or later, if required. For more information about the database settings, see [Serverless and dedicated modes](../concepts/serverless-and-dedicated.md).
   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
-   Wait for the DB status to change to `Running`.
+   Wait for the database status to change to `Running`.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -41,7 +41,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the {{ yandex-cloud }} CLI command to create a database:
+  1. View the description of the {{ yandex-cloud }} CLI command for creating a database:
 
       ```bash
       yc ydb database create --help
@@ -80,7 +80,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
   You can [update](#update-db-serverles) any parameter later by running the `update` {{ yandex-cloud }} CLI command or using the management console. For more information, see [{#T}](../concepts/serverless-and-dedicated.md#serverless-options).
 
-  Every serverless database is created with geographic redundancy in three [availability zones](../../overview/concepts/geo-scope.md).
+  Every serverless database is created with geographic redundancy across three [availability zones](../../overview/concepts/geo-scope.md).
 
 - {{ TF }} {#tf}
 
@@ -88,7 +88,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the {{ TF }} configuration file, describe the parameters of the serverless DB to create:
+  1. In the {{ TF }} configuration file, define the properties of the serverless database you want to create:
 
       ```hcl
       resource "yandex_ydb_database_serverless" "database1" {
@@ -96,10 +96,10 @@ You can use the management console or {{ yandex-cloud }} CLI to:
         deletion_protection = "<deletion_protection>"
 
         serverless_database {
-          enable_throttling_rcu_limit = <throughput_limit>
-          provisioned_rcu_limit       = <throughput>
+          enable_throttling_rcu_limit = <throughput_capacity_limit>
+          provisioned_rcu_limit       = <throughput_capacity>
           storage_size_limit          = <data_size>
-          throttling_rcu_limit        = <allocated_throughput>
+          throttling_rcu_limit        = <provisioned_capacity>
         }
       }
       ```
@@ -107,11 +107,11 @@ You can use the management console or {{ yandex-cloud }} CLI to:
      Where:
 
      * `name`: Database name. This is a required setting.
-     * `deletion_protection`: DB deletion protection, `true` or `false`. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
-     * `enable_throttling_rcu_limit`: Enable throughput limit, `true` or `false`. This is an optional setting. The default value is `false`.
+     * `deletion_protection`: Database deletion protection, `true` or `false`. You cannot delete a database with this option enabled. Enabled deletion protection does not protect the database contents. The default value is `false`.
+     * `enable_throttling_rcu_limit`: Enable throughput capacity limit, `true` or `false`. This is an optional setting. The default value is `false`.
      * `provisioned_rcu_limit`: Limit on request units consumed per second. This is an optional setting. The default value is `0`.
      * `storage_size_limit`: Data size limit in bytes. This is an optional setting. The default value is `50` GB.
-     * `throttling_rcu_limit`: Shows the request unit usage per second charged on an hourly basis according to the service plan. If set to 0, hourly billing is off. This is an optional setting. The default value is `0`.
+     * `throttling_rcu_limit`: Shows the request unit usage per second charged on an hourly basis according to the pricing plan. If set to 0, hourly billing is off. This is an optional setting. The default value is `0`.
 
   1. Apply the changes:
 
@@ -125,7 +125,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
   **Example**
 
-  Creating a serverless DB protected against deletion, with the 10 RU/s throughput limit and 50 GB of data:
+  Creating a serverless database protected against deletion, with the 10 RU/s throughput limit and 50 GB of data:
 
     > ```hcl
     > resource "yandex_ydb_database_serverless" "database1" {
@@ -146,9 +146,9 @@ You can use the management console or {{ yandex-cloud }} CLI to:
   To create a serverless database, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/Database/create.md) gRPC API call and provide the following in the request:
 
   * ID of the folder to host the database in the `folderId` parameter.
-  * DB name in the `name` parameter.
-  * DB throughput in the `serverlessDatabase.throttlingRcuLimit` parameter.
-  * DB size (in bytes) in the `serverlessDatabase.storageSizeLimit` parameter.
+  * Database name in the `name` parameter.
+  * Database throughput capacity in the `serverlessDatabase.throttlingRcuLimit` parameter.
+  * Database size, in bytes, in the `serverlessDatabase.storageSizeLimit` parameter.
 
 {% endlist %}
 
@@ -158,12 +158,12 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to update DB settings.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to update the database settings.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the row with the database in question and select **{{ ui-key.yacloud.ydb.overview.button_action-edit }}**.
-  1. Configure the DB settings:
-      1. Change the DB name, if required.
-      1. Under **{{ ui-key.yacloud.ydb.overview.label_serverless-limits }}**, specify [throughput](../pricing/serverless.md#prices-ru) and [data size](../pricing/serverless.md#rules-storage).
+  1. Configure the database:
+      1. Change the database name, if required.
+      1. Under **{{ ui-key.yacloud.ydb.overview.label_serverless-limits }}**, specify the [throughput capacity](../pricing/serverless.md#prices-ru) and [data size](../pricing/serverless.md#rules-storage).
       1. Under **{{ ui-key.yacloud.ydb.overview.label_serverless-billing }}**, set the [provisioned throughput capacity](../pricing/serverless.md#prices-ru).
   1. Click **{{ ui-key.yacloud.ydb.forms.button_update-database }}**.
 
@@ -173,13 +173,13 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  View a description of the {{ yandex-cloud }} CLI command to update a database:
+  View the description of the {{ yandex-cloud }} CLI command for updating a database:
 
   ```bash
   yc ydb database update --help
   ```
 
-  Serverless DB parameter names start with `sls-`. Other parameters are only applicable to dedicated DBs.
+  Serverless database parameter names start with `sls-`. Other parameters only apply to dedicated databases.
 
   **Examples**
 
@@ -190,7 +190,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
       >   --new-name mydb
       > ```
 
-  1. Setting a consumption limit of 100 request units per second for a serverless DB named `db5`:
+  1. Setting a usage limit of 100 request units per second for a serverless database named `db5`:
 
       > ```bash
       > yc ydb database update db5 \
@@ -201,7 +201,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file and edit the fragment with the serverless DB description:
+  1. Open the {{ TF }} configuration file and edit the fragment describing the serverless database:
 
       ```hcl
       resource "yandex_ydb_database_serverless" "database1" {
@@ -209,10 +209,10 @@ You can use the management console or {{ yandex-cloud }} CLI to:
         deletion_protection = "<deletion_protection>"
 
         serverless_database {
-          enable_throttling_rcu_limit = <throughput_limit>
-          provisioned_rcu_limit       = <throughput>
+          enable_throttling_rcu_limit = <throughput_capacity_limit>
+          provisioned_rcu_limit       = <throughput_capacity>
           storage_size_limit          = <data_size>
-          throttling_rcu_limit        = <allocated_throughput>
+          throttling_rcu_limit        = <provisioned_capacity>
         }
       }
       ```
@@ -220,11 +220,11 @@ You can use the management console or {{ yandex-cloud }} CLI to:
      Where:
 
      * `name`: Database name. This is a required setting.
-     * `deletion_protection`: DB deletion protection, `true` or `false`. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
-     * `enable_throttling_rcu_limit`: Enable throughput limit, `true` or `false`. This is an optional setting. The default value is `false`.
+     * `deletion_protection`: Database deletion protection, `true` or `false`. You cannot delete a database with this option enabled. Enabled deletion protection does not protect the database contents. The default value is `false`.
+     * `enable_throttling_rcu_limit`: Enable throughput capacity limit, `true` or `false`. This is an optional setting. The default value is `false`.
      * `provisioned_rcu_limit`: Limit on request units consumed per second. This is an optional setting. The default value is `0`.
-     * `storage_size_limit`: Amount of data, GB. This is an optional setting. The default value is `50`.
-     * `throttling_rcu_limit`: Shows the request unit usage per second charged on an hourly basis according to the service plan. If set to 0, hourly billing is off. This is an optional setting. The default value is `0`.
+     * `storage_size_limit`: Amount of data, in GB. This is an optional setting. The default value is `50`.
+     * `throttling_rcu_limit`: Shows the request unit usage per second charged on an hourly basis according to the pricing plan. If set to 0, hourly billing is off. This is an optional setting. The default value is `0`.
 
   1. Apply the changes:
 
@@ -238,7 +238,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
   **Example**
 
-  Changing the provisioned throughput capacity and amount of data for the `test-ydb-serverless` DB:
+  Changing the provisioned throughput capacity and amount of data for the `test-ydb-serverless` database:
 
     > ```hcl
     > resource "yandex_ydb_database_serverless" "database1" {
@@ -263,18 +263,18 @@ You can use the management console or {{ yandex-cloud }} CLI to:
    Provide the following in the request:
 
   * ID of the folder to host the database in the `folderId` parameter.
-  * DB name in the `name` parameter.
-  * DB throughput in the `serverlessDatabase.throttlingRcuLimit` parameter.
-  * DB size (in bytes) in the `serverlessDatabase.storageSizeLimit` parameter.
+  * Database name in the `name` parameter.
+  * Database throughput capacity in the `serverlessDatabase.throttlingRcuLimit` parameter.
+  * Database size, in bytes, in the `serverlessDatabase.storageSizeLimit` parameter.
   * Computing resource ID in the `resourcePresetId` parameter.
   * Network ID in the `networkId` parameter.
-  * Media type in the `storageConfig.storageOptions.storageTypeId` parameter.
+  * Storage type in the `storageConfig.storageOptions.storageTypeId` parameter.
   * Number of storage groups in the `storageConfig.storageOptions.groupCount` parameter.
   * Number of database instances in the `scalePolicy.fixedScale.size` parameter.
 
 {% endlist %}
 
-## Creating and updating parameters of a dedicated database {#dedicated}
+## Creating and updating dedicated database parameters {#dedicated}
 
 ### Creating a dedicated database {#create-db-dedicated}
 
@@ -282,10 +282,10 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
+  1. In the [management console]({{ link-console-main }}), select the folder for your database.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-  1. Specify a **{{ ui-key.yacloud.ydb.forms.label_field_name }}** for the database. Follow these naming requirements:
+  1. Specify a **{{ ui-key.yacloud.ydb.forms.label_field_name }}** for the database. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -304,8 +304,8 @@ You can use the management console or {{ yandex-cloud }} CLI to:
       {% endnote %}
 
   1. Under **{{ ui-key.yacloud.ydb.forms.label_section-storage }}**, select the disk type and number of [storage groups](../concepts/resources.md#storage-groups) that determines the total amount of storage.
-  1. Under **{{ ui-key.yacloud.ydb.forms.label_section-network }}**, configure network settings:
-      1. (Optional) In the **{{ ui-key.yacloud.ydb.forms.field_public-ips }}** field, select **{{ ui-key.yacloud.ydb.forms.label_text-public-ips }}** if you plan to query the database from the {{ yandex-cloud }} network and the internet.
+  1. Under **{{ ui-key.yacloud.ydb.forms.label_section-network }}**, configure the network:
+      1. Optionally, in the **{{ ui-key.yacloud.ydb.forms.field_public-ips }}** field, select **{{ ui-key.yacloud.ydb.forms.label_text-public-ips }}** if you plan to query the database both from the {{ yandex-cloud }} network and the internet.
 
           {% include [traffic_metering](../_includes/traffic_metering.md) %}
 
@@ -317,13 +317,13 @@ You can use the management console or {{ yandex-cloud }} CLI to:
       1. Under **{{ ui-key.yacloud.ydb.forms.field_subnetworks }}**, select a subnet or create a new one for each availability zone:
           * Click **{{ ui-key.yacloud.common.create }}**.
           * In the window that opens, enter a **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** for the new subnet.
-          * (Optional) Enter a **{{ ui-key.yacloud.vpc.subnetworks.create.field_description }}** of the subnet.
-          * Select the availability zone you need from the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** list.
+          * Optionally, enter a **{{ ui-key.yacloud.vpc.subnetworks.create.field_description }}** for the subnet.
+          * Select the availability zone from the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** list.
           * Set the subnet address in [**{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format.
           * Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
-    Wait for the DB status to change to `Running`.
+    Wait for the database status to change to `Running`.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -331,7 +331,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the {{ yandex-cloud }} CLI command to create a database:
+  1. View the description of the {{ yandex-cloud }} CLI command for creating a database:
 
       ```bash
       yc ydb database create --help
@@ -343,22 +343,22 @@ You can use the management console or {{ yandex-cloud }} CLI to:
       yc ydb database create <DB_name> \
         --dedicated \
         --network-name <network_name> \
-        --storage <media_type>,<number_of_storage_groups> \
+        --storage <storage_type>,<number_of_storage_groups> \
         --resource-preset <computing_resource_configuration> \
       ```
 
       Where:
 
-        * `--dedicated`: Configuration of the DB with dedicated servers.
-        * `--network-name`: Name of the cloud network to create the DB in. You can specify the `default` network.
-        * `--storage`: Media type and number of [storage groups](../concepts/resources.md#storage-groups) in `type=<media_type>,groups=<number_of_storage_groups>` format. For the `ssd` type, a single storage group can store up to 100 GB of data.
-        * `--resource-preset`: Configuration of the node computing resources. You can find the possible values in the **Configuration name** column of the table in [{#T}](../concepts/resources.md#resource-presets).
+        * `--dedicated`: Configuration of the database with dedicated servers.
+        * `--network-name`: Name of the cloud network to create the database in. You can specify the `default` network.
+        * `--storage`: Storage type and number of [storage groups](../concepts/resources.md#storage-groups) in `type=<storage_type>,groups=<number_of_storage_groups>` format. For the `ssd` type, a single storage group can store up to 100 GB of data.
+        * `--resource-preset`: Configuration of the node computing resources. You can find the valid values in the **Configuration name** column of the table in [{#T}](../concepts/resources.md#resource-presets).
 
   Important additional parameters:
 
-  * `--public-ip`: Public IP address assignment flag. Without it, you cannot connect to the DB you created from the internet.
+  * `--public-ip`: Public IP address assignment flag. Without it, you will not be able to connect to your database from the internet.
   * `--fixed-size INT`: Number of cluster nodes, `1` by default. Nodes are allocated in different availability zones, so a configuration of three nodes will be geographically distributed across three availability zones.
-  * `--async`: Asynchronous DB creation flag. Creating a dedicated DB may take a long time, up to a few minutes. You can set this flag to recover control as soon as the command to create DB is accepted by the cloud.
+  * `--async`: Asynchronous database creation flag. Creating a dedicated database may take a while, up to a few minutes. You can set this flag to regain control as soon as the cloud gets the command to create a database.
 
   **Examples**
 
@@ -390,7 +390,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the {{ TF }} configuration file, describe the parameters of the Dedicated DB to create:
+  1. In the {{ TF }} configuration file, define the properties of the dedicated database to create:
 
      ```hcl
       resource "yandex_ydb_database_dedicated" "database1" {
@@ -410,7 +410,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
         storage_config {
           group_count     = <number_of_storage_groups>
-          storage_type_id = "<media_type>"
+          storage_type_id = "<storage_type>"
         }
       }
      ```
@@ -418,14 +418,14 @@ You can use the management console or {{ yandex-cloud }} CLI to:
      Where:
 
      * `name`: Database name.
-     * `network_id`: ID of the network the DB is connected to.
-     * `subnet_ids`: List of subnet IDs. Separated by commas.
-     * `resource_preset_id`: Configuration of the node computing resources. You can find the possible values in the **Configuration name** column of the table in [{#T}](../concepts/resources.md#resource-presets).
-     * `deletion_protection`: DB deletion protection, `true` or `false`. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
-     * `scale_policy`: Scaling policy, where `size` indicates the number of DB instances.
+     * `network_id`: ID of the network the database is connected to.
+     * `subnet_ids`: List of subnet IDs separated by commas.
+     * `resource_preset_id`: Configuration of the node computing resources. You can find the valid values in the **Configuration name** column of the table in [{#T}](../concepts/resources.md#resource-presets).
+     * `deletion_protection`: Database deletion protection, `true` or `false`. You cannot delete a database with this option enabled. Enabled deletion protection does not protect the database contents. The default value is `false`.
+     * `scale_policy`: Scaling policy, where `size` indicates the number of database instances.
      * `storage_config`: Storage configuration, where:
         * `group_count`: Number of [storage groups](../concepts/resources.md#storage-groups).
-        * `storage_type_id`: Media type. For the `ssd` type, a single storage group can store up to 100 GB of data.
+        * `storage_type_id`: Storage type. For the `ssd` type, a single storage group can store up to 100 GB of data.
 
   1. Create a database:
 
@@ -465,11 +465,11 @@ You can use the management console or {{ yandex-cloud }} CLI to:
   To create a dedicated database, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/Database/create.md) gRPC API call and provide the following in the request:
 
   * ID of the folder to host the database in the `folderId` parameter.
-  * DB name in the `name` parameter.
-  * Permission to assign public IP addresses to DB nodes in the `dedicatedDatabase.assignPublicIps` parameter.
+  * Database name in the `name` parameter.
+  * Permission to assign public IP addresses to database nodes in the `dedicatedDatabase.assignPublicIps` parameter.
   * Computing resource ID in the `resourcePresetId` parameter.
   * Network ID in the `networkId` parameter.
-  * Media type in the `storageConfig.storageOptions.storageTypeId` parameter.
+  * Storage type in the `storageConfig.storageOptions.storageTypeId` parameter.
   * Number of storage groups in the `storageConfig.storageOptions.groupCount` parameter.
   * Number of database instances in the `scalePolicy.fixedScale.size` parameter.
 
@@ -481,11 +481,11 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to update DB settings.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to update the database settings.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the row with the database in question and select **{{ ui-key.yacloud.ydb.overview.button_action-edit }}**.
-  1. Configure the DB settings:
-      1. Change the DB name, if required.
+  1. Configure the database:
+      1. Change the database name, if required.
       1. Under **{{ ui-key.yacloud.ydb.forms.label_section-compute }}**, select the type and amount of [computing resources](../concepts/resources.md#resource-presets).
       1. Under **{{ ui-key.yacloud.ydb.forms.label_section-storage }}**, select the disk type and number of [storage groups](../concepts/resources.md#storage-groups) that determines the total amount of storage.
   1. Click **{{ ui-key.yacloud.ydb.forms.button_update-database }}**.
@@ -496,17 +496,17 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  View a description of the {{ yandex-cloud }} CLI command to update a database:
+  View the description of the {{ yandex-cloud }} CLI command for updating a database:
 
   ```bash
   yc ydb database update --help
   ```
 
-  Dedicated DB parameters have no `sls-` prefix.
+  Dedicated database parameters have no `sls-` prefix.
 
   **Example**
 
-  Changing the number of storage groups for a DB with the SSD storage type and a single storage group:
+  Changing the number of storage groups for a database with the SSD storage type and a single storage group:
 
   > ```bash
   > yc ydb database update test-db \
@@ -519,7 +519,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file and edit the fragment with the DB description:
+  1. Open the {{ TF }} configuration file and edit the fragment describing your database:
 
       > ```hcl
       > resource "yandex_ydb_database_dedicated" "database2" {
@@ -556,7 +556,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
   {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
 
-  In the request, provide a set of parameters used to [create the dedicated database](#create-db-dedicated) with your updated values.
+  In the request, provide a set of parameters used when [creating the dedicated database](#create-db-dedicated) with your updated values.
 
 {% endlist %}
 
@@ -591,17 +591,17 @@ To move a database to a different availability zone, follow [this guide](migrati
 
 ## Assigning a role for a database {#add-access-binding}
 
-You can grant access to a {{ ydb-name }} database to a user, service account, or user group. To do this, assign a [role](../../iam/concepts/access-control/roles.md) for the database. To choose the one you need, [learn](../security/index.md#roles-list) about the service's roles.
+You can grant access to a {{ ydb-name }} database to a user, service account, or user group. To do this, assign a [role](../../iam/concepts/access-control/roles.md) for the database. To choose the one you need, [learn](../security/index.md#roles-list) about the existing roles.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the DB resides in.
+  1. In the [management console]({{ link-console-main }}), select the folder the database resides in.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click the name of the database.
-  1. Go to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-  1. Select the group, user, or service account you want to grant access to the database.
+  1. Navigate to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. Select the group, user, or service account you want to grant access to the database to.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
   1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
@@ -613,7 +613,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 
   To assign a role for a database:
 
-  1. See the description of the CLI role assignment command:
+  1. View the description of the CLI command for assigning roles:
 
      ```bash
      yc ydb database add-access-binding --help
@@ -681,11 +681,11 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the DB resides in.
+  1. In the [management console]({{ link-console-main }}), select the folder the database resides in.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click the name of the database.
-  1. Go to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-  1. Select the group, user, or service account you want to grant access to the database.
+  1. Navigate to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. Select the group, user, or service account you want to grant access to the database to.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
   1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
@@ -706,7 +706,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
         --id <DB_ID>
      ```
 
-  1. See the description of the CLI role assignment command:
+  1. View the description of the CLI command for assigning roles:
 
      ```bash
      yc ydb database set-access-bindings --help
@@ -767,7 +767,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 
   {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
-  Use the [DatabaseService/SetAccessBindings](../api-ref/grpc/Database/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
+  Use the [DatabaseService/SetAccessBindings](../api-ref/grpc/Database/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one matching a particular role and containing the following data:
 
   * Role in the `access_bindings[].role_id` parameter.
   * ID of the subject getting the roles in the `access_bindings[].subject.id` parameter.
@@ -781,7 +781,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to delete the DB from.
+  1. In the [management console]({{ link-console-main }}), select the folder to delete the database from.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the row with the database in question and select **{{ ui-key.yacloud.ydb.overview.button_action-delete }}**.
   1. Confirm the deletion.
@@ -802,9 +802,9 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file and delete the fragment with the DB description.
+  1. Open the {{ TF }} configuration file and delete the fragment describing the database.
 
-     Sample DB description in the {{ TF }} configuration:
+     Example of a database description in the {{ TF }} configuration:
 
      ```hcl
      resource "yandex_ydb_database_dedicated" "database2" {
@@ -839,7 +839,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 
 - API {#api}
 
-  To delete the database, use the [delete](../api-ref/Database/delete.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Delete](../api-ref/grpc/Database/delete.md) gRPC API call and specify the ID of the DB to delete in the `databaseId` request parameter.
+  To delete the database, use the [delete](../api-ref/Database/delete.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Delete](../api-ref/grpc/Database/delete.md) gRPC API call and specify the ID of the database to delete in the `databaseId` request parameter.
 
   {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
 

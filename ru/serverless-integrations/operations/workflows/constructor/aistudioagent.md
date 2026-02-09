@@ -22,7 +22,7 @@ description: Следуя данной инструкции, вы сможете
 
           Чтобы добавить несколько переменных, нажмите **{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_properties_variables_view_spec_item_label }}** необходимое количество раз.
 
-      1. (Опционально) В поле ****{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_properties_message_view_spec_layout_title }}**** введите входящее сообщение, которое будет передано агенту вместе с промтом.
+      1. (Опционально) В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_properties_message_view_spec_layout_title }}** введите входящее сообщение, которое будет передано агенту вместе с промптом.
       1. (Опционально) Включите опцию **Автоматически разрешать использование инструментов**. Если для [инструмента](../../../../ai-studio/concepts/agents/index.md#tools) необходимо подтверждение использования, а опция не включена, шаг завершится с ошибкой.
       1. {% include [integrations-step-timeout](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-timeout.md) %}
       1. {% include [integrations-step-retry-policy](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-retry-policy.md) %}

@@ -72,8 +72,18 @@ With the provided storage limit, the minimum storage amount is 50 GB per segment
 
 ## On-demand pricing {#on-demand}
 
+To calculate the cost of requests in {{ yds-full-name }}, we use so-called _request units (RU)_. Each executed request, depending on its type, complexity, and data size, consumes a certain number of RUs. The total cost of all executed requests to {{ ydb-short-name }} is the sum of the RU costs for each request.
+
+Below, you can find the rules for calculating the cost of requests to {{ yds-full-name }} in RUs:
+* [Topic operations](../ydb/pricing/ru-topics.md).
+
 With on-demand pricing:
-* Data streams stored in [serverless {{ ydb-short-name }} databases](../ydb/concepts/serverless-and-dedicated.md#serverless) are charged for based on the [pricing policy {{ ydb-short-name }}](../ydb/pricing/serverless.md) for the serverless mode.
+* Until February 19, 2026, data streams stored in [serverless {{ ydb-short-name }} databases](../ydb/concepts/serverless-and-dedicated.md#serverless) are charged for based on the [pricing policy {{ ydb-short-name }}](../ydb/pricing/serverless.md) for the serverless mode. After February 20, 2026, pricing will be calculated according to the table below.
+
+
+  
+  {% include [usd.md](../_pricing/data-streams/usd-serverless.md) %}
+
 
 * Data streams stored in [dedicated {{ ydb-short-name }} database](../ydb/concepts/serverless-and-dedicated.md#dedicated)s are not charged for separately. Instead, you only pay for a dedicated database (see the [pricing policy for dedicated databases](../ydb/pricing/dedicated.md) for details).
 

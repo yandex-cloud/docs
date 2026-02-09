@@ -7,27 +7,37 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
-### Версия 0.190.0 (05.02.26) {#version0.190.0}
+### Версия 0.191.0 (06.02.26) {#version0.191.0}
 
+#### Изменения в CLI {#cli-0.191.0}
+
+* Изменен способ получения эндпоинта для авторизации.
+* Удалены команды для работы с {{ mms-full-name }}.
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services-0.191.0}
+
+##### {{ managed-k8s-full-name }} {#managed-k8s-name-0.191.0}
+
+В следующие команды для управления группой узлов добавлен параметр `--enable-workload-identity-federation`, с помощью которого можно включить или выключить [интеграцию с федерацией сервисных аккаунтов](../iam/concepts/workload-identity.md) {{ iam-name }}:
+* `yc managed-kubernetes node-group create`;
+* `yc managed-kubernetes node-group update`.
+
+## Предыдущие релизы {#previous-release}
+
+### Версия 0.190.0 (05.02.26) {#version0.190.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
 
-
 ##### {{ connection-manager-name }}
 Добавлен флаг `--secret-folder-id` для команд создания подключения `yc metadata-hub connection-manager connection create`.
-
 
 ##### {{ sw-name }}
 Исправлен пример cron-выражения для расписания: 
   * `yc serverless workflow create`
 
-## Предыдущие релизы {#previous-release}
-
 ### Версия 0.189.0 (02.02.26) {#version0.189.0}
 
-
 #### Изменения в сервисах {{ yandex-cloud }}
-
 
 ##### {{ connection-manager-name }}
 Добавлен флаг `--secret-folder-id` для команд создания подключения.

@@ -32,4 +32,4 @@ description: In this section, you will learn how to use the compliance UI to vie
 
 #### See also {#see-also}
 
-* [{#T}](../../concepts/standard-compliance.md)
+* [{#T}](../../concepts/standard-compliance/index.md)
