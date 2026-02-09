@@ -55,9 +55,11 @@
 
 {{ k8s-vpa }} при необходимости выделяет дополнительные ресурсы vCPU и RAM для подов.
 
-При [создании {{ k8s-vpa }}](../operations/autoscale.md#vpa) укажите в спецификации опцию автоматического масштабирования:
-* `updateMode: "Auto"`, чтобы {{ k8s-vpa }} автоматически управлял ресурсами подов.
+При [создании {{ k8s-vpa }}](../operations/autoscale.md#vpa) укажите в спецификации режим автоматического масштабирования:
 * `updateMode: "Off"`, чтобы {{ k8s-vpa }} [предоставлял рекомендации](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler#quick-start) по управлению ресурсами подов, но не изменял их.
+* `updateMode: "Initial"`, чтобы {{ k8s-vpa }} применял рекомендации только при создании подов.
+* `updateMode: "Recreate"`, чтобы {{ k8s-vpa }} пересоздавал поды с обновленными значениями ресурсов при значительном расхождении между текущими запросами и рекомендациями.
+* `updateMode: "InPlaceOrRecreate"`, чтобы {{ k8s-vpa }} сперва пытался обновить запросы и лимиты ресурсов без перезапуска пода. Если такое обновление недоступно, под будет пересоздан аналогично режиму `Recreate`. Подробнее см. на странице [Resize CPU and Memory Resources assigned to Containers](https://kubernetes.io/docs/tasks/configure-pod-container/resize-container-resources/).
 
 Подробнее о {{ k8s-vpa }} см. в [документации {{ k8s }}](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler).
 
