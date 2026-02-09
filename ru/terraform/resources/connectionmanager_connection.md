@@ -1,1589 +1,359 @@
 ---
-subcategory: Metadata Hub Connection Manager
-page_title: 'Yandex: yandex_connectionmanager_connection'
-description: Allows use of a Connection Manager.
+subcategory: Connection Manager
 sourcePath: en/terraform/tf-ref/yandex-cloud/resources/connectionmanager_connection.md
 ---
 
 # yandex_connectionmanager_connection (Resource)
 
-Can be used to use a connection from Connection Manager service.
+A Connection resource represents a configured connection to a database or service.
+
+
+## Arguments & Attributes Reference
+
+- `can_use` (*Read-Only*) (Bool). Whether the current user can use this connection. Filled only when `with_can_use` has been requested in ListConnectionRequest.
+- `connection_id` (String). ID of the connection to retrieve.
+- `created_at` (*Read-Only*) (String). Creation timestamp.
+- `created_by` (*Read-Only*) (String). ID of the subject which created the connection.
+- `description` (String). Description of the connection.
+- `folder_id` (String). ID of the folder that the connection belongs to.
+- `id` (String). ID of the connection to retrieve.
+- `is_managed` (*Read-Only*) (Bool). Whether this connection is managed by the system (e.g. an MDB cluster).
+- `labels` (Map Of String). Connection labels as `key:value` pairs.
+- `lockbox_secret` [FW-Block]. Reference to the Lockbox secret containing connection credentials.
+  - `connection_id` (*Read-Only*) (String). ID of the Lockbox secret.
+  - `id` (String). ID of the Lockbox secret.
+  - `newest_version` (*Read-Only*) (String). The newest available version of the Lockbox secret.
+  - `version` (*Read-Only*) (String). Lockbox secret version.
+- `lockbox_secret_spec` [FW-Block]. Specification for creating a new Lockbox secret.
+  - `folder_id` (String). ID of the folder where the Lockbox secret will be created. If omitted, the secret will be created in the connection's folder.
+- `name` (String). Name of the connection.
+- `params` [FW-Block]. Connection parameters specific to the database or service type.
+  - `clickhouse` [FW-Block]. ClickHouse database connection parameters.
+    - `auth` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/clickhouse.proto
+      - `user_password` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/clickhouse.proto
+        - `password` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+          - `lockbox_secret_key` (String). Read-only. Do not fill this field in create/update requests.
+          - `password_generation_options` [FW-Block]. When creating/updating Password, the field "password_generation_options" is mutually exclusive with "raw". In order to switch to the "password_generation_options" you have to explicitly clear the "raw" field.
+            - `cookie` (String). Cookie is an arbitrary non-sensitive string that is saved with the password. When updating PasswordGenerationOptions, if the cookie passed in the update request differs from the cookie in the current PasswordGenerationOptions, the password will be re-generated. If the same cookie is passed, the password will not change.
+            - `lockbox_password_generation_options` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+              - `excluded_punctuation` (String). a string of punctuation characters to exclude from the default
+              - `include_digits` (Bool). whether at least one 0..9 character is included in the password, true by default
+              - `include_lowercase` (Bool). whether at least one a..z character is included in the password, true by default
+              - `include_punctuation` (Bool). whether at least one punctuation character is included in the password, true by default punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
+              - `include_uppercase` (Bool). whether at least one A..Z character is included in the password, true by default
+              - `included_punctuation` (String). If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use
+              - `length` (Number). password length; by default, a reasonable length will be decided
+          - `raw` (String). When creating/updating Password, the field "raw" is mutually exclusive with "password_generation_options". In order to switch to the "raw" password you have to explicitly clear the "password_generation_options" field.
+        - `user` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+    - `cluster` [FW-Block]. When creating/updating Connection, the field "cluster" is mutually exclusive with "managed_cluster_id".
+      - `hosts` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/clickhouse.proto
+        - `health` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/clickhouse.proto
+        - `host` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/clickhouse.proto
+        - `http_port` (Number). depends on tls params may vary as http or https
+        - `shard_name` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/clickhouse.proto
+        - `tcp_port` (Number). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/clickhouse.proto
+      - `shard_groups` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/clickhouse.proto
+        - `name` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/clickhouse.proto
+        - `shard_names` (List Of String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/clickhouse.proto
+      - `tls_params` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/clickhouse.proto
+        - `disabled` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+        - `tls` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+          - `ca_certificate` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+    - `databases` (List Of String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/clickhouse.proto
+    - `managed_cluster_id` (String). When creating/updating Connection, the field "managed_cluster_id" is mutually exclusive with "cluster".
+  - `greenplum` [FW-Block]. Greenplum data warehouse connection parameters.
+    - `auth` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/greenplum.proto
+      - `user_password` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/greenplum.proto
+        - `password` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+          - `lockbox_secret_key` (String). Read-only. Do not fill this field in create/update requests.
+          - `password_generation_options` [FW-Block]. When creating/updating Password, the field "password_generation_options" is mutually exclusive with "raw". In order to switch to the "password_generation_options" you have to explicitly clear the "raw" field.
+            - `cookie` (String). Cookie is an arbitrary non-sensitive string that is saved with the password. When updating PasswordGenerationOptions, if the cookie passed in the update request differs from the cookie in the current PasswordGenerationOptions, the password will be re-generated. If the same cookie is passed, the password will not change.
+            - `lockbox_password_generation_options` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+              - `excluded_punctuation` (String). a string of punctuation characters to exclude from the default
+              - `include_digits` (Bool). whether at least one 0..9 character is included in the password, true by default
+              - `include_lowercase` (Bool). whether at least one a..z character is included in the password, true by default
+              - `include_punctuation` (Bool). whether at least one punctuation character is included in the password, true by default punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
+              - `include_uppercase` (Bool). whether at least one A..Z character is included in the password, true by default
+              - `included_punctuation` (String). If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use
+              - `length` (Number). password length; by default, a reasonable length will be decided
+          - `raw` (String). When creating/updating Password, the field "raw" is mutually exclusive with "password_generation_options". In order to switch to the "raw" password you have to explicitly clear the "password_generation_options" field.
+        - `user` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+    - `cluster` [FW-Block]. When creating/updating Connection, the field "cluster" is mutually exclusive with "managed_cluster_id".
+      - `coordinator_hosts` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/greenplum.proto
+        - `health` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/greenplum.proto
+        - `host` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/greenplum.proto
+        - `port` (Number). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/greenplum.proto
+        - `role` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/greenplum.proto
+      - `tls_params` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/greenplum.proto
+        - `disabled` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+        - `tls` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+          - `ca_certificate` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+    - `databases` (List Of String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/greenplum.proto
+    - `managed_cluster_id` (String). When creating/updating Connection, the field "managed_cluster_id" is mutually exclusive with "cluster".
+  - `kafka` [FW-Block]. Apache Kafka message broker connection parameters.
+    - `auth` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/kafka.proto
+      - `disabled` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/kafka.proto
+      - `sasl` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/kafka.proto
+        - `password` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/kafka.proto
+          - `lockbox_secret_key` (String). Read-only. Do not fill this field in create/update requests.
+          - `password_generation_options` [FW-Block]. When creating/updating Password, the field "password_generation_options" is mutually exclusive with "raw". In order to switch to the "password_generation_options" you have to explicitly clear the "raw" field.
+            - `cookie` (String). Cookie is an arbitrary non-sensitive string that is saved with the password. When updating PasswordGenerationOptions, if the cookie passed in the update request differs from the cookie in the current PasswordGenerationOptions, the password will be re-generated. If the same cookie is passed, the password will not change.
+            - `lockbox_password_generation_options` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+              - `excluded_punctuation` (String). a string of punctuation characters to exclude from the default
+              - `include_digits` (Bool). whether at least one 0..9 character is included in the password, true by default
+              - `include_lowercase` (Bool). whether at least one a..z character is included in the password, true by default
+              - `include_punctuation` (Bool). whether at least one punctuation character is included in the password, true by default punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
+              - `include_uppercase` (Bool). whether at least one A..Z character is included in the password, true by default
+              - `included_punctuation` (String). If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use
+              - `length` (Number). password length; by default, a reasonable length will be decided
+          - `raw` (String). When creating/updating Password, the field "raw" is mutually exclusive with "password_generation_options". In order to switch to the "raw" password you have to explicitly clear the "password_generation_options" field.
+        - `supported_mechanisms` (List Of String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/kafka.proto
+        - `user` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/kafka.proto
+    - `cluster` [FW-Block]. When creating/updating Connection, the field "cluster" is mutually exclusive with "managed_cluster_id".
+      - `hosts` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/kafka.proto
+        - `health` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/kafka.proto
+        - `host` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/kafka.proto
+        - `port` (Number). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/kafka.proto
+      - `tls_params` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/kafka.proto
+        - `disabled` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+        - `tls` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+          - `ca_certificate` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+    - `managed_cluster_id` (String). When creating/updating Connection, the field "managed_cluster_id" is mutually exclusive with "cluster".
+  - `mongodb` [FW-Block]. MongoDB database connection parameters.
+    - `auth` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/mongodb.proto
+      - `auth_source` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/mongodb.proto
+      - `user_password` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/mongodb.proto
+        - `password` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+          - `lockbox_secret_key` (String). Read-only. Do not fill this field in create/update requests.
+          - `password_generation_options` [FW-Block]. When creating/updating Password, the field "password_generation_options" is mutually exclusive with "raw". In order to switch to the "password_generation_options" you have to explicitly clear the "raw" field.
+            - `cookie` (String). Cookie is an arbitrary non-sensitive string that is saved with the password. When updating PasswordGenerationOptions, if the cookie passed in the update request differs from the cookie in the current PasswordGenerationOptions, the password will be re-generated. If the same cookie is passed, the password will not change.
+            - `lockbox_password_generation_options` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+              - `excluded_punctuation` (String). a string of punctuation characters to exclude from the default
+              - `include_digits` (Bool). whether at least one 0..9 character is included in the password, true by default
+              - `include_lowercase` (Bool). whether at least one a..z character is included in the password, true by default
+              - `include_punctuation` (Bool). whether at least one punctuation character is included in the password, true by default punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
+              - `include_uppercase` (Bool). whether at least one A..Z character is included in the password, true by default
+              - `included_punctuation` (String). If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use
+              - `length` (Number). password length; by default, a reasonable length will be decided
+          - `raw` (String). When creating/updating Password, the field "raw" is mutually exclusive with "password_generation_options". In order to switch to the "raw" password you have to explicitly clear the "password_generation_options" field.
+        - `user` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+    - `cluster` [FW-Block]. When creating/updating Connection, the field "cluster" is mutually exclusive with "managed_cluster_id".
+      - `hosts` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/mongodb.proto
+        - `health` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/mongodb.proto
+        - `host` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/mongodb.proto
+        - `port` (Number). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/mongodb.proto
+        - `role` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/mongodb.proto
+        - `type` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/mongodb.proto
+      - `tls_params` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/mongodb.proto
+        - `disabled` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+        - `tls` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+          - `ca_certificate` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+    - `databases` (List Of String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/mongodb.proto
+    - `managed_cluster_id` (String). When creating/updating Connection, the field "managed_cluster_id" is mutually exclusive with "cluster".
+  - `mysql` [FW-Block]. MySQL database connection parameters.
+    - `auth` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/mysql.proto
+      - `user_password` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/mysql.proto
+        - `password` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+          - `lockbox_secret_key` (String). Read-only. Do not fill this field in create/update requests.
+          - `password_generation_options` [FW-Block]. When creating/updating Password, the field "password_generation_options" is mutually exclusive with "raw". In order to switch to the "password_generation_options" you have to explicitly clear the "raw" field.
+            - `cookie` (String). Cookie is an arbitrary non-sensitive string that is saved with the password. When updating PasswordGenerationOptions, if the cookie passed in the update request differs from the cookie in the current PasswordGenerationOptions, the password will be re-generated. If the same cookie is passed, the password will not change.
+            - `lockbox_password_generation_options` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+              - `excluded_punctuation` (String). a string of punctuation characters to exclude from the default
+              - `include_digits` (Bool). whether at least one 0..9 character is included in the password, true by default
+              - `include_lowercase` (Bool). whether at least one a..z character is included in the password, true by default
+              - `include_punctuation` (Bool). whether at least one punctuation character is included in the password, true by default punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
+              - `include_uppercase` (Bool). whether at least one A..Z character is included in the password, true by default
+              - `included_punctuation` (String). If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use
+              - `length` (Number). password length; by default, a reasonable length will be decided
+          - `raw` (String). When creating/updating Password, the field "raw" is mutually exclusive with "password_generation_options". In order to switch to the "raw" password you have to explicitly clear the "password_generation_options" field.
+        - `user` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+    - `cluster` [FW-Block]. When creating/updating Connection, the field "cluster" is mutually exclusive with "managed_cluster_id".
+      - `hosts` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/mysql.proto
+        - `health` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/mysql.proto
+        - `host` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/mysql.proto
+        - `port` (Number). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/mysql.proto
+        - `role` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/mysql.proto
+      - `tls_params` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/mysql.proto
+        - `disabled` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+        - `tls` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+          - `ca_certificate` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+    - `databases` (List Of String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/mysql.proto
+    - `managed_cluster_id` (String). When creating/updating Connection, the field "managed_cluster_id" is mutually exclusive with "cluster".
+  - `opensearch` [FW-Block]. OpenSearch search engine connection parameters.
+    - `auth` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/opensearch.proto
+      - `user_password` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/opensearch.proto
+        - `password` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+          - `lockbox_secret_key` (String). Read-only. Do not fill this field in create/update requests.
+          - `password_generation_options` [FW-Block]. When creating/updating Password, the field "password_generation_options" is mutually exclusive with "raw". In order to switch to the "password_generation_options" you have to explicitly clear the "raw" field.
+            - `cookie` (String). Cookie is an arbitrary non-sensitive string that is saved with the password. When updating PasswordGenerationOptions, if the cookie passed in the update request differs from the cookie in the current PasswordGenerationOptions, the password will be re-generated. If the same cookie is passed, the password will not change.
+            - `lockbox_password_generation_options` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+              - `excluded_punctuation` (String). a string of punctuation characters to exclude from the default
+              - `include_digits` (Bool). whether at least one 0..9 character is included in the password, true by default
+              - `include_lowercase` (Bool). whether at least one a..z character is included in the password, true by default
+              - `include_punctuation` (Bool). whether at least one punctuation character is included in the password, true by default punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
+              - `include_uppercase` (Bool). whether at least one A..Z character is included in the password, true by default
+              - `included_punctuation` (String). If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use
+              - `length` (Number). password length; by default, a reasonable length will be decided
+          - `raw` (String). When creating/updating Password, the field "raw" is mutually exclusive with "password_generation_options". In order to switch to the "raw" password you have to explicitly clear the "password_generation_options" field.
+        - `user` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+    - `cluster` [FW-Block]. When creating/updating Connection, the field "cluster" is mutually exclusive with "managed_cluster_id".
+      - `hosts` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/opensearch.proto
+        - `health` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/opensearch.proto
+        - `host` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/opensearch.proto
+        - `port` (Number). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/opensearch.proto
+        - `roles` (List Of String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/opensearch.proto
+      - `tls_params` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/opensearch.proto
+        - `disabled` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+        - `tls` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+          - `ca_certificate` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+    - `managed_cluster_id` (String). When creating/updating Connection, the field "managed_cluster_id" is mutually exclusive with "cluster".
+  - `postgresql` [FW-Block]. PostgreSQL database connection parameters.
+    - `auth` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/postgresql.proto
+      - `user_password` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/postgresql.proto
+        - `password` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+          - `lockbox_secret_key` (String). Read-only. Do not fill this field in create/update requests.
+          - `password_generation_options` [FW-Block]. When creating/updating Password, the field "password_generation_options" is mutually exclusive with "raw". In order to switch to the "password_generation_options" you have to explicitly clear the "raw" field.
+            - `cookie` (String). Cookie is an arbitrary non-sensitive string that is saved with the password. When updating PasswordGenerationOptions, if the cookie passed in the update request differs from the cookie in the current PasswordGenerationOptions, the password will be re-generated. If the same cookie is passed, the password will not change.
+            - `lockbox_password_generation_options` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+              - `excluded_punctuation` (String). a string of punctuation characters to exclude from the default
+              - `include_digits` (Bool). whether at least one 0..9 character is included in the password, true by default
+              - `include_lowercase` (Bool). whether at least one a..z character is included in the password, true by default
+              - `include_punctuation` (Bool). whether at least one punctuation character is included in the password, true by default punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
+              - `include_uppercase` (Bool). whether at least one A..Z character is included in the password, true by default
+              - `included_punctuation` (String). If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use
+              - `length` (Number). password length; by default, a reasonable length will be decided
+          - `raw` (String). When creating/updating Password, the field "raw" is mutually exclusive with "password_generation_options". In order to switch to the "raw" password you have to explicitly clear the "password_generation_options" field.
+        - `user` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+    - `cluster` [FW-Block]. When creating/updating Connection, the field "cluster" is mutually exclusive with "managed_cluster_id".
+      - `hosts` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/postgresql.proto
+        - `health` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/postgresql.proto
+        - `host` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/postgresql.proto
+        - `port` (Number). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/postgresql.proto
+        - `replica_type` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/postgresql.proto
+        - `role` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/postgresql.proto
+      - `tls_params` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/postgresql.proto
+        - `disabled` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+        - `tls` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+          - `ca_certificate` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+    - `databases` (List Of String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/postgresql.proto
+    - `managed_cluster_id` (String). When creating/updating Connection, the field "managed_cluster_id" is mutually exclusive with "cluster".
+  - `redis` [FW-Block]. Redis in-memory data store connection parameters.
+    - `auth` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/redis.proto
+      - `user_password` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/redis.proto
+        - `password` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/redis.proto
+          - `lockbox_secret_key` (String). Read-only. Do not fill this field in create/update requests.
+          - `password_generation_options` [FW-Block]. When creating/updating Password, the field "password_generation_options" is mutually exclusive with "raw". In order to switch to the "password_generation_options" you have to explicitly clear the "raw" field.
+            - `cookie` (String). Cookie is an arbitrary non-sensitive string that is saved with the password. When updating PasswordGenerationOptions, if the cookie passed in the update request differs from the cookie in the current PasswordGenerationOptions, the password will be re-generated. If the same cookie is passed, the password will not change.
+            - `lockbox_password_generation_options` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+              - `excluded_punctuation` (String). a string of punctuation characters to exclude from the default
+              - `include_digits` (Bool). whether at least one 0..9 character is included in the password, true by default
+              - `include_lowercase` (Bool). whether at least one a..z character is included in the password, true by default
+              - `include_punctuation` (Bool). whether at least one punctuation character is included in the password, true by default punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
+              - `include_uppercase` (Bool). whether at least one A..Z character is included in the password, true by default
+              - `included_punctuation` (String). If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use
+              - `length` (Number). password length; by default, a reasonable length will be decided
+          - `raw` (String). When creating/updating Password, the field "raw" is mutually exclusive with "password_generation_options". In order to switch to the "raw" password you have to explicitly clear the "password_generation_options" field.
+        - `user` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/redis.proto
+    - `cluster` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/redis.proto
+      - `hosts` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/redis.proto
+        - `health` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/redis.proto
+        - `host` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/redis.proto
+        - `port` (Number). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/redis.proto
+        - `role` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/redis.proto
+        - `shard_name` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/redis.proto
+      - `sentinel_port` (Number). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/redis.proto
+      - `tls_params` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/redis.proto
+        - `disabled` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+        - `tls` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+          - `ca_certificate` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+    - `databases` (List Of Number). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/redis.proto
+  - `storedoc` [FW-Block]. StoreDoc document store connection parameters.
+    - `auth` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/storedoc.proto
+      - `auth_source` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/storedoc.proto
+      - `user_password` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/storedoc.proto
+        - `password` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+          - `lockbox_secret_key` (String). Read-only. Do not fill this field in create/update requests.
+          - `password_generation_options` [FW-Block]. When creating/updating Password, the field "password_generation_options" is mutually exclusive with "raw". In order to switch to the "password_generation_options" you have to explicitly clear the "raw" field.
+            - `cookie` (String). Cookie is an arbitrary non-sensitive string that is saved with the password. When updating PasswordGenerationOptions, if the cookie passed in the update request differs from the cookie in the current PasswordGenerationOptions, the password will be re-generated. If the same cookie is passed, the password will not change.
+            - `lockbox_password_generation_options` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+              - `excluded_punctuation` (String). a string of punctuation characters to exclude from the default
+              - `include_digits` (Bool). whether at least one 0..9 character is included in the password, true by default
+              - `include_lowercase` (Bool). whether at least one a..z character is included in the password, true by default
+              - `include_punctuation` (Bool). whether at least one punctuation character is included in the password, true by default punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
+              - `include_uppercase` (Bool). whether at least one A..Z character is included in the password, true by default
+              - `included_punctuation` (String). If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use
+              - `length` (Number). password length; by default, a reasonable length will be decided
+          - `raw` (String). When creating/updating Password, the field "raw" is mutually exclusive with "password_generation_options". In order to switch to the "raw" password you have to explicitly clear the "password_generation_options" field.
+        - `user` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+    - `cluster` [FW-Block]. When creating/updating Connection, the field "cluster" is mutually exclusive with "managed_cluster_id".
+      - `hosts` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/storedoc.proto
+        - `health` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/storedoc.proto
+        - `host` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/storedoc.proto
+        - `port` (Number). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/storedoc.proto
+        - `role` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/storedoc.proto
+        - `type` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/storedoc.proto
+      - `tls_params` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/storedoc.proto
+        - `disabled` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+        - `tls` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+          - `ca_certificate` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+    - `databases` (List Of String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/storedoc.proto
+    - `managed_cluster_id` (String). When creating/updating Connection, the field "managed_cluster_id" is mutually exclusive with "cluster".
+  - `trino` [FW-Block]. Trino distributed SQL query engine connection parameters.
+    - `auth` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/trino.proto
+      - `user_password` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/trino.proto
+        - `password` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+          - `lockbox_secret_key` (String). Read-only. Do not fill this field in create/update requests.
+          - `password_generation_options` [FW-Block]. When creating/updating Password, the field "password_generation_options" is mutually exclusive with "raw". In order to switch to the "password_generation_options" you have to explicitly clear the "raw" field.
+            - `cookie` (String). Cookie is an arbitrary non-sensitive string that is saved with the password. When updating PasswordGenerationOptions, if the cookie passed in the update request differs from the cookie in the current PasswordGenerationOptions, the password will be re-generated. If the same cookie is passed, the password will not change.
+            - `lockbox_password_generation_options` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+              - `excluded_punctuation` (String). a string of punctuation characters to exclude from the default
+              - `include_digits` (Bool). whether at least one 0..9 character is included in the password, true by default
+              - `include_lowercase` (Bool). whether at least one a..z character is included in the password, true by default
+              - `include_punctuation` (Bool). whether at least one punctuation character is included in the password, true by default punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
+              - `include_uppercase` (Bool). whether at least one A..Z character is included in the password, true by default
+              - `included_punctuation` (String). If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use
+              - `length` (Number). password length; by default, a reasonable length will be decided
+          - `raw` (String). When creating/updating Password, the field "raw" is mutually exclusive with "password_generation_options". In order to switch to the "raw" password you have to explicitly clear the "password_generation_options" field.
+        - `user` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+    - `cluster` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/trino.proto
+      - `coordinator` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/trino.proto
+        - `host` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/trino.proto
+        - `port` (Number). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/trino.proto
+      - `tls_params` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/trino.proto
+        - `disabled` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+        - `tls` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+          - `ca_certificate` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+  - `valkey` [FW-Block]. Valkey in-memory data store connection parameters.
+    - `auth` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/valkey.proto
+      - `user_password` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/valkey.proto
+        - `password` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/valkey.proto
+          - `lockbox_secret_key` (String). Read-only. Do not fill this field in create/update requests.
+          - `password_generation_options` [FW-Block]. When creating/updating Password, the field "password_generation_options" is mutually exclusive with "raw". In order to switch to the "password_generation_options" you have to explicitly clear the "raw" field.
+            - `cookie` (String). Cookie is an arbitrary non-sensitive string that is saved with the password. When updating PasswordGenerationOptions, if the cookie passed in the update request differs from the cookie in the current PasswordGenerationOptions, the password will be re-generated. If the same cookie is passed, the password will not change.
+            - `lockbox_password_generation_options` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+              - `excluded_punctuation` (String). a string of punctuation characters to exclude from the default
+              - `include_digits` (Bool). whether at least one 0..9 character is included in the password, true by default
+              - `include_lowercase` (Bool). whether at least one a..z character is included in the password, true by default
+              - `include_punctuation` (Bool). whether at least one punctuation character is included in the password, true by default punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
+              - `include_uppercase` (Bool). whether at least one A..Z character is included in the password, true by default
+              - `included_punctuation` (String). If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use
+              - `length` (Number). password length; by default, a reasonable length will be decided
+          - `raw` (String). When creating/updating Password, the field "raw" is mutually exclusive with "password_generation_options". In order to switch to the "raw" password you have to explicitly clear the "password_generation_options" field.
+        - `user` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/valkey.proto
+    - `cluster` [FW-Block]. When creating/updating Connection, the field "cluster" is mutually exclusive with "managed_cluster_id".
+      - `hosts` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/valkey.proto
+        - `health` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/valkey.proto
+        - `host` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/valkey.proto
+        - `port` (Number). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/valkey.proto
+        - `role` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/valkey.proto
+        - `shard_name` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/valkey.proto
+      - `sentinel_port` (Number). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/valkey.proto
+      - `tls_params` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/valkey.proto
+        - `disabled` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+        - `tls` [FW-Block]. package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+          - `ca_certificate` (String). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/common.proto
+    - `databases` (List Of Number). package: yandex.cloud.connectionmanager.v1filename: yandex/cloud/connectionmanager/v1/valkey.proto
+    - `managed_cluster_id` (String). When creating/updating Connection, the field "managed_cluster_id" is mutually exclusive with "cluster".
+- `updated_at` (*Read-Only*) (String). Last update timestamp.
 
-## Example usage
 
-```terraform
-resource "yandex_connectionmanager_connection" "test-connection" {
-  folder_id = "folder_id"
-
-  name = "my_connection"
-  description = "my_connection description"
-
-  labels = {
-    "key" = "value"
-  }
-
-  params = {
-    postgresql = {
-      managed_cluster_id = "cluster_id"
-      auth = {
-        user_password = {
-          user = "name"
-          password = {
-            raw: "password"
-          }
-        }
-      }
-    }
-  }
-}
-```
-
-<!-- schema generated by tfplugindocs -->
-## Schema
-
-### Optional
-
-- `connection_id` (String) ID of the connection to retrieve.
-- `description` (String) Description of the connection.
-- `folder_id` (String) ID of the folder that the connection belongs to.
-- `id` (String) ID of the connection to retrieve.
-- `labels` (Map of String) Connection labels as `key:value` pairs.
-- `lockbox_secret_spec` (Attributes) Specification for creating a new Lockbox secret. (see [below for nested schema](#nestedatt--lockbox_secret_spec))
-- `name` (String) Name of the connection.
-- `params` (Attributes) Connection parameters specific to the database or service type. (see [below for nested schema](#nestedatt--params))
-- `timeouts` (Attributes) (see [below for nested schema](#nestedatt--timeouts))
-
-### Read-Only
-
-- `can_use` (Boolean) Whether the current user can use this connection. Filled only when `with_can_use` has been requested in ListConnectionRequest.
-- `created_at` (String) Creation timestamp.
-- `created_by` (String) ID of the subject which created the connection.
-- `is_managed` (Boolean) Whether this connection is managed by the system (e.g. an MDB cluster).
-- `lockbox_secret` (Attributes) Reference to the Lockbox secret containing connection credentials. (see [below for nested schema](#nestedatt--lockbox_secret))
-- `updated_at` (String) Last update timestamp.
-
-<a id="nestedatt--lockbox_secret_spec"></a>
-### Nested Schema for `lockbox_secret_spec`
-
-Optional:
-
-- `folder_id` (String) ID of the folder where the Lockbox secret will be created. If omitted, the secret will be created in the connection's folder.
-
-
-<a id="nestedatt--params"></a>
-### Nested Schema for `params`
-
-Optional:
-
-- `clickhouse` (Attributes) ClickHouse database connection parameters. (see [below for nested schema](#nestedatt--params--clickhouse))
-- `greenplum` (Attributes) Greenplum data warehouse connection parameters. (see [below for nested schema](#nestedatt--params--greenplum))
-- `kafka` (Attributes) Apache Kafka message broker connection parameters. (see [below for nested schema](#nestedatt--params--kafka))
-- `mongodb` (Attributes) MongoDB database connection parameters. (see [below for nested schema](#nestedatt--params--mongodb))
-- `mysql` (Attributes) MySQL database connection parameters. (see [below for nested schema](#nestedatt--params--mysql))
-- `opensearch` (Attributes) OpenSearch search engine connection parameters. (see [below for nested schema](#nestedatt--params--opensearch))
-- `postgresql` (Attributes) PostgreSQL database connection parameters. (see [below for nested schema](#nestedatt--params--postgresql))
-- `redis` (Attributes) Redis in-memory data store connection parameters. (see [below for nested schema](#nestedatt--params--redis))
-- `storedoc` (Attributes) StoreDoc document store connection parameters. (see [below for nested schema](#nestedatt--params--storedoc))
-- `trino` (Attributes) Trino distributed SQL query engine connection parameters. (see [below for nested schema](#nestedatt--params--trino))
-- `valkey` (Attributes) Valkey in-memory data store connection parameters. (see [below for nested schema](#nestedatt--params--valkey))
-
-<a id="nestedatt--params--clickhouse"></a>
-### Nested Schema for `params.clickhouse`
-
-Optional:
-
-- `auth` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/clickhouse.proto (see [below for nested schema](#nestedatt--params--clickhouse--auth))
-- `cluster` (Attributes) When creating/updating Connection, the field "cluster" is mutually
- exclusive with "managed_cluster_id". (see [below for nested schema](#nestedatt--params--clickhouse--cluster))
-- `databases` (List of String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/clickhouse.proto
-- `managed_cluster_id` (String) When creating/updating Connection, the field "managed_cluster_id" is
- mutually exclusive with "cluster".
-
-<a id="nestedatt--params--clickhouse--auth"></a>
-### Nested Schema for `params.clickhouse.auth`
-
-Optional:
-
-- `user_password` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/clickhouse.proto (see [below for nested schema](#nestedatt--params--clickhouse--auth--user_password))
-
-<a id="nestedatt--params--clickhouse--auth--user_password"></a>
-### Nested Schema for `params.clickhouse.auth.user_password`
-
-Optional:
-
-- `password` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--clickhouse--auth--user_password--password))
-- `user` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto
-
-<a id="nestedatt--params--clickhouse--auth--user_password--password"></a>
-### Nested Schema for `params.clickhouse.auth.user_password.password`
-
-Optional:
-
-- `lockbox_secret_key` (String) Read-only. Do not fill this field in create/update requests.
-- `password_generation_options` (Attributes) When creating/updating Password, the field "password_generation_options"
- is mutually exclusive with "raw". In order to switch to the
- "password_generation_options" you have to explicitly clear the "raw"
- field. (see [below for nested schema](#nestedatt--params--clickhouse--auth--user_password--password--password_generation_options))
-- `raw` (String, Sensitive) When creating/updating Password, the field "raw" is mutually exclusive
- with "password_generation_options". In order to switch to the "raw"
- password you have to explicitly clear the "password_generation_options"
- field.
-
-<a id="nestedatt--params--clickhouse--auth--user_password--password--password_generation_options"></a>
-### Nested Schema for `params.clickhouse.auth.user_password.password.password_generation_options`
-
-Optional:
-
-- `cookie` (String) Cookie is an arbitrary non-sensitive string that is saved with the
- password. When updating PasswordGenerationOptions, if the cookie passed
- in the update request differs from the cookie in the current
- PasswordGenerationOptions, the password will be re-generated. If the
- same cookie is passed, the password will not change.
-- `lockbox_password_generation_options` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--clickhouse--auth--user_password--password--raw--lockbox_password_generation_options))
-
-<a id="nestedatt--params--clickhouse--auth--user_password--password--raw--lockbox_password_generation_options"></a>
-### Nested Schema for `params.clickhouse.auth.user_password.password.raw.lockbox_password_generation_options`
-
-Optional:
-
-- `excluded_punctuation` (String) a string of punctuation characters to exclude from the default
-- `include_digits` (Boolean) whether at least one 0..9 character is included in the password, true by default
-- `include_lowercase` (Boolean) whether at least one a..z character is included in the password, true by default
-- `include_punctuation` (Boolean) whether at least one punctuation character is included in the password, true by default
- punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
- to customize the punctuation characters, see included_punctuation and excluded_punctuation below
-- `include_uppercase` (Boolean) whether at least one A..Z character is included in the password, true by default
-- `included_punctuation` (String) If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation:
- a string of specific punctuation characters to use
-- `length` (Number) password length; by default, a reasonable length will be decided
-
-
-
-
-
-
-<a id="nestedatt--params--clickhouse--cluster"></a>
-### Nested Schema for `params.clickhouse.cluster`
-
-Optional:
-
-- `hosts` (Attributes List) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/clickhouse.proto (see [below for nested schema](#nestedatt--params--clickhouse--cluster--hosts))
-- `shard_groups` (Attributes List) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/clickhouse.proto (see [below for nested schema](#nestedatt--params--clickhouse--cluster--shard_groups))
-- `tls_params` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/clickhouse.proto (see [below for nested schema](#nestedatt--params--clickhouse--cluster--tls_params))
-
-<a id="nestedatt--params--clickhouse--cluster--hosts"></a>
-### Nested Schema for `params.clickhouse.cluster.hosts`
-
-Optional:
-
-- `health` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/clickhouse.proto
-- `host` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/clickhouse.proto
-- `http_port` (Number) depends on tls params may vary as http or https
-- `shard_name` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/clickhouse.proto
-- `tcp_port` (Number) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/clickhouse.proto
-
-
-<a id="nestedatt--params--clickhouse--cluster--shard_groups"></a>
-### Nested Schema for `params.clickhouse.cluster.shard_groups`
-
-Optional:
-
-- `name` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/clickhouse.proto
-- `shard_names` (List of String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/clickhouse.proto
-
-
-<a id="nestedatt--params--clickhouse--cluster--tls_params"></a>
-### Nested Schema for `params.clickhouse.cluster.tls_params`
-
-Optional:
-
-- `disabled` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--clickhouse--cluster--tls_params--disabled))
-- `tls` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--clickhouse--cluster--tls_params--tls))
-
-<a id="nestedatt--params--clickhouse--cluster--tls_params--disabled"></a>
-### Nested Schema for `params.clickhouse.cluster.tls_params.disabled`
-
-
-<a id="nestedatt--params--clickhouse--cluster--tls_params--tls"></a>
-### Nested Schema for `params.clickhouse.cluster.tls_params.tls`
-
-Optional:
-
-- `ca_certificate` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto
-
-
-
-
-
-<a id="nestedatt--params--greenplum"></a>
-### Nested Schema for `params.greenplum`
-
-Optional:
-
-- `auth` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/greenplum.proto (see [below for nested schema](#nestedatt--params--greenplum--auth))
-- `cluster` (Attributes) When creating/updating Connection, the field "cluster" is mutually
- exclusive with "managed_cluster_id". (see [below for nested schema](#nestedatt--params--greenplum--cluster))
-- `databases` (List of String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/greenplum.proto
-- `managed_cluster_id` (String) When creating/updating Connection, the field "managed_cluster_id" is
- mutually exclusive with "cluster".
-
-<a id="nestedatt--params--greenplum--auth"></a>
-### Nested Schema for `params.greenplum.auth`
-
-Optional:
-
-- `user_password` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/greenplum.proto (see [below for nested schema](#nestedatt--params--greenplum--auth--user_password))
-
-<a id="nestedatt--params--greenplum--auth--user_password"></a>
-### Nested Schema for `params.greenplum.auth.user_password`
-
-Optional:
-
-- `password` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--greenplum--auth--user_password--password))
-- `user` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto
-
-<a id="nestedatt--params--greenplum--auth--user_password--password"></a>
-### Nested Schema for `params.greenplum.auth.user_password.password`
-
-Optional:
-
-- `lockbox_secret_key` (String) Read-only. Do not fill this field in create/update requests.
-- `password_generation_options` (Attributes) When creating/updating Password, the field "password_generation_options"
- is mutually exclusive with "raw". In order to switch to the
- "password_generation_options" you have to explicitly clear the "raw"
- field. (see [below for nested schema](#nestedatt--params--greenplum--auth--user_password--password--password_generation_options))
-- `raw` (String, Sensitive) When creating/updating Password, the field "raw" is mutually exclusive
- with "password_generation_options". In order to switch to the "raw"
- password you have to explicitly clear the "password_generation_options"
- field.
-
-<a id="nestedatt--params--greenplum--auth--user_password--password--password_generation_options"></a>
-### Nested Schema for `params.greenplum.auth.user_password.password.password_generation_options`
-
-Optional:
-
-- `cookie` (String) Cookie is an arbitrary non-sensitive string that is saved with the
- password. When updating PasswordGenerationOptions, if the cookie passed
- in the update request differs from the cookie in the current
- PasswordGenerationOptions, the password will be re-generated. If the
- same cookie is passed, the password will not change.
-- `lockbox_password_generation_options` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--greenplum--auth--user_password--password--raw--lockbox_password_generation_options))
-
-<a id="nestedatt--params--greenplum--auth--user_password--password--raw--lockbox_password_generation_options"></a>
-### Nested Schema for `params.greenplum.auth.user_password.password.raw.lockbox_password_generation_options`
-
-Optional:
-
-- `excluded_punctuation` (String) a string of punctuation characters to exclude from the default
-- `include_digits` (Boolean) whether at least one 0..9 character is included in the password, true by default
-- `include_lowercase` (Boolean) whether at least one a..z character is included in the password, true by default
-- `include_punctuation` (Boolean) whether at least one punctuation character is included in the password, true by default
- punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
- to customize the punctuation characters, see included_punctuation and excluded_punctuation below
-- `include_uppercase` (Boolean) whether at least one A..Z character is included in the password, true by default
-- `included_punctuation` (String) If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation:
- a string of specific punctuation characters to use
-- `length` (Number) password length; by default, a reasonable length will be decided
-
-
-
-
-
-
-<a id="nestedatt--params--greenplum--cluster"></a>
-### Nested Schema for `params.greenplum.cluster`
-
-Optional:
-
-- `coordinator_hosts` (Attributes List) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/greenplum.proto (see [below for nested schema](#nestedatt--params--greenplum--cluster--coordinator_hosts))
-- `tls_params` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/greenplum.proto (see [below for nested schema](#nestedatt--params--greenplum--cluster--tls_params))
-
-<a id="nestedatt--params--greenplum--cluster--coordinator_hosts"></a>
-### Nested Schema for `params.greenplum.cluster.coordinator_hosts`
-
-Optional:
-
-- `health` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/greenplum.proto
-- `host` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/greenplum.proto
-- `port` (Number) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/greenplum.proto
-- `role` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/greenplum.proto
-
-
-<a id="nestedatt--params--greenplum--cluster--tls_params"></a>
-### Nested Schema for `params.greenplum.cluster.tls_params`
-
-Optional:
-
-- `disabled` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--greenplum--cluster--tls_params--disabled))
-- `tls` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--greenplum--cluster--tls_params--tls))
-
-<a id="nestedatt--params--greenplum--cluster--tls_params--disabled"></a>
-### Nested Schema for `params.greenplum.cluster.tls_params.disabled`
-
-
-<a id="nestedatt--params--greenplum--cluster--tls_params--tls"></a>
-### Nested Schema for `params.greenplum.cluster.tls_params.tls`
-
-Optional:
-
-- `ca_certificate` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto
-
-
-
-
-
-<a id="nestedatt--params--kafka"></a>
-### Nested Schema for `params.kafka`
-
-Optional:
-
-- `auth` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/kafka.proto (see [below for nested schema](#nestedatt--params--kafka--auth))
-- `cluster` (Attributes) When creating/updating Connection, the field "cluster" is mutually
- exclusive with "managed_cluster_id". (see [below for nested schema](#nestedatt--params--kafka--cluster))
-- `managed_cluster_id` (String) When creating/updating Connection, the field "managed_cluster_id" is
- mutually exclusive with "cluster".
-
-<a id="nestedatt--params--kafka--auth"></a>
-### Nested Schema for `params.kafka.auth`
-
-Optional:
-
-- `disabled` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/kafka.proto (see [below for nested schema](#nestedatt--params--kafka--auth--disabled))
-- `sasl` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/kafka.proto (see [below for nested schema](#nestedatt--params--kafka--auth--sasl))
-
-<a id="nestedatt--params--kafka--auth--disabled"></a>
-### Nested Schema for `params.kafka.auth.disabled`
-
-
-<a id="nestedatt--params--kafka--auth--sasl"></a>
-### Nested Schema for `params.kafka.auth.sasl`
-
-Optional:
-
-- `password` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/kafka.proto (see [below for nested schema](#nestedatt--params--kafka--auth--sasl--password))
-- `supported_mechanisms` (List of String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/kafka.proto
-- `user` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/kafka.proto
-
-<a id="nestedatt--params--kafka--auth--sasl--password"></a>
-### Nested Schema for `params.kafka.auth.sasl.password`
-
-Optional:
-
-- `lockbox_secret_key` (String) Read-only. Do not fill this field in create/update requests.
-- `password_generation_options` (Attributes) When creating/updating Password, the field "password_generation_options"
- is mutually exclusive with "raw". In order to switch to the
- "password_generation_options" you have to explicitly clear the "raw"
- field. (see [below for nested schema](#nestedatt--params--kafka--auth--sasl--password--password_generation_options))
-- `raw` (String, Sensitive) When creating/updating Password, the field "raw" is mutually exclusive
- with "password_generation_options". In order to switch to the "raw"
- password you have to explicitly clear the "password_generation_options"
- field.
-
-<a id="nestedatt--params--kafka--auth--sasl--password--password_generation_options"></a>
-### Nested Schema for `params.kafka.auth.sasl.password.password_generation_options`
-
-Optional:
-
-- `cookie` (String) Cookie is an arbitrary non-sensitive string that is saved with the
- password. When updating PasswordGenerationOptions, if the cookie passed
- in the update request differs from the cookie in the current
- PasswordGenerationOptions, the password will be re-generated. If the
- same cookie is passed, the password will not change.
-- `lockbox_password_generation_options` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--kafka--auth--sasl--password--raw--lockbox_password_generation_options))
-
-<a id="nestedatt--params--kafka--auth--sasl--password--raw--lockbox_password_generation_options"></a>
-### Nested Schema for `params.kafka.auth.sasl.password.raw.lockbox_password_generation_options`
-
-Optional:
-
-- `excluded_punctuation` (String) a string of punctuation characters to exclude from the default
-- `include_digits` (Boolean) whether at least one 0..9 character is included in the password, true by default
-- `include_lowercase` (Boolean) whether at least one a..z character is included in the password, true by default
-- `include_punctuation` (Boolean) whether at least one punctuation character is included in the password, true by default
- punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
- to customize the punctuation characters, see included_punctuation and excluded_punctuation below
-- `include_uppercase` (Boolean) whether at least one A..Z character is included in the password, true by default
-- `included_punctuation` (String) If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation:
- a string of specific punctuation characters to use
-- `length` (Number) password length; by default, a reasonable length will be decided
-
-
-
-
-
-
-<a id="nestedatt--params--kafka--cluster"></a>
-### Nested Schema for `params.kafka.cluster`
-
-Optional:
-
-- `hosts` (Attributes List) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/kafka.proto (see [below for nested schema](#nestedatt--params--kafka--cluster--hosts))
-- `tls_params` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/kafka.proto (see [below for nested schema](#nestedatt--params--kafka--cluster--tls_params))
-
-<a id="nestedatt--params--kafka--cluster--hosts"></a>
-### Nested Schema for `params.kafka.cluster.hosts`
-
-Optional:
-
-- `health` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/kafka.proto
-- `host` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/kafka.proto
-- `port` (Number) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/kafka.proto
-
-
-<a id="nestedatt--params--kafka--cluster--tls_params"></a>
-### Nested Schema for `params.kafka.cluster.tls_params`
-
-Optional:
-
-- `disabled` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--kafka--cluster--tls_params--disabled))
-- `tls` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--kafka--cluster--tls_params--tls))
-
-<a id="nestedatt--params--kafka--cluster--tls_params--disabled"></a>
-### Nested Schema for `params.kafka.cluster.tls_params.disabled`
-
-
-<a id="nestedatt--params--kafka--cluster--tls_params--tls"></a>
-### Nested Schema for `params.kafka.cluster.tls_params.tls`
-
-Optional:
-
-- `ca_certificate` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto
-
-
-
-
-
-<a id="nestedatt--params--mongodb"></a>
-### Nested Schema for `params.mongodb`
-
-Optional:
-
-- `auth` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/mongodb.proto (see [below for nested schema](#nestedatt--params--mongodb--auth))
-- `cluster` (Attributes) When creating/updating Connection, the field "cluster" is mutually
- exclusive with "managed_cluster_id". (see [below for nested schema](#nestedatt--params--mongodb--cluster))
-- `databases` (List of String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/mongodb.proto
-- `managed_cluster_id` (String) When creating/updating Connection, the field "managed_cluster_id" is
- mutually exclusive with "cluster".
-
-<a id="nestedatt--params--mongodb--auth"></a>
-### Nested Schema for `params.mongodb.auth`
-
-Optional:
-
-- `auth_source` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/mongodb.proto
-- `user_password` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/mongodb.proto (see [below for nested schema](#nestedatt--params--mongodb--auth--user_password))
-
-<a id="nestedatt--params--mongodb--auth--user_password"></a>
-### Nested Schema for `params.mongodb.auth.user_password`
-
-Optional:
-
-- `password` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--mongodb--auth--user_password--password))
-- `user` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto
-
-<a id="nestedatt--params--mongodb--auth--user_password--password"></a>
-### Nested Schema for `params.mongodb.auth.user_password.password`
-
-Optional:
-
-- `lockbox_secret_key` (String) Read-only. Do not fill this field in create/update requests.
-- `password_generation_options` (Attributes) When creating/updating Password, the field "password_generation_options"
- is mutually exclusive with "raw". In order to switch to the
- "password_generation_options" you have to explicitly clear the "raw"
- field. (see [below for nested schema](#nestedatt--params--mongodb--auth--user_password--password--password_generation_options))
-- `raw` (String, Sensitive) When creating/updating Password, the field "raw" is mutually exclusive
- with "password_generation_options". In order to switch to the "raw"
- password you have to explicitly clear the "password_generation_options"
- field.
-
-<a id="nestedatt--params--mongodb--auth--user_password--password--password_generation_options"></a>
-### Nested Schema for `params.mongodb.auth.user_password.password.password_generation_options`
-
-Optional:
-
-- `cookie` (String) Cookie is an arbitrary non-sensitive string that is saved with the
- password. When updating PasswordGenerationOptions, if the cookie passed
- in the update request differs from the cookie in the current
- PasswordGenerationOptions, the password will be re-generated. If the
- same cookie is passed, the password will not change.
-- `lockbox_password_generation_options` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--mongodb--auth--user_password--password--raw--lockbox_password_generation_options))
-
-<a id="nestedatt--params--mongodb--auth--user_password--password--raw--lockbox_password_generation_options"></a>
-### Nested Schema for `params.mongodb.auth.user_password.password.raw.lockbox_password_generation_options`
-
-Optional:
-
-- `excluded_punctuation` (String) a string of punctuation characters to exclude from the default
-- `include_digits` (Boolean) whether at least one 0..9 character is included in the password, true by default
-- `include_lowercase` (Boolean) whether at least one a..z character is included in the password, true by default
-- `include_punctuation` (Boolean) whether at least one punctuation character is included in the password, true by default
- punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
- to customize the punctuation characters, see included_punctuation and excluded_punctuation below
-- `include_uppercase` (Boolean) whether at least one A..Z character is included in the password, true by default
-- `included_punctuation` (String) If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation:
- a string of specific punctuation characters to use
-- `length` (Number) password length; by default, a reasonable length will be decided
-
-
-
-
-
-
-<a id="nestedatt--params--mongodb--cluster"></a>
-### Nested Schema for `params.mongodb.cluster`
-
-Optional:
-
-- `hosts` (Attributes List) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/mongodb.proto (see [below for nested schema](#nestedatt--params--mongodb--cluster--hosts))
-- `tls_params` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/mongodb.proto (see [below for nested schema](#nestedatt--params--mongodb--cluster--tls_params))
-
-<a id="nestedatt--params--mongodb--cluster--hosts"></a>
-### Nested Schema for `params.mongodb.cluster.hosts`
-
-Optional:
-
-- `health` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/mongodb.proto
-- `host` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/mongodb.proto
-- `port` (Number) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/mongodb.proto
-- `role` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/mongodb.proto
-- `type` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/mongodb.proto
-
-
-<a id="nestedatt--params--mongodb--cluster--tls_params"></a>
-### Nested Schema for `params.mongodb.cluster.tls_params`
-
-Optional:
-
-- `disabled` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--mongodb--cluster--tls_params--disabled))
-- `tls` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--mongodb--cluster--tls_params--tls))
-
-<a id="nestedatt--params--mongodb--cluster--tls_params--disabled"></a>
-### Nested Schema for `params.mongodb.cluster.tls_params.disabled`
-
-
-<a id="nestedatt--params--mongodb--cluster--tls_params--tls"></a>
-### Nested Schema for `params.mongodb.cluster.tls_params.tls`
-
-Optional:
-
-- `ca_certificate` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto
-
-
-
-
-
-<a id="nestedatt--params--mysql"></a>
-### Nested Schema for `params.mysql`
-
-Optional:
-
-- `auth` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/mysql.proto (see [below for nested schema](#nestedatt--params--mysql--auth))
-- `cluster` (Attributes) When creating/updating Connection, the field "cluster" is mutually
- exclusive with "managed_cluster_id". (see [below for nested schema](#nestedatt--params--mysql--cluster))
-- `databases` (List of String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/mysql.proto
-- `managed_cluster_id` (String) When creating/updating Connection, the field "managed_cluster_id" is
- mutually exclusive with "cluster".
-
-<a id="nestedatt--params--mysql--auth"></a>
-### Nested Schema for `params.mysql.auth`
-
-Optional:
-
-- `user_password` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/mysql.proto (see [below for nested schema](#nestedatt--params--mysql--auth--user_password))
-
-<a id="nestedatt--params--mysql--auth--user_password"></a>
-### Nested Schema for `params.mysql.auth.user_password`
-
-Optional:
-
-- `password` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--mysql--auth--user_password--password))
-- `user` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto
-
-<a id="nestedatt--params--mysql--auth--user_password--password"></a>
-### Nested Schema for `params.mysql.auth.user_password.password`
-
-Optional:
-
-- `lockbox_secret_key` (String) Read-only. Do not fill this field in create/update requests.
-- `password_generation_options` (Attributes) When creating/updating Password, the field "password_generation_options"
- is mutually exclusive with "raw". In order to switch to the
- "password_generation_options" you have to explicitly clear the "raw"
- field. (see [below for nested schema](#nestedatt--params--mysql--auth--user_password--password--password_generation_options))
-- `raw` (String, Sensitive) When creating/updating Password, the field "raw" is mutually exclusive
- with "password_generation_options". In order to switch to the "raw"
- password you have to explicitly clear the "password_generation_options"
- field.
-
-<a id="nestedatt--params--mysql--auth--user_password--password--password_generation_options"></a>
-### Nested Schema for `params.mysql.auth.user_password.password.password_generation_options`
-
-Optional:
-
-- `cookie` (String) Cookie is an arbitrary non-sensitive string that is saved with the
- password. When updating PasswordGenerationOptions, if the cookie passed
- in the update request differs from the cookie in the current
- PasswordGenerationOptions, the password will be re-generated. If the
- same cookie is passed, the password will not change.
-- `lockbox_password_generation_options` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--mysql--auth--user_password--password--raw--lockbox_password_generation_options))
-
-<a id="nestedatt--params--mysql--auth--user_password--password--raw--lockbox_password_generation_options"></a>
-### Nested Schema for `params.mysql.auth.user_password.password.raw.lockbox_password_generation_options`
-
-Optional:
-
-- `excluded_punctuation` (String) a string of punctuation characters to exclude from the default
-- `include_digits` (Boolean) whether at least one 0..9 character is included in the password, true by default
-- `include_lowercase` (Boolean) whether at least one a..z character is included in the password, true by default
-- `include_punctuation` (Boolean) whether at least one punctuation character is included in the password, true by default
- punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
- to customize the punctuation characters, see included_punctuation and excluded_punctuation below
-- `include_uppercase` (Boolean) whether at least one A..Z character is included in the password, true by default
-- `included_punctuation` (String) If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation:
- a string of specific punctuation characters to use
-- `length` (Number) password length; by default, a reasonable length will be decided
-
-
-
-
-
-
-<a id="nestedatt--params--mysql--cluster"></a>
-### Nested Schema for `params.mysql.cluster`
-
-Optional:
-
-- `hosts` (Attributes List) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/mysql.proto (see [below for nested schema](#nestedatt--params--mysql--cluster--hosts))
-- `tls_params` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/mysql.proto (see [below for nested schema](#nestedatt--params--mysql--cluster--tls_params))
-
-<a id="nestedatt--params--mysql--cluster--hosts"></a>
-### Nested Schema for `params.mysql.cluster.hosts`
-
-Optional:
-
-- `health` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/mysql.proto
-- `host` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/mysql.proto
-- `port` (Number) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/mysql.proto
-- `role` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/mysql.proto
-
-
-<a id="nestedatt--params--mysql--cluster--tls_params"></a>
-### Nested Schema for `params.mysql.cluster.tls_params`
-
-Optional:
-
-- `disabled` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--mysql--cluster--tls_params--disabled))
-- `tls` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--mysql--cluster--tls_params--tls))
-
-<a id="nestedatt--params--mysql--cluster--tls_params--disabled"></a>
-### Nested Schema for `params.mysql.cluster.tls_params.disabled`
-
-
-<a id="nestedatt--params--mysql--cluster--tls_params--tls"></a>
-### Nested Schema for `params.mysql.cluster.tls_params.tls`
-
-Optional:
-
-- `ca_certificate` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto
-
-
-
-
-
-<a id="nestedatt--params--opensearch"></a>
-### Nested Schema for `params.opensearch`
-
-Optional:
-
-- `auth` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/opensearch.proto (see [below for nested schema](#nestedatt--params--opensearch--auth))
-- `cluster` (Attributes) When creating/updating Connection, the field "cluster" is mutually
- exclusive with "managed_cluster_id". (see [below for nested schema](#nestedatt--params--opensearch--cluster))
-- `managed_cluster_id` (String) When creating/updating Connection, the field "managed_cluster_id" is
- mutually exclusive with "cluster".
-
-<a id="nestedatt--params--opensearch--auth"></a>
-### Nested Schema for `params.opensearch.auth`
-
-Optional:
-
-- `user_password` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/opensearch.proto (see [below for nested schema](#nestedatt--params--opensearch--auth--user_password))
-
-<a id="nestedatt--params--opensearch--auth--user_password"></a>
-### Nested Schema for `params.opensearch.auth.user_password`
-
-Optional:
-
-- `password` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--opensearch--auth--user_password--password))
-- `user` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto
-
-<a id="nestedatt--params--opensearch--auth--user_password--password"></a>
-### Nested Schema for `params.opensearch.auth.user_password.password`
-
-Optional:
-
-- `lockbox_secret_key` (String) Read-only. Do not fill this field in create/update requests.
-- `password_generation_options` (Attributes) When creating/updating Password, the field "password_generation_options"
- is mutually exclusive with "raw". In order to switch to the
- "password_generation_options" you have to explicitly clear the "raw"
- field. (see [below for nested schema](#nestedatt--params--opensearch--auth--user_password--password--password_generation_options))
-- `raw` (String, Sensitive) When creating/updating Password, the field "raw" is mutually exclusive
- with "password_generation_options". In order to switch to the "raw"
- password you have to explicitly clear the "password_generation_options"
- field.
-
-<a id="nestedatt--params--opensearch--auth--user_password--password--password_generation_options"></a>
-### Nested Schema for `params.opensearch.auth.user_password.password.password_generation_options`
-
-Optional:
-
-- `cookie` (String) Cookie is an arbitrary non-sensitive string that is saved with the
- password. When updating PasswordGenerationOptions, if the cookie passed
- in the update request differs from the cookie in the current
- PasswordGenerationOptions, the password will be re-generated. If the
- same cookie is passed, the password will not change.
-- `lockbox_password_generation_options` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--opensearch--auth--user_password--password--raw--lockbox_password_generation_options))
-
-<a id="nestedatt--params--opensearch--auth--user_password--password--raw--lockbox_password_generation_options"></a>
-### Nested Schema for `params.opensearch.auth.user_password.password.raw.lockbox_password_generation_options`
-
-Optional:
-
-- `excluded_punctuation` (String) a string of punctuation characters to exclude from the default
-- `include_digits` (Boolean) whether at least one 0..9 character is included in the password, true by default
-- `include_lowercase` (Boolean) whether at least one a..z character is included in the password, true by default
-- `include_punctuation` (Boolean) whether at least one punctuation character is included in the password, true by default
- punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
- to customize the punctuation characters, see included_punctuation and excluded_punctuation below
-- `include_uppercase` (Boolean) whether at least one A..Z character is included in the password, true by default
-- `included_punctuation` (String) If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation:
- a string of specific punctuation characters to use
-- `length` (Number) password length; by default, a reasonable length will be decided
-
-
-
-
-
-
-<a id="nestedatt--params--opensearch--cluster"></a>
-### Nested Schema for `params.opensearch.cluster`
-
-Optional:
-
-- `hosts` (Attributes List) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/opensearch.proto (see [below for nested schema](#nestedatt--params--opensearch--cluster--hosts))
-- `tls_params` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/opensearch.proto (see [below for nested schema](#nestedatt--params--opensearch--cluster--tls_params))
-
-<a id="nestedatt--params--opensearch--cluster--hosts"></a>
-### Nested Schema for `params.opensearch.cluster.hosts`
-
-Optional:
-
-- `health` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/opensearch.proto
-- `host` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/opensearch.proto
-- `port` (Number) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/opensearch.proto
-- `roles` (List of String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/opensearch.proto
-
-
-<a id="nestedatt--params--opensearch--cluster--tls_params"></a>
-### Nested Schema for `params.opensearch.cluster.tls_params`
-
-Optional:
-
-- `disabled` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--opensearch--cluster--tls_params--disabled))
-- `tls` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--opensearch--cluster--tls_params--tls))
-
-<a id="nestedatt--params--opensearch--cluster--tls_params--disabled"></a>
-### Nested Schema for `params.opensearch.cluster.tls_params.disabled`
-
-
-<a id="nestedatt--params--opensearch--cluster--tls_params--tls"></a>
-### Nested Schema for `params.opensearch.cluster.tls_params.tls`
-
-Optional:
-
-- `ca_certificate` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto
-
-
-
-
-
-<a id="nestedatt--params--postgresql"></a>
-### Nested Schema for `params.postgresql`
-
-Optional:
-
-- `auth` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/postgresql.proto (see [below for nested schema](#nestedatt--params--postgresql--auth))
-- `cluster` (Attributes) When creating/updating Connection, the field "cluster" is mutually
- exclusive with "managed_cluster_id". (see [below for nested schema](#nestedatt--params--postgresql--cluster))
-- `databases` (List of String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/postgresql.proto
-- `managed_cluster_id` (String) When creating/updating Connection, the field "managed_cluster_id" is
- mutually exclusive with "cluster".
-
-<a id="nestedatt--params--postgresql--auth"></a>
-### Nested Schema for `params.postgresql.auth`
-
-Optional:
-
-- `user_password` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/postgresql.proto (see [below for nested schema](#nestedatt--params--postgresql--auth--user_password))
-
-<a id="nestedatt--params--postgresql--auth--user_password"></a>
-### Nested Schema for `params.postgresql.auth.user_password`
-
-Optional:
-
-- `password` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--postgresql--auth--user_password--password))
-- `user` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto
-
-<a id="nestedatt--params--postgresql--auth--user_password--password"></a>
-### Nested Schema for `params.postgresql.auth.user_password.password`
-
-Optional:
-
-- `lockbox_secret_key` (String) Read-only. Do not fill this field in create/update requests.
-- `password_generation_options` (Attributes) When creating/updating Password, the field "password_generation_options"
- is mutually exclusive with "raw". In order to switch to the
- "password_generation_options" you have to explicitly clear the "raw"
- field. (see [below for nested schema](#nestedatt--params--postgresql--auth--user_password--password--password_generation_options))
-- `raw` (String, Sensitive) When creating/updating Password, the field "raw" is mutually exclusive
- with "password_generation_options". In order to switch to the "raw"
- password you have to explicitly clear the "password_generation_options"
- field.
-
-<a id="nestedatt--params--postgresql--auth--user_password--password--password_generation_options"></a>
-### Nested Schema for `params.postgresql.auth.user_password.password.password_generation_options`
-
-Optional:
-
-- `cookie` (String) Cookie is an arbitrary non-sensitive string that is saved with the
- password. When updating PasswordGenerationOptions, if the cookie passed
- in the update request differs from the cookie in the current
- PasswordGenerationOptions, the password will be re-generated. If the
- same cookie is passed, the password will not change.
-- `lockbox_password_generation_options` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--postgresql--auth--user_password--password--raw--lockbox_password_generation_options))
-
-<a id="nestedatt--params--postgresql--auth--user_password--password--raw--lockbox_password_generation_options"></a>
-### Nested Schema for `params.postgresql.auth.user_password.password.raw.lockbox_password_generation_options`
-
-Optional:
-
-- `excluded_punctuation` (String) a string of punctuation characters to exclude from the default
-- `include_digits` (Boolean) whether at least one 0..9 character is included in the password, true by default
-- `include_lowercase` (Boolean) whether at least one a..z character is included in the password, true by default
-- `include_punctuation` (Boolean) whether at least one punctuation character is included in the password, true by default
- punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
- to customize the punctuation characters, see included_punctuation and excluded_punctuation below
-- `include_uppercase` (Boolean) whether at least one A..Z character is included in the password, true by default
-- `included_punctuation` (String) If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation:
- a string of specific punctuation characters to use
-- `length` (Number) password length; by default, a reasonable length will be decided
-
-
-
-
-
-
-<a id="nestedatt--params--postgresql--cluster"></a>
-### Nested Schema for `params.postgresql.cluster`
-
-Optional:
-
-- `hosts` (Attributes List) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/postgresql.proto (see [below for nested schema](#nestedatt--params--postgresql--cluster--hosts))
-- `tls_params` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/postgresql.proto (see [below for nested schema](#nestedatt--params--postgresql--cluster--tls_params))
-
-<a id="nestedatt--params--postgresql--cluster--hosts"></a>
-### Nested Schema for `params.postgresql.cluster.hosts`
-
-Optional:
-
-- `health` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/postgresql.proto
-- `host` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/postgresql.proto
-- `port` (Number) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/postgresql.proto
-- `replica_type` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/postgresql.proto
-- `role` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/postgresql.proto
-
-
-<a id="nestedatt--params--postgresql--cluster--tls_params"></a>
-### Nested Schema for `params.postgresql.cluster.tls_params`
-
-Optional:
-
-- `disabled` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--postgresql--cluster--tls_params--disabled))
-- `tls` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--postgresql--cluster--tls_params--tls))
-
-<a id="nestedatt--params--postgresql--cluster--tls_params--disabled"></a>
-### Nested Schema for `params.postgresql.cluster.tls_params.disabled`
-
-
-<a id="nestedatt--params--postgresql--cluster--tls_params--tls"></a>
-### Nested Schema for `params.postgresql.cluster.tls_params.tls`
-
-Optional:
-
-- `ca_certificate` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto
-
-
-
-
-
-<a id="nestedatt--params--redis"></a>
-### Nested Schema for `params.redis`
-
-Optional:
-
-- `auth` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/redis.proto (see [below for nested schema](#nestedatt--params--redis--auth))
-- `cluster` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/redis.proto (see [below for nested schema](#nestedatt--params--redis--cluster))
-- `databases` (List of Number) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/redis.proto
-
-<a id="nestedatt--params--redis--auth"></a>
-### Nested Schema for `params.redis.auth`
-
-Optional:
-
-- `user_password` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/redis.proto (see [below for nested schema](#nestedatt--params--redis--auth--user_password))
-
-<a id="nestedatt--params--redis--auth--user_password"></a>
-### Nested Schema for `params.redis.auth.user_password`
-
-Optional:
-
-- `password` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/redis.proto (see [below for nested schema](#nestedatt--params--redis--auth--user_password--password))
-- `user` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/redis.proto
-
-<a id="nestedatt--params--redis--auth--user_password--password"></a>
-### Nested Schema for `params.redis.auth.user_password.password`
-
-Optional:
-
-- `lockbox_secret_key` (String) Read-only. Do not fill this field in create/update requests.
-- `password_generation_options` (Attributes) When creating/updating Password, the field "password_generation_options"
- is mutually exclusive with "raw". In order to switch to the
- "password_generation_options" you have to explicitly clear the "raw"
- field. (see [below for nested schema](#nestedatt--params--redis--auth--user_password--password--password_generation_options))
-- `raw` (String, Sensitive) When creating/updating Password, the field "raw" is mutually exclusive
- with "password_generation_options". In order to switch to the "raw"
- password you have to explicitly clear the "password_generation_options"
- field.
-
-<a id="nestedatt--params--redis--auth--user_password--password--password_generation_options"></a>
-### Nested Schema for `params.redis.auth.user_password.password.password_generation_options`
-
-Optional:
-
-- `cookie` (String) Cookie is an arbitrary non-sensitive string that is saved with the
- password. When updating PasswordGenerationOptions, if the cookie passed
- in the update request differs from the cookie in the current
- PasswordGenerationOptions, the password will be re-generated. If the
- same cookie is passed, the password will not change.
-- `lockbox_password_generation_options` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--redis--auth--user_password--password--raw--lockbox_password_generation_options))
-
-<a id="nestedatt--params--redis--auth--user_password--password--raw--lockbox_password_generation_options"></a>
-### Nested Schema for `params.redis.auth.user_password.password.raw.lockbox_password_generation_options`
-
-Optional:
-
-- `excluded_punctuation` (String) a string of punctuation characters to exclude from the default
-- `include_digits` (Boolean) whether at least one 0..9 character is included in the password, true by default
-- `include_lowercase` (Boolean) whether at least one a..z character is included in the password, true by default
-- `include_punctuation` (Boolean) whether at least one punctuation character is included in the password, true by default
- punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
- to customize the punctuation characters, see included_punctuation and excluded_punctuation below
-- `include_uppercase` (Boolean) whether at least one A..Z character is included in the password, true by default
-- `included_punctuation` (String) If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation:
- a string of specific punctuation characters to use
-- `length` (Number) password length; by default, a reasonable length will be decided
-
-
-
-
-
-
-<a id="nestedatt--params--redis--cluster"></a>
-### Nested Schema for `params.redis.cluster`
-
-Optional:
-
-- `hosts` (Attributes List) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/redis.proto (see [below for nested schema](#nestedatt--params--redis--cluster--hosts))
-- `sentinel_port` (Number) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/redis.proto
-- `tls_params` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/redis.proto (see [below for nested schema](#nestedatt--params--redis--cluster--tls_params))
-
-<a id="nestedatt--params--redis--cluster--hosts"></a>
-### Nested Schema for `params.redis.cluster.hosts`
-
-Optional:
-
-- `health` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/redis.proto
-- `host` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/redis.proto
-- `port` (Number) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/redis.proto
-- `role` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/redis.proto
-- `shard_name` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/redis.proto
-
-
-<a id="nestedatt--params--redis--cluster--tls_params"></a>
-### Nested Schema for `params.redis.cluster.tls_params`
-
-Optional:
-
-- `disabled` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--redis--cluster--tls_params--disabled))
-- `tls` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--redis--cluster--tls_params--tls))
-
-<a id="nestedatt--params--redis--cluster--tls_params--disabled"></a>
-### Nested Schema for `params.redis.cluster.tls_params.disabled`
-
-
-<a id="nestedatt--params--redis--cluster--tls_params--tls"></a>
-### Nested Schema for `params.redis.cluster.tls_params.tls`
-
-Optional:
-
-- `ca_certificate` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto
-
-
-
-
-
-<a id="nestedatt--params--storedoc"></a>
-### Nested Schema for `params.storedoc`
-
-Optional:
-
-- `auth` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/storedoc.proto (see [below for nested schema](#nestedatt--params--storedoc--auth))
-- `cluster` (Attributes) When creating/updating Connection, the field "cluster" is mutually
- exclusive with "managed_cluster_id". (see [below for nested schema](#nestedatt--params--storedoc--cluster))
-- `databases` (List of String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/storedoc.proto
-- `managed_cluster_id` (String) When creating/updating Connection, the field "managed_cluster_id" is mutually
- exclusive with "cluster".
-
-<a id="nestedatt--params--storedoc--auth"></a>
-### Nested Schema for `params.storedoc.auth`
-
-Optional:
-
-- `auth_source` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/storedoc.proto
-- `user_password` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/storedoc.proto (see [below for nested schema](#nestedatt--params--storedoc--auth--user_password))
-
-<a id="nestedatt--params--storedoc--auth--user_password"></a>
-### Nested Schema for `params.storedoc.auth.user_password`
-
-Optional:
-
-- `password` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--storedoc--auth--user_password--password))
-- `user` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto
-
-<a id="nestedatt--params--storedoc--auth--user_password--password"></a>
-### Nested Schema for `params.storedoc.auth.user_password.password`
-
-Optional:
-
-- `lockbox_secret_key` (String) Read-only. Do not fill this field in create/update requests.
-- `password_generation_options` (Attributes) When creating/updating Password, the field "password_generation_options"
- is mutually exclusive with "raw". In order to switch to the
- "password_generation_options" you have to explicitly clear the "raw"
- field. (see [below for nested schema](#nestedatt--params--storedoc--auth--user_password--password--password_generation_options))
-- `raw` (String, Sensitive) When creating/updating Password, the field "raw" is mutually exclusive
- with "password_generation_options". In order to switch to the "raw"
- password you have to explicitly clear the "password_generation_options"
- field.
-
-<a id="nestedatt--params--storedoc--auth--user_password--password--password_generation_options"></a>
-### Nested Schema for `params.storedoc.auth.user_password.password.password_generation_options`
-
-Optional:
-
-- `cookie` (String) Cookie is an arbitrary non-sensitive string that is saved with the
- password. When updating PasswordGenerationOptions, if the cookie passed
- in the update request differs from the cookie in the current
- PasswordGenerationOptions, the password will be re-generated. If the
- same cookie is passed, the password will not change.
-- `lockbox_password_generation_options` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--storedoc--auth--user_password--password--raw--lockbox_password_generation_options))
-
-<a id="nestedatt--params--storedoc--auth--user_password--password--raw--lockbox_password_generation_options"></a>
-### Nested Schema for `params.storedoc.auth.user_password.password.raw.lockbox_password_generation_options`
-
-Optional:
-
-- `excluded_punctuation` (String) a string of punctuation characters to exclude from the default
-- `include_digits` (Boolean) whether at least one 0..9 character is included in the password, true by default
-- `include_lowercase` (Boolean) whether at least one a..z character is included in the password, true by default
-- `include_punctuation` (Boolean) whether at least one punctuation character is included in the password, true by default
- punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
- to customize the punctuation characters, see included_punctuation and excluded_punctuation below
-- `include_uppercase` (Boolean) whether at least one A..Z character is included in the password, true by default
-- `included_punctuation` (String) If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation:
- a string of specific punctuation characters to use
-- `length` (Number) password length; by default, a reasonable length will be decided
-
-
-
-
-
-
-<a id="nestedatt--params--storedoc--cluster"></a>
-### Nested Schema for `params.storedoc.cluster`
-
-Optional:
-
-- `hosts` (Attributes List) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/storedoc.proto (see [below for nested schema](#nestedatt--params--storedoc--cluster--hosts))
-- `tls_params` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/storedoc.proto (see [below for nested schema](#nestedatt--params--storedoc--cluster--tls_params))
-
-<a id="nestedatt--params--storedoc--cluster--hosts"></a>
-### Nested Schema for `params.storedoc.cluster.hosts`
-
-Optional:
-
-- `health` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/storedoc.proto
-- `host` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/storedoc.proto
-- `port` (Number) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/storedoc.proto
-- `role` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/storedoc.proto
-- `type` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/storedoc.proto
-
-
-<a id="nestedatt--params--storedoc--cluster--tls_params"></a>
-### Nested Schema for `params.storedoc.cluster.tls_params`
-
-Optional:
-
-- `disabled` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--storedoc--cluster--tls_params--disabled))
-- `tls` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--storedoc--cluster--tls_params--tls))
-
-<a id="nestedatt--params--storedoc--cluster--tls_params--disabled"></a>
-### Nested Schema for `params.storedoc.cluster.tls_params.disabled`
-
-
-<a id="nestedatt--params--storedoc--cluster--tls_params--tls"></a>
-### Nested Schema for `params.storedoc.cluster.tls_params.tls`
-
-Optional:
-
-- `ca_certificate` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto
-
-
-
-
-
-<a id="nestedatt--params--trino"></a>
-### Nested Schema for `params.trino`
-
-Optional:
-
-- `auth` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/trino.proto (see [below for nested schema](#nestedatt--params--trino--auth))
-- `cluster` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/trino.proto (see [below for nested schema](#nestedatt--params--trino--cluster))
-
-<a id="nestedatt--params--trino--auth"></a>
-### Nested Schema for `params.trino.auth`
-
-Optional:
-
-- `user_password` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/trino.proto (see [below for nested schema](#nestedatt--params--trino--auth--user_password))
-
-<a id="nestedatt--params--trino--auth--user_password"></a>
-### Nested Schema for `params.trino.auth.user_password`
-
-Optional:
-
-- `password` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--trino--auth--user_password--password))
-- `user` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto
-
-<a id="nestedatt--params--trino--auth--user_password--password"></a>
-### Nested Schema for `params.trino.auth.user_password.password`
-
-Optional:
-
-- `lockbox_secret_key` (String) Read-only. Do not fill this field in create/update requests.
-- `password_generation_options` (Attributes) When creating/updating Password, the field "password_generation_options"
- is mutually exclusive with "raw". In order to switch to the
- "password_generation_options" you have to explicitly clear the "raw"
- field. (see [below for nested schema](#nestedatt--params--trino--auth--user_password--password--password_generation_options))
-- `raw` (String, Sensitive) When creating/updating Password, the field "raw" is mutually exclusive
- with "password_generation_options". In order to switch to the "raw"
- password you have to explicitly clear the "password_generation_options"
- field.
-
-<a id="nestedatt--params--trino--auth--user_password--password--password_generation_options"></a>
-### Nested Schema for `params.trino.auth.user_password.password.password_generation_options`
-
-Optional:
-
-- `cookie` (String) Cookie is an arbitrary non-sensitive string that is saved with the
- password. When updating PasswordGenerationOptions, if the cookie passed
- in the update request differs from the cookie in the current
- PasswordGenerationOptions, the password will be re-generated. If the
- same cookie is passed, the password will not change.
-- `lockbox_password_generation_options` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--trino--auth--user_password--password--raw--lockbox_password_generation_options))
-
-<a id="nestedatt--params--trino--auth--user_password--password--raw--lockbox_password_generation_options"></a>
-### Nested Schema for `params.trino.auth.user_password.password.raw.lockbox_password_generation_options`
-
-Optional:
-
-- `excluded_punctuation` (String) a string of punctuation characters to exclude from the default
-- `include_digits` (Boolean) whether at least one 0..9 character is included in the password, true by default
-- `include_lowercase` (Boolean) whether at least one a..z character is included in the password, true by default
-- `include_punctuation` (Boolean) whether at least one punctuation character is included in the password, true by default
- punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
- to customize the punctuation characters, see included_punctuation and excluded_punctuation below
-- `include_uppercase` (Boolean) whether at least one A..Z character is included in the password, true by default
-- `included_punctuation` (String) If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation:
- a string of specific punctuation characters to use
-- `length` (Number) password length; by default, a reasonable length will be decided
-
-
-
-
-
-
-<a id="nestedatt--params--trino--cluster"></a>
-### Nested Schema for `params.trino.cluster`
-
-Optional:
-
-- `coordinator` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/trino.proto (see [below for nested schema](#nestedatt--params--trino--cluster--coordinator))
-- `tls_params` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/trino.proto (see [below for nested schema](#nestedatt--params--trino--cluster--tls_params))
-
-<a id="nestedatt--params--trino--cluster--coordinator"></a>
-### Nested Schema for `params.trino.cluster.coordinator`
-
-Optional:
-
-- `host` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/trino.proto
-- `port` (Number) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/trino.proto
-
-
-<a id="nestedatt--params--trino--cluster--tls_params"></a>
-### Nested Schema for `params.trino.cluster.tls_params`
-
-Optional:
-
-- `disabled` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--trino--cluster--tls_params--disabled))
-- `tls` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--trino--cluster--tls_params--tls))
-
-<a id="nestedatt--params--trino--cluster--tls_params--disabled"></a>
-### Nested Schema for `params.trino.cluster.tls_params.disabled`
-
-
-<a id="nestedatt--params--trino--cluster--tls_params--tls"></a>
-### Nested Schema for `params.trino.cluster.tls_params.tls`
-
-Optional:
-
-- `ca_certificate` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto
-
-
-
-
-
-<a id="nestedatt--params--valkey"></a>
-### Nested Schema for `params.valkey`
-
-Optional:
-
-- `auth` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/valkey.proto (see [below for nested schema](#nestedatt--params--valkey--auth))
-- `cluster` (Attributes) When creating/updating Connection, the field "cluster" is mutually
- exclusive with "managed_cluster_id". (see [below for nested schema](#nestedatt--params--valkey--cluster))
-- `databases` (List of Number) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/valkey.proto
-- `managed_cluster_id` (String) When creating/updating Connection, the field "managed_cluster_id" is
- mutually exclusive with "cluster".
-
-<a id="nestedatt--params--valkey--auth"></a>
-### Nested Schema for `params.valkey.auth`
-
-Optional:
-
-- `user_password` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/valkey.proto (see [below for nested schema](#nestedatt--params--valkey--auth--user_password))
-
-<a id="nestedatt--params--valkey--auth--user_password"></a>
-### Nested Schema for `params.valkey.auth.user_password`
-
-Optional:
-
-- `password` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/valkey.proto (see [below for nested schema](#nestedatt--params--valkey--auth--user_password--password))
-- `user` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/valkey.proto
-
-<a id="nestedatt--params--valkey--auth--user_password--password"></a>
-### Nested Schema for `params.valkey.auth.user_password.password`
-
-Optional:
-
-- `lockbox_secret_key` (String) Read-only. Do not fill this field in create/update requests.
-- `password_generation_options` (Attributes) When creating/updating Password, the field "password_generation_options"
- is mutually exclusive with "raw". In order to switch to the
- "password_generation_options" you have to explicitly clear the "raw"
- field. (see [below for nested schema](#nestedatt--params--valkey--auth--user_password--password--password_generation_options))
-- `raw` (String, Sensitive) When creating/updating Password, the field "raw" is mutually exclusive
- with "password_generation_options". In order to switch to the "raw"
- password you have to explicitly clear the "password_generation_options"
- field.
-
-<a id="nestedatt--params--valkey--auth--user_password--password--password_generation_options"></a>
-### Nested Schema for `params.valkey.auth.user_password.password.password_generation_options`
-
-Optional:
-
-- `cookie` (String) Cookie is an arbitrary non-sensitive string that is saved with the
- password. When updating PasswordGenerationOptions, if the cookie passed
- in the update request differs from the cookie in the current
- PasswordGenerationOptions, the password will be re-generated. If the
- same cookie is passed, the password will not change.
-- `lockbox_password_generation_options` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--valkey--auth--user_password--password--raw--lockbox_password_generation_options))
-
-<a id="nestedatt--params--valkey--auth--user_password--password--raw--lockbox_password_generation_options"></a>
-### Nested Schema for `params.valkey.auth.user_password.password.raw.lockbox_password_generation_options`
-
-Optional:
-
-- `excluded_punctuation` (String) a string of punctuation characters to exclude from the default
-- `include_digits` (Boolean) whether at least one 0..9 character is included in the password, true by default
-- `include_lowercase` (Boolean) whether at least one a..z character is included in the password, true by default
-- `include_punctuation` (Boolean) whether at least one punctuation character is included in the password, true by default
- punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
- to customize the punctuation characters, see included_punctuation and excluded_punctuation below
-- `include_uppercase` (Boolean) whether at least one A..Z character is included in the password, true by default
-- `included_punctuation` (String) If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation:
- a string of specific punctuation characters to use
-- `length` (Number) password length; by default, a reasonable length will be decided
-
-
-
-
-
-
-<a id="nestedatt--params--valkey--cluster"></a>
-### Nested Schema for `params.valkey.cluster`
-
-Optional:
-
-- `hosts` (Attributes List) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/valkey.proto (see [below for nested schema](#nestedatt--params--valkey--cluster--hosts))
-- `sentinel_port` (Number) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/valkey.proto
-- `tls_params` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/valkey.proto (see [below for nested schema](#nestedatt--params--valkey--cluster--tls_params))
-
-<a id="nestedatt--params--valkey--cluster--hosts"></a>
-### Nested Schema for `params.valkey.cluster.hosts`
-
-Optional:
-
-- `health` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/valkey.proto
-- `host` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/valkey.proto
-- `port` (Number) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/valkey.proto
-- `role` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/valkey.proto
-- `shard_name` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/valkey.proto
-
-
-<a id="nestedatt--params--valkey--cluster--tls_params"></a>
-### Nested Schema for `params.valkey.cluster.tls_params`
-
-Optional:
-
-- `disabled` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--valkey--cluster--tls_params--disabled))
-- `tls` (Attributes) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--valkey--cluster--tls_params--tls))
-
-<a id="nestedatt--params--valkey--cluster--tls_params--disabled"></a>
-### Nested Schema for `params.valkey.cluster.tls_params.disabled`
-
-
-<a id="nestedatt--params--valkey--cluster--tls_params--tls"></a>
-### Nested Schema for `params.valkey.cluster.tls_params.tls`
-
-Optional:
-
-- `ca_certificate` (String) package: yandex.cloud.connectionmanager.v1
-filename: yandex/cloud/connectionmanager/v1/common.proto
-
-
-
-
-
-
-<a id="nestedatt--timeouts"></a>
-### Nested Schema for `timeouts`
-
-Optional:
-
-- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-- `delete` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-- `read` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
-- `update` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-
-
-<a id="nestedatt--lockbox_secret"></a>
-### Nested Schema for `lockbox_secret`
-
-Optional:
-
-- `id` (String) ID of the Lockbox secret.
-
-Read-Only:
-
-- `connection_id` (String) ID of the Lockbox secret.
-- `newest_version` (String) The newest available version of the Lockbox secret.
-- `version` (String) Lockbox secret version.

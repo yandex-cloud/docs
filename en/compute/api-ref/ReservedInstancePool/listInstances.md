@@ -131,7 +131,15 @@ The maximum string length in characters is 100. ||
       "localDisks": [
         {
           "size": "string",
-          "deviceName": "string"
+          "deviceName": "string",
+          // Includes only one of the fields `physicalLocalDisk`
+          "physicalLocalDisk": {
+            "kmsKey": {
+              "keyId": "string",
+              "versionId": "string"
+            }
+          }
+          // end of the list of possible fields
         }
       ],
       "filesystems": [
@@ -488,6 +496,32 @@ Serial number that is reflected into the /dev/disk/by-id/ tree
 of a Linux operating system running within the instance.
 
 This value can be used to reference the device for mounting, resizing, and so on, from within the instance. ||
+|| physicalLocalDisk | **[PhysicalLocalDisk](#yandex.cloud.compute.v1.PhysicalLocalDisk)**
+
+Local disk configuration
+
+Includes only one of the fields `physicalLocalDisk`. ||
+|#
+
+## PhysicalLocalDisk {#yandex.cloud.compute.v1.PhysicalLocalDisk}
+
+#|
+||Field | Description ||
+|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+
+Key encryption key info. ||
+|#
+
+## KMSKey {#yandex.cloud.compute.v1.KMSKey}
+
+#|
+||Field | Description ||
+|| keyId | **string**
+
+ID of KMS symmetric key ||
+|| versionId | **string**
+
+Version of KMS symmetric key ||
 |#
 
 ## AttachedFilesystem {#yandex.cloud.compute.v1.AttachedFilesystem}

@@ -7,7 +7,7 @@ To learn more about a security control rule, click the table row with its name. 
   The **{{ ui-key.yacloud_org.security.controls.RulePageLayout.tab_overview_s9riS }}** tab contains:
 
   * Rule ID.
-  * [Set of security requirements](../../security-deck/concepts/standard-compliance.md#security-rule-sets) the rule applies to.
+  * [Set of security requirements](../../security-deck/concepts/standard-compliance/index.md#security-rule-sets) the rule applies to.
   * Date and time of the most recent security check.
   * Check method:
 

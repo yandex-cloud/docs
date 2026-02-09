@@ -181,6 +181,7 @@ Type of a network acceleration for nodes. Values: 'standard', 'software-accelera
 || `--container-runtime` | `string`
 
 Type of a container runtime settings for nodes. Values: 'docker', 'containerd' ||
+|| `--enable-workload-identity-federation` | Enable Workload Identity Federation for Node Group. ||
 |#
 
 #### Global Flags

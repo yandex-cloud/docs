@@ -5,6 +5,15 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/release-notes.md
 
 
 
+## 0.185.0 (February 9, 2026)
+##### FEATURES:
+* general: update docs format
+* general: add id field for iam_member and iam_binding resources
+##### BUG FIXES:
+* general: add timeouts update for resources with unimplemented update
+##### WARNING:
+* mdb: remove sqlserver resources and docs
+
 ## 0.184.0 (February 5, 2026)
 ##### ENHANCEMENTS:
 * mdb_clickhouse: add support for batch shard operations in cluster management

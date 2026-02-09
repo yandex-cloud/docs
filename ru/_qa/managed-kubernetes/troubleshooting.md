@@ -445,3 +445,16 @@ FATA[0000] rpc error: code = Unknown desc = error testing repository connectivit
 #### Что делать, если я удалил сетевой балансировщик нагрузки или целевые группы {{ network-load-balancer-full-name }}, автоматически созданные для сервиса типа LoadBalancer? {#deleted-loadbalancer-service}
 
 Восстановить сетевой балансировщик или целевые группы {{ network-load-balancer-name }} вручную нельзя. [Пересоздайте](../../managed-kubernetes/operations/create-load-balancer.md#lb-create) сервис типа `LoadBalancer` — балансировщик и целевые группы будут созданы автоматически.
+
+#### Ошибка при подключении виртуальной машины {{ compute-full-name }} в качестве внешнего узла {{ managed-k8s-name }} {#vm-as-external-node}
+
+Текст ошибки:
+
+```text
+Unable to create remote dir /home/kubernetes/bin/: ssh run `mkdir -p -m 0644 /home/kubernetes/bin/': Process exited with status 142
+Please login as the user "NONE" rather than the user "root".
+```
+
+Чтобы устранить проблему, [пересоздайте](../../compute/operations/index.md#vm-create) виртуальную машину, указав в метаданных для ключа `user-data` параметр `disable_root: false`.
+
+{% include [external-node-metadata-example](../../_includes/managed-kubernetes/external-node-metadata-example.md) %}

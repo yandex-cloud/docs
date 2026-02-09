@@ -166,6 +166,9 @@ description: Пошаговые инструкции по работе с {{ con
 
         * `auth.user_password.password.raw` — пароль пользователя.
 
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}    
+
   1. Проверьте корректность настроек.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -181,6 +184,8 @@ description: Пошаговые инструкции по работе с {{ con
 
   Чтобы создать подключение к кластеру {{ mpg-name }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) для ресурса [Connection](../connection-manager/api-ref/grpc/Connection/).
 
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
+ 
   Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLConnection).
 
 {% endlist %}
@@ -321,6 +326,9 @@ description: Пошаговые инструкции по работе с {{ con
 
         * `auth.user_password.password.raw` — пароль пользователя.
 
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
   1. Проверьте корректность настроек.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -335,6 +343,8 @@ description: Пошаговые инструкции по работе с {{ con
 - API {#api}
 
   Чтобы создать подключение к кластеру {{ mch-name }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %}  
 
   Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseConnection).
 
@@ -476,6 +486,9 @@ description: Пошаговые инструкции по работе с {{ con
 
         * `auth.user_password.password.raw` — пароль пользователя.
 
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
   1. Проверьте корректность настроек.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -490,6 +503,8 @@ description: Пошаговые инструкции по работе с {{ con
 - API {#api}
 
   Чтобы создать подключение к кластеру {{ mmy-name }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLConnection).
 
@@ -629,6 +644,9 @@ description: Пошаговые инструкции по работе с {{ con
 
         * `auth.user_password.password.raw` — пароль пользователя.
 
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
   1. Проверьте корректность настроек.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -643,6 +661,8 @@ description: Пошаговые инструкции по работе с {{ con
 - API {#api}
 
   Чтобы создать подключение к кластеру {{ mrd-name }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyConnection).
 
@@ -772,6 +792,9 @@ description: Пошаговые инструкции по работе с {{ con
 
         * `auth.user_password.password.raw` — пароль пользователя.
 
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
   1. Проверьте корректность настроек.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -786,6 +809,8 @@ description: Пошаговые инструкции по работе с {{ con
 - API {#api}
 
   Чтобы создать подключение к кластеру {{ mos-name }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchConnection).
 
@@ -927,6 +952,9 @@ description: Пошаговые инструкции по работе с {{ con
 
         * `auth.user_password.password.raw` — пароль пользователя.
 
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
   1. Проверьте корректность настроек.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -941,6 +969,8 @@ description: Пошаговые инструкции по работе с {{ con
 - API {#api}
 
   Чтобы создать подключение к кластеру {{ mmg-name }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBConnection).
 
@@ -1104,6 +1134,9 @@ description: Пошаговые инструкции по работе с {{ con
           
           * `disabled` — отключает аутентификацию.
 
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
   1. Проверьте корректность настроек.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -1118,6 +1151,8 @@ description: Пошаговые инструкции по работе с {{ con
 - API {#api}
 
   Чтобы создать подключение к кластеру {{ mkf-name }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) для ресурса [Connection](../connection-manager/api-ref/grpc/Connection/).
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %}  
 
   Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaConnection).
 
@@ -1262,6 +1297,9 @@ description: Пошаговые инструкции по работе с {{ con
 
         * `auth.user_password.password.raw` — пароль пользователя.
 
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
   1. Проверьте корректность настроек.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -1276,6 +1314,8 @@ description: Пошаговые инструкции по работе с {{ con
 - API {#api}
 
   Чтобы создать подключение к кластеру {{ mgp-name }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) для ресурса [Connection](../connection-manager/api-ref/grpc/Connection/).
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumConnection).
 
@@ -1439,6 +1479,9 @@ description: Пошаговые инструкции по работе с {{ con
 
         * `auth.user_password.password.raw` — пароль пользователя.
 
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
   1. Проверьте корректность настроек.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -1453,6 +1496,8 @@ description: Пошаговые инструкции по работе с {{ con
 - API {#api}
 
   Чтобы создать подключение к пользовательской инсталляции {{ PG }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %}  
 
   Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLCluster).
 
@@ -1637,6 +1682,9 @@ description: Пошаговые инструкции по работе с {{ con
 
         * `auth.user_password.password.raw` — пароль пользователя.
 
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
   1. Проверьте корректность настроек.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -1651,6 +1699,8 @@ description: Пошаговые инструкции по работе с {{ con
 - API {#api}
 
   Чтобы создать подключение к пользовательской инсталляции {{ CH }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseCluster).
 
@@ -1812,6 +1862,9 @@ description: Пошаговые инструкции по работе с {{ con
 
         * `auth.user_password.password.raw` — пароль пользователя.
 
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
   1. Проверьте корректность настроек.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -1826,6 +1879,8 @@ description: Пошаговые инструкции по работе с {{ con
 - API {#api}
 
   Чтобы создать подключение к пользовательской инсталляции {{ MY }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLCluster).
 
@@ -2001,6 +2056,9 @@ description: Пошаговые инструкции по работе с {{ con
 
         * `auth.user_password.password.raw` — пароль пользователя.
 
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
   1. Проверьте корректность настроек.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -2015,6 +2073,8 @@ description: Пошаговые инструкции по работе с {{ con
 - API {#api}
 
   Чтобы создать подключение к пользовательской инсталляции {{ RD }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.RedisCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.RedisCluster).
 
@@ -2172,6 +2232,9 @@ description: Пошаговые инструкции по работе с {{ con
 
         * `auth.user_password.password.raw` — пароль пользователя.
 
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
   1. Проверьте корректность настроек.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -2186,6 +2249,8 @@ description: Пошаговые инструкции по работе с {{ con
 - API {#api}
 
   Чтобы создать подключение к пользовательской инсталляции {{ VLK }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyCluster).
 
@@ -2334,6 +2399,9 @@ description: Пошаговые инструкции по работе с {{ con
 
         * `auth.user_password.password.raw` — пароль пользователя.
 
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
   1. Проверьте корректность настроек.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -2348,6 +2416,8 @@ description: Пошаговые инструкции по работе с {{ con
 - API {#api}
 
   Чтобы создать подключение к пользовательской инсталляции {{ TR }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %}  
 
   Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.TrinoCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.TrinoCluster).
 
@@ -2509,6 +2579,9 @@ description: Пошаговые инструкции по работе с {{ con
 
         * `auth.user_password.password.raw` — пароль пользователя.
 
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
   1. Проверьте корректность настроек.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -2523,6 +2596,8 @@ description: Пошаговые инструкции по работе с {{ con
 - API {#api}
 
   Чтобы создать подключение к пользовательской инсталляции {{ OS }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchCluster).
 
@@ -2680,6 +2755,9 @@ description: Пошаговые инструкции по работе с {{ con
 
         * `auth.user_password.password.raw` — пароль пользователя.
 
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
   1. Проверьте корректность настроек.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -2694,6 +2772,8 @@ description: Пошаговые инструкции по работе с {{ con
 - API {#api}
 
   Чтобы создать подключение к пользовательской инсталляции {{ MG }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBCluste).
 
@@ -2892,6 +2972,9 @@ description: Пошаговые инструкции по работе с {{ con
           
           * `disabled` — отключает аутентификацию.
 
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
   1. Проверьте корректность настроек.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -2906,6 +2989,8 @@ description: Пошаговые инструкции по работе с {{ con
 - API {#api}
 
   Чтобы создать подключение к пользовательской инсталляции {{ KF }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaCluster).
 
@@ -3068,6 +3153,9 @@ description: Пошаговые инструкции по работе с {{ con
 
         * `auth.user_password.password.raw` — пароль пользователя.
 
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
   1. Проверьте корректность настроек.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -3082,6 +3170,8 @@ description: Пошаговые инструкции по работе с {{ con
 - API {#api}
 
   Чтобы создать подключение к пользовательской инсталляции {{ MG }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumCluster).
 

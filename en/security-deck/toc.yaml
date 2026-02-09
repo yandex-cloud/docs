@@ -73,7 +73,11 @@ items:
       - name: '{{ alerts-name }} in {{ sd-name }}'
         href: concepts/alerts.md
       - name: Compliance UI
-        href: concepts/standard-compliance.md
+        items:
+          - name: Overview
+            href: concepts/standard-compliance/index.md
+          - name: '{{ yandex-cloud }} Security Baseline'
+            href: concepts/standard-compliance/yc-security-baseline.md
       - name: '{{ ycdr-full-name }} ({{ ycdr-name }})'
         href: concepts/ycdr.md
       - name: Data Security Posture Management ({{ dspm-name }})
