@@ -120,7 +120,7 @@
        kind:       Deployment
        name:       nginx
      updatePolicy:
-       updateMode:  "Auto"
+       updateMode:  "Recreate"
        minReplicas: 1
    ```
 
