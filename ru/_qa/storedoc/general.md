@@ -165,3 +165,17 @@ _Кластер БД_ — это один или более хостов БД, �
 
 * `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` — `96636764160` байтов (90%).
 * `{{ ui-key.yacloud_monitoring.alert.status_warn }}` — `75161927680` байтов (70%).
+
+#### Какую часть работы по управлению и сопровождению баз данных берет на себя {{ mmg-short-name }}? {#services}
+
+{% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
+
+#### Какой размер блока используется на дисках кластера? {#block-size}
+
+{% include [disk-block-size](../../_includes/mdb/disk-block-size.md) %}
+
+{% include [fz-152.md](../../_qa/fz-152.md) %}
+
+{% include [logs](../../_qa/logs.md) %}
+
+{% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}

@@ -127,9 +127,9 @@ description: Следуя данной инструкции, вы сможете
       * `Atomic` (по умолчанию) — поддерживает неблокирующие операции `DROP TABLE` и `RENAME TABLE`, а также атомарные операции `EXCHANGE TABLES`.
       * `Replicated` — поддерживает репликацию метаданных таблиц между всеми репликами базы данных. При этом набор таблиц и их схемы будут одинаковыми для всех реплик.
 
-        Доступен только в [реплицированных](../concepts/replication.md) кластерах.
+        {% include [replicated-claster-engine](../../_includes/mdb/mch/replicated-claster-engine.md) %}
 
-      Движок задается при создании базы данных и не может быть изменен для этой базы.
+      {% include [set-engine](../../_includes/mdb/mch/set-engine.md) %}
 
   1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.databases.popup-add_button_add }}**.
 
@@ -143,8 +143,19 @@ description: Следуя данной инструкции, вы сможете
 
   ```bash
   {{ yc-mdb-ch }} database create <имя_БД> \
-     --cluster-name=<имя_кластера>
+     --cluster-name=<имя_кластера> \
+     --engine=<движок_БД>
   ```
+
+  Где:
+  * `--cluster-name` — имя кластера базы данных.
+  * `--engine` — движок базы данных. Необязательный параметр. Возможные значения:
+    * `database-engine-atomic` (по умолчанию) — движок Atomic. Поддерживает неблокирующие операции `DROP TABLE` и `RENAME TABLE`, а также атомарные операции `EXCHANGE TABLES`.
+    * `database-engine-replicated` — движок Replicated. Поддерживает репликацию метаданных таблиц между всеми репликами базы данных. При этом набор таблиц и их схемы будут одинаковыми для всех реплик.
+
+      {% include [replicated-claster-engine](../../_includes/mdb/mch/replicated-claster-engine.md) %}
+                          
+    {% include [set-engine](../../_includes/mdb/mch/set-engine.md) %}
 
   {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
@@ -164,8 +175,20 @@ description: Следуя данной инструкции, вы сможете
         resource "yandex_mdb_clickhouse_database" "<имя_БД>" {
           cluster_id = "<идентификатор_кластера>"
           name       = "<имя_БД>"
+          engine     = "<движок_БД>"
         }
         ```
+
+        Где:
+        * `cluster_id` — идентификатор кластера базы данных.
+        * `name` — имя базы данных.
+        * `engine` — движок базы данных. Необязательный параметр. Возможные значения:
+          * `atomic` (по умолчанию) — движок Atomic. Поддерживает неблокирующие операции `DROP TABLE` и `RENAME TABLE`, а также атомарные операции `EXCHANGE TABLES`.
+          * `replicated` — движок Replicated. Поддерживает репликацию метаданных таблиц между всеми репликами базы данных. При этом набор таблиц и их схемы будут одинаковыми для всех реплик.
+
+            {% include [replicated-claster-engine](../../_includes/mdb/mch/replicated-claster-engine.md) %}
+                          
+          Движок задается при создании базы данных и не может быть изменен для этой базы.
 
         {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 

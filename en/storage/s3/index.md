@@ -15,25 +15,15 @@ keywords:
 
 ## Getting started {#before-you-start}
 
+{% include [s3-api-auth-intro](../../_includes/storage/s3-api-auth-intro.md) %}
+
 To use the API:
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
-To access the HTTP API directly, you need static key authentication, which is supported by the tools listed in [{#T}](../tools/index.md).
-
-
-{% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
-
-
 For a list of supported Amazon S3 HTTP API methods, see the [API reference](api-ref/index.md).
 
 ## General API request format {#common-request-form}
-
-{% note info %}
-
-To access the S3 API from {{ objstorage-name }}, we recommend using the [AWS CLI](../tools/aws-cli.md) or [AWS SDK](../tools/sdk/index.md) suitable for your development environment.
-
-{% endnote %}
 
 The general {{ objstorage-name }} API request format is as follows:
 
@@ -42,7 +32,7 @@ The general {{ objstorage-name }} API request format is as follows:
 Host: {{ s3-storage-host }}
 Content-Length: length
 Date: date
-Authorization: authorization string (AWS Signature Version 4)
+Authorization: authorization string
 
 Request_body
 ```
@@ -59,9 +49,25 @@ Host: <bucket_name>.{{ s3-storage-host }}
 
 The set of headers is request-specific and described in the documentation for the relevant request.
 
-When using the API directly (without an SDK or apps), you need to generate the `Authorization` header yourself for signing requests. Find out how to do this in the Amazon S3 documentation: [Authenticating Requests (AWS Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html).
+### Signing requests {#signing-requests}
 
-{% include [s3api-debug-and-curl](../../_includes/storage/s3api-debug-and-curl.md) %}
+{% list tabs group=auth_keys %}
+
+- IAM token authentication {#iam-token}
+
+  If authenticating with the API via an IAM token, you do not have to additionally sign HTTP requests.
+
+  Amazon S3 [tools](../tools/index.md), such as the [AWS CLI](../tools/aws-cli.md) and [AWS SDK](../tools/sdk/index.md), support static access key authentication only and cannot be used at the same time with IAM token authentication.
+
+- Static key authentication {#static-key}
+
+  When using a static access key to authenticate with the API and accessing the API directly (without an SDK or apps), you need to generate the `Authorization` header yourself for signing requests. Find out how to do this in the Amazon S3 documentation: [Authenticating Requests (AWS Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html).
+
+  When using static access key authentication to access the S3 API from {{ objstorage-name }}, we recommend using the [AWS CLI](../tools/aws-cli.md) or [AWS SDK](../tools/sdk/index.md) suitable for your development environment.
+
+  {% include [s3api-debug-and-curl](../../_includes/storage/s3api-debug-and-curl.md) %}
+
+{% endlist %}
 
 ### Request URL {#request-url}
 

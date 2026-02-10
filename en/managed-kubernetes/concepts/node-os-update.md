@@ -1,12 +1,8 @@
 # Updating node group OS
 
-Starting with {{ k8s }} version 1.30, the node OS changed from Ubuntu 20.04 to Ubuntu 22.04. When you [update node groups](../operations/node-group/node-group-update.md) within these versions, new nodes are automatically created from an Ubuntu 22.04 [VM](../../compute/concepts/vm.md) [image](../../compute/concepts/image.md).
+Starting with {{ k8s }} version 1.30, the {{ managed-k8s-name }} cluster node OS changed from Ubuntu 20.04 to Ubuntu 22.04 in all [release channels](../../managed-kubernetes/concepts/release-channels-and-updates.md).
 
-{% note info %}
-
-The OS version update is available in the `RAPID` [release channel](release-channels-and-updates.md). This upgrade will later become available in the `REGULAR` and `STABLE` release channels.
-
-{% endnote %}
+When you [update node groups](../operations/node-group/node-group-update.md) within those clusters, new nodes are automatically created from an Ubuntu 22.04 VM [image](../../compute/concepts/image.md).
 
 ## User resource updates {#user-resources-update}
 
@@ -36,9 +32,9 @@ As Ubuntu 22.04 uses the new Linux kernel 5.15, updating the OS may disrupt the 
 
 Before migrating your {{ k8s }} cluster to a new OS version, test the update on the new cluster:
 
-1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) and specify the `RAPID` release channel for it.
-1. [Create a node group](../operations/node-group/node-group-create.md) in the new cluster.
-1. Test your apps, which may prove OS version-dependent, in the new cluster.
+1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md).
+1. [Create a node group](../operations/node-group/node-group-create.md) in the cluster.
+1. In the new cluster, test your apps, which may prove OS version-dependent.
 
    Check key load indicators:
 

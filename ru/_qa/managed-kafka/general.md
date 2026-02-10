@@ -114,3 +114,7 @@ The revocation function was unable to check revocation for the certificate
    * Если есть моменты времени, когда значение `kafka_group_topic_partition_offset` становится меньше `kafka_log_Log_LogStartOffset`, это указывает на потерю сообщений.
 
 Подробнее см. в разделе [{#T}](../../managed-kafka/tutorials/retention-policy.md).
+
+#### Какой размер блока используется на дисках кластера? {#block-size}
+
+{% include [disk-block-size](../../_includes/mdb/disk-block-size.md) %}

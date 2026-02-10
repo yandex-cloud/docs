@@ -50,6 +50,7 @@ description: Various {{ compute-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](usb-over-ip.md)
 * [{#T}](integrate-nextcloud/index.md)
 * [{#T}](docker-cloud-registry.md)
+* [{#T}](self-hosted-worker-sourcecraft.md)
 
 ## {{ coi }} {#coi}
 

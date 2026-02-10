@@ -24,7 +24,7 @@ The `computeMetadata` folder contains the following main keys:
 || instance/description | VM description. | `VM description` ||
 || instance/hostname | Full internal VM name ([FQDN](../network.md#hostname)). | `my-vm.{{ region-id }}.internal` ||
 || instance/id | VM ID. | `epdhfouo8bgq********` ||
-|| instance/maintenance-event | Key indicating whether the [VM instance maintenance](../vm-policies.md) event has occurred. | `NONE` ||
+|| instance/maintenance-event | Key indicating whether the [VM instance maintenance](../maintenance-policies.md) event has occurred. | `NONE` ||
 || instance/name | VM name. | `my-vm-name` ||
 || instance/zone | [Availability zone](../../../overview/concepts/geo-scope.md) ID in `projects/<cloud-id>/zones/<zone-id>` format. | `projects/b1g3o1qx3ra2********/zones/{{ region-id }}-d` ||
 || instance/disks/ | List of VM [disk](../disk.md) indexes. | `0/` ||

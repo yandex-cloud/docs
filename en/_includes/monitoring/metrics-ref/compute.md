@@ -197,7 +197,7 @@ Labels:
 - *disk*: Disk name or ID. ||
 || `maintenance_event`
 |
-It is set to `1` if a [maintenance event](../../../compute/concepts/vm-policies) is active on the VM.
+It is set to `1` if a [maintenance event](../../../compute/concepts/maintenance-policies.md) is active on the VM.
 Labels:
 - *resource_id*: VM name or ID.
 - *resource_type*: Resource type. The only available value is `vm`.

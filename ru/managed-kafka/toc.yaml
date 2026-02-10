@@ -27,6 +27,8 @@ items:
             href: operations/cluster-patch-version.md
           - name: Миграция хостов в другую зону доступности
             href: operations/host-migration.md
+          - name: Управление доступом к кластеру
+            href: operations/cluster-access.md
           - name: Техническое обслуживание
             href: operations/cluster-maintenance.md
           - name: Удаление кластера

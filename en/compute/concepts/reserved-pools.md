@@ -11,7 +11,7 @@ description: In this article, you will learn what a reserved instance pool is an
 
 A _reserved instance pool_ is the total of computing resources reserved by the user in a given [availability zone](../../overview/concepts/geo-scope.md) to secure their guaranteed availability to the user for the purpose of creating [VMs](./vm.md) of a particular [configuration](./performance-levels.md#available-configurations) in this availability zone.
 
-You can manage reserved instance pools and attach VMs to them using the [{{ yandex-cloud }} CLI](../cli-ref/reserved-instance-pool/index.md) and [API](../api-ref/ReservedInstancePool/index.md).
+You can manage reserved instance pools and VM attachment to them using the [management console]({{ link-console-main }}), [{{ yandex-cloud }} CLI](../cli-ref/reserved-instance-pool/index.md), and [API](../api-ref/ReservedInstancePool/index.md).
 
 Reserved instance pools are incompatible with [dedicated hosts](./dedicated-host.md), [preemptible VMs](./preemptible-vm.md), and VMs with [vCPU performance levels](./performance-levels.md) below 100%. At present, reserved instance pools do not support [placement groups](./placement-groups.md) and [instance groups](./instance-groups/index.md).
 
@@ -19,7 +19,7 @@ A reserved instance pool consists of a set of _slots_, i.e., collections of the 
 
 ## Pool size {#pool-size}
 
-The size of a reserved instance pool is the number of its slots. You can view a pool’s `size` in its [details](#stats).
+The size of a reserved instance pool is the number of its slots. You can view a pool’s `size` it its [details](#stats).
 
 When modifying the size of a pool with [pending slots](#pending-slots), another key parameter apart from `size` will be its `committed_size`. The `committed_size` field indicates the actual number of non-pending slots in the pool, i.e., the number of slots for which {{ compute-name }} guarantees resources.
 

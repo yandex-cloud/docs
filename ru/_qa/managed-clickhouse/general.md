@@ -156,6 +156,10 @@ RENAME DICTIONARY <имя_словаря> TO <новое_имя>
 
 {% include notitle [attach-sa](../../_qa/attach-sa.md) %}
 
+#### Какой размер блока используется на дисках кластера? {#block-size}
+
+{% include [disk-block-size](../../_includes/mdb/disk-block-size.md) %}
+
 {% include [fz-152.md](../../_qa/fz-152.md) %}
 
 {% include [logs](../logs.md) %}

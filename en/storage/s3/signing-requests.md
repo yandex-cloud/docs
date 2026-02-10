@@ -5,6 +5,12 @@ description: Follow this guide to set up signing for requests to {{ objstorage-n
 
 # Signing requests
 
+{% note warning %}
+
+Requests have to be signed only if using [static access key](../../iam/concepts/authorization/access-key.md) authentication. If [IAM token](../../iam/concepts/authorization/iam-token.md) authentication is used, you do not have to sign requests.
+
+{% endnote %}
+
 
 Many requests to {{ objstorage-name }} require authentication on the service side, so the user sending a request must sign it.
 

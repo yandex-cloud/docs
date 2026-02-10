@@ -207,3 +207,6 @@ The revocation function was unable to check revocation for the certificate
    mkdir $HOME\.redis; curl.exe --ssl-no-revoke -o $HOME\.redis\{{ crt-local-file }} {{ crt-web-path }}
    ```
 
+#### Какой размер блока используется на дисках кластера? {#block-size}
+
+{% include [disk-block-size](../../_includes/mdb/disk-block-size.md) %}

@@ -21,6 +21,8 @@ items:
             href: operations/cluster-stop.md
           - name: Подключение к кластеру
             href: operations/connect.md
+          - name: Управление доступом к кластеру
+            href: operations/cluster-access.md
           - name: Техническое обслуживание
             href: operations/cluster-maintenance.md
           - name: Удаление кластера

@@ -9,9 +9,26 @@ description: In this tutorial, you will learn how to update a {{ compute-full-na
 
 {% include [reserved-pools-preview-notice](../../../_includes/compute/reserved-pools-preview-notice.md) %}
 
-To update a [reserved instance pool](../../concepts/reserved-pools.md):
+{% include [reserved-pools-nochange-vm](../../../_includes/compute/reserved-pools-nochange-vm.md) %}
+
+To [update a reserved instance pool](../../concepts/reserved-pools.md):
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the reserved instance pool is in.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-lock.svg) **{{ ui-key.yacloud.compute.reserved-instance-pool.reserved-instance-pools_m8sWW }}**.
+  1. In the pool row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Edit the VM parameters:
+
+       * Pool type.
+       * Pool size.
+       * If you need to expand the pool even when there are not enough free resources in the availability zone, enable **{{ ui-key.yacloud.compute.reserved-instance-pool.PendingSlotsRow.row-title_qGybc }}**. For more information, see [{#T}](../../concepts/reserved-pools.md#pending-slots).
+       * Under **{{ ui-key.yacloud.compute.reserved-instance-pool.ReservedInstancePoolFormBase.main-pool-info-section_xoPE2 }}**, change the name and description of the pool, add or delete the pool's [labels](../../../resource-manager/concepts/labels.md).
+
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -59,12 +76,6 @@ To update a [reserved instance pool](../../concepts/reserved-pools.md):
         total: "1"
       ```
   1. Update a reserved instance pool in the default folder by specifying pool name or ID:
-
-      {% note info %}
-
-      You cannot reconfigure the pool's VMs.
-
-      {% endnote %}
 
       ```bash
       yc compute reserved-instance-pool update <pool_name_or_ID> \

@@ -1,10 +1,12 @@
 # CLI configuration
 
-You can [set the parameters](../operations/profile/manage-properties.md) in the profile to quickly switch the command execution context. Use global parameters to run the command once with a specific parameter value.
+You can [set the parameters](../operations/profile/manage-properties.md) in the profile to quickly switch the command execution context. Use global parameters for a single run of a command with a specific parameter value.
 
 {% note warning %}
 
 Note that some parameters cannot be used simultaneously. The value of one of the parameters is reset to zero after the other is set.
+
+Global parameters are available to any command, but not all commands can process them. For example, if a resource is defined only by an ID, the cloud and folder parameters are ignored.
 
 {% endnote %}
 
