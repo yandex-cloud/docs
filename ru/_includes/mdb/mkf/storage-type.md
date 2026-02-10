@@ -21,4 +21,6 @@
 
   {% include [zone-d-disk-restrictions](../ru-central1-d-local-ssd.md) %}
 
+{% include [disk-block-size](../disk-block-size.md) %}
+
 {% include [available-storage](../available-storage.md) %}

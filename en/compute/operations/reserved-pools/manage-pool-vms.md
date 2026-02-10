@@ -11,11 +11,21 @@ description: In this article, you will learn how to create {{ compute-full-name 
 
 You can attach both newly created and existing VMs to your reserved instance pools. For more information, see [{#T}](../../concepts/reserved-pools.md).
 
+{% include [reserved-pools-attach-rule](../../../_includes/compute/reserved-pools-attach-rule.md) %}
+
 ## Viewing the list of VMs attached to a pool {#list-pool-instances}
 
-To view the list of VMs attached a reserved instance pool:
+To view the list of VMs attached to a reserved instance pool:
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the reserved instance pool is in.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-lock.svg) **{{ ui-key.yacloud.compute.reserved-instance-pool.reserved-instance-pools_m8sWW }}**.
+  1. Select the pool.
+  1. In the left-hand panel, navigate to ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 
 - CLI {#cli}
 
@@ -45,6 +55,17 @@ To create a new VM in a reserved instance pool:
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the reserved instance pool is in.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-lock.svg) **{{ ui-key.yacloud.compute.reserved-instance-pool.reserved-instance-pools_m8sWW }}**.
+  1. In the pool row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.compute.reserved-instance-pool.ReservedInstancePoolActions.button_create-virtual-machine_pjCmE }}**.
+  1. Configure the new VM. For more information, see [{#T}](../../operations/index.md#vm-create).
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  
+  The VM will appear in the list. The new VM will get an [IP address](../../../vpc/concepts/address.md) and a [host name](../../../vpc/concepts/address.md#fqdn) (FQDN).
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -57,7 +78,7 @@ To create a new VM in a reserved instance pool:
       yc compute instance create --help
       ```
   1. {% include [list-reserved-pools-cli](../../../_includes/compute/list-reserved-pools-cli.md) %}
-  1. Create a VM in the reserved instance pool:
+  1. Create a virtual machine in the reserved instance pool:
 
       ```bash
       yc compute instance create \
@@ -155,6 +176,15 @@ To attach an existing VM to a reserved instance pool:
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the reserved instance pool is in.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. In the VM row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.compute.components.InstanceActions.button_attach-to-pool_ak57z }}**.
+  1. In the window that opens, select the reserved instance pool from the list or create a new one.
+  1. Click **{{ ui-key.yacloud.compute.components.AttachInstanceToPoolDialog.button_attach_pHLyg }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -171,13 +201,6 @@ To attach an existing VM to a reserved instance pool:
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
   1. Attach the VM to the reserved instance pool of your choice:
-
-      {% note info %}
-
-      You cannot attach a VM to a reserved instance pool if its hardware configuration ([platform](../../concepts/vm-platforms.md), vCPU, RAM) is different from that specified in the reserved instance pool settings.
-
-      {% endnote %}
-
 
       ```bash
       yc compute instance update \
@@ -259,6 +282,14 @@ To attach an existing VM to a reserved instance pool:
 To detach a VM from a reserved instance pool:
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the reserved instance pool is in.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. In the VM row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.compute.components.InstanceActions.button_detach-from-pool_wEiB2 }}**.
+  1. In the window that opens, click **{{ ui-key.yacloud.compute.components.InstanceActions.button_confirm-detach-vm-from-pool_8dze2 }}**.
 
 - CLI {#cli}
 

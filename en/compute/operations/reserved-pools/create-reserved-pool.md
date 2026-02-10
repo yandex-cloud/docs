@@ -13,6 +13,34 @@ To create a [reserved instance pool](../../concepts/reserved-pools.md):
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a reserved instance pool in.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-lock.svg) **{{ ui-key.yacloud.compute.reserved-instance-pool.reserved-instance-pools_m8sWW }}**.
+  1. Click **{{ ui-key.yacloud.compute.reserved-instance-pool.button_create-reserved-instance-pool_pZ1gY }}**.
+  1. Select the [availability zone](../../../overview/concepts/geo-scope.md) you want to reserve [computing resources](../../concepts/vm.md#types) in.
+  1. Select the pool type:
+
+      * **{{ ui-key.yacloud.compute.reserved-instance-pool.reserved-instance-pool-type-standard_wqziE }}**: Number of linked VMs is limited by the pool size.
+      * **{{ ui-key.yacloud.compute.reserved-instance-pool.reserved-instance-pool-type-with-oversubscription_6dZSq }}**: You can [link any number of VMs](../../concepts/reserved-pools.md#oversubscription). The number of running VMs is limited by the pool size.
+  1. Specify **{{ ui-key.yacloud.compute.reserved-instance-pool.reserved-instance-pool-size_1nhUt }}**, which is the maximum number of VMs in the pool.
+  1. Under **{{ ui-key.yacloud.compute.reserved-instance-pool.ReservedInstancePoolFormBase.resources-section-title_wAFm8 }}**, select one of the preset configurations or create a custom one. To create a custom configuration:
+
+      * Go to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab.
+      * Select a [platform](../../../compute/concepts/vm-platforms.md).
+      * Specify the [guaranteed performance](../../../compute/concepts/performance-levels.md) and required number of vCPUs, as well as RAM size.
+      * Enable a [software accelerated network](../../../compute/concepts/software-accelerated-network.md) if needed.
+  1. Under **{{ ui-key.yacloud.compute.reserved-instance-pool.ReservedInstancePoolFormBase.main-pool-info-section_xoPE2 }}**:
+
+      * Enter a name for the pool. Follow these naming requirements:
+
+          {% include [name-format](../../../_includes/name-format.md) %}
+
+      * Optionally, add a description of the pool.
+      * Optionally, add pool [labels](../../../resource-manager/concepts/labels.md).
+  1. Click **{{ ui-key.yacloud.common.create }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}

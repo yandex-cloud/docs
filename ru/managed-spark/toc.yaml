@@ -21,6 +21,8 @@ items:
             href: operations/cluster-version-update.md
           - name: Остановка и запуск кластера
             href: operations/cluster-stop.md
+          - name: Управление доступом к кластеру
+            href: operations/cluster-access.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
       - name: Задания (jobs)

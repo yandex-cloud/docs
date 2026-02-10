@@ -110,3 +110,7 @@ Unable to confirm permission 'data-transfer.transfers.createExternal'
 #### Какую часть работы по управлению и сопровождению баз данных берет на себя {{ mos-short-name }}? {#services}
 
 {% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
+
+#### Какой размер блока используется на дисках кластера? {#block-size}
+
+{% include [disk-block-size](../../_includes/mdb/disk-block-size.md) %}

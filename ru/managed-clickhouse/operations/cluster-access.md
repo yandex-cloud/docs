@@ -533,7 +533,7 @@ description: Следуя данной инструкции, вы настрои
   1. Назначьте роли на кластер:
 
       ```bash
-      {{ yc-mdb-ch }} cluster add-access-bindings <имя_или_идентификатор_кластера> \
+      {{ yc-mdb-ch }} cluster add-access-binding <имя_или_идентификатор_кластера> \
         --access-binding role=managed-clickhouse.editor,subject=serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 

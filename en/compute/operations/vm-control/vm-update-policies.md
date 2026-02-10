@@ -6,11 +6,11 @@ description: Follow this guide to manage your maintenance policy.
 # Maintenance policy management
 
 
-To enable and configure a [VM maintenance policy](../../concepts/vm-policies.md), follow these steps:
+To enable and configure a [VM maintenance policy](../../concepts/maintenance-policies.md), follow these steps:
 
 1. [Create a VM with a configured maintenance policy](#create).
 1. [Check maintenance event handling](#check).
-1. [Connect to the VM via SSH](#ssh).
+1. [Connect to the VM over SSH](#ssh).
 1. [Create a script to track VM maintenance events](#script).
 1. [Simulate a VM maintenance event](#simulate).
 1. [Optionally, change the VM maintenance policy type](#change-policy).
@@ -121,9 +121,9 @@ Expected result:
   "maintenance_grace_period": "60s"
 ```
 
-## Connect to the VM via SSH {#ssh}
+## Connect to the VM over SSH {#ssh}
 
-Get the VM IP address and save it to a variable, then connect to the VM via SSH with your username:
+Get the VM IP address and save it to a variable, then connect to the VM over SSH with your username:
 
 ```
 VM_IP=$(yc compute instance get --name=mnt-vm1 --format=json | jq -r '.network_interfaces[0].primary_v4_address.one_to_one_nat.address')
