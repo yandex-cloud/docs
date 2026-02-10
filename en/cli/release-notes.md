@@ -7,17 +7,54 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.188.0 (26/01/26) {#version0.188.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ mkf-name }}
+
+Added the `message-timestamp-type` parameter for managing {{ KF }} topics to the following commands:
+* `yc managed-kafka topic create`
+* `yc managed-kafka topic update`
+
+## Previous releases {#previous-release}
+
+### Version 0.187.0 (23/01/26) {#version0.187.0}
+
+#### Changes to the CLI {#cli}
+
+Added access to the initialization service for the YC CLI tools.
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ mpg-name }}
+
+Added the `--user_password_encryption` parameter for selecting the user password encryption type to the following commands:
+* `yc managed-postgresql user create`
+* `yc managed-postgresql user update`
+
+##### {{ objstorage-name }}
+
+Added the `--http-method` parameter to the `yc storage s3 presign` command to specify the HTTP method (GET/PUT).
+
+##### {{ mtr-name }}
+
+Added the `private-access` parameter to these cluster management commands:
+* `yc managed-trino cluster create`
+* `yc managed-trino cluster update`
+* `yc managed-trino cluster get`
+
 ### Version 0.186.0 (19/01/26) {#version0.186.0}
 
 #### Changes to the CLI {#cli-0.186.0}
 
-Fixed color display when using the `--pager` parameter with the `less` value in `yc beta`.
+Fixed color display when using `--pager` set to `less` in `yc beta`.
 
 #### Changes to {{ yandex-cloud }} services {#services-0.186.0}
 
 ##### {{ cloud-registry-full-name }} {#cloud-registry-full-name-0.186.0}
 
-Added the `configure-docker` command for Docker Credential helper.
+Added the `configure-docker` command for the Docker credential helper.
 
 ##### {{ data-transfer-name }} {#data-transfer-name-0.186.0}
 
@@ -37,11 +74,9 @@ Added commands for granting access permissions in {{ dataproc-name }}:
   
 ##### {{ org-name }} {#org-name-0.186.0}
 
-Added password complexity settings to the following commands:
+Added parameters for password complexity configuration to the following commands:
 * `yc organization-manager idp userpool create`
 * `yc organization-manager idp userpool update`
-
-## Previous releases {#previous-release}
 
 ### Version 0.185.0 (22/12/25) {#version0.185.0}
 
@@ -3789,7 +3824,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 * `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update` commands.
 
-  Added the `--network-acceleration-type` setting to specify a node group’s network type: standard or software-accelerated.
+  Added the `--network-acceleration-type` parameter to specify network type for a node group: standard or software-accelerated.
 
 * `yc managed-kubernetes cluster create` command.
 

@@ -75,7 +75,7 @@ Yandex regularly conducts internal and external audits and penetration tests to 
 * In accordance with the laws on personal data protection and ISO standards, Yandex has a schedule of external audits for compliance with ISO 27001, ISO 27017, and ISO 27018, and a plan of monitoring activities to check the compliance of IS processes and controls with FSTEC Order No. 21.
 * The {{ yandex-cloud }} security team uses Red Teaming. Vulnerabilities detected through regular penetration tests are fixed by development teams or, if it is impossible to quickly release an update, patched with appropriate security tools before a fix is released.
 
-The {{ yandex-cloud }} penetration test report is available upon [request](/security/compliance-portal#security-compliance-pentest-form).
+The {{ yandex-cloud }} penetration test report is available upon request.
 
 ## Incident response {#incident-resp}
 

@@ -123,6 +123,8 @@ items:
             href: operations/vm-control/vm-access.md
           - name: Linking a service account to a VM
             href: operations/vm-control/vm-connect-sa.md
+          - name: Managing maintenance of GPU VMs
+            href: operations/vm-control/gpus-maintenance.md
           - name: Deleting a VM
             href: operations/vm-control/vm-delete.md
       - name: Working with VM instance metadata
@@ -632,6 +634,8 @@ items:
             href: tutorials/integrate-nextcloud/terraform.md
       - name: Running a Docker image on a VM using {{ cloud-registry-name }}
         href: tutorials/docker-cloud-registry.md
+      - name: Deploying a {{ src-full-name }} worker on a VM
+        href: tutorials/self-hosted-worker-sourcecraft.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -650,7 +654,7 @@ items:
             href: concepts/preemptible-vm.md
           - name: VM network interfaces
             href: concepts/network.md
-          - name: Software-accelerated network
+          - name: Software accelerated network
             href: concepts/software-accelerated-network.md
           - name: Live migration
             href: concepts/live-migration.md
@@ -659,7 +663,7 @@ items:
           - name: Statuses
             href: concepts/vm-statuses.md
           - name: VM maintenance policies
-            href: concepts/vm-policies.md
+            href: concepts/maintenance-policies.md
           - name: Resetting Windows VM passwords
             href: concepts/guest-agent.md
       - name: VM instance metadata
@@ -678,6 +682,8 @@ items:
             href: concepts/metadata/identity-document.md
       - name: Graphics processing units (GPUs)
         href: concepts/gpus.md
+      - name: GPU VM maintenance
+        href: concepts/gpus-maintenance.md
       - name: Disks and file storages
         items:
           - name: Overview

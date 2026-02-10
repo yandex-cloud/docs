@@ -8,13 +8,3 @@ description: Что такое {{ mmg-name }}? Для каких задач ст
 {% include [general-minitoc](../../_qa/storedoc/minitoc/general.md) %}
 
 {% include [general](../../_qa/storedoc/general.md) %}
-
-{% include [fz-152.md](../../_qa/fz-152.md) %}
-
-{% include [logs](../../_qa/logs.md) %}
-
-{% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}
-
-#### Какую часть работы по управлению и сопровождению баз данных берет на себя {{ mmg-short-name }}? {#services}
-
-{% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}

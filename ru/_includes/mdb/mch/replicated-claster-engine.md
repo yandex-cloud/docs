@@ -1,0 +1,1 @@
+Доступен только в [реплицированных](../../../managed-clickhouse/concepts/replication.md) кластерах.

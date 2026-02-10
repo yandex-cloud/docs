@@ -12,35 +12,94 @@ You can use the following types of APIs to work with {{ objstorage-name }}:
 
 ## AWS S3 API {#aws-s3-api}
 
-To authenticate with the [AWS S3 API](../s3/api-ref/) and work with {{ TF }} and other [supported tools](../tools/), use a [static access key](../../iam/concepts/authorization/access-key.md). A static access key is issued for a specific [service account](../../iam/concepts/users/service-accounts.md), and all actions involving this key are performed on behalf of this service account. For more information, see [How do I use the S3 API?](../../storage/s3/).
+{% include [s3-api-auth-intro](../../_includes/storage/s3-api-auth-intro.md) %}
+
+{% list tabs group=auth_keys %}
+
+- IAM token authentication {#iam-token}
+
+  {% include [s3-api-auth-intro-iam-token](../../_includes/storage/s3-api-auth-intro-iam-token.md) %}
+
+  If authenticating with the API via an IAM token, you do not have to additionally [sign](../s3/signing-requests.md) HTTP requests.
+
+  Amazon S3 [tools](../tools/index.md), such as the [AWS CLI](../tools/aws-cli.md) and [AWS SDK](../tools/sdk/index.md), support static access key authentication only and cannot be used at the same time with IAM token authentication.
+
+- Static key authentication {#static-key}
+
+  To authenticate with the [AWS S3 API](../s3/api-ref/) and use {{ TF }} and other [supported tools](../tools/), a [static access key](../../iam/concepts/authorization/access-key.md) can be used. A static access key is issued for a specific [service account](../../iam/concepts/users/service-accounts.md), and all actions involving this key are performed on behalf of this service account. For more information, see [How do I use the S3 API?](../../storage/s3/).
+
+  
+  {% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
 
 
-{% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
+  {% include [s3-api-auth-requires-signature-notice](../../_includes/storage/s3-api-auth-requires-signature-notice.md) %}
 
+{% endlist %}
 
 For the full list of S3 API methods, see the [S3 API reference](../s3/api-ref/).
 
 {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
-If you want to use the AWS S3 API directly (without an SDK or apps), you will need to [sign requests](../s3/signing-requests.md) yourself. You can test the request and signature generation using the AWS CLI in [debug mode](../s3/signing-requests.md#debugging).
-
 ### AWS S3 API use case {#s3-api-example}
 
-Starting from version [8.3.0](https://curl.se/changes.html), the `curl` utility supports automatic generation of the [signature string](../s3/signing-requests.md#string-to-sign-gen), [request signing](../s3/signing-requests.md#signing), and substitution of the required headers when working with the AWS S3 API.
+{% note warning %}
 
-You can also generate these headers and sign requests manually. For more information, see the example for **curl 8.2.1 and lower**.
-
-{% note info %}
-
-Make sure the service account you are using to make the request has the permissions to perform the requested action. For example, to upload an object to a bucket, [assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.uploader` [role](../security/index.md#storage-uploader) for the bucket to the service account. For more information, see [{#T}](../security/overview.md).
+Make sure the account you are using to make the request has the permissions to perform the requested action. For example, to upload an object to a bucket, [assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.uploader` [role](../security/index.md#storage-uploader) for the bucket to the account. For more information, see [{#T}](../security/overview.md).
 
 {% endnote %}
 
-Below are examples of requests for uploading an object to a bucket.
+Below are examples of requests for uploading an object to a bucket:
 
-{% list tabs group=programming_language %}
+{% list tabs group=auth_keys %}
 
-- curl 8.3.0 or higher {#curl-830}
+- IAM token authentication {#iam-token}
+
+  ```bash
+  IAM_TOKEN="<IAM_token_contents>"
+  BUCKET_NAME="<bucket_name>"
+  LOCAL_FILE="<local_file_path>"
+  OBJECT_PATH="<object_key>"
+
+  curl \
+    --request PUT \
+    --header "Authorization: Bearer ${IAM_TOKEN}" \
+    --upload-file "${LOCAL_FILE}" \
+    --verbose \
+    "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
+  ```
+
+  Where:
+
+  * `IAM_TOKEN`: IAM token body.
+  * `BUCKET_NAME`: [Name of the bucket](../concepts/bucket.md#naming) to upload the file to.
+  * `LOCAL_FILE`: Path to the local file you want to upload to the bucket, e.g., `./sample.txt`.
+  * `OBJECT_PATH`: [Key](../concepts/object.md#key) to assign to the object in the bucket, e.g., `new-prefix/sample-object.txt`.
+
+  In the same way, you can upload a file to the bucket without saving it locally. For example, archive the directory and send the archive to the bucket:
+
+  ```bash
+  IAM_TOKEN="<IAM_token_contents>"
+  BUCKET_NAME="<bucket_name>"
+  OBJECT_PATH="<object_key>"
+  DIRECTORY_PATH="<path_to_directory>"
+
+  tar -cvzf - "${DIRECTORY_PATH}" | curl \
+    --request PUT \
+    --header "Authorization: Bearer ${IAM_TOKEN}" \
+    --upload-file - \
+    --verbose \
+    "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
+  ```
+
+  Where `DIRECTORY_PATH` is the path to the directory you want to archive.
+
+- Static key authentication {#static-key}
+
+  Starting from version [8.3.0](https://curl.se/changes.html), the `curl` utility supports automatic generation of the [signature string](../s3/signing-requests.md#string-to-sign-gen), [request signing](../s3/signing-requests.md#signing), and substitution of the required headers when working with the AWS S3 API.
+
+  You can also generate these headers and sign requests manually. For more information, see the example for **curl 8.2.1 and lower**.
+
+  {% cut "curl 8.3.0 and higher" %}
 
   ```bash
   AWS_KEY_ID="<static_key_ID>"
@@ -85,7 +144,9 @@ Below are examples of requests for uploading an object to a bucket.
 
   Where `DIRECTORY_PATH` is the path to the directory you want to archive.
 
-- curl 8.2.1 or lower {#curl-821}
+  {% endcut %}
+
+  {% cut "curl 8.2.1 and lower" %}
 
   ```bash
   AWS_KEY_ID="<static_key_ID>"
@@ -116,6 +177,8 @@ Below are examples of requests for uploading an object to a bucket.
   * `BUCKET_NAME`: [Name of the bucket](../concepts/bucket.md#naming) to upload the file to.
   * `OBJECT_PATH`: [Key](../concepts/object.md#key) to assign to the object in the bucket, e.g., `new-prefix/sample-object.txt`.
   * `CONTENT_TYPE`: [MIME type](https://en.wikipedia.org/wiki/Media_type) of the object being uploaded, e.g., `text/plain`.
+
+  {% endcut %}
 
 {% endlist %}
 

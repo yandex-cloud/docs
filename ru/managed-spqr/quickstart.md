@@ -89,13 +89,13 @@ keywords:
 
 1. (Опционально) В блоке **{{ ui-key.yacloud.spqr.section_coordinator }}** включите опцию **{{ ui-key.yacloud.spqr.field_coordinator }}** и задайте конфигурацию хостов-координаторов.
 
-1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}** укажите:
+1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}** укажите параметры БД, в которой можно выполнять запросы к таблицам на шардах:
 
     * Имя БД. Оно должно быть уникальным в рамках каталога.
     * Имя пользователя — владельца БД.
     * Пароль.
 
-1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** укажите пароль для консоли {{ SPQR }}.
+1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** укажите пароль для консоли {{ SPQR }}, в которой можно настраивать правила шардирования. [Подробнее о консоли {{ SPQR }}](https://docs.pg-sharding.tech/sharding/console/how_to_connect).
 1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 1. Дождитесь, когда кластер будет готов к работе: его статус сменится на **Running**, а состояние — на **Alive**. Чтобы проверить состояние, наведите курсор на статус кластера в столбце **{{ ui-key.yacloud.common.availability }}**.
 

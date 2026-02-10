@@ -1,0 +1,1 @@
+To use the AWS S3 API with authentication via a static access key directly (without an SDK or apps), you will need to [sign requests](../../storage/s3/signing-requests.md) yourself. You can test the request and signature generation using the AWS CLI in [debug mode](../../storage/s3/signing-requests.md#debugging).

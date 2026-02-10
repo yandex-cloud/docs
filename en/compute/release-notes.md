@@ -32,7 +32,7 @@ description: This section contains the {{ compute-name }} release notes.
 
 * The [reserved instance pool](./concepts/reserved-pools.md) functionality is now on at the [Preview](../overview/concepts/launch-stages.md) stage. You can access it upon request.
 * Implemented a simple VM creation form in the [management console]({{ link-console-main }}).
-* Added sending the `MigrateInstance` [data event](./at-ref.md#data-plane-events) to {{ at-full-name }} when [dynamically migrating](./concepts/live-migration.md) a VM with a [maintenance policy](./concepts/vm-policies.md) configured.
+* Added sending the `MigrateInstance` [data event](./at-ref.md#data-plane-events) to {{ at-full-name }} when [dynamically migrating](./concepts/live-migration.md) a VM with a [maintenance policy](./concepts/maintenance-policies.md) configured.
 
 ## Q1 2025 {#q1-2025}
 

@@ -7,21 +7,25 @@ Event name | Description
 `ChangeDiskStatus` | Changing a non-replicated disk status
 `CrashInstance` | Emergency VM shutdown
 `CreateDisk` | Creating a disk
+`CreateDiskPlacementGroup` | Creating a disk placement group
 `CreateFilesystem` | Creating a file system
 `CreateGpuCluster` | Creating a GPU cluster
 `CreateHostGroup` | Creating a group of dedicated hosts
 `CreateImage` | Creating a disk image
 `CreateInstance` | Creating a VM
+`CreatePlacementGroup` | Creating a placement group
 `CreateReservedInstancePool` | Creating a reserved instance pool
 `CreateSnapshot` | Creating a disk snapshot
 `CreateSnapshotSchedule` | Creating a disk snapshot schedule
 `DecommissionHost` | Withdrawing a dedicated host for [maintenance](../../../compute/concepts/dedicated-host.md#maintenance)
 `DeleteDisk` | Deleting a disk
+`DeleteDiskPlacementGroup` | Deleting a disk placement group
 `DeleteFilesystem` | Deleting a file system
 `DeleteGpuCluster` | Deleting a GPU cluster
 `DeleteHostGroup` | Deleting a group of dedicated hosts
 `DeleteImage` | Deleting a disk image
 `DeleteInstance` | Deleting a VM
+`DeletePlacementGroup` | Deleting a placement group
 `DeleteReservedInstancePool` | Deleting a reserved instance pool
 `DeleteSnapshot` | Deleting a disk snapshot
 `DeleteSnapshotSchedule` | Deleting a disk snapshot schedule
@@ -37,6 +41,7 @@ Event name | Description
 `StartInstance` | Starting a VM
 `StopInstance` | Stopping a VM
 `UpdateDisk` | Changing a disk
+`UpdateDiskPlacementGroup` | Updating a disk placement group
 `UpdateFilesystem` | Modifying a file system
 `UpdateGpuCluster` | Updating a GPU cluster
 `UpdateHost` | Updating the [automatic release date](../../../compute/concepts/dedicated-host.md#maintenance) of a dedicated host
@@ -45,6 +50,7 @@ Event name | Description
 `UpdateInstance` | Updating a VM instance
 `UpdateInstanceMetadata` | Updating VM instance metadata
 `UpdateInstanceNetworkInterface` | Updating VM network settings
+`UpdatePlacementGroup` | Updating a placement group
 `UpdateReservedInstancePool` | Updating a reserved instance pool
 `UpdateSnapshot` | Updating a disk snapshot
 `UpdateSnapshotSchedule` | Updating disk snapshot schedule parameters

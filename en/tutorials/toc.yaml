@@ -158,7 +158,7 @@ items:
         hidden: true
       - name: Configuring alerts and dashboards in {{ monitoring-name }}
         href: security/alerts-monitoring.md
-      - name: Uploading audit logs to MaxPatrol SIEM
+      - name: Exporting audit logs to MaxPatrol SIEM
         href: security/maxpatrol.md
       - name: Uploading audit logs to Splunk SIEM
         href: security/export-logs-to-splunk.md
@@ -166,13 +166,13 @@ items:
         href: security/export-logs-to-arcsight.md
       - name: Managing identity federations
         items:
-          - name: Authentication using Active Directory
+          - name: Active Directory authentication
             href: security/integration-adfs.md
-          - name: Authentication using Google Workspace
+          - name: Google Workspace authentication
             href: security/integration-gworkspace.md
-          - name: Authentication using {{ microsoft-idp.entra-id-full }}
+          - name: '{{ microsoft-idp.entra-id-full }} authentication'
             href: security/integration-azure.md
-          - name: Authentication using Keycloak
+          - name: Keycloak authentication
             href: security/integration-keycloak.md
           - name: User group mapping
             items:
@@ -379,6 +379,10 @@ items:
         href: testing/loadtesting-gitlab-ci.md
       - name: Deploying {{ GLR }} on a {{ compute-name }} virtual machine
         href: dev/install-gitlab-runner.md
+      - name: >-
+          Deploying a {{ src-full-name }} worker on a {{ compute-name }} virtual
+          machine
+        href: dev/self-hosted-worker-sourcecraft.md
       - name: Comparing load test results
         href: testing/loadtesting-results-compare.md
       - name: >-
@@ -831,7 +835,7 @@ items:
         items:
           - name: Creating a skill for Alice
             href: serverless/alice-skill.md
-          - name: Creating a skill for Alice and a website with authorization
+          - name: Building a skill for Alice and a website with authorization
             href: serverless/alice-shareable-todolist.md
       - name: Other
         items:
@@ -923,7 +927,7 @@ items:
           Delivering data from {{ yds-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/yds-to-kafka.md
-      - name: Change data capture (CDC) from {{ ydb-short-name }} to {{ DS }}
+      - name: '{{ ydb-short-name }} change data capture and delivery to {{ DS }}'
         href: dataplatform/ydb-to-yds.md
       - name: Configuring Kafka Connect to work with a {{ mkf-name }} cluster
         href: dataplatform/kafka-connect.md
@@ -1519,7 +1523,7 @@ items:
         href: serverless/telegram-ai-bot-workflows.md
       - name: Developing a custom integration in {{ api-gw-name }}
         href: serverless/api-gw-integration.md
-      - name: Developing CRUD APIs for movie services
+      - name: Developing CRUD APIs for a movie service
         href: serverless/movies-database.md
       - name: Building a CI/CD pipeline in {{ GL }}
         href: serverless/ci-cd-serverless.md
@@ -1547,7 +1551,7 @@ items:
         href: serverless/grafana-logs-plugin.md
       - name: Canary release of {{ sf-name }}
         href: serverless/canary-release.md
-      - name: Interactive debugging of {{ sf-name }}
+      - name: Interactive debugging of functions in {{ sf-name }}
         href: serverless/serverless-live-debug.md
       - name: Creating a Node.js function using TypeScript
         href: serverless/nodejs-typescript.md
@@ -1555,7 +1559,7 @@ items:
         href: serverless/deploy-app-container.md
       - name: >-
           Streaming {{ postbox-name }} events to {{ yds-name }} and analyzing
-          them with {{ datalens-name }}
+          them using {{ datalens-name }}
         href: serverless/events-from-postbox-to-yds.md
       - name: >-
           Using {{ api-gw-name }} to set up speech synthesis in {{

@@ -59,10 +59,17 @@ The number of instances in zones is determined by the [automatic scaling](../sca
 
 * `min_zone_size` (minimum zone size): Zone cannot have fewer instances than specified in `min_zone_size`.
   This restriction allows you to maintain a reserve of instances in the zone in case of a sudden load increase.
-  You may specify `min_zone_size=0`. In this case, the zone may be empty.
+  You may use `min_zone_size=0` if the instance group’s [scaling policy](../policies/scale-policy.md#auto-scale-policy) specifies at least one metric defining the total workload of all VM instances, e.g., `custom_rules: rule_type: WORKLOAD`. In this case, the zone may be empty.
 
 * `max_size` (maximum size of the whole group): Group cannot have more instances than specified in `max_size` (in total for all zones). 
   By limiting the number of instances in an automatically scaled group you can control your finance costs. 
+
+* `initial_size` (initial number of instances in the group):
+  * At least one: For regional autoscaling groups whose scaling policy does not specify any metric defining the total workload of all VM instances, e.g., `custom_rules: rule_type: WORKLOAD`.
+  * At least the number of zones hosting the group: For zonal autoscaling groups whose scaling policy does not specify any metric defining the total workload of all VM instances.
+  * 0 or more: For groups whose scaling policy specifies at least one metric defining the total workload of all VM instances.
+  
+  This limits prevent autoscaling from getting stuck while waiting for metrics from VMs that do not exist in the zone or region.
 
 ### Examples {#ex-auto-scale}
 

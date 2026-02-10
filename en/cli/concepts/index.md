@@ -19,7 +19,10 @@ Use one of the following to set or change the values of the CLI configuration pa
     You can create multiple profiles and switch between them as you need or run a command once using parameters from another profile by specifying the global `--profile` parameter.
 
     For more information about profile management, see the [step-by-step instructions](../operations/index.md#profile).
-- Global parameters: They define properties only once when a command is called. Global parameters are available for any command at any nesting level.
+
+- Global parameters: They define properties only once when a command is called.
+    
+    Global parameters are available for any command at any nesting level, but not all commands can process them. For example, if a resource is defined only by an ID, the cloud and folder parameters are ignored.
 
 For a full list of available configuration parameters, see [CLI configuration](core-properties.md).
 

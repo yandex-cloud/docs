@@ -69,6 +69,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](vm-control/vm-connect-sa.md)
 * [{#T}](vm-control/vm-access.md)
 * [{#T}](vm-control/vm-delete.md)
+* [{#T}](vm-control/gpus-maintenance.md)
 
 ## Working with VM metadata {#use-metadata}
 

@@ -192,7 +192,7 @@ To save time, you can run the OPNsense installation on your `opnsense-master` an
 1. Once the installation is complete, select `Root Password` in the **Final Configuration** window to set a password for the `root` user and press **Enter**. Enter and confirm the password.
 1. Once you set the password, select `Complete Install` in the **Final Configuration** window and press **Enter**.
 1. In the **Installation Complete** window, select `Reboot now` and press **Enter**.
-1. In the KVM console window, select **Media** → **Virtual Media Wizard...** in the top menu or click the CD icon. In the window that opens, do the following:
+1. In the KVM console window, select **Media** → **Virtual Media Wizard...** in the top menu or click the CD icon. In the window that opens:
 
       1. Under **CD/DVD Media1**, click **Disconnect**. Check the **Status** section for the **Virtual CD 1** device to make sure the **Connected To** field value has changed to `Not connected`.
       1. Click **Close**.
@@ -611,7 +611,7 @@ Further configuration may involve creating firewall rules. However, for the purp
 
     {% include [kvm-console-actions-notice](../_tutorials_includes/opnsense-failover-cluster/kvm-console-actions-notice.md) %}
 
-1. In the KVM console window, select **Media** → **Virtual Media Wizard...** in the top menu or click the CD icon. In the window that opens, do the following:
+1. In the KVM console window, select **Media** → **Virtual Media Wizard...** in the top menu or click the CD icon. In the window that opens:
 
       1. In the **CD/DVD Media1** section, click **Browse** and select the VMware ESXi image you saved earlier in the `user-iso` directory.
       1. Click **Connect CD/DVD**.
@@ -622,7 +622,7 @@ Further configuration may involve creating firewall rules. However, for the purp
 1. Set the `root` user password for access to the hypervisor settings.
 1. To start the ESXi installation, confirm that you agree to modify the partition table.
 1. Wait for the installation to complete and press **Enter** to restart your server.
-1. In the KVM console window, select **Media** → **Virtual Media Wizard...** in the top menu or click the CD icon. In the window that opens, do the following:
+1. In the KVM console window, select **Media** → **Virtual Media Wizard...** in the top menu or click the CD icon. In the window that opens:
 
       1. Under **CD/DVD Media1**, click **Disconnect**. Check the **Status** section for the **Virtual CD 1** device to make sure the **Connected To** field value has changed to `Not connected`.
       1. Click **Close**.

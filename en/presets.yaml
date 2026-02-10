@@ -1733,8 +1733,6 @@ default:
     metrics:
       stored: dn2u4odrtkjm4j959t9u
     point:
-      sp:
-        write: dn2mb2s228r44e6fce25
       ui:
         read: dn2sfig55p09i6tunbeq
     prometheus:

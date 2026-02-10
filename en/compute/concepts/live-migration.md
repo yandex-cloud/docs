@@ -16,7 +16,7 @@ Live migration does not change any VM settings. The live migration process moves
 Live migration is not supported for:
 
 * VMs with [GPUs](../concepts/gpus.md) ^1^
-* VMs with the `RESTART` [maintenance policy](../concepts/vm-policies.md) ^1^
+* VMs with the `RESTART` [maintenance policy](../concepts/maintenance-policies.md) ^1^
 * [Preemptible](../concepts/preemptible-vm.md) VMs ^2^
 * Managed DBMS VMs with local SSDs
 * VMs on dedicated hosts with [local SSDs](../concepts/dedicated-host.md#resource-disks)
@@ -28,7 +28,7 @@ Live migration is not supported for:
 
 ## See also {#see-also}
 
-* [VM maintenance policies](./vm-policies.md)
+* [VM maintenance policies](./maintenance-policies.md)
 * [How to move a VM to a different availability zone](../operations/vm-control/vm-change-zone.md)
 * [How to move a VM to another folder](../operations/vm-control/vm-change-folder.md)
 * [How to move a VM to another cloud](../operations/vm-control/vm-change-cloud.md)
