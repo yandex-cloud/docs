@@ -6,8 +6,6 @@ description: Следуя данной инструкции, вы сможете
 # Настроить домен в федерации удостоверений
 
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 [Домен](../concepts/domains.md) дает возможность аутентифицироваться через систему [Login Discovery](../concepts/domains.md#login-discovery). При аутентификации пользователь с вашим доменом будет перенаправлен в вашу [федерацию удостоверений](../concepts/add-federation.md).
 
 ## Привязать домен {#add}

@@ -78,8 +78,6 @@ To activate a federated user account:
 ## Activating a local user {#activate-local}
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 To activate a local user account:
 
 {% list tabs group=instructions %}

@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать политику MFA
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 [Политики MFA](../../concepts/mfa.md#mfa-policies) позволяют настроить [многофакторную аутентификацию](https://ru.wikipedia.org/wiki/Многофакторная_аутентификация) (MFA) для [федеративных](../../../iam/concepts/users/accounts.md#saml-federation) и [локальных](../../../iam/concepts/users/accounts.md#local) аккаунтов пользователей.
 
 Чтобы создать политику MFA:

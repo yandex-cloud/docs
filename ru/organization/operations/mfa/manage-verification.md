@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Удалить MFA-фактор и сбросить дату верификации
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 Администратор организации может просматривать дату последней верификации [федеративных](../../../iam/concepts/users/accounts.md#saml-federation) и [локальных](../../../iam/concepts/users/accounts.md#local) аккаунтов пользователей. Кроме того, в некоторых случаях администратору может потребоваться [сбросить](#reset-verification-date) дату верификации пользовательского аккаунта или [удалить](#remove-mfa-factor) имеющийся в нем [фактор аутентификации](../../concepts/mfa.md#mfa-factors).
 
 {% include [mfa-check-last-verification-notice](../../../_includes/organization/mfa-check-last-verification-notice.md) %}

@@ -6,8 +6,6 @@ description: Follow this guide to set up a domain in an identity federation in {
 # Setting up a domain in an identity federation
 
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 A [domain](../concepts/domains.md) allows you to authenticate through [Login Discovery](../concepts/domains.md#login-discovery). When authenticating, a user with your domain will be redirected to your [identity federation](../concepts/add-federation.md).
 
 ## Associating a domain {#add}

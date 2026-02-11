@@ -6,8 +6,6 @@ description: Follow this guide to create a user pool in {{ org-name }}.
 # Creating a user pool
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 {% list tabs group=instructions %}
 
 - {{ cloud-center }} UI {#cloud-center}

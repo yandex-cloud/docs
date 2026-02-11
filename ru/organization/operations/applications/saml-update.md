@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Изменить SAML-приложение в {{ org-full-name }}
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
 ## Измените базовые настройки приложения {#update-basic-settings}

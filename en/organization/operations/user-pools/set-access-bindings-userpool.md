@@ -6,8 +6,6 @@ description: In this article, you will learn how to set up access for a user poo
 # Setting up access for pool users
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 To grant access to a [pool](../../concepts/user-pools.md), assign [roles](../../../iam/concepts/access-control/roles.md) to subjects. [Learn](../../security/index.md#roles-list) what roles the service has and assign the required ones.
 
 {% list tabs group=instructions %}

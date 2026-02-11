@@ -1,3 +1,7 @@
+---
+title: Information you need to have a resource whitelisted by the Russian Ministry of Digital Development
+description: Read this article to learn how to find out the public IP addresses of your resources and services deployed in the {{ yandex-cloud }} infrastructure, which you want whitelisted by the Russian Ministry of Digital Development, and how to proceed if your resources and services have no dedicated IP addresses.
+---
 
 # Obtaining the information you need to have a resource whitelisted by the Russian Ministry of Digital Development
 

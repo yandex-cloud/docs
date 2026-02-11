@@ -1,7 +1,5 @@
 # Создать SAML-приложение в {{ org-full-name }} для интеграции с {{ mgl-name }}
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в {{ mgl-full-name }} с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-name }} и настройте его на стороне {{ org-name }} и на стороне {{ mgl-name }}.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}

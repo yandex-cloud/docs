@@ -6,8 +6,6 @@ description: Follow this guide to get a list of domains in an {{ org-name }} use
 # Getting a list of domains
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 ## Getting a list of domains in a user pool {#userpool}
 
 {% include [list-domain-in-pool](../../../_includes/organization/list-domain-in-pool.md) %}

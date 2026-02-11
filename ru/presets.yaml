@@ -136,6 +136,7 @@ default:
   cns-host: notifications.yandexcloud.net
   cns-name: Cloud Notification Service
   cns-short-name: CNS
+  code-interpreter: Code Interpreter
   coi: Container Optimized Image
   compute-full-name: Yandex Compute Cloud
   compute-guest-agent-bucket: yandexcloud-guestagent-updater
@@ -6519,6 +6520,7 @@ default:
         label_create-source-button: Создать источник данных
         label_create-tag-action: Создать тег
         label_create-term-action: Создать термин
+        label_data-store: Хранилище данных
         label_domains: Домены
         label_empty-ingestion-count-short: Нет загрузки
         label_ingestion-count: Количество загрузок
@@ -7595,6 +7597,8 @@ default:
             label_hosts: Хосты
             label_severity: Уровень логирования
             label_title: Логи
+          monitoring:
+            label_title: Мониторинг
           overview:
             button_action-delete: Удалить
             button_action-edit: Изменить
@@ -7632,6 +7636,7 @@ default:
           switch_jobs: Задания
           switch_monitoring: Мониторинг
           switch_network: Сеть
+          switch_shards: Шарды
           switch_subclusters: Подкластеры
           switch_users: Пользователи
           title_migration-alert-action: Мигрировать данные

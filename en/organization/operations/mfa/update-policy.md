@@ -5,8 +5,6 @@ description: Follow this guide to update an MFA policy in {{ org-full-name }}.
 
 # Updating an MFA policy
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 To update an [MFA policy](../../concepts/mfa.md#mfa-policies):
 
 {% list tabs group=instructions %}
@@ -16,7 +14,7 @@ To update an [MFA policy](../../concepts/mfa.md#mfa-policies):
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. In the left-hand panel, select ![shield](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.securitySettings }}**.
   1. Navigate to the **{{ ui-key.yacloud_org.organization.security-settings.SecuritySettingsPageLayout.tab_mfa_policies_m8oE3 }}** tab.
-  1. In the MFA policy list, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) in the policy row and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens, do the following:
+  1. In the MFA policy list, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) in the policy row and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
 
       1. In the **{{ ui-key.yacloud_org.forms.field.display-name }}** field, enter a new name for the policy. Follow these naming requirements:
 
@@ -74,7 +72,7 @@ To update an [MFA policy](../../concepts/mfa.md#mfa-policies):
      Where:
 
      * `--id`: MFA policy ID.
-     * `--acr-id`: Authentication [factor](../../concepts/mfa.md#mfa-factors) type.
+     * {% include [mfa-acr-id-cli-flag-legend](../../../_includes/organization/mfa-acr-id-cli-flag-legend.md) %}
      * `--ttl`: Credential validity period in days.
      * `--status`: Policy status, active (`status-active`) or inactive (`status-inactive`).
      * `--apply-at`: Time after which the policy will become active.

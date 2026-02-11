@@ -6,8 +6,6 @@ description: Следуя данной инструкции, вы сможете
 # Получить список доменов
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 ## Получить список доменов в пуле пользователей {#userpool}
 
 {% include [list-domain-in-pool](../../../_includes/organization/list-domain-in-pool.md) %}

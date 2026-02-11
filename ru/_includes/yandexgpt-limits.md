@@ -34,6 +34,8 @@
 **[Голосовые агенты](../ai-studio/concepts/agents/realtime.md)** ([модель](../ai-studio/concepts/agents/realtime.md#model) `{{ realtime-model }}`) |
 Количество одновременных сессий с моделью | 10
 Количество запросов на создание сессии в секунду | 10
+**[AI-агенты](../ai-studio/concepts/agents/index.md)** |
+Количество одновременных запусков [{{ code-interpreter }}](../ai-studio/concepts/agents/tools/code-interpreter.md) | 3
 
 #### Лимиты {#yandexgpt-limits}
 

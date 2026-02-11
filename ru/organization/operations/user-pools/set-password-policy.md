@@ -6,8 +6,6 @@ description: Следуя данной инструкции, вы сможете
 # Настроить парольную политику
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 Чтобы настроить [парольную политику](../../concepts/password-policy.md):
 
 {% list tabs group=instructions %}

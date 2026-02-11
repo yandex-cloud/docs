@@ -6,8 +6,6 @@ description: Follow this guide to update an OIDC application in {{ org-name }}.
 # Updating an OIDC application in {{ org-full-name }}
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
 ## Update the app's basic settings {#update-basic-settings}

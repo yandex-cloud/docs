@@ -12,24 +12,28 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the folder to create the Metastore Cluster in.
+            The maximum string length in characters is 50.
           type: string
         name:
           description: |-
             **string**
             Required field. Name of the Metastore Cluster.
             The name must be unique within the folder.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
         description:
           description: |-
             **string**
             Description of the Metastore Cluster.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Custom labels for the Metastore Cluster as `` key:value `` pairs.
             For example: {"env": "prod"}.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -60,6 +64,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Service account used to access Cloud resources.
+            The maximum string length in characters is 50.
           type: string
         logging:
           description: |-
@@ -89,6 +94,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. ID of the preset for computational resources allocated to an instance (e.g., CPU, memory, etc.).
+              The maximum string length in characters is 50.
             type: string
         required:
           - resourcePresetId
@@ -112,6 +118,7 @@ apiPlayground:
             description: |-
               **string**
               Logs will be written to the default log group of the specified folder.
+              Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
               Includes only one of the fields `folderId`, `logGroupId`.
               Destination of log records.
             pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
@@ -120,6 +127,7 @@ apiPlayground:
             description: |-
               **string**
               Logs will be written to the log group specified by its ID.
+              Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
               Includes only one of the fields `folderId`, `logGroupId`.
               Destination of log records.
             pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
@@ -129,8 +137,6 @@ apiPlayground:
               **enum** (Level)
               Minimum severity level for log entries.
               See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
-              - `LEVEL_UNSPECIFIED`: Default log level.
-                Equivalent to not specifying log level at all.
               - `TRACE`: Trace log level.
                 Possible use case: verbose logging of some business logic.
               - `DEBUG`: Debug log level.
@@ -184,7 +190,6 @@ apiPlayground:
             description: |-
               **enum** (WeekDay)
               Day of the week when maintenance can occur.
-              - `WEEK_DAY_UNSPECIFIED`: Day of the week is not specified.
               - `MON`: Monday.
               - `TUE`: Tuesday.
               - `WED`: Wednesday.
@@ -206,6 +211,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Hour of the day in UTC when the maintenance window starts.
+              Acceptable values are 1 to 24, inclusive.
             type: string
             format: int64
       MaintenanceWindow:
@@ -289,18 +295,26 @@ POST https://metastore.{{ api-host }}/managed-metastore/v1/clusters
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder to create the Metastore Cluster in. ||
+Required field. ID of the folder to create the Metastore Cluster in.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Required field. Name of the Metastore Cluster.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || description | **string**
 
-Description of the Metastore Cluster. ||
+Description of the Metastore Cluster.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Custom labels for the Metastore Cluster as `` key:value `` pairs.
-For example: {"env": "prod"}. ||
+For example: {"env": "prod"}.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || deletionProtection | **boolean**
 
 Deletion Protection prevents deletion of the cluster. ||
@@ -312,7 +326,9 @@ Metastore server version. ||
 Configuration of the Metastore Cluster. ||
 || serviceAccountId | **string**
 
-Required field. Service account used to access Cloud resources. ||
+Required field. Service account used to access Cloud resources.
+
+The maximum string length in characters is 50. ||
 || logging | **[LoggingConfig](#yandex.cloud.metastore.v1.LoggingConfig)**
 
 Cloud logging configuration. ||
@@ -339,7 +355,9 @@ Configuration for computational resources for Metastore server instances. ||
 ||Field | Description ||
 || resourcePresetId | **string**
 
-Required field. ID of the preset for computational resources allocated to an instance (e.g., CPU, memory, etc.). ||
+Required field. ID of the preset for computational resources allocated to an instance (e.g., CPU, memory, etc.).
+
+The maximum string length in characters is 50. ||
 |#
 
 ## LoggingConfig {#yandex.cloud.metastore.v1.LoggingConfig}
@@ -353,12 +371,16 @@ Logs generated by the Metastore server are delivered to Cloud Logging. ||
 
 Logs will be written to the default log group of the specified folder.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `folderId`, `logGroupId`.
 
 Destination of log records. ||
 || logGroupId | **string**
 
 Logs will be written to the log group specified by its ID.
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `folderId`, `logGroupId`.
 
@@ -369,9 +391,6 @@ Minimum severity level for log entries.
 
 See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -428,7 +447,6 @@ Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 
 Day of the week when maintenance can occur.
 
-- `WEEK_DAY_UNSPECIFIED`: Day of the week is not specified.
 - `MON`: Monday.
 - `TUE`: Tuesday.
 - `WED`: Wednesday.
@@ -438,7 +456,9 @@ Day of the week when maintenance can occur.
 - `SUN`: Sunday. ||
 || hour | **string** (int64)
 
-Hour of the day in UTC when the maintenance window starts. ||
+Hour of the day in UTC when the maintenance window starts.
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -739,7 +759,9 @@ Configuration for computational resources for Metastore server instances. ||
 ||Field | Description ||
 || resourcePresetId | **string**
 
-Required field. ID of the preset for computational resources allocated to an instance (e.g., CPU, memory, etc.). ||
+Required field. ID of the preset for computational resources allocated to an instance (e.g., CPU, memory, etc.).
+
+The maximum string length in characters is 50. ||
 |#
 
 ## LoggingConfig {#yandex.cloud.metastore.v1.LoggingConfig2}
@@ -753,12 +775,16 @@ Logs generated by the Metastore server are delivered to Cloud Logging. ||
 
 Logs will be written to the default log group of the specified folder.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `folderId`, `logGroupId`.
 
 Destination of log records. ||
 || logGroupId | **string**
 
 Logs will be written to the log group specified by its ID.
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `folderId`, `logGroupId`.
 
@@ -769,9 +795,6 @@ Minimum severity level for log entries.
 
 See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -828,7 +851,6 @@ Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 
 Day of the week when maintenance can occur.
 
-- `WEEK_DAY_UNSPECIFIED`: Day of the week is not specified.
 - `MON`: Monday.
 - `TUE`: Tuesday.
 - `WED`: Wednesday.
@@ -838,7 +860,9 @@ Day of the week when maintenance can occur.
 - `SUN`: Sunday. ||
 || hour | **string** (int64)
 
-Hour of the day in UTC when the maintenance window starts. ||
+Hour of the day in UTC when the maintenance window starts.
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.metastore.v1.MaintenanceOperation}
@@ -847,7 +871,9 @@ Hour of the day in UTC when the maintenance window starts. ||
 ||Field | Description ||
 || info | **string**
 
-Information about the maintenance operation. ||
+Information about the maintenance operation.
+
+The maximum string length in characters is 256. ||
 || delayedUntil | **string** (date-time)
 
 Maintenance is postponed until the specified timestamp.

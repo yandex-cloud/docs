@@ -24,6 +24,8 @@ description: Из статьи вы узнаете про SMS в {{ cns-name }},
 
 ### Индивидуальный отправитель {#individual-sender}
 
+{% include [legal-entity-note](../../_includes/notifications/legal-entity-note.md) %}
+
 {% include [individual-sender-description](../../_includes/notifications/individual-sender-description.md) %}
 
 Регистрация текстового имени отправителя осуществляется через техническую поддержку.

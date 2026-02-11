@@ -5,8 +5,6 @@ description: Follow this guide to create a SAML application in {{ org-name }} to
 
 # Creating a SAML application in {{ org-full-name }}
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 To authenticate your [organization](../../concepts/organization.md)'s users to external apps using [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)-based SSO, create a [SAML application](../../concepts/applications.md#saml) in {{ org-name }} and configure it appropriately both in {{ org-name }} and on your service provider side.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
@@ -88,6 +86,43 @@ To authenticate your [organization](../../concepts/organization.md)'s users to e
      ```
 
      When you create a SAML application, a certificate is automatically created to verify the SAML response signature.
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Describe the SAML application parameters in the configuration file:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_application_saml_application" "saml_app" {
+       organization_id = "<organization_ID>"
+       name            = "<application_name>"
+       description     = "<application_description>"
+       labels          = {
+         "<key>" = "<value>"
+       }
+     }
+     ```
+
+     Where:
+
+     * `organization_id`: [ID of the organization](../organization-get-id.md) you want to create your SAML application in. This is a required parameter.
+     * `name`: SAML application name. This is a required parameter. The name must be unique within the organization and follow the naming requirements:
+
+         {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
+
+     * `description`: SAML application description. This is an optional parameter.
+     * `labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional parameter.
+
+     For more information about `yandex_organizationmanager_idp_application_saml_application` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
+
+  1. Create the resources:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will create all the required resources. You can check the new resources and their settings in [{{ org-full-name }}]({{ link-org-cloud-center }}).
+
+   When you create a SAML application, a certificate is automatically created to verify the SAML response signature.
 
 - API {#api}
 
@@ -196,6 +231,49 @@ Before configuring your SAML application in {{ org-name }}, get the required set
      created_at: "2025-10-21T10:51:28.790866Z"
      updated_at: "2025-10-21T12:37:19.274522Z"
      ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Describe the SAML application configuration parameters in the configuration file:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_application_saml_application" "saml_app" {
+       organization_id = "<organization_ID>"
+       name            = "<application_name>"
+
+       service_provider = {
+         entity_id = "<service_provider_ID>"
+         acs_urls  = [
+           {
+             url = "URL"
+           }
+         ]
+         security_settings = {
+           signature_mode = "RESPONSE_AND_ASSERTIONS"
+         }
+       }
+     }
+     ```
+
+     Where:
+
+     * `organization_id`: [ID of the organization](../organization-get-id.md) you want to create your SAML application in. This is a required parameter.
+     * `entity_id`: Unique service provider ID. The value must be the same on the service provider's and {{ org-name }} side.
+     * `acs_urls`: List of URLs {{ org-name }} will send the SAML response to. The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
+     * `signature_mode`: SAML response elements that will be digitally signed. The possible values are:
+       * `ASSERTION_ONLY`: Only the provided user attributes.
+       * `RESPONSE_ONLY`: Full SAML response.
+       * `RESPONSE_AND_ASSERTION`: Full SAML response and, separately, the provided attributes.
+
+     For more information about `yandex_organizationmanager_idp_application_saml_application` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     You can check the changes to the resources and their settings in [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
 - API {#api}
 

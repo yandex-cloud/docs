@@ -1,7 +1,5 @@
 # Создать OIDC-приложение в {{ org-full-name }} для интеграции с Grafana OSS
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 [Grafana Open Source Software (OSS)](https://grafana.com/oss/) — это бесплатная платформа с открытым исходным кодом для мониторинга и визуализации данных, которую можно развернуть на собственной инфраструктуре. Grafana OSS поддерживает [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC) аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
 Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Grafana OSS с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications.md#oidc) в {{ org-name }} и настройте его на стороне {{ org-name }} и на стороне Grafana OSS.

@@ -5,8 +5,6 @@ description: Follow this guide to activate or deactivate an MFA policy in {{ org
 
 # Activating or deactivating an MFA policy
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 ## Activating an MFA policy {#reactivate-policy}
 
 To activate an inactive [MFA policy](../../concepts/mfa.md#mfa-policies):

@@ -6,8 +6,6 @@ description: Follow this guide to get information about a user pool in {{ org-na
 # Getting information about a user pool
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 {% list tabs group=instructions %}
 
 - {{ cloud-center }} UI {#cloud-center}

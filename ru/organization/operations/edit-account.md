@@ -36,8 +36,6 @@ description: Из этой статьи вы узнаете, как удалит
 Чтобы удалить из организации [локального](../../iam/concepts/users/accounts.md#local) пользователя:
 
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 {% list tabs group=instructions %}
 
 - Интерфейс {{ cloud-center }} {#cloud-center}

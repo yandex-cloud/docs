@@ -36,8 +36,6 @@ Once you delete a [federated user](../../iam/concepts/users/accounts.md#saml-fed
 To delete a [local](../../iam/concepts/users/accounts.md#local) user from an organization:
 
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 {% list tabs group=instructions %}
 
 - {{ cloud-center }} UI {#cloud-center}

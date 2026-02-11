@@ -1,5 +1,5 @@
 {% note info %}
 
-User pools are at the [Preview](../../overview/concepts/launch-stages.md) stage.
+User pools are currently at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 {% endnote %}

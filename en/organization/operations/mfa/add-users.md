@@ -5,8 +5,6 @@ description: Follow this guide to add and delete users and groups to and from an
 
 # Applying an MFA policy to users
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 For an [MFA policy](../../concepts/mfa.md#mfa-policies) to apply to user accounts, you need to explicitly add the relevant users or the [groups](../../concepts/groups.md) they are members of to the policy's target groups.
 
 {% list tabs group=instructions %}

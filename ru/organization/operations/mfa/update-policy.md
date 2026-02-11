@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Изменить политику MFA
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 Чтобы изменить [политику MFA](../../concepts/mfa.md#mfa-policies):
 
 {% list tabs group=instructions %}

@@ -5,8 +5,6 @@ description: In this tutorial, you will learn how to link a new region to an org
 
 # Connecting a controlled organization
 
-{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
-
 1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
 1. In the pop-up window, click **{{ ui-key.yacloud_org.dashboard.organization.action_connect-new-region }}**.

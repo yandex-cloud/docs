@@ -5,8 +5,6 @@ description: Follow this guide to create and set up an MFA policy in {{ org-full
 
 # Creating an MFA policy
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 [MFA policies](../../concepts/mfa.md#mfa-policies) enable configuring [multi-factor authentication](https://en.wikipedia.org/wiki/Multi-factor_authentication) (MFA) for [federated](../../../iam/concepts/users/accounts.md#saml-federation) and [local](../../../iam/concepts/users/accounts.md#local) user accounts.
 
 To create an MFA policy:
@@ -58,16 +56,16 @@ To create an MFA policy:
 
      Where:
 
-     * `--name`: Policy name. Follow these naming requirements:
+     * `--name`: Policy name. The naming requirements are as follows:
 
         {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
 
      * `--organization-id`: Organization ID.
-     * `--acr-id`: Authentication [factor](../../concepts/mfa.md#mfa-factors) type.
+     * {% include [mfa-acr-id-cli-flag-legend](../../../_includes/organization/mfa-acr-id-cli-flag-legend.md) %}
      * `--ttl`: Credential validity period in days.
      * `--status`: Policy status, active (`status-active`) or inactive (`status-inactive`).
      * `--apply-at`: Time after which the policy will become active. This is an optional parameter.
-     * `--enroll-window`: Period in days after registration during which the user must add a second authentication factor.
+     * `--enroll-window`: Period in days during which the user must add a second authentication factor after registration.
      * `--description`: Policy description. This is an optional parameter.
 
   1. Optionally, run the following command to activate an inactive MFA policy:

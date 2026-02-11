@@ -6,8 +6,6 @@ description: Follow this guide to set up a password policy in a {{ org-name }} u
 # Setting up a password policy
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 To set up a [password policy](../../concepts/password-policy.md):
 
 {% list tabs group=instructions %}

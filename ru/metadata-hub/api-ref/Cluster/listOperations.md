@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the Metastore Cluster to list operations for.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -23,6 +24,7 @@ apiPlayground:
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`, the service returns a [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.metastore.v1.ListClusterOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         pageToken:
@@ -31,6 +33,7 @@ apiPlayground:
             Page token.
             To get the next page of results, set `pageToken` to the [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.metastore.v1.ListClusterOperationsResponse)
             returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -54,7 +57,9 @@ GET https://metastore.{{ api-host }}/managed-metastore/v1/clusters/{clusterId}/o
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Metastore Cluster to list operations for. ||
+Required field. ID of the Metastore Cluster to list operations for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.metastore.v1.ListClusterOperationsRequest}
@@ -65,12 +70,16 @@ Required field. ID of the Metastore Cluster to list operations for. ||
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.metastore.v1.ListClusterOperationsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token.
 To get the next page of results, set `pageToken` to the [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.metastore.v1.ListClusterOperationsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.metastore.v1.ListClusterOperationsResponse}

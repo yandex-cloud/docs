@@ -6,8 +6,6 @@ description: Follow this guide to view information about a domain in a user pool
 # Viewing information about a domain
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 ## Viewing information about a domain in a user pool {#userpool}
 
 {% include [get-domain-in-pool](../../../_includes/organization/get-domain-in-pool.md) %}

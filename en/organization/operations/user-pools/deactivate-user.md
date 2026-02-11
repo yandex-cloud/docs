@@ -79,8 +79,6 @@ To deactivate a federated user account:
 ## Deactivating a local user {#deactivate-local}
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 To deactivate a local user account:
 
 {% list tabs group=instructions %}

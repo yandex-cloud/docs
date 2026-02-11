@@ -6,8 +6,6 @@ description: Следуя данной инструкции, вы сможете
 # Посмотреть информацию о домене
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 ## Посмотреть информацию о домене в пуле пользователей {#userpool}
 
 {% include [get-domain-in-pool](../../../_includes/organization/get-domain-in-pool.md) %}

@@ -5,8 +5,6 @@ description: Follow this guide to delete an MFA policy in {{ org-full-name }}.
 
 # Deleting an MFA policy
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 To delete [an MFA policy](../../concepts/mfa.md#mfa-policies):
 
 {% list tabs group=instructions %}

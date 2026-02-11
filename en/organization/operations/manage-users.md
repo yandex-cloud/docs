@@ -1,6 +1,6 @@
 # Managing user accounts
 
-Use {{ org-full-name }} to manage your employees' access to {{ yandex-cloud }} services.
+With {{ org-full-name }}, you can manage user accounts and access to corporate apps via SAML and OpenID Connect (identity provider) protocols in a centralized way.
 
 You can connect your employees using their [Yandex accounts](../../iam/concepts/users/accounts.md#passport), which will give them access to your [organization's](../concepts/organization.md) services.
 

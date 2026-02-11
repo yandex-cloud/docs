@@ -5,6 +5,10 @@ description: На странице представлена история из�
 
 # История изменений в сервисе {{ foundation-models-full-name }}
 
+## Релиз 11.02.2026 {#110226}
+
+Поддержан [{{ code-interpreter }}](../concepts/agents/tools/code-interpreter.md) — встроенный инструмент {{ ai-studio-full-name }}, позволяющий модели писать и выполнять Python-код в изолированной среде.
+
 ## Релиз 27.01.2026 {#270126}
 
 Yandex ML SDK [переименован](https://github.com/yandex-cloud/yandex-ai-studio-sdk/blob/master/compat/yandex-cloud-ml-sdk/MIGRATION.md) в Yandex AI Studio SDK.

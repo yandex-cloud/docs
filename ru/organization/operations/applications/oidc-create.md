@@ -6,8 +6,6 @@ description: Следуя данной инструкции, вы сможете
 # Создать OIDC-приложение в {{ org-full-name }}
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться во внешних приложениях с помощью технологии единого входа по стандарту [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC), создайте [OIDC-приложение](../../concepts/applications.md#oidc) в {{ org-name }} и настройте его на стороне {{ org-name }} и на стороне поставщика услуг.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
