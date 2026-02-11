@@ -16,3 +16,4 @@ description: Setting up integration between {{ org-full-name }} and external app
 * [{{ OS }}](./saml-opensearch-self-managed.md)
 * [SonarQube](./saml-sonarqube.md)
 * [OpenVPN Access Server](./saml-ovpn.md)
+* [Configuring single sign-on for applications that do not support SSO](./oidc-nginx-oauth2-proxy.md)

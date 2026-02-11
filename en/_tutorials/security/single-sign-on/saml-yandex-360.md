@@ -1,7 +1,5 @@
 # Creating a SAML app in {{ org-full-name }} for integration with {{ yandex-360 }}
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 [Yandex 360](https://360.yandex.ru/) is a cloud platform for business offering tools for setting up corporate email addresses, collaboration, and document management. {{ yandex-360 }} supports SAML authentication to provide secure SSO for your organization’s users.
 
 To authenticate your [organization's](../../../organization/concepts/organization.md) users to {{ yandex-360 }} via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-name }} and configure it appropriately both in {{ org-name }} and {{ yandex-360 }}.

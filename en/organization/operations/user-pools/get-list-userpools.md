@@ -6,8 +6,6 @@ description: Follow this guide to get a list of user pools in an {{ org-name }}.
 # Getting a list of user pools
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 {% list tabs group=instructions %}
 
 - {{ cloud-center }} UI {#cloud-center}

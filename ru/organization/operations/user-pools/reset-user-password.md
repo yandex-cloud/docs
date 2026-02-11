@@ -6,8 +6,6 @@ description: Следуя данной инструкции, вы сможете
 # Изменить пароль локального пользователя
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 ## Сбросить пароль {#reset}
 
 Чтобы задать пароль [локального](../../../iam/concepts/users/accounts.md#local) пользователя:

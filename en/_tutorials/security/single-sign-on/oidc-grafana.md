@@ -1,11 +1,9 @@
 # Creating an OIDC application in {{ org-full-name }} for integration with Grafana Cloud
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
+[Grafana Cloud](https://grafana.com/products/cloud/) is a managed cloud monitoring and observability platform that brings together Grafana, Prometheus, Loki, and other tools for data visualization and analysis. Grafana Cloud supports [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) authentication to provide secure SSO for your organization's users.
 
-[Grafana Cloud](https://grafana.com/products/cloud/) is a managed cloud monitoring and observability platform that brings together Grafana, Prometheus, Loki, and other tools for data visualization and analysis. Grafana Cloud supports OpenID Connect (OIDC) authentication to provide secure SSO for your organization's users.
-
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to Grafana Cloud with [OpenID Connect](https://en.wikipedia.org/wiki/OpenID_Connect) SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) in {{ org-name }} and configure it appropriately both in {{ org-name }} and Grafana Cloud.
+To authenticate your [organization's](../../../organization/concepts/organization.md) users to Grafana Cloud with OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) in {{ org-name }} and configure it appropriately both in {{ org-name }} and Grafana Cloud.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -249,7 +247,7 @@ To integrate Grafana Cloud with the OIDC app you created in {{ org-name }}, comp
         <Grafana_Cloud_instance_URL>/login/generic_oauth
         ```
 
-        For example, `https://your-org.grafana.net/login/generic_oauth`.
+        For example: `https://your-org.grafana.net/login/generic_oauth`.
 
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -259,26 +257,32 @@ To integrate Grafana Cloud with the OIDC app you created in {{ org-name }}, comp
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Update your OIDC app by providing the redirect URI:
+  1. Update your OAuth client by providing the redirect URI:
 
      ```bash
-     yc organization-manager idp application oauth application update <app_ID> \
+     yc iam oauth-client update \
+       --id <OAuth_client_ID> \
        --redirect-uris "<Grafana_Cloud_instance_URL>/login/generic_oauth"
      ```
 
      Where:
      
-     * `<app_ID>`: OIDC app ID you got when creating the app.
-     * `--redirect-uris`: Authentication endpoint for your Grafana Cloud instance. For example, `https://your-org.grafana.net/login/generic_oauth`.
+     * `<OAuth_client_ID>`: OAuth client ID you got when you created it.
+     * `--redirect-uris`: Authentication endpoint for your Grafana Cloud instance. For example: `https://your-org.grafana.net/login/generic_oauth`.
 
      Result:
 
      ```text
-     id: ek0o663g4rs2********
+     id: ajeiu3otac08********
      name: grafana-cloud-oidc-app
-     organization_id: bpf2c65rqcl8********
      redirect_uris:
        - https://your-org.grafana.net/login/generic_oauth
+     scopes:
+       - openid
+       - email
+       - profile
+     folder_id: b1gkd6dks6i1********
+     status: ACTIVE
      ```
 
 {% endlist %}
@@ -364,7 +368,7 @@ Add a user to the application:
 
 To make sure both your OIDC app and Grafana Cloud integration work correctly, authenticate to Grafana Cloud as one of the users you added to the app.
 
-Proceed as follows:
+To do so:
 
 1. In your browser, navigate to the address of your Grafana Cloud instance, e.g., `https://your-org.grafana.net`.
 1. If you were logged in to Grafana Cloud, log out.

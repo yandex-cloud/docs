@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Удалить политику MFA
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 Чтобы удалить [политику MFA](../../concepts/mfa.md#mfa-policies):
 
 {% list tabs group=instructions %}

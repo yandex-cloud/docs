@@ -1137,6 +1137,8 @@ subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zooke
 
 #### Системные метрики {#managed-clickhouse-config-metrics}
 
+Нативные метрики {{ CH }} из таблицы [system.asynchronous_metrics]({{ ch.docs }}/operations/system-tables/asynchronous_metrics).
+
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `ch_config_merge_tree_parts_to_throw_insert`<br/>`DGAUGE`, штуки | Предельное число активных кусков данных таблицы, при превышении которого {{ CH }} отправляет исключение `Too many parts ....` Задается в [настройках](../../../managed-clickhouse/concepts/settings-list.md#setting-merge-tree). Имеет смысл [анализировать](../../../glossary/data-analytics.md) в паре с метрикой `ch_system_async_metrics_MaxPartCountForPartition`. |

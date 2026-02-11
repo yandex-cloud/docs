@@ -6,8 +6,6 @@ description: In {{ org-full-name }}, you can associate your domains with user po
 # Domains
 
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 In {{ org-full-name }}, you can [associate](../operations/user-pools/add-domain.md) your domains with [user pools](user-pools.md) or [identity federations](add-federation.md). The domain identifies the user container, e.g., a pool or federation, and the users within it. Such users have names in `<username>@<domain>` format.
 
 You can only associate each domain with one user pool or federation.

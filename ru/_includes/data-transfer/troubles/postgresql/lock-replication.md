@@ -4,36 +4,36 @@
 
 **Решение:**
 
-1. Найдите `PID` процесса, конкурирующего за блокировки с трансфером:
+1. Найдите процесс, конкурирующий за блокировки с трансфером:
 
    ```sql
-   /* поиск PID трансфера */
-   SELECT active_pid
-     FROM pg_replication_slots
-     WHERE slot_name = '<ID_трансфера>';
-
-   /* поиск PID блокирующего процесса */
-   SELECT pid, pg_blocking_pids(pid) as blocked_by
-     FROM pg_stat_activity
-     WHERE cardinality(pg_blocking_pids(pid)) > 0;
+   SELECT
+     activity.pid,
+     activity.usename,
+     activity.query,
+     blocking.pid AS blocking_id,
+     blocking.query AS blocking_query
+   FROM
+     pg_stat_activity AS activity
+     JOIN pg_stat_activity AS blocking ON blocking.pid = ANY(
+       pg_blocking_pids(activity.pid)
+     )
+   WHERE
+     activity.query like '%<идентификатор_трансфера>%';
    ```
 
+   Идентификатор трансфера можно получить со [списком трансферов в каталоге](../../../../data-transfer/operations/transfer.md#list).
+
+   Ответ:
+
    ```text
-           pid      | blocked_by
-   -----------------+-------------------
-    <PID_трансфера> | {<PID_блокирующей_транзакции>}
+          pid      |      usename       |      query      |         blocking_id          |    blocking_query
+   ----------------+--------------------+-----------------+------------------------------+----------------------
+   <PID_трансфера> | <имя_пользователя> | <текст_запроса> | <PID_блокирующей_транзакции> | <блокирующий_запрос>
    (1 row)
    ```
 
-1. Посмотрите блокирующий запрос:
-
-   ```sql
-   SELECT query, usename
-     FROM pg_stat_activity
-     WHERE pid = <PID_блокирующей_транзакции>;
-   ```
-
-1. (Опционально) Остановите транзакцию командой:
+1. Остановите транзакцию командой:
 
    ```sql
    SELECT pg_terminate_backend(<PID_блокирующей_транзакции>);

@@ -209,13 +209,13 @@ items:
         items:
           - name: Overview
             href: tutorials/federations/index.md
-          - name: Authentication using Active Directory
+          - name: Active Directory authentication
             href: tutorials/federations/integration-adfs.md
-          - name: Authentication using Google Workspace
+          - name: Google Workspace authentication
             href: tutorials/federations/integration-gworkspace.md
-          - name: Authentication using {{ microsoft-idp.entra-id-full }}
+          - name: '{{ microsoft-idp.entra-id-full }} authentication'
             href: tutorials/federations/integration-azure.md
-          - name: Authentication using Keycloak
+          - name: Keycloak authentication
             href: tutorials/federations/integration-keycloak.md
           - name: User group mapping
             items:
@@ -257,6 +257,8 @@ items:
             href: tutorials/single-sign-on/saml-sonarqube.md
           - name: OpenVPN Access Server
             href: tutorials/single-sign-on/saml-ovpn.md
+          - name: Using OAuth2 Proxy for applications not supporting SSO
+            href: tutorials/single-sign-on/oidc-nginx-oauth2-proxy.md
   - name: Concepts
     items:
       - name: Organization

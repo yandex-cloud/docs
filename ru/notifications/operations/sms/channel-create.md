@@ -15,4 +15,6 @@ description: Следуя этой инструкции, вы сможете с�
 
 ## Создать канал SMS-уведомлений c индивидуальным отправителем {#create-individual-channel}
 
+{% include [legal-entity-note](../../../_includes/notifications/legal-entity-note.md) %}
+
 {% include [sms-channel-individual-create](../../../_includes/notifications/sms-channel-individual-create.md) %}

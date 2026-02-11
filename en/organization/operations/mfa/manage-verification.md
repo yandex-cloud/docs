@@ -5,8 +5,6 @@ description: Follow this guide to remove MFA factors as well as track and reset 
 
 # Removing an MFA factor and resetting the verification date
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 An organization administrator can view the last verification date of [federated](../../../iam/concepts/users/accounts.md#saml-federation) and [local](../../../iam/concepts/users/accounts.md#local) user accounts. In some cases, an administrator may also need to [reset](#reset-verification-date) the verification date of a user account or [remove](#remove-mfa-factor) its [authentication factor](../../concepts/mfa.md#mfa-factors).
 
 {% include [mfa-check-last-verification-notice](../../../_includes/organization/mfa-check-last-verification-notice.md) %}

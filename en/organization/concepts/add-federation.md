@@ -8,7 +8,7 @@ If your company has a user and access management system (e.g., {{ microsoft-idp.
 
 ## Configuring federations in {{ org-full-name }} {#federation-usage}
 
-Using identity federations, you can configure a single sign-on (SSO) system and use corporate accounts for authentication in {{ org-name }}. In this case, your corporate account management system acts as an identity provider (IdP).
+With identity federations, you can configure a single sign-on (SSO) system and use corporate accounts for authentication in {{ org-name }}. In this case, your corporate account management system acts as an identity provider (IdP).
 
 In {{ org-name }}, you can create an identity federation with any credential management service (identity provider) that supports the [SAML]({{ link-saml }}) protocol.
 

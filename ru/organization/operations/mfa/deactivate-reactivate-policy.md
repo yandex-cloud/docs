@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Активировать и деактивировать политику MFA
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 ## Активируйте политику MFA {#reactivate-policy}
 
 Чтобы активировать неактивную [политику MFA](../../concepts/mfa.md#mfa-policies):

@@ -6,8 +6,6 @@ description: A password policy brings together rules on creating and updating pa
 # Password policy
 
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 A _password policy_ brings together rules on creating and updating passwords for [pool](user-pools.md) users.
 
 ## Password policy settings {#settings}

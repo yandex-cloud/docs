@@ -45,6 +45,8 @@ items:
         href: concepts/agents/text-agents.md
       - name: Conversations API
         href: concepts/agents/conversations-api.md
+      - name: '{{ code-interpreter }}'
+        href: concepts/agents/tools/code-interpreter.md
       - name: '{{ assistant-api }}'
         hidden: true
         items:
@@ -166,6 +168,8 @@ items:
             href: operations/agents/create-function-text-agent.md
           - name: Создать голосового агента с помощью {{ realtime-api }}
             href: operations/agents/create-voice-agent.md
+          - name: Выполнить задачу с помощью {{ code-interpreter }}
+            href: operations/agents/use-code-interpreter.md
           - name: Управление контекстом диалога
             href: operations/agents/manage-context.md
           - name: '{{ assistant-api }}'

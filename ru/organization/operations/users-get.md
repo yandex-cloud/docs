@@ -62,8 +62,6 @@ description: Следуя данной инструкции, вы сможете
 ## Локальные пользователи {#local} 
 
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 Чтобы получить информацию о [локальном](../../iam/concepts/users/accounts.md#local) пользователе:
 
 {% list tabs group=instructions %}

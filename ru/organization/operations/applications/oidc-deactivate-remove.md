@@ -6,8 +6,6 @@ description: Следуя данной инструкции, вы сможете
 # Деактивировать и удалить OIDC-приложение в {{ org-full-name }}
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
 ## Деактивируйте приложение {#deactivate}

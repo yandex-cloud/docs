@@ -6,8 +6,6 @@ description: Follow this guide to create an OIDC application in {{ org-name }} t
 # Creating an OIDC application in {{ org-full-name }}
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 To authenticate your [organization’s](../../concepts/organization.md) users in external apps using [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) single sign-on, create an [OIDC application](../../concepts/applications.md#oidc) in {{ org-name }} and configure it appropriately both in {{ org-name }} and on your service provider’s side.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}

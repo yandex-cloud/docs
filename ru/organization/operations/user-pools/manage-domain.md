@@ -6,8 +6,6 @@ description: Следуя данной инструкции, вы сможете
 # Управление доменами в пуле пользователей
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 [Домен](../../concepts/domains.md) дает возможность аутентифицироваться через систему [Login Discovery](../../concepts/domains.md#login-discovery). При аутентификации пользователь с вашим доменом будет перенаправлен в ваш [пул пользователей](../../concepts/user-pools.md).
 
 ## Привязать домен {#add}

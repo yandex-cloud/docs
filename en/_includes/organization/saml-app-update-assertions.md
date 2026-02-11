@@ -96,6 +96,67 @@
      yc organization-manager idp application saml attribute delete <attribute_ID>
      ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. Describe the following SAML application attributes in the configuration file:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_application_saml_application" "saml_app" {
+       organization_id = "<organization_ID>"
+       name            = "<application_name>"
+
+       attribute_mapping = {
+         name_id  = {
+           format = "EMAIL"
+         }
+
+         attributes = [{
+           name  = "email"
+           value = "SubjectClaims.email"
+         }, {
+           name  = "firstName"
+           value = "SubjectClaims.given_name"
+         }, {
+           name  = "lastName"
+           value = "SubjectClaims.family_name"
+         }]
+       }
+
+       group_claims_settings = {
+         group_attribute_name    = "<group_attribute_name>"
+         group_distribution_type = "ALL_GROUPS"
+       }
+     }
+     ```
+
+     Where:
+
+     * `organization_id`: [ID of the organization](../../organization/operations/organization-get-id.md) you want to create your SAML application in. This is a required parameter.
+     * `name`: SAML application name. This is a required parameter.
+     * `attributes`: List of attributes {{ org-name }} will be delivering to the service provider. Each attribute contains:
+       * `name`: Attribute name unique to your application.
+       * `value`: Attribute value. The possible values are:
+
+         {% include [saml-app-assertion-list](./saml-app-assertion-list.md) %}
+
+     * `group_claims_settings`: User group attribute parameters:
+       * `group_attribute_name`: User group attribute name. The attribute name must be unique within your application.
+       * `group_distribution_type`: Group attribute value. The possible values are: 
+         * `ASSIGNED_GROUPS`: In a SAML response, this field will include only those groups that are explicitly specified on the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}** tab of your SAML app.
+         * `ALL_GROUPS`: In a SAML response, this field will include all [groups](../../organization/concepts/groups.md) the user belongs to.
+
+             The maximum number of groups this field can include is 1,000. If the user belongs to more groups than this, only the first thousand will go to the service provider. 
+
+     For more information about `yandex_organizationmanager_idp_application_saml_application` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     You can check the changes to the resources and their settings in [{{ org-full-name }}]({{ link-org-cloud-center }}).
+
 - API {#api}
 
   Use the [Application.Update](../../organization/idp/application/saml/api-ref/Application/update.md) REST API method for the [Application](../../organization/idp/application/saml/api-ref/Application/index.md) resource or the [ApplicationService/Update](../../organization/idp/application/saml/api-ref/grpc/Application/update.md) gRPC API call.

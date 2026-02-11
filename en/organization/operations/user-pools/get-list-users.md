@@ -6,8 +6,6 @@ description: Follow this guide to get a list of users in an {{ org-name }} pool.
 # Getting a list of users in a pool
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 {% list tabs group=instructions %}
 
 - {{ cloud-center }} UI {#cloud-center}

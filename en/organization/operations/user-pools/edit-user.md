@@ -6,8 +6,6 @@ description: Follow this guide to update user data in a {{ org-full-name }} pool
 # Updating user data
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 You can only update user data for [local](../../../iam/concepts/users/accounts.md#local) users.
 
 To update local user data:

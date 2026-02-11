@@ -7,9 +7,16 @@ To delete a cloud, you must have the [{{ roles-resource-manager-editor }}](../..
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
-  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the top-right corner and select **{{ ui-key.yacloud.common.delete }}**.
+  1. To the right of the cloud name, click ![image](../../../_assets/console-icons/ellipsis.svg).
+  1. Select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.components.CloudActions.button_action-delete-cloud_3simi }}**.
+
+     ![delete-cloud1](../../../_assets/resource-manager/delete-cloud-en1.png)
+
   1. Select a cloud deletion delay, after which the cloud will be deleted. Select one of the suggested periods or `{{ ui-key.yacloud_billing.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`. The default period is seven days.
+  1. Enter the cloud name to confirm deletion.
   1. Click **{{ ui-key.yacloud.common.delete }}**.
+
+     ![delete-cloud2](../../../_assets/resource-manager/delete-cloud-en2.png)
 
 - CLI {#cli}
 
@@ -35,7 +42,7 @@ To delete a cloud, you must have the [{{ roles-resource-manager-editor }}](../..
 
       Where:
 
-      * `--delete-after`: Cloud deletion delay in `HhMmSs` format. Cloud deletion process will start after the specified delay. For example, `--delete-after 22h30m50s`.
+      * `--delete-after`: Cloud deletion delay in `HhMmSs` format. Cloud deletion process will start after the specified delay, e.g., `--delete-after 22h30m50s`.
       
           Specify `0s` to delete the cloud now.
       * `--async`: Asynchronous deletion flag.
@@ -89,7 +96,7 @@ To delete a cloud, you must have the [{{ roles-resource-manager-editor }}](../..
 
       {% endcut %}
 
-      For more information about the `yandex_resourcemanager_cloud` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/resourcemanager_cloud).
+      For more information about `yandex_resourcemanager_cloud` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/resourcemanager_cloud).
 
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
@@ -110,7 +117,7 @@ To delete a cloud, you must have the [{{ roles-resource-manager-editor }}](../..
       terraform plan
       ```
 
-      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+      You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
   1. Apply the changes:
 

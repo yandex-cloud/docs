@@ -21,4 +21,7 @@ A set of methods for managing Metastore Cluster resources.
 || [ImportData](importData.md) | Imports data to the specified Metastore Cluster. ||
 || [ExportData](exportData.md) | Exports data from the specified Metastore Cluster. ||
 || [ListOperations](listOperations.md) | Retrieves the list of Operation resources for the specified Hive Metastore Cluster. ||
+|| [ListAccessBindings](listAccessBindings.md) | Retrieves a list of access bindings for the specified Metastore cluster. ||
+|| [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the specified Metastore cluster. ||
+|| [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified Metastore cluster. ||
 |#

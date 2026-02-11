@@ -127,6 +127,8 @@ items:
             href: operations/metastore/s3-policy-connect.md
           - name: Передача логов в {{ cloud-logging-name }}
             href: operations/metastore/logging.md
+          - name: Управление доступом к кластеру
+            href: operations/metastore/cluster-access.md
           - name: Удаление кластера
             href: operations/metastore/cluster-delete.md
       - name: Практические руководства
@@ -229,6 +231,12 @@ items:
                     href: api-ref/grpc/Cluster/exportData.md
                   - name: ListOperations
                     href: api-ref/grpc/Cluster/listOperations.md
+                  - name: ListAccessBindings
+                    href: api-ref/grpc/Cluster/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: api-ref/grpc/Cluster/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: api-ref/grpc/Cluster/updateAccessBindings.md
               - name: Operation
                 items:
                   - name: Overview
@@ -265,6 +273,12 @@ items:
                     href: api-ref/Cluster/exportData.md
                   - name: ListOperations
                     href: api-ref/Cluster/listOperations.md
+                  - name: ListAccessBindings
+                    href: api-ref/Cluster/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: api-ref/Cluster/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: api-ref/Cluster/updateAccessBindings.md
               - name: Operation
                 items:
                   - name: Overview
@@ -451,6 +465,14 @@ items:
                 href: operations/data-catalog/get-data-profile.md
               - name: Запросы к наборам данных с помощью {{ websql-full-name }}
                 href: operations/data-catalog/web-sql-query.md
+          - name: Хранилище данных
+            items:
+              - name: Получение списка хранилищ данных
+                href: operations/data-catalog/list-data-store.md
+              - name: Получение информации о хранилище данных
+                href: operations/data-catalog/get-info-data-store.md
+              - name: Разметка хранилища данных
+                href: operations/data-catalog/markup-data-store.md
       - name: Концепции
         items:
           - name: Каталог метаданных

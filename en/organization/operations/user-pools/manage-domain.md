@@ -6,8 +6,6 @@ description: Follow this guide to set up a domain in a {{ org-name }} user pool.
 # Managing domains in a user pool
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 A [domain](../../concepts/domains.md) allows you to authenticate through the [Login Discovery](../../concepts/domains.md#login-discovery) system. When authenticating, a user with your domain will be redirected to your [user pool](../../concepts/user-pools.md).
 
 ## Associating a domain {#add}

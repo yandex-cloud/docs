@@ -5,8 +5,6 @@ description: '[_Мой аккаунт_]({{ link-my-account }}) — это лич
 
 # Портал Мой аккаунт
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 [_Мой аккаунт_]({{ link-my-account }}) — это личное пространство пользователя, в котором он может управлять своей учетной записью. Сейчас пользователям доступно два раздела:
 
 * ![alt](../../_assets/console-icons/passport.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.profile_8kyBA }}** — информация о пользователе.

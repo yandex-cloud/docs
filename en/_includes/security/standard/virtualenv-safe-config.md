@@ -425,7 +425,7 @@ You can also analyze {{ objstorage-name }} logs in {{ datalens-short-name }}. Fo
 
 You can check if logging is enabled only via {{ TF }}/API by following [this guide](../../../storage/operations/buckets/enable-logging.md).
 
-#### 3.12 Cross-Origin Resource Sharing (CORS) is configured in {{ objstorage-name }} {#cors}
+#### 3.12 Cross-origin resource sharing (CORS) is set up in {{ objstorage-name }} {#cors}
 
 If you need [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) to objects in buckets, you should configure the Cross-Origin Resource Sharing (CORS) policy in accordance with your corporate information security requirements. For more information, see the {{ objstorage-name }} documentation, [CORS configuration of buckets](../../../storage/s3/api-ref/cors/xml-config.md).
 
@@ -470,7 +470,7 @@ Temporary {{ sts-name }} keys inherit the access permissions of the service acco
 
 [Create](../../../iam/operations/sa/create-sts-key.md) a temporary access key using {{ sts-name }}.
 
-#### 3.14 Pre-signed URLs are generated for isolated cases of access to specific objects in {{ objstorage-name }} private buckets {#use-presigned-urls}
+#### 3.14 Pre-signed URLs are generated for one-off accesses to specific objects in {{ objstorage-name }} private buckets {#use-presigned-urls}
 
 {{ objstorage-name }} incorporates several access management mechanisms. To learn how these mechanisms interact, see [{#T}](../../../storage/security/overview.md).
 
@@ -479,7 +479,7 @@ With pre-signed URLs, any web user can perform various operations in Object Stor
 * Uploading an object
 * Creating a bucket
 
-[A pre-signed URL](../../../storage/concepts/pre-signed-urls.md) is a URL containing request authorization data in its parameters. Pre-signed URLs can be created by users with static access keys.
+A [pre-signed URL](../../../storage/concepts/pre-signed-urls.md) is a URL containing request authentication data in its parameters. Pre-signed URLs can be created by users with static access keys.
 
 We recommend using pre-signed URLs to users who are not authorized in the [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) but need access to specific objects in the bucket. This way you follow the principle of least privilege and avoid opening access to all the objects in the bucket.
 
@@ -886,7 +886,7 @@ Make sure to assign [roles](../../../iam/concepts/access-control/roles.md) to th
 
 Do not store secrets and sensitive data in the function code and environment variables. Use [{{ lockbox-full-name }}](../../../lockbox/index.yaml) to store and rotate secrets. You can transmit a {{ lockbox-name }} secret to a function in the environment variable.
 
-For the function to get access to the secret, edit its parameters to specify a service account with the following roles assigned:
+For a function to get access to a secret, edit its parameters to specify a service account with the following roles assigned:
 
 * `lockbox.payloadViewer` [for a secret](../../../lockbox/operations/secret-access.md).
 * `kms.keys.encrypterDecrypter` [for an encryption key](../../../kms/operations/key-access.md) if the secret was created using a [{{ kms-full-name }}](../../../kms/index.yaml) encryption key.

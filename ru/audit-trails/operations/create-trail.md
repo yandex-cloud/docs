@@ -90,7 +90,7 @@ description: Следуя данной инструкции, вы сможете
     1. (Опционально) Введите описание трейла.
     1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** выберите один из объектов назначения и укажите его настройки:
 
-        * **{{ ui-key.yacloud.audit-trails.label_objectStorage }}** — загружать аудитные логи в бакет {{ objstorage-name }}:
+        * **{{ ui-key.yacloud.audit-trails.label_objectStorage }}** — загружать аудитные логи в бакет {{ objstorage-name }}. Рекомендуется для долгосрочного хранения данных. Задайте настройки хранения логов:
 
             * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — имя бакета, который [был создан ранее](#before-you-begin).
             * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}** — [префикс](../concepts/format.md#log-file-name), который будет присвоен объектам с аудитными логами в бакете. Необязательный параметр, участвует в [полном имени](../../audit-trails/concepts/format.md#log-file-name) файла аудитного лога.
@@ -99,9 +99,9 @@ description: Следуя данной инструкции, вы сможете
 
             * **{{ ui-key.yacloud.audit-trails.title_kms-key }}** — ключ шифрования для бакета. Выбирать его необходимо, только если для бакета было включено шифрование.
 
-        * **{{ ui-key.yacloud.audit-trails.label_cloudLogging }}** — укажите имя лог-группы, которая [была создана ранее](#before-you-begin). В нее будут загружаться аудитные логи.
+        * **{{ ui-key.yacloud.audit-trails.label_cloudLogging }}** — укажите имя лог-группы, которая [была создана ранее](#before-you-begin). В нее будут загружаться аудитные логи. Рекомендуется для быстрого сбора и анализа логов.
 
-        * **{{ ui-key.yacloud.audit-trails.label_dataStream }}** — укажите имя потока данных, который [был создан ранее](#before-you-begin). В этот поток будут загружаться аудитные логи.
+        * **{{ ui-key.yacloud.audit-trails.label_dataStream }}** — укажите имя потока данных, который [был создан ранее](#before-you-begin). В этот поток будут загружаться аудитные логи. Рекомендуется для потоковой передачи логов в другие сервисы или системы.
 
     1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите [созданный ранее](#before-you-begin) сервисный аккаунт, от имени которого будет работать трейл.
 

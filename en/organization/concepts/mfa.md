@@ -5,11 +5,9 @@ description: In {{ org-full-name }}, you can configure MFA for federated and loc
 
 # Multi-factor authentication in {{ org-name }}
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 In {{ org-full-name }}, you can configure [multi-factor authentication](https://en.wikipedia.org/wiki/Multi-factor_authentication) (MFA) for [federated](../../iam/concepts/users/accounts.md#saml-federation) and [local](../../iam/concepts/users/accounts.md#local) user accounts.
 
-MFA enhances protection of user accounts by requiring an additional authentication factor aside from the password. This may be either a one-time code ([TOTP](https://en.wikipedia.org/wiki/Time-based_one-time_password) standard) or authentication via [WebAuthn](https://en.wikipedia.org/wiki/WebAuthn) ([FIDO2](https://en.wikipedia.org/wiki/FIDO_Alliance#FIDO2)).
+MFA enhances protection of user accounts by requiring an additional authentication factor aside from the password. This may be either a one-time code (via a [TOTP](https://en.wikipedia.org/wiki/Time-based_one-time_password) authenticator app or SMS) or a [WebAuthn](https://en.wikipedia.org/wiki/WebAuthn) ([FIDO2](https://en.wikipedia.org/wiki/FIDO_Alliance#FIDO2)) authentication process.
 
 ## MFA policies {#mfa-policies}
 

@@ -1,7 +1,5 @@
 # Creating a SAML app in {{ org-full-name }} for integration with {{ mos-name }}
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 [{{ OS }}](https://opensearch.org/) is a highly scalable open-source system of search and analysis tools. {{ OS }} comes with the [{{ OS }} Dashboards](https://docs.opensearch.org/latest/dashboards/) data visualization UI. [{{ mos-full-name }}](../../../managed-opensearch/) is an OpenSearch cluster management service for the Yandex Cloud infrastructure. {{ mos-name }} supports SAML authentication for secure single sign-on for users across your organization.
 
 To authenticate your [organization's](../../../organization/concepts/organization.md) users to {{ mos-name }} via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-name }} and configure it appropriately both in {{ org-name }} and {{ OS }}.
