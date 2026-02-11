@@ -83,6 +83,32 @@
               subject_id: ajetvnq2mil8********
         ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. Describe the parameters of the SAML application with users and groups in the configuration file:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_application_saml_application_assignment" "example_assignment" {
+       application_id = "<SAML_app_ID>"
+       subject_id     = "<user_or_group_ID>"
+     }
+     ```
+
+     Where:
+
+     * `application_id`: SAML application ID.
+     * `subject-id`: ID of the user or user group that will have access to the SAML application. To get the user ID, follow [this guide](../../organization/operations/users-get.md). To get the user group ID, follow [this guide](../../organization/operations/group-get-id.md).
+
+     For more information about `yandex_organizationmanager_idp_application_saml_application_assignment` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application_assignment).
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     You can check the changes to the resources and their settings in [{{ org-full-name }}]({{ link-org-cloud-center }}).
+
 - API {#api}
 
   Use the [Application.UpdateAssignments](../../organization/idp/application/saml/api-ref/Application/updateAssignments.md) REST API method for the [Application](../../organization/idp/application/saml/api-ref/Application/index.md) resource or the [ApplicationService/UpdateAssignments](../../organization/idp/application/saml/api-ref/grpc/Application/updateAssignments.md) gRPC API call.

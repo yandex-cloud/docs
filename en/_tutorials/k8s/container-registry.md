@@ -19,8 +19,6 @@ To integrate {{ managed-k8s-name }} with {{ container-registry-name }}:
 1. [Run the test app](#test-app).
 1. [Delete the resources you created](#delete-resources).
 
-{% include [requirements](../archive/kubernetes-backup.md#requirements) %}
-
 {% include [before-you-begin](../../_includes/before-begin.md) %}
 
 

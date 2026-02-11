@@ -79,8 +79,6 @@ description: Следуя данной инструкции, вы сможете
 ## Деактивировать локального пользователя {#deactivate-local}
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 Чтобы деактивировать аккаунт локального пользователя:
 
 {% list tabs group=instructions %}

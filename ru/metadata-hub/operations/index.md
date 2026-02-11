@@ -106,6 +106,10 @@ description: Пошаговые инструкции по работе с {{ met
   * [{#T}](data-catalog/search-metadata.md)
   * [{#T}](data-catalog/analysis-metadata.md)
   * [{#T}](data-catalog/get-data-profile.md)
+* Хранилище данных:
+  * [{#T}](data-catalog/list-data-store.md)
+  * [{#T}](data-catalog/get-info-data-store.md)
+  * [{#T}](data-catalog/markup-data-store.md)
 
 
 {% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

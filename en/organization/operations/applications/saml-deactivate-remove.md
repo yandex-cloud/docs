@@ -5,8 +5,6 @@ description: Follow this guide to deactivate, reactivate, and delete a SAML appl
 
 # Deactivating and deleting a SAML application in {{ org-full-name }}
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
 ## Deactivate the application {#deactivate}
@@ -143,6 +141,36 @@ To delete a SAML application:
      ```bash
      yc organization-manager idp application saml application delete <app_ID>
      ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Open the {{ TF }} configuration file and delete the fragment describing the SAML application.
+
+     Example of a SAML application description in the {{ TF }} configuration:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_application_saml_application" "saml_app" {
+       organization_id = "bpfd1n2bnoqr********"
+       name            = "my-saml-app"
+
+       service_provider = {
+         entity_id = "https://example.com/saml/metadata"
+         acs_urls       = [
+           {
+             url = "http://localhost"
+           }
+         ]
+       }
+     }
+     ```
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     You can check the deletion of the resources in [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
 - API {#api}
 

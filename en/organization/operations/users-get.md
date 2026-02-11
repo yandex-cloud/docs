@@ -62,8 +62,6 @@ To get information about a [Yandex account](../../iam/concepts/users/accounts.md
 ## Local users {#local} 
 
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 To get information about a [local](../../iam/concepts/users/accounts.md#local) user:
 
 {% list tabs group=instructions %}

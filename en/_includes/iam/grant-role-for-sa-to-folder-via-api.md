@@ -2,7 +2,7 @@ To assign the service account a role for a cloud or folder, use the `updateAcces
 
 1. Select the role to assign to the service account. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
 1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the service accounts folder.
-1. [Get](../../iam/operations/iam-token/create.md) an IAM token required for authorization in the {{ yandex-cloud }} API.
+1. [Get](../../iam/operations/iam-token/create.md) an IAM token for authentication in the {{ yandex-cloud }} API.
 1. Get a list of folder service accounts to find out their IDs:
 
     ```bash

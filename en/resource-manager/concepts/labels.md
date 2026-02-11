@@ -34,7 +34,7 @@ A _label_ is a key-value pair in `<label_name>=<label_value>` format. You can us
 
 {% note info %}
 
-Some service resources do not support labels, and some interfaces may not display them. For example, resource labels may not be visible in the management console interface or {{ cloud-center }} interface.
+Some service resources do not support labels, and some interfaces may not display them. For example, resource labels may not be visible in the management console interface, {{ cloud-center }} interface, or {{ billing-name }} interface.
 
 {% endnote %}
 

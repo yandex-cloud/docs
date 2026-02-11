@@ -6510,6 +6510,7 @@ default:
         label_create-source-button: Create data source
         label_create-tag-action: Create tag
         label_create-term-action: Create term
+        label_data-store: Data store
         label_domains: Domains
         label_empty-ingestion-count-short: No ingestion
         label_ingestion-count: Number of ingestions
@@ -7586,6 +7587,8 @@ default:
             label_hosts: Hosts
             label_severity: "\_Severity"
             label_title: Logs
+          monitoring:
+            label_title: Monitoring
           overview:
             button_action-delete: Delete
             button_action-edit: Edit
@@ -7623,6 +7626,7 @@ default:
           switch_jobs: Jobs
           switch_monitoring: Monitoring
           switch_network: Network
+          switch_shards: Shards
           switch_subclusters: Subclusters
           switch_users: Users
           title_migration-alert-action: Migrate data

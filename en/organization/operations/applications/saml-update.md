@@ -5,8 +5,6 @@ description: Follow this guide to update a a SAML app in {{ org-name }}.
 
 # Updating a SAML app in {{ org-full-name }}
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
 ## Update the app's basic settings {#update-basic-settings}
@@ -59,7 +57,7 @@ To update the [SAML app's basic settings](../../concepts/applications.md#saml):
        {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
 
      * `--description`: New SAML app description.
-     * `labels`: New list of [labels](../../../resource-manager/concepts/labels.md). You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
+     * `--labels`: New list of [labels](../../../resource-manager/concepts/labels.md). You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
 
      Result:
 
@@ -73,6 +71,40 @@ To update the [SAML app's basic settings](../../concepts/applications.md#saml):
      created_at: "2025-10-21T10:51:28.790866Z"
      updated_at: "2025-10-21T12:37:19.274522Z"
      ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Describe the new SAML application parameters in the configuration file:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_application_saml_application" "saml_app" {
+       organization_id = "<organization_ID>"
+       name            = "<new_application_name>"
+       description     = "<new_application_description>"
+       labels          = {
+         "<key>" = "<value>"
+       }
+     }
+     ```
+
+     Where:
+
+     * `name`: New SAML app name. The name must be unique within the organization and follow the naming requirements:
+
+       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
+
+     * `description`: New SAML app description.
+     * `labels`: New [labels](../../../resource-manager/concepts/labels.md).
+
+     For more information about `yandex_organizationmanager_idp_application_saml_application` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     You can check the changes to the resources and their settings in [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
 - API {#api}
 
@@ -141,6 +173,47 @@ To update the service provider configuration in a SAML app:
      updated_at: "2025-10-21T12:37:19.274522Z"
      ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Describe the new service provider configuration parameters in the configuration file:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_application_saml_application" "saml_app" {
+       organization_id = "<organization_ID>"
+       name            = "<application_name>"
+
+       service_provider = {
+         entity_id = "<service_provider_ID>"
+         acs_urls  = [
+           {
+             url = "URL"
+           }
+         ]
+         security_settings = {
+           signature_mode = "RESPONSE_AND_ASSERTIONS"
+         }
+     }
+     ```
+
+     Where:
+
+     * `entity_id`: New unique service provider ID. The value must be the same on the service provider's and {{ org-name }} side.
+     * `acs_urls`: New URLs {{ org-name }} will send the SAML response to. The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
+     * `signature_mode`: New SAML response elements that will be digitally signed. The possible values are:
+       * `ASSERTION_ONLY`: Only the provided user attributes.
+       * `RESPONSE_ONLY`: Full SAML response.
+       * `RESPONSE_AND_ASSERTION`: Full SAML response and, separately, the provided attributes.
+
+     For more information about `yandex_organizationmanager_idp_application_saml_application` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     You can check the changes to the resources and their settings in [{{ org-full-name }}]({{ link-org-cloud-center }}).
+
 - API {#api}
 
   Use the [Application.Update](../../idp/application/saml/api-ref/Application/update.md) REST API method for the [Application](../../idp/application/saml/api-ref/Application/index.md) resource or the [ApplicationService/Update](../../idp/application/saml/api-ref/grpc/Application/update.md) gRPC API call.
@@ -151,7 +224,7 @@ To update the service provider configuration in a SAML app:
 
 {% include [saml-app-cert-intro-phrase](../../../_includes/organization/saml-app-cert-intro-phrase.md) %}
 
-You can issue any number of new digital signature verification key certificates for the SAML app at any time. To do this:
+You can issue any number of new digital signature verification key certificates for the SAML app at any time. To do so:
 
 {% list tabs group=instructions %}
 
@@ -224,6 +297,38 @@ You can issue any number of new digital signature verification key certificates 
      * `--active`: Set to `true` to activate the certificate.
 
      {% include [saml-app-cert-update-warn](../../../_includes/organization/saml-app-cert-update-warn.md) %}
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Describe the resource for creating a new certificate in the configuration file:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_application_saml_signature_certificate" "cert" {
+       application_id = "<app_ID>"
+       name           = "<certificate_name>"
+     }
+     ```
+
+     Where:
+
+     * `application_id`: SAML application ID.
+     * `name`: Certificate name.
+
+     For more information about `yandex_organizationmanager_idp_application_saml_signature_certificate` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_signature_certificate).
+
+  1. Create a resource:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  1. To activate a new certificate, add it to the SAML application configuration by specifying the certificate ID in the `yandex_organizationmanager_idp_application_saml_application` resource description under `signature_certificate_ids`.
+  
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     You can check the changes to the resources and their settings in [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
 - API {#api}
 

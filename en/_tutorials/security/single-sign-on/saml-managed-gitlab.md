@@ -1,7 +1,5 @@
 # Creating a SAML app in {{ org-full-name }} for integration with {{ mgl-name }}
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 To authenticate your [organization's](../../../organization/concepts/organization.md) users to {{ mgl-full-name }} via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-name }} and configure it appropriately both in {{ org-name }} and {{ mgl-name }}.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}

@@ -3,7 +3,7 @@ title: OAuth token
 description: In this article, you will learn what an OAuth token is, about its purpose, format, and TTL, and about the services supporting the OAuth token authentication method.
 ---
 
-# OAuth_token
+# OAuth token
 
 
 In {{ yandex-cloud }}, an OAuth token is used to authenticate users with a Yandex account: the user exchanges an OAuth token for an [{{ iam-short-name }} token](iam-token.md).

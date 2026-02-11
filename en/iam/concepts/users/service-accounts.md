@@ -55,4 +55,4 @@ Generated keys belong to the service account and permissions to manage them are 
 
 * [{#T}](../../quickstart-sa.md)
 * [{#T}](../../operations/sa/list-get.md)
-* [Authorization as a service account](../authorization/index.md#sa)
+* [Authenticating as a service account](../authorization/index.md#sa)

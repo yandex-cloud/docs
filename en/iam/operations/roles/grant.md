@@ -15,6 +15,8 @@ To grant access to a resource, assign a [role](../../concepts/access-control/rol
 
 You can assign a role not only for the resource itself but also for its parent resource, as the former inherits access permissions from the latter. For example, if a service account gets a role for a cloud, it will also get permissions for all resources across the cloud's folders. For more information, see [{#T}](../../concepts/access-control/index.md).
 
+{% include [role-for-sa-note](../../../_includes/iam/role-for-sa-note.md) %}
+
 [Learn](../../concepts/access-control/resources-with-access-control.md) which resources you can assign a role for.
 
 To select roles, look them up in the [role reference](../../roles-reference.md).
@@ -25,7 +27,7 @@ To select roles, look them up in the [role reference](../../roles-reference.md).
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud or folder.
+   1. In the [management console]({{ link-console-main }}), in the top panel, click ![image](../../../_assets/console-icons/chevron-down.svg) and select the cloud or folder.
    1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
    1. Click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
    1. Select the group, user, or service account you want to grant access to a cloud or folder.
@@ -40,7 +42,7 @@ To select roles, look them up in the [role reference](../../roles-reference.md).
 
    To assign a role for a cloud or folder:
 
-   1. See the description of the CLI role assignment command:
+   1. View the description of the CLI command for assigning roles:
 
       ```bash
       yc resource-manager <cloud_or_folder> add-access-binding --help
@@ -158,7 +160,7 @@ To assign a role for an organization:
 
    To assign a role for an organization:
 
-   1. See the description of the CLI role assignment command:
+   1. View the description of the CLI command for assigning roles:
 
       ```bash
       yc organization-manager organization add-access-binding --help
@@ -241,7 +243,7 @@ To assign a role for an organization:
       Where:
 
       * `organization_id`: [Organization ID](../../../organization/operations/organization-get-id.md). This is a required setting.
-      * `role`: Role being assigned. For each role, you can only use one `yandex_organizationmanager_organization_iam_binding` resource. This is a required setting.
+      * `role`: Role to assign. For each role, you can only use one `yandex_organizationmanager_organization_iam_binding` resource. This is a required setting.
       * `members`: Users getting the role. Specify the following:
 
          * `members = ["userAccount:<user_ID>"]`: For a Yandex account user or local user.
@@ -251,9 +253,9 @@ To assign a role for an organization:
          * `members = ["system:group:organization:<organization_ID>:users"]`: For all [organization](../../../organization/quickstart.md) users.
          * `members = ["system:group:federation:<organization_ID>:users"]`: For all [identity federation](../../../organization/concepts/add-federation.md) users.
 
-      For more information, see the [provider documentation]({{ tf-provider-link }}).
+      For more information, see [this provider guide]({{ tf-provider-link }}).
 
-   1. Make sure the settings are correct.
+   1. Validate your configuration.
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -290,7 +292,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
 
    1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder your resource resides in.
    1. Open its page.
-   1. Go to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. Navigate to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
    1. Select the group, user, or service account you want to grant access to a resource.
    1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
@@ -303,7 +305,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
 
    To assign a role for a resource:
 
-   1. See the description of the CLI role assignment command:
+   1. View the description of the CLI command for assigning roles:
 
       ```bash
       yc <service_name> <resource> add-access-binding --help
@@ -397,7 +399,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
 
    1. In the [management console]({{ link-console-main }}), select the folder the resource resides in.
    1. Open its page.
-   1. Go to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. Navigate to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
    1. Select the group, user, or service account you want to grant access to a resource.
    1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
@@ -426,7 +428,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
          --id <VM_ID>
       ```
 
-   1. See the description of the CLI role assignment command:
+   1. View the description of the CLI command for assigning roles:
 
       ```bash
       yc <service_name> <resource> set-access-bindings --help
@@ -503,7 +505,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
 
    {% include [set-access-bindings-api](../../../_includes/iam/set-access-bindings-api.md) %}
 
-   To assign multiple roles for a resource, use the `setAccessBindings` REST API method or gRPC API call for the resource. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
+   To assign multiple roles for a resource, use the `setAccessBindings` REST API method or gRPC API call for the resource. In your request, provide an array of objects, each one matching a particular role and containing the following data:
 
    * Role in the `accessBindings[].roleId` parameter.
    * ID of the subject getting the roles in the `accessBindings[].subject.id` parameter.

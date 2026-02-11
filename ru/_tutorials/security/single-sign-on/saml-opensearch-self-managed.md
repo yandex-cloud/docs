@@ -1,7 +1,5 @@
 # Создать SAML-приложение в {{ org-full-name }} для интеграции с {{ OS }}
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 [{{ OS }}](https://opensearch.org/) — это легко масштабируемая система поисковых и аналитических инструментов с открытым исходным кодом. {{ OS }} включает в себя пользовательский интерфейс визуализации данных [{{ OS }} Dashboards](https://docs.opensearch.org/latest/dashboards/). 
 
 Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в {{ OS }} с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-name }}, настройте его на стороне {{ org-name }} и на стороне {{ OS }}.

@@ -6,8 +6,6 @@ description: Из этой статьи вы узнаете, как настро
 # Настроить доступ пользователям пула
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 Чтобы предоставить доступ к [пулу](../../concepts/user-pools.md), назначьте [роли](../../../iam/concepts/access-control/roles.md) субъектам. [Узнайте](../../security/index.md#roles-list), какие роли действуют в сервисе, чтобы назначить нужные.
 
 {% list tabs group=instructions %}

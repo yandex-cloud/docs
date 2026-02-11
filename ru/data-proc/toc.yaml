@@ -33,6 +33,8 @@ items:
             href: operations/cluster-update.md
           - name: Миграция легковесного кластера в другую зону доступности
             href: operations/migration-to-an-availability-zone.md
+          - name: Управление доступом к кластеру
+            href: operations/cluster-access.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
       - name: Подкластеры {{ dataproc-name }}

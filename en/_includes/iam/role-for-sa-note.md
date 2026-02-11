@@ -1,0 +1,1 @@
+To assign a role for a resource, you need the `admin` or `service-name.admin` role, where `service-name` is the name of the service to which the resource belongs.

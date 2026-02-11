@@ -1,10 +1,8 @@
 # Creating an OIDC application in {{ org-full-name }} for integration with Grafana OSS
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
+[Grafana Open Source Software (OSS)](https://grafana.com/oss/) is a free open-source data monitoring and visualization platform you can deploy on your own infrastructure. Grafana OSS supports [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) authentication to provide secure SSO for your organization's users.
 
-[Grafana Open Source Software (OSS)](https://grafana.com/oss/) is a free open-source data monitoring and visualization platform you can deploy on your own infrastructure. Grafana OSS supports OpenID Connect (OIDC) authentication to provide secure SSO for your organization's users.
-
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to Grafana OSS with [OpenID Connect](https://en.wikipedia.org/wiki/OpenID_Connect) SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) in {{ org-name }} and configure it appropriately both in {{ org-name }} and Grafana OSS.
+To authenticate your [organization's](../../../organization/concepts/organization.md) users to Grafana OSS with OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) in {{ org-name }} and configure it appropriately both in {{ org-name }} and Grafana OSS.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -236,26 +234,33 @@ To integrate Grafana OSS with the OIDC app you created in {{ org-name }}, comple
 
 - CLI {#cli}
 
-  Update your OIDC app by providing the redirect URI:
+  Update your OAuth client by providing the redirect URI:
 
   ```bash
-  yc organization-manager idp application oauth application update <app_ID> \
+  yc iam oauth-client update \
+    --id <OAuth_client_ID> \
     --redirect-uris "<Grafana_OSS_instance_URL>/login/generic_oauth"
   ```
 
   Where:
   
-  * `<app_ID>`: OIDC app ID you got when creating the app.
-  * `--redirect-uris`: Authentication endpoint for your Grafana OSS instance. For example, `https://your-domain/login/generic_oauth`.
+  * `<OAuth_client_ID>`: OAuth client ID you got when you created it.
+  * `--redirect-uris`: Authentication endpoint for your Grafana OSS instance, e.g., `https://your-domain/login/generic_oauth`.
 
   Result:
 
   ```text
-  id: ek0o663g4rs2********
+  id: ajeiu3otac08********
   name: grafana-oss-oidc-app
-  organization_id: bpf2c65rqcl8********
   redirect_uris:
     - https://your-domain/login/generic_oauth
+  scopes:
+    - openid
+    - email
+    - profile
+    - groups
+  folder_id: b1gkd6dks6i1********
+  status: ACTIVE
   ```
 
 {% endlist %}
@@ -296,7 +301,7 @@ The expression means the user will get the `Editor` role if they belong to the `
 
 The redirect URI you previously specified in {{ org-full-name }} must match the URI that Grafana OSS sends to {{ org-full-name }}.
 
-Proceed as follows:
+To do so:
 
 1. Open the [Grafana configuration file](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#configuration-file-location).
 1. In the `[server]` section, set:
@@ -374,7 +379,7 @@ Add a user to the application:
 
 To make sure both your OIDC app and Grafana OSS integration work correctly, authenticate to Grafana OSS as one of the users you added to the app.
 
-Proceed as follows:
+To do so:
 
 1. In your browser, navigate to the address of your Grafana OSS instance, e.g., `https://your-domain`.
 1. If you were logged in to Grafana OSS, log out.

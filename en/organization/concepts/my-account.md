@@ -5,8 +5,6 @@ description: '[_My account_]({{ link-my-account }}) is a user''s personal worksp
 
 # My account portal
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 [_My account_]({{ link-my-account }}) is a user's personal workspace where they can manage their account. Currently, there are two sections available:
 
 * ![alt](../../_assets/console-icons/passport.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.profile_8kyBA }}**: User information.

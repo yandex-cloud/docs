@@ -78,8 +78,6 @@ description: Следуя данной инструкции, вы сможете
 ## Активировать локального пользователя {#activate-local}
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 Чтобы активировать аккаунт локального пользователя:
 
 {% list tabs group=instructions %}

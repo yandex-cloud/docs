@@ -1,7 +1,5 @@
 # Creating a SAML application in {{ org-full-name }} for integration with Grafana Cloud
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 [Grafana Cloud](https://grafana.com/products/cloud/) is a managed cloud monitoring and observability platform that brings together Grafana, Prometheus, Loki, and other tools for data visualization and analysis. Grafana Cloud supports SAML authentication to provide secure SSO for your organization's users.
 
 To authenticate your [organization's](../../../organization/concepts/organization.md) users to Grafana Cloud via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-name }} and configure it appropriately both in {{ org-name }} and Grafana Cloud.

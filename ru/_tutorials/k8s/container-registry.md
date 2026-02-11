@@ -19,8 +19,6 @@
 1. [Запустите тестовое приложение](#test-app).
 1. [Удалите созданные ресурсы](#delete-resources).
 
-{% include [requirements](../archive/kubernetes-backup.md#requirements) %}
-
 {% include [before-you-begin](../../_includes/before-begin.md) %}
 
 

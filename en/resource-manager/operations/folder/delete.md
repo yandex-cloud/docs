@@ -6,10 +6,17 @@ To delete a [folder](../../concepts/resources-hierarchy.md#folder), you must hav
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder. You can [switch to another cloud](../cloud/switch-cloud.md), if required.
-  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the folder and select **{{ ui-key.yacloud.common.delete }}**.
+  1. In the [management console]({{ link-console-main }}), in the top panel, click ![image](../../../_assets/console-icons/chevron-down.svg) and select the folder. You can [switch to another cloud](../cloud/switch-cloud.md), if required.
+  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the folder name.
+  1. Select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.components.FolderActions.button_action-delete-folder_mu24C }}**.
+
+     ![delete-folder1](../../../_assets/resource-manager/delete-folder-en1.png)
+
   1. Select a folder deletion delay: a time period after which the folder will be deleted. Select one of the suggested periods or `{{ ui-key.yacloud_billing.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`. The default folder deletion delay is 7 days.
+  1. Enter the folder name to confirm deletion. 
   1. Click **{{ ui-key.yacloud.common.delete }}**.
+
+     ![delete-folder2](../../../_assets/resource-manager/delete-folder-en2.png)
 
 - CLI {#cli}
 
@@ -88,7 +95,7 @@ To delete a [folder](../../concepts/resources-hierarchy.md#folder), you must hav
 
       {% endcut %}
 
-      For more information about the `yandex_resourcemanager_folder` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder).
+      For more information about `yandex_resourcemanager_folder` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/resourcemanager_folder).
 
   1. In the command line, navigate to the directory with the {{ TF }} configuration file.
 
@@ -110,7 +117,7 @@ To delete a [folder](../../concepts/resources-hierarchy.md#folder), you must hav
       terraform plan
       ```
 
-      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+      You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
   1. Apply the changes:
 

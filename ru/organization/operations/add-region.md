@@ -5,8 +5,6 @@ description: Из статьи вы узнаете, как привязать н
 
 # Подключить управляемую организацию
 
-{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
-
 1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
 1. Во всплывающем окне нажмите **{{ ui-key.yacloud_org.dashboard.organization.action_connect-new-region }}**.

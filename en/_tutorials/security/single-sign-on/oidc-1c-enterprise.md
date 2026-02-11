@@ -1,11 +1,9 @@
 # Creating an OIDC application in {{ org-full-name }} for integration with 1C:Enterprise
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
+[1C:Enterprise](https://scloud.ru/1s-predpriyatie/) is a development platform for 1C accounting and business automation applications. The platform supports [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) authentication to provide secure SSO for your organization's users.
 
-[1C:Enterprise](https://scloud.ru/1s-predpriyatie/) is a development platform for 1C accounting and business automation applications. It supports [OpenID Connect](https://{{ lang }}.wikipedia.org/wiki/OpenID) (OIDC) authentication to provide secure SSO for your organization's users.
-
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to 1C:Enterprise with [OpenID Connect](https://en.wikipedia.org/wiki/OpenID_Connect) SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) in {{ org-full-name }} and configure it appropriately both in {{ org-name }} and 1C:Enterprise.
+To authenticate your [organization's](../../../organization/concepts/organization.md) users to 1C:Enterprise with OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) in {{ org-full-name }} and configure it appropriately both in {{ org-name }} and 1C:Enterprise.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -227,32 +225,38 @@ Set up the 1C:Enterprise integration with the OIDC app you created in {{ org-nam
         <1C_infobase_publication_domain>/<application_name>/authform.html
         ```
 
-        For example, `https://your.company.ru/your-app/authform.html`.
+        It may look like this: `https://your.company.ru/your-app/authform.html`.
 
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  1. Update your OIDC app by providing the redirect URI:
+  1. Update your OAuth client by providing the redirect URI:
 
      ```bash
-     yc organization-manager idp application oauth application update <app_ID> \
+     yc iam oauth-client update \
+       --id <OAuth_client_ID> \
        --redirect-uris "<1C_infobase_publication_domain>/<application_name>/authform.html"
      ```
 
      Where:
      
-     * `<app_ID>`: OIDC app ID you got when creating the app.
-     * `--redirect-uris`: 1C infobase URL for OIDC app response processing. For example, `https://your.company.ru/your-app/authform.html`.
+     * `<OAuth_client_ID>`: OAuth client ID you got when you created it.
+     * `--redirect-uris`: 1C infobase URL for OIDC app response processing. It may look like this: `https://your.company.ru/your-app/authform.html`.
 
      Result:
 
      ```text
-     id: ek0o663g4rs2********
-     name: grafana-cloud-oidc-app
-     organization_id: bpf2c65rqcl8********
+     id: ajeiu3otac08********
+     name: enterprise-1c-oauth-client
      redirect_uris:
        - https://your.company.ru/your-app/authform.html
+     scopes:
+       - openid
+       - email
+       - profile
+     folder_id: b1gkd6dks6i1********
+     status: ACTIVE
      ```
 
 {% endlist %}
@@ -318,7 +322,7 @@ The location of the configuration file depends on your specific 1C:Enterprise se
 
 To make sure both your OIDC app and 1C:Enterprise integration work correctly, authenticate to 1C:Enterprise as one of the users for whom you have enabled the OIDC authentication.
 
-To do this:
+To do so:
 
 1. In your browser, navigate to the address of your 1C:Enterprise instance, e.g., `https://your.company.ru`.
 1. If you were logged in to 1C:Enterprise, log out.

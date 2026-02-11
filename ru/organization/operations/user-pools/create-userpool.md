@@ -6,8 +6,6 @@ description: Следуя данной инструкции, вы сможете
 # Создать пул пользователей
 
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 {% list tabs group=instructions %}
 
 - Интерфейс {{ cloud-center }} {#cloud-center}

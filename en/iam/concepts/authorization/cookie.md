@@ -5,7 +5,7 @@ description: In this tutorial, you will learn about the cookies used by {{ yande
 
 # Cookie
 
-{{ yandex-cloud }} web interfaces use `yc_session` cookies to authenticate a user.
+{{ yandex-cloud }} web interfaces use `yc_session` cookies for user authentication.
 
 In each service's console, e.g., [management console]({{ link-console-main }}) or [{{ cloud-center }}]({{ cloud-center-link }}), cookies are independent of each other.
 
