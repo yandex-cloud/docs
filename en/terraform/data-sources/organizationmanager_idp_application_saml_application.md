@@ -33,20 +33,20 @@ output "my_saml_app.status" {
 ## Arguments & Attributes Reference
 
 - `application_id` (String). ID of the SAML application to return.
-- `attribute_mapping` [FW-Block]. Attribute mapping configuration for the SAML application.
-  - `attributes` [FW-Block]. List of attribute mappings.
+- `attribute_mapping` [Block]. Attribute mapping configuration for the SAML application.
+  - `attributes` [Block]. List of attribute mappings.
     - `name` (**Required**)(String). Name of the SAML attribute.
     - `value` (**Required**)(String). Value of the SAML attribute.
-  - `name_id` [FW-Block]. NameID configuration for the SAML application.
+  - `name_id` [Block]. NameID configuration for the SAML application.
     - `format` (**Required**)(String). Format of the NameID.
     - `value` (*Read-Only*) (String). Value of the NameID.
 - `created_at` (*Read-Only*) (String). Creation timestamp.
 - `description` (String). Description of the SAML application.
-- `group_claims_settings` [FW-Block]. Group claims settings for the SAML application.
+- `group_claims_settings` [Block]. Group claims settings for the SAML application.
   - `group_attribute_name` (String). Name of the SAML attribute that contains group information.
   - `group_distribution_type` (String). Distribution type for group claims.
 - `id` (String). ID of the SAML application to return.
-- `identity_provider_metadata` [FW-Block]. Identity provider metadata for the SAML application.
+- `identity_provider_metadata` [Block]. Identity provider metadata for the SAML application.
   - `issuer` (*Read-Only*) (String). Identity provider issuer identifier.
   - `metadata_url` (*Read-Only*) (String). Identity provider metadata URL.
   - `slo_url` (*Read-Only*) (String). Identity provider Single Logout URL.
@@ -54,15 +54,15 @@ output "my_saml_app.status" {
 - `labels` (Map Of String). Resource labels as `` key:value `` pairs.
 - `name` (**Required**)(String). Name of the SAML application.
 - `organization_id` (**Required**)(String). ID of the organization that the application belongs to.
-- `security_settings` [FW-Block]. Security settings for the SAML application.
+- `security_settings` [Block]. Security settings for the SAML application.
   - `signature_certificate_id` (String). ID of the signature certificate to use.
   - `signature_mode` (String). Signature mode for SAML messages.
-- `service_provider` [FW-Block]. Service provider configuration for the SAML application.
-  - `acs_urls` [FW-Block]. Assertion Consumer Service URLs.
+- `service_provider` [Block]. Service provider configuration for the SAML application.
+  - `acs_urls` [Block]. Assertion Consumer Service URLs.
     - `index` (Number). Optional index for the assertion consumer service.
     - `url` (**Required**)(String). The URL where SAML responses are sent.
   - `entity_id` (**Required**)(String). Service provider entity ID.
-  - `slo_urls` [FW-Block]. Single Logout Service URLs.
+  - `slo_urls` [Block]. Single Logout Service URLs.
     - `protocol_binding` (**Required**)(String). Protocol binding supported by the logout endpoint.
     - `response_url` (String). Optional separate URL for logout responses.
     - `url` (**Required**)(String). The URL where logout requests are sent.

@@ -28,7 +28,7 @@ keywords:
 
 1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
-   It is required for authorization when submitting requests to the Amazon API. To store the key safely, use [{{ lockbox-full-name }}](../../lockbox/tutorials/static-key-in-lockbox/index.md).
+   It is required for authentication when sending requests to the Amazon API. To store the key safely, use [{{ lockbox-full-name }}](../../lockbox/tutorials/static-key-in-lockbox/index.md).
 
 ## General API request format {#common-request-form}
 

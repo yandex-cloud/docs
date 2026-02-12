@@ -41,12 +41,12 @@ resource "yandex_kubernetes_marketplace_helm_release" "gatekeeper_helm_release" 
 - `product_version` (**Required**)(String). The ID of the product version to be installed.
 - `status` (*Read-Only*) (String). Status of the deployment.
 - `user_values` (Map Of String). Values to be passed for the installation of the product. The block consists of attributes that accept string values. The exact structure depends on the particular product and may differ for different versions of the same product. Depending on the product, some values may be required, and the installation may fail if they are not provided.
+{% note warning %}
 
-    {% note warning %}
+`applicationName` and `namespace`, if provided in this block, override `name` and `namespace` arguments, respectively.
 
-    `applicationName` and `namespace`, if provided in this block, override `name` and `namespace` arguments, respectively.
+{% endnote %}
 
-    {% endnote %}
 
 ## Import
 

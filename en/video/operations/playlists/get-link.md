@@ -7,11 +7,11 @@ description: Follow this guide to get an embed code or link to a playlist in {{ 
 
 {% list tabs group=instructions %}
 
-- {{ video-name }} interface {#console}
+- {{ video-name }} UI {#console}
 
    1. Open the {{ video-name }} [home page]({{ link-video-main }}).
    1. Select a channel.
-   1. On the ![image](../../../_assets/console-icons/bars-play.svg) **Playlists** tab, select the playlist you want.
+   1. On the ![image](../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud_video.playlists.title_playlists }}** tab, select the playlist.
    1. Under **{{ ui-key.yacloud_video.videos.title_past-code }}**:
 
       1. Setup the playback parameters for the videos and broadcasts:

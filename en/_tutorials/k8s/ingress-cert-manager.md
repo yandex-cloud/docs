@@ -1,5 +1,7 @@
 # Installing an NGINX ingress controller with a {{ lets-encrypt }} certificate manager
 
+{% include [ingress-nginx-support-discontinued](../../_includes/ingress-nginx-support-discontinued.md) %}
+
 To to create an [NGINX ingress controller](https://kubernetes.github.io/ingress-nginx/) using [{{ k8s }}](https://kubernetes.io) and secure it with a certificate, follow these steps:
 
 1. [Install the NGINX ingress controller](#install-controller).
@@ -43,12 +45,6 @@ The support cost for this solution includes:
 ## Install the NGINX ingress controller {#install-controller}
 
 {% list tabs group=instructions %}
-
-
-- {{ marketplace-full-name }} {#marketplace}
-
-  Install [Ingress NGINX](/marketplace/products/yc/ingress-nginx) from {{ marketplace-name }} by following [this guide](../../managed-kubernetes/operations/applications/ingress-nginx.md).
-
 
 - Manually {#manual}
 

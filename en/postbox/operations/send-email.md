@@ -27,7 +27,7 @@ In {{ postbox-name }}, you can send an email:
 
         {% note warning %}
 
-        Note that an IAM token is valid for up to 12 hours. If you need to provide authorization data in the mail client configuration file, use authentication by API key or password.
+        Note that an IAM token is valid for up to 12 hours. If you need to provide authentication data in the mail client configuration file, use API key or password authentication.
 
         {% endnote %}
 

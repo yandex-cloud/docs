@@ -39,13 +39,23 @@ data "yandex_iam_policy" "admin" {
 - `id` (String). 
 - `policy_data` (*Read-Only*) (String). The above bindings serialized in a format suitable for referencing from a resource that supports IAM.
 - `binding` [Block]. Defines a binding to be included in the policy document. Multiple `binding` arguments are supported.
-  - `members` (**Required**)(Set Of String). An array of identities that will be granted the privilege in the `role`. Each entry can have one of the following values:* **userAccount:{user_id}**: A unique user ID that represents a specific Yandex account.* **serviceAccount:{service_account_id}**: A unique service account ID.* **federatedUser:{federated_user_id}:**: A unique saml federation user account ID.* **group:{group_id}**: A unique group ID.* **system:group:federation:{federation_id}:users**: All users in federation.* **system:group:organization:{organization_id}:users**: All users in organization.* **system:allAuthenticatedUsers**: All authenticated users.* **system:allUsers**: All users, including unauthenticated ones.
+  - `members` (**Required**)(Set Of String). An array of identities that will be granted the privilege in the `role`. Each entry can have one of the following values:
+* **userAccount:{user_id}**: A unique user ID that represents a specific Yandex account.
+* **serviceAccount:{service_account_id}**: A unique service account ID.
+* **federatedUser:{federated_user_id}:**: A unique saml federation user account ID.
+* **group:{group_id}**: A unique group ID.
+* **system:group:federation:{federation_id}:users**: All users in federation.
+* **system:group:organization:{organization_id}:users**: All users in organization.
+* **system:allAuthenticatedUsers**: All authenticated users.
+* **system:allUsers**: All users, including unauthenticated ones.
 
-      {% note warning %}
+{% note warning %}
 
-      For more information about system groups, see the [documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+For more information about system groups, see the [documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
 
-      {% endnote %}
+{% endnote %}
+
+
   - `role` (**Required**)(String). The role/permission that will be granted to the members. See the [IAM Roles](https://yandex.cloud/docs/iam/concepts/access-control/roles) documentation for a complete list of roles.
 
 

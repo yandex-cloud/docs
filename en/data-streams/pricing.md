@@ -67,7 +67,7 @@ If the data storage time is one hour, the time of resource usage by multiple str
 
 With extended storage, data is stored for up to 7 days.
 
-With the provided storage limit, the minimum storage amount is 50 GB per segment.
+The minimum storage size for the provided storage limit is 50 GB per segment.
 
 
 ## On-demand pricing {#on-demand}

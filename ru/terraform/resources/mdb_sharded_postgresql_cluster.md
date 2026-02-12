@@ -292,35 +292,35 @@ resource "yandex_vpc_subnet" "test-subnet-d" {
 
 ## Arguments & Attributes Reference
 
-- `config` [FW-Block]. Configuration of the Sharded PostgreSQL cluster.
-  - `access` [FW-Block]. Access policy to the Sharded PostgreSQL cluster.
+- `config` [Block]. Configuration of the Sharded PostgreSQL cluster.
+  - `access` [Block]. Access policy to the Sharded PostgreSQL cluster.
     - `data_lens` (Bool). Allow access for Yandex DataLens.
     - `data_transfer` (Bool). Allow access for DataTransfer
     - `serverless` (Bool). Allow access for connection to managed databases from functions
     - `web_sql` (Bool). Allow access for SQL queries in the management console
   - `backup_retain_period_days` (Number). The period in days during which backups are stored.
-  - `backup_window_start` [FW-Block]. Time to start the daily backup, in the UTC timezone.
+  - `backup_window_start` [Block]. Time to start the daily backup, in the UTC timezone.
     - `hours` (Number). The hour at which backup will be started (UTC).
     - `minutes` (Number). The minute at which backup will be started (UTC).
-  - `sharded_postgresql_config` [FW-Block]. Sharded PostgreSQL cluster configuration.
+  - `sharded_postgresql_config` [Block]. Sharded PostgreSQL cluster configuration.
     - `balancer` (Map Of String). Balancer specific configuration.
     - `common` (Map Of String). General settings for all types of hosts.
-    - `coordinator` [FW-Block]. Coordinator specific configuration.
+    - `coordinator` [Block]. Coordinator specific configuration.
       - `config` (Map Of String). Coordinator settings.
-      - `resources` [FW-Block]. Resources allocated to routers of the Sharded PostgreSQL cluster.
+      - `resources` [Block]. Resources allocated to routers of the Sharded PostgreSQL cluster.
         - `disk_size` (**Required**)(Number). Size of the disk in bytes.
         - `disk_type_id` (**Required**)(String). ID of the disk type that determines the disk performance characteristics.
         - `resource_preset_id` (**Required**)(String). ID of the resource preset that determines the number of CPU cores and memory size for the host.
-    - `infra` [FW-Block]. 
+    - `infra` [Block]. 
       - `coordinator` (Map Of String). Coordinator settings.
-      - `resources` [FW-Block]. Resources allocated to routers of the Sharded PostgreSQL cluster.
+      - `resources` [Block]. Resources allocated to routers of the Sharded PostgreSQL cluster.
         - `disk_size` (**Required**)(Number). Size of the disk in bytes.
         - `disk_type_id` (**Required**)(String). ID of the disk type that determines the disk performance characteristics.
         - `resource_preset_id` (**Required**)(String). ID of the resource preset that determines the number of CPU cores and memory size for the host.
       - `router` (Map Of String). Router settings.
-    - `router` [FW-Block]. Router specific configuration.
+    - `router` [Block]. Router specific configuration.
       - `config` (Map Of String). Router settings.
-      - `resources` [FW-Block]. Resources allocated to routers of the Sharded PostgreSQL cluster.
+      - `resources` [Block]. Resources allocated to routers of the Sharded PostgreSQL cluster.
         - `disk_size` (**Required**)(Number). Size of the disk in bytes.
         - `disk_type_id` (**Required**)(String). ID of the disk type that determines the disk performance characteristics.
         - `resource_preset_id` (**Required**)(String). ID of the resource preset that determines the number of CPU cores and memory size for the host.
@@ -328,7 +328,7 @@ resource "yandex_vpc_subnet" "test-subnet-d" {
 - `description` (String). Description of the Sharded PostgreSQL cluster.
 - `environment` (**Required**)(String). Deployment environment of the Sharded PostgreSQL cluster.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `hosts` [FW-Block]. A host configuration of the Sharded PostgreSQL cluster.
+- `hosts` [Block]. A host configuration of the Sharded PostgreSQL cluster.
   - `assign_public_ip` (Bool). Assign a public IP address to the host.
   - `fqdn` (*Read-Only*) (String). The fully qualified domain name of the host.
   - `subnet_id` (String). ID of the subnet where the host is located.
@@ -336,7 +336,7 @@ resource "yandex_vpc_subnet" "test-subnet-d" {
   - `zone` (**Required**)(String). The availability zone where the host is located.
 - `id` (*Read-Only*) (String). The resource identifier.
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `maintenance_window` [FW-Block]. Maintenance policy of the Sharded PostgreSQL cluster.
+- `maintenance_window` [Block]. Maintenance policy of the Sharded PostgreSQL cluster.
   - `day` (String). Day of the week (in DDD format). Allowed values: "MON", "TUE", "WED", "THU", "FRI", "SAT","SUN"
   - `hour` (Number). Hour of the day in UTC (in HH format). Allowed value is between 1 and 24.
   - `type` (String). Type of maintenance window. Can be either ANYTIME or WEEKLY. A day and hour of window need to be specified with weekly window.

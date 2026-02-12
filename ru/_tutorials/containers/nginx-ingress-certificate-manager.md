@@ -1,5 +1,7 @@
 # Установка Ingress-контроллера NGINX с сертификатом из {{ certificate-manager-full-name }}
 
+{% include [ingress-nginx-support-discontinued](../../_includes/ingress-nginx-support-discontinued.md) %}
+
 Управляйте [TLS-сертификатом](../../certificate-manager/concepts/index.md) для Ingress-контроллера NGINX через [{{ certificate-manager-full-name }}](../../certificate-manager/).
 
 [External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yandex-certificate-manager/) синхронизирует сертификат с [секретом {{ k8s }}](../../managed-kubernetes/concepts/encryption.md). Это позволяет управлять сертификатом развернутого приложения через {{ certificate-manager-name }}: добавить самоподписанный сертификат и обновлять его самостоятельно или выпустить сертификат от Let's Encrypt®, который будет обновляться автоматически.
@@ -273,35 +275,6 @@
 ## Установите Ingress-контроллер NGINX {#install-nginx-ingress}
 
 {% list tabs group=instructions %}
-
-
-- {{ marketplace-full-name }} {#marketplace}
-
-  Установите приложение [Ingress NGINX](/marketplace/products/yc/ingress-nginx) из {{ marketplace-name }} [по инструкции](../../managed-kubernetes/operations/applications/ingress-nginx.md).
-
-  SSL-сертификат будет доступен только в пространстве имен `ns`, где создан секрет с этим сертификатом. Чтобы Ingress мог использовать этот сертификат в любом пространстве имен, добавьте в конфигурацию контроллера параметр `--default-ssl-certificate`:
-
-  1. Выполните команду:
-
-     ```bash
-     kubectl edit deployment ingress-nginx-controller -n <пространство_имен_приложения_Ingress_NGINX>
-     ```
-
-  1. В открывшемся окне добавьте параметр `--default-ssl-certificate`:
-
-     ```bash
-     spec:
-       template:
-         spec:
-           containers:
-           - args:
-             - /nginx-ingress-controller
-             ...
-             - --default-ssl-certificate=ns/k8s-secret
-     ```
-
-  При изменении параметра `--default-ssl-certificate` перезапустите Ingress-контроллер NGINX.
-
 
 - Вручную {#manual}
 

@@ -895,8 +895,6 @@ items:
         href: storage/how-to/configure-cache-headings-with-http-queries.md
       - name: How to restrict access to a bucket for a user
         href: storage/how-to/restrict-bucket-access.md
-      - name: How to connect your own domain to a bucket
-        href: storage/how-to/configuring-bucket-domain.md
       - name: How to change the storage class
         href: storage/how-to/change-storage-class.md
       - name: How to recover data deleted from a bucket

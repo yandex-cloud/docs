@@ -57,11 +57,27 @@ resource "yandex_vpc_address" "vpnaddr" {
   - `ttl` (Number). TTL of DNS record.
 - `external_ipv4_address` [Block]. Specification of IPv4 address.
 
-    {% note warning %}
+{% note warning %}
 
-    Either one `address` or `zone_id` arguments can be specified.~> Either one `ddos_protection_provider` or `outgoing_smtp_capability` arguments can be specified.~> Change any argument in `external_ipv4_address` will cause an address recreate.
+Either one `address` or `zone_id` arguments can be specified.
 
-    {% endnote %}
+{% endnote %}
+
+
+{% note warning %}
+
+Either one `ddos_protection_provider` or `outgoing_smtp_capability` arguments can be specified.
+
+{% endnote %}
+
+
+{% note warning %}
+
+Change any argument in `external_ipv4_address` will cause an address recreate.
+
+{% endnote %}
+
+
   - `address` (*Read-Only*) (String). Allocated IP address.
   - `ddos_protection_provider` (String). Enable DDOS protection. Possible values are: `qrator`
   - `outgoing_smtp_capability` (String). Wanted outgoing smtp capability.

@@ -33,11 +33,13 @@ data "yandex_lb_network_load_balancer" "my_nlb" {
 - `attached_target_group` [Block]. An AttachedTargetGroup resource.
   - `healthcheck` [Block]. A HealthCheck resource.
 
-      {% note warning %}
+{% note warning %}
 
-      One of `http_options` or `tcp_options` should be specified.
+One of `http_options` or `tcp_options` should be specified.
 
-      {% endnote %}
+{% endnote %}
+
+
     - `healthy_threshold` (Number). Number of successful health checks required in order to set the `HEALTHY` status for the target.
     - `http_options` [Block]. Options for HTTP health check.
       - `path` (String). URL path to set for health checking requests for every target in the target group. For example `/ping`. The default path is `/`.
@@ -57,11 +59,13 @@ data "yandex_lb_network_load_balancer" "my_nlb" {
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
 - `listener` [Block]. Listener specification that will be used by a network load balancer.
 
-    {% note warning %}
+{% note warning %}
 
-    One of `external_address_spec` or `internal_address_spec` should be specified.
+One of `external_address_spec` or `internal_address_spec` should be specified.
 
-    {% endnote %}
+{% endnote %}
+
+
   - `external_address_spec` [Block]. External IP address specification. 
     - `address` (String). External IP address for a listener. IP address will be allocated if it wasn't been set.
     - `ip_version` (String). IP version of the external addresses that the load balancer works with. Must be one of `ipv4` or `ipv6`. The default is `ipv4`.

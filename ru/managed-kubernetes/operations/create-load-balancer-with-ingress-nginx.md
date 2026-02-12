@@ -43,7 +43,7 @@
    
    {% note tip %}
 
-   Ingress-контроллер NGINX можно также [установить с помощью {{ marketplace-full-name }}](applications/ingress-nginx.md).
+   Ingress-контроллер NGINX можно также [установить с помощью {{ marketplace-full-name }}](../alb-ref/nginx-gwin-migration.md).
 
    {% endnote %}
 

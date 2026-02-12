@@ -78,8 +78,8 @@ items:
             href: concepts/standard-compliance/index.md
           - name: '{{ yandex-cloud }} Security Baseline'
             href: concepts/standard-compliance/yc-security-baseline.md
-      - name: '{{ ycdr-full-name }} ({{ ycdr-name }})'
-        href: concepts/ycdr.md
+          - name: '{{ yandex-cloud }} Security Standard'
+            href: concepts/standard-compliance/yc-cloud-security-standard.md
       - name: Data Security Posture Management ({{ dspm-name }})
         href: concepts/dspm.md
       - name: '{{ k8s }}® Security Posture Management (KSPM)'
@@ -106,8 +106,6 @@ items:
     items:
       - name: Common {{ sd-name }} roles
         href: security/index.md
-      - name: '{{ ycdr-name }} roles'
-        href: security/ycdr-roles.md
       - name: '{{ dspm-name }} roles'
         href: security/dspm-roles.md
       - name: KSPM roles

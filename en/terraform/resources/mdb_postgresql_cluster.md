@@ -300,20 +300,63 @@ resource "yandex_vpc_subnet" "foo" {
 - `restore` [Block]. The cluster will be created from the specified backup.
   - `backup_id` (**Required**)(String). Backup ID. The cluster will be created from the specified backup. [How to get a list of PostgreSQL backups](https://yandex.cloud/docs/managed-postgresql/operations/cluster-backups).
   - `time` (String). Timestamp of the moment to which the PostgreSQL cluster should be restored. (Format: `2006-01-02T15:04:05` - UTC). When not set, current time is used.
-  - `time_inclusive` (Bool). Flag that indicates whether a database should be restored to the first backup point available just after the timestamp specified in the [time] field instead of just before. Possible values:* `false` (default) — the restore point refers to the first backup moment before [time].* `true` — the restore point refers to the first backup point after [time].
+  - `time_inclusive` (Bool). Flag that indicates whether a database should be restored to the first backup point available just after the timestamp specified in the [time] field instead of just before. Possible values:
+* `false` (default) — the restore point refers to the first backup moment before [time].
+* `true` — the restore point refers to the first backup point after [time].
+
 - `user` [Block]. 
 
-    {% note warning %}
+     {% note warning %}
 
-    Deprecated! To manage users, please switch to using a separate resource type `yandex_mdb_postgresql_user`.
+     Deprecated! To manage users, please switch to using a separate resource type `yandex_mdb_postgresql_user`.
 
-    {% endnote %}
+     {% endnote %}
   - `conn_limit` (Number). The maximum number of connections per user. (Default 50).
   - `grants` (List Of String). List of the user's grants.
   - `login` (Bool). User's ability to login.
   - `name` (**Required**)(String). The name of the user.
   - `password` (**Required**)(String). The password of the user.
-  - `settings` (Map Of String). Map of user settings. [Full description](https://yandex.cloud/docs/managed-postgresql/api-ref/grpc/Cluster/create#yandex.cloud.mdb.postgresql.v1.UserSettings).* `default_transaction_isolation` - defines the default isolation level to be set for all new SQL transactions. One of:  - 1: `read uncommitted`  - 2: `read committed`  - 3: `repeatable read`  - 4: `serializable`* `lock_timeout` - The maximum time (in milliseconds) for any statement to wait for acquiring a lock on an table, index, row or other database object (default 0).* `log_min_duration_statement` - This setting controls logging of the duration of statements. Default -1 disables logging of the duration of statements.* `synchronous_commit` - This setting defines whether DBMS will commit transaction in a synchronous way. One of:  - 1: `on`  - 2: `off`  - 3: `local`  - 4: `remote write`  - 5: `remote apply`* `temp_file_limit` - The maximum storage space size (in kilobytes) that a single process can use to create temporary files.* `log_statement` - This setting specifies which SQL statements should be logged (on the user level). One of:  - 1: `none`  - 2: `ddl`  - 3: `mod`  - 4: `all`* `pool_mode` - Mode that the connection pooler is working in with specified user. One of:  - 1: `session`  - 2: `transaction`  - 3: `statement`* `prepared_statements_pooling` - This setting allows user to use prepared statements with transaction pooling. Boolean.* `catchup_timeout` - The connection pooler setting. It determines the maximum allowed replication lag (in seconds). Pooler will reject connections to the replica with a lag above this threshold. Default value is 0, which disables this feature. Integer.* `wal_sender_timeout` - The maximum time (in milliseconds) to wait for WAL replication. Terminate replication connections that are inactive for longer than this amount of time. Integer.* `idle_in_transaction_session_timeout` - Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction. Value of 0 (default) disables the timeout. Integer.* `statement_timeout` - The maximum time (in milliseconds) to wait for statement. Value of 0 (default) disables the timeout. Integer.
+  - `settings` (Map Of String). Map of user settings. [Full description](https://yandex.cloud/docs/managed-postgresql/api-ref/grpc/Cluster/create#yandex.cloud.mdb.postgresql.v1.UserSettings).
+
+* `default_transaction_isolation` - defines the default isolation level to be set for all new SQL transactions. One of:
+  - 1: `read uncommitted`
+  - 2: `read committed`
+  - 3: `repeatable read`
+  - 4: `serializable`
+
+* `lock_timeout` - The maximum time (in milliseconds) for any statement to wait for acquiring a lock on an table, index, row or other database object (default 0).
+
+* `log_min_duration_statement` - This setting controls logging of the duration of statements. Default -1 disables logging of the duration of statements.
+
+* `synchronous_commit` - This setting defines whether DBMS will commit transaction in a synchronous way. One of:
+  - 1: `on`
+  - 2: `off`
+  - 3: `local`
+  - 4: `remote write`
+  - 5: `remote apply`
+
+* `temp_file_limit` - The maximum storage space size (in kilobytes) that a single process can use to create temporary files.
+
+* `log_statement` - This setting specifies which SQL statements should be logged (on the user level). One of:
+  - 1: `none`
+  - 2: `ddl`
+  - 3: `mod`
+  - 4: `all`
+
+* `pool_mode` - Mode that the connection pooler is working in with specified user. One of:
+  - 1: `session`
+  - 2: `transaction`
+  - 3: `statement`
+
+* `prepared_statements_pooling` - This setting allows user to use prepared statements with transaction pooling. Boolean.
+
+* `catchup_timeout` - The connection pooler setting. It determines the maximum allowed replication lag (in seconds). Pooler will reject connections to the replica with a lag above this threshold. Default value is 0, which disables this feature. Integer.
+
+* `wal_sender_timeout` - The maximum time (in milliseconds) to wait for WAL replication. Terminate replication connections that are inactive for longer than this amount of time. Integer.
+
+* `idle_in_transaction_session_timeout` - Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction. Value of 0 (default) disables the timeout. Integer.
+
+* `statement_timeout` - The maximum time (in milliseconds) to wait for statement. Value of 0 (default) disables the timeout. Integer.
   - `permission` [Block]. Set of permissions granted to the user.
     - `database_name` (**Required**)(String). The name of the database that the permission grants access to.
 

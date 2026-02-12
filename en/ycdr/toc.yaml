@@ -1,0 +1,9 @@
+title: '{{ ycdr-full-name }}'
+href: index.yaml
+items:
+  - name: Concepts
+    items:
+      - name: About {{ ycdr-full-name }}
+        href: concepts/index.md
+  - name: Access management
+    href: security/index.md

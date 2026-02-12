@@ -1797,13 +1797,6 @@ default:
     commitment:
       selfcheckout:
         m6:
-          mdb:
-            ch:
-              cpu:
-                c100:
-                  v4a: dn2hhiufhgrzm5wuqcni
-              ram:
-                v4a: dn2wttftultbygz6kmot
           ydb:
             cpu:
               c100:
@@ -8512,6 +8505,7 @@ default:
             value_expired-object-delete-marker: Маркер удаления без нетекущих версий
           menu_version-history: История версий
           policy:
+            button_add-console-rule: Добавить правило для доступа из консоли
             button_add-resource: Добавить ресурс
             button_add-value: Добавить значение
             button_policy-delete: Удалить политику доступа
@@ -8615,6 +8609,45 @@ default:
           create_action: Создать каталог
           field_catalog-name: Имя каталога
           field_catalog-type: Тип коннектора
+        ClusterForm:
+          button_add_1EfQa: Добавить
+          label_allow_4botu: Allow
+          label_catalog-session-property_9XoJs: Свойства сессии каталога
+          label_description_rbB8P: Комментарий
+          label_filter_ewYvF: Фильтр
+          label_query-owners_a81zm: Владельцы запроса
+          label_session-property_cyTHR: Свойство сессии
+          label_system-session-property_grCye: Системные свойства сессии
+          label_table-column-add_241Co: Добавить столбец
+          label_table-columns_68mj2: Доступ к столбцам
+          label_table-privileges_2ikK4: Привилегии
+        ClusterView:
+          RBACView:
+            label_rbac-settings_o2F64: Настройки доступа
+        label_rbac-add-rule: Добавить правило
+        label_rbac-catalog: Каталоги
+        label_rbac-catalog-access: Доступ к каталогу
+        label_rbac-catalog-permissions: Разрешения
+        label_rbac-function: Функции
+        label_rbac-function-access: Доступ к функции
+        label_rbac-function-privileges: Привилегии
+        label_rbac-groups: Группы
+        label_rbac-procedure: Процедуры
+        label_rbac-procedure-access: Доступ к процедуре
+        label_rbac-procedure-privileges: Привилегии
+        label_rbac-query: Запросы
+        label_rbac-query-privileges: Привилегии
+        label_rbac-schema: Схемы
+        label_rbac-schema-access: Доступ к схеме
+        label_rbac-schema-owner: Владелец схемы
+        label_rbac-table: Таблицы
+        label_rbac-table-access: Доступ к таблице
+        label_rbac-users: Пользователи
+        rbac-catalog-match-by-empty: Не задано
+        rbac-catalog-match-by-id: ID
+        rbac-catalog-match-by-name: Имя
+        rbac-catalog-match-by-name-regexp: Имя (регулярное выражение)
+        section_rbac: Настройки доступа
         title_catalogs: Каталоги
       tuning:
         addition-params: Дополнительные параметры
@@ -11082,11 +11115,6 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
         tag: v1.0.7
-    yc_ingress-nginx:
-      helmChart:
-        name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/ingress-nginx/chart/ingress-nginx
-        tag: 4.13.0
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio

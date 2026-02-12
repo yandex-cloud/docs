@@ -1,19 +1,17 @@
 ---
-title: Troubleshooting in {{ video-full-name }}
-description: This article provides solutions for possible issues with {{ video-full-name }}.
+title: Troubleshooting video player issues in {{ video-full-name }}
+description: This article provides solutions for possible issues with the {{ video-name }} player.
 ---
 
-# Troubleshooting in {{ video-name }}
+# Troubleshooting video player issues
 
-See below for a list of {{ video-name }} possible issues and their fixes:
-
+See below for a list of possible issues with the {{ video-name }} [player](../concepts/player.md) and their fixes.
 
 ## Video content is not loading {#loading-issues}
 
 #### I see a black screen {#black-screen}
 
-{% include [basic-browser-actions](../_qa/video/basic-browser-actions.md) %}
-
+{% include [basic-browser-actions](../../_qa/video/basic-browser-actions.md) %}
 
 #### I see a green screen {#green-screen}
 
@@ -25,38 +23,34 @@ If the problem persists, update your video card drivers:
 
 - Windows {#windows}
 
-  {% include [update-drivers-windows](../_qa/video/update-drivers-windows.md) %}
+  {% include [update-drivers-windows](../../_qa/video/update-drivers-windows.md) %}
 
 {% endlist %}
-
 
 #### Viewing is not available in my browser {#wrong-browser}
 
 An outdated browser may not support the technologies used to load videos quickly and easily. Install the [latest version of your browser]({{ link-yandex }}/soft/browsers/).
 
-
 #### Access denied {#access-denied}
 
 The video has been removed from publication or deleted.
 
-
 #### The page is not loading {#page-doesnt-load}
 
-Try doing the following in a sequence:
+Try following these steps:
 
 1. Check if you have entered the page address correctly.
 1. Check your internet speed with [Internetometer]({{ link-yandex }}/internet/).
 1. [Clear your browser cache]({{ link-yandex }}/support/common/browsers-settings/browsers-cache.html).
 1. Disable installed extensions in your browser.
 
-    {% include [disable-browser-extensions](../_qa/video/disable-browser-extensions.md) %}
+    {% include [disable-browser-extensions](../../_qa/video/disable-browser-extensions.md) %}
 
 ## The video player does not work {#player-issues}
 
 #### The player froze {#video-doesnt-load}
 
-{% include [basic-browser-actions](../_qa/video/basic-browser-actions.md) %}
-
+{% include [basic-browser-actions](../../_qa/video/basic-browser-actions.md) %}
 
 #### There is no sound {#no-sound}
 
@@ -65,15 +59,13 @@ By default, the video loads without sound. If unable to increase volume in your 
 * Make sure sound is on in your browser and on your device.
 * Restart your browser or device.
 
-
 #### There are no control buttons for the video player {#buttons-dont-work}
 
 {% cut "Disable extensions" %}
 
-{% include [disable-browser-extensions](../_qa/video/disable-browser-extensions.md) %}
+{% include [disable-browser-extensions](../../_qa/video/disable-browser-extensions.md) %}
 
 {% endcut %}
-
 
 {% cut "Update your video card drivers" %}
 
@@ -81,12 +73,11 @@ By default, the video loads without sound. If unable to increase volume in your 
 
 - Windows {#windows}
 
-  {% include [update-drivers-windows](../_qa/video/update-drivers-windows.md) %}
+  {% include [update-drivers-windows](../../_qa/video/update-drivers-windows.md) %}
 
 {% endlist %}
 
 {% endcut %}
-
 
 #### The required video codecs are missing {#no-codecs}
 

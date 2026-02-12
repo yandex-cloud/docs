@@ -19,6 +19,8 @@ items:
             href: operations/cluster-update.md
           - name: Обновление версии {{ SPRK }}
             href: operations/cluster-version-update.md
+          - name: Техническое обслуживание
+            href: operations/cluster-maintenance.md
           - name: Остановка и запуск кластера
             href: operations/cluster-stop.md
           - name: Управление доступом к кластеру
@@ -61,6 +63,8 @@ items:
         href: concepts/limits.md
       - name: Классы хостов
         href: concepts/instance-types.md
+      - name: Техническое обслуживание
+        href: concepts/maintenance.md
       - name: Автоматическое масштабирование
         href: concepts/autoscaling.md
   - name: Управление доступом

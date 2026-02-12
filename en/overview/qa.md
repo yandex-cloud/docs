@@ -112,7 +112,7 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 ### Business tools {#business-tools}
 
 * [{{ datalens-full-name }}](../datalens/qa/index.md)
-* [{{ video-full-name }}](../video/troubleshooting.md)
+* [{{ video-full-name }}](../video/troubleshooting/index.md)
 
 {% include [Greenplum trademark](../_includes/mdb/mgp/trademark.md) %}
 

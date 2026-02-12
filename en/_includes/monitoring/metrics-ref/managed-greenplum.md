@@ -12,7 +12,7 @@ host | Host FQDN
 fqdn | Host FQDN
 
 ## CPU metrics {#managed-greenplum-cpu-metrics}
-CPU core workload.
+CPU core utilization.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
@@ -39,6 +39,7 @@ Additional labels: `device` for the disk ID in the system.
 | `disk.inodes_free`<br/>`DGAUGE`, count | Free inodes |
 | `disk.inodes_total`<br/>`DGAUGE`, count | Available inodes |
 | `disk.inodes_used`<br/>`DGAUGE`, count | Used inodes |
+| `disk.inodes_used_percent`<br/>`DGAUGE`, % | Percentage of used inodes |
 | `disk.total`<br/>`DGAUGE`, bytes | Available space |
 | `disk.used`<br/>`DGAUGE`, bytes | Used space |
 | `disk.used_percent`<br/>`DGAUGE`, % | Percentage of used space |
@@ -57,23 +58,41 @@ Additional labels: `dev` for the disk ID in the system.
 | `diskio.reads`<br/>`DGAUGE`, count | Number of disk reads |
 | `diskio.weighted_io_time`<br/>`DGAUGE`, milliseconds | I/O wait time |
 | `diskio.write_bytes`<br/>`DGAUGE`, bytes | Disk write size |
-| `diskio.write_time`<br/>`DGAUGE`, milliseconds | Disk write time |
+| `diskio.write_time`<br/>`DGAUGE`, ms | Disk write time |
 | `diskio.writes`<br/>`DGAUGE`, count | Number of disk writes |
 | `monitoring_disk.io_quota_utilization_percentage`<br/>`DGAUGE`, % | Average percentage of disk quota usage |
 | `monitoring_disk.io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Maximum percentage of disk quota usage |
-| `monitoring_disk.read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk. |
+| `monitoring_disk.read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk |
 | `monitoring_disk.read_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes read from disk |
-| `monitoring_disk.read_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk read request latency |
+| `monitoring_disk.read_latency`<br/>`DGAUGE`, ms | Distribution histogram for disk read request latency |
 | `monitoring_disk.read_ops`<br/>`DGAUGE`, operations per second | Average number of disk reads |
 | `monitoring_disk.read_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk reads |
-| `monitoring_disk.read_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of read latency due to exceeded disk quota |
-| `monitoring_disk.write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk. |
+| `monitoring_disk.read_throttler_delay`<br/>`DGAUGE`, ms | Histogram of read latency due to exceeded disk quota |
+| `monitoring_disk.write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk |
 | `monitoring_disk.write_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes written to disk |
-| `monitoring_disk.write_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk write request latency |
+| `monitoring_disk.write_latency`<br/>`DGAUGE`, ms | Distribution histogram for disk write request latency |
 | `monitoring_disk.write_ops`<br/>`DGAUGE`, operations per second | Average number of disk write operations |
 | `monitoring_disk.write_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk write operations |
-| `monitoring_disk.write_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of write latency due to exceeded disk quota |
+| `monitoring_disk.write_throttler_delay`<br/>`DGAUGE`, ms | Histogram of write latency due to exceeded disk quota |
 
+
+## Network drive IO metrics {#managed-greenplum-network-diskio-metrics}
+| Name<br/>Type, units | Description |
+| :--- | :--- |
+| `monitoring_disk.io_quota_utilization_percentage`<br/>`DGAUGE`, % | Average percentage of disk I/O quota usage |
+| `monitoring_disk.io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Maximum percentage of disk I/O quota usage (burst) |
+| `monitoring_disk.read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk per second |
+| `monitoring_disk.read_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes read from disk per second |
+| `monitoring_disk.read_latency`<br/>`DGAUGE`, ms | Distribution histogram for disk read request latency |
+| `monitoring_disk.read_ops`<br/>`DGAUGE`, operations per second | Average number of disk reads |
+| `monitoring_disk.read_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk reads |
+| `monitoring_disk.read_throttler_delay`<br/>`DGAUGE`, ms | Histogram of read latency due to exceeded disk quota |
+| `monitoring_disk.write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk per second |
+| `monitoring_disk.write_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes written to disk per second |
+| `monitoring_disk.write_latency`<br/>`DGAUGE`, ms | Distribution histogram for disk write request latency |
+| `monitoring_disk.write_ops`<br/>`DGAUGE`, operations per second | Average number of disk write operations |
+| `monitoring_disk.write_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk write operations |
+| `monitoring_disk.write_throttler_delay`<br/>`DGAUGE`, ms | Histogram of write latency due to exceeded disk quota |
 
 ## RAM metrics {#managed-greenplum-ram-metrics}
 | Name<br/>Type, units | Description |
@@ -124,6 +143,7 @@ Additional labels: `dev` for the disk ID in the system.
 | `net.err_out`<br/>`DGAUGE`, count | Transmit error count |
 | `net.packets_recv`<br/>`DGAUGE`, packets per second | Network packet receive rate |
 | `net.packets_sent`<br/>`DGAUGE`, packets per second | Network packet transmit rate |
+| `net.speed`<br/>`DGAUGE`, bits per second | Maximum network data transfer rate for this interface |
 | `net.icmp_inaddrmaskreps`<br/>`DGAUGE`, count | Number of ICMP address mask reply messages received from the polled node  |
 | `net.icmp_inaddrmasks`<br/>`DGAUGE`, count | Number of ICMP address mask request messages received  |
 | `net.icmp_incsumerrors`<br/>`DGAUGE`, count | Total IP packets with checksum errors  |
@@ -189,8 +209,8 @@ Additional labels: `dev` for the disk ID in the system.
 | `net.tcp_passiveopens`<br/>`DGAUGE`, count | Number of times TCP connections have made a direct transition to the `SYN-RCVD` state from `LISTEN`  |
 | `net.tcp_retranssegs`<br/>`DGAUGE`, count | Total segments retransmitted, i.e., number of TCP segments sent containing one or more previously transmitted octets.  |
 | `net.tcp_rtoalgorithm`<br/>`DGAUGE` | Algorithm used to determine the timeout for retransmitting unacknowledged octets  |
-| `net.tcp_rtomax`<br/>`DGAUGE`, milliseconds | Maximum TCP retransmission timeout, in milliseconds  |
-| `net.tcp_rtomin`<br/>`DGAUGE`, milliseconds | Minimum TCP retransmission timeout, in milliseconds  |
+| `net.tcp_rtomax`<br/>`DGAUGE`, ms | Maximum TCP retransmission timeout, in milliseconds  |
+| `net.tcp_rtomin`<br/>`DGAUGE`, ms | Minimum TCP retransmission timeout, in milliseconds  |
 | `net.udp_ignoredmulti`<br/>`DGAUGE`, count | Number of UDP multicast packets ignored  |
 | `net.udp_incsumerrors`<br/>`DGAUGE`, count | This value increases when a received UDP packet contains an invalid kernel code checksum.  |
 | `net.udp_indatagrams`<br/>`DGAUGE`, count | Total UDP packets received  |
@@ -207,7 +227,7 @@ Additional labels: `dev` for the disk ID in the system.
 | `net.udplite_outdatagrams`<br/>`DGAUGE`, count | Total UDP-Lite packets sent  |
 | `net.udplite_rcvbuferrors`<br/>`DGAUGE`, count | Number of UDP-Lite receive buffer errors  |
 | `net.udplite_sndbuferrors`<br/>`DGAUGE`, count | Number of UDP-Lite send buffer errors  |
-| `net_response.response_time`<br/>`DGAUGE`, milliseconds | Network response time  |
+| `net_response.response_time`<br/>`DGAUGE`, ms | Network response time  |
 | `net_response.result_code`<br/>`DGAUGE`, `0`-`10` | Network response code  |
 | `nstat.ipextinbcastoctets`<br/>`DGAUGE`, bytes | Total inbound broadcast octets received with IP addresses  |
 | `nstat.ipextinbcastpkts`<br/>`DGAUGE`, count | Total inbound broadcast packets received with IP addresses  |
@@ -227,6 +247,69 @@ Additional labels: `dev` for the disk ID in the system.
 | `nstat.ipextoutmcastpkts`<br/>`DGAUGE`, count | Total external multicast packets sent with IP addresses and detailed traffic information  |
 | `nstat.ipextoutoctets`<br/>`DGAUGE`, bytes | Total external octets sent with IP addresses and detailed traffic information  |
 | `nstat.ipextreasmoverlaps`<br/>`DGAUGE`, count | Number of overlapping fragments in defragmented IP packets  |
+| `nstat.mptcpextaddaddr`<br/>`DGAUGE`, count | Number of received MPTCP packets with the `ADD_ADDR` option (the `echo` flag set to 0) |
+| `nstat.mptcpextaddaddrdrop`<br/>`DGAUGE`, count | Number of dropped incoming MPTCP packets with the `ADD_ADDR` option |
+| `nstat.mptcpextaddaddrtx`<br/>`DGAUGE`, count | Number of sent MPTCP packets with the `ADD_ADDR` option (the `echo` flag set to 0) |
+| `nstat.mptcpextaddaddrtxdrop`<br/>`DGAUGE`, count | Number of dropped outgoing MPTCP packets with the `ADD_ADDR` option (the `echo` flag set to 0) not sent due to depletion of resources |
+| `nstat.mptcpextdatacsumerr`<br/>`DGAUGE`, count | Number of MPTCP packets with data checksum errors |
+| `nstat.mptcpextdsscorruptionfallback`<br/>`DGAUGE`, count | Number of cases where data sequence signal (DSS) corruption was detected in an MPTCP packet, which led to discontinuing the use of MPTCP and switching to the standard TCP |
+| `nstat.mptcpextdsscorruptionreset`<br/>`DGAUGE`, count | Number of subflow resets due to data sequence signal (DSS) corruption being detected in an MPTCP packet |
+| `nstat.mptcpextdssnomatchtcp`<br/>`DGAUGE`, count | Number of cases where the new data sequence signal (DSS) mapping in an MPTCP packet mismatched the previous data |
+| `nstat.mptcpextdssnotmatching`<br/>`DGAUGE`, count | Number of cases where the received data mismatched the expected based on the data sequence signal (DSS) |
+| `nstat.mptcpextduplicatedata`<br/>`DGAUGE`, count | Number of segments dropped due to data sequence signal (DSS) duplication in MPTCP packets |
+| `nstat.mptcpextechoadd`<br/>`DGAUGE`, count | Number of received MPTCP packets with the `ADD_ADDR` option (the `echo` flag set to 1) |
+| `nstat.mptcpextechoaddtx`<br/>`DGAUGE`, count | Number of sent MPTCP packets with the `ADD_ADDR` option (the `echo` flag set to 1) |
+| `nstat.mptcpextechoaddtxdrop`<br/>`DGAUGE`, count | Number of dropped outgoing MPTCP packets with the `ADD_ADDR` option (the `echo` flag set to 1) that were not sent due to depletion of resources |
+| `nstat.mptcpextinfinitemaprx`<br/>`DGAUGE`, count | Number of received MPTCP packets with infinite mappings |
+| `nstat.mptcpextinfinitemaptx`<br/>`DGAUGE`, count | Number of sent MPTCP packets with infinite mappings |
+| `nstat.mptcpextmismatchportackrx`<br/>`DGAUGE`, count | Number of sent MPTCP ACK packets with `MP_JOIN` that have a port number mismatch |
+| `nstat.mptcpextmismatchportsynrx`<br/>`DGAUGE`, count | Number of received MPTCP SYN packets with `MP_JOIN` that have a port number mismatch |
+| `nstat.mptcpextmpcapableackrx`<br/>`DGAUGE`, count | Number of received MPTCP SYN/ACK packets with `MP_CAPABLE` |
+| `nstat.mptcpextmpcapableendpattempt`<br/>`DGAUGE`, count | Number of attempts to establish a connection using `MP_CAPABLE` for a port that does not support MPTCP |
+| `nstat.mptcpextmpcapablefallbackack`<br/>`DGAUGE`, count | Number of cases of switching to the standard TCP when receiving ACK with `MP_CAPABLE` |
+| `nstat.mptcpextmpcapablefallbacksynack`<br/>`DGAUGE`, count | Number of cases of switching to the standard TCP when receiving SYN/ACK with `MP_CAPABLE` |
+| `nstat.mptcpextmpcapablesynackrx`<br/>`DGAUGE`, count | Number of received MPTCP SYN/ACK packets with the `MP_CAPABLE` option |
+| `nstat.mptcpextmpcapablesynrx`<br/>`DGAUGE`, count | Number of received MPTCP SYN packets with `MP_CAPABLE` |
+| `nstat.mptcpextmpcapablesyntx`<br/>`DGAUGE`, count | Number of sent MPTCP SYN packets with the `MP_CAPABLE` option |
+| `nstat.mptcpextmpcurrestab`<br/>`DGAUGE`, count | Current number of established MPTCP connections |
+| `nstat.mptcpextmpfailrx`<br/>`DGAUGE`, count | Number of received `MP_FAIL` MPTCP packets |
+| `nstat.mptcpextmpfailtx`<br/>`DGAUGE`, count | Number of sent `MP_FAIL` MPTCP packets |
+| `nstat.mptcpextmpfallbacktokeninit`<br/>`DGAUGE`, count | Number of failed attempts to initialize a token in MPTCP |
+| `nstat.mptcpextmpfastcloserx`<br/>`DGAUGE`, count | Number of received `MP_FASTCLOSE` MPTCP packets |
+| `nstat.mptcpextmpfastclosetx`<br/>`DGAUGE`, count | Number of sent `MP_FASTCLOSE` MPTCP packets |
+| `nstat.mptcpextmpjoinackhmacfailure`<br/>`DGAUGE`, count | Number of failed HMAC checks for a received MPTCP ACK packet with the `MP_JOIN` option |
+| `nstat.mptcpextmpjoinackrx`<br/>`DGAUGE`, count | Number of received MPTCP ACK packets with the `MP_CAPABLE` option |
+| `nstat.mptcpextmpjoinnotokenfound`<br/>`DGAUGE`, count | Number of cases where the relevant token was not found when attempting to connect a subflow using the `MP_JOIN` option |
+| `nstat.mptcpextmpjoinportackrx`<br/>`DGAUGE`, count | Number of received MPTCP ACK packets with `MP_JOIN` that contain a port number |
+| `nstat.mptcpextmpjoinportsynackrx`<br/>`DGAUGE`, count | Number of received MPTCP SYN/ACK packets with `MP_JOIN` that contain a port number |
+| `nstat.mptcpextmpjoinportsynrx`<br/>`DGAUGE`, count | Number of received MPTCP SYN packets with `MP_JOIN` that contain a port number |
+| `nstat.mptcpextmpjoinsynackbackuprx`<br/>`DGAUGE`, count | Number of received backup MPTCP SYN/ACK packets with `MP_JOIN` |
+| `nstat.mptcpextmpjoinsynackhmacfailure`<br/>`DGAUGE`, count | Number of failed HMAC checks for a received MPTCP SYN/ACK packet with the `MP_JOIN` option |
+| `nstat.mptcpextmpjoinsynackrx`<br/>`DGAUGE`, count | Number of received MPTCP SYN/ACK packets with the `MP_JOIN` option |
+| `nstat.mptcpextmpjoinsynbackuprx`<br/>`DGAUGE`, count | Number of received backup MPTCP SYN packets with `MP_JOIN` |
+| `nstat.mptcpextmpjoinsynrx`<br/>`DGAUGE`, count | Number of received MPTCP SYN packets with the `MP_JOIN` option |
+| `nstat.mptcpextmppriorx`<br/>`DGAUGE`, count | Number of received MPTCP packets with the `MP_PRIO` option |
+| `nstat.mptcpextmppriotx`<br/>`DGAUGE`, count | Number of sent MPTCP packets with the `MP_PRIO` option |
+| `nstat.mptcpextmprstrx`<br/>`DGAUGE`, count | Number of received `MP_RST` MPTCP packets |
+| `nstat.mptcpextmprsttx`<br/>`DGAUGE`, count | Number of sent `MP_RST` MPTCP packets |
+| `nstat.mptcpextmptcpretrans`<br/>`DGAUGE`, count | Number of segment retransmissions at the MPTCP level |
+| `nstat.mptcpextnodssinwindow`<br/>`DGAUGE`, count | Number of segments not included in the MPTCP window |
+| `nstat.mptcpextofomerge`<br/>`DGAUGE`, count | Number of segments enqueued in the `OoO` (out-of-order) queue |
+| `nstat.mptcpextofoqueue`<br/>`DGAUGE`, count | Number of segments inserted into the `OoO` (out-of-order) queue |
+| `nstat.mptcpextofoqueuetail`<br/>`DGAUGE`, count | Number of segments appended to the end of the `OoO` (out-of-order) queue |
+| `nstat.mptcpextportadd`<br/>`DGAUGE`, count | Number of received MPTCP packets with the `ADD_ADDR` option that contain a port number |
+| `nstat.mptcpextrcvpruned`<br/>`DGAUGE`, count | Number of data segments dropped on reception in an MPTCP connection |
+| `nstat.mptcpextrcvwndconflict`<br/>`DGAUGE`, count | Number of conflicts when updating the MPTCP receive window |
+| `nstat.mptcpextrcvwndconflictupdate`<br/>`DGAUGE`, count | Number of cases where the MPTCP receive window was updated due to a conflict with another subflow |
+| `nstat.mptcpextrcvwndshared`<br/>`DGAUGE`, count | Number of cases where the subflow receive window was overridden by the MPTCP-level window |
+| `nstat.mptcpextrmaddr`<br/>`DGAUGE`, count | Number of received MPTCP packets with the `RM_ADDR` option |
+| `nstat.mptcpextrmaddrdrop`<br/>`DGAUGE`, count | Number of dropped incoming MPTCP packets with the `RM_ADDR` option |
+| `nstat.mptcpextrmaddrtx`<br/>`DGAUGE`, count | Number of sent MPTCP packets with the `RM_ADDR` option |
+| `nstat.mptcpextrmaddrtxdrop`<br/>`DGAUGE`, count | Number of MPTCP packets with the `RM_ADDR` option that were not sent due to depletion of resources |
+| `nstat.mptcpextrmsubflow`<br/>`DGAUGE`, count | Number of deleted subflows in an MPTCP connection |
+| `nstat.mptcpextsndwndshared`<br/>`DGAUGE`, count | Number of cases where the subflow send window was overridden by the MPTCP-level window |
+| `nstat.mptcpextsubflowrecover`<br/>`DGAUGE`, count | Number of subflows that switched back to active after being `stale` |
+| `nstat.mptcpextsubflowstale`<br/>`DGAUGE`, count | Number of subflows that switched to `stale` |
 | `nstat.tcpextarpfilter`<br/>`DGAUGE`, count | Number of ARP filter drops for TCP packets  |
 | `nstat.tcpextbusypollrxpackets`<br/>`DGAUGE`, count | Number of TCP packets received through busy polling  |
 | `nstat.tcpextdelayedacklocked`<br/>`DGAUGE`, count | Number of TCP delayed acknowledgments (ACKs) blocked  |
@@ -260,6 +343,11 @@ Additional labels: `dev` for the disk ID in the system.
 | `nstat.tcpexttcpackskippedseq`<br/>`DGAUGE`, count | Number of TCP ACK packets skipped due to out-of-sequence connections  |
 | `nstat.tcpexttcpackskippedsynrecv`<br/>`DGAUGE`, count | Number of TCP ACK packets skipped due to connections in the `SYN_RECV` state  |
 | `nstat.tcpexttcpackskippedtimewait`<br/>`DGAUGE`, count | Number of TCP ACK packets skipped due to connections in the `TIME_WAIT` state  |
+| `nstat.tcpexttcpaobad`<br/>`DGAUGE`, count | Number of TCP packets that failed `TCP-AO` verification (signature verification errors or data corruption) |
+| `nstat.tcpexttcpaodroppedicmps`<br/>`DGAUGE`, count | Number of ICMP messages ignored or dropped during `TCP-AO` |
+| `nstat.tcpexttcpaogood`<br/>`DGAUGE`, count | Number of TCP packets successfully verified during `TCP-AO` |
+| `nstat.tcpexttcpaokeynotfound`<br/>`DGAUGE`, count | Number of TCP packets for which the required key (KeyID) was not found during verification |
+| `nstat.tcpexttcpaorequired`<br/>`DGAUGE`, count | Number of TCP packets where a `TCP-AO` header was expected but missing |
 | `nstat.tcpexttcpautocorking`<br/>`DGAUGE`, count | Number of TCP autocorking operations  |
 | `nstat.tcpexttcpbacklogcoalesce`<br/>`DGAUGE`, count | Number of TCP backlog coalesces  |
 | `nstat.tcpexttcpbacklogdrop`<br/>`DGAUGE`, count | Number of TCP connections dropped due to the backlog queue overflow  |
@@ -267,13 +355,16 @@ Additional labels: `dev` for the disk ID in the system.
 | `nstat.tcpexttcpdeferacceptdrop`<br/>`DGAUGE`, count | Number of TCP connections dropped on deferred accept  |
 | `nstat.tcpexttcpdelivered`<br/>`DGAUGE`, count | Number of successfully delivered TCP packets  |
 | `nstat.tcpexttcpdeliveredce`<br/>`DGAUGE`, count | Number of successfully delivered TCP packets, including those with checksum errors corrected  |
+| `nstat.tcpexttcpdsackignoreddubious`<br/>`DGAUGE`, count | Number of segments that were ignored during the `DSACK` processing due to being suspicious or not matching the expected parameters |
 | `nstat.tcpexttcpdsackignorednoundo`<br/>`DGAUGE`, count | Number of TCP packets reporting duplicate data blocks available but unused on receive  |
 | `nstat.tcpexttcpdsackignoredold`<br/>`DGAUGE`, count | Number of TCP packets reporting old data available on receive  |
 | `nstat.tcpexttcpdsackoforecv`<br/>`DGAUGE`, count | Number of TCP packets reporting duplicate data blocks sent  |
 | `nstat.tcpexttcpdsackofosent`<br/>`DGAUGE`, count | Number of TCP packets reporting out-of-order data blocks received  |
 | `nstat.tcpexttcpdsackoldsent`<br/>`DGAUGE`, count | Number of TCP packets reporting out-of-order data blocks sent  |
 | `nstat.tcpexttcpdsackrecv`<br/>`DGAUGE`, count | Number of TCP packets reporting old data sent  |
+| `nstat.tcpexttcpdsackrecvsegs`<br/>`DGAUGE`, count | Number of segments received and processed by the `DSACK` mechanism |
 | `nstat.tcpexttcpdsackundo`<br/>`DGAUGE`, count | Number of TCP packets reporting out-of-order data blocks received  |
+| `nstat.tcpexttcpduplicatdatarehash`<br/>`DGAUGE`, count | Number of segments rehashed when duplicate data were detected in the TCP flow |
 | `nstat.tcpexttcpfastopenactive`<br/>`DGAUGE`, count | Number of TCP packets reporting undo data blocks received  |
 | `nstat.tcpexttcpfastopenactivefail`<br/>`DGAUGE`, count | Number of failed active TCP Fast Open attempts  |
 | `nstat.tcpexttcpfastopenblackhole`<br/>`DGAUGE`, count | Number of TCP Fast Open packets sent but not delivered (lost)  |
@@ -302,6 +393,8 @@ Additional labels: `dev` for the disk ID in the system.
 | `nstat.tcpexttcpmd5unexpected`<br/>`DGAUGE`, count | Number of unexpected TCP MD5 authentication errors  |
 | `nstat.tcpexttcpmemorypressures`<br/>`DGAUGE`, count | Number of TCP memory pressure failures  |
 | `nstat.tcpexttcpmemorypressureschrono`<br/>`DGAUGE`, count | Number of TCP memory pressure failures, duration considered  |
+| `nstat.tcpexttcpmigratereqfailure`<br/>`DGAUGE`, count | Number of failed migration requests for sockets or other resources in the TCP context |
+| `nstat.tcpexttcpmigratereqsuccess`<br/>`DGAUGE`, count | Number of successful migration requests for sockets or other resources in the TCP context |
 | `nstat.tcpexttcpminttldrop`<br/>`DGAUGE`, count | Number of TCP connections aborted due to minimum TTL value  |
 | `nstat.tcpexttcpmtupfail`<br/>`DGAUGE`, count | Number of failed TCP MTU adjustments  |
 | `nstat.tcpexttcpmtupsuccess`<br/>`DGAUGE`, count | Number of successful TCP MTU adjustments  |
@@ -310,6 +403,7 @@ Additional labels: `dev` for the disk ID in the system.
 | `nstat.tcpexttcpofoqueue`<br/>`DGAUGE`, count | Number of out-of-order TCP packets queued  |
 | `nstat.tcpexttcporigdatasent`<br/>`DGAUGE`, count | Number of TCP data segment sent to the destination  |
 | `nstat.tcpexttcppartialundo`<br/>`DGAUGE`, count | Number of partial TCP undo operations  |
+| `nstat.tcpexttcpplbrehash`<br/>`DGAUGE`, count | Number of rehash operations in the `PLB` context |
 | `nstat.tcpexttcppureacks`<br/>`DGAUGE`, count | Number of pure TCP ACK packets  |
 | `nstat.tcpexttcprcvcoalesce`<br/>`DGAUGE`, count | Number of TCP packets coalesced on receive  |
 | `nstat.tcpexttcprcvcollapsed`<br/>`DGAUGE`, count | Number of TCP packets collapsed on receive  |
@@ -335,6 +429,7 @@ Additional labels: `dev` for the disk ID in the system.
 | `nstat.tcpexttcpspuriousrtxhostqueues`<br/>`DGAUGE`, count | Number of spurious TCP retransmissions in host queues  |
 | `nstat.tcpexttcpsynchallenge`<br/>`DGAUGE`, count | Number of TCP synchronization challenges  |
 | `nstat.tcpexttcpsynretrans`<br/>`DGAUGE`, count | Number of TCP SYN retransmissions  |
+| `nstat.tcpexttcptimeoutrehash`<br/>`DGAUGE`, count | Number of rehash operations initiated due to timeouts in TCP connections |
 | `nstat.tcpexttcptimeouts`<br/>`DGAUGE`, count | Number of TCP timeouts  |
 | `nstat.tcpexttcptimewaitoverflow`<br/>`DGAUGE`, count | Number of TCP `TIME_WAIT` overflows  |
 | `nstat.tcpexttcptozerowindowadv`<br/>`DGAUGE`, count | Number of TCP zero window advertisements in segments  |
@@ -346,15 +441,19 @@ Additional labels: `dev` for the disk ID in the system.
 | `nstat.tcpexttw`<br/>`DGAUGE`, count | Number of TCP sockets in the `TIME_WAIT` state  |
 | `nstat.tcpexttwkilled`<br/>`DGAUGE`, count | Number of killed TCP sockets in the `TIME_WAIT` state  |
 | `nstat.tcpexttwrecycled`<br/>`DGAUGE`, count | Number of recycled TCP sockets in the `TIME_WAIT` state  |
-| `ping.average_response_ms`<br/>`DGAUGE`, milliseconds | Average ping response time |
-| `ping.maximum_response_ms`<br/>`DGAUGE`, milliseconds | Maximum ping response time |
-| `ping.minimum_response_ms`<br/>`DGAUGE`, milliseconds | Minimum ping response time |
+| `ping.average_response_ms`<br/>`DGAUGE`, ms | Average ping response time |
+| `ping.maximum_response_ms`<br/>`DGAUGE`, ms | Maximum ping response time |
+| `ping.minimum_response_ms`<br/>`DGAUGE`, ms | Minimum ping response time |
 | `ping.packets_received`<br/>`DGAUGE`, count | Number of ping packets received |
 | `ping.packets_transmitted`<br/>`DGAUGE`, count | Number of ping packets sent |
 | `ping.percent_packet_loss`<br/>`DGAUGE`, % | Percentage of ping packets lost |
 | `ping.result_code`<br/>`DGAUGE`, `0`-`4` | Ping result code |
-| `ping.standard_deviation_ms`<br/>`DGAUGE`, milliseconds | Ping response time standard deviation |
+| `ping.standard_deviation_ms`<br/>`DGAUGE`, ms | Ping response time standard deviation |
 | `ping.ttl`<br/>`DGAUGE`, count | Ping TTL: Number of hops (typically routers) between network nodes a ping packet traverses |
+| `net_queue.rx_queue_*_packets`<br/>`DGAUGE`, packets per second | Number of received packets in the queue |
+| `net_queue.tx_queue_*_packets`<br/>`DGAUGE`, packets per second | Number of sent packets in the queue |
+| `net_queue.rx_queue_*_bytes`<br/>`DGAUGE`, bytes per second | Number of received bytes in the queue |
+| `net_queue.tx_queue_*_bytes`<br/>`DGAUGE`, bytes per second | Number of sent bytes in the queue |
 
 ## Service metrics {#managed-greenplum-metrics}
 | Name<br/>Type, units | Description |
@@ -508,6 +607,8 @@ Additional labels:
 | `snmp.icmpouterrors`<br/>`DGAUGE`, count | Number of ICMP messages not sent due to ICMP errors, such as buffer shortages (SNMP) |
 | `snmp.icmpoutmsgs`<br/>`DGAUGE`, count | Total ICMP messages the object in question attempted to send. This includes all messages counted by `snmp.icmpouterrors` (SNMP). |
 | `snmp.icmpoutparmprobs`<br/>`DGAUGE`, count | Number of ICMP parameter problem messages sent (SNMP) |
+| `snmp.icmpoutratelimitglobal`<br/>`DGAUGE`, count | Number of limited outgoing ICMP messages sent globally |
+| `snmp.icmpoutratelimithost`<br/>`DGAUGE`, count | Number of limited outgoing ICMP messages sent by a specific host |
 | `snmp.icmpoutredirects`<br/>`DGAUGE`, count | Number of ICMP redirect messages sent (SNMP) |
 | `snmp.icmpoutsrcquenchs`<br/>`DGAUGE`, count | Number of ICMP source quench messages sent (SNMP) |
 | `snmp.icmpouttimeexcds`<br/>`DGAUGE`, count | Number of ICMP time exceeded messages sent (SNMP) |
@@ -528,6 +629,7 @@ Additional labels:
 | `snmp.ipoutdiscards`<br/>`DGAUGE`, count | Number of outgoing IP packets encountering no issues preventing their transmission to the destination but still dropped, e.g., due to lack of buffer space. Note that the counter would include packets counted in `snmp.ipforwdatagrams` if they met this (discretionary) drop criterion (SNMP). |
 | `snmp.ipoutnoroutes`<br/>`DGAUGE`, count | Number of IP packets dropped because no route to their destination was found. This metric tracks all packets counted in `snmp.ipforwdatagrams` that meet this no-route criterion. This includes any packets a host cannot redirect because all its default gateways are down. |
 | `snmp.ipoutrequests`<br/>`DGAUGE`, count | Total IP packets provided by local IP user-level protocols (including ICMP) to IP in requests for transmission. This metric does not include the packets counted in `snmp.ipforwdatagrams` (SNMP). |
+| `snmp.ipouttransmits`<br/>`DGAUGE`, count | Number of sent IP packets sent by the interface |
 | `snmp.ipreasmfails`<br/>`DGAUGE`, count | Number of failures detected by the IP reassembly algorithm due to reasons, such as timeouts, errors, etc. This is not necessarily a count of dropped IP fragments, since certain algorithms, like the one in RFC 815, may lose count of fragments while reassembling them as they are received (SNMP). |
 | `snmp.ipreasmoks`<br/>`DGAUGE`, count | Number of IP packets successfully reassembled (SNMP) |
 | `snmp.ipreasmreqds`<br/>`DGAUGE`, count | Number of received IP fragments requiring reassembly in the object in question (SNMP) |
@@ -545,8 +647,8 @@ Additional labels:
 | `snmp.tcppassiveopens`<br/>`DGAUGE`, count | Number of times TCP connections have made a direct transition from the `LISTEN` state to `SYN-RCVD` (SNMP). |
 | `snmp.tcpretranssegs`<br/>`DGAUGE`, count | Total segments retransmitted, i.e., number of TCP segments sent containing one or more previously transmitted octets (SNMP). |
 | `snmp.tcprtoalgorithm`<br/>`DGAUGE` | Algorithm used to determine the timeout for retransmitting unacknowledged octets |
-| `snmp.tcprtomax`<br/>`DGAUGE`, milliseconds | Maximum TCP retransmission timeout, in milliseconds (SNMP) |
-| `snmp.tcprtomin`<br/>`DGAUGE`, milliseconds | Minimum TCP retransmission timeout, in milliseconds (SNMP) |
+| `snmp.tcprtomax`<br/>`DGAUGE`, ms | Maximum TCP retransmission timeout, in milliseconds (SNMP) |
+| `snmp.tcprtomin`<br/>`DGAUGE`, ms | Minimum TCP retransmission timeout, in milliseconds (SNMP) |
 | `snmp.udpignoredmulti`<br/>`DGAUGE`, count | Number of UDP multicast packets ignored (SNMP) |
 | `snmp.udpincsumerrors`<br/>`DGAUGE`, count | This value increases when a received UDP packet contains an invalid kernel code checksum (SNMP). |
 | `snmp.udpindatagrams`<br/>`DGAUGE`, count | Total UDP packets received (SNMP) |
@@ -555,10 +657,12 @@ Additional labels:
 | `snmp.udpliteincsumerrors`<br/>`DGAUGE`, count | This value increases when a received UDP-Lite packet contains an invalid kernel code checksum (SNMP). |
 | `snmp.udpliteindatagrams`<br/>`DGAUGE`, count | Total UDP-Lite packets received (SNMP) |
 | `snmp.udpliteinerrors`<br/>`DGAUGE`, count | Total UDP-Lite packet receive errors (SNMP) |
+| `snmp.udplitememerrors`<br/>`DGAUGE`, count | Number of UDP-Lite memory errors (SNMP) |
 | `snmp.udplitenoports`<br/>`DGAUGE`, count | Total UDP-Lite packets received without a listener on the destination port (SNMP) |
 | `snmp.udpliteoutdatagrams`<br/>`DGAUGE`, count | Total UDP-Lite packets sent from the object in question (SNMP) |
 | `snmp.udplitercvbuferrors`<br/>`DGAUGE`, count | This value increases when no memory can be allocated to handle an inbound UDP-Lite packet (SNMP). |
 | `snmp.udplitesndbuferrors`<br/>`DGAUGE`, count | This value increases when no memory can be allocated to send an inbound UDP-Lite packet (SNMP). |
+| `snmp.udpmemerrors`<br/>`DGAUGE`, count | Number of UDP-Lite memory errors (SNMP) |
 | `snmp.udpnoports`<br/>`DGAUGE`, count | Total UDP packets received without a listener on the destination port (SNMP) |
 | `snmp.udpoutdatagrams`<br/>`DGAUGE`, count | Total UDP packets sent from the object in question (SNMP) |
 | `snmp.udprcvbuferrors`<br/>`DGAUGE`, count | Number of UDP receive buffer errors (SNMP) |
@@ -599,6 +703,7 @@ Additional labels:
 | `snmp6.icmp6outneighborsolicits`<br/>`DGAUGE`, count | Number of ICMPv6 neighbor solicitations sent (SNMP) |
 | `snmp6.icmp6outparmproblems`<br/>`DGAUGE`, count | Number of errors when sending ICMPv6 parameter problem messages (SNMP) |
 | `snmp6.icmp6outpkttoobigs`<br/>`DGAUGE`, count | Number of errors when sending ICMPv6 packet too big messages (SNMP) |
+| `snmp6.icmp6outratelimithost`<br/>`DGAUGE`, count | Number of limited outgoing ICMPv6 messages |
 | `snmp6.icmp6outredirects`<br/>`DGAUGE`, count | Number of ICMPv6 redirect route messages sent (SNMP) |
 | `snmp6.icmp6outrouteradvertisements`<br/>`DGAUGE`, count | Number of ICMPv6 router advertisements sent (SNMP) |
 | `snmp6.icmp6outroutersolicits`<br/>`DGAUGE`, count | Number of ICMPv6 router solicitations sent (SNMP) |
@@ -637,6 +742,7 @@ Additional labels:
 | `snmp6.ip6outnoroutes`<br/>`DGAUGE`, count | Number of IPv6 packets dropped because no route to their destination was found (SNMP). |
 | `snmp6.ip6outoctets`<br/>`DGAUGE`, count | Total external octets sent with IPv6 addresses and detailed traffic information (SNMP) |
 | `snmp6.ip6outrequests`<br/>`DGAUGE`, count | Total IPv6 packets provided by local IPv6 user-level protocols (including ICMP) to IPv6 in requests for transmission (SNMP). |
+| `snmp6.ip6outtransmits`<br/>`DGAUGE`, count | Number of IPv6 packets sent (SNMP) |
 | `snmp6.ip6reasmfails`<br/>`DGAUGE`, count | Number of failures detected by the IPv6 reassembly algorithm due to reasons, such as timeouts, errors, etc. This is not necessarily a count of dropped IPv6 fragments, since certain algorithms, like the one in RFC 815, may lose count of fragments while reassembling them as they are received (SNMP). |
 | `snmp6.ip6reasmoks`<br/>`DGAUGE`, count | Number of IPv6 packets successfully reassembled (SNMP) |
 | `snmp6.ip6reasmreqds`<br/>`DGAUGE`, count | Number of received IPv6 fragments requiring reassembly in the object in question (SNMP) |
@@ -645,6 +751,7 @@ Additional labels:
 | `snmp6.udp6incsumerrors`<br/>`DGAUGE`, count | This value increases when a received UDPv6 packet contains an invalid kernel code checksum (SNMP). |
 | `snmp6.udp6indatagrams`<br/>`DGAUGE`, count | Total UDPv6 packets received (SNMP) |
 | `snmp6.udp6inerrors`<br/>`DGAUGE`, count | Number of bad UDPv6 packets received, excluding those with checksum errors (SNMP) |
+| `snmp6.udp6memerrors`<br/>`DGAUGE`, count | Number of UDPv6 memory errors (SNMP) |
 | `snmp6.udp6noports`<br/>`DGAUGE`, count | Total UDPv6 packets received with no application on the destination port (SNMP) |
 | `snmp6.udp6outdatagrams`<br/>`DGAUGE`, count | Total UDPv6 packets sent from the object in question (SNMP) |
 | `snmp6.udp6rcvbuferrors`<br/>`DGAUGE`, count | Number of UDPv6 receive buffer errors (SNMP) |
@@ -652,12 +759,42 @@ Additional labels:
 | `snmp6.udplite6incsumerrors`<br/>`DGAUGE`, count | This value increases when a received UDP-Litev6 packet contains an invalid kernel code checksum (SNMP). |
 | `snmp6.udplite6indatagrams`<br/>`DGAUGE`, count | Total UDP-Litev6 packets received (SNMP) |
 | `snmp6.udplite6inerrors`<br/>`DGAUGE`, count | Total UDP-Litev6 packet receive errors (SNMP) |
+| `snmp6.udplite6memerrors`<br/>`DGAUGE`, count | Number of UDP-Litev6 memory errors (SNMP) |
 | `snmp6.udplite6noports`<br/>`DGAUGE`, count | Number of received UDP-Litev6 packets with no destination port found (SNMP) |
 | `snmp6.udplite6outdatagrams`<br/>`DGAUGE`, count | Total UDP-Litev6 packets sent from the object in question (SNMP) |
 | `snmp6.udplite6rcvbuferrors`<br/>`DGAUGE`, count | Number of UDP-Litev6 receive buffer errors (SNMP) |
 | `snmp6.udplite6sndbuferrors`<br/>`DGAUGE`, count | Number of UDP-Litev6 send buffer errors (SNMP) |
 
+## Pressure stall information (Linux PSI) metrics {#managed-greenplum-pressure-stall-information-metrics}
+| Name<br/>Type, units | Description |
+| :--- | :--- |
+| `psi.cpu.some.avg10`<br/>`DGAUGE`, % | Average fraction of time over the last 10 seconds during which at least some tasks were delayed due to insufficient computing resources |
+| `psi.cpu.some.avg60`<br/>`DGAUGE`, %  | Average fraction of time over the last 60 seconds during which at least some tasks were delayed due to insufficient computing resources |
+| `psi.cpu.some.avg300`<br/>`DGAUGE`, %  | Average fraction of time over the last 300 seconds during which at least some tasks were delayed due to insufficient computing resources |
+| `psi.cpu.some.total`<br/>`DGAUGE`, ms | Total time during which some processes were waiting for CPU resources |
+| `psi.memory.full.avg10`<br/>`DGAUGE`, % | Average fraction of time over the last 10 seconds during which all active tasks were simultaneously delayed due to insufficient available memory |
+| `psi.memory.full.avg60`<br/>`DGAUGE`, % | Average fraction of time over the last 60 seconds during which all active tasks were simultaneously delayed due to insufficient available memory |
+| `psi.memory.full.avg300`<br/>`DGAUGE`, % | Average fraction of time over the last 300 seconds during which all active tasks were simultaneously delayed due to insufficient available memory |
+| `psi.memory.full.total`<br/>`DGAUGE`, ms | Total time during which all processes were waiting for access to memory resources |
+| `psi.memory.some.avg10`<br/>`DGAUGE`, % | Average fraction of time over the last 10 seconds during which at least some tasks were delayed due to insufficient available memory |
+| `psi.memory.some.avg60`<br/>`DGAUGE`, % | Average fraction of time over the last 60 seconds during which at least some tasks were delayed due to insufficient available memory |
+| `psi.memory.some.avg300`<br/>`DGAUGE`, % | Average fraction of time over the last 300 seconds during which at least some tasks were delayed due to insufficient available memory |
+| `psi.memory.some.total`<br/>`DGAUGE`, ms | Total time during which some processes were waiting for access to memory resources |
+
+## Process metrics {#managed-greenplum-process-metrics}
+| Name<br/>Type, units | Description |
+| :--- | :--- |
+| `proc_state_stat.idle`<br/>`DGAUGE`, count | Number of processes in `idle` status |
+| `proc_state_stat.running`<br/>`DGAUGE`, count | Number of processes in `running` status |
+| `proc_state_stat.interruptible_sleep`<br/>`DGAUGE`, count | Number of processes in `interruptible_sleep` status |
+| `proc_state_stat.uninterruptible_sleep`<br/>`DGAUGE`, count | Number of processes in `uninterruptible_sleep` status |
+| `proc_state_stat.zombie`<br/>`DGAUGE`, count | Number of processes in `zombie` status |
+| `proc_state_stat.stopped_by_debugger`<br/>`DGAUGE`, count | Number of processes in `stopped_by_debugger` status |
+| `proc_state_stat.stopped_by_job_control_signal`<br/>`DGAUGE`, count | Number of processes in `stopped_by_job_control_signal` status |
+
 ## Other metrics {#managed-greenplum-other-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `core_dump.count`<br/>`DGAUGE`, count | Number of core dumps |
+| `dmesg_events.cgroup.oom`<br/>`DGAUGE`, count | Number of `OOM` events in `cgroup` |
+| `dmesg_events.system.oom`<br/>`DGAUGE`, count | Number of `OOM` events in the system |

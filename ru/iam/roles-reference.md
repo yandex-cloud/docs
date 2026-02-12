@@ -1052,6 +1052,13 @@ description: В статье приведен полный справочник 
 Подробнее см. [{#T}](../datasphere/security/index.md).
 
 
+## {{ ycdr-full-name }} {#ycdr-roles}
+
+#### ycdr.admin {#ycdr-admin}
+
+{% include [ycdr.admin](../_roles/ycdr/admin.md) %}
+
+
 ## {{ yds-full-name }} {#yds-roles}
 
 #### yds.auditor {#yds-auditor}
@@ -2082,14 +2089,6 @@ description: В статье приведен полный справочник 
 {% include [security-deck.admin](../_roles/security-deck/admin.md) %}
 
 Подробнее см. [Общие роли {{ sd-full-name }}](../security-deck/security/index.md).
-
-### Сервисные роли для модуля {{ ycdr-name }} {#ycdr-roles}
-
-#### ycdr.admin {#ycdr-admin}
-
-{% include [ycdr.admin](../_roles/ycdr/admin.md) %}
-
-Подробнее см. [Управление доступом в {{ ycdr-name }}](../security-deck/security/ycdr-roles.md).
 
 ### Сервисные роли для контроля данных ({{ dspm-name }}) {#dspm-roles}
 

@@ -15,7 +15,7 @@ To get started with {{ video-name }}:
   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
   1. Select one of these options:
 
-     * If you already have an organization, select it from the drop-down menu and click **Open Cloud Video**.
+     * If you already have an organization, select it from the drop-down menu and click **{{ ui-key.yacloud_video.organization.action_open-cloud-video }}**.
 
        {% note info %}
 

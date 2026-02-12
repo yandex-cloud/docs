@@ -53,6 +53,10 @@ description: Следуя этой инструкции, вы сможете п�
             <имя_БД>
     ```
 
+    {% include [see-fqdn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
+
+    {% include [db-command](../../../_includes/mdb/mmg/db-command.md) %}
+
 - Подключение с SSL для {{ SD }} 4.0 {#with-ssl-4}
 
     Для нешардированного кластера:
@@ -79,6 +83,10 @@ description: Следуя этой инструкции, вы сможете п�
             <имя_БД>
     ```
 
+    {% include [see-fqdn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
+
+    {% include [db-command](../../../_includes/mdb/mmg/db-command.md) %}
+
 - Подключение без SSL {#without-ssl}
 
     Для нешардированного кластера:
@@ -101,11 +109,31 @@ description: Следуя этой инструкции, вы сможете п�
             <имя_БД>
     ```
 
+    {% include [see-fqdn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
+
+    {% include [db-command](../../../_includes/mdb/mmg/db-command.md) %}
+
+- SRV-подключение {#srv}
+
+    ```bash
+    mongosh "mongodb+srv://<имя_пользователя_БД>:<пароль_пользователя_БД>\
+    @<идентификатор_кластера>.{{ dns-zone }}/<имя_БД>"
+    ```
+
+  Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
+
+  {% include [db-command](../../../_includes/mdb/mmg/db-command.md) %}
+
+  {% include [srv-parameters](../../../_includes/mdb/mmg/srv-parameters.md) %}
+
+  Пример команды с параметрами подключения:
+
+    ```bash
+    mongosh "mongodb+srv://user********:qwe********@c9qng7jhsgtg********.{{ dns-zone }}\
+    /db********?authSource=admin&appName=debug"
+    ```
+
 {% endlist %}
-
-{% include [see-fqdn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
-
-После подключения выполните команду `db`.
 
 ### Windows (PowerShell) {#powershell}
 
@@ -139,6 +167,10 @@ description: Следуя этой инструкции, вы сможете п�
                 <имя_БД>
     ```
 
+    {% include [see-fqdn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
+
+    {% include [db-command](../../../_includes/mdb/mmg/db-command.md) %}
+
 - Подключение без SSL {#without-ssl}
 
     Для нешардированного кластера:
@@ -161,11 +193,31 @@ description: Следуя этой инструкции, вы сможете п�
                 <имя_БД>
     ```
 
+    {% include [see-fqdn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
+
+    {% include [db-command](../../../_includes/mdb/mmg/db-command.md) %}
+
+- SRV-подключение {#srv}
+
+    ```powershell
+    mongosh.exe "mongodb+srv://<имя_пользователя_БД>:<пароль_пользователя_БД>`
+    @<идентификатор_кластера>.{{ dns-zone }}/<имя_БД>"
+    ```
+
+  Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
+
+  {% include [db-command](../../../_includes/mdb/mmg/db-command.md) %}
+
+  {% include [srv-parameters](../../../_includes/mdb/mmg/srv-parameters.md) %}
+
+  Пример команды с параметрами подключения:
+
+    ```powershell
+    mongosh.exe "mongodb+srv://user********:qwe********@c9qng7jhsgtg********.{{ dns-zone }}`
+    /db********?authSource=admin&appName=debug"
+    ```
+
 {% endlist %}
-
-{% include [see-fqdn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
-
-После подключения выполните команду `db`.
 
 ## Подключение из графических IDE {#connection-ide}
 

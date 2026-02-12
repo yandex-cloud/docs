@@ -77,11 +77,7 @@
 
     {% note info %}
 
-    Рекомендуемые версии драйверов:
-
-    * Для групп узлов версии {{ k8s }} `1.30` или выше — [версия `550.144.03`](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-550-144-03/index.html) или выше.
-
-    * Для групп узлов на платформе {{ a100-epyc }} (`gpu-standard-v3`) — [версия `515.48.07`](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-515-48-07/index.html).
+    Рекомендуемая версия драйверов — [550.144.03](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-550-144-03/index.html) или выше.
 
     {% endnote %}
 

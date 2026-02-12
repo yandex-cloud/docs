@@ -1331,6 +1331,8 @@ items:
         href: dataplatform/airflow-spark-min.md
       - name: Использование {{ objstorage-full-name }} в {{ msp-full-name }}
         href: dataplatform/spark-objstorage-integration.md
+      - name: Запуск PySpark-задания в {{ myt-full-name }}
+        href: dataplatform/yt-run-spark-job.md
   - name: Продукты Microsoft в {{ yandex-cloud }}
     items:
       - name: Все руководства

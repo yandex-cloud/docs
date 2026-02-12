@@ -57,11 +57,13 @@ resource "yandex_lockbox_secret_version" "my_version" {
 - `secret_id` (**Required**)(String). The Yandex Cloud Lockbox secret ID where to add the version.
 - `entries` [Block]. List of entries in the Yandex Cloud Lockbox secret version. Must be omitted for secrets with a payload specification.
 
-    {% note warning %}
+{% note warning %}
 
-    One either `text_value` or `command` is required.
+One either `text_value` or `command` is required.
 
-    {% endnote %}
+{% endnote %}
+
+
   - `key` (**Required**)(String). The key of the entry.
   - `text_value` (String). The text value of the entry.
   - `command` [Block]. The command that generates the text value of the entry.

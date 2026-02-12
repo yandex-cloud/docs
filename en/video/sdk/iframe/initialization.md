@@ -1,15 +1,15 @@
 ---
-title: Cloud Video Player initialization parameters in IFrame SDK
-description: This page describes the parameters you can use when initializing Cloud Video Player in IFrame SDK.
+title: '{{ video-player-name }} initialization parameters in the IFrame SDK'
+description: This page describes the parameters you can use to initialize {{ video-player-name }} in the IFrame SDK.
 ---
 
 # Player initialization parameters
 
-When creating an iframe with Cloud Video Player, you can provide initial playback and player display settings in the URL.
+When creating an iframe with [{{ video-player-name }}](../../concepts/player.md), you can provide the initial playback and player appearance settings in the URL.
 
-## Parameter provision format {#format}
+## Settings format {#format}
 
-Parameters are provided in the iframe URL after `?` as query parameters. To provide multiple parameters, separate them with `&`:
+The settings are provided in the iframe URL after `?` as query parameters. To provide multiple parameters, separate them with `&`:
 
 ```html
 <iframe

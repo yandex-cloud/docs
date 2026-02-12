@@ -17,7 +17,6 @@ The applicable {{ sd-name }} pricing depends on the module you are using:
 * [Cloud Infrastructure Entitlement Management ({{ ciem-name }})](concepts/ciem.md) is free of charge.
 * [For {{ dspm-name }})](concepts/dspm.md), see [below](#dspm-rules).
 * For [{{ atr-name }}](concepts/access-transparency.md), see [{{ atr-name }}](#atr-rules) below.
-* For [{{ ycdr-full-name }}](concepts/ycdr.md), upon agreement with your account manager.
 * For [KSPM](./concepts/kspm.md), see [Kubernetes® Security Posture Management (KSPM)](#kspm-rules) below.
 * [{{ cspm-name }}](./concepts/cspm.md) is at the [Preview](../overview/concepts/launch-stages.md) stage and free of charge.
 * [AI assistant](./concepts/ai-assistant.md) is at the [Preview](../overview/concepts/launch-stages.md) stage and free of charge.

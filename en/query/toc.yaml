@@ -91,6 +91,8 @@ items:
         href: sources-and-sinks/postgresql.md
       - name: Working with {{ ydb-name }} databases
         href: sources-and-sinks/ydb.md
+      - name: Reading data from {{ yq-iceberg-name }} tables
+        href: sources-and-sinks/iceberg.md
   - name: Tutorials
     items:
       - name: All tutorials

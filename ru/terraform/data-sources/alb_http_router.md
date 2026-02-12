@@ -46,11 +46,13 @@ data "yandex_alb_http_router" "tf-router" {
           - `name` (**Required**)(String). 
           - `value` [Block]. The `path` and `fqmn` blocks.
 
-              {% note warning %}
+{% note warning %}
 
-              Exactly one type of string matches `exact`, `prefix` or `regex` should be specified.
+Exactly one type of string matches `exact`, `prefix` or `regex` should be specified.
 
-              {% endnote %}
+{% endnote %}
+
+
             - `exact` (String). Match exactly.
             - `prefix` (String). Match prefix.
             - `regex` (String). Match regex.

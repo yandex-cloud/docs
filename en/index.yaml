@@ -73,6 +73,11 @@ links:
   - title: DataSphere
     description: A service for developing ML models
     href: datasphere/
+  - title: Yandex Cloud Detection and Response
+    description: >-
+      Service that monitors and responds to Yandex Cloud infrastructure
+      incidents.
+    href: ycdr/
   - title: Cloud CDN
     description: Content delivery network (CDN)
     href: cdn/

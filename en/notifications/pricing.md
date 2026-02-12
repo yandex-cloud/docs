@@ -71,9 +71,9 @@ Cost calculation of using a registered name:
 
 You can only send text messages across Russia. You pay for each processed message sending event. A message over 140 B (160 Latin characters or 70 Cyrillic characters) is broken down into a few parts, each of which is billable.
 
-The cost of processing an event depends on the text message’s type: whether it is a commercial, authentication, service, or transaction message. All text messages are considered commercial by default. If you want your messages billed as another event type, you need to create a template first. Currently, to do this, you need to send examples of your messages to [our support]({{ link-console-support }}). We will then determine whether creating a template and registering it is available for your case.
+The cost of processing an event depends on the text message type: commercial, authentication, service, or transaction message. All text messages are considered commercial by default. If you want your messages billed as another event type, you need to create a template first. Currently, to do this, you need to send examples of your messages to [our support]({{ link-console-support }}). We will then determine whether creating a template and registering it is available for your case.
 
-For some operators, billing may be done in packages. The cost of such packages is calculated individually for each subscriber that gets text messages. See the [cost calculation example](#sms-example) below for more information.
+For some operators, billing can be based on packages. Packages are calculated individually for each subscriber for whom you get text message notification sending events. See the [cost calculation example](#sms-example) below for more information.
 
 Sandbox messages (those sent when the text message notification channel is in the `Sandbox` status) are charged as per the relevant pricing.
 

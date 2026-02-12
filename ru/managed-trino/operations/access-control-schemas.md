@@ -30,6 +30,33 @@ description: Правила определяют, какие пользоват�
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер {{ mtr-name }}.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}** и задайте параметры кластера.
+  1. В блоке **{{ ui-key.yacloud.trino.section_rbac }}** нажмите на значок ![image](../../_assets/console-icons/chevron-down.svg).
+  1. В поле **{{ ui-key.yacloud.trino.label_rbac-schema }}** нажмите кнопку **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**.
+  1. В открывшемся окне задайте параметры правила:
+
+     1. {% include [description-console](../../_includes/managed-trino/description-console.md) %}
+
+     1. {% include [users-console](../../_includes/managed-trino/users-console.md) %}
+
+     1. {% include [groups-console](../../_includes/managed-trino/groups-console.md) %}
+
+     1. В поле **{{ ui-key.yacloud.trino.label_rbac-schema-owner }}** выберите, является ли пользователь владельцем схемы:
+        * `YES` — является.
+        * `NO` — не является.
+
+     1. {% include [calatogs-description-console](../../_includes/managed-trino/calatogs-description-console.md) %}
+
+     1. {% include [schemas-description-console](../../_includes/managed-trino/schemas-description-console.md) %}
+
+  1. При необходимости добавьте другие правила аналогичным образом.
+  1. Чтобы удалить правило, добавленное по ошибке, в строке этого правила нажмите на значок ![trash-bin](../../_assets/console-icons/trash-bin.svg).
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -321,6 +348,35 @@ description: Правила определяют, какие пользоват�
 {% endnote %}
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Нажмите на имя нужного кластера.
+  1. Перейдите в блок **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** → **{{ ui-key.yacloud.trino.label_rbac-schema }}**.
+  1. Чтобы добавить правило, нажмите кнопку **{{ ui-key.yacloud.trino.label_rbac-add-rule }}** и в открывшемся окне задайте параметры правила:
+
+     1. {% include [description-console](../../_includes/managed-trino/description-console.md) %}
+
+     1. {% include [users-console](../../_includes/managed-trino/users-console.md) %}
+
+     1. {% include [groups-console](../../_includes/managed-trino/groups-console.md) %}
+
+     1. В поле **{{ ui-key.yacloud.trino.label_rbac-schema-owner }}** выберите, является ли пользователь владельцем схемы:
+        * `YES` — является.
+        * `NO` — не является.
+
+     1. {% include [calatogs-description-ID-console](../../_includes/managed-trino/calatogs-description-ID-console.md) %}
+
+     1. {% include [schemas-description-console](../../_includes/managed-trino/schemas-description-console.md) %}
+
+  1. При необходимости добавьте другие правила аналогичным образом.
+  1. Чтобы отредактировать правило:
+     1. В строке этого правила нажмите на значок ![trash-bin](../../_assets/console-icons/pencil.svg).
+     1. Измените параметры правила и нажмите кнопку **{{ ui-key.yacloud.common.update }}**.
+  1. Чтобы удалить ненужное правило, в строке этого правила нажмите на значок ![trash-bin](../../_assets/console-icons/trash-bin.svg).
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save-changes }}**.
 
 - CLI {#cli}
 

@@ -7,6 +7,18 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.192.0 (12.02.26) {#version0.192.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services-0.192.0}
+
+##### {{ si-name }}  {#si-name-0.192.0}
+
+В следующие команды для управления рабочим процессом добавлены параметры `--set-is-public` и `--remove-is-public`, с помощью которых можно включить или выключить публичный доступ к запуску процесса:
+* `yc serverless workflow create`;
+* `yc serverless workflow update`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.191.0 (06.02.26) {#version0.191.0}
 
 #### Изменения в CLI {#cli-0.191.0}
@@ -21,8 +33,6 @@ description: На странице представлены релизы CLI, а
 В следующие команды для управления группой узлов добавлен параметр `--enable-workload-identity-federation`, с помощью которого можно включить или выключить [интеграцию с федерацией сервисных аккаунтов](../iam/concepts/workload-identity.md) {{ iam-name }}:
 * `yc managed-kubernetes node-group create`;
 * `yc managed-kubernetes node-group update`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.190.0 (05.02.26) {#version0.190.0}
 

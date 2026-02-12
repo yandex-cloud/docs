@@ -33,7 +33,8 @@ resource "yandex_iam_workload_identity_oidc_federation" "wlif" {
 - `audiences` (*Read-Only*) (Set Of String). List of trusted values for aud claim.
 - `created_at` (*Read-Only*) (String). Creation timestamp.
 - `description` (*Read-Only*) (String). Description of the OIDC workload identity federation.
-- `disabled` (Bool). True - the OIDC workload identity federation is disabled and cannot be used for authentication. False - the OIDC workload identity federation is enabled and can be used for authentication.
+- `disabled` (Bool). True - the OIDC workload identity federation is disabled and cannot be used for authentication.
+ False - the OIDC workload identity federation is enabled and can be used for authentication.
 - `enabled` (*Read-Only*) (Bool). Enabled flag.
 - `federation_id` (String). Id of the OIDC workload identity federation.
 - `folder_id` (*Read-Only*) (String). Id of the folder that the OIDC workload identity federation belongs to.

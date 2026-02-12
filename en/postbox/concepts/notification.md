@@ -25,6 +25,15 @@ Notification example:
             "subject":"Message sent using Yandex Cloud Postbox"
         },
         "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+               "123.123.123.123"
+            ],
             "key1": [
                 "value1"
             ],
@@ -59,6 +68,24 @@ Notification example:
             "subject":"Message sent using Yandex Cloud Postbox"
         },
         "tags": {
+            "ses:configuration-set": [
+               "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
+            "ses:outgoing-tls-cipher": [
+                "AES_128_GCM_SHA256"
+            ],
+            "ses:outgoing-tls-version": [
+                "TLSv1.3"
+            ],
+            "ses:outgoing-ip": [
+                "51.250.56.125"
+            ],
             "key1": [
                 "value1"
             ],
@@ -100,6 +127,15 @@ Notification example:
             "subject":"Message sent using Yandex Cloud Postbox"
         },
         "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
             "key1": [
                 "value1"
             ],
@@ -147,6 +183,15 @@ Notification example:
             "subject":"Message sent using Yandex Cloud Postbox"
         },
         "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
             "key1": [
                 "value1"
             ],
@@ -185,6 +230,15 @@ Notification example:
             "subject":"Message sent using {{ postbox-full-name }}"
         },
         "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
             "key1": [
                 "value1"
             ],
@@ -232,6 +286,15 @@ Notification example:
             "subject":"Message sent using Yandex Cloud Postbox"
         },
         "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
             "key1": [
                 "value1"
             ],
@@ -274,6 +337,15 @@ Notification example:
             "subject":"Message sent using Yandex Cloud Postbox"
         },
         "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
             "key1": [
                 "value1"
             ],
@@ -296,7 +368,7 @@ The notification is written to the {{ yds-full-name }} [data stream](../../data-
 
 ### Main object {#main-object}
 
-Name | Type | Description
+Field | Type | Description
 --- | --- | ---
 `notificationType` | String | [Notification type](#types). The possible values are `Bounce`, `Delivery`, and `Send`.
 `mail` | [Mail](#mail-object) object | Object containing general information about the sent email.
@@ -308,7 +380,7 @@ Name | Type | Description
 
 ### Mail object {#mail-object}
 
-Name | Type | Description
+Field | Type | Description
 --- | --- | ---
 `timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Time the email was accepted by {{ postbox-name }}.
 `messageId` | String | Unique ID of the email. One email can have multiple recipients. Sent by {{ postbox-name }} when accepting the email for processing.
@@ -318,7 +390,7 @@ Name | Type | Description
 
 ### CommonHeaders object {#common-headers-object}
 
-Name | Type | Description
+Field | Type | Description
 --- | --- | ---
 `from` | Array of strings | Contents of the `From` header, broken down by address.
 `to` | Array of strings | Contents of the `To` header, broken down by address.
@@ -332,7 +404,7 @@ Empty object.
 
 ### Bounce object {#bounce-object}
 
-Name | Type | Description
+Field | Type | Description
 --- | --- | ---
 `bounceType` | String | Error type. The possible values are:<ul><li>`Permenent`: Email not delivered.</li></ul>
 `bounceSubType` | String | Error subtype. The possible values are:<ul><li>`Undetermined`: Unknown error.</li><li>`Suppressed`: Email not delivered because the recipient is on the stop list.</li></ul>
@@ -341,7 +413,7 @@ Name | Type | Description
 
 ### BounceRecipient object {#bounce-recipent-object}
 
-Name | Type | Description
+Field | Type | Description
 --- | --- | ---
 `emailAddress` | String | Recipient's email address.
 `action` | String | Optional field. Result of sending. The possible value is `failed`.
@@ -350,7 +422,7 @@ Name | Type | Description
 
 ### Click object {#click-object}
 
-Name | Type | Description
+Field | Type | Description
 --- | --- | ---
 `ipAddress` | String | IP address of the recipient’s device used to open the link.
 `timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Time when the recipient clicked the link.
@@ -360,7 +432,7 @@ Name | Type | Description
 
 ### Delivery object {#delivery-object}
 
-Name | Type | Description
+Field | Type | Description
 --- | --- | ---
 `timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Time when {{ postbox-name }} sent the email and received a successful response from the recipient's email client.
 `processingTimeMillis` | Integer | Time spent to process the email in milliseconds.
@@ -368,7 +440,7 @@ Name | Type | Description
 
 ### DeliveryDelay object {#delivery-delay-object}
 
-Name | Type | Description
+Field | Type | Description
 --- | --- | ---
 `delayType` | String | Delay type. The possible value is `General`.
 `delayedRecipients` | [DelayedRecipient](#delayed-recipient-object) object array | Array containing information about the email recipient and the related delivery delay.
@@ -376,13 +448,13 @@ Name | Type | Description
 
 ### DelayedRecipient object {#delayed-recipient-object}
 
-Name | Type | Description
+Field | Type | Description
 --- | --- | ---
 `emailAddress` | String | Recipient's email address.
 
 ### Subscription object {#subscription-object}
 
-Name | Type | Description
+Field | Type | Description
 --- | --- | ---
 `contactList` | String | Name of the contact list associated with the email.
 `timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Recipient unsubscribe timestamp.
@@ -390,15 +462,35 @@ Name | Type | Description
 
 ### Open object {#open-object}
 
-Name | Type | Description
+Field | Type | Description
 --- | --- | ---
 `ipAddress` | String | IP address of the recipient’s device used to open the email.
 `timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Email opening timestamp.
 `userAgent` | String | Identification string (`User-Agent`) of the device or email the client used to open the email.
 
+## System tags {#system-tags}
+
+When sending an email, {{ postbox-name }} adds the following system tags to it and then includes them in notifications.
+
+Common tags:
+
+Field | Description
+--- | ---
+`ses:configuration-set` | ID of the [configuration](glossary.md#configuration) used when sending the email.
+`ses:from-domain` | Domain the email was sent from.
+`ses:source-ip` | IP address of the server the email to {{ postbox-name }} was sent from by the user.
+
+Additional tags included only into [delivery notifications](#delivery):
+
+Field | Description
+--- | ---
+`ses:outgoing-tls-version` | TLS version used to send the email to the recipient server.
+`ses:outgoing-tls-cipher` | TLS cipher used to send the email to the recipient server.
+`ses:outgoing-ip` | IP address of the server from which the email was sent by {{ postbox-name }} to the recipient server.
+
 ## Quality of service (QoS) level {#qos}
 
-When delivering notifications, {{ postbox-name }} supports the `QoS 1: At least once` service level, which means the notifications may be sent again. Identical notifications have the same `eventId`.
+To deliver notifications, the service supports the `QoS 1: At least once` quality of service level, so it is possible to resend notifications. Identical notifications have the same `eventId`.
 
 If an address is linked to a [configuration](glossary.md#configuration) that has multiple [subscriptions](glossary.md#subscription.md) added to it, a separate notification will come for each assignment.
 

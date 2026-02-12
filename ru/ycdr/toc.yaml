@@ -1,0 +1,9 @@
+title: '{{ ycdr-full-name }}'
+href: index.yaml
+items:
+  - name: Концепции
+    items:
+      - name: О сервисе {{ ycdr-full-name }}
+        href: concepts/index.md
+  - name: Управление доступом
+    href: security/index.md

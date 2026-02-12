@@ -416,11 +416,13 @@ resource "yandex_storage_bucket" "b" {
 - `access_key` (String). The access key to use when applying changes. This value can also be provided as `storage_access_key` specified in provider config (explicitly or within `shared_credentials_file`) is used.
 - `acl` (String). The [predefined ACL](https://yandex.cloud/docs/storage/concepts/acl#predefined_acls) to apply. Defaults to `private`. Conflicts with `grant`.
 
-    {% note warning %}
+{% note warning %}
 
-    To change ACL after creation, service account with `storage.admin` role should be used, though this role is not necessary to create a bucket with any ACL.
+To change ACL after creation, service account with `storage.admin` role should be used, though this role is not necessary to create a bucket with any ACL.
 
-    {% endnote %}
+{% endnote %}
+
+
 - `bucket` (String). The name of the bucket. If omitted, Terraform will assign a random, unique name.
 - `bucket_domain_name` (*Read-Only*) (String). The bucket domain name.
 - `bucket_prefix` (String). Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
@@ -428,11 +430,13 @@ resource "yandex_storage_bucket" "b" {
 - `disabled_statickey_auth` (Bool). If true, static key authentication in bucket is forbidden. Default is `false`.
 - `folder_id` (String). Allow to create bucket in different folder. In case you are using IAM token from UserAccount, you are needed to explicitly specify folder_id in the resource, as it cannot be identified from such type of account. In case you are using IAM token from ServiceAccount or static access keys, folder_id does not need to be specified unless you want to create the resource in a different folder than the account folder.
 
-    {% note warning %}
+{% note warning %}
 
-    It will try to create bucket using `IAM-token`, not using `access keys`.
+It will try to create bucket using `IAM-token`, not using `access keys`.
 
-    {% endnote %}
+{% endnote %}
+
+
 - `force_destroy` (Bool).  A boolean that indicates all objects should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable. Default is `false`.
 - `id` (String). 
 - `max_size` (Number). The size of bucket, in bytes. See [Size Limiting](https://yandex.cloud/docs/storage/operations/buckets/limit-max-volume) for more information.
@@ -453,11 +457,13 @@ resource "yandex_storage_bucket" "b" {
   - `max_age_seconds` (Number). Specifies time in seconds that browser can cache the response for a preflight request.
 - `grant` [Block]. An [ACL policy grant](https://yandex.cloud/docs/storage/concepts/acl#permissions-types). Conflicts with `acl`.
 
-    {% note warning %}
+{% note warning %}
 
-    To manage `grant` argument, service account with `storage.admin` role should be used.
+To manage `grant` argument, service account with `storage.admin` role should be used.
 
-    {% endnote %}
+{% endnote %}
+
+
   - `id` (String). Canonical user id to grant for. Used only when type is `CanonicalUser`.
   - `permissions` (**Required**)(Set Of String). List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `FULL_CONTROL`.
   - `type` (**Required**)(String). Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`.
@@ -473,7 +479,9 @@ resource "yandex_storage_bucket" "b" {
     - `date` (String). Specifies the date after which you want the corresponding action to take effect.
     - `days` (Number). Specifies the number of days after object creation when the specific rule action takes effect.
     - `expired_object_delete_marker` (Bool). n a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Object Storage to delete expired object delete markers.
-  - `filter` [Block]. Filter block identifies one or more objects to which the rule applies. A Filter must have exactly one of Prefix, Tag, or And specified. The filter supports options listed below.At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
+  - `filter` [Block]. Filter block identifies one or more objects to which the rule applies. A Filter must have exactly one of Prefix, Tag, or And specified. The filter supports options listed below.
+
+At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
     - `object_size_greater_than` (Number). Minimum object size to which the rule applies.
     - `object_size_less_than` (Number). Maximum object size to which the rule applies.
     - `prefix` (String). Object key prefix identifying one or more objects to which the rule applies.
@@ -511,11 +519,13 @@ resource "yandex_storage_bucket" "b" {
       - `sse_algorithm` (**Required**)(String). The server-side encryption algorithm to use. Single valid value is `aws:kms`.
 - `versioning` [Block]. A state of [versioning](https://yandex.cloud/docs/storage/concepts/versioning).
 
-    {% note warning %}
+{% note warning %}
 
-    To manage `versioning` argument, service account with `storage.admin` role should be used.
+To manage `versioning` argument, service account with `storage.admin` role should be used.
 
-    {% endnote %}
+{% endnote %}
+
+
   - `enabled` (Bool). Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
 - `website` [Block]. A [Website Object](https://yandex.cloud/docs/storage/concepts/hosting)
   - `error_document` (String). An absolute path to the document to return in case of a 4XX error.

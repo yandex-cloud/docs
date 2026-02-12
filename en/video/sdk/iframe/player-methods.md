@@ -1,11 +1,11 @@
 ---
-title: Cloud Video Player methods in the IFrame SDK
-description: This page describes the methods you can use to manage Cloud Video Player in the IFrame SDK.
+title: '{{ video-player-name }} methods in the IFrame SDK'
+description: This page describes the methods you can use to manage {{ video-player-name }} in the IFrame SDK.
 ---
 
 # Player methods
 
-You can manage [Cloud Video Player](../../concepts/player.md) using the following IFrame SDK methods: Methods are called via `postMessage` to communicate with the iframe.
+You can manage [{{ video-player-name }}](../../concepts/player.md) using the following IFrame SDK methods: Methods are called via `postMessage` to communicate with the iframe.
 
 ## Method call format {#method-format}
 
@@ -68,7 +68,7 @@ player.postMessage({
 Switches the content to another video.
 
 Parameters:
-* `contentId` (string): New content ID.
+* `id` (string): New content ID.
 * `params` (object): Optional parameters for loading content.
 
 {% include [video-content-id-desc](../../../_includes/video/video-content-id-desc.md) %}

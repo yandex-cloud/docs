@@ -22,15 +22,30 @@ resource "yandex_organizationmanager_user_ssh_key" "my_user_ssh_key" {
 
 ## Arguments & Attributes Reference
 
-- `created_at` (*Read-Only*) (String). package: yandex.cloud.organizationmanager.v1filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
-- `data` (**Required**)(String). package: yandex.cloud.organizationmanager.v1filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
+- `created_at` (*Read-Only*) (String). package: yandex.cloud.organizationmanager.v1
+filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
+
+- `data` (**Required**)(String). package: yandex.cloud.organizationmanager.v1
+filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
+
 - `expires_at` (String). Used for temporary keys, if empty the key doesn't expire
-- `fingerprint` (*Read-Only*) (String). package: yandex.cloud.organizationmanager.v1filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
-- `id` (String). package: yandex.cloud.organizationmanager.v1filename: yandex/cloud/organizationmanager/v1/user_ssh_key_service.proto
-- `name` (String). package: yandex.cloud.organizationmanager.v1filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
-- `organization_id` (**Required**)(String). package: yandex.cloud.organizationmanager.v1filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
-- `subject_id` (**Required**)(String). package: yandex.cloud.organizationmanager.v1filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
-- `user_ssh_key_id` (String). package: yandex.cloud.organizationmanager.v1filename: yandex/cloud/organizationmanager/v1/user_ssh_key_service.proto
+- `fingerprint` (*Read-Only*) (String). package: yandex.cloud.organizationmanager.v1
+filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
+
+- `id` (String). package: yandex.cloud.organizationmanager.v1
+filename: yandex/cloud/organizationmanager/v1/user_ssh_key_service.proto
+
+- `name` (String). package: yandex.cloud.organizationmanager.v1
+filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
+
+- `organization_id` (**Required**)(String). package: yandex.cloud.organizationmanager.v1
+filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
+
+- `subject_id` (**Required**)(String). package: yandex.cloud.organizationmanager.v1
+filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
+
+- `user_ssh_key_id` (String). package: yandex.cloud.organizationmanager.v1
+filename: yandex/cloud/organizationmanager/v1/user_ssh_key_service.proto
 
 ## Import
 

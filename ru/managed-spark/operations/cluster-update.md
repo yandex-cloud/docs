@@ -36,7 +36,7 @@ keywords:
         1. Удалите или добавьте названия pip- и deb-пакетов.
 
            Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
-        1. В настройке **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** измените время технического обслуживания кластера:
+        1. В настройке **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** измените время [технического обслуживания](../concepts/maintenance.md) кластера:
 
            {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
@@ -140,7 +140,7 @@ keywords:
 
             Укажите один из двух параметров: `--log-folder-id` или `--log-group-id`.
 
-        * `--maintenance-window` — настройки времени технического обслуживания (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
+        * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
 
             {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
@@ -239,7 +239,7 @@ keywords:
           * [Класс хостов](../concepts/instance-types.md) в параметре `resource_preset_id`.
           * Количество экземпляров. Укажите фиксированное количество в параметре `size` или минимальное и максимальное количество для автомасштабирования в параметрах `min_size` и `max_size`.
 
-        * `maintenance_window` – параметры технического обслуживания (в т. ч. для выключенных кластеров). В этом блоке укажите:
+        * `maintenance_window` – параметры [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). В этом блоке укажите:
 
           * Тип технического обслуживания в параметре `type`. Принимает значения:
             * `ANYTIME` — в любое время.
