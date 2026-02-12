@@ -1046,6 +1046,13 @@ For more information, see [{#T}](../data-proc/security/index.md).
 For more information, see [{#T}](../datasphere/security/index.md).
 
 
+## {{ ycdr-full-name }} roles {#ycdr-roles}
+
+#### ycdr.admin {#ycdr-admin}
+
+{% include [ycdr.admin](../_roles/ycdr/admin.md) %}
+
+
 ## {{ yds-full-name }} {#yds-roles}
 
 #### yds.auditor {#yds-auditor}
@@ -1998,14 +2005,6 @@ For more information, see [{#T}](../search-api/security/index.md).
 {% include [security-deck.admin](../_roles/security-deck/admin.md) %}
 
 For more information, see [General {{ sd-full-name }} roles](../security-deck/security/index.md).
-
-### {{ ycdr-name }} roles {#ycdr-roles}
-
-#### ycdr.admin {#ycdr-admin}
-
-{% include [ycdr.admin](../_roles/ycdr/admin.md) %}
-
-For more information, see [Access management in {{ ycdr-name }}](../security-deck/security/ycdr-roles.md).
 
 ### {{ dspm-name }} roles {#dspm-roles}
 

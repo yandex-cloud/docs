@@ -13,15 +13,15 @@ description: Follow this guide to set up a {{ video-full-name }} channel and man
 
   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
   1. Select a channel.
-  1. In the right-hand panel, select **Channel settings**.
-  1. Under **Advertising**, specify the ad settings for all videos on your channel.
-  1. Under **Allowed domains**, add the addresses of websites where videos from this channel can be played. Videos will not be played on other websites.
-     1. Enable **Check status**.
-     1. Click ![plus-sign](../../../_assets/console-icons/plus.svg) **Add domain**.
+  1. In the right-hand panel, select **{{ ui-key.yacloud_video.channels.title_settings }}**.
+  1. Under **{{ ui-key.yacloud_video.channels.label_advertisement }}**, specify the ad settings for all videos on your channel.
+  1. Under **{{ ui-key.yacloud_video.channels.label_allowed-domains }}**, add the addresses of websites that can play back videos from this channel. Videos will not be played on other websites.
+     1. Enable **{{ ui-key.yacloud_video.channels.label_domains-status }}**.
+     1. Click ![plus-sign](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_video.channels.action_add-domain }}**.
      1. Enter the address of a website or group of websites.
-     1. Click **{{ ui-key.yacloud_video.common.action_create }}**
+     1. Click **{{ ui-key.yacloud_video.common.action_create }}**.
      1. Add other domains if required.
-  1. To display videos on all websites, disable **Check status**. The domains you added will be saved.
+  1. To play back videos on all websites, disable **{{ ui-key.yacloud_video.channels.label_domains-status }}**. The domains you added will be saved.
   1. Click **{{ ui-key.yacloud_video.common.action_accept }}**.
 
 - API {#api}
@@ -55,11 +55,11 @@ To configure ads:
 
 - {{ video-name }} UI {#console}
 
-  1. Open **Channel settings**.
-  1. Under **Advertising**, specify:
-     * **Provider**: `Yandex Direct`.
-     * **Page ID** you got after creating your video resource.
-     * **Category** (topic) of the videos on your channel.
+  1. Open **{{ ui-key.yacloud_video.channels.title_settings }}**.
+  1. Under **{{ ui-key.yacloud_video.channels.label_advertisement }}**, specify:
+     * **{{ ui-key.yacloud_video.channels.label_provider-type }}**: `Yandex Direct`.
+     * **{{ ui-key.yacloud_video.channels.label_page-id }}** you got after you created your video resource.
+     * **{{ ui-key.yacloud_video.channels.label_category }}** (topic) of the videos on your channel.
   1. Click **{{ ui-key.yacloud_video.common.action_accept }}**.
 
 - API {#api}

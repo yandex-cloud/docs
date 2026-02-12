@@ -147,7 +147,7 @@ You cannot order {{ ZK }} host resources via CVoS.
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|mdb.ch }}']}
-    excludeSkuIds={['{{ pc|mdb.software_accelerated_network.keeper.clickhouse.highfreq-v3.cores }}', '{{ pc|mdb.keeper.clickhouse.v2.cpu.c5 }}', '{{ pc|v1.commitment.selfcheckout.m6.mdb.ch.ram.v4a }}', '{{ pc|mdb.keeper.clickhouse.v1.cpu.c5 }}', '{{ pc|mdb.software_accelerated_network.clickhouse.highfreq-v4a.cores }}' , '{{ pc|mdb.software_accelerated_network.keeper.clickhouse.highfreq-v4a.cores }}', '{{ pc|v1.commitment.selfcheckout.m6.mdb.ch.cpu.c100.v4a }}', '{{ pc|mdb.keeper.clickhouse.v2.cpu.c20 }}', '{{ pc|mdb.keeper.clickhouse.v1.cpu.c20 }}', '{{ pc|mdb.software_accelerated_network.zk.clickhouse.highfreq-v4a.cores }}', '{{ pc|mdb.software_accelerated_network.clickhouse.highfreq-v3.cores }}', '{{ pc|mdb.software_accelerated_network.zk.clickhouse.highfreq-v3.cores }}']}
+    excludeSkuIds={['{{ pc|mdb.software_accelerated_network.keeper.clickhouse.highfreq-v3.cores }}', '{{ pc|mdb.keeper.clickhouse.v2.cpu.c5 }}', '{{ pc|mdb.keeper.clickhouse.v1.cpu.c5 }}', '{{ pc|mdb.software_accelerated_network.clickhouse.highfreq-v4a.cores }}' , '{{ pc|mdb.software_accelerated_network.keeper.clickhouse.highfreq-v4a.cores }}', '{{ pc|mdb.keeper.clickhouse.v2.cpu.c20 }}', '{{ pc|mdb.keeper.clickhouse.v1.cpu.c20 }}', '{{ pc|mdb.software_accelerated_network.zk.clickhouse.highfreq-v4a.cores }}', '{{ pc|mdb.software_accelerated_network.clickhouse.highfreq-v3.cores }}', '{{ pc|mdb.software_accelerated_network.zk.clickhouse.highfreq-v3.cores }}']}
     installationCode="ru"
     currency="USD"
   />

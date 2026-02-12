@@ -52,11 +52,13 @@ resource "yandex_vpc_gateway" "egress-gateway" {
 - `network_id` (**Required**)(String). ID of the network this route table belongs to.
 - `static_route` [Block]. A list of static route records for the route table.
 
-    {% note warning %}
+{% note warning %}
 
-    Only one of `next_hop_address` or `gateway_id` should be specified.
+Only one of `next_hop_address` or `gateway_id` should be specified.
 
-    {% endnote %}
+{% endnote %}
+
+
   - `destination_prefix` (String). Route prefix in CIDR notation.
   - `gateway_id` (String). ID of the gateway used ad next hop.
   - `next_hop_address` (String). Address of the next hop.

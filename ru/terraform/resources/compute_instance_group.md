@@ -137,10 +137,20 @@ resource "yandex_compute_instance_group" "group1" {
     - `port` (**Required**)(Number). The port used for TCP health checks.
 - `instance_template` [Block]. The template for creating new instances.
   - `description` (String). A description of the instance.
-  - `hostname` (String). Hostname template for the instance. This field is used to generate the FQDN value of instance. The `hostname` must be unique within the network and region. If not specified, the hostname will be equal to `id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`.In order to be unique it must contain at least on of instance unique placeholders:* `{instance.short_id}`* {instance.index}* combination of `{instance.zone_id}` and `{instance.index_in_zone}`Example: `my-instance-{instance.index}`. If hostname is not set, `name` value will be used. It may also contain another placeholders, see `metadata` doc for full list.
+  - `hostname` (String). Hostname template for the instance. This field is used to generate the FQDN value of instance. The `hostname` must be unique within the network and region. If not specified, the hostname will be equal to `id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`.
+In order to be unique it must contain at least on of instance unique placeholders:
+* `{instance.short_id}`
+* {instance.index}
+* combination of `{instance.zone_id}` and `{instance.index_in_zone}`
+Example: `my-instance-{instance.index}`. If hostname is not set, `name` value will be used. It may also contain another placeholders, see `metadata` doc for full list.
   - `labels` (Map Of String). A set of key/value label pairs to assign to the instance.
   - `metadata` (Map Of String). A set of metadata key/value pairs to make available from within the instance.
-  - `name` (String). Name template of the instance.In order to be unique it must contain at least one of instance unique placeholders:*`{instance.short_id}`* `{instance.index}`* combination of `{instance.zone_id}` and`{instance.index_in_zone}`.Example: `my-instance-{instance.index}`.If not set, default name is used: `{instance_group.id}-{instance.short_id}`. It may also contain another placeholders, see `metadata` doc for full list.
+  - `name` (String). Name template of the instance.
+In order to be unique it must contain at least one of instance unique placeholders:*`{instance.short_id}`
+* `{instance.index}`
+* combination of `{instance.zone_id}` and`{instance.index_in_zone}`.
+Example: `my-instance-{instance.index}`.
+If not set, default name is used: `{instance_group.id}-{instance.short_id}`. It may also contain another placeholders, see `metadata` doc for full list.
   - `platform_id` (String). The ID of the hardware platform configuration for the instance.
   - `reserved_instance_pool_id` (String). ID of the reserved instance pool that the instance should belong to.
   - `service_account_id` (String). The ID of the service account authorized for this instance.
@@ -151,11 +161,13 @@ resource "yandex_compute_instance_group" "group1" {
     - `name` (String). When set can be later used to change DiskSpec of actual disk.
     - `initialize_params` [Block]. Parameters for creating a disk alongside the instance.
 
-        {% note warning %}
+{% note warning %}
 
-        `image_id` or `snapshot_id` must be specified.
+`image_id` or `snapshot_id` must be specified.
 
-        {% endnote %}
+{% endnote %}
+
+
       - `description` (String). A description of the boot disk.
       - `image_id` (String). The disk image to initialize this disk from.
       - `size` (Number). The size of the disk in GB.
@@ -213,11 +225,13 @@ resource "yandex_compute_instance_group" "group1" {
     - `name` (String). When set can be later used to change DiskSpec of actual disk.
     - `initialize_params` [Block]. Parameters used for creating a disk alongside the instance.
 
-        {% note warning %}
+{% note warning %}
 
-        `image_id` or `snapshot_id` must be specified.
+`image_id` or `snapshot_id` must be specified.
 
-        {% endnote %}
+{% endnote %}
+
+
       - `description` (String). A description of the boot disk.
       - `image_id` (String). The disk image to initialize this disk from.
       - `size` (Number). The size of the disk in GB.
@@ -233,11 +247,13 @@ resource "yandex_compute_instance_group" "group1" {
   - `target_group_name` (String). The name of the target group.
 - `scale_policy` [Block]. The scaling policy of the instance group.
 
-    {% note warning %}
+{% note warning %}
 
-    Either `fixed_scale` or `auto_scale` must be specified.
+Either `fixed_scale` or `auto_scale` must be specified.
 
-    {% endnote %}
+{% endnote %}
+
+
   - `auto_scale` [Block]. The auto scaling policy of the instance group.
     - `auto_scale_type` (String). Autoscale type, can be `ZONAL` or `REGIONAL`. By default `ZONAL` type is used.
     - `cpu_utilization_target` (Number). Target CPU load level.

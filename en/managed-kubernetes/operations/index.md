@@ -38,7 +38,6 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](applications/gitlab-runner.md)
 * [{#T}](../alb-ref/gwin-quickstart.md)
 * [{#T}](applications/hashicorp-vault.md)
-* [{#T}](applications/ingress-nginx.md)
 * [{#T}](applications/alb-ingress-controller.md)
 * [{#T}](applications/upgrade-alb-ingress-controller.md)
 * [{#T}](applications/istio.md)

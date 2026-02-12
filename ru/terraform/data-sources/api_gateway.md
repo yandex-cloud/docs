@@ -50,6 +50,7 @@ data "yandex_api_gateway" "my-api-gateway" {
     **DEPRECATED** Use `custom_domains` instead. Set of user domains attached to Yandex Cloud API Gateway.
 
     {% endnote %}
+
 - `variables` (Map Of String). A set of values for variables in gateway specification.
 - `canary` [Block]. Canary release settings of gateway.
   - `variables` (Map Of String). A list of values for variables in gateway specification of canary release.

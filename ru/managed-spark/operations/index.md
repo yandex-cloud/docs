@@ -14,6 +14,7 @@ description: Из статьи вы узнаете, как работать с {
 * [Остановка и запуск кластера](cluster-stop.md)
 * [Подключение к кластеру](connect.md)
 * [Управление доступом к кластеру](cluster-access.md)
+* [Техническое обслуживание](cluster-maintenance.md)
 * [Удаление кластера](cluster-delete.md)
 
 ## Задания (jobs) {#jobs}

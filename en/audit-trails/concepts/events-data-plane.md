@@ -115,6 +115,12 @@ Service name: `mdb.postgresql`.
 
 {% include [mpg-events-dp](../../_includes/audit-trails/events/mpg-events-dp.md) %}
 
+## {{ mspqr-full-name }} {#spqr}
+
+Service name: `mdb.spqr`.
+
+{% include [mspqr-events-dp](../../_includes/audit-trails/events/mspqr-events-dp.md) %}
+
 ## {{ mrd-full-name }} {#mrd}
 
 Service name: `mdb.redis`.
@@ -142,6 +148,12 @@ Module name: `securitydeck.accesstransparency`.
 Module name: `securitydeck.alerts`.
 
 {% include [sd-alerts-events-dp](../../_includes/audit-trails/events/sd-alerts-events-dp.md) %}
+
+### Cloud Security Posture Management ({{ cspm-name }}) {#sd-cspm}
+
+Module name: `securitydeck.cspm`.
+
+{% include [sd-cspm-events-dp](../../_includes/audit-trails/events/sd-cspm-events-dp.md) %}
 
 ### {{ k8s }}® Security Posture Management (KSPM) {#sd-kspm}
 

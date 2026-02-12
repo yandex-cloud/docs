@@ -277,6 +277,8 @@ items:
           `ru-central1-a/b/c` is disabled`
         href: >-
           compute/known-issues/failed-precondition-relocation-to-zone-is-disabled.md
+      - name: Нет доступа к ВМ по SSH и ping после обновления cloud-init
+        href: compute/known-issues/no-ssh-access-and-ping-after-cloud-init-update.md
       - name: Примеры конфигураций и сценариев {{ compute-name }}
         href: compute/how-to/index.md
         hidden: true
@@ -427,6 +429,8 @@ items:
         href: datalens/known-issues/metrika-not-all-fields.md
       - name: Устранение ошибки `SSL is required`
         href: datalens/known-issues/error-ssl-is-required.md
+      - name: Устранение ошибки `1043 Bad handshake` при подключении к БД {{ MY }}
+        href: datalens/known-issues/err-1043-bad-handshake-mysql.md
       - name: Устранение неверного значения поля `Итого` в сводной таблице
         href: datalens/known-issues/incorrect-value-in-field-total.md
   - name: '{{ dataproc-name }}'
@@ -562,6 +566,9 @@ items:
           Устранение ошибки `No node can serve the request (concurrent requests
           exceeded)`
         href: functions/known-issues/concurrent-request-quota-exceeded.md
+      - name: Устранение ошибки Permission denied при создании новых ресурсов
+        href: >-
+          functions/known-issues/permission-denied-when-creating-new-resources.md
       - name: Примеры конфигураций и сценариев {{ sf-name }}
         href: functions/how-to/index.md
         hidden: true
@@ -633,8 +640,6 @@ items:
       - name: Примеры конфигураций и сценариев {{ iam-short-name }}
         href: iam/how-to/index.md
         hidden: true
-      - name: Как удалить облако
-        href: iam/how-to/deleting-cloud.md
       - name: Как отменить удаление облака
         href: iam/how-to/cancel-pending-deletion.md
       - name: Как изменить владельца облака
@@ -852,6 +857,8 @@ items:
           Нужно ли заключать отдельный договор по № 152-ФЗ для размещения
           персональных данных
         href: legal/how-to/fl-152.md
+      - name: Как стать поставщиком услуг для Яндекса
+        href: legal/how-to/becoming-a-service-supplier.md
   - name: '{{ objstorage-name }}'
     items:
       - name: Все решения для {{ objstorage-name }}
@@ -865,6 +872,11 @@ items:
           Устранение ошибок доступа к бакету с назначенной политикой
           безопасности
         href: storage/known-issues/unable-to-access-bucket-with-assigned-policy.md
+      - name: >-
+          Устранение ошибки `The request signature we calculated does not match
+          the signature you provided.`
+        href: >-
+          storage/known-issues/the-request-signature-we-calculated-does-not-match.md
       - name: Устранение ошибки 409 `BucketAlreadyExists`
         href: storage/known-issues/error-409-bucket-already-exists.md
       - name: >-
@@ -912,8 +924,6 @@ items:
         href: storage/how-to/configure-cache-headings-with-http-queries.md
       - name: Как ограничить доступ к бакету для пользователя
         href: storage/how-to/restrict-bucket-access.md
-      - name: Как подключить собственный домен к бакету
-        href: storage/how-to/configuring-bucket-domain.md
       - name: Как изменить класс хранения
         href: storage/how-to/change-storage-class.md
       - name: Как восстановить удаленные данные из бакета

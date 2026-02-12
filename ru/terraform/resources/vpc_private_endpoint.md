@@ -63,11 +63,13 @@ resource "yandex_vpc_subnet" "lab-subnet-a" {
   - `private_dns_records_enabled` (Bool). If enabled - additional service DNS will be created.
 - `endpoint_address` [Block]. Private endpoint address specification block.
 
-    {% note warning %}
+{% note warning %}
 
-    Only one of `address_id` or `subnet_id` + `address` arguments can be specified.
+Only one of `address_id` or `subnet_id` + `address` arguments can be specified.
 
-    {% endnote %}
+{% endnote %}
+
+
   - `address` (String). Specifies IP address within `subnet_id`.
   - `address_id` (String). ID of the address.
   - `subnet_id` (String). Subnet of the IP address.

@@ -110,7 +110,13 @@ resource "yandex_kubernetes_node_group" "my_node_group" {
 - `instance_template` [Block]. Template used to create compute instances in this Kubernetes node group.
   - `labels` (Map Of String). Labels that will be assigned to compute nodes (instances), created by the Node Group.
   - `metadata` (Map Of String). The set of metadata `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. **Note**: key `user-data` won't be provided into instances. It reserved for internal activity in `kubernetes_node_group` resource.
-  - `name` (String). Name template of the instance. In order to be unique it must contain at least one of instance unique placeholders:* `{instance.short_id}* `{instance.index}`* combination of `{instance.zone_id}` and `{instance.index_in_zone}`Example: `my-instance-{instance.index}`.If not set, default is used: `{instance_group.id}-{instance.short_id}`. It may also contain another placeholders, see [Compute Instance group metadata doc](https://yandex.cloud/docs/compute/instancegroup/api-ref/grpc/InstanceGroup) for full list.
+  - `name` (String). Name template of the instance. In order to be unique it must contain at least one of instance unique placeholders:
+* `{instance.short_id}
+* `{instance.index}`
+* combination of `{instance.zone_id}` and `{instance.index_in_zone}`
+
+Example: `my-instance-{instance.index}`.
+If not set, default is used: `{instance_group.id}-{instance.short_id}`. It may also contain another placeholders, see [Compute Instance group metadata doc](https://yandex.cloud/docs/compute/instancegroup/api-ref/grpc/InstanceGroup) for full list.
   - `nat` (Bool). Enables NAT for node group compute instances.
   - `network_acceleration_type` (String). Type of network acceleration. Values: `standard`, `software_accelerated`.
   - `platform_id` (String). The ID of the hardware platform configuration for the node group compute instances.
@@ -152,7 +158,12 @@ resource "yandex_kubernetes_node_group" "my_node_group" {
 - `maintenance_policy` [Block]. Maintenance policy for this Kubernetes node group. If policy is omitted, automatic revision upgrades are enabled and could happen at any time. Revision upgrades are performed only within the same minor version, e.g. `1.29`. Minor version upgrades (e.g. `1.29`->`1.30`) should be performed manually.
   - `auto_repair` (**Required**)(Bool). Flag that specifies if node group can be repaired automatically. When omitted, default value is `true`.
   - `auto_upgrade` (**Required**)(Bool). Flag specifies if node group can be upgraded automatically. When omitted, default value is `true`.
-  - `maintenance_window` [Block]. Set of day intervals, when maintenance is allowed for this node group. When omitted, it defaults to any time.To specify time of day interval, for all days, one element should be provided, with two fields set, `start_time` and `duration`.To allow maintenance only on specific days of week, please provide list of elements, with all fields set. Only one time interval is allowed for each day of week. Please see `my_node_group` config example.
+  - `maintenance_window` [Block]. Set of day intervals, when maintenance is allowed for this node group. When omitted, it defaults to any time.
+
+To specify time of day interval, for all days, one element should be provided, with two fields set, `start_time` and `duration`.
+
+To allow maintenance only on specific days of week, please provide list of elements, with all fields set. Only one time interval is allowed for each day of week. Please see `my_node_group` config example.
+
     - `day` (String). 
     - `duration` (**Required**)(String). 
     - `start_time` (**Required**)(String). 

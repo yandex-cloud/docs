@@ -1,0 +1,22 @@
+title: '{{ ycdr-full-name }}'
+description:
+  - >-
+    {{ ycdr-full-name }} is a service that monitors and responds to {{
+    yandex-cloud }} infrastructure incidents.  {{ ycdr-name }} is built around
+    {{ yandex-cloud }}'s in-house Security Operations Center (SOC).  The service
+    collects data from the cloud infrastructure to detect anomalies. When {{
+    ycdr-name }} detects an anomaly, it creates <a
+    href="https://yandex.cloud/en/docs/security-deck/concepts/alerts">alerts</a>
+    indicating a potential incident.
+links:
+  - title: Concepts
+    description: Learn more about how it works
+    href: concepts/
+  - title: Access management
+    description: Configure access permissions to use this service
+    href: security/
+meta:
+  title: '{{ ycdr-full-name }}'
+  description: >-
+    {{ ycdr-full-name }} is a service that collects data on the settings of your
+    {{ yandex-cloud }} infrastructure.

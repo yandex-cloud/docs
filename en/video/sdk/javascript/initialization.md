@@ -1,11 +1,11 @@
 ---
-title: Cloud Video Player initialization parameters in JavaScript SDK
-description: This page describes the parameters you can use when initializing Cloud Video Player in JavaScript SDK.
+title: '{{ video-player-name }} initialization parameters in the JavaScript SDK'
+description: This page describes the parameters you can use when initializing {{ video-player-name }} in the JavaScript SDK.
 ---
 
 # Player initialization parameters
 
-You can provide starting parameters to [Cloud Video Player](../../concepts/player.md) when [initializing](./index.md#initialize-player) it.
+You can provide initial parameters to [{{ video-player-name }}](../../concepts/player.md) when [initializing](./index.md#initialize-player) it.
 
 ## Playback controls {#playback-controls}
 

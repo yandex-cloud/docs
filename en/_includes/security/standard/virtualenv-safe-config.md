@@ -1112,7 +1112,7 @@ Specify the IP addresses for registry access.
 | --- | --- |
 | ENV40 | Medium |
 
-##### 3.29.1. Docker images are scanned when uploaded to {{ container-registry-full-name }} {#upload-policy}
+##### 3.29.1. Docker images are scanned when uploaded to {{ container-registry-full-name }} {#upload--policy}
 
 {% include [scan-docker-upload.md](scan-docker-upload-description.md) %}
 
@@ -1126,7 +1126,7 @@ Specify the IP addresses for registry access.
 
 [Guide on scanning Docker images on push](../../../container-registry/operations/scanning-docker-image.md#automatically).
 
-##### 3.29.2 Docker images stored in {{ container-registry-name }} are regularly scanned {#periodic-scan}
+##### 3.29.2 Docker images stored in {{ container-registry-name }} are regularly scanned {#periodic--scan}
 
 {% include [scan-docker-periodic](scan-docker-periodic-description.md) %}
 

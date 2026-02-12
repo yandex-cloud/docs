@@ -26,7 +26,7 @@ data "yandex_cloud_desktops_desktop" "data_desktop_by_name" {
 - `desktop_id` (*Read-Only*) (String). The id of the Desktop
 - `folder_id` (String). The folder containing the Desktop
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `members` [FW-Block]. The list of members which can use the Desktop
+- `members` [Block]. The list of members which can use the Desktop
   - `subject_id` (**Required**)(String). Identity of the access binding. See [the official documentation](https://yandex.cloud/ru/docs/cloud-desktop/api-ref/grpc/Desktop/create#yandex.cloud.clouddesktop.v1.api.User)
   - `subject_type` (**Required**)(String). Type of the access binding. See [the official documentation](https://yandex.cloud/ru/docs/cloud-desktop/api-ref/grpc/Desktop/create#yandex.cloud.clouddesktop.v1.api.User)
 - `name` (String). The name of the Desktop

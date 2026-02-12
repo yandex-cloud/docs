@@ -7,6 +7,13 @@ description: Вы можете узнать, какие правила дост�
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Нажмите на имя нужного кластера.
+  1. Перейдите в блок **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}

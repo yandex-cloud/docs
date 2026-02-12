@@ -58,4 +58,3 @@ Price per month = {{ sku|USD|api-gateway.requests.v1|pricingRate.0.1|string }} Ã
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
-

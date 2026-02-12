@@ -13,6 +13,7 @@
 * [{{ mmg-full-name }}](../../audit-trails/concepts/events-data-plane.md#mmg)
 * [{{ mmy-full-name }}](../../audit-trails/concepts/events-data-plane.md#mmy)
 * [{{ mpg-full-name }}](../../audit-trails/concepts/events-data-plane.md#mpg)
+* [{{ mspqr-full-name }}](../../audit-trails/concepts/events-data-plane.md#spqr)
 * [{{ mrd-full-name }}](../../audit-trails/concepts/events-data-plane.md#mrd)
 * [{{ objstorage-full-name }}](../../audit-trails/concepts/events-data-plane.md#objstorage)
 * [{{ sd-full-name }}](../../audit-trails/concepts/events-data-plane.md#security-deck)

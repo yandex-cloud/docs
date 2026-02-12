@@ -82,4 +82,4 @@ In the video settings window that opens, wait until the video is completely uplo
 * [Uploading a video](operations/video/upload.md)
 * [Configuring a player preset](operations/style-presets/update.md)
 * [Configuring ads](operations/channels/settings.md#ad-settings)
-* [{#T}](troubleshooting.md)
+* [{#T}](troubleshooting/index.md)

@@ -901,6 +901,7 @@ default:
   vector-store-name: Vector Store
   video-full-name: Yandex Cloud Video
   video-name: Cloud Video
+  video-player-name: Cloud Video Player
   vision-full-name: Yandex Vision OCR
   vision-name: Vision OCR
   vision-short-name: Vision OCR
@@ -979,6 +980,7 @@ default:
   yds-short-name: Data Streams
   ymq-endpoint: https://message-queue.api.cloud.yandex.net/
   yq-full-name: Yandex Query
+  yq-iceberg-name: Iceberg
   yq-name: Query
   yq-short-name: YQ
   yql-full-name: Yandex Query Language
@@ -1792,13 +1794,6 @@ default:
     commitment:
       selfcheckout:
         m6:
-          mdb:
-            ch:
-              cpu:
-                c100:
-                  v4a: dn2hhiufhgrzm5wuqcni
-              ram:
-                v4a: dn2wttftultbygz6kmot
           ydb:
             cpu:
               c100:
@@ -8502,6 +8497,7 @@ default:
             value_expired-object-delete-marker: Deletion marker without noncurrent versions
           menu_version-history: Version history
           policy:
+            button_add-console-rule: Add console access rule
             button_add-resource: Add resource
             button_add-value: Add value
             button_policy-delete: Delete access policy
@@ -8605,6 +8601,45 @@ default:
           create_action: Create catalog
           field_catalog-name: Catalog name
           field_catalog-type: Connector type
+        ClusterForm:
+          button_add_1EfQa: Add
+          label_allow_4botu: Allow
+          label_catalog-session-property_9XoJs: Catalog session properties
+          label_description_rbB8P: Comment
+          label_filter_ewYvF: Filter
+          label_query-owners_a81zm: Query owners
+          label_session-property_cyTHR: Session property
+          label_system-session-property_grCye: System session properties
+          label_table-column-add_241Co: Add column
+          label_table-columns_68mj2: Column access
+          label_table-privileges_2ikK4: Privileges
+        ClusterView:
+          RBACView:
+            label_rbac-settings_o2F64: Access settings
+        label_rbac-add-rule: Add rule
+        label_rbac-catalog: Catalogs
+        label_rbac-catalog-access: Catalog access
+        label_rbac-catalog-permissions: Permissions
+        label_rbac-function: Functions
+        label_rbac-function-access: Function access
+        label_rbac-function-privileges: Privileges
+        label_rbac-groups: Groups
+        label_rbac-procedure: Procedures
+        label_rbac-procedure-access: Procedure access
+        label_rbac-procedure-privileges: Privileges
+        label_rbac-query: Queries
+        label_rbac-query-privileges: Privileges
+        label_rbac-schema: Schemas
+        label_rbac-schema-access: Schema access
+        label_rbac-schema-owner: Schema owner
+        label_rbac-table: Tables
+        label_rbac-table-access: Table access
+        label_rbac-users: Users
+        rbac-catalog-match-by-empty: Not specified
+        rbac-catalog-match-by-id: ID
+        rbac-catalog-match-by-name: Name
+        rbac-catalog-match-by-name-regexp: Name (regular expression)
+        section_rbac: Access settings
         title_catalogs: Catalogs
       tuning:
         addition-params: Advanced settings
@@ -11072,11 +11107,6 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
         tag: v1.0.7
-    yc_ingress-nginx:
-      helmChart:
-        name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/ingress-nginx/chart/ingress-nginx
-        tag: 4.13.0
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio

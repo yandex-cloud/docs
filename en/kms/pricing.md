@@ -57,7 +57,7 @@ Billing occurs on an hourly basis. The price per month is provided for reference
 </MDX>
 
 
-## Cost calculation example {#price-example}
+## Cost calculation examples
 
 ### Symmetric encryption {#symmetric}
 

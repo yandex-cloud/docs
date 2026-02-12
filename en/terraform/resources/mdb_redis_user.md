@@ -63,7 +63,7 @@ resource "yandex_vpc_subnet" "foo" {
 - `id` (*Read-Only*) (String). The resource identifier.
 - `name` (**Required**)(String). The name of the user.
 - `passwords` (**Required**)(Set Of String). Set of user passwords
-- `permissions` [FW-Block]. Set of permissions granted to the user.
+- `permissions` [Block]. Set of permissions granted to the user.
   - `categories` (String). Command categories user has permissions to.
   - `commands` (String). Commands user can execute.
   - `patterns` (String). Keys patterns user has permission to.

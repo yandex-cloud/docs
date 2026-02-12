@@ -1,6 +1,5 @@
 ## Примеры конфигураций и сценариев {{ iam-name }} {#configuration-examples}
 
-* [Как удалить облако](deleting-cloud.md)
 * [Как изменить владельца облака](change-cloud-owner.md)
 * [Как отменить удаление облака](cancel-pending-deletion.md)
 * [Как изменить владельца организации](change-organization-owner.md)

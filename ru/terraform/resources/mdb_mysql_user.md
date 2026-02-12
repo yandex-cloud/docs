@@ -77,11 +77,13 @@ resource "yandex_vpc_subnet" "foo" {
 - `connection_manager` (*Read-Only*) (Map Of String). Connection Manager connection configuration. Filled in by the server automatically.
 - `generate_password` (Bool). Generate password using Connection Manager. Allowed values: `true` or `false`. It's used only during user creation and is ignored during updating.
 
-    {% note warning %}
+{% note warning %}
 
-    **Must specify either password or generate_password**.
+**Must specify either password or generate_password**.
 
-    {% endnote %}
+{% endnote %}
+
+
 - `global_permissions` (Set Of String). List user's global permissions. Allowed permissions: `REPLICATION_CLIENT`, `REPLICATION_SLAVE`, `PROCESS`, `FLUSH_OPTIMIZER_COSTS`, `SHOW_ROUTINE`, `MDB_ADMIN` for clear list use empty list. If the attribute is not specified there will be no changes.
 - `id` (String). 
 - `name` (**Required**)(String). The name of the user.

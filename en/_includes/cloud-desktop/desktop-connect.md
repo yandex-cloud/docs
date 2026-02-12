@@ -1,6 +1,7 @@
 {% note info %}
 
-To connect, use the desktop user password. This password is not the same as your Yandex account password. If you do not know your password, [get a new one](../../cloud-desktop/operations/desktops/password-reset.md).
+* Use the desktop user password. This password is not the same as your Yandex account password. If you do not know your password, [get a new one](../../cloud-desktop/operations/desktops/password-reset.md).
+* The login is filled automatically from the RDP file. If you need to enter it manually, specify your email without the domain, e.g., `user` instead of `user@example.com`.
 
 {% endnote %}
 

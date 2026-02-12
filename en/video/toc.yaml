@@ -183,8 +183,6 @@ items:
                         href: api-ref/javascript/interfaces/PlayerSdkSourceParams.md
                       - name: PlayerSdkState
                         href: api-ref/javascript/interfaces/PlayerSdkState.md
-      - name: Troubleshooting
-        href: troubleshooting.md
       - name: Protected content
         hidden: true
         href: troubleshooting-drm.md
@@ -590,3 +588,11 @@ items:
     href: at-ref.md
   - name: Release notes
     href: release-notes.md
+  - name: Troubleshooting
+    items:
+      - name: Overview
+        href: troubleshooting/index.md
+      - name: Video Player
+        href: troubleshooting/player.md
+      - name: Uploading and processing a video
+        href: troubleshooting/video-processing.md

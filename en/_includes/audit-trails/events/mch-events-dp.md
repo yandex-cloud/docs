@@ -4,8 +4,11 @@ Event name | Description
 `CreateFormatSchema` | Creating a data format schema
 `CreateMlModel` | Creating a machine learning model
 `CreateUser` | Creating a database user
+`DatabaseUserLogin` | Connecting a user to a database
+`DatabaseUserLogout` | Disconnecting a user from a database
+`DatabaseUserSQLRequest` | User SQL query to a database
 `DeleteDatabase` | Deleting a database
-`DeleteFormatSchema` | Deleting a data format schema
+`DeleteFormatSchema` | Deleting a format schema
 `DeleteMlModel` | Deleting a machine learning model
 `DeleteUser` | Deleting a database user
 `GetDatabase` | Getting database info

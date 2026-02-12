@@ -28,11 +28,13 @@ resource "yandex_storage_object" "cute-cat-picture" {
 - `access_key` (String). The access key to use when applying changes. This value can also be provided as `storage_access_key` specified in provider config (explicitly or within `shared_credentials_file`) is used.
 - `acl` (String). The [predefined ACL](https://yandex.cloud/docs/storage/concepts/acl#predefined_acls) to apply. Defaults to `private`.
 
-    {% note warning %}
+{% note warning %}
 
-    To change ACL after creation, the service account to which used access and secret keys correspond should have `storage.admin` role, though this role is not necessary to be able to create an object with any ACL.
+To change ACL after creation, the service account to which used access and secret keys correspond should have `storage.admin` role, though this role is not necessary to be able to create an object with any ACL.
 
-    {% endnote %}
+{% endnote %}
+
+
 - `bucket` (**Required**)(String). The name of the containing bucket.
 - `content` (String). Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text. Conflicts with `source` and `content_base64`.
 - `content_base64` (String). Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file. Conflicts with `source` and `content`.

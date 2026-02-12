@@ -266,6 +266,12 @@ Service name: `mdb.postgresql`.
 
 {% include [mpg-events](../../_includes/audit-trails/events/managed-postgresql-events.md) %}
 
+## {{ mspqr-full-name }} {#managed-service-for-sharded-postgresql}
+
+Service name: `mdb.spqr`.
+
+{% include [mspqr-events](../../_includes/audit-trails/events/mspqr-events.md) %}
+
 ## {{ mtr-full-name }} {#managed-service-for-trino}
 
 Service name: `trino`.

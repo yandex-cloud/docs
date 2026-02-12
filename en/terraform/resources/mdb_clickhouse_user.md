@@ -83,15 +83,17 @@ resource "yandex_mdb_clickhouse_user" "foo" {
 ## Arguments & Attributes Reference
 
 - `cluster_id` (**Required**)(String). ID of the ClickHouse cluster. Provided by the client when the user is created.
-- `connection_manager` [FW-Block]. Connection Manager connection configuration. Filled in by the server automatically.
+- `connection_manager` [Block]. Connection Manager connection configuration. Filled in by the server automatically.
   - `connection_id` (*Read-Only*) (String). ID of Connection Manager connection. Filled in by the server automatically. String.
 - `generate_password` (Bool). Generate password using Connection Manager. Allowed values: `true` or `false`. It's used only during user creation and is ignored during updating.
 
-    {% note warning %}
+{% note warning %}
 
-    **Must specify either password or generate_password**.
+**Must specify either password or generate_password**.
 
-    {% endnote %}
+{% endnote %}
+
+
 - `id` (*Read-Only*) (String). The resource identifier.
 - `name` (**Required**)(String). Name of the ClickHouse user. Provided by the client when the user is created.
 - `password` (String). Password of the ClickHouse user. Provided by the client when the user is created.
@@ -171,7 +173,11 @@ resource "yandex_mdb_clickhouse_user" "foo" {
   - `join_use_nulls` (Bool). Sets the type of JOIN behaviour. When merging tables, empty cells may appear. ClickHouse fills them differently based on this setting.
   - `joined_subquery_requires_alias` (Bool). Require aliases for subselects and table functions in FROM that more than one table is present.
   - `load_balancing` (String). Specifies the algorithm of replicas selection that is used for distributed query processing, one of: random, nearest_hostname, in_order, first_or_random, round_robin. Default value: random.
-  - `local_filesystem_read_method` (String). Method of reading data from local filesystem. Possible values: * 'read' - abort query execution, return an error.  * 'pread' - abort query execution, return an error.  * 'pread_threadpool' - stop query execution, return partial result. If the parameter is set to 0 (default), no hops is allowed.
+  - `local_filesystem_read_method` (String). Method of reading data from local filesystem. Possible values: 
+* 'read' - abort query execution, return an error.  
+* 'pread' - abort query execution, return an error.  
+* 'pread_threadpool' - stop query execution, return partial result. 
+If the parameter is set to 0 (default), no hops is allowed.
   - `log_processors_profiles` (Bool). Enabled or disable logging of processors level profiling data to the the system.processors_profile_log table.
   - `log_queries_probability` (Number). Log queries with the specified probability.
   - `log_query_threads` (Bool). Setting up query threads logging. Query threads log into the system.query_thread_log table. This setting has effect only when log_queries is true. Queries’ threads run by ClickHouse with this setup are logged according to the rules in the query_thread_log server configuration parameter. Default value: true.

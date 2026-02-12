@@ -93,14 +93,14 @@ You will use this [service account](../../iam/concepts/users/service-accounts.md
 
 - API {#api}
 
-  1. Create a service account named `github-action`. To do this, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
+  1. Create a service account named `github-action`. Do it by using the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
   1. Assign the service account these [roles](../../iam/concepts/access-control/roles.md) for the current folder:
 
       * `iam.serviceAccounts.user`: To enable specifying a service account when creating a container revision. This account will be used to pull the Docker image from the registry.
       * `serverless-containers.editor`: To manage the container.
       * `{{ roles-cr-pusher }}`: To work with Docker images in the registry.
 
-      To do this, use the [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/Folder/setAccessBindings.md) gRPC API call.
+      Do it by using the [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/Folder/setAccessBindings.md) gRPC API call.
 
 {% endlist %}
 
@@ -236,7 +236,7 @@ The repository will be created from the [yc-ci-cd-serverless]({{ link-src-main }
       ```
 
   1. In the top-right corner, click **{{ ui-key.sourcecraft.repo.action_commit_brj4B }}**.
-  1. Commit:
+  1. Commit the files:
 
       1. Enter a message about the changes.
       1. Under **{{ ui-key.sourcecraft.repo.field_commit-branch_d1Mzi }}**, select **{{ ui-key.sourcecraft.repo.field_text_commit-directly-to-the-branch_mBfk8 }} main**.
@@ -245,7 +245,7 @@ The repository will be created from the [yc-ci-cd-serverless]({{ link-src-main }
 
 {% endlist %}
 
-After saving the changes, `demo-service-connection-workflow` will start.
+After saving the changes, the `demo-service-connection-workflow` workflow will start.
 
 ## Test CI/CD {#check-ci-cd}
 
@@ -309,8 +309,8 @@ To stop paying for the resources you created:
 ## See also {#see-also}
 
 * [Configuring CI/CD between {{ src-name }} and {{ sf-full-name }}](../../tutorials/serverless/ci-cd-sourcecraft-functions.md)
-* [Configuring a service connection to {{ yandex-cloud }} in {{ src-name }}]({{ link-src-docs }}/sourcecraft/operations/service-connections)
+* [Configuring a service connection to {{ yandex-cloud }}]({{ link-src-docs }}/sourcecraft/operations/service-connections) in {{ src-name }}
 * [Integration with GitHub Actions in {{ src-name }}]({{ link-src-docs }}/sourcecraft/concepts/gh-actions)
 * [serverless-functions repository in {{ src-name }}]({{ link-src-main }}/yandex-cloud-examples/serverless-functions)
 * [yc-ci-cd-serverless repository in {{ src-name }}]({{ link-src-main }}/sourcecraft/yc-ci-cd-serverless)
-* [Using a {{ GL }} pipeline in the {{ src-name }} CI/CD]({{ link-src-docs }}/sourcecraft/operations/gl-pipelines)
+* [Using a {{ GL }} pipeline in the {{ src-name }}]({{ link-src-docs }}/sourcecraft/operations/gl-pipelines) CI/CD

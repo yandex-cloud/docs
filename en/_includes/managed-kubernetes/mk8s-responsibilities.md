@@ -150,7 +150,7 @@ The user can manage the following resources:
 * Applications:
 
    * Deployment of objects like `Deployment`, `StatefulSet`, `DaemonSet`, etc., in {{ k8s }} clusters.
-   * Ingress controller management, e.g., [NGINX Ingress](../../managed-kubernetes/operations/applications/ingress-nginx.md).
+   * Ingress controller management, e.g., [NGINX Ingress](https://kubernetes.github.io/ingress-nginx/).
 
 * Data:
 

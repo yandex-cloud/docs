@@ -88,7 +88,7 @@ resource "yandex_vpc_subnet" "foo" {
 - `cluster_id` (**Required**)(String). ID of the Sharded PostgreSQL cluster. Provided by the client when the shard is created.
 - `id` (*Read-Only*) (String). The resource identifier.
 - `name` (**Required**)(String). Name of the Sharded PostgreSQL shard. Provided by the client when the shard is added.
-- `shard_spec` [FW-Block]. Shard specification required to add shard into cluster.
+- `shard_spec` [Block]. Shard specification required to add shard into cluster.
   - `mdb_postgresql` (String). ID of the Managed PostgreSQL cluster in Yandex Cloud. Provided by the client when the shard is added.
 
 ## Import

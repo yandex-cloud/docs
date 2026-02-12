@@ -1,6 +1,6 @@
 ---
-title: Cloud Video Player events in the IFrame SDK
-description: This page describes possible Cloud Video Player events to which you can subscribe in the IFrame SDK.
+title: '{{ video-player-name }} events in the IFrame SDK'
+description: This page describes possible {{ video-player-name }} events to which you can subscribe in the IFrame SDK.
 ---
 
 # Player events

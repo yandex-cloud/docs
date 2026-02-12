@@ -71,8 +71,6 @@ items:
             href: alb-ref/gwin-quickstart.md
           - name: Installing HashiCorp Vault
             href: operations/applications/hashicorp-vault.md
-          - name: Installing Ingress NGINX
-            href: operations/applications/ingress-nginx.md
           - name: Installing an {{ alb-name }} ingress controller
             href: operations/applications/alb-ingress-controller.md
           - name: Upgrading the {{ alb-name }} Ingress controller

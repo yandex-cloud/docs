@@ -15,7 +15,7 @@ description: Модуль {{ alerts-name }} позволяет получить 
 
 #### См. также {#see-also}
 
-* [{#T}](./ycdr.md)
+* [{#T}](../../ycdr/concepts/index.md)
 * [{#T}](./cspm.md)
 * [{#T}](./kspm.md)
 * [{#T}](./ai-assistant.md)

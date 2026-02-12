@@ -984,9 +984,9 @@ Added new events for the services:
 
   Event | Description
   --- | ---
-  `CreateReservedInstancePool` | Creating a VM reserve pool
-  `DeleteReservedInstancePool` | Deleting a VM reserve pool
-  `UpdateReservedInstancePool` | Updating a VM reserve pool
+  `CreateReservedInstancePool` | Creating a reserved instance pool
+  `DeleteReservedInstancePool` | Deleting a reserved instance pool
+  `UpdateReservedInstancePool` | Updating a reserved instance pool
 
   {% endcut %}
 

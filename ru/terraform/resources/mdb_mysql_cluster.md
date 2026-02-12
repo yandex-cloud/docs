@@ -308,7 +308,8 @@ resource "yandex_vpc_subnet" "foo" {
 
 ## Arguments & Attributes Reference
 
-- `allow_regeneration_host` (Bool). Deprecated field. You can safely remove this option. There is no need to recreate host if assign_public_ip is changed.Regenerate hosts after changing the assign_public_ip parameter.
+- `allow_regeneration_host` (Bool). Deprecated field. You can safely remove this option. There is no need to recreate host if assign_public_ip is changed.
+Regenerate hosts after changing the assign_public_ip parameter.
 - `backup_retain_period_days` (Number). The period in days during which backups are stored.
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `deletion_protection` (Bool). The `true` value means that resource is protected from accidental deletion.

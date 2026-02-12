@@ -28,7 +28,7 @@ This [service account](../../iam/concepts/users/service-accounts.md) will be use
   1. On the left side of the screen, click the line with the name of the folder where you want to deploy a function from {{ sf-name }}.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter the service account name: `functions-cicd-sa`.
+  1. Name the service account: `functions-cicd-sa`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `{{ roles-functions-admin }}` [role](../../functions/security/index.md#functions-admin).
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -86,7 +86,7 @@ The repository will be created from the [yc-cloud-functions-template]({{ link-sr
 
 - {{ src-name }} UI {#src}
 
-  1. Open the {{ src-name }} [home page]({{ link-src-main }}).
+  1. Open the [service home page]({{ link-src-main }}).
   1. In the left-hand panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.sourcecraft.mainApp.route_create-repository_4e8Ef }}**.
   1. In the window that opens, select **{{ ui-key.sourcecraft.repoCreate.title_create-blank_2CxnQ }}**.
   1. Under **{{ ui-key.sourcecraft.repoCreate.title_new-repo-details_riAaE }}**:
@@ -121,7 +121,7 @@ The repository will be created from the [yc-cloud-functions-template]({{ link-sr
   1. Select the organization where you created the {{ yandex-cloud }} service account.
   1. On the organization page, in the ![image](../../_assets/console-icons/gear.svg) **{{ ui-key.sourcecraft.lib.settings_cwUYS }}** section, go to the ![image](../../_assets/console-icons/cloud-nut-hex.svg) **{{ ui-key.sourcecraft.mainApp.route_service-connections_2PPgz }}** section.
   1. Click **{{ ui-key.sourcecraft.serviceConnections.button_add-connection_6Bj7i }}**.
-  1. In the window that opens, do the following:
+  1. In the window that opens:
       * Under **{{ ui-key.sourcecraft.serviceConnections.section_basic_wmaiy }}**, give the connection a name, e.g., `default-service-connection`, and add an optional description.
       * Under **{{ ui-key.sourcecraft.serviceConnections.section_scope_9gXcu }}**, select the repositories and branches the service connection will be available to, e.g., the repository you created earlier.
       * Under **{{ ui-key.sourcecraft.serviceConnections.section_cloud-settings_tDMfn }}**, select:
@@ -166,7 +166,7 @@ The repository will be created from the [yc-cloud-functions-template]({{ link-sr
       * `PUBLIC`: Make the function publicly available. This parameter takes the `true` value. This is an equivalent of the [yc serverless function allow-unauthenticated-invoke](../../cli/cli-ref/serverless/cli-ref/function/allow-unauthenticated-invoke.md) {{ yandex-cloud }} CLI command.
 
   1. In the top-right corner, click **{{ ui-key.sourcecraft.repo.action_commit_brj4B }}**.
-  1. Commit:
+  1. Commit the files:
 
       1. Enter a message about the changes.
       1. Under **{{ ui-key.sourcecraft.repo.field_commit-branch_d1Mzi }}**, select **{{ ui-key.sourcecraft.repo.field_text_commit-directly-to-the-branch_mBfk8 }} main**.
@@ -402,7 +402,7 @@ If you no longer need the resources you created, delete them:
 ## See also {#see-also}
 
 * [Setting up CI/CD to deploy an application to {{ serverless-containers-full-name }} using GitHub Actions]({{ link-src-docs }}/sourcecraft/tutorials/ci-cd-sourcecraft-github-actions)
-* [Configuring a service connection to {{ yandex-cloud }} in {{ src-name }}]({{ link-src-docs }}/sourcecraft/operations/service-connections)
+* [Configuring a service connection to {{ yandex-cloud }}]({{ link-src-docs }}/sourcecraft/operations/service-connections) in {{ src-name }}
 * [Integration with GitHub Actions in {{ src-name }}]({{ link-src-docs }}/sourcecraft/concepts/gh-actions)
 * [yc-cloud-functions-template]({{ link-src-main }}/sourcecraft/yc-cloud-functions-template) repository in {{ src-name }}
 * [yc-ci-cd-serverless]({{ link-src-main }}/sourcecraft/yc-ci-cd-serverless) repository in {{ src-name }}

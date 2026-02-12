@@ -37,7 +37,8 @@ output "resource_cname" {
 - `provider_type` (String). CDN provider is a content delivery service provider. Possible values: "ourcdn" (default) or "gcore"
 - `resource_id` (String). The ID of a specific resource.
 - `secondary_hostnames` (Set Of String). List of secondary hostname strings.
-- `shielding` (String). Shielding is a Cloud CDN feature that helps reduce the load on content origins from CDN servers.Specify location id to enable shielding. See https://yandex.cloud/en/docs/cdn/operations/resources/enable-shielding
+- `shielding` (String). Shielding is a Cloud CDN feature that helps reduce the load on content origins from CDN servers.
+Specify location id to enable shielding. See https://yandex.cloud/en/docs/cdn/operations/resources/enable-shielding
 - `ssl_certificate` [Block]. SSL certificate of CDN resource.
   - `certificate_manager_id` (String). Certificate Manager ID.
   - `status` (*Read-Only*) (String). SSL certificate status.
@@ -64,7 +65,11 @@ output "resource_cname" {
   - `query_params_whitelist` (List Of String). Files with the specified query parameters are cached as objects with different keys, files with other parameters are cached as objects with the same key.
   - `redirect_http_to_https` (Bool). Set up a redirect from HTTP to HTTPS.
   - `redirect_https_to_http` (Bool). Set up a redirect from HTTPS to HTTP.
-  - `rewrite_flag` (String). Defines flag for the Rewrite option (default: `BREAK`).`LAST` - Stops processing of the current set of ngx_http_rewrite_module directives and starts a search for a new location matching changed URI.`BREAK` - Stops processing of the current set of the Rewrite option.`REDIRECT` - Returns a temporary redirect with the 302 code; It is used when a replacement string does not start with "http://", "https://", or "$scheme"`PERMANENT` - Returns a permanent redirect with the 301 code.
+  - `rewrite_flag` (String). Defines flag for the Rewrite option (default: `BREAK`).
+`LAST` - Stops processing of the current set of ngx_http_rewrite_module directives and starts a search for a new location matching changed URI.
+`BREAK` - Stops processing of the current set of the Rewrite option.
+`REDIRECT` - Returns a temporary redirect with the 302 code; It is used when a replacement string does not start with "http://", "https://", or "$scheme"
+`PERMANENT` - Returns a permanent redirect with the 301 code.
   - `rewrite_pattern` (String). An option for changing or redirecting query paths. The value must have the following format: `<source path> <destination path>`, where both paths are regular expressions which use at least one group. E.g., `/foo/(.*) /bar/$1`.
   - `secure_key` (String). Set secure key for url encoding to protect contect and limit access by IP addresses and time limits.
   - `slice` (Bool). Files larger than 10 MB will be requested and cached in parts (no larger than 10 MB each part). It reduces time to first byte. The origin must support HTTP Range requests.

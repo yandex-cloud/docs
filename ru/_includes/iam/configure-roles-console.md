@@ -1,3 +1,3 @@
-1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../_assets/console-icons/chevron-down.svg) и выберите облако.
+1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../_assets/console-icons/chevron-down.svg) и выберите облако.
 1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
 1. Найдите в списке нужного пользователя. Назначенные ему роли указаны в столбце **{{ ui-key.yacloud.common.resource-acl.label_bindings }}**.

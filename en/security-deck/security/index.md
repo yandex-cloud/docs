@@ -45,7 +45,6 @@ In {{ sd-name }}, you can manage access using both service and primitive roles.
 
 {{ yandex-cloud }} also supports a separate list of roles for each {{ sd-name }} module. For more information, see:
 
-* [Roles for managing user access to dashboards ({{ ycdr-full-name }})](./ycdr-roles.md).
 * [Roles for Data Security Posture Management](./dspm-roles.md).
 * [Roles for security management with KSPM](./kspm-roles.md).
 * [Roles for Cloud Infrastructure Entitlement Management](./ciem-roles.md).

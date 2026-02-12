@@ -19,6 +19,8 @@ keywords:
 * [конфигурацию координатора и воркеров](#change-configuration);
 * [дополнительные настройки кластера](#change-additional-settings).
 
+Вы также можете изменить [правила доступа к объектам кластера](../concepts/access-control.md), подробнее см. в разделе [{#T}](access-control.md).
+
 ## Изменить имя и описание кластера {#change-basic-settings}
 
 {% list tabs group=instructions %}

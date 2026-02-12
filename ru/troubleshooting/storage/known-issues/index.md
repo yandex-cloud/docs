@@ -1,6 +1,7 @@
 ## Решения для известных проблем {{ objstorage-name }} {#known-issues-resolving}
 
 * [Устранение ошибки `Bucket is not empty` при удалении бакета](bucket-deletion-issue.md)
+* [Устранение ошибки `The request signature we calculated does not match the signature you provided.`](the-request-signature-we-calculated-does-not-match.md)
 * [Устранение ошибок доступа к бакету с назначенной политикой безопасности](unable-to-access-bucket-with-assigned-policy.md)
 * [Устранение ошибки 409 `BucketAlreadyExists`](error-409-bucket-already-exists.md)
 * [Устранение ошибки доступа к бакетам S3 из кластера {{ dataproc-name }} 1.4](cannot-access-buckets.md)

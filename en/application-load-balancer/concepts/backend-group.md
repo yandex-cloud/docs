@@ -68,6 +68,12 @@ Session affinity mode determines how incoming requests are grouped into one sess
   * If session affinity settings include cookie lifetime, the load balancer generates a cookie with a unique value and sends it in its response to a user's first request. To use session cookies that are stored on a client, such as a browser, and reset when it restarts, specify the `0` lifetime.
   * If a lifetime is not specified, the load balancer does not generate cookies. Instead, it only uses cookie values from incoming requests to bind sessions.
 
+  {% note info %}
+  
+  When combining requests into a session using a cookie, specify the request path so that the cookie only applies to certain sections of the website. If the path is not specified, the cookie is linked not to the user, but to a random path on the website. This may interfere with the application because user requests to different website sections may end up in different backends and not be combined into one session.
+  
+  {% endnote %}
+
 **{{ ui-key.yacloud.alb.label_proto-stream }}** backend groups only support session affinity by client IP address.
 
 ## Protocol and load balancing settings {#settings}
@@ -139,14 +145,14 @@ The following health check settings are supported:
 
 * Settings of gRPC health checks:
 
-  * Name of the service checked.
+  * Name of the service you want to check.
 
 * Settings of Stream health checks (TCP):
 
   * Request body.
   * Substring in the response that indicates that the health check was successful. If the request body or response body is not specified, a successful connection to the backend is checked.
 
-Note that if the backend is configured to use TLS with the target group endpoints, health checks also use TLS. Here is an example:
+Note that if the backend is configured to use TLS with the target group endpoints, health checks also use TLS. For example:
 
 * If the type of a health check is HTTP, it will be made over HTTPS. 
 

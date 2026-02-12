@@ -8,6 +8,5 @@
 * [How to determine the speed of data upload and download](upload-download-speed.md)
 * [How to configure `Cache-Control` headers for objects in a bucket during HTTP requests](configure-cache-headings-with-http-queries.md)
 * [How to restrict access to a bucket for a user](restrict-bucket-access.md)
-* [How to connect your own domain to a bucket](configuring-bucket-domain.md)
 * [How to change the storage class](change-storage-class.md)
 * [How to recover data deleted from a bucket](recover-deleted-objects.md)

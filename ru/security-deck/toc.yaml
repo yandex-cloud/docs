@@ -78,8 +78,8 @@ items:
             href: concepts/standard-compliance/index.md
           - name: Базовые правила безопасности облачной платформы {{ yandex-cloud }}
             href: concepts/standard-compliance/yc-security-baseline.md
-      - name: '{{ ycdr-full-name }} ({{ ycdr-name }})'
-        href: concepts/ycdr.md
+          - name: Стандарт по защите облачной инфраструктуры {{ yandex-cloud }}
+            href: concepts/standard-compliance/yc-cloud-security-standard.md
       - name: Контроль данных ({{ dspm-name }})
         href: concepts/dspm.md
       - name: Контроль {{ k8s }}® (KSPM)
@@ -108,8 +108,6 @@ items:
     items:
       - name: Общие роли {{ sd-name }}
         href: security/index.md
-      - name: Роли {{ ycdr-name }}
-        href: security/ycdr-roles.md
       - name: Роли {{ dspm-name }}
         href: security/dspm-roles.md
       - name: Роли KSPM

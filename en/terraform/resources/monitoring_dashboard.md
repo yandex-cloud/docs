@@ -193,7 +193,12 @@ resource "yandex_monitoring_dashboard" "my-dashboard" {
     - `chart_id` (String). Chart ID.
     - `description` (String). Chart description in dashboard (not enabled in UI).
     - `display_legend` (Bool). Enable legend under chart.
-    - `freeze` (String). Fixed time interval for chart. Values:- FREEZE_DURATION_HOUR: Last hour.- FREEZE_DURATION_DAY: Last day = last 24 hours.- FREEZE_DURATION_WEEK: Last 7 days.- FREEZE_DURATION_MONTH: Last 31 days.
+    - `freeze` (String). Fixed time interval for chart. Values:
+- FREEZE_DURATION_HOUR: Last hour.
+- FREEZE_DURATION_DAY: Last day = last 24 hours.
+- FREEZE_DURATION_WEEK: Last 7 days.
+- FREEZE_DURATION_MONTH: Last 31 days.
+
     - `title` (String). Chart widget title.
     - `name_hiding_settings` [Block]. Name hiding settings
       - `names` (List Of String). 
@@ -262,7 +267,13 @@ resource "yandex_monitoring_dashboard" "my-dashboard" {
   - `text` [Block]. Text widget settings.
     - `text` (String). Widget text.
   - `title` [Block]. Title widget settings.
-    - `size` (String). Title size.Title size. Values:- TITLE_SIZE_XS: Extra small size.- TITLE_SIZE_S: Small size.- TITLE_SIZE_M: Middle size.- TITLE_SIZE_L: Large size.
+    - `size` (String). Title size.
+Title size. Values:
+- TITLE_SIZE_XS: Extra small size.
+- TITLE_SIZE_S: Small size.
+- TITLE_SIZE_M: Middle size.
+- TITLE_SIZE_L: Large size.
+
     - `text` (**Required**)(String). Title text.
 
 ## Import

@@ -85,25 +85,25 @@ resource "yandex_vpc_security_group" "test-sgroup" {
 
 ## Arguments & Attributes Reference
 
-- `access` [FW-Block]. Access policy to the MySQL cluster.
+- `access` [Block]. Access policy to the MySQL cluster.
   - `data_lens` (Bool). Allow access for Yandex DataLens.
   - `data_transfer` (Bool). Allow access for DataTransfer
   - `web_sql` (Bool). Allow access for SQL queries in the management console
   - `yandex_query` (Bool). Allow access for YandexQuery
 - `backup_retain_period_days` (Number). The period in days during which backups are stored.
-- `backup_window_start` [FW-Block]. Time to start the daily backup, in the UTC timezone.
+- `backup_window_start` [Block]. Time to start the daily backup, in the UTC timezone.
   - `hours` (Number). The hour at which backup will be started (UTC).
   - `minutes` (Number). The minute at which backup will be started (UTC).
 - `deletion_protection` (Bool). The `true` value means that resource is protected from accidental deletion.
 - `description` (String). Description of the MySQL cluster.
 - `disk_encryption_key_id` (String). ID of the symmetric encryption key used to encrypt the disk of the cluster.
-- `disk_size_autoscaling` [FW-Block]. Cluster disk size autoscaling settings.
+- `disk_size_autoscaling` [Block]. Cluster disk size autoscaling settings.
   - `disk_size_limit` (**Required**)(Number). Limit of disk size after autoscaling (GiB).
   - `emergency_usage_threshold` (Number). Immediate autoscaling disk usage (percent).
   - `planned_usage_threshold` (Number). Maintenance window autoscaling disk usage (percent).
 - `environment` (**Required**)(String). Deployment environment of the MySQL cluster.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `hosts` [FW-Block]. A host configuration of the MySQL cluster.
+- `hosts` [Block]. A host configuration of the MySQL cluster.
   - `assign_public_ip` (Bool). Assign a public IP address to the host.
   - `fqdn` (*Read-Only*) (String). The fully qualified domain name of the host.
   - `replication_source` (String). FQDN of the host that is used as a replication source.
@@ -111,18 +111,18 @@ resource "yandex_vpc_security_group" "test-sgroup" {
   - `zone` (**Required**)(String). The availability zone where the host is located.
 - `id` (*Read-Only*) (String). The resource identifier.
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `maintenance_window` [FW-Block]. Maintenance policy of the MySQL cluster.
+- `maintenance_window` [Block]. Maintenance policy of the MySQL cluster.
   - `day` (String). Day of the week (in DDD format). Allowed values: "MON", "TUE", "WED", "THU", "FRI", "SAT","SUN"
   - `hour` (Number). Hour of the day in UTC (in HH format). Allowed value is between 1 and 24.
   - `type` (String). Type of maintenance window. Can be either ANYTIME or WEEKLY. A day and hour of window need to be specified with weekly window.
 - `mysql_config` (Map Of String). MySQL cluster configuration. For detailed information specific to your MySQL version, please refer to the [API proto specifications](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/mdb/mysql/v1/config).
 - `name` (**Required**)(String). Name of the MySQL cluster. Provided by the client when the cluster is created.
 - `network_id` (**Required**)(String). The `VPC Network ID` of subnets which resource attached to.
-- `performance_diagnostics` [FW-Block]. Cluster performance diagnostics settings. The structure is documented below.
+- `performance_diagnostics` [Block]. Cluster performance diagnostics settings. The structure is documented below.
   - `enabled` (Bool). Enable performance diagnostics
   - `sessions_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
   - `statements_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_statements sampling Acceptable values are 60 to 86400, inclusive.
-- `restore` [FW-Block]. The cluster will be created from the specified backup.
+- `restore` [Block]. The cluster will be created from the specified backup.
   - `backup_id` (**Required**)(String). Backup ID. The cluster will be created from the specified backup. [How to get a list of MySQL backups](https://yandex.cloud/docs/managed-mysql/operations/cluster-backups).
   - `time` (String). Timestamp of the moment to which the MySQL cluster should be restored. (Format: `2006-01-02T15:04:05` - UTC). When not set, current time is used.
 - `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.

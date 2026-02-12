@@ -19,6 +19,10 @@ items:
         href: operations/cluster-stop.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
+  - name: Практические руководства
+    items:
+      - name: Запуск PySpark-задания
+        href: tutorials/yt-run-spark-job.md
   - name: Концепции
     items:
       - name: Аутентификация

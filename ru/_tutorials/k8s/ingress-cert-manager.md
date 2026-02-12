@@ -1,5 +1,7 @@
 # Установка Ingress-контроллера NGINX с менеджером для сертификатов {{ lets-encrypt }}
 
+{% include [ingress-nginx-support-discontinued](../../_includes/ingress-nginx-support-discontinued.md) %}
+
 Чтобы с помощью [{{ k8s }}](https://kubernetes.io/ru/) создать [Ingress-контроллер NGINX](https://kubernetes.github.io/ingress-nginx/) и защитить его сертификатом:
 
 1. [Установите Ingress-контроллер NGINX](#install-controller).
@@ -43,12 +45,6 @@
 ## Установите Ingress-контроллер NGINX {#install-controller}
 
 {% list tabs group=instructions %}
-
-
-- {{ marketplace-full-name }} {#marketplace}
-
-  Установите приложение [Ingress NGINX](/marketplace/products/yc/ingress-nginx) из {{ marketplace-name }} [по инструкции](../../managed-kubernetes/operations/applications/ingress-nginx.md).
-
 
 - Вручную {#manual}
 

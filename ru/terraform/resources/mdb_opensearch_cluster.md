@@ -169,8 +169,8 @@ resource "yandex_vpc_subnet" "es-subnet-d" {
 
 ## Arguments & Attributes Reference
 
-- `auth_settings` [FW-Block]. Authentication settings for Dashboards.
-  - `saml` [FW-Block]. SAML authentication options.
+- `auth_settings` [Block]. Authentication settings for Dashboards.
+  - `saml` [Block]. SAML authentication options.
     - `dashboards_url` (**Required**)(String). Dashboards URL.
     - `enabled` (**Required**)(Bool). Enables SAML authentication.
     - `idp_entity_id` (**Required**)(String). ID of the SAML Identity Provider.
@@ -186,7 +186,7 @@ resource "yandex_vpc_subnet" "es-subnet-d" {
 - `environment` (String). Deployment environment of the OpenSearch cluster. Can be either `PRESTABLE` or `PRODUCTION`. Default: `PRODUCTION`. **It is not possible to change this value after cluster creation**.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `health` (*Read-Only*) (String). Aggregated health of the cluster. Can be either `ALIVE`, `DEGRADED`, `DEAD` or `HEALTH_UNKNOWN`. For more information see `health` field of JSON representation in [the official documentation](https://yandex.cloud/docs/managed-opensearch/api-ref/Cluster/).
-- `hosts` [FW-Block]. A hosts of the OpenSearch cluster.
+- `hosts` [Block]. A hosts of the OpenSearch cluster.
   - `assign_public_ip` (Bool). Sets whether the host should get a public IP address. Can be either `true` or `false`.
   - `fqdn` (*Read-Only*) (String). The fully qualified domain name of the host.
   - `node_group` (*Read-Only*) (String). Name of the node group.
@@ -222,7 +222,7 @@ resource "yandex_vpc_subnet" "es-subnet-d" {
     - `plugins` (Set Of String). A set of requested OpenSearch plugins.
     - `node_groups` [Block]. A set of named OpenSearch node group configurations.
       - `assign_public_ip` (Bool). Sets whether the hosts should get a public IP address.
-      - `disk_size_autoscaling` [FW-Block]. Node group disk size autoscaling settings.
+      - `disk_size_autoscaling` [Block]. Node group disk size autoscaling settings.
         - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size that limit all autoscaling iterations. See the [documentation](https://yandex.cloud/en/docs/managed-opensearch/concepts/storage#auto-rescale) for details.
         - `emergency_usage_threshold` (Number). Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
         - `planned_usage_threshold` (Number). Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.

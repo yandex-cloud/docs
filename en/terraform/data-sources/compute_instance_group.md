@@ -69,11 +69,13 @@ output "instance_external_ip" {
     - `disk_id` (String). The ID of the existing disk (such as those managed by yandex_compute_disk) to attach as a boot disk.
     - `initialize_params` [Block]. Parameters for creating a disk alongside the instance.
 
-        {% note warning %}
+{% note warning %}
 
-        `image_id` or `snapshot_id` must be specified.
+`image_id` or `snapshot_id` must be specified.
 
-        {% endnote %}
+{% endnote %}
+
+
       - `description` (String). A description of the boot disk.
       - `image_id` (String). The disk image to initialize this disk from.
       - `size` (Number). The size of the disk in GB.
@@ -86,7 +88,12 @@ output "instance_external_ip" {
     - `device_name` (String). Name of the device representing the filesystem on the instance.
     - `filesystem_id` (**Required**)(String). ID of the filesystem that should be attached.
     - `mode` (String). Mode of access to the filesystem that should be attached. By default, filesystem is attached in `READ_WRITE` mode.
-  - `hostname` (String). Hostname template for the instance. This field is used to generate the FQDN value of instance. The `hostname` must be unique within the network and region. If not specified, the hostname will be equal to `id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`.In order to be unique it must contain at least on of instance unique placeholders:* `{instance.short_id}`* {instance.index}* combination of `{instance.zone_id}` and `{instance.index_in_zone}`Example: `my-instance-{instance.index}`. If hostname is not set, `name` value will be used. It may also contain another placeholders, see `metadata` doc for full list.
+  - `hostname` (String). Hostname template for the instance. This field is used to generate the FQDN value of instance. The `hostname` must be unique within the network and region. If not specified, the hostname will be equal to `id` of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`.
+In order to be unique it must contain at least on of instance unique placeholders:
+* `{instance.short_id}`
+* {instance.index}
+* combination of `{instance.zone_id}` and `{instance.index_in_zone}`
+Example: `my-instance-{instance.index}`. If hostname is not set, `name` value will be used. It may also contain another placeholders, see `metadata` doc for full list.
   - `labels` (Map Of String). A set of key/value label pairs to assign to the instance.
   - `metadata` (Map Of String). A set of metadata key/value pairs to make available from within the instance.
   - `metadata_options` [Block]. Options allow user to configure access to managed instances metadata
@@ -94,7 +101,12 @@ output "instance_external_ip" {
     - `aws_v1_http_token` (Number). Enables access to IAM credentials with AWS flavored metadata (IMDSv1). Possible values: `0`, `1` for `enabled` and `2` for `disabled`.
     - `gce_http_endpoint` (Number). Enables access to GCE flavored metadata. Possible values: `0`, `1` for `enabled` and `2` for `disabled`.
     - `gce_http_token` (Number). Enables access to IAM credentials with GCE flavored metadata. Possible values: `0`, `1` for `enabled` and `2` for `disabled`.
-  - `name` (String). Name template of the instance.In order to be unique it must contain at least one of instance unique placeholders:*`{instance.short_id}`* `{instance.index}`* combination of `{instance.zone_id}` and`{instance.index_in_zone}`.Example: `my-instance-{instance.index}`.If not set, default name is used: `{instance_group.id}-{instance.short_id}`. It may also contain another placeholders, see `metadata` doc for full list.
+  - `name` (String). Name template of the instance.
+In order to be unique it must contain at least one of instance unique placeholders:*`{instance.short_id}`
+* `{instance.index}`
+* combination of `{instance.zone_id}` and`{instance.index_in_zone}`.
+Example: `my-instance-{instance.index}`.
+If not set, default name is used: `{instance_group.id}-{instance.short_id}`. It may also contain another placeholders, see `metadata` doc for full list.
   - `network_interface` [Block]. Network specifications for the instance. This can be used multiple times for adding multiple interfaces.
     - `dns_record` [Block]. List of DNS records.
       - `dns_zone_id` (String). DNS zone id (if not set, private zone used).
@@ -138,11 +150,13 @@ output "instance_external_ip" {
     - `disk_id` (String). ID of the existing disk. To set use variables.
     - `initialize_params` [Block]. Parameters used for creating a disk alongside the instance.
 
-        {% note warning %}
+{% note warning %}
 
-        `image_id` or `snapshot_id` must be specified.
+`image_id` or `snapshot_id` must be specified.
 
-        {% endnote %}
+{% endnote %}
+
+
       - `description` (String). A description of the boot disk.
       - `image_id` (String). The disk image to initialize this disk from.
       - `size` (Number). The size of the disk in GB.
@@ -187,11 +201,13 @@ output "instance_external_ip" {
 - `name` (String). The resource name.
 - `scale_policy` [Block]. The scaling policy of the instance group.
 
-    {% note warning %}
+{% note warning %}
 
-    Either `fixed_scale` or `auto_scale` must be specified.
+Either `fixed_scale` or `auto_scale` must be specified.
 
-    {% endnote %}
+{% endnote %}
+
+
   - `auto_scale` [Block]. The auto scaling policy of the instance group.
     - `auto_scale_type` (String). Autoscale type, can be `ZONAL` or `REGIONAL`. By default `ZONAL` type is used.
     - `cpu_utilization_target` (Number). Target CPU load level.

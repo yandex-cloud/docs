@@ -24,5 +24,3 @@ To use your licenses in {{ yandex-cloud }} under the License Mobility through So
 A [dedicated host](../compute/concepts/dedicated-host.md) is a physical server that is intended solely for hosting your VMs in {{ yandex-cloud }}.
 
 If you need separate dedicated hardware to support your products, you can use Microsoft software licenses on a dedicated {{ compute-name }} host. To use your licenses on dedicated hardware, you must have a valid agreement with Microsoft perpetual licenses.
-
-Using dedicated hardware with your own licenses will be cheaper than using licenses purchased from {{ yandex-cloud }}.

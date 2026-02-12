@@ -8,7 +8,7 @@ Type of limit | Quantity
 --- | ---
 MAC addresses per port | 5
 
-The limit on the number of MAC addresses is set separately for network interface of each server. If you need a larger number of MAC addresses, create a request to [support]({{ link-console-support }}), specifying the servers for which you need to increase the limit.
+The limit on the number of MAC addresses is set separately for each server’s network interface. If you need more MAC addresses, create a request to [support]({{ link-console-support }}) specifying the servers for which you need to increase the limit.
 
 {% cut "Request template" %}
 
@@ -77,7 +77,9 @@ Multicast | 100
 
 ## Blocked network ports {#blocked-ports}
 
-The routers connecting {{ baremetal-name }} servers to the internet limit the incoming internet traffic to public server addresses on some TCP and UDP ports as well as the outgoing SMTP traffic. By blocking these ports you can protect the {{ baremetal-full-name }} infrastructure against malicious networking traffic.
+The routers connecting {{ baremetal-name }} servers to the internet limit the incoming internet traffic to public server addresses on some TCP and UDP ports as well as the outgoing SMTP traffic. By blocking these ports you can protect the {{ baremetal-full-name }} infrastructure against malicious networking traffic. 
+
+Outgoing SMTP traffic is blocked to avoid unauthorized newsletters. We recommend using [{{ postbox-full-name }}](../../postbox/concepts/index.md) as an alternative for newsletters. If you need a public address from a range that allows outgoing SMTP traffic, contact [support]({{ link-console-support }}).
 
 {% list tabs %}
 
@@ -108,8 +110,6 @@ The routers connecting {{ baremetal-name }} servers to the internet limit the in
 
   **Port** | **Application layer protocol** | **Transport protocol**
   --- | --- | ---
-  `25` | SMTP^1^ | TCP
-
-  ^1^ SMTP traffic is blocked to avoid unauthorized newsletters. We recommend using [{{ postbox-full-name }}](../../postbox/concepts/index.md) as an alternative for newsletters.
+  `25` | SMTP | TCP
 
 {% endlist %}
