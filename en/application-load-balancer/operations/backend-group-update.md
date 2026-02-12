@@ -63,13 +63,20 @@ description: Step-by-step guide for editing a backend group.
 
      Where:
      * `--name`: Backend group name.
-     * `--new-name`: Backend group new name. Follow these naming requirements:
+     * `--new-name`: Backend group new name. The naming requirements are as follows:
 
        {% include [name-format-2](../../_includes/name-format-2.md) %}
 
      * `--description`: Backend group description. This is an optional setting.
      * `--labels key=value`: Labels in `key=value` format. This is an optional setting.
-     * `--connection-affinity`: [Session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) by the `source-ip` [IP address](../../vpc/concepts/address.md). It can be either `true` or `false`. This is an optional setting. You can also use `--cookie-affinity`: cookie or `--header-affinity`: HTTP header session affinity modes, but you can only specify one mode. For [Stream](../concepts/backend-group.md#group-types) backend groups, you can only use `--connection-affinity` mode.
+     * `--connection-affinity`: [Session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) by the `source-ip` [IP address](../../vpc/concepts/address.md). It can be either `true` or `false`. This is an optional setting. You can also use the following modes:
+       * `--cookie-affinity`: Cookie affinity. Available parameters:
+         * `name`: Cookie name. This is a required parameter.
+         * `path`: Path to the website section where the cookie will apply. If no path is set, requests from the same user may go to different backends.
+         * `ttl`: Cookie lifetime.
+       * `--header-affinity` (by HTTP header): In the `name` parameter, specify the request header name to use for affinity.
+
+       But you can only specify one mode. For [Stream](../concepts/backend-group.md#group-types) backend groups, you can only use `--connection-affinity` mode.
 
        {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
@@ -135,13 +142,20 @@ description: Step-by-step guide for editing a backend group.
      * `name`: Backend group name.
      * `description`: Backend group description. This is an optional setting.
      * `labels`: Labels in `key=value` format. This is an optional setting.
-     * `session_affinity`: Optional [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) settings.
+     * `session_affinity`: [Session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) settings. This is an optional parameter. Select one of the modes:
+
+       * `connection`: Session affinity by the `source_ip` [IP address](../../vpc/concepts/address.md). It can be either `true` or `false`.
+       * `connection`: Session affinity by cookie. Specify the following settings in `<parameter_1>=<value>,<parameter_2>=<value>` format:
+         * `name`: Cookie name. This is a required parameter.
+         * `path`: Path to the website section where the cookie will apply. If no path is set, requests from the same user may go to different backends.
+         * `ttl`: Cookie lifetime, in seconds.
+       * `header`: Session affinity by header. In the `header_name` parameter, specify the request header name to use for affinity.
+
+       For `Stream` backend groups consisting of `stream_backend` resources, you can only use the `connection` affinity mode.
 
        {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
-       * `connection`: Session affinity by the `source_ip` [IP address](../../vpc/concepts/address.md). It can be either `true` or `false`. You can also use `cookie` or `header` session affinity modes, but you can only specify one mode. For `Stream` backend groups consisting of `stream_backend` resources, you can only use the `connection` affinity mode.
-
-     For more information about `yandex_alb_backend_group` properties, see [this {{ TF }} guide]({{ tf-provider-alb-backendgroup }}).
+     For detailed information about the `yandex_alb_backend_group` resource parameters, see [this {{ TF }} guide]({{ tf-provider-alb-backendgroup }}).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

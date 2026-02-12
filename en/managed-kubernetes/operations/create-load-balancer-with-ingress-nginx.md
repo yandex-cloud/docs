@@ -43,7 +43,7 @@ When installing an [NGINX Ingress controller](https://kubernetes.github.io/ingre
    
    {% note tip %}
 
-   You can also install an NGINX Ingress controller [using {{ marketplace-full-name }}](applications/ingress-nginx.md).
+   You can also install an NGINX Ingress controller [using {{ marketplace-full-name }}](../alb-ref/nginx-gwin-migration.md).
 
    {% endnote %}
 

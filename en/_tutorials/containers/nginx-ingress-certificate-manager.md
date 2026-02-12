@@ -1,5 +1,7 @@
 # Installing an NGINX ingress controller with a {{ certificate-manager-full-name }} certificate
 
+{% include [ingress-nginx-support-discontinued](../../_includes/ingress-nginx-support-discontinued.md) %}
+
 Manage the [TLS certificate](../../certificate-manager/concepts/index.md) for the NGINX Ingress Controller via [{{ certificate-manager-full-name }}](../../certificate-manager/).
 
 The [External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yandex-certificate-manager/) syncs the certificate with the [{{ k8s }} secret](../../managed-kubernetes/concepts/encryption.md). This allows you to manage the deployed application's certificate through {{ certificate-manager-name }} by adding a self-signed certificate and updating it on your own or by issuing an automatically renewable Let's Encrypt® certificate.
@@ -273,35 +275,6 @@ The infrastructure support cost includes:
 ## Install the NGINX Ingress Controller {#install-nginx-ingress}
 
 {% list tabs group=instructions %}
-
-
-- {{ marketplace-full-name }} {#marketplace}
-
-  Install [Ingress NGINX](/marketplace/products/yc/ingress-nginx) from {{ marketplace-name }} by following [this guide](../../managed-kubernetes/operations/applications/ingress-nginx.md).
-
-  The SSL certificate will only be available in the `ns` namespace, where the secret with this certificate was created. To allow ingress to use this certificate in any namespace, add the `--default-ssl-certificate` parameter to the controller configuration:
-
-  1. Run this command:
-
-     ```bash
-     kubectl edit deployment ingress-nginx-controller
-     ```
-
-  1. In the window that opens, add the `--default-ssl-certificate` parameter:
-
-     ```bash
-     spec:
-       template:
-         spec:
-           containers:
-           - args:
-             - /nginx-ingress-controller
-             ...
-             - --default-ssl-certificate=ns/k8s-secret
-     ```
-
-  If you modify the `--default-ssl-certificate` parameter, restart the NGINX Ingress Controller.
-
 
 - Manually {#manual}
 

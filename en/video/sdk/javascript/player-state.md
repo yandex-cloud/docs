@@ -1,6 +1,6 @@
 ---
-title: Cloud Video Player states in JavaScript SDK
-description: This page describes the possible states of Cloud Video Player in JavaScript SDK.
+title: '{{ video-player-name }} states in the JavaScript SDK'
+description: This page describes the possible {{ video-player-name }} states in the JavaScript SDK.
 ---
 
 # Player state
@@ -115,6 +115,7 @@ A player state is an object with the following fields:
 * [videoType](#state-videoType)
 * [muted](#state-muted)
 * [volume](#state-volume)
+* [playbackSpeed](#state-playbackSpeed)
 * [utcStartTime](#state-utcStartTime)
 * [seekableRange](#state-seekableRange)
 * [bufferedRanges](#state-bufferedRanges).
@@ -199,6 +200,17 @@ The default [value](./initialization.md#muted) is the one provided in the config
 Video volume level ranging from `0` (muted) to `1` (maximum volume).
 
 The default [value](./initialization.md#volume) is the one provided in the configuration on player initialization. If no value was provided on initialization, the default value is `1`.
+
+#### playbackSpeed {#state-playbackSpeed}
+
+Playback speed.
+
+The speed value is a number, e.g.:
+* `1`: Normal speed.
+* `0.5`: Half speed.
+* `2`: Double speed.
+
+The default value is `1`.
 
 #### utcStartTime {#state-utcStartTime}
 

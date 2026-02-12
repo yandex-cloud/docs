@@ -134,4 +134,4 @@ For more information, see [{#T}](operations/streams/obs-config-help.md).
 * [{#T}](hosting.md)
 * [{{ video-full-name }} overview](./concepts/index.md)
 * [Configuring ads](operations/channels/settings.md#ad-settings)
-* [{#T}](troubleshooting.md)
+* [{#T}](troubleshooting/index.md)

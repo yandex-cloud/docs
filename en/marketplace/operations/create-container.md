@@ -37,7 +37,7 @@ You can also create products for {{ compute-full-name }} to run on [Linux](creat
    * `<component-name>`: Name of the product component provided as a Docker image.
    * `<tag>`: Docker image tag. Do not use the `latest` tag.
 
-During publication, all the images that come with the product are moved from the publisher's registry to the public `yc-marketplace` registry. The whole product hierarchy defined by the publisher is maintained in the process.
+By default, during publication, all the images that come with the product are moved from the publisher's registry to the public `yc-marketplace` registry. The whole product hierarchy defined by the publisher is maintained in the process. To avoid moving images to the `yc-marketplace` registry, use the `private_artifacts` parameter in the [product specification](#manifest).
 
 > For example, the `{{ registry }}/{{ tf-cloud-id }}/yandex-cloud/prometheus/pushgateway:1.0` image will be published as `{{ registry }}/yc-marketplace/yandex-cloud/prometheus/pushgateway:1.0`.
 
@@ -527,6 +527,12 @@ The product specification uses YAML format and contains the following data:
             license_id_value:
               required: false
         ```
+
+1. `private_artifacts`: Optional parameter. Use it to avoid moving all the images that come with the product from the publisher's registry to the public `yc-marketplace` registry. The possible values are `true` and `false`; the default one is `false`.
+
+   This parameter is set for a product version. To install a version with `private_artifacts = true`, the user will need to utilize {{ yandex-cloud }} [interfaces](../../overview/concepts/interfaces.md). Installation with the `helm install` command will not be available.
+
+   Access to download components published in the product card's **Product contents** section will be granted only to the service account under which the user is installing the product. If the user deletes the product, {{ marketplace-short-name }} will revoke access from the service account.
 
 The variable values specified by the user when installing the product in a {{ k8s }} cluster will override the values from the `values.yaml` file.
 

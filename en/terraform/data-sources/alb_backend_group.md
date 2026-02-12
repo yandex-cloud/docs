@@ -43,11 +43,13 @@ data "yandex_alb_backend_group" "my_alb_bg" {
   - `weight` (Number). Weight of the backend. Traffic will be split between backends of the same BackendGroup according to their weights.
   - `healthcheck` [Block]. Healthcheck specification that will be used by this backend.
 
-      {% note warning %}
+{% note warning %}
 
-      Only one of `stream_healthcheck` or `http_healthcheck` or `grpc_healthcheck` should be specified.
+Only one of `stream_healthcheck` or `http_healthcheck` or `grpc_healthcheck` should be specified.
 
-      {% endnote %}
+{% endnote %}
+
+
     - `healthcheck_port` (Number). Optional alternative port for health checking.
     - `healthy_threshold` (Number). Number of consecutive successful health checks required to promote endpoint into the healthy state. 0 means 1. Note that during startup, only a single successful health check is required to mark a host healthy.
     - `interval` (**Required**)(String). Interval between health checks.
@@ -71,22 +73,26 @@ data "yandex_alb_backend_group" "my_alb_bg" {
     - `strict_locality` (Bool). If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones.
   - `tls` [Block]. TLS specification that will be used by this backend.
 
-      {% note warning %}
+{% note warning %}
 
-      Only one of `validation_context.0.trusted_ca_id` or `validation_context.0.trusted_ca_bytes` should be specified.
+Only one of `validation_context.0.trusted_ca_id` or `validation_context.0.trusted_ca_bytes` should be specified.
 
-      {% endnote %}
+{% endnote %}
+
+
     - `sni` (String). [SNI](https://en.wikipedia.org/wiki/Server_Name_Indication) string for TLS connections.
     - `validation_context` [Block]. Validation context
       - `trusted_ca_bytes` (String). PEM-encoded trusted CA certificate chain.
       - `trusted_ca_id` (String). Trusted CA certificate ID in the Certificate Manager.
 - `http_backend` [Block]. HTTP backend specification that will be used by the ALB Backend Group.
 
-    {% note warning %}
+{% note warning %}
 
-    Only one of `target_group_ids` or `storage_bucket` should be specified.
+Only one of `target_group_ids` or `storage_bucket` should be specified.
 
-    {% endnote %}
+{% endnote %}
+
+
   - `http2` (Bool). Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default.
   - `name` (**Required**)(String). Name of the backend.
   - `port` (Number). Port for incoming traffic.
@@ -95,11 +101,13 @@ data "yandex_alb_backend_group" "my_alb_bg" {
   - `weight` (Number). Weight of the backend. Traffic will be split between backends of the same BackendGroup according to their weights.
   - `healthcheck` [Block]. Healthcheck specification that will be used by this backend.
 
-      {% note warning %}
+{% note warning %}
 
-      Only one of `stream_healthcheck` or `http_healthcheck` or `grpc_healthcheck` should be specified.
+Only one of `stream_healthcheck` or `http_healthcheck` or `grpc_healthcheck` should be specified.
 
-      {% endnote %}
+{% endnote %}
+
+
     - `healthcheck_port` (Number). Optional alternative port for health checking.
     - `healthy_threshold` (Number). Number of consecutive successful health checks required to promote endpoint into the healthy state. 0 means 1. Note that during startup, only a single successful health check is required to mark a host healthy.
     - `interval` (**Required**)(String). Interval between health checks.
@@ -123,22 +131,26 @@ data "yandex_alb_backend_group" "my_alb_bg" {
     - `strict_locality` (Bool). If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones.
   - `tls` [Block]. TLS specification that will be used by this backend.
 
-      {% note warning %}
+{% note warning %}
 
-      Only one of `validation_context.0.trusted_ca_id` or `validation_context.0.trusted_ca_bytes` should be specified.
+Only one of `validation_context.0.trusted_ca_id` or `validation_context.0.trusted_ca_bytes` should be specified.
 
-      {% endnote %}
+{% endnote %}
+
+
     - `sni` (String). [SNI](https://en.wikipedia.org/wiki/Server_Name_Indication) string for TLS connections.
     - `validation_context` [Block]. Validation context
       - `trusted_ca_bytes` (String). PEM-encoded trusted CA certificate chain.
       - `trusted_ca_id` (String). Trusted CA certificate ID in the Certificate Manager.
 - `session_affinity` [Block]. Session affinity mode determines how incoming requests are grouped into one session.
 
-    {% note warning %}
+{% note warning %}
 
-    Only one type(`connection` or `cookie` or `header`) of session affinity should be specified.
+Only one type(`connection` or `cookie` or `header`) of session affinity should be specified.
 
-    {% endnote %}
+{% endnote %}
+
+
   - `connection` [Block]. Requests received from the same IP are combined into a session. Stream backend groups only support session affinity by client IP address.
     - `source_ip` (Bool). Source IP address to use with affinity.
   - `cookie` [Block]. Requests with the same cookie value and the specified file name are combined into a session. Allowed only for `HTTP` and `gRPC` backend groups.
@@ -156,11 +168,13 @@ data "yandex_alb_backend_group" "my_alb_bg" {
   - `weight` (Number). Weight of the backend. Traffic will be split between backends of the same BackendGroup according to their weights.
   - `healthcheck` [Block]. Healthcheck specification that will be used by this backend.
 
-      {% note warning %}
+{% note warning %}
 
-      Only one of `stream_healthcheck` or `http_healthcheck` or `grpc_healthcheck` should be specified.
+Only one of `stream_healthcheck` or `http_healthcheck` or `grpc_healthcheck` should be specified.
 
-      {% endnote %}
+{% endnote %}
+
+
     - `healthcheck_port` (Number). Optional alternative port for health checking.
     - `healthy_threshold` (Number). Number of consecutive successful health checks required to promote endpoint into the healthy state. 0 means 1. Note that during startup, only a single successful health check is required to mark a host healthy.
     - `interval` (**Required**)(String). Interval between health checks.
@@ -184,11 +198,13 @@ data "yandex_alb_backend_group" "my_alb_bg" {
     - `strict_locality` (Bool). If set, will route requests only to the same availability zone. Balancer won't know about endpoints in other zones.
   - `tls` [Block]. TLS specification that will be used by this backend.
 
-      {% note warning %}
+{% note warning %}
 
-      Only one of `validation_context.0.trusted_ca_id` or `validation_context.0.trusted_ca_bytes` should be specified.
+Only one of `validation_context.0.trusted_ca_id` or `validation_context.0.trusted_ca_bytes` should be specified.
 
-      {% endnote %}
+{% endnote %}
+
+
     - `sni` (String). [SNI](https://en.wikipedia.org/wiki/Server_Name_Indication) string for TLS connections.
     - `validation_context` [Block]. Validation context
       - `trusted_ca_bytes` (String). PEM-encoded trusted CA certificate chain.

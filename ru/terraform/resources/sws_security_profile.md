@@ -174,11 +174,13 @@ resource "yandex_sws_security_profile" "demo-profile-advanced" {
   - `size_limit_action` (String). 
 - `security_rule` [Block]. List of security rules.
 
-    {% note warning %}
+{% note warning %}
 
-    Exactly one rule specifier: `smart_protection` or `rule_condition` or `waf` should be specified.
+Exactly one rule specifier: `smart_protection` or `rule_condition` or `waf` should be specified.
 
-    {% endnote %}
+{% endnote %}
+
+
   - `description` (String). Optional description of the rule. 0-512 characters long.
   - `dry_run` (Bool). This mode allows you to test your security profile or a single rule.
   - `name` (String). Name of the rule. The name is unique within the security profile. 1-50 characters long.

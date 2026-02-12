@@ -54,7 +54,10 @@ output "cluster_external_v4_endpoint" {
   - `internal_v4_endpoint` (*Read-Only*) (String). Internal endpoint that can be used to connect to the master from cloud networks.
   - `maintenance_policy` [Block]. Maintenance policy for Kubernetes master. If policy is omitted, automatic revision upgrades of the kubernetes master are enabled and could happen at any time. Revision upgrades are performed only within the same minor version, e.g. 1.29. Minor version upgrades (e.g. 1.29->1.30) should be performed manually.
     - `auto_upgrade` (**Required**)(Bool). Boolean flag that specifies if master can be upgraded automatically. When omitted, default value is TRUE.
-    - `maintenance_window` [Block]. This structure specifies maintenance window, when update for master is allowed. When omitted, it defaults to any time. To specify time of day interval, for all days, one element should be provided, with two fields set, `start_time` and `duration`. Please see `zonal_cluster_resource_name` config example.To allow maintenance only on specific days of week, please provide list of elements, with all fields set. Only one time interval (`duration`) is allowed for each day of week. Please see `regional_cluster_resource_name` config example
+    - `maintenance_window` [Block]. This structure specifies maintenance window, when update for master is allowed. When omitted, it defaults to any time. To specify time of day interval, for all days, one element should be provided, with two fields set, `start_time` and `duration`. Please see `zonal_cluster_resource_name` config example.
+
+To allow maintenance only on specific days of week, please provide list of elements, with all fields set. Only one time interval (`duration`) is allowed for each day of week. Please see `regional_cluster_resource_name` config example
+
       - `day` (String). The day of the week which you want to update.
       - `duration` (**Required**)(String). The duration of the day of week you want to update.
       - `start_time` (**Required**)(String). The start time of the day of week you want to update.
@@ -66,11 +69,13 @@ output "cluster_external_v4_endpoint" {
     - `cluster_autoscaler_enabled` (Bool). Boolean flag that specifies if cluster-autoscaler logs should be sent to Yandex Cloud Logging.
     - `enabled` (Bool). Boolean flag that specifies if master components logs should be sent to [Yandex Cloud Logging](https://yandex.cloud/docs/logging/). The exact components that will send their logs must be configured via the options described below.
 
-        {% note warning %}
+{% note warning %}
 
-        Only one of `log_group_id` or `folder_id` (or none) may be specified. If `log_group_id` is specified, logs will be sent to this specific Log group. If `folder_id` is specified, logs will be sent to **default** Log group of this folder. If none of two is specified, logs will be sent to **default** Log group of the **same** folder as Kubernetes cluster.
+Only one of `log_group_id` or `folder_id` (or none) may be specified. If `log_group_id` is specified, logs will be sent to this specific Log group. If `folder_id` is specified, logs will be sent to **default** Log group of this folder. If none of two is specified, logs will be sent to **default** Log group of the **same** folder as Kubernetes cluster.
 
-        {% endnote %}
+{% endnote %}
+
+
     - `events_enabled` (Bool). Boolean flag that specifies if kubernetes cluster events should be sent to Yandex Cloud Logging.
     - `folder_id` (String). ID of the folder default Log group of which should be used to collect logs.
     - `kube_apiserver_enabled` (Bool). Boolean flag that specifies if kube-apiserver logs should be sent to Yandex Cloud Logging.

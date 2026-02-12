@@ -93,11 +93,13 @@ resource "yandex_vpc_subnet" "foo" {
   - `mode` (String). Mode of access to the filesystem that should be attached. By default, filesystem is attached in `READ_WRITE` mode.
 - `local_disk` [Block]. List of local disks that are attached to the instance.
 
-    {% note warning %}
+{% note warning %}
 
-    Local disks are not available for all users by default.
+Local disks are not available for all users by default.
 
-    {% endnote %}
+{% endnote %}
+
+
   - `device_name` (*Read-Only*) (String). The name of the local disk device.
   - `size_bytes` (**Required**)(Number). Size of the disk, specified in bytes.
 - `metadata_options` [Block]. Options allow user to configure access to instance's metadata.
@@ -135,11 +137,17 @@ resource "yandex_vpc_subnet" "foo" {
 - `placement_policy` [Block]. The placement policy configuration.
   - `host_affinity_rules` (List Of Object). List of host affinity rules.
 
-      {% note warning %}
+{% note warning %}
 
-      Due to terraform limitations, simply deleting the `placement_policy` fields does not work. To reset the values of these fields, you need to set them empty:placement_policy {    placement_group_id = ""    host_affinity_rules = []}
+Due to terraform limitations, simply deleting the `placement_policy` fields does not work. To reset the values of these fields, you need to set them empty:
 
-      {% endnote %}
+{% endnote %}
+
+
+placement_policy {
+    placement_group_id = ""
+    host_affinity_rules = []
+}
     - `key` . 
     - `op` . 
     - `values` . 
@@ -154,11 +162,12 @@ resource "yandex_vpc_subnet" "foo" {
   - `preemptible` (Bool). Specifies if the instance is preemptible. Defaults to `false`.
 - `secondary_disk` [Block]. A set of disks to attach to the instance. The structure is documented below.
 
-    {% note warning %}
+{% note warning %}
 
-    The [`allow_stopping_for_update`](#allow_stopping_for_update) property must be set to `true` in order to update this structure.
+The [`allow_stopping_for_update`](#allow_stopping_for_update) property must be set to `true` in order to update this structure.
 
-    {% endnote %}
+{% endnote %}
+
   - `auto_delete` (Bool). Whether the disk is auto-deleted when the instance is deleted. The default value is `false`.
   - `device_name` (String). Name that can be used to access an attached disk under `/dev/disk/by-id/`.
   - `disk_id` (**Required**)(String). ID of the disk that is attached to the instance.

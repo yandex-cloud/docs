@@ -1,0 +1,22 @@
+title: '{{ ycdr-full-name }}'
+description:
+  - >-
+    Сервис {{ ycdr-full-name }} позволяет вести мониторинг и реагировать на
+    инциденты в {{ yandex-cloud }}.  {{ ycdr-name }} разработан на базе
+    собственного центра мониторинга безопасности (SOC) платформы {{ yandex-cloud
+    }}.  Сервис собирает данные с облачной инфраструктуры для выявления
+    аномалий. При обнаружении аномалий {{ ycdr-name }} создает <a
+    href="https://yandex.cloud/ru/docs/security-deck/concepts/alerts">алерты</a>,
+    указывающие на потенциальный инцидент.
+links:
+  - title: Концепции
+    description: Узнайте о концепциях и ресурсах сервиса
+    href: concepts/
+  - title: Управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/
+meta:
+  title: '{{ ycdr-full-name }}'
+  description: >-
+    Сервис {{ ycdr-full-name }} собирает данные о настройках инфраструктуры
+    ваших сервисов в {{ yandex-cloud }}.

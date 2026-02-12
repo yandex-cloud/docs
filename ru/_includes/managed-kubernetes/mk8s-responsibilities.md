@@ -150,7 +150,7 @@
 * Приложения:
 
    * Развертывание `Deployment`, `StatefulSet`, `DaemonSet` и других объектов в кластерах {{ k8s }}.
-   * Управление Ingress-контроллерами (например, [NGINX Ingress](../../managed-kubernetes/operations/applications/ingress-nginx.md)).
+   * Управление Ingress-контроллерами (например, [NGINX Ingress](https://kubernetes.github.io/ingress-nginx/)).
 
 * Данные:
 

@@ -54,12 +54,11 @@ meta:
   title: Yandex Security Deck
   description: >-
     Yandex Security Deck is a comprehensive CNAPP solution comprising such
-    modules as Yandex Cloud Detection and Response ({{ ycdr-name }}), Data
-    Security Posture Management ({{ dspm-name }}), Cloud Security Posture
-    Management ({{ cspm-name }}), {{ k8s }} Security Posture Management (KSPM),
-    Cloud Infrastructure Entitlement Management ({{ ciem-name }}), {{
-    alerts-name }}, {{ atr-name }}, cloud security AI assistant, and Compliance
-    Portal.
+    modules as Data Security Posture Management ({{ dspm-name }}), Cloud
+    Security Posture Management ({{ cspm-name }}), {{ k8s }} Security Posture
+    Management (KSPM), Cloud Infrastructure Entitlement Management ({{ ciem-name
+    }}), {{ alerts-name }}, {{ atr-name }}, cloud security AI assistant, and
+    Compliance Portal.
   keywords:
     - '{{ sd-name }}'
     - '{{ sd-full-name }}'
@@ -75,7 +74,6 @@ meta:
     - cloud infrastructure entitlement management in {{ yandex-cloud }}
     - '{{ yandex-cloud }} vulnerabilities'
     - data protection in {{ yandex-cloud }}
-    - '{{ ycdr-full-name }}'
     - '{{ yandex-cloud }} incident monitoring'
     - '{{ yandex-cloud }} incident response'
     - SOC {{ yandex-cloud }}

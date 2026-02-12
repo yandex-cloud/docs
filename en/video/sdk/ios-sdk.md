@@ -1,6 +1,6 @@
 ---
-title: How to embed Cloud Video Player into an iOS app
-description: Follow this guide to integrate Cloud Video Player into your mobile app for iOS.
+title: How to embed {{ video-player-name }} in an iOS app
+description: Follow this guide to integrate {{ video-player-name }} into your mobile app for iOS.
 ---
 
 # Video player SDK for iOS

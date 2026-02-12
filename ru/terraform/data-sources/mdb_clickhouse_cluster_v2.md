@@ -31,7 +31,7 @@ output "network_id" {
 
 ## Arguments & Attributes Reference
 
-- `access` [FW-Block]. Access policy to the ClickHouse cluster.
+- `access` [Block]. Access policy to the ClickHouse cluster.
   - `data_lens` (Bool). Allow access for DataLens.
   - `data_transfer` (Bool). Allow access for DataTransfer.
   - `metrika` (Bool). Allow access for Yandex.Metrika.
@@ -40,12 +40,12 @@ output "network_id" {
   - `yandex_query` (Bool). Allow access for YandexQuery.
 - `admin_password` (String). A password used to authorize as user `admin` when `sql_user_management` enabled.
 - `backup_retain_period_days` (Number). The period in days during which backups are stored.
-- `backup_window_start` [FW-Block]. Time to start the daily backup, in the UTC timezone.
+- `backup_window_start` [Block]. Time to start the daily backup, in the UTC timezone.
   - `hours` (Number). The hour at which backup will be started (UTC).
   - `minutes` (Number). The minute at which backup will be started (UTC).
-- `clickhouse` [FW-Block]. Configuration of the ClickHouse subcluster.
-  - `config` [FW-Block]. Configuration of the ClickHouse subcluster.
-    - `access_control_improvements` [FW-Block]. Access control settings.
+- `clickhouse` [Block]. Configuration of the ClickHouse subcluster.
+  - `config` [Block]. Configuration of the ClickHouse subcluster.
+    - `access_control_improvements` [Block]. Access control settings.
       - `select_from_information_schema_requires_grant` (Bool). Sets whether `SELECT * FROM information_schema.<table>` requires any grants and can be executed by any user. If set to true, then this query requires `GRANT SELECT ON information_schema.<table>`, just as for ordinary tables.
       - `select_from_system_db_requires_grant` (Bool). Sets whether `SELECT * FROM system.<table>` requires any grants and can be executed by any user. If set to true then this query requires `GRANT SELECT ON system.<table>` just as for non-system tables.
     - `async_insert_threads` (Number). Maximum number of threads to parse and insert data in background.
@@ -65,12 +65,12 @@ output "network_id" {
     - `background_pool_size` (Number). Sets the number of threads performing background merges and mutations for MergeTree-engine tables.
     - `background_schedule_pool_size` (Number). The maximum number of threads that will be used for constantly executing some lightweight periodic operations for replicated tables, Kafka streaming, and DNS cache updates.
     - `backup_threads` (Number). The maximum number of threads to execute **BACKUP** requests.
-    - `compression` [FW-Block]. Data compression configuration.
+    - `compression` [Block]. Data compression configuration.
       - `level` (Number). Compression level for `ZSTD` method.
       - `method` (**Required**)(String). Compression method. Two methods are available: `LZ4` and `zstd`.
       - `min_part_size` (**Required**)(Number). Min part size: Minimum size (in bytes) of a data part in a table. ClickHouse only applies the rule to tables with data parts greater than or equal to the Min part size value.
       - `min_part_size_ratio` (**Required**)(Number). Min part size ratio: Minimum table part size to total table size ratio. ClickHouse only applies the rule to tables in which this ratio is greater than or equal to the Min part size ratio value.
-    - `custom_macros` [FW-Block]. Custom ClickHouse macros.
+    - `custom_macros` [Block]. Custom ClickHouse macros.
       - `name` (**Required**)(String). Name of the macro.
       - `value` (**Required**)(String). Value of the macro.
     - `default_database` (String). Default database name.
@@ -80,22 +80,22 @@ output "network_id" {
     - `error_log_retention_time` (Number). The maximum time that error_log records will be retained before removal. If set to **0**, automatic removal of error_log data based on time is disabled.
     - `geobase_enabled` (Bool). Enable or disable geobase.
     - `geobase_uri` (String). Address of the archive with the user geobase in Object Storage.
-    - `graphite_rollup` [FW-Block]. Graphite rollup configuration.
+    - `graphite_rollup` [Block]. Graphite rollup configuration.
       - `name` (**Required**)(String). Graphite rollup configuration name.
       - `path_column_name` (String). The name of the column storing the metric name (Graphite sensor). Default value: Path.
-      - `patterns` [FW-Block]. Set of thinning rules.
+      - `patterns` [Block]. Set of thinning rules.
         - `function` (**Required**)(String). Aggregation function name.
         - `regexp` (String). Regular expression that the metric name must match.
-        - `retention` [FW-Block]. Retain parameters.
+        - `retention` [Block]. Retain parameters.
           - `age` (**Required**)(Number). Minimum data age in seconds.
           - `precision` (**Required**)(Number). Accuracy of determining the age of the data in seconds.
       - `time_column_name` (String). The name of the column storing the time of measuring the metric. Default value: Time.
       - `value_column_name` (String). The name of the column storing the value of the metric at the time set in `time_column_name`. Default value: Value.
       - `version_column_name` (String). The name of the column storing the version of the metric. Default value: Timestamp.
-    - `jdbc_bridge` [FW-Block]. JDBC bridge configuration.
+    - `jdbc_bridge` [Block]. JDBC bridge configuration.
       - `host` (**Required**)(String). Host of jdbc bridge.
       - `port` (Number). Port of jdbc bridge. Default value: 9019.
-    - `kafka` [FW-Block]. Kafka connection configuration.
+    - `kafka` [Block]. Kafka connection configuration.
       - `auto_offset_reset` (String). Action when no initial offset: 'smallest','earliest','largest','latest','error'.
       - `debug` (String). A comma-separated list of debug contexts to enable.
       - `enable_ssl_certificate_verification` (Bool). Enable verification of SSL certificates.
@@ -111,7 +111,7 @@ output "network_id" {
     - `max_connections` (Number). Max server connections.
     - `max_partition_size_to_drop` (Number). Restriction on dropping partitions.
     - `max_table_size_to_drop` (Number). Restriction on deleting tables.
-    - `merge_tree` [FW-Block]. MergeTree engine configuration.
+    - `merge_tree` [Block]. MergeTree engine configuration.
       - `check_sample_column_is_correct` (Bool). Enables the check at table creation that the sampling column type is correct. Default value: true.
       - `cleanup_delay_period` (Number). Minimum period to clean old queue logs, blocks hashes and parts.
       - `deduplicate_merge_projection_mode` (String). Determines the behavior of background merges for MergeTree tables with projections.
@@ -159,14 +159,14 @@ output "network_id" {
     - `processors_profile_log_enabled` (Bool). Enables or disables processors_profile_log system table.
     - `processors_profile_log_retention_size` (Number). The maximum time that processors_profile_log records will be retained before removal. If set to **0**, automatic removal of processors_profile_log data based on time is disabled.
     - `processors_profile_log_retention_time` (Number). Enables or disables error_log system table.
-    - `query_cache` [FW-Block]. Query cache configuration.
+    - `query_cache` [Block]. Query cache configuration.
       - `max_entries` (Number). The maximum number of SELECT query results stored in the cache. Default value: 1024.
       - `max_entry_size_in_bytes` (Number). The maximum size in bytes SELECT query results may have to be saved in the cache. Default value: 1048576 (1 MiB).
       - `max_entry_size_in_rows` (Number). The maximum number of rows SELECT query results may have to be saved in the cache. Default value: 30000000 (30 mil).
       - `max_size_in_bytes` (Number). The maximum cache size in bytes. 0 means the query cache is disabled. Default value: 1073741824 (1 GiB).
     - `query_log_retention_size` (Number). The maximum size that query_log can grow to before old data will be removed.
     - `query_log_retention_time` (Number). The maximum time that query_log records will be retained before removal.
-    - `query_masking_rules` [FW-Block]. Query masking rules configuration.
+    - `query_masking_rules` [Block]. Query masking rules configuration.
       - `name` (String). Name for the rule.
       - `regexp` (**Required**)(String). RE2 compatible regular expression.
       - `replace` (String). Substitution string for sensitive data. Default value: six asterisks.
@@ -179,7 +179,7 @@ output "network_id" {
     - `query_views_log_enabled` (Bool). Enable or disable query_views_log system table.
     - `query_views_log_retention_size` (Number). The maximum size that query_views_log can grow to before old data will be removed.
     - `query_views_log_retention_time` (Number). The maximum time that query_views_log records will be retained before removal.
-    - `rabbitmq` [FW-Block]. RabbitMQ connection configuration.
+    - `rabbitmq` [Block]. RabbitMQ connection configuration.
       - `password` (String). RabbitMQ user password.
       - `username` (String). RabbitMQ username.
       - `vhost` (String). RabbitMQ vhost. Default: `\`.
@@ -201,11 +201,11 @@ output "network_id" {
     - `zookeeper_log_enabled` (Bool). Enable or disable zookeeper_log system table.
     - `zookeeper_log_retention_size` (Number). The maximum size that zookeeper_log can grow to before old data will be removed.
     - `zookeeper_log_retention_time` (Number). The maximum time that zookeeper_log records will be retained before removal.
-  - `resources` [FW-Block]. Resources allocated to hosts.
+  - `resources` [Block]. Resources allocated to hosts.
     - `disk_size` (**Required**)(Number). Volume of the storage available to a host, in gigabytes.
     - `disk_type_id` (**Required**)(String). Type of the storage of hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts/storage).
     - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts).
-- `cloud_storage` [FW-Block]. Cloud Storage settings.
+- `cloud_storage` [Block]. Cloud Storage settings.
   - `data_cache_enabled` (Bool). Enables temporary storage in the cluster repository of data requested from the object repository.
   - `data_cache_max_size` (Number). Defines the maximum amount of memory (in bytes) allocated in the cluster storage for temporary storage of data requested from the object storage.
   - `enabled` (**Required**)(Bool). Whether to use Yandex Object Storage for storing ClickHouse data. Can be either `true` or `false`.
@@ -220,7 +220,7 @@ output "network_id" {
 - `embedded_keeper` (Bool). Whether to use ClickHouse Keeper as a coordination system.
 - `environment` (**Required**)(String). Deployment environment of the ClickHouse cluster.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `hosts` [FW-Block]. A host configuration of the ClickHouse cluster.
+- `hosts` [Block]. A host configuration of the ClickHouse cluster.
   - `assign_public_ip` (Bool). Whether the host should get a public IP address.
   - `fqdn` (*Read-Only*) (String). The fully qualified domain name of the host.
   - `shard_name` (String). The name of the shard to which the host belongs.
@@ -233,8 +233,8 @@ output "network_id" {
 - `network_id` (**Required**)(String). The `VPC Network ID` of subnets which resource attached to.
 - `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
 - `service_account_id` (String). [Service account](https://yandex.cloud/docs/iam/concepts/users/service-accounts) which linked to the resource.
-- `shards` [FW-Block]. A shards of the ClickHouse cluster.
-  - `resources` [FW-Block]. Resources allocated to hosts.
+- `shards` [Block]. A shards of the ClickHouse cluster.
+  - `resources` [Block]. Resources allocated to hosts.
     - `disk_size` (Number). Volume of the storage available to a host, in gigabytes.
     - `disk_type_id` (String). Type of the storage of hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts/storage).
     - `resource_preset_id` (String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts).
@@ -242,8 +242,8 @@ output "network_id" {
 - `sql_database_management` (Bool). Grants `admin` user database management permission.
 - `sql_user_management` (Bool). Enables `admin` user with user management permission.
 - `version` (String). Version of the ClickHouse server software.
-- `zookeeper` [FW-Block]. Configuration of the ZooKeeper subcluster.
-  - `resources` [FW-Block]. Resources allocated to hosts.
+- `zookeeper` [Block]. Configuration of the ZooKeeper subcluster.
+  - `resources` [Block]. Resources allocated to hosts.
     - `disk_size` (**Required**)(Number). Volume of the storage available to a host, in gigabytes.
     - `disk_type_id` (**Required**)(String). Type of the storage of hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts/storage).
     - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts).

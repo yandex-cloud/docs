@@ -1,5 +1,6 @@
 Event name | Description
 --- | ---
+`BucketAccessBindingsUpdate` | Updating the bucket access binding logic
 `BucketAclUpdate` | Updating the ACL for a bucket
 `BucketCorsUpdate` | Updating the CORS configuration for a bucket
 `BucketCreate` | Creating a bucket

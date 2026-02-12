@@ -253,11 +253,13 @@ output "network_id" {
   - `connection_manager` (*Read-Only*) (Map Of String). Connection Manager connection configuration. Filled in by the server automatically.
   - `generate_password` (Bool). Generate password using Connection Manager. Allowed values: `true` or `false`. It's used only during user creation and is ignored during updating.
 
-      {% note warning %}
+{% note warning %}
 
-      **Must specify either password or generate_password**.
+**Must specify either password or generate_password**.
 
-      {% endnote %}
+{% endnote %}
+
+
   - `name` (**Required**)(String). The name of the user.
   - `password` (String). The password of the user.
   - `permission` [Block]. Set of permissions granted to the user.
@@ -291,7 +293,10 @@ output "network_id" {
     - `date_time_input_format` (String). Allows choosing a parser of the text representation of date and time, one of: `best_effort`, `basic`, `best_effort_us`. Default value: `basic`. Cloud default value: `best_effort`.
     - `date_time_output_format` (String). Allows choosing different output formats of the text representation of date and time, one of: `simple`, `iso`, `unix_timestamp`. Default value: `simple`.
     - `deduplicate_blocks_in_dependent_materialized_views` (Bool). Enables or disables the deduplication check for materialized views that receive data from `Replicated` tables.
-    - `distinct_overflow_mode` (String). Sets behavior on overflow when using DISTINCT. Possible values:* `throw` - abort query execution, return an error.* `break` - stop query execution, return partial result.
+    - `distinct_overflow_mode` (String). Sets behavior on overflow when using DISTINCT. Possible values:
+* `throw` - abort query execution, return an error.
+* `break` - stop query execution, return partial result.
+
     - `distributed_aggregation_memory_efficient` (Bool). Determine the behavior of distributed subqueries.
     - `distributed_ddl_task_timeout` (Number). Timeout for DDL queries, in milliseconds.
     - `distributed_product_mode` (String). Changes the behavior of distributed subqueries.
@@ -308,7 +313,11 @@ output "network_id" {
     - `format_avro_schema_registry_url` (String). Avro schema registry URL.
     - `format_regexp` (String). Regular expression (for Regexp format).
     - `format_regexp_skip_unmatched` (Bool). Skip lines unmatched by regular expression.
-    - `group_by_overflow_mode` (String). Sets behavior on overflow while GROUP BY operation. Possible values:* `throw` - abort query execution, return an error.* `break` - stop query execution, return partial result.* `any` - perform approximate GROUP BY operation by continuing aggregation for the keys that got into the set, but don’t add new keys to the set.
+    - `group_by_overflow_mode` (String). Sets behavior on overflow while GROUP BY operation. Possible values:
+* `throw` - abort query execution, return an error.
+* `break` - stop query execution, return partial result.
+* `any` - perform approximate GROUP BY operation by continuing aggregation for the keys that got into the set, but don’t add new keys to the set.
+
     - `group_by_two_level_threshold` (Number). Sets the threshold of the number of keys, after that the two-level aggregation should be used.
     - `group_by_two_level_threshold_bytes` (Number). Sets the threshold of the number of bytes, after that the two-level aggregation should be used.
     - `hedged_connection_timeout_ms` (Number). Connection timeout for establishing connection with replica for Hedged requests. Default value: 50 milliseconds.
@@ -331,12 +340,27 @@ output "network_id" {
     - `insert_quorum` (Number). Enables the quorum writes.
     - `insert_quorum_parallel` (Bool). Enables or disables parallelism for quorum INSERT queries.
     - `insert_quorum_timeout` (Number). Write to a quorum timeout in milliseconds.
-    - `join_algorithm` (List Of String). Specifies which JOIN algorithm is used. Possible values:* `hash` - hash join algorithm is used. The most generic implementation that supports all combinations of kind and strictness and multiple join keys that are combined with OR in the JOIN ON section.* `parallel_hash` - a variation of hash join that splits the data into buckets and builds several hash tables instead of one concurrently to speed up this process.* `partial_merge` - a variation of the sort-merge algorithm, where only the right table is fully sorted.* `direct` - this algorithm can be applied when the storage for the right table supports key-value requests.* `auto` - when set to auto, hash join is tried first, and the algorithm is switched on the fly to another algorithm if the memory limit is violated.* `full_sorting_merge` - sort-merge algorithm with full sorting joined tables before joining.* `prefer_partial_merge` - clickHouse always tries to use partial_merge join if possible, otherwise, it uses hash. Deprecated, same as partial_merge,hash.
-    - `join_overflow_mode` (String). Sets behavior on overflow in JOIN. Possible values:* `throw` - abort query execution, return an error.* `break` - stop query execution, return partial result.
+    - `join_algorithm` (List Of String). Specifies which JOIN algorithm is used. Possible values:
+* `hash` - hash join algorithm is used. The most generic implementation that supports all combinations of kind and strictness and multiple join keys that are combined with OR in the JOIN ON section.
+* `parallel_hash` - a variation of hash join that splits the data into buckets and builds several hash tables instead of one concurrently to speed up this process.
+* `partial_merge` - a variation of the sort-merge algorithm, where only the right table is fully sorted.
+* `direct` - this algorithm can be applied when the storage for the right table supports key-value requests.
+* `auto` - when set to auto, hash join is tried first, and the algorithm is switched on the fly to another algorithm if the memory limit is violated.
+* `full_sorting_merge` - sort-merge algorithm with full sorting joined tables before joining.
+* `prefer_partial_merge` - clickHouse always tries to use partial_merge join if possible, otherwise, it uses hash. Deprecated, same as partial_merge,hash.
+
+    - `join_overflow_mode` (String). Sets behavior on overflow in JOIN. Possible values:
+* `throw` - abort query execution, return an error.
+* `break` - stop query execution, return partial result.
+
     - `join_use_nulls` (Bool). Sets the type of JOIN behavior. When merging tables, empty cells may appear. ClickHouse fills them differently based on this setting.
     - `joined_subquery_requires_alias` (Bool). Require aliases for subselects and table functions in FROM that more than one table is present.
     - `load_balancing` (String). Specifies the algorithm of replicas selection that is used for distributed query processing, one of: random, nearest_hostname, in_order, first_or_random, round_robin. Default value: random.
-    - `local_filesystem_read_method` (String). Method of reading data from local filesystem. Possible values:* `read` - abort query execution, return an error.* `pread` - abort query execution, return an error.* `pread_threadpool` - stop query execution, return partial result. If the parameter is set to 0 (default), no hops is allowed.
+    - `local_filesystem_read_method` (String). Method of reading data from local filesystem. Possible values:
+* `read` - abort query execution, return an error.
+* `pread` - abort query execution, return an error.
+* `pread_threadpool` - stop query execution, return partial result. If the parameter is set to 0 (default), no hops is allowed.
+
     - `log_processors_profiles` (Bool). Enabled or disable logging of processors level profiling data to the the system.processors_profile_log table.
     - `log_queries_probability` (Number). Log queries with the specified probability.
     - `log_query_threads` (Bool). Setting up query threads logging. Query threads log into the system.query_thread_log table. This setting has effect only when log_queries is true. Queries’ threads run by ClickHouse with this setup are logged according to the rules in the query_thread_log server configuration parameter. Default value: `true`.
@@ -411,22 +435,40 @@ output "network_id" {
     - `query_cache_tag` (String). A string which acts as a label for query cache entries. The same queries with different tags are considered different by the query cache.
     - `query_cache_ttl` (Number). After this time in seconds entries in the query cache become stale.
     - `quota_mode` (String). Quota accounting mode.
-    - `read_overflow_mode` (String). Sets behavior on overflow while read. Possible values:* `throw` - abort query execution, return an error.* `break` - stop query execution, return partial result.
+    - `read_overflow_mode` (String). Sets behavior on overflow while read. Possible values:
+* `throw` - abort query execution, return an error.
+* `break` - stop query execution, return partial result.
+
     - `readonly` (Number). Restricts permissions for reading data, write data and change settings queries.
     - `receive_timeout` (Number). Receive timeout in milliseconds on the socket used for communicating with the client.
     - `remote_filesystem_read_method` (String). Method of reading data from remote filesystem, one of: `read`, `threadpool`.
     - `replication_alter_partitions_sync` (Number). For ALTER ... ATTACH|DETACH|DROP queries, you can use the replication_alter_partitions_sync setting to set up waiting.
-    - `result_overflow_mode` (String). Sets behavior on overflow in result. Possible values:* `throw` - abort query execution, return an error.* `break` - stop query execution, return partial result.
+    - `result_overflow_mode` (String). Sets behavior on overflow in result. Possible values:
+* `throw` - abort query execution, return an error.
+* `break` - stop query execution, return partial result.
+
     - `s3_use_adaptive_timeouts` (Bool). Enables or disables adaptive timeouts for S3 requests.
     - `select_sequential_consistency` (Bool). Enables or disables sequential consistency for SELECT queries.
     - `send_progress_in_http_headers` (Bool). Enables or disables `X-ClickHouse-Progress` HTTP response headers in clickhouse-server responses.
     - `send_timeout` (Number). Send timeout in milliseconds on the socket used for communicating with the client.
-    - `set_overflow_mode` (String). Sets behavior on overflow in the set resulting. Possible values:  * `throw` - abort query execution, return an error.* `break` - stop query execution, return partial result.
+    - `set_overflow_mode` (String). Sets behavior on overflow in the set resulting. Possible values:
+  * `throw` - abort query execution, return an error.
+* `break` - stop query execution, return partial result.
+
     - `skip_unavailable_shards` (Bool). Enables or disables silently skipping of unavailable shards.
-    - `sort_overflow_mode` (String). Sets behavior on overflow while sort. Possible values:* `throw` - abort query execution, return an error.* `break` - stop query execution, return partial result.
+    - `sort_overflow_mode` (String). Sets behavior on overflow while sort. Possible values:
+* `throw` - abort query execution, return an error.
+* `break` - stop query execution, return partial result.
+
     - `timeout_before_checking_execution_speed` (Number). Timeout (in seconds) between checks of execution speed. It is checked that execution speed is not less that specified in min_execution_speed parameter. Must be at least 1000.
-    - `timeout_overflow_mode` (String).  Sets behavior on overflow. Possible values:* `throw` - abort query execution, return an error.* `break` - stop query execution, return partial result.
-    - `transfer_overflow_mode` (String). Sets behavior on overflow. Possible values:* `throw` - abort query execution, return an error.* `break` - stop query execution, return partial result.
+    - `timeout_overflow_mode` (String).  Sets behavior on overflow. Possible values:
+* `throw` - abort query execution, return an error.
+* `break` - stop query execution, return partial result.
+
+    - `transfer_overflow_mode` (String). Sets behavior on overflow. Possible values:
+* `throw` - abort query execution, return an error.
+* `break` - stop query execution, return partial result.
+
     - `transform_null_in` (Bool). Enables equality of NULL values for IN operator.
     - `use_hedged_requests` (Bool). Enables hedged requests logic for remote queries. It allows to establish many connections with different replicas for query. New connection is enabled in case existent connection(s) with replica(s) were not established within hedged_connection_timeout or no data was received within receive_data_timeout. Query uses the first connection which send non empty progress packet (or data packet, if allow_changing_replica_until_first_data_packet); other connections are cancelled. Queries with max_parallel_replicas > 1 are supported. Default value: true.
     - `use_query_cache` (Bool). If turned on, SELECT queries may utilize the query cache.

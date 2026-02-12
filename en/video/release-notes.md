@@ -26,7 +26,7 @@ description: This section contains the {{ video-name }} release notes.
 
 * Added [neural features](concepts/videos.md#ai-capabilities) to increase video availability and audience reach: summarization, neural translation, and automatic subtitle generation. These operate based on [Yandex](https://habr.com/ru/companies/yandex/articles/792608/) ML models and get regular updates.
 
-* Added support video content monetization based on the [Yandex Advertising Network](https://yandex.ru/support/partner/en/yan-rules/video). Advertising is configured at the [channel](operations/channels/settings.md#ad-settings) level: you can select a video ad category aligned with the subject matter of your videos.
+* Added support video content monetization based on the [Yandex Advertising Network](https://yandex.ru/support/partner/en/yan-rules/video). Advertising is [configured](operations/channels/settings.md#ad-settings) at the [channel](concepts/index.md#channels) level: you can select a video ad category aligned with the subject matter of your videos.
 
 * Added the ability to [specify domains](operations/channels/settings.md#channel-settings) to allow the videos only on particular websites. The videos will not play on other domains.
 
@@ -63,7 +63,7 @@ description: This section contains the {{ video-name }} release notes.
 ## March 2024 {#mar-2024}
 
 * Added the option to get [view statistics](./operations/video/get-statistics.md) for a video.
-* Published the [reference guide on Cloud Video Player SDK for IFrame](./sdk/iframe/index.md).
+* Published a [reference for the {{ video-player-name }} SDK for IFrame](./sdk/iframe/index.md).
 * Added the option to [configure public access](./operations/video/publish.md) to a video.
 
 ## November 2023 {#nov-2023}

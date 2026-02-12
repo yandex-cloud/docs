@@ -65,7 +65,7 @@ resource "yandex_vpc_subnet" "foo" {
 - `disk_encryption_key_id` (String). ID of the KMS key for cluster disk encryption.
 - `environment` (**Required**)(String). Deployment environment of the PostgreSQL cluster.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `hosts` [FW-Block]. A host configuration of the PostgreSQL cluster.
+- `hosts` [Block]. A host configuration of the PostgreSQL cluster.
   - `assign_public_ip` (Bool). Whether the host should get a public IP address.
   - `fqdn` (*Read-Only*) (String). The fully qualified domain name of the host.
   - `replication_source` (String). FQDN of the host that is used as a replication source.
@@ -73,19 +73,21 @@ resource "yandex_vpc_subnet" "foo" {
   - `zone` (**Required**)(String). The availability zone where the host is located.
 - `id` (*Read-Only*) (String). The resource identifier.
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `maintenance_window` [FW-Block]. Maintenance policy of the PostgreSQL cluster.
+- `maintenance_window` [Block]. Maintenance policy of the PostgreSQL cluster.
   - `day` (String). Day of the week (in DDD format). Allowed values: "MON", "TUE", "WED", "THU", "FRI", "SAT","SUN"
   - `hour` (Number). Hour of the day in UTC (in HH format). Allowed value is between 1 and 24.
   - `type` (String). Type of maintenance window. Can be either ANYTIME or WEEKLY. A day and hour of window need to be specified with weekly window.
 - `name` (**Required**)(String). Name of the PostgreSQL cluster. Provided by the client when the cluster is created.
 - `network_id` (**Required**)(String). The `VPC Network ID` of subnets which resource attached to.
-- `restore` [FW-Block]. The cluster will be created from the specified backup.
+- `restore` [Block]. The cluster will be created from the specified backup.
   - `backup_id` (**Required**)(String). Backup ID. The cluster will be created from the specified backup. [How to get a list of PostgreSQL backups](https://yandex.cloud/docs/managed-postgresql/operations/cluster-backups).
   - `time` (String). Timestamp of the moment to which the PostgreSQL cluster should be restored. (Format: `2006-01-02T15:04:05` - UTC). When not set, current time is used.
-  - `time_inclusive` (Bool). Flag that indicates whether a database should be restored to the first backup point available just after the timestamp specified in the [time] field instead of just before. Possible values:* `false` (default) — the restore point refers to the first backup moment before [time].* `true` — the restore point refers to the first backup point after [time].
+  - `time_inclusive` (Bool). Flag that indicates whether a database should be restored to the first backup point available just after the timestamp specified in the [time] field instead of just before. Possible values:
+* `false` (default) — the restore point refers to the first backup moment before [time].
+* `true` — the restore point refers to the first backup point after [time].
 - `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
 - `config` [Block]. Configuration of the PostgreSQL cluster.
-  - `access` [FW-Block]. Access policy to the PostgreSQL cluster.
+  - `access` [Block]. Access policy to the PostgreSQL cluster.
     - `data_lens` (Bool). Allow access for Yandex DataLens.
     - `data_transfer` (Bool). Allow access for DataTransfer
     - `serverless` (Bool). Allow access for connection to managed databases from functions
@@ -93,18 +95,18 @@ resource "yandex_vpc_subnet" "foo" {
     - `yandex_query` (Bool). Allow access for YandexQuery
   - `autofailover` (Bool). Configuration setting which enables/disables automatic failover in the cluster.
   - `backup_retain_period_days` (Number). The period in days during which backups are stored.
-  - `backup_window_start` [FW-Block]. Time to start the daily backup, in the UTC timezone.
+  - `backup_window_start` [Block]. Time to start the daily backup, in the UTC timezone.
     - `hours` (Number). The hour at which backup will be started (UTC).
     - `minutes` (Number). The minute at which backup will be started.
-  - `disk_size_autoscaling` [FW-Block]. Cluster disk size autoscaling settings.
+  - `disk_size_autoscaling` [Block]. Cluster disk size autoscaling settings.
     - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size that limit all autoscaling iterations. See the [documentation](https://yandex.cloud/en/docs/managed-postgresql/concepts/storage#auto-rescale) for details.
     - `emergency_usage_threshold` (Number). Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
     - `planned_usage_threshold` (Number). Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
-  - `performance_diagnostics` [FW-Block]. Cluster performance diagnostics settings. The structure is documented below.
+  - `performance_diagnostics` [Block]. Cluster performance diagnostics settings. The structure is documented below.
     - `enabled` (Bool). Enable performance diagnostics
     - `sessions_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_activity sampling. Acceptable values are 1 to 86400, inclusive.
     - `statements_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_statements sampling. Acceptable values are 60 to 86400, inclusive.
-  - `pooler_config` [FW-Block]. Configuration of the connection pooler.
+  - `pooler_config` [Block]. Configuration of the connection pooler.
     - `pool_discard` (Bool). Setting pool_discard parameter in Odyssey.
     - `pooling_mode` (String). Mode that the connection pooler is working in. See descriptions of all modes in the [documentation for Odyssey](https://github.com/yandex/odyssey/blob/master/documentation/configuration.md#pool-string.)
   - `postgresql_config` (Map Of String). PostgreSQL cluster configuration. For detailed information specific to your PostgreSQL version, please refer to the [API proto specifications](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/mdb/postgresql/v1/config).

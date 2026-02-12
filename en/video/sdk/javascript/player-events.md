@@ -1,6 +1,6 @@
 ---
-title: Cloud Video Player events in JavaScript SDK
-description: This page describes possible Cloud Video Player events which you can subscribe to in JavaScript SDK.
+title: '{{ video-player-name }} events in the JavaScript SDK'
+description: This page describes possible {{ video-player-name }} events to which you can subscribe in the JavaScript SDK.
 ---
 
 # Player events
@@ -123,6 +123,19 @@ Here is an example:
 ```javascript
 player.on('VolumeChange', ({ volume }) => {
     console.log(volume);
+});
+```
+
+#### PlaybackSpeedChange {#playbackspeedchange}
+
+Changing playback speed.
+
+The handler in the `{ playbackSpeed }` object receives a new [playback speed](./player-state.md#state-playbackSpeed) value.
+
+Here is an example:
+```javascript
+player.on('PlaybackSpeedChange', ({ playbackSpeed }) => {
+    console.log(playbackSpeed);
 });
 ```
 

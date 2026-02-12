@@ -15,7 +15,7 @@ On the alert page, you can run its AI analysis. The [AI assistant](./ai-assistan
 
 #### See also {#see-also}
 
-* [{#T}](./ycdr.md)
+* [{#T}](../../ycdr/concepts/index.md)
 * [{#T}](./cspm.md)
 * [{#T}](./kspm.md)
 * [{#T}](./ai-assistant.md)

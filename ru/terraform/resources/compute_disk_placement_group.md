@@ -24,7 +24,8 @@ resource "yandex_compute_disk_placement_group" "group1" {
 
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `description` (String). The resource description.
-- `disk_placement_group_id` (String). ID of the placement group to return. To get the placement group ID, use [DiskPlacementGroupService.List] request.
+- `disk_placement_group_id` (String). ID of the placement group to return.
+ To get the placement group ID, use [DiskPlacementGroupService.List] request.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `id` (String). 
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.

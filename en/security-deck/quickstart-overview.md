@@ -45,7 +45,6 @@ To create your first {{ sd-name }} workspace:
 
 {{ sd-name }} includes the following modules:
 
-* [{{ ycdr-full-name }} ({{ ycdr-name }})](#ycdr)
 * [Data Security Posture Management (DSPM)](#dspm)
 * [{{ k8s }} Security Posture Management (KSPM)](#kspm)
 * [Cloud Infrastructure Entitlement Management (CIEM)](#ciem)
@@ -54,10 +53,6 @@ To create your first {{ sd-name }} workspace:
 * [Compliance Portal](#compliance)
 
 To use any of the modules, navigate to the [{{ sd-name }} interface]({{ link-sd-main }}) and select the module you need in the left-hand panel. On the page that opens, you can learn more about the tool's features and terms of use. To use the module you select, complete the required setup.
-
-### {{ ycdr-full-name }} {#ycdr}
-
-{{ ycdr-full-name }} ({{ ycdr-name }}) is a module that monitors and responds to {{ yandex-cloud }} infrastructure incidents. {{ ycdr-name }} is built around {{ yandex-cloud }}'s in-house Security Operations Center (SOC). Our information security team will monitor the service for potential threats. {{ ycdr-name }} relies on a proprietary SIEM platform and Security Data Lake for big data analysis algorithms and tools.
 
 ### Data Security Posture Management ({{ dspm-name }}) {#dspm}
 

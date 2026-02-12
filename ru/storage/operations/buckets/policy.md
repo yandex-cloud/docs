@@ -75,8 +75,9 @@ description: Следуя данной инструкции, вы научите
 
         {% include [conditions-combining-or](../../../_includes/storage/conditions-combining-or.md) %}
 
-  1. При необходимости добавьте правила и настройте их.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. При необходимости добавьте другие правила и настройте их.
+  1. (Опционально) Чтобы разрешить доступ к бакету через консоль управления, нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_add-console-rule }}**. Подробнее см. [{#T}](../../concepts/policy.md#console-access).
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}** и подтвердите удаление.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -326,6 +327,31 @@ description: Следуя данной инструкции, вы научите
 
 {% include [storage-note-empty-policy](../../_includes_service/storage-note-empty-policy.md) %}
 
+### Удалить правило {#delete-rule}
+
+Чтобы удалить правило из политики доступа:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Выберите бакет, в котором нужно настроить политику доступа.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}** и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_policy-edit }}**.
+  1. Рядом с нужным правилом нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+
+  {% note tip %}
+  
+  Оставьте в политике доступа хотя бы одно правило. Если к бакету применена политика, в которой нет правил, по умолчанию будут запрещены все действия с бакетом для всех пользователей.
+
+  Чтобы отключить проверку по политике доступа, [удалите политику](#delete-policy).
+  
+  {% endnote %}
+
+{% endlist %}
+
 ## Просмотреть политику {#view-policy}
 
 Минимально необходимая роль для просмотра политики доступа — `storage.configViewer`. См. [описание роли](../../../storage/security/index.md#storage-config-viewer).
@@ -382,7 +408,7 @@ description: Следуя данной инструкции, вы научите
   1. Выберите нужный бакет из списка.
   1. В меню слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}** и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.
   1. Нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.bucket.policy.button_policy-delete }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.
 
 - AWS CLI {#aws-cli}
 

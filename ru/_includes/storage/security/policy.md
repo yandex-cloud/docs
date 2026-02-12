@@ -91,6 +91,12 @@
 Идентификатор пользователя можно получить по [инструкции](../../../organization/operations/users-get.md) в документации {{ iam-full-name }}.
 
 
+{% note info %}
+
+Чтобы открыть доступ через консоль управления, также можно воспользоваться кнопкой **{{ ui-key.yacloud.storage.bucket.policy.button_add-console-rule }}** при создании или редактировании политики доступа.
+
+{% endnote %}
+
 ## Доступ к бакету через цепочку обратных прокси-серверов {#access-via-reverse-proxy}
 
 Чтобы обеспечить работу {{ objstorage-short-name }} с запросами, переданными через цепочку [обратных прокси-серверов](https://ru.wikipedia.org/wiki/Обратный_прокси), в [условии](../../../storage/s3/api-ref/policy/conditions.md) `aws:sourceip` проверяется не только IP-адрес, с которого пришел запрос, но и IP-адреса обратных прокси-серверов, например переданных в заголовке [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For).

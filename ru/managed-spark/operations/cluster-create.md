@@ -67,7 +67,7 @@ keywords:
 
            Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
         
-        1. **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки времени технического обслуживания:
+        1. **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки времени [технического обслуживания](../concepts/maintenance.md):
 
            {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
@@ -185,7 +185,7 @@ keywords:
 
             Укажите либо идентификатор каталога, либо идентификатор пользовательской лог-группы.
 
-    1. Чтобы настроить время технического обслуживания (в т. ч. для выключенных кластеров), передайте нужное значение в параметре `--maintenance-window`:
+    1. Чтобы настроить время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), передайте нужное значение в параметре `--maintenance-window`:
 
         ```bash
         {{ yc-mdb-sp }} cluster create <имя_кластера> \

@@ -1,9 +1,15 @@
 ---
+title: '{{ yandex-cloud }} {{ TF }} provider release notes'
+description: Changelog, updates, and version history for the {{ yandex-cloud }} {{ TF }} provider.
+editable: false
 sourcePath: en/terraform/tf-ref/yandex-cloud/release-notes.md
 ---
-# Release notes
 
 
+
+## 0.186.0 (February 12, 2026)
+##### ENHANCEMENTS:
+* mdb_clickhouse: add ConfigValidators to prevent conflicting `clickhouse.resources` and `shards[*].resources` configuration
 
 ## 0.185.0 (February 9, 2026)
 ##### FEATURES:

@@ -1112,7 +1112,7 @@ ACL позволяет предоставить доступ к объекту �
 | --- | --- |
 | ENV40 | Средняя |
 
-##### 3.29.1. Docker-образы сканируются при загрузке в {{ container-registry-full-name }} {#upload-policy}
+##### 3.29.1. Docker-образы сканируются при загрузке в {{ container-registry-full-name }} {#upload--policy}
 
 {% include [scan-docker-upload.md](scan-docker-upload-description.md) %}
 
@@ -1126,7 +1126,7 @@ ACL позволяет предоставить доступ к объекту �
 
 [Инструкция по сканированию Docker-образа при загрузке](../../../container-registry/operations/scanning-docker-image.md#automatically).
 
-##### 3.29.2 Выполняется периодическое сканирование Docker-образов, хранящихся в {{ container-registry-name }} {#periodic-scan}
+##### 3.29.2 Выполняется периодическое сканирование Docker-образов, хранящихся в {{ container-registry-name }} {#periodic--scan}
 
 {% include [scan-docker-periodic](scan-docker-periodic-description.md) %}
 

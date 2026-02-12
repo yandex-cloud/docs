@@ -102,11 +102,11 @@ resource "yandex_cloud_desktops_desktop" "desktop" {
 - `desktop_id` (*Read-Only*) (String). The id of the Desktop
 - `id` (*Read-Only*) (String). Import ID
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `members` [FW-Block]. The list of members which can use the Desktop
+- `members` [Block]. The list of members which can use the Desktop
   - `subject_id` (**Required**)(String). Identity of the access binding. See [the official documentation](https://yandex.cloud/ru/docs/cloud-desktop/api-ref/grpc/Desktop/create#yandex.cloud.clouddesktop.v1.api.User)
   - `subject_type` (**Required**)(String). Type of the access binding. See [the official documentation](https://yandex.cloud/ru/docs/cloud-desktop/api-ref/grpc/Desktop/create#yandex.cloud.clouddesktop.v1.api.User)
 - `name` (String). The name of the Desktop
-- `network_interface` [FW-Block]. The specification of the Desktop network interface
+- `network_interface` [Block]. The specification of the Desktop network interface
   - `subnet_id` (String). ID of the subnet for desktop
 
 ## Import

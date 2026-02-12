@@ -1,4 +1,4 @@
-The metric name goes into the `name` label.
+The `name` label contains the metric name.
 
 All {{ compute-name }} metrics share the `service=compute` label.
 

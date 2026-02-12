@@ -13,7 +13,6 @@ description: In this article, you will learn how to work with {{ sd-name }} in {
 * [{#T}](./workspaces/manage-access.md).
 * [{#T}](./workspaces/delete.md).
 
-
 ## Data Security Posture Management ({{ dspm-name }}) {#dspm}
 
 * [{#T}](./dspm/create-data-source.md).

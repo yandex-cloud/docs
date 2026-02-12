@@ -40,9 +40,11 @@
     * `--level`: Logging level.
     * `--json-payload`: Additional information in JSON format.
 
+   You can skip the `--group-name`, `--message`, and `--json-payload` parameters and provide only the values in the right order, e.g., `default "My message" '{"request_id": "1234"}'`.
+
    {% note info %}
 
-   You can skip the `--group-name`, `--message`, and `--json-payload` parameters and provide only the values in the right order, e.g., `default "My message" '{"request_id": "1234"}'`.
+   It may take up to 60 seconds for records to appear in the log group because the system needs time to process them.
 
    {% endnote %}
 

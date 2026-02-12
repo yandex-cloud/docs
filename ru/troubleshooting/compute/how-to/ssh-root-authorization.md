@@ -27,5 +27,6 @@
     PasswordAuthentication yes
     PermitRootLogin yes
     ```
+    1. Перезапустите SSH-сервер после изменения файлов конфигурации командой `sudo systemctl restart ssh`.
 
 {% endlist %}

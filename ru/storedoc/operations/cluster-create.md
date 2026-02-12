@@ -1008,7 +1008,8 @@ description: Следуя данной инструкции, вы сможете
 
         * `hostSpecs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
 
-                    * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md).
+          
+          * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md).
           * `subnetId` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
           * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`. В шардированном кластере используется только для хостов `MONGOS` и `MONGOINFRA`.
           * `type`— тип хоста в шардированном кластере: `MONGOD`, `MONGOINFRA`, `MONGOS` или `MONGOCFG`.
@@ -1423,7 +1424,8 @@ description: Следуя данной инструкции, вы сможете
 
         * `host_specs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
 
-                    * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
+          
+          * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
           * `subnet_id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
           * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`. В шардированном кластере используется только для хостов `MONGOS` и `MONGOINFRA`.
           * `type`— тип хоста в шардированном кластере: `MONGOD`, `MONGOINFRA`, `MONGOS` или `MONGOCFG`.

@@ -1,4 +1,5 @@
 ## Примеры конфигураций и сценариев Legal {#configuration-examples}
 
 * [Как узнать физический адрес ЦОД {{ yandex-cloud }}](data-centers-physical-addresses.md)
+* [Как стать поставщиком услуг](becoming-a-service-supplier.md)
 * [Нужно ли заключать отдельный договор по № 152-ФЗ для размещения персональных данных](fl-152.md)

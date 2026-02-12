@@ -132,20 +132,27 @@ resource "yandex_cm_certificate" "example" {
 - `updated_at` (*Read-Only*) (String). Certificate update timestamp.
 - `managed` [Block]. Managed specification.
 
-    {% note warning %}
+{% note warning %}
 
-    Resource creation awaits getting challenges from issue provider.
+Resource creation awaits getting challenges from issue provider.
 
-    {% endnote %}
+{% endnote %}
+
+
   - `challenge_count` (Number). Expected number of challenge count needed to validate certificate. Resource creation will fail if the specified value does not match the actual number of challenges received from issue provider. This argument is helpful for safe automatic resource creation for passing challenges for multi-domain certificates.
-  - `challenge_type` (**Required**)(String). Domain owner-check method. Possible values:* `DNS_CNAME` - you will need to create a CNAME dns record with the specified value. Recommended for fully automated certificate renewal.* `DNS_TXT` - you will need to create a TXT dns record with specified value.* `HTTP` - you will need to place specified value into specified url.
+  - `challenge_type` (**Required**)(String). Domain owner-check method. Possible values:
+* `DNS_CNAME` - you will need to create a CNAME dns record with the specified value. Recommended for fully automated certificate renewal.
+* `DNS_TXT` - you will need to create a TXT dns record with specified value.
+* `HTTP` - you will need to place specified value into specified url.
 - `self_managed` [Block]. Self-managed specification.
 
-    {% note warning %}
+{% note warning %}
 
-    Only one type `private_key` or `private_key_lockbox_secret` should be specified.
+Only one type `private_key` or `private_key_lockbox_secret` should be specified.
 
-    {% endnote %}
+{% endnote %}
+
+
   - `certificate` (**Required**)(String). Certificate with chain.
   - `private_key` (String). Private key of certificate.
   - `private_key_lockbox_secret` [Block]. Lockbox secret specification for getting private key.

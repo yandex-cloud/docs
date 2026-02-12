@@ -1,9 +1,15 @@
 ---
 title: '{{ alb-full-name }} release notes'
-description: This section contains {{ alb-name }} release notes.
+description: This section contains the {{ alb-name }} release notes.
 ---
 
 # {{ alb-full-name }} release notes
+
+## Q4 2025 {#q4-2025}
+
+* In the [management console]({{ link-console-main }}), now you can [start a zonal shift](operations/manage-zone/start-and-cancel-shift.md) for one or more availability zones, as well as schedule a time to automatically cancel the shift.
+
+* Added request path support for cookie-based [session affinity](concepts/backend-group.md#session-affinity). This ensures correct session merges for specific sections of your website or web app.
 
 ## Q3 2025 {#q3-2025}
 

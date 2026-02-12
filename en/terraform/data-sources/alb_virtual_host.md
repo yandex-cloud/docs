@@ -35,22 +35,26 @@ data "yandex_alb_virtual_host" "my-vhost" {
 - `id` (String). 
 - `modify_request_headers` [Block]. Apply the following modifications to the Request/Response header.
 
-    {% note warning %}
+{% note warning %}
 
-    Only one type of actions `append` or `replace` or `remove` should be specified.
+Only one type of actions `append` or `replace` or `remove` should be specified.
 
-    {% endnote %}
+{% endnote %}
+
+
   - `append` (String). Append string to the header value.
   - `name` (**Required**)(String). Name of the header to modify.
   - `remove` (Bool). If set, remove the header.
   - `replace` (String). New value for a header. Header values support the following [formatters](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers).
 - `modify_response_headers` [Block]. Apply the following modifications to the Request/Response header.
 
-    {% note warning %}
+{% note warning %}
 
-    Only one type of actions `append` or `replace` or `remove` should be specified.
+Only one type of actions `append` or `replace` or `remove` should be specified.
 
-    {% endnote %}
+{% endnote %}
+
+
   - `append` (String). Append string to the header value.
   - `name` (**Required**)(String). Name of the header to modify.
   - `remove` (Bool). If set, remove the header.
@@ -65,37 +69,45 @@ data "yandex_alb_virtual_host" "my-vhost" {
     - `per_second` (Number). Limit value specified with per second time unit
 - `route` [Block]. A Route resource. Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused.
 
-    {% note warning %}
+{% note warning %}
 
-    Exactly one type of routes `http_route` or `grpc_route` should be specified.
+Exactly one type of routes `http_route` or `grpc_route` should be specified.
 
-    {% endnote %}
+{% endnote %}
+
+
   - `disable_security_profile` (Bool). Disables security profile for the route
   - `grpc_route` [Block]. gRPC route resource.
 
-      {% note warning %}
+{% note warning %}
 
-      Exactly one type of actions `grpc_route_action` or `grpc_status_response_action` should be specified.
+Exactly one type of actions `grpc_route_action` or `grpc_status_response_action` should be specified.
 
-      {% endnote %}
+{% endnote %}
+
+
     - `grpc_match` [Block]. Checks `/` prefix by default.
       - `fqmn` [Block]. The `path` and `fqmn` blocks.
 
-          {% note warning %}
+{% note warning %}
 
-          Exactly one type of string matches `exact`, `prefix` or `regex` should be specified.
+Exactly one type of string matches `exact`, `prefix` or `regex` should be specified.
 
-          {% endnote %}
+{% endnote %}
+
+
         - `exact` (String). Match exactly.
         - `prefix` (String). Match prefix.
         - `regex` (String). Match regex.
     - `grpc_route_action` [Block]. gRPC route action resource.
 
-        {% note warning %}
+{% note warning %}
 
-        Only one type of host rewrite specifiers `host_rewrite` or `auto_host_rewrite` should be specified.
+Only one type of host rewrite specifiers `host_rewrite` or `auto_host_rewrite` should be specified.
 
-        {% endnote %}
+{% endnote %}
+
+
       - `auto_host_rewrite` (Bool). If set, will automatically rewrite host.
       - `backend_group_id` (**Required**)(String). Backend group to route requests.
       - `host_rewrite` (String). Host rewrite specifier.
@@ -112,11 +124,13 @@ data "yandex_alb_virtual_host" "my-vhost" {
       - `status` (String). The status of the response. Supported values are: ok, invalid_argumet, not_found, permission_denied, unauthenticated, unimplemented, internal, unavailable.
   - `http_route` [Block]. HTTP route resource.
 
-      {% note warning %}
+{% note warning %}
 
-      Exactly one type of actions `http_route_action` or `redirect_action` or `direct_response_action` should be specified.
+Exactly one type of actions `http_route_action` or `redirect_action` or `direct_response_action` should be specified.
 
-      {% endnote %}
+{% endnote %}
+
+
     - `direct_response_action` [Block]. Direct response action resource.
       - `body` (String). Response body text.
       - `status` (Number). HTTP response status. Should be between `100` and `599`.
@@ -124,21 +138,25 @@ data "yandex_alb_virtual_host" "my-vhost" {
       - `http_method` (Set Of String). List of methods (strings).
       - `path` [Block]. The `path` and `fqmn` blocks.
 
-          {% note warning %}
+{% note warning %}
 
-          Exactly one type of string matches `exact`, `prefix` or `regex` should be specified.
+Exactly one type of string matches `exact`, `prefix` or `regex` should be specified.
 
-          {% endnote %}
+{% endnote %}
+
+
         - `exact` (String). Match exactly.
         - `prefix` (String). Match prefix.
         - `regex` (String). Match regex.
     - `http_route_action` [Block]. HTTP route action resource.
 
-        {% note warning %}
+{% note warning %}
 
-        Only one type of host rewrite specifiers `host_rewrite` or `auto_host_rewrite` should be specified.
+Only one type of host rewrite specifiers `host_rewrite` or `auto_host_rewrite` should be specified.
 
-        {% endnote %}
+{% endnote %}
+
+
       - `auto_host_rewrite` (Bool). If set, will automatically rewrite host.
       - `backend_group_id` (**Required**)(String). Backend group to route requests.
       - `host_rewrite` (String). Host rewrite specifier.
@@ -158,11 +176,13 @@ data "yandex_alb_virtual_host" "my-vhost" {
       - `upgrade_types` (Set Of String). List of upgrade types. Only specified upgrade types will be allowed. For example, `websocket`.
     - `redirect_action` [Block]. Redirect action resource.
 
-        {% note warning %}
+{% note warning %}
 
-        Only one type of paths `replace_path` or `replace_prefix` should be specified.
+Only one type of paths `replace_path` or `replace_prefix` should be specified.
 
-        {% endnote %}
+{% endnote %}
+
+
       - `remove_query` (Bool). If set, remove query part.
       - `replace_host` (String). Replaces hostname.
       - `replace_path` (String). Replace path.
@@ -181,11 +201,13 @@ data "yandex_alb_virtual_host" "my-vhost" {
             - `name` (**Required**)(String). 
             - `value` [Block]. The `path` and `fqmn` blocks.
 
-                {% note warning %}
+{% note warning %}
 
-                Exactly one type of string matches `exact`, `prefix` or `regex` should be specified.
+Exactly one type of string matches `exact`, `prefix` or `regex` should be specified.
 
-                {% endnote %}
+{% endnote %}
+
+
               - `exact` (String). Match exactly.
               - `prefix` (String). Match prefix.
               - `regex` (String). Match regex.
@@ -201,11 +223,13 @@ data "yandex_alb_virtual_host" "my-vhost" {
           - `name` (**Required**)(String). 
           - `value` [Block]. The `path` and `fqmn` blocks.
 
-              {% note warning %}
+{% note warning %}
 
-              Exactly one type of string matches `exact`, `prefix` or `regex` should be specified.
+Exactly one type of string matches `exact`, `prefix` or `regex` should be specified.
 
-              {% endnote %}
+{% endnote %}
+
+
             - `exact` (String). Match exactly.
             - `prefix` (String). Match prefix.
             - `regex` (String). Match regex.
