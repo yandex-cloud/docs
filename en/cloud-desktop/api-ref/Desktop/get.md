@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}
     method: get
     path:
       type: object
@@ -31,7 +31,7 @@ To get the list of available desktops, make a [List](/docs/cloud-desktop/api-ref
 ## HTTP request
 
 ```
-GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}
+GET https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}
 ```
 
 ## Path parameters

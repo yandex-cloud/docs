@@ -158,7 +158,7 @@
 
 Чтобы создать именованный запрос, добавьте его в таблицу `mdb_toolkit.pxf_named_queries`:
 
-1. [Подключитесь](../../../managed-greenplum/operations/connect.md) к {{ GP }}.
+1. [Подключитесь](../../../managed-greenplum/operations/connect/index.md) к {{ GP }}.
 
 1. Выполните запрос:
 
@@ -197,7 +197,7 @@
 
 ## Создайте внешнюю таблицу и получите из нее данные {#create-ext-table}
 
-1. [Подключитесь](../../../managed-greenplum/operations/connect.md) к {{ GP }}.
+1. [Подключитесь](../../../managed-greenplum/operations/connect/index.md) к {{ GP }}.
 
 1. Создайте внешнюю таблицу `pxf_named_query`. Она будет ссылаться на данные, которые именованный запрос получает из таблиц `customers` и `orders` в БД {{ PG }}:
 

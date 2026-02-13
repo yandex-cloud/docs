@@ -21,6 +21,8 @@ items:
                 href: operations/change-server-level-settings.md
               - name: Query level
                 href: operations/change-query-level-settings.md
+          - name: Getting the {{ CH }} patch version
+            href: operations/cluster-patch-version.md
           - name: '{{ CH }} version upgrade'
             href: operations/cluster-version-update.md
           - name: Stopping and starting a cluster
@@ -37,6 +39,8 @@ items:
                 href: operations/host-migration.md
           - name: Managing backups
             href: operations/cluster-backups.md
+          - name: Managing cluster access
+            href: operations/cluster-access.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
       - name: Connection

@@ -79,7 +79,7 @@
        * `registry_id` — [идентификатор реестра](../registry/registry-list.md#registry-list), в котором создается устройство.
        * `name` — [имя устройства](../device/device-list.md#device-list).
        * `description` — описание устройства.
-       * `certificates` — список сертификатов для авторизации с помощью [сертификатов](../../concepts/authorization.md#certs).
+       * `certificates` — список сертификатов для аутентификации с помощью [сертификатов](../../concepts/authorization.md#certs).
 
       Пример описания устройства в конфигурации {{ TF }}:
 

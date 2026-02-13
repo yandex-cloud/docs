@@ -40,19 +40,19 @@ Additionally, to migrate data using external {{ MY }} replication:
 * Check that all source cluster hosts are accessible via public IP addresses to make sure the target cluster can connect to the source cluster. To do this:
    * [Add hosts](../../managed-mysql/operations/hosts.md#add) with public IP addresses.
    * [Delete hosts](../../managed-mysql/operations/hosts.md#remove) without public IP addresses.
-* Install the [{{ mmy-name }} server SSL certificates](../../managed-mysql/operations/connect.md#get-ssl-cert) on the target cluster hosts. These certificates are required to connect to a publicly accessible source cluster.
-* If required, set up a firewall and configure [security groups](../../managed-mysql/operations/connect.md#configuring-security-groups) to enable connections from the target cluster to the source cluster and to each cluster individually, e.g., using [mysql](https://dev.mysql.com/doc/refman/8.0/en/mysql.html).
+* Install the [{{ mmy-name }} server SSL certificates](../../managed-mysql/operations/connect/index.md#get-ssl-cert) on the target cluster hosts. These certificates are required to connect to a publicly accessible source cluster.
+* If required, set up a firewall and configure [security groups](../../managed-mysql/operations/connect/index.md#configuring-security-groups) to enable connections from the target cluster to the source cluster and to each cluster individually, e.g., using [mysql](https://dev.mysql.com/doc/refman/8.0/en/mysql.html).
 * Make sure the target cluster hosts can connect to the source cluster hosts.
-* Make sure you can [connect](../../managed-mysql/operations/connect.md) to both the source cluster and the target cluster using SSL.
+* Make sure you can [connect](../../managed-mysql/operations/connect/index.md) to both the source cluster and the target cluster using SSL.
 
-## Transferring data using {{ data-transfer-full-name }} {#data-transfer}
+## Migrating data via {{ data-transfer-full-name }} {#data-transfer}
 
 
 ### Required paid resources {#paid-resources-with-data-transfer}
 
-* {{ mmy-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* {{ mmy-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer, which includes the use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ### Migrate the database {#database-migration}
@@ -71,7 +71,7 @@ Additionally, to migrate data using external {{ MY }} replication:
 
 ### Required paid resources {#paid-resources-binlog-replication}
 
-* {{ mmy-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* {{ mmy-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 

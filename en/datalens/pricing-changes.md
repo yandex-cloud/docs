@@ -55,7 +55,7 @@ By March 1, 2026, tools will be released for automatic revocation of inactive se
 
 Within one instance, {{ datalens-name }} will be priced as follows:
 * One seat: Free of charge.
-* Two or more seats: {{ sku|USD|datalens.users.v1|string }} per seat per month.
+* More than one seat: {{ sku|USD|datalens.users.v1|string }} per month per seat.
 
 Seats are counted towards the month's total. If the instance contains more than one seat, the total charge is calculated as follows:
 
@@ -92,7 +92,9 @@ The transition to the new service plan will be gradual.
 
 As of November 16, 2025, special conditions apply to **Community** plan users.
 
-If you migrate to the **Business** plan before December 1, 2025 or end your trial period early between December 1 and December 31, you will get a 50% discount on all seats from that moment until the end of 2026.
+If you switch to the **Business** plan before December 1, 2025 or end your trial period early between December 1 and December 31, you will get a 50% discount on all seats from that moment until the end of 2026.
+
+If you complete your trial period early between January 1 and January 31, 2026, you will get a 20% discount on all seats from that moment until the end of 2026.
 
 {% note info %}
 

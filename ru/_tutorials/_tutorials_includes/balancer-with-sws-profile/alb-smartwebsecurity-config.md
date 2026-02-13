@@ -174,7 +174,7 @@ resource "yandex_alb_target_group" "foo" {
   }
 }
 
-# Создание группы бекендов
+# Создание группы бэкендов
 
 resource "yandex_alb_backend_group" "alb-bg" {
   name                     = "test-backend-group"

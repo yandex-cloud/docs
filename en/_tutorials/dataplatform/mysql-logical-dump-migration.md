@@ -10,10 +10,10 @@ Migration stages:
 1. [Create a dump](#dump) of the database you want to migrate.
 1. Optionally, [upload a dump to an intermediate virtual machine](#vm-load) in {{ yandex-cloud }}.
 
-    Transfer your data to an intermediate VM in {{ compute-full-name }} if:
+    You need to transfer your data to the staging {{ compute-full-name }} VM in one of the following situations:
 
     * Your {{ mmy-name }} cluster is not accessible from the internet.
-    * Your hardware or connection to the cluster in {{ yandex-cloud }} is not very reliable.
+    * Your hardware or connection to the cluster in {{ yandex-cloud }} are not very reliable.
 
     The larger the amount of data to be migrated and the required migration speed, the higher the virtual machine requirements: number of processor cores, RAM, and disk space.
 
@@ -24,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources-logical-dump}
 
-* {{ mmy-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* {{ mmy-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * Virtual machine if created to download a dump: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
@@ -37,13 +37,13 @@ Create the required resources:
 
 - Manually {#manual}
 
-    1. Create a [target {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-create.md) with your preferred configuration. In this case, the following applies:
+    1. Create a [target {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-create.md) with your preferred configuration. For this operation, the following requirements apply:
 
         * The {{ MY }} version must be the same or higher than the version in the source cluster.
 
-            Transferring data with {{ MY }} major version upgrade is possible but not guaranteed. For more information, see [this {{ MY }} guide](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
+            Data transfer with a major {{ MY }} version upgrade is possible but not guaranteed. For more information, see [this {{ MY }} article](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
 
-            You [cannot](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html) perform migration while downgrading {{ MY }} version.
+            Migration to an earlier {{ MY }} version is [not supported](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html).
 
         * [SQL mode](../../managed-mysql/concepts/settings-list.md#setting-sql-mode) must be the same as in the source cluster.
 
@@ -55,11 +55,11 @@ Create the required resources:
 
         * **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-            * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: Select a subnet on the cloud network hosting the target cluster.
-            * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: Select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` or one address from a list of reserved IPs.
+            * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: Choose a subnet within the target cluster’s cloud network.
+            * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: Select either `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` or a reserverd IP address from the list.
 
     
-    1. If you use security groups for the intermediate VM and the {{ mmy-name }} cluster, [configure them](../../managed-mysql/operations/connect.md#configure-security-groups).
+    1. If you use security groups for the staging VM and the {{ mmy-name }} cluster, [configure them](../../managed-mysql/operations/connect/index.md#configure-security-groups).
 
 
 - {{ TF }} {#tf}
@@ -75,31 +75,31 @@ Create the required resources:
 
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
-        * [Security group](../../vpc/concepts/security-groups.md) and the rule permitting access to the cluster.
+        * [Security group](../../vpc/concepts/security-groups.md) and the rule allowing inbound cluster connections.
         * {{ mmy-name }} cluster with public internet access.
         * Virtual machine with public internet access (optional).
 
-    1. Specify the following in `data-migration-mysql-mmy.tf`:
+    1. In `data-migration-mysql-mmy.tf`, specify the following:
 
-        * Target cluster parameters:
+        * Target cluster settings:
 
-            * `target_mysql_version`: {{ MY }} version. Must be the same or higher than in the source cluster.
+            * `target_mysql_version`: {{ MY }} version. This version must be the same or higher than the version in the source cluster.
             * `target_sql_mode`: [SQL mode](../../managed-mysql/concepts/settings-list.md#setting-sql-mode). It must be the same as in the source cluster.
             * `target_db_name`: Database name.
             * `target_user` and `target_password`: Database owner username and password.
 
         * Virtual machine parameters (optional):
 
-            * `vm_image_id`: ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu without GPU, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
-            * `vm_username` and `vm_public_key`: Username and absolute path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), for access to the VM. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. A user with the `ubuntu` username is created instead. Use it to connect to the VM.
+            * `vm_image_id`: Public Ubuntu [image](../../compute/operations/images-with-pre-installed-software/get-list) ID (non-GPU), e.g., [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
+            * `vm_username` and `vm_public_key`: Username and absolute path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) to use for access to the virtual machine. By default, the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image ignores the specified username, instead creating a user named `ubuntu`. Use it to connect to the VM.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -264,7 +264,7 @@ For {{ mmy-name }} clusters, [AUTOCOMMIT](https://dev.mysql.com/doc/refman/8.0/e
                 <DB_name> < ~/db_dump.sql
             ```
 
-        * If you are restoring the dump from a host connecting to {{ yandex-cloud }} from the internet, [get an SSL certificate](../../managed-mysql/operations/connect.md#get-ssl-cert) and provide the `--ssl-ca` and the `--ssl-mode` parameters in the restore command:
+        * If you are restoring the dump from a host connecting to {{ yandex-cloud }} from the internet, [get an SSL certificate](../../managed-mysql/operations/connect/index.md#get-ssl-cert) and provide the `--ssl-ca` and the `--ssl-mode` parameters in the restore command:
 
             ```bash
             mysql \
@@ -301,7 +301,7 @@ For {{ mmy-name }} clusters, [AUTOCOMMIT](https://dev.mysql.com/doc/refman/8.0/e
 
 {% endlist %}
 
-You can get the cluster ID with the [list of clusters in the folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
+You can get the cluster ID from the [list of clusters in your folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
 
 ## Deleting the created resources {#clear-out}
 
@@ -312,7 +312,7 @@ Delete the resources you no longer need to avoid paying for them:
 - Manually {#manual}
 
     * [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
-    * If you created an intermediate virtual machine, [delete it](../../compute/operations/vm-control/vm-delete.md).
+    * If you created a staging virtual machine, [delete it](../../compute/operations/vm-control/vm-delete.md).
     * If you reserved public static IP addresses, release and [delete them](../../vpc/operations/address-delete.md).
 
 - {{ TF }} {#tf}

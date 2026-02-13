@@ -1,6 +1,6 @@
 ---
-title: How to set up a {{ ytsaurus-name }} target endpoint in {{ data-transfer-full-name }}
-description: In this tutorial, you will learn how to set up a {{ ytsaurus-name }} target endpoint in {{ data-transfer-full-name }}.
+title: How to set up a YTsaurus target endpoint in {{ data-transfer-full-name }}
+description: In this tutorial, you will learn how to set up a YTsaurus target endpoint in {{ data-transfer-full-name }}.
 ---
 
 # Transferring data to a {{ ytsaurus-name }} target endpoint
@@ -20,7 +20,7 @@ To implement a transfer:
 1. [Configure one of the supported data sources](#supported-sources).
 1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. Perform the required operations with the database and [see how the transfer is going](../../monitoring.md).
+1. Perform the required operations with the database and [control the transfer](../../monitoring.md).
 
 
 ## Scenarios for transferring data to {{ ytsaurus-name }} using {{ data-transfer-full-name }} {#scenarios}
@@ -56,11 +56,11 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
 * Settings for connecting to a [{{ myt-full-name }} cluster](#cluster). These are required parameters.
-* [Additional settings](#additional-settings).
+* [Advanced settings](#additional-settings).
 
 ### Supported data delivery schemas and limits {#supported-transfers}
 
-| Data delivery schemas                                             | Support level                            | Constraints                                                                                                                                              |
+| Data delivery schemas                                             | Support level                            | Limitations                                                                                                                                              |
 |-------------------------------------------------------------------|----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Delivering data to static tables                             | ![image](../../../../_assets/common/yes.svg) | Without data transformation (sharding, rotation, or splitting tables into subtables)                                                                    |
 | Parallel copy of data to static tables                    | ![image](../../../../_assets/common/no.svg)  | Under development.                                                                                                                        |

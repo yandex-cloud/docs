@@ -25,6 +25,8 @@ Some extensions require shared libraries to be loaded. To load a library, specif
 * `pglogical`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
 * `timescaledb`: Required for [TimescaleDB](https://github.com/timescale/timescaledb) to function.
 
+To declare a library in the {{ TF }} manifest, specify its name in `SHARED_PRELOAD_LIBRARIES_<library_name>` format, e.g., `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`.
+
 {% note warning %}
 
 Loading a shared library will cause {{ PG }} on the master host to restart.
@@ -79,7 +81,7 @@ Loading a shared library will cause {{ PG }} on the master host to restart.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -101,7 +103,7 @@ Loading a shared library will cause {{ PG }} on the master host to restart.
        yandex.cloud.mdb.postgresql.v1.DatabaseService.Get
      ```
 
-     You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the database name, with the [list of databases in the cluster](../databases.md#list-db).
+     You can get the cluster ID from the [list of clusters in your folder](../cluster-list.md#list-clusters), and the database name from the [list of databases in your cluster](../databases.md#list-db).
 
   1. Check the [server response](../../api-ref/grpc/Database/get.md#yandex.cloud.mdb.postgresql.v1.Database) to make sure your request was successful.
 
@@ -156,17 +158,17 @@ Loading a shared library will cause {{ PG }} on the master host to restart.
       }
       ```
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -205,13 +207,13 @@ Loading a shared library will cause {{ PG }} on the master host to restart.
 
        Use names from the [list of supported {{ PG }}](#postgresql) extensions and utilities.
 
-     You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the database name, with the [list of databases in the cluster](../databases.md#list-db).
+     You can get the cluster ID from the [list of clusters in your folder](../cluster-list.md#list-clusters), and the database name from the [list of databases in your cluster](../databases.md#list-db).
 
   1. Check the [server response](../../api-ref/Database/update.md#responses) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -250,7 +252,7 @@ Loading a shared library will cause {{ PG }} on the master host to restart.
 
      Where:
 
-     * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+     * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
        Here, we provide only one setting.
 
@@ -260,7 +262,7 @@ Loading a shared library will cause {{ PG }} on the master host to restart.
 
        Use names from the [list of supported {{ PG }}](#postgresql) extensions and utilities.
 
-     You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the database name, with the [list of databases in the cluster](../databases.md#list-db).
+     You can get the cluster ID from the [list of clusters in your folder](../cluster-list.md#list-clusters), and the database name from the [list of databases in your cluster](../databases.md#list-db).
 
   1. Check the [server response](../../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

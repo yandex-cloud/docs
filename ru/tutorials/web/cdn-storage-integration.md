@@ -1,1 +1,0 @@
-{% include [cdn-storage-integration](../../_tutorials/infrastructure/cdn-storage-integration.md) %}

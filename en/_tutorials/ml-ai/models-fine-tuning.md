@@ -25,7 +25,7 @@ The infrastructure support cost for fine-tuning a model includes:
 * Fee for using [{{ ml-platform-name }} computing resources](../../datasphere/pricing.md).
 * Fee for [text generation](../../ai-studio/pricing.md) by the model.
 
-## Set up the infrastructure {#infra}
+## Set up your infrastructure {#infra}
 
 {% include [intro](../../_includes/datasphere/infra-intro.md) %}
 
@@ -116,7 +116,7 @@ You will run the fine-tuning code from the {{ ml-platform-name }} notebook. The 
 1. Install the {{ ml-platform-name }} SDK by running this code in a notebook cell:
 
    ```python
-   %pip install yandex-cloud-ml-sdk --upgrade
+   %pip install yandex-ai-studio-sdk --upgrade
    ```
 
 1. Import the required libraries:
@@ -127,7 +127,7 @@ You will run the fine-tuning code from the {{ ml-platform-name }} notebook. The 
    import os
    from __future__ import annotations
 
-   from yandex_cloud_ml_sdk import YCloudML
+   from yandex_ai_studio_sdk import AIStudio
    import urllib.request
    import zipfile   
    ```
@@ -157,7 +157,7 @@ You will run the fine-tuning code from the {{ ml-platform-name }} notebook. The 
 1. Create an SDK object containing the authorization parameters:
 
    ```python
-   sdk = YCloudML(
+   sdk = AIStudio(
        folder_id=os.environ['FOLDER_ID'], # Folder ID stored in the DataSphere secret.
        auth=os.environ['API_KEY'] # Service account API key stored in the DataSphere secret.
    )

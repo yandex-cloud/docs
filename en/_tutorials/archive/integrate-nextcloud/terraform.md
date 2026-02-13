@@ -70,7 +70,7 @@ To create an infrastructure using {{ TF }}:
 
               ```hcl
               folder_id     = "<folder_ID>"
-              ssh_key_path  = "<public_SSH_key_path>"
+              ssh_key_path  = "<path_to_public_SSH_key>"
               bucket_name   = "<bucket_name>"
               db_password   = "<database_user_password>"
               domain_name   = "<domain_name>"
@@ -99,7 +99,7 @@ To create an infrastructure using {{ TF }}:
 1. In the `nextcloud-integrate-storage.auto.tfvars` file, set the values of the user-defined variables:
     * `folder_id`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
     * `ssh_key_path`: Path to the public SSH key file. For more information, see [{#T}](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-    * `bucket_name`: Bucket name consistent with the following [naming conventions](../../../storage/concepts/bucket.md#naming).
+    * `bucket_name`: Bucket name consistent with the [naming conventions](../../../storage/concepts/bucket.md#naming).
     * `db_password`: {{ MY }} database user password.
     * `domain_name`: Name of the domain to host the Nextcloud instance.
 
@@ -156,7 +156,7 @@ Once you have the secret key value, proceed to configuring Nextcloud on your VM.
         1. In the **Database account** field, specify `user`, which is the name of the database user created in the {{ MY }} cluster.
         1. In the **Database password** field, enter the database user password you specified in the `nextcloud-integrate-storage.auto.tfvars` file.
         1. In the **Database name** field, specify `nextcloud`, which is the name of the database created in the {{ MY }} cluster.
-        1. In the **Database host** field, specify the FQDN of the {{ MY }} cluster’s [current master host](../../../managed-mysql/operations/connect.md#fqdn-master) and port in this format:
+        1. In the **Database host** field, specify the FQDN of the {{ MY }} cluster’s [current master host](../../../managed-mysql/operations/connect/fqdn.md#fqdn-master) and port in this format:
 
             ```text
             c-<cluster_ID>.rw.{{ dns-zone }}:3306

@@ -181,7 +181,7 @@
 
 ## Создайте внешнюю таблицу {#create-ext-table}
 
-1. [Подключитесь к кластеру](../../../managed-greenplum/operations/connect.md) {{ GP }}.
+1. [Подключитесь к кластеру](../../../managed-greenplum/operations/connect/index.md) {{ GP }}.
 1. Выполните запрос на создание внешней таблицы, которая ссылается на таблицу `example.csv` в бакете:
 
     ```sql

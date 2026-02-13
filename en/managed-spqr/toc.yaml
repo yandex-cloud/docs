@@ -368,6 +368,8 @@ items:
                 href: api-ref/User/delete.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
+  - name: '{{ at-name }} events'
+    href: at-ref.md
   - name: Public materials
     href: public-talks.md
   - name: Release notes

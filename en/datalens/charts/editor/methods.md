@@ -15,6 +15,7 @@ The supported methods include:
 * [Editor.getLoadedData()](#get-loaded-data)
 * [Editor.getParam(name)](#get-param)
 * [Editor.getParams()](#get-params)
+* [Editor.getSortParams()](#get-sort-params)
 * [Editor.getWidgetConfig()](#get-widget-config)
 * [Editor.resolveInterval(arg)](#resolve-interval)
 * [Editor.resolveOperation(args)](#resolve-oper)
@@ -714,6 +715,10 @@ Number corresponding to page number.
 
 {% endlist %}
 
+#### Chart examples {#get-current-page-charts-example}
+
+[Example of a chart with pagination and sorting](https://datalens.yandex/nvkfwnekf9xy9#Editor.getSortParams()%2C%20Editor.getCurrentPage())
+
 ## Editor.getId(arg) {#get-id}
 
 Returns the object `id` from the `links` field in the [Meta](./tabs.md#meta) tab.
@@ -1099,6 +1104,69 @@ Example for the table with source based on a dataset.
 
 [Example of using the function for getting all applied parameters](https://datalens.yandex/nvkfwnekf9xy9#Editor.getParams())
 
+## Editor.getSortParams() {#get-sort-params}
+
+Returns an object with table sorting options.
+
+#### Supported chart types {#get-sort-params-charts}
+
+[Table](./widgets/table.md).
+
+#### Arguments {#get-sort-params-args}
+
+No.
+
+#### Returned result {#get-sort-params-result}
+
+JSON object in the following format:
+
+```json
+{
+  "columnId": "<string>",
+  "order": "<numer> | <string>"
+}
+```
+
+Where:
+
+* `columnId` (_row_): Column ID, e.g., `0_0_1_id=date_name=Date`.
+* `order` (_number_ or _row_): Sorting order. The possible values are:
+  
+  * `1`: Sorting in ascending order.
+  * `-1`: Sorting in descending order.
+  * `__special_value__NaN`: No sorting.
+
+#### Example {#get-sort-params-example}
+
+Example for the table with source based on a dataset.
+
+{% list tabs %}
+
+- Sources tab
+
+  [Sources](./tabs.md#sources) tab contents:
+
+  ```js
+  const sort_params = Editor.getSortParams();
+  ```
+
+- Result
+
+  Object with sorting parameters after executing the **Sources** tab:
+
+  ```json
+  {
+    "columnId": "_id=ProductCategory_name=ProductCategory",
+    "order": -1
+  }
+  ```
+
+{% endlist %}
+
+#### Chart examples {#get-sort-params-charts-example}
+
+[Example of a chart with pagination and sorting](https://datalens.yandex/nvkfwnekf9xy9#Editor.getSortParams()%2C%20Editor.getCurrentPage())
+
 ## Editor.getWidgetConfig() {#get-widget-config}
 
 Returns the current widgets settings from a dashboard or report. Can be used to debug custom chart display issues when filtering by that chart.
@@ -1303,7 +1371,7 @@ const interval = Editor.resolveInterval('__interval_2020.01.15___relative_-0d');
 
 **Note**: Start and end of the interval specified in the [Params](./tabs.md#params) tab or in the URL will be automatically processed by the helper method for the [relative date](#relativedate).
 However, if the interval `start`/`end` value does not match the relative date format, the original value will be returned instead of `null`.
-Here is an example:
+For example:
 
 **Params** tab:
 ```js
@@ -1397,7 +1465,7 @@ const date = Editor.resolveRelative('2020-01-01');
 
 **Note:** Relative dates specified in the [Params](./tabs.md#params) tab or in the URL will be automatically processed by the helper method.
 However, if the parameter value does not match the relative date format, the original value will be returned instead of `null`.
-Here is an example:
+For example:
 
 **Params** tab:
 ```js

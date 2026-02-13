@@ -32,9 +32,9 @@
 
     1. [Создайте кластер-приемник {{ mos-name }}](../../../managed-opensearch/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
 
-    1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect.md#ssl-certificate) для подключения к кластеру-приемнику {{ mos-name }}.
+    1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) для подключения к кластеру-приемнику {{ mos-name }}.
 
-    1. Настройте группы безопасности для подключения к [кластеру-источнику {{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups) и [кластеру-приемнику {{ mos-name }}](../../../managed-opensearch/operations/connect#configuring-security-groups).
+    1. Настройте группы безопасности для подключения к [кластеру-источнику {{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups) и [кластеру-приемнику {{ mos-name }}](../../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
 
 - {{ TF }} {#tf}
 
@@ -150,7 +150,7 @@
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
 1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
-1. Подключитесь к кластеру-приемнику с помощью [{{ OS }} Dashboards](../../../managed-opensearch/operations/connect.md#dashboards).
+1. Подключитесь к кластеру-приемнику с помощью [{{ OS }} Dashboards](../../../managed-opensearch/operations/connect/clients.md#dashboards).
 1. Выберите общий тенант `Global`.
 1. Создайте новый шаблон индекса с именем `public.x_tab`:
 

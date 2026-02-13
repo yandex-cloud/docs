@@ -1,16 +1,9 @@
 ---
-title: Setting up a connection in {{ mrd-full-name }}
-description: Follow this guide to connect to a {{ VLK }} cluster.
+title: Pre-configuring a {{ VLK }} cluster connection in {{ mrd-full-name }}
+description: In this tutorial, you will learn how to pre-configure a database connection in a {{ VLK }} cluster.
 ---
 
-# Setting up a connection
-
-You can connect in different ways depending on whether the cluster is [sharded](../../concepts/sharding.md):
-
-* [Connecting to a non-sharded cluster](./non-sharded.md).
-* [Connecting to a sharded cluster](./sharded.md).
-
-## Accessing cluster hosts {#connect}
+# Pre-configuring a {{ VLK }} cluster connection
 
 You can connect to {{ mrd-name }} cluster hosts:
 
@@ -46,7 +39,7 @@ By default, {{ VLK }} uses host IP addresses rather than [FQDNs](../../concepts/
     This will enable you to connect to {{ VLK }} hosts from {{ yandex-cloud }} VMs.
 
 
-## Configuring security groups {#configuring-security-groups}
+## Configuring security groups {#configure-security-groups}
 
 {% include [Security groups notice](../../../_includes/mdb/sg-rules-connect.md) %}
 
@@ -95,9 +88,9 @@ Security group configurations differ for sharded and non-sharded clusters.
 
 {% note info %}
 
-You can specify more granular rules for your security groups, such as only allowing traffic within specific subnets.
+You can specify more granular security group rules, such as allowing traffic only in specific subnets.
 
-Make sure to configure the security groups correctly for all subnets where the cluster hosts will reside. With incomplete or incorrect security group settings, you may lose access to the cluster if a [manual](../failover.md) or [automatic](../../concepts/replication.md#availability) master failover occurs.
+Make sure to properly configure security groups for all subnets where the cluster hosts will reside. With incomplete or incorrect security group settings, you may lose access to the cluster if a [manual](../failover.md) or [automatic](../../concepts/replication.md#availability) master failover occurs.
 
 {% endnote %}
 
@@ -112,14 +105,8 @@ To use an encrypted SSL connection, get an SSL certificate:
 
 {% include [ide-ssl-cert](../../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
-## {{ VLK }} host FQDN {#fqdn}
+## What's next {#whats-next}
 
-To connect to a host, you need its fully qualified domain name ([FQDN](../../concepts/network.md#hostname)). You can get it using one of the following methods:
-
-* [Request a list of cluster hosts](../hosts.md#list-hosts).
-* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
-* Look up the FQDN in the management console:
-
-   1. Navigate to the cluster page.
-   1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-   1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
+* [Get the FQDN of the host](./fqdn.md) you want to connect to.
+* [Connect](./clients.md) to the cluster from a graphical IDE, Docker container, or CLI.
+* [Integrate](./code-examples.md) the cluster connection into your application code.

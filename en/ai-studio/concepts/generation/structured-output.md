@@ -75,7 +75,7 @@ For some text generation models, you can set the response format not only via a 
 
      import pydantic
 
-     from yandex_cloud_ml_sdk import YCloudML
+     from yandex_ai_studio_sdk import AIStudio
 
      text = """
      Name any three groups of grocery store products. 
@@ -85,7 +85,7 @@ For some text generation models, you can set the response format not only via a 
 
 
      def main() -> None:
-         sdk = YCloudML(
+         sdk = AIStudio(
              folder_id="<folder_ID>",
              auth="<API_key>",
          )
@@ -146,13 +146,13 @@ For some text generation models, you can set the response format not only via a 
 
      import pydantic
 
-     from yandex_cloud_ml_sdk import YCloudML
+     from yandex_ai_studio_sdk import AIStudio
 
      text = "Name the date of Gagarin's first flight."
 
 
      def main() -> None:
-         sdk = YCloudML(
+         sdk = AIStudio(
              folder_id="<folder_ID>",
              auth="<API_key>",
          )

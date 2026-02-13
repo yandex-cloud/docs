@@ -1,54 +1,4 @@
-### Bash {#bash}
-
-{% list tabs group=connection %}
-
-- Connecting without SSL {#without-ssl}
-
-    {% include [Install requirements](./connect/bash/install-requirements.md) %}
-
-    **Connecting directly to the master host**:
-
-    Specify the FQDN of the master host in the target shard:
-
-    ```bash
-    redis-cli \
-        -c \
-        -h <FQDN_of_master_host_in_target_shard> \
-        -a <password>
-    ```
-
-- Connecting with SSL {#with-ssl}
-
-    {% include [Install requirements SSL](./connect/bash/install-requirements-ssl.md) %}
-
-    **Connecting directly to the master host**:
-
-    Specify the FQDN of the master host in the target shard:
-
-    ```bash
-    redis-cli \
-        -c \
-        -h <FQDN_of_master_host_in_target_shard> \
-        -a <password> \
-        -p {{ port-mrd-tls }} \
-        --tls \
-        --cacert ~/.redis/{{ crt-local-file }} \
-    ```
-
-{% endlist %}
-
-{% include [see-fqdn](../../../_includes/mdb/mvk/fqdn-host.md) %}
-
-Once connected to the cluster, run these commands:
-
-```bash
-SET foo bar
-GET foo
-```
-
-If the `GET` request returns `nil`, it means that the `foo` key has been moved to a different shard. Connect to that shard and repeat the request: it will return `bar`.
-
-### C# {#csharp}
+## C# {#csharp}
 
 {% include [Install requirements](./connect/csharp/install-requirements.md) %}
 
@@ -232,7 +182,7 @@ If the `GET` request returns `nil`, it means that the `foo` key has been moved t
 
 {% include [after-connect](./connect/csharp/after-connect.md) %}
 
-### Go {#go}
+## Go {#go}
 
 **Before connecting, install the dependencies**:
 
@@ -395,7 +345,7 @@ go get github.com/redis/go-redis/v9
 
 {% include [Connect to cluster](./connect/go/after-connect.md) %}
 
-### Java {#java}
+## Java {#java}
 
 {% include [Install requirements](./connect/java/install-requirements.md) %}
 
@@ -492,7 +442,7 @@ go get github.com/redis/go-redis/v9
 
 {% include [Connect to cluster](./connect/java/after-connect.md) %}
 
-### Node.js {#nodejs}
+## Node.js {#nodejs}
 
 {% include [Install requirements](./connect/nodejs/install-requirements.md) %}
 
@@ -601,7 +551,7 @@ go get github.com/redis/go-redis/v9
 
 {% include [Connect to cluster](./connect/nodejs/after-connect.md) %}
 
-### PHP {#php}
+## PHP {#php}
 
 {% include [Install requirements](./connect/php/install-requirements.md) %}
 
@@ -677,7 +627,7 @@ go get github.com/redis/go-redis/v9
 
 {% include [Connect to cluster](./connect/php/after-connect.md) %}
 
-### Python {#python}
+## Python {#python}
 
 **Before connecting, install the dependencies**:
 
@@ -750,7 +700,7 @@ pip install pyopenssl redis-py-cluster setuptools_rust
 
 {% include [Connect to cluster](./connect/python/after-connect.md) %}
 
-### Ruby {#ruby}
+## Ruby {#ruby}
 
 {% include [Install requirements](./connect/ruby/install-requirements.md) %}
 

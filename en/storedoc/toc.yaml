@@ -25,6 +25,8 @@ items:
             href: operations/host-migration.md
           - name: Managing backups
             href: operations/cluster-backups.md
+          - name: Managing cluster access
+            href: operations/cluster-access.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
       - name: Connection
@@ -53,7 +55,7 @@ items:
         items:
           - name: Managing shards
             href: operations/shards.md
-          - name: Selecting a different primary replica
+          - name: Primary replica failover
             href: operations/stepdown.md
       - name: Logs and monitoring
         items:

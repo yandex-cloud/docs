@@ -54,7 +54,7 @@ AMD EPYC™</br>with NVIDIA® Ampere® A100</br>(`gpu-standard-v3`) | [NVIDIA® 
 Gen2</br>(`gpu-standard-v3i`) | Gen2 | [Gen2](https://www.amd.com/en/products/processors/server/epyc/4th-generation-9004-and-8004-series/amd-epyc-9474f.html) | **Maximum number of GPUs per VM**: 8 </br> **Number of vCPUs per GPU**: 22.5 or 18 </br> **RAM per GPU**: 180 or 144 GB
 Intel Ice Lake with</br>NVIDIA® Tesla® T4</br>(`standard-v3-t4`) | [NVIDIA® Tesla® T4](https://www.nvidia.com/en-us/data-center/tesla-t4//) | [Intel® Xeon® Gold 6338](https://ark.intel.com/content/www/us/en/ark/products/212285/intel-xeon-gold-6338-processor-48m-cache-2-00-ghz.html) | **Maximum number of GPUs per VM**: 1 </br> **Number of vCPUs per GPU**: 4, 8, 16, or 32 </br> **RAM per GPU**: 16, 32, 64, or 128 GB
 {{ t4i-ice-lake }}</br>(`standard-v3-t4i`) | T4i | [Intel® Xeon® Gold 6338](https://ark.intel.com/content/www/us/en/ark/products/212285/intel-xeon-gold-6338-processor-48m-cache-2-00-ghz.html) | **Maximum number of GPUs per VM**: 1 </br> **Number of vCPUs per GPU**: 4, 8, 16, or 32 </br> **RAM per GPU**: 16, 32, 64, or 128 GB
-GPU PLATFORM V4</br>(`gpu-platform-v4`) | GPU V4 | Intel® Xeon® Platinum | **Maximum number of GPUs per VM**: 8 </br> **Number of vCPUs per GPU**: 22 or 22.5 </br> **RAM per GPU**: 220 or 225 GB
+GPU PLATFORM V4</br>(`gpu-standard-v4`) | GPU V4 | Intel® Xeon® Platinum | **Maximum number of GPUs per VM**: 8 </br> **Number of vCPUs per GPU**: 22 or 22.5 </br> **RAM per GPU**: 220 or 225 GB
 
 ## See also {#see-also}
 

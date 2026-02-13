@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы сможете
 * Графическая IDE [DBeaver](https://dbeaver.io/).
 * Консольный клиент `psql`.
 
-Некоторые другие инструменты для работы с {{ GP }} описаны в разделе [{#T}](./operations/connect.md).
+Некоторые другие инструменты для работы с {{ GP }} описаны в разделе [{#T}](./operations/connect/index.md).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -35,7 +35,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Создайте кластер {#create-cluster}
 
-Создайте кластер {{ GP }} с публичным доступом. К такому кластеру можно [подключиться](./operations/connect.md) как с виртуальной машины {{ compute-full-name }}, так и через интернет.
+Создайте кластер {{ GP }} с публичным доступом. К такому кластеру можно [подключиться](./operations/connect/index.md) как с виртуальной машины {{ compute-full-name }}, так и через интернет.
 
 Чтобы создать кластер:
 
@@ -53,7 +53,7 @@ description: Следуя данной инструкции, вы сможете
         * **Сеть** — укажите [сеть](../vpc/concepts/network.md), в которой нужно разместить [хосты кластера](./concepts/index.md).
         * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — укажите [группы безопасности](../vpc/concepts/security-groups.md) для сетевого трафика кластера.
 
-            [Настройте эти группы безопасности](./operations/connect.md#configuring-security-groups) так, чтобы можно было подключаться к кластеру через интернет.
+            [Настройте эти группы безопасности](./operations/connect/index.md#configuring-security-groups) так, чтобы можно было подключаться к кластеру через интернет.
 
         * **{{ ui-key.yacloud.mdb.forms.network_field_zone }}** — укажите зону доступности для хостов кластера.
 
@@ -115,7 +115,7 @@ description: Следуя данной инструкции, вы сможете
 
         * В блоке **Server**:
             * **Connect by** — `Host`.
-            * **Хост** — [особый FQDN первичного мастера](./operations/connect.md#fqdn-master): `c-<идентификатор_кластера>.rw.{{ dns-zone }}`.
+            * **Хост** — [особый FQDN первичного мастера](./operations/connect/fqdn.md#fqdn-master): `c-<идентификатор_кластера>.rw.{{ dns-zone }}`.
 
                 Идентификатор кластера [был получен ранее](#get-cluster-id).
 
@@ -142,7 +142,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [ssl-default-mode](../_includes/mdb/mgp/quickstart/ssl-default-mode.md) %}
 
-        В промышленной эксплуатации [подключайтесь к кластеру через SSL с проверкой подлинности хоста](./operations/connect.md#connection-ide).
+        В промышленной эксплуатации [подключайтесь к кластеру через SSL с проверкой подлинности хоста](./operations/connect/clients.md#connection-ide).
 
         {% endnote %}
 
@@ -188,7 +188,7 @@ description: Следуя данной инструкции, вы сможете
             sudo apt update && sudo apt install postgresql-client --yes
             ```
 
-    1. Подключитесь к базе данных `postgres` в кластере {{ GP }}. Используйте [особый FQDN первичного мастера](operations/connect.md#fqdn-master):
+    1. Подключитесь к базе данных `postgres` в кластере {{ GP }}. Используйте [особый FQDN первичного мастера](operations/connect/fqdn.md#fqdn-master):
 
         ```bash
         psql "host=c-<идентификатор_кластера>.rw.{{ dns-zone }} \
@@ -205,7 +205,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [ssl-default-mode](../_includes/mdb/mgp/quickstart/ssl-default-mode.md) %}
 
-        В промышленной эксплуатации [подключайтесь к кластеру через SSL с проверкой подлинности хоста](./operations/connect.md#bash).
+        В промышленной эксплуатации [подключайтесь к кластеру через SSL с проверкой подлинности хоста](./operations/connect/clients.md#bash).
 
         {% endnote %}
 
@@ -362,6 +362,6 @@ description: Следуя данной инструкции, вы сможете
 ## Что дальше {#whats-next}
 
 * Изучите [концепции сервиса](./concepts/index.md).
-* Узнайте подробнее о [создании кластера](./operations/cluster-create.md) и [подключении к кластеру](./operations/connect.md).
+* Узнайте подробнее о [создании кластера](./operations/cluster-create.md) и [подключении к кластеру](./operations/connect/index.md).
 
 {% include [greenplum-trademark](../_includes/mdb/mgp/trademark.md) %}

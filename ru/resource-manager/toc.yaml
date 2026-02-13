@@ -21,6 +21,8 @@ items:
             href: operations/cloud/delete.md
           - name: Отмена удаления облака
             href: operations/cloud/delete-cancel.md
+          - name: Управление политиками авторизации
+            href: operations/cloud/manage-access-policies.md
           - name: Настройка прав доступа
             href: operations/cloud/set-access-bindings.md
           - name: Получение идентификатора облака
@@ -39,6 +41,8 @@ items:
             href: operations/folder/update.md
           - name: Удаление каталога
             href: operations/folder/delete.md
+          - name: Управление политиками авторизации
+            href: operations/folder/manage-access-policies.md
           - name: Настройка прав доступа
             href: operations/folder/set-access-bindings.md
           - name: Навигация по каталогам

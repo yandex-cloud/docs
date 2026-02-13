@@ -23,6 +23,8 @@ items:
             href: operations/cluster-stop.md
           - name: Managing backups
             href: operations/cluster-backups.md
+          - name: Managing cluster access
+            href: operations/cluster-access.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
       - name: Databases

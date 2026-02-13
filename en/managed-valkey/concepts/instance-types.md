@@ -29,13 +29,11 @@ The storage space available to the host should be at least twice as large as the
 
 Configuration types:
 
-* **burstable**: Configurations with a [guaranteed vCPU share](../../compute/concepts/performance-levels.md) under 100%. Those host classes are intended for test loads. We do not recommend using them for production solutions.
-
-    A cluster with this configuration type can only contain one host per cluster or [shard](./sharding.md).
+* **burstable**: Configurations with a [guaranteed vCPU share](../../compute/concepts/performance-levels.md) under 100%. This host class is intended for test load, while the minimum recommended host configuration for production solutions is two vCPUs with a guaranteed share of 100%.
 
 * **high-memory**: Standard configurations for {{ VLK }}.
 
-    A cluster with this configuration type may contain one or more hosts (within the current [quota](./limits.md)) per cluster or shard. The minimum number of hosts per cluster [depends](./limits.md#mrd-limits) on the [selected disk type](./storage.md).
+    A cluster with this configuration type may contain several hosts (from one to current [quota](./limits.md) limit) per cluster or [shard](./sharding.md). The minimum number of hosts per cluster [depends](./limits.md#mrd-limits) on the [selected disk type](./storage.md).
 
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 

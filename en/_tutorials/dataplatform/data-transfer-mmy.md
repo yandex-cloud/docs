@@ -1,10 +1,10 @@
-# Transferring data from {{ mmy-full-name }} to {{ mkf-full-name }} using {{ data-transfer-full-name }}
+# Delivering data from {{ mmy-full-name }} to {{ mkf-full-name }} using {{ data-transfer-full-name }}
 
 You can track data changes in a {{ mmy-name }} _source cluster_ and send them to a {{ mkf-name }} _target cluster_ using [change data capture](../../data-transfer/concepts/cdc.md) (CDC).
 
 To set up CDC using {{ data-transfer-name }}:
 
-1. [Set up the source cluster](#prepare-source).
+1. [Prepare the source cluster](#prepare-source).
 1. [Set up the target cluster](#prepare-target).
 1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
@@ -14,26 +14,26 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mmy-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
-* {{ mkf-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mmy-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* {{ mkf-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer, which includes the use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) in any suitable configuration with the following settings:
+1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) with any suitable configuration, using the following settings:
 
     * Database: `db1`
     * User: `my-user`
     * Hosts: Publicly available
 
-1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
+1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) using any suitable configuration with publicly accessible hosts.
 
 
 1. If using security groups, configure them to allow internet access to your clusters:
 
-    * [Guide for {{ mmy-name }}](../../managed-mysql/operations/connect.md#configuring-security-groups)
+    * [Guide for {{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configuring-security-groups)
     * [Guide for {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups)
 
 
@@ -45,13 +45,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-## Set up the source cluster {#prepare-source}
+## Prepare the source cluster {#prepare-source}
 
 1. For {{ data-transfer-name }} to get notifications of data changes from a {{ mmy-name }} cluster, configure external replication in the source cluster. To enable `my-user` to perform replication, [assign](../../managed-mysql/operations/grant.md) the `ALL_PRIVILEGES` role for the `db1` database and [grant](../../managed-mysql/operations/cluster-users.md#update-settings) the `REPLICATION CLIENT` and `REPLICATION SLAVE` global privileges to the user.
 
-1. [Connect](../../managed-mysql/operations/connect.md) to the `db1` database as `my-user`.
+1. [Connect](../../managed-mysql/operations/connect/index.md) to the `db1` database as `my-user`.
 
-1. Add test data to the database. In this example, we will use a simple table containing information from certain car sensors.
+1. Populate the database with test data. In this example, we will use a simple table with car sensor information.
 
     Create a table:
 
@@ -96,13 +96,13 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
 - Admin API {#api}
 
-    When managing topics using the Kafka Admin API:
+    When managing topics via the Kafka Admin API:
 
     1. Create an [admin user](../../managed-kafka/operations/cluster-accounts.md) named `kafka-user`.
 
     1. In addition to `ACCESS_ROLE_ADMIN`, assign this user the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for all topics prefixed with `cdc`.
 
-        Required topics will be created automatically upon the first change to the source cluster tables you are tracking. This solution can be useful to track changes in multiple tables but requires extra free space in the cluster storage. For more information, see [{#T}](../../managed-kafka/concepts/storage.md).
+        Required topics will be created automatically upon the first change to the source cluster tables you are tracking. While this approach can be convenient for tracking changes across multiple tables, it requires reserving free storage space in your cluster. For more information, see [{#T}](../../managed-kafka/concepts/storage.md).
 
 {% endlist %}
 
@@ -288,7 +288,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) and [delete](../../data-transfer/operations/transfer.md#delete) the transfer.
 

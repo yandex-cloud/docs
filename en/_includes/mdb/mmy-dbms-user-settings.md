@@ -6,6 +6,14 @@
 
   To learn more about authentication plugins, see [this {{ MY }} article](https://dev.mysql.com/doc/refman/8.0/en/pluggable-authentication.html).
 
+  
+  {% note info %}
+
+  The **Authentication plugin** setting has no effect if the **{{ ui-key.yacloud.mysql.cluster.label_iam_dgBhy }}** authentication method is selected for the user.
+
+  {% endnote %}
+
+
 - **Administrative privileges**{#setting-administrative-privileges} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
   Administrative privileges are [user permissions](../../managed-mysql/concepts/user-rights.md) that apply at the level of the entire database cluster.

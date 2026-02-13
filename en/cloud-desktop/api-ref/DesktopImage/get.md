@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/images/{imageId}
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/images/{imageId}
     method: get
     path:
       type: object
@@ -27,7 +27,7 @@ Returns the specified desktop image.
 ## HTTP request
 
 ```
-GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/images/{imageId}
+GET https://clouddesktops.{{ api-host }}/cloud-desktop/v1/images/{imageId}
 ```
 
 ## Path parameters

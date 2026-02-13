@@ -12,7 +12,7 @@
 
 * `dataCacheMaxSize`: Maximum cache size, in bytes, allocated in the cluster storage.
 
-    The default value is `1073741824` (1 GB).
+    If no value is set, the maximum cache size defaults to half the size of the cluster storage.
 
 * `preferNotToMerge`: Disable [merging of data parts]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) in the cluster and object storage, `true` or `false`.
 

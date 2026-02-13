@@ -5,6 +5,7 @@ The `organization-manager.editor` role enables managing organization settings, i
 * View and edit info on the relevant Identity Hub [organization](../../organization/concepts/organization.md).
 * View and edit organization settings.
 * View info on [access permissions](../../iam/concepts/access-control/index.md) granted for the organization.
+* List access policies assigned to the organization.
 * View the list of the organization's [users](../../organization/concepts/mfa.md), info on them (including their phone number), their latest authentication date, and the latest verification date for federated and local accounts via [two-factor authentication](../../organization/concepts/mfa.md).
 * View info on access permissions granted for [entities](../../iam/concepts/access-control/index.md#subject) in the Identity Hub organization.
 * View info on the [identity federations](../../organization/concepts/add-federation.md) in an organization and create, modify, and delete such federations.

@@ -61,7 +61,7 @@ kubectl --namespace <пространство_имен> get secret argocd-initia
   --output jsonpath="{.data.password}" | base64 -d
 ```
 
-Пароль понадобится для авторизации в Argo CD.
+Пароль понадобится для аутентификации в Argo CD.
 
 ### Открыть приложение через localhost {#open-via-localhost}
 

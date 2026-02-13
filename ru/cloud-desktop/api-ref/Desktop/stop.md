@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:stop
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:stop
     method: post
     path:
       type: object
@@ -28,7 +28,7 @@ Stop the specified desktop.
 ## HTTP request
 
 ```
-POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:stop
+POST https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:stop
 ```
 
 ## Path parameters

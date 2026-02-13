@@ -19,7 +19,7 @@ To use the examples:
 
 - SDK {#sdk}
 
-  1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `search-api.webSearch.user` [role](../security/index.md#search-api-webSearch-user) to it.
+  1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `search-api.webSearch.user` [role](../security/index.md#search-api-webSearch-user).
   1. {% include [sdk-before-begin-step2](../../_includes/search-api/sdk-before-begin-step2.md) %}
   1. {% include [sdk-before-begin-step3](../../_includes/ai-studio/sdk-before-begin-step3.md) %}
   1. {% include [sdk-before-begin-step4](../../_includes/ai-studio/sdk-before-begin-step4.md) %}
@@ -57,9 +57,9 @@ To run a search query:
 
       from typing import Literal, cast
 
-      from yandex_cloud_ml_sdk import YCloudML
+      from yandex_ai_studio_sdk import AIStudio
 
-      from yandex_cloud_ml_sdk.search_api import (
+      from yandex_ai_studio_sdk.search_api import (
           FamilyMode,
           FixTypoMode,
           GroupMode,
@@ -76,7 +76,7 @@ To run a search query:
 
       def main() -> None:
 
-          sdk = YCloudML(
+          sdk = AIStudio(
               folder_id="<folder_ID>",
               auth="<API_key>",
           )

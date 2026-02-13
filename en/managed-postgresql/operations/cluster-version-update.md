@@ -1,6 +1,6 @@
 # {{ PG }} version upgrade
 
-You can upgrade a {{ mpg-name }} cluster to any version up to and including version 17.
+You can upgrade a {{ mpg-name }} cluster to any version up to and including version 18.
 
 {% note info %}
 
@@ -200,7 +200,7 @@ Cluster upgrade time depends on the database size.
 
 {% note tip %}
 
-If you encounter issues while upgrading to version 17, contact [technical support]({{ link-console-support }}).
+If you encounter issues while upgrading to version 18, contact [technical support]({{ link-console-support }}).
 
 {% endnote %}
 

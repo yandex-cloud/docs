@@ -3,7 +3,7 @@ description:
   - >-
     Yandex Managed Service for PostgreSQL helps deploy and maintain PostgreSQL
     server clusters in the Yandex Cloud infrastructure. It supports PostgreSQL
-    14, 15, 16, and 17 as well as PostgreSQL 14, 15, and 16 for 1C.
+    14, 15, 16, 17, and 18 as well as PostgreSQL 14, 15, 16, 17, and 18 for 1C.
   - >-
     The Yandex Cloud infrastructure is <a
     href="/docs/security/conform">protected</a> under the following standards:

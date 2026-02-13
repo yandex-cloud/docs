@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktopGroups
     method: get
     path: null
     query:
@@ -65,7 +65,7 @@ Retrieves the list of desktop group resources.
 ## HTTP request
 
 ```
-GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups
+GET https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktopGroups
 ```
 
 ## Query parameters {#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupsRequest}

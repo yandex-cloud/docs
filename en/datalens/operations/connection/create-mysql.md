@@ -36,14 +36,14 @@ To create a {{ MY }} connection:
      * **Host type**. Select a host type:
 
        * **Regular** (default): Allows you to select regular hosts to connect to.
-       * **Special FQDNs**: Allows you to select [special FQDNs](../../../managed-mysql/operations/connect.md#special-fqdns) for connection, which always point to the current master host or to its closest replica in the {{ MY }} cluster.
+       * **Special FQDNs**: Allows you to select [special FQDNs](../../../managed-mysql/operations/connect/index.md#special-fqdns) for connection, which always point to the current master host or to its closest replica in the {{ MY }} cluster.
 
      * **Hostname**. Select the host name from the list of hosts available in the {{ MY }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
      * **Port**. Specify the {{ MY }} connection port. The default port is 3306.
      * **Path to database**. Specify the name of the database to connect to.
      * **Username**. Specify the username for the {{ MY }} connection.
      * **Password**. Enter the password for the user.
-     * **Cache TTL in seconds**. Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
+     * **Cache TTL in seconds**. Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
      
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
@@ -71,7 +71,7 @@ To create a {{ MY }} connection:
      * **Port**. It is set automatically depending on the selected host.
      * **Database**. Specify the name of the database to connect.
      * **Username**. It is set automatically from the selected connection data.
-     * **Cache TTL in seconds**. Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
+     * **Cache TTL in seconds**. Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
      
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 

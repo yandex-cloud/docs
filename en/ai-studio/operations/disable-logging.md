@@ -8,13 +8,13 @@ To disable request logging:
 
 - SDK {#sdk}
 
-  When initializing a `YCloudML` class object, set the `enable_server_data_logging` parameter to `False`. In which case {{ ml-sdk-full-name }} will add `x-data-logging-enabled: false` to the meta-information of each gRPC call.
+  When initializing a `AIStudio` class object, set the `enable_server_data_logging` parameter to `False`. In which case {{ ml-sdk-full-name }} will add `x-data-logging-enabled: false` to the meta-information of each gRPC call.
 
   For example:
 
   ```python
   ...
-  sdk = YCloudML(
+  sdk = AIStudio(
       folder_id="<folder_ID>",
       auth="<API_key>",
       enable_server_data_logging=False,

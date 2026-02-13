@@ -78,7 +78,7 @@
        * `registry_id` — [идентификатор реестра](../registry/registry-list.md#registry-list), в котором создано устройство.
        * `name` — [имя устройства](../device/device-list.md#device-list).
        * `description` — описание устройства.
-       * `passwords` — список паролей для авторизации с помощью [логина и пароля](../../concepts/authorization.md#log-pass).
+       * `passwords` — список паролей для аутентификации с помощью [логина и пароля](../../concepts/authorization.md#log-pass).
 
       Пример структуры ресурса в конфигурационном файле:
 

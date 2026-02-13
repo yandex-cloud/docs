@@ -12,6 +12,8 @@ _{{ sts-name }}_ — компонент сервиса {{ iam-name }} для п�
 
 Права доступа для ключа задаются с помощью [политики доступа](../../storage/security/policy.md), описанной в формате JSON по [специальной схеме](../../storage/s3/api-ref/policy/scheme.md).
 
+{% include [sts-for-one-bucket.md](sts-for-one-bucket.md) %}
+
 {% include [sts-sa-scope-note](sts-sa-scope-note.md) %}
 
 {% include [sts-sa-access-backets-list](sts-sa-access-backets-list.md) %}

@@ -11,19 +11,19 @@ The {{ ml-sdk-name }} library implements the synchronous and asynchronous Python
 * [Fine-tuning](../concepts/tuning/index.md) of text generation models and classifiers.
 * Integration with [LangChain](https://www.langchain.com/).
 
-You can check the full list of supported functions, library source code, and use cases on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk).
+You can check the full list of supported functions, library source code, and use cases on [GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk).
 
-## Installation {#install}
+## Installing {#install}
 
 You can install the {{ ml-sdk-name }} library using the [pip](https://pip.pypa.io/en/stable/) package manager:
 
 ```bash
-pip install yandex-cloud-ml-sdk
+pip install yandex-ai-studio-sdk
 ```
 
 ## Authentication in {{ ml-sdk-full-name }} {#authentication}
 
-To authenticate in {{ ml-sdk-full-name }}, you need to provide the `YCloudML` object to the model. This object contains the following fields:
+To authenticate in {{ ml-sdk-full-name }}, you need to provide the `AIStudio` object to the model. This object contains the following fields:
 
 * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) you are going to use to work with models.
 * `auth`: Key, token, or other authentication data to identify the user. You can specify the `auth` field value explicitly or get it automatically from the environment:
@@ -43,33 +43,31 @@ To authenticate in {{ ml-sdk-full-name }}, you need to provide the `YCloudML` ob
           The SDK will automatically determine the type of authentication data.
       * Object of one of the following [classes](../sdk-ref/auth.md#authentication-methods-classes):
 
-          * [APIKeyAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.APIKeyAuth): Allows you to explicitly set authentication by the provided API key.
+          * [APIKeyAuth](../sdk-ref/auth.md#yandex_ai_studio_sdk.auth.APIKeyAuth): Allows you to explicitly set authentication by the provided API key.
              For example: `auth = APIKeyAuth('<api_key>')`.
-
-          * [EnvIAMTokenAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.EnvIAMTokenAuth): Allows you to explicitly set authentication using the IAM token specified in `YC_TOKEN` or any other environment variable.
+          * [EnvIAMTokenAuth](../sdk-ref/auth.md#yandex_ai_studio_sdk.auth.EnvIAMTokenAuth): Allows you to explicitly set authentication using the IAM token specified in `YC_TOKEN` or any other environment variable.
              For example: `auth = EnvIAMTokenAuth()` or `auth = EnvIAMTokenAuth("env_var")`.
-
             The SDK obtains the IAM token from this environment variable with each request, so you can occasionally update the IAM token in the environment variable yourself outside the SDK. This authentication option is optimal for use with a [service agent](../../datasphere/operations/community/create-ssa.md) in {{ ml-platform-full-name }} if that service has [access](../../iam/concepts/service-control.md) to other resources in the user's cloud.
 
-          * [IAMTokenAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.IAMTokenAuth): Allows you to explicitly set authentication by the provided IAM token.
+          * [IAMTokenAuth](../sdk-ref/auth.md#yandex_ai_studio_sdk.auth.IAMTokenAuth): Allows you to explicitly set authentication by the provided IAM token.
              For example: `auth = IAMTokenAuth('<iam_token>')`.
 
-          * [MetadataAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.MetadataAuth): Allows you to explicitly set authentication under the service account specified in the {{ compute-full-name }} [VM metadata](../../compute/concepts/vm-metadata.md).
+          * [MetadataAuth](../sdk-ref/auth.md#yandex_ai_studio_sdk.auth.MetadataAuth): Allows you to explicitly set authentication under the service account specified in the {{ compute-full-name }} [VM metadata](../../compute/concepts/vm-metadata.md).
              For example: `auth = MetadataAuth()`.
 
-          * [NoAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.NoAuth): Allows you to specify that no authentication data will be provided.
+          * [NoAuth](../sdk-ref/auth.md#yandex_ai_studio_sdk.auth.NoAuth): Allows you to specify that no authentication data will be provided.
              For example: `auth = NoAuth()`.
 
-          * [OAuthTokenAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.OAuthTokenAuth): Allows you to explicitly set authentication by the provided OAuth token.
+          * [OAuthTokenAuth](../sdk-ref/auth.md#yandex_ai_studio_sdk.auth.OAuthTokenAuth): Allows you to explicitly set authentication by the provided OAuth token.
              For example: `auth = OAuthTokenAuth('<oauth_token>')`.
 
-          * [YandexCloudCLIAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.YandexCloudCLIAuth): Allows you to explicitly set authentication as a [user](../../iam/concepts/users/accounts.md) or service account [specified](../../cli/operations/index.md#auth) in the [{{ yandex-cloud }} CLI](../../cli/index.yaml) profile on the user's computer.
+          * [YandexCloudCLIAuth](../sdk-ref/auth.md#yandex_ai_studio_sdk.auth.YandexCloudCLIAuth): Allows you to explicitly set authentication as a [user](../../iam/concepts/users/accounts.md) or service account [specified](../../cli/operations/index.md#auth) in the [{{ yandex-cloud }} CLI](../../cli/index.yaml) profile on the user's computer.
              For example: `auth = YandexCloudCLIAuth()`.
 
-          You can get these classes by importing them from the ML SDK library. Here is an example:
+          You can get these classes by importing them from the AI Studio SDK library. For example:
 
           ```python
-          from yandex_cloud_ml_sdk.auth import APIKeyAuth
+          from yandex_ai_studio_sdk.auth import APIKeyAuth
           ```
 
     - Value obtained from the environment
@@ -97,9 +95,9 @@ To authenticate in {{ ml-sdk-full-name }}, you need to provide the `YCloudML` ob
 
 As input data for the request, {{ ml-sdk-name }} can accept the following types:
 
-* String. Here is an example: `What is heaven?`
+* String, e.g., `What is heaven?`
 * Dictionary, a data structure similar to [JSON](https://en.wikipedia.org/wiki/JSON), e.g., `{"role": "role", "text": "text"}`.
-* {{ ml-sdk-name }} `TextMessage` [class](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/blob/master/src/yandex_cloud_ml_sdk/_models/completions/message.py) object, e.g., `result[0]`.
+* {{ ml-sdk-name }} `TextMessage` [class](https://github.com/yandex-cloud/yandex-ai-studio-sdk/blob/master/src/yandex_ai_studio_sdk/_models/completions/message.py) object, e.g., `result[0]`.
 
     The `result` object of the `TextMessage` class is an array of alternatives from the model's responses. With such an object, you can provide the previous response of the model in your next request.
 * Array containing any combination of the above data types, e.g., `["text", {"role": "role", "text": "text"}]`.
@@ -107,9 +105,9 @@ As input data for the request, {{ ml-sdk-name }} can accept the following types:
 The example below will prompt {{ gpt-pro }} with the "What is heaven?" string.
 
 ```python
-from yandex_cloud_ml_sdk import YCloudML
+from yandex_ai_studio_sdk import AIStudio
 
-sdk = YCloudML(
+sdk = AIStudio(
     folder_id="<folder_ID>",
     auth="<authentication_data>",
 )
@@ -142,7 +140,7 @@ Result:
     GPTModelResult(alternatives=(Alternative(role='assistant', text=’Heaven, in many religions, is the place believed to be the home of God where good people go when they die. It is sometimes imagined to be in the sky, inhabited by angels, souls, saints, and other celestial beings.\n\nThe word _heaven_ can also be used figuratively to mean something sublime, ideal, or divine.', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=14, completion_tokens=83, total_tokens=97), model_version='23.10.2024')
     ```
 
-1. The `result[0]` array element contains the `result.alternatives[0]` object of the {{ ml-sdk-name }} `TextMessage` [class](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/blob/master/src/yandex_cloud_ml_sdk/_models/completions/message.py), which in turn contains the `role`, `text`, and `status` fields:
+1. The `result[0]` array element contains the `result.alternatives[0]` object of the {{ ml-sdk-name }} `TextMessage` [class](https://github.com/yandex-cloud/yandex-ai-studio-sdk/blob/master/src/yandex_ai_studio_sdk/_models/completions/message.py), which in turn contains the `role`, `text`, and `status` fields:
 
     ```text
     Alternative(role='assistant', text='Heaven, in many religions, is the place believed to be the home of God where good people go when they die. It is sometimes imagined to be in the sky, inhabited by angels, souls, saints, and other celestial beings.\n\nThe word _heaven_ can also be used figuratively to mean something sublime, ideal, or divine.', status=<AlternativeStatus.FINAL: 3>)

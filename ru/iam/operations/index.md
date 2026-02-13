@@ -33,6 +33,13 @@ description: Пошаговые инструкции по управлению �
 
 Инструкции по управлению федерациями удостоверений теперь в [документации](../../organization/) сервиса {{ org-full-name }}.
 
+## Политики авторизации {#access-policies}
+
+- [{#T}](access-policies/list.md)
+- [{#T}](access-policies/assign.md)
+- [{#T}](access-policies/view-assigned.md)
+- [{#T}](access-policies/revoke.md)
+
 ## Роли {#roles}
 
 - [{#T}](roles/grant.md)

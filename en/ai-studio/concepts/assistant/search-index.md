@@ -24,7 +24,7 @@ If your top priority is precise keyword matching, create a text or hybrid index.
 
 {% endnote %}
 
-When you create a search index, the uploaded files are split into chunks of text from a few lines to several paragraphs and text characters are converted into [tokens](../generation/tokens.md). When a user asks a question, the assistant searches for relevant information and adds the chunks it finds to the request context. When creating information chunks, the semantic meaning is ignored, so the text may be split mid-sentence. In this case, the context will be incomplete. To minimize the loss of information due to broken context, _overlapping_ is used when splitting data into chunks. This way, part of information is retained in two adjacent chunks simultaneously. The larger the chunk size, the more context the model has for generating a response, but the slower and more expensive request processing is. To create a search index, you can use a [fine-tuned embedding model](../../operations/tuning/create-embeddings.md).
+When you create a search index, the uploaded files are split into chunks of text from a few lines to several paragraphs and text characters are converted into [tokens](../generation/tokens.md). When a user asks a question, the assistant searches for relevant information and adds the chunks it finds to the request context. When chunking the information, the semantics are ignored, so the text may be split mid-sentence. In this case, the context will be incomplete. To minimize the loss of information due to broken context, _overlapping_ is used when splitting data into chunks. This way, part of information is retained in two adjacent chunks simultaneously. The larger the chunk size, the more context the model has for generating a response, but the slower and more expensive request processing is. To create a search index, you can use a [fine-tuned embedding model](../../operations/tuning/create-embeddings.md).
 
 Search quality depends on the chunk size, amount of overlap, tokenization policy, and other settings. There are no one-size-fits-all parameters that work equally well for all data types; you need to set the most optimal search parameters on a case-by-case basis. 
 
@@ -41,8 +41,8 @@ Here is an example of creating a text search index for a single file:
 - SDK {#sdk}
 
   ```python
-  from yandex_cloud_ml_sdk import YCloudML
-  from yandex_cloud_ml_sdk import search_indexes
+  from yandex_ai_studio_sdk import AIStudio
+  from yandex_ai_studio_sdk import search_indexes
   
   file = sdk.files.upload("<file_path>")
   operation = sdk.search_indexes.create_deferred(
@@ -98,8 +98,8 @@ Here is an example of creating a vector search for a single file:
 - SDK {#sdk}
 
   ```python
-  from yandex_cloud_ml_sdk import YCloudML
-  from yandex_cloud_ml_sdk import search_indexes
+  from yandex_ai_studio_sdk import AIStudio
+  from yandex_ai_studio_sdk import search_indexes
   
   file = sdk.files.upload("<file_path>")
   operation = sdk.search_indexes.create_deferred(
@@ -169,8 +169,8 @@ Here is an example of creating a hybrid search index for a single file:
 - SDK {#sdk}
 
   ```python
-  from yandex_cloud_ml_sdk import YCloudML
-  from yandex_cloud_ml_sdk import search_indexes
+  from yandex_ai_studio_sdk import AIStudio
+  from yandex_ai_studio_sdk import search_indexes
   
   file = sdk.files.upload("<file_path>")
   operation = sdk.search_indexes.create_deferred(
@@ -231,7 +231,7 @@ Here is an example of creating a hybrid search index for a single file:
 ## Use cases {#eamples}
 
 * [{#T}](../../operations/assistant/create-with-searchindex.md)
-* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)
+* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk/tree/master/examples/sync/assistants)
 
 #### See also {#see-also}
 

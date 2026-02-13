@@ -19,13 +19,13 @@ Syntax:
 ||Flag | Description ||
 || `--id` | `string`
 
-Cloud id. ||
+Folder id. ||
 || `--name` | `string`
 
-Cloud name. ||
+Folder name. ||
 || `--access-policy-template-id` | `string`
 
-access policy template id ||
+Access policy template id ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

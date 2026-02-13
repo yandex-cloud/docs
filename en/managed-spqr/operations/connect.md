@@ -15,29 +15,31 @@ You can connect to {{ mspqr-name }} cluster hosts:
 
 * From {{ yandex-cloud }} VMs located in the same [cloud network](../../vpc/concepts/network.md) For hosts without public access, SSL is not required to connect to them from these virtual machines.
 
-You can connect to all [host types](../concepts/index.md): `INFRA`, `ROUTER`, `COORDINATOR`, {{ PG }} cluster hosts. The connection is established through port {{ port-mpg }}. In the case of `COORDINATOR` hosts and the {{ SPQR }} admin console, you must connect as the `spqr-console` user to the `spqr-console` database. You can use the admin console to configure sharding rules. For more information, see the [SPQR documentation](https://pg-sharding.tech/welcome/get_started).
+You can connect to all [host types](../concepts/index.md): `INFRA`, `ROUTER`, `COORDINATOR`, {{ PG }} cluster hosts. The connection is established through port `{{ port-mpg }}`. In the case of `COORDINATOR` hosts and the {{ SPQR }} admin console, you must connect as the `spqr-console` user to the `spqr-console` database. You can use the admin console to configure sharding rules. For more information, see the [SPQR documentation](https://pg-sharding.tech/welcome/get_started).
 
 
 ## Configuring security groups {#configuring-security-groups}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
-Rule settings depend on the connection method you select:
+Security group settings will vary depending on the connection method you choose:
 
 {% list tabs group=connection_method %}
 
 - Over the internet {#internet}
 
-    [Configure all cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port {{ port-mpg }} from any IP address. To do this, create the following inbound rule:
+    [Configure all cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port `{{ port-mpg }}` from any IP address. To do this, create the following ingress rule:
 
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mpg }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
+    If the shared cluster and shard security group has rules configured to connect the router to shard hosts, no additional configuration of security groups is required to access the cluster over the internet.
+
 - From a {{ yandex-cloud }} VM {#cloud}
 
-    1. [Configure all cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port {{ port-mpg }} from the security group assigned to your VM. To do this, create the following inbound rule in these groups:
+    1. [Configure all cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port `{{ port-mpg }}` from your VM’s security group. To do this, create the following rule for incoming traffic in these groups:
 
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mpg }}`.
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
@@ -62,20 +64,20 @@ Rule settings depend on the connection method you select:
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-            This rule allows all outgoing traffic, thus enabling you not only to connect to the cluster but also to install the certificates and utilities your VM needs for the connection.
+            This rule permits all outbound traffic, allowing you to connect to the cluster and install any necessary certificates and tools on your VM.
 
 {% endlist %}
 
 {% note info %}
 
-You can specify more granular rules for your security groups, e.g., to allow traffic only in specific subnets.
+You can specify more granular security group rules, such as allowing traffic only in specific subnets.
 
-Make sure to configure the security groups correctly for all subnets where the cluster hosts will reside.
+Make sure to properly configure security groups for all subnets where the cluster hosts will reside.
 
 {% endnote %}
 
 
-## Getting an SSL certificate {#get-ssl-cert}
+## Obtaining an SSL certificate {#get-ssl-cert}
 
 Publicly accessible {{ SPQR }} hosts only support encrypted connections. To assess them, get an SSL certificate:
 

@@ -14,6 +14,7 @@ description: This page provides a list of step-by-step guides for {{ mkf-name }}
 * [{#T}](storage-space.md)
 * [Stopping and starting a cluster](cluster-stop.md)
 * [Getting a list of cluster hosts](cluster-hosts.md)
+* [Getting the {{ KF }} patch version](cluster-patch-version.md)
 * [Migrating cluster hosts to a different availability zone](host-migration.md)
 * [Maintenance](cluster-maintenance.md)
 * [Deleting a cluster](cluster-delete.md)

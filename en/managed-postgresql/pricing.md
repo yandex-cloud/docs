@@ -73,7 +73,7 @@ You pay for the following:
 
     * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
 
-    * When performing automatic backups, {{ mpg-short-name }} does not create a new backup but saves the database changes introduced since the previous one. This means the storage space used by automatic backups increases only in proportion to the amount of changes.
+    * When performing automatic backups, {{ mpg-short-name }} does not create a new backup but saves the database changes introduced since the previous one. This means the storage space used by automatic backups increases only in proportion to the size of updates.
 
     * Adding hosts increases the cluster's total storage size and, consequently, the free amount of backups.
 
@@ -108,7 +108,7 @@ Calculation for the storage cost and total cost:
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mpg-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
+{{ mpg-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at your current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 

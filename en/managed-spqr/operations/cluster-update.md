@@ -24,7 +24,11 @@ After creating a cluster, you can edit its basic and advanced settings.
         * Edit the cluster name and description.
         * Delete or add new [labels](../../resource-manager/concepts/labels.md).
 
-    1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select security groups for the cluster.
+    
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select [security groups](../../vpc/concepts/security-groups.md) for the cluster.
+
+        {% include [note-sg](../../_includes/managed-spqr/note-sg.md) %}
+    
 
     1. Update the computing resource configuration:
 
@@ -142,6 +146,8 @@ After creating a cluster, you can edit its basic and advanced settings.
 
      
      * `securityGroupIds`: [Security group](../../vpc/concepts/security-groups.md) IDs.
+        
+        {% include [note-sg](../../_includes/managed-spqr/note-sg.md) %}
 
 
      * `deletionProtection`: Cluster deletion protection, `true` or `false`.
@@ -315,7 +321,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
      Where:
 
-     * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+     * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
         {% cut "Format for listing settings" %}
 
@@ -342,6 +348,8 @@ After creating a cluster, you can edit its basic and advanced settings.
 
      
      * `security_group_ids`: [Security group](../../vpc/concepts/security-groups.md) IDs.
+
+        {% include [note-sg](../../_includes/managed-spqr/note-sg.md) %}
 
 
      * `deletion_protection`: Cluster deletion protection, `true` or `false`.

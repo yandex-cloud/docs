@@ -79,7 +79,6 @@
               domain_name       = "<имя_домена>"
               subdomain_name    = "<префикс_поддомена_для_CDN-ресурса>"
               bucket_name       = "<имя_бакета>"
-              cdn_cname         = "<значение_доменного_имени_CDN_провайдера>"
               secure_key        = "<секретный_ключ>"
               ```
 
@@ -114,7 +113,6 @@
     * `domain_name` — имя вашего домена, например `example.com`.
     * `subdomain_name` — префикс поддомена для CDN-ресурса, например `cdn`.
     * `bucket_name` — имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
-    * `cdn_cname` — значение [доменного имени](../../cdn/operations/resources/get-resources-info.md#get-cname) {{ cdn-name }} провайдера для CDN-ресурсов каталога.
     * `secure_key` — секретный ключ. Произвольная строка длиной от 6 до 32 символов. Необходим, чтобы ограничить доступ к ресурсу с помощью [защищенных токенов](../../cdn/concepts/secure-tokens.md).
 
 1. Создайте ресурсы:

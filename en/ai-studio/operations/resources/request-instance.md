@@ -32,9 +32,9 @@ To use an example:
   1. Create a file named `test_ml.py` and paste the following code into it:
 
       ```python
-      from yandex_cloud_ml_sdk import YCloudML
+      from yandex_ai_studio_sdk import AIStudio
 
-      sdk = YCloudML(
+      sdk = AIStudio(
           folder_id="<folder_ID>", auth="<API_key_or_IAM_token>"
       )
 

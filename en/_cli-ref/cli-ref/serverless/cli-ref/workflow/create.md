@@ -41,6 +41,7 @@ Cron expression for workflow schedule. Example: '0/1 * * * * *'. ||
 || `--schedule-timezone` | `string`
 
 Timezone for workflow schedule, e.g. Europe/Moscow. Defaults to your local timezone. ||
+|| `--set-is-public` | Make workflow public for execution. ||
 || `--no-logging` | Disable logging from workflow. ||
 || `--log-group-id` | `string`
 

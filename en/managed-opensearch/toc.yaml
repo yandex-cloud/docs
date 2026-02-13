@@ -37,6 +37,8 @@ items:
             href: operations/cluster-stop.md
           - name: Managing backups
             href: operations/cluster-backups.md
+          - name: Managing cluster access
+            href: operations/cluster-access.md
           - name: Configuring access to Object Storage
             href: operations/s3-access.md
           - name: Deleting a cluster

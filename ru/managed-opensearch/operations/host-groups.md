@@ -138,7 +138,7 @@ keywords:
         * Количество создаваемых хостов.
 
         
-        * Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если вы хотите, чтобы к хостам можно было [подключаться](connect.md) через интернет.
+        * Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если вы хотите, чтобы к хостам можно было [подключаться](connect/index.md) через интернет.
 
 
     1. Нажмите кнопку **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_create-node-group }}**.
@@ -311,7 +311,7 @@ keywords:
         * `subnetIds` — список идентификаторов подсетей.
 
         
-        * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета: `true` или `false`.
+        * `assignPublicIp` — разрешение на [подключение](connect/index.md) к хосту из интернета: `true` или `false`.
 
 
         * `diskSizeAutoscaling` — настройки автоматического увеличения размера хранилища:
@@ -429,7 +429,7 @@ keywords:
         * `subnet_ids` — список идентификаторов подсетей.
 
         
-        * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета: `true` или `false`.
+        * `assign_public_ip` — разрешение на [подключение](connect/index.md) к хосту из интернета: `true` или `false`.
 
 
         * `disk_size_autoscaling` — настройки автоматического увеличения размера хранилища:
@@ -693,7 +693,7 @@ keywords:
             * `subnetIds` — список идентификаторов подсетей.
 
             
-            * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета: `true` или `false`.
+            * `assignPublicIp` — разрешение на [подключение](connect/index.md) к хосту из интернета: `true` или `false`.
 
 
             * `diskSizeAutoscaling` — настройки автоматического увеличения размера хранилища:
@@ -823,7 +823,7 @@ keywords:
             * `subnet_ids` — список идентификаторов подсетей.
 
             
-            * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета: `true` или `false`.
+            * `assign_public_ip` — разрешение на [подключение](connect/index.md) к хосту из интернета: `true` или `false`.
 
 
             * `disk_size_autoscaling` — настройки автоматического увеличения размера хранилища:

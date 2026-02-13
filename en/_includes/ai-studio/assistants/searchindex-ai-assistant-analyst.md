@@ -1,6 +1,6 @@
 ```python
-from yandex_cloud_ml_sdk import YCloudML
-from yandex_cloud_ml_sdk.search_indexes import (
+from yandex_ai_studio_sdk import AIStudio
+from yandex_ai_studio_sdk.search_indexes import (
     HybridSearchIndexType,
     TextSearchIndexType,
     StaticIndexChunkingStrategy,
@@ -13,15 +13,15 @@ query = (
 instruction = """
     You are a highly qualified investment assistant. 
     Your task is to help the user analyze companies based on financial reports for investors.
-    As input, you will receive a user query and fragments of reports. Use the reports to give an answer to the user's question. Also, as an investment assistant, include an expert opinion.
-     
+    At input, you will get a user query and fragments of reports. Use the reports to answer the user's question,
+    plus, add a value judgment as an investment assistant. 
     If your response to the user’s query includes a metric value, provide an interpretation of this value. 
     Ideally, briefly explain the meaning of the metric and give an evaluation as to whether the metric value is large/small. 
 """
 
 
 def main():
-    sdk = YCloudML(
+    sdk = AIStudio(
         folder_id="<folder_ID>",
         auth="<API_key>",
     )

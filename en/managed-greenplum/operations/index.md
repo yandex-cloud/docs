@@ -14,6 +14,7 @@ description: This page provides a list of step-by-step guides for {{ mgp-name }}
 * [Stopping and starting a cluster](cluster-stop.md)
 * [{#T}](cluster-expand.md)
 * [Managing backups](cluster-backups.md)
+* [Managing cluster access](cluster-access.md)
 * [Deleting a cluster](cluster-delete.md)
 
 ## Databases {#databases}

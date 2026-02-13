@@ -53,7 +53,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/users'
      ```
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/User/list.md#yandex.cloud.mdb.postgresql.v1.ListUsersResponse) to make sure your request was successful.
 
@@ -80,7 +80,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
        yandex.cloud.mdb.postgresql.v1.UserService.List
      ```
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/User/list.md#yandex.cloud.mdb.postgresql.v1.ListUsersResponse) to make sure your request was successful.
 
@@ -97,18 +97,29 @@ While you can use SQL commands to assign user privileges, you cannot use them to
   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
-  1. Specify the database user name.
-
-      {% include [username-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
 
   
-  1. Select the method for setting a password:
+  1. Select the authentication method:
 
-      * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Set your own password. It must be from 8 to 128 characters long.
+     * **{{ ui-key.yacloud.mdb.AuthMethodColumn.value_password_gbuZC }}**: Authentication by username and password.
 
-      * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Generate a password using [{{ connection-manager-name }}](cluster-create.md#conn-man).
+       1. Specify the database user name.
 
-      To view the password, navigate to the cluster page, select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the new user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
+           {% include [username-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
+
+       
+       1. Select the method for setting a password:
+
+           * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Set your own password. It must be from 8 to 128 characters long.
+
+           * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Generate a password using [{{ connection-manager-name }}](cluster-create.md#conn-man).
+
+           To view the password, navigate to the cluster page, select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the new user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
+
+
+     * **{{ ui-key.yacloud.mdb.AuthMethodColumn.value_iam_boWet }}**: Authentication with a [Yandex account](../../iam/concepts/users/accounts.md#passport), [federated account](../../iam/concepts/users/accounts.md#saml-federation), or [local user](../../iam/concepts/users/accounts.md#local).
+
+       In the **{{ ui-key.yacloud.common.user }}** field, open the list of available user accounts and select the one you need. To find the account you need, use the search bar above the list.
 
 
   1. Select the password verification algorithm. The possible values are:
@@ -154,7 +165,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
   * `password`: User password. The password must be from 8 to 128 characters long.
 
       
-      You can also generate a password using [{{ connection-manager-name }}](cluster-create.md#conn-man). To do this, specify `--generate-password` instead of `--password=<password>`.
+      You can also generate a password using [{{ connection-manager-name }}](cluster-create.md#conn-man). Do it by specifying `--generate-password` instead of `--password=<password>`.
 
       To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the new user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
@@ -168,7 +179,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
 
   To configure the user’s DBMS settings, use the parameters described in [User settings](../concepts/settings-list.md#dbms-user-settings).
 
-  You can get the cluster name with the [list of clusters in the folder](cluster-list.md).
+  You can get the cluster name from the [list of clusters in your folder](cluster-list.md).
 
 - {{ TF }} {#tf}
 
@@ -207,7 +218,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
       The password must be from 8 to 128 characters long.
 
       
-      You can also generate a password using {{ connection-manager-name }}. To do this, specify `generate_password = true` instead of `password = "<password>"`.
+      You can also generate a password using {{ connection-manager-name }}. Do it by specifying `generate_password = true` instead of `password = "<password>"`.
 
       To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the new user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
@@ -259,7 +270,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
      * `password`: User password. The password must be from 8 to 128 characters long.
 
         
-        You can also generate a password using [{{ connection-manager-name }}](cluster-create.md#conn-man). To do this, specify `"generatePassword": true` instead of `"password": "<user_password>"`.
+        You can also generate a password using [{{ connection-manager-name }}](cluster-create.md#conn-man). Do it by specifying `"generatePassword": true` instead of `"password": "<user_password>"`.
 
         To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the new user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
@@ -274,7 +285,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
      
        If you do not provide the algorithm, the value of the cluster-level `password_encryption` [DBMS setting](../concepts/settings-list.md#dbms-cluster-settings) applies. The default setting value is `USER_PASSWORD_ENCRYPTION_MD5`.
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -322,7 +333,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
      * `password`: User password. The password must be from 8 to 128 characters long.
 
         
-        You can also generate a password using {{ connection-manager-name }}. To do this, specify `"generate_password": true` instead of `"password": "<user_password>"`.
+        You can also generate a password using {{ connection-manager-name }}. Do it by specifying `"generate_password": true` instead of `"password": "<user_password>"`.
 
         To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the new user row. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
@@ -337,7 +348,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
      
        If you do not provide the algorithm, the value of the cluster-level `password_encryption` [DBMS setting](../concepts/settings-list.md#dbms-cluster-settings) applies. The default setting value is `USER_PASSWORD_ENCRYPTION_MD5`.
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -397,14 +408,14 @@ Newly created users only get the `CONNECT` privilege for selected databases and 
     The password must be from 8 to 128 characters long.
 
     
-    You can also generate a new password using [{{ connection-manager-name }}](cluster-create.md#conn-man). To do this, specify `--generate-password` instead of `--password=<new_password>`.
+    You can also generate a new password using [{{ connection-manager-name }}](cluster-create.md#conn-man). Do it by specifying `--generate-password` instead of `--password=<new_password>`.
 
     To view the new password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
 
     To view passwords, you need the `lockbox.payloadViewer` role.
 
 
-  You can get the cluster name with the [list of clusters in the folder](cluster-list.md).
+  You can get the cluster name from the [list of clusters in your folder](cluster-list.md).
 
 - {{ TF }} {#tf}
 
@@ -429,7 +440,7 @@ Newly created users only get the `CONNECT` privilege for selected databases and 
       The password must be from 8 to 128 characters long.
 
       
-      You can also generate a new password using [Connection Manager](cluster-create.md#conn-man). To do this, specify `generate_password = true` instead of `password = "<new_password>"`.
+      You can also generate a new password using [Connection Manager](cluster-create.md#conn-man). Do it by specifying `generate_password = true` instead of `password = "<new_password>"`.
 
       To view the new password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
 
@@ -539,7 +550,7 @@ Newly created users only get the `CONNECT` privilege for selected databases and 
 
      Where:
 
-     * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+     * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
      * `password`: New password. The password must be from 8 to 128 characters long.
 
@@ -767,7 +778,7 @@ To learn how to assign privileges and roles to a user, see [this article](grant.
 
      Where:
 
-     * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+     * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
        Here, we provide only one setting.
 
@@ -884,7 +895,7 @@ To learn how to assign privileges and roles to a user, see [this article](grant.
 
      Where:
 
-     * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+     * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
        Here, we provide only one setting.
 

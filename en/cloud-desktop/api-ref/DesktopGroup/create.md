@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktopGroups
     method: post
     path: null
     query: null
@@ -215,7 +215,7 @@ Creates desktop group in the specified folder.
 ## HTTP request
 
 ```
-POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups
+POST https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktopGroups
 ```
 
 ## Body parameters {#yandex.cloud.clouddesktop.v1.api.CreateDesktopGroupRequest}

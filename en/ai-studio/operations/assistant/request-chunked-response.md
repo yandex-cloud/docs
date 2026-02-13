@@ -132,4 +132,4 @@ This example shows how to create an [assistant](../../concepts/assistant/index.m
 * [{#T}](./create-with-searchindex.md)
 * [{#T}](./create-with-websearch.md)
 * [{#T}](../../concepts/assistant/tools/index.md)
-* Examples of working with ML SDK on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)
+* Examples of working with the AI Studio SDK on [GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk/tree/master/examples/sync/assistants)

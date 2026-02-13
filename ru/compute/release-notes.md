@@ -10,7 +10,7 @@ description: В разделе представлена история изме�
 * Доступны новые [платформы](./concepts/vm-platforms.md) виртуальных машин:
   * AMD Zen 4 (`standard-v4a`);
   * AMD Zen 4 Compute-Optimized (`highfreq-v4a`);
-  * GPU PLATFORM V4 (`gpu-platform-v4`) с поддержкой работы в [кластере GPU](./concepts/gpus.md#gpu-clusters).
+  * GPU PLATFORM V4 (`gpu-standard-v4`) с поддержкой работы в [кластере GPU](./concepts/gpus.md#gpu-clusters).
 * Реализованы новые [поколения оборудования](./concepts/hardware-generations.md) ВМ на топологии `PCI_TOPOLOGY_V2` с увеличенными лимитами на число дисков и сетевых интерфейсов:
   * `Gen 1.2` (загрузчик — [BIOS](https://ru.wikipedia.org/wiki/BIOS));
   * `Gen 2` (загрузчик — [UEFI](https://ru.wikipedia.org/wiki/Extensible_Firmware_Interface)).

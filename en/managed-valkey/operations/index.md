@@ -12,17 +12,28 @@ description: This page provides a list of step-by-step guides for {{ mrd-name }}
 * [Updating cluster settings](update.md)
 * [{#T}](cluster-version-update.md)
 * [{#T}](modules.md)
-* [Stopping and starting a cluster](cluster-stop.md)
+* [Stopping and restarting a cluster](cluster-stop.md)
 * [Managing cluster hosts](hosts.md)
 * [Migrating hosts to a different availability zone](host-migration.md)
 * [Managing backups](cluster-backups.md)
+* [Managing cluster access](cluster-access.md)
 * [Deleting a cluster](cluster-delete.md)
+
+## Connection {#connect}
+
+* [{#T}](./connect/index.md)
+* [FQDNs of hosts](./connect/fqdn.md)
+* [Connecting from applications](./connect/clients.md)
+* [Code examples](./connect/code-examples.md)
+
+  * [Connecting to a non-sharded cluster](connect/non-sharded-code-examples.md)
+  * [Connecting to a sharded cluster](connect/sharded-code-examples.md)
+
 
 ## Databases {#databases}
 
-* [{#T}](connect/index.md)
-* [Connecting to a non-sharded cluster](connect/non-sharded.md)
-* [Connecting to a sharded cluster](connect/sharded.md)
+* [{{ websql-full-name }} queries](./web-sql-query.md)
+
 
 ## Users {#users}
 

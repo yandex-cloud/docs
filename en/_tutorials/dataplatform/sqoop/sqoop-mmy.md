@@ -7,7 +7,7 @@
 ## Required paid resources {#paid-resources}
 
 * {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, volume of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
-* {{ mmy-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
+* {{ mmy-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 * NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 * {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
@@ -53,7 +53,7 @@ You can create other resources manually or using {{ TF }}.
 1. If you are using security groups for your clusters and VM instance, configure them to allow connecting:
 
     * [To the VM instance and {{ dataproc-name }} cluster](../../../data-proc/operations/security-groups.md).
-    * [To the {{ mmy-name }} cluster](../../../managed-mysql/operations/connect.md#configure-security-groups).
+    * [To the {{ mmy-name }} cluster](../../../managed-mysql/operations/connect/index.md#configure-security-groups).
 
 ### Using {{ TF }} {#create-terraform}
 
@@ -89,13 +89,13 @@ You can create other resources manually or using {{ TF }}.
 
         For an SSH connection to the hosts of a {{ dataproc-name }} cluster version 1.x , use the `root` username.
 
-1. Make sure the {{ TF }} configuration files are correct using this command:
+1. Validate your {{ TF }} configuration files using this command:
 
     ```bash
     terraform validate
     ```
 
-    {{ TF }} will show any errors found in your configuration files.
+    {{ TF }} will display any configuration errors detected in your files.
 
 1. Create the required infrastructure:
 
@@ -105,9 +105,9 @@ You can create other resources manually or using {{ TF }}.
 
 {% endlist %}
 
-## Preparing the source cluster {#prepare}
+## Set up the source cluster {#prepare}
 
-1. [Connect](../../../managed-mysql/operations/connect.md) to the `db1` database in the {{ mmy-full-name }} cluster as `user1`.
+1. [Connect](../../../managed-mysql/operations/connect/index.md) to the `db1` database in the {{ mmy-full-name }} cluster as `user1`.
 1. Add test data to the database. The example uses a simple table with people's names and ages:
 
     1. Create a table:
@@ -220,7 +220,7 @@ Let's assume that:
 
 ## Deleting the created resources {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs group=instructions %}
 

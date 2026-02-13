@@ -3,13 +3,13 @@
 # pylint: disable=duplicate-code
 
 from __future__ import annotations
-from yandex_cloud_ml_sdk import YCloudML
+from yandex_ai_studio_sdk import AIStudio
 
 request_text = 'translate into Russian \"what\'s the weather like in London?\"'
 
 
 def main():
-    sdk = YCloudML(
+    sdk = AIStudio(
         folder_id="<folder_ID>",
         auth="<API_key>",
     )
@@ -34,7 +34,7 @@ def main():
         samples=[
             {"text": "set an alarm", "label": "alarm"},
             {"text": "weather for tomorrow", "label": "weather"},
-            {"text": "translate the phrase 'set an alarm'", "label": "translation"},
+            {"text": 'translate the phrase "set an alarm"', "label": "translation"},
         ],
     )
 

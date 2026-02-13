@@ -146,7 +146,7 @@
 
 ## Настройте кластер-приемник {#configure-target}
 
-1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect.md#ssl-certificate) для подключения к кластеру {{ mos-name }}.
+1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) для подключения к кластеру {{ mos-name }}.
 
 1. (Опционально) Создайте пользователя, от имени которого будет выполняться трансфер.
 
@@ -214,7 +214,7 @@
 
 - {{ OS }} Dashboards {#opensearch}
 
-    1. [Подключитесь](../../../managed-opensearch/operations/connect.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
+    1. [Подключитесь](../../../managed-opensearch/operations/connect/clients.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
     1. Выберите общий тенант `Global`.
     1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../../_assets/console-icons/bars.svg).
     1. В разделе **OpenSearch Dashboards** выберите **Discover**.

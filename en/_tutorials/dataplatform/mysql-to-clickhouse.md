@@ -15,32 +15,32 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mmy-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
-* {{ mch-name }} cluster: Use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ mmy-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* {{ mch-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer, which includes the use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-Set up the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) with your preferred configuration. Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
+    1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) of any suitable configuration. Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
 
-    1. [Create a {{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md) of any suitable configuration with the following settings:
+    1. [Create a target {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with the following settings:
 
         * Number of {{ CH }} hosts: Minimum of 2 to enable replication within the cluster.
         * Database name: Must be identical to the database name in the source cluster.
-        * Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
+        * To be able to connect to the cluster not only from within the {{ yandex-cloud }} network but also from your local machine, enable public access when creating it.
 
     
     1. If using security groups, configure them to allow internet access to your clusters:
 
-        * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#configuring-security-groups).
+        * [{{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configuring-security-groups).
         * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
 
@@ -66,13 +66,13 @@ Set up the infrastructure:
 
     1. In the `data-transfer-mmy-mch.tf` file, specify the following:
 
-        * [Source endpoint parameters](../../data-transfer/operations/endpoint/target/mysql.md#managed-service) inherited from the {{ mmy-name }} source cluster :
+        * {{ mmy-name }} source cluster parameters to use for the [source endpoint](../../data-transfer/operations/endpoint/target/mysql.md#managed-service):
 
             * `source_mysql_version`: {{ MY }} version.
             * `source_db_name`: {{ MY }} database name.
             * `source_user` and `source_password`: Database owner username and password.
 
-        * [Target endpoint parameters](../../data-transfer/operations/endpoint/target/clickhouse.md#managed-service) inherited from the {{ mch-name }} target cluster:
+        * {{ mch-name }} target cluster parameters to use for the [target endpoint](../../data-transfer/operations/endpoint/target/clickhouse.md#managed-service):
 
             * `target_db_name`: {{ CH }} database name.
             * `target_user` and `target_password`: Database owner username and password.
@@ -97,9 +97,9 @@ Set up the infrastructure:
 
 1. If you created the infrastructure manually, [set up your source cluster](../../data-transfer/operations/prepare.md#source-my).
 
-1. [Connect to the {{ mmy-name }} source cluster](../../managed-mysql/operations/connect.md).
+1. [Connect to the {{ mmy-name }} source cluster](../../managed-mysql/operations/connect/index.md).
 
-1. Add test data to the database.
+1. Populate the database with test data.
 
     1. Create a table named `x_tab`:
 
@@ -143,7 +143,7 @@ Set up the infrastructure:
 
             Select your target cluster from the list and specify its connection settings.
 
-    1. [Create](../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**-type transfer configured to use the new endpoints.
+    1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**-type that will use the endpoints you created.
     1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
 - {{ TF }} {#tf}
@@ -162,17 +162,17 @@ Set up the infrastructure:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        The transfer will activate automatically upon creation.
+        The transfer will be activated automatically upon creation.
 
 {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-1. Make sure that the data from the source {{ mmy-name }} cluster has been transferred to the {{ mch-name }} database:
+1. Make sure the data from the {{ mmy-name }} source cluster has been transferred to the {{ mch-name }} database:
 
-    1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) via `clickhouse-client`.
+    1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`.
 
     1. Run this query:
 
@@ -196,7 +196,7 @@ Set up the infrastructure:
 
 1. In the source {{ MY }} table `x_tab`, delete the row with `id` = `41` and update the row with `id` = `42`:
 
-    1. [Connect to the {{ mmy-name }} source cluster](../../managed-mysql/operations/connect.md).
+    1. [Connect to the {{ mmy-name }} source cluster](../../managed-mysql/operations/connect/index.md).
 
     1. Run the following queries:
 
@@ -253,7 +253,7 @@ WHERE __data_transfer_delete_time == 0;
 
 {% include [note before delete resources](../../_includes/mdb/note-before-delete-resources.md) %}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 {% list tabs group=instructions %}
 

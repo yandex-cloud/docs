@@ -7,7 +7,7 @@ description: You can back up {{ MY }} clusters and restore them from existing ba
 
 You can create backups and use the existing backups to restore clusters, including to a specific point in time. For more information, see [Backups](../concepts/backup.md).
 
-{{ mmy-name }} also creates an automatic daily backup. You can [set the backup start time](#set-backup-window) and [retention period](#set-backup-retain).
+{{ mmy-name }} automatically takes a daily backup as well. You can [set the backup start time](#set-backup-window) and [retention period](#set-backup-retain).
 
 ## Getting a list of backups {#list-backups}
 
@@ -17,7 +17,7 @@ You can create backups and use the existing backups to restore clusters, includi
 
   To get a list of cluster backups:
   1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
-  1. Click the name of your cluster and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
+  1. Click the cluster name and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
 
   To get a list of all backups in your folder:
   1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
@@ -48,7 +48,7 @@ You can create backups and use the existing backups to restore clusters, includi
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -87,7 +87,7 @@ You can create backups and use the existing backups to restore clusters, includi
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -148,7 +148,7 @@ You can create backups and use the existing backups to restore clusters, includi
 
   To get backup details for an existing cluster:
   1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
-  1. Click the name of your cluster and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
+  1. Click the cluster name and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
 
   To get backup details for a previously deleted cluster:
   1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
@@ -170,7 +170,7 @@ You can create backups and use the existing backups to restore clusters, includi
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -189,7 +189,7 @@ You can create backups and use the existing backups to restore clusters, includi
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -223,7 +223,7 @@ You can create backups and use the existing backups to restore clusters, includi
 - Management console {#console}
 
   1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
-  1. Click the name of your cluster and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
+  1. Click the cluster name and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
@@ -252,7 +252,7 @@ You can create backups and use the existing backups to restore clusters, includi
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -272,7 +272,7 @@ You can create backups and use the existing backups to restore clusters, includi
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -324,7 +324,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
   To restore an existing cluster from a backup:
 
   1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
-  1. Click the name of your cluster and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
+  1. Click the cluster name and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and then click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
   1. Configure the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
   1. To restore the cluster state [to a specific point in time](../concepts/backup.md) after the backup was created, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** accordingly.
@@ -335,7 +335,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
   To restore a previously deleted cluster from a backup:
   1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
-  1. Find the backup you need using its creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
+  1. Find your backup using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and then click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
   1. Configure the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
   1. To restore the cluster state to a specific point in time after the backup was created, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** accordingly. You can either specify the date manually or select it using the date picker.
@@ -378,7 +378,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
      The `CREATED AT` column in the list of available backups shows the backup completion time in `yyyy-mm-dd hh:mm:ss` format (`2020-08-10 12:00:00` in the example above). You can restore your cluster to the state it was in at any point in time after the backup was created.
 
-  1. Make the following request to create a cluster from a backup:
+  1. Send the following request to create a cluster from a backup:
 
       
       ```bash
@@ -508,11 +508,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
       }
       ```
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -524,7 +524,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -581,7 +581,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
           * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
-          * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
+          * `assignPublicIp`: Permission to [connect](./connect/index.md) to the host from the internet, `true` or `false`.
 
   1. Call the [Cluster.restore](../api-ref/Cluster/restore.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -598,7 +598,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -656,7 +656,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
           * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
-          * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
+          * `assign_public_ip`: Permission to [connect](./connect/index.md) to the host from the internet, `true` or `false`.
 
   1. Call the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
@@ -725,7 +725,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
       * `hours`: Backup start hour (UTC).
       * `minutes`: Backup start minute (UTC).
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -739,7 +739,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -787,7 +787,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -825,7 +825,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
       Where:
 
-      * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+      * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
           Here, we provide only one setting.
 
@@ -875,7 +875,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
         To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of {{ mmy-name }} cluster configuration fields you can update, see [this {{ TF }} provider article]({{ tf-provider-mpg }}).
+        For a complete list of {{ mmy-name }} cluster configuration fields you can update, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
 
     1. To set the retention period for automatic backups, add the `backup_retain_period_days` section to the {{ mmy-name }} cluster description:
 
@@ -886,7 +886,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
         }
         ```
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -894,13 +894,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider article]({{ tf-provider-mmy }}).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -939,7 +939,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -973,7 +973,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
       Where:
 
-      * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+      * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
           Here, we provide only one setting.
 
@@ -1017,7 +1017,7 @@ The minimum value of the host's backup priority is `0`, and the maximum, `100`. 
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1040,10 +1040,10 @@ The minimum value of the host's backup priority is `0`, and the maximum, `100`. 
                   }'
       ```
 
-      Where `update_host_specs` is the array of hosts you are prioritizing. Each array element contains the configuration for a single host and has the following structure:
+      Where `updateHostSpecs` is the array of hosts you are prioritizing. Each array element contains the configuration for a single host and has the following structure:
 
       * `updateMask`: Comma-separated string of settings you want to update.
-      * `hostName`: [FQDN of the host you are updating](connect.md#fqdn).
+      * `hostName`: [FQDN of the host you are updating](./connect/fqdn.md).
       * `backupPriority`: [Host's backup priority](../concepts/backup.md#size), between `0` and `100`.
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -1052,7 +1052,7 @@ The minimum value of the host's backup priority is `0`, and the maximum, `100`. 
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1087,7 +1087,7 @@ The minimum value of the host's backup priority is `0`, and the maximum, `100`. 
       Where `update_host_specs` is the array of hosts you are prioritizing. Each array element contains the configuration for a single host and has the following structure:
 
       * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
-      * `host_name`: [FQDN of the host you are updating](connect.md#fqdn).
+      * `host_name`: [FQDN of the host you are updating](./connect/fqdn.md).
       * `backup_priority`: [Host's backup priority](../concepts/backup.md#size), between `0` and `100`.
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).

@@ -39,6 +39,16 @@ items:
             href: operations/sa/get-id-token.md
           - name: Удаление сервисного аккаунта
             href: operations/sa/delete.md
+      - name: Политики авторизации
+        items:
+          - name: Получение списка поддерживаемых политик
+            href: operations/access-policies/list.md
+          - name: Назначение политики на ресурс
+            href: operations/access-policies/assign.md
+          - name: Просмотр назначенных на ресурс политик
+            href: operations/access-policies/view-assigned.md
+          - name: Отзыв политики
+            href: operations/access-policies/revoke.md
       - name: Роли
         items:
           - name: Назначение роли
@@ -137,6 +147,8 @@ items:
         items:
           - name: Обзор
             href: concepts/access-control/index.md
+          - name: Политики авторизации
+            href: concepts/access-control/access-policies.md
           - name: Роли
             href: concepts/access-control/roles.md
           - name: Системные группы

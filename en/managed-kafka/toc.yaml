@@ -23,6 +23,8 @@ items:
             href: operations/cluster-stop.md
           - name: Getting a list of cluster hosts
             href: operations/cluster-hosts.md
+          - name: Getting the {{ KF }} patch version
+            href: operations/cluster-patch-version.md
           - name: Migrating hosts to a different availability zone
             href: operations/host-migration.md
           - name: Maintenance

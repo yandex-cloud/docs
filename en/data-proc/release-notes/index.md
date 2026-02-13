@@ -1,9 +1,15 @@
 ---
 title: '{{ dataproc-full-name }} release notes'
-description: This section contains {{ dataproc-name }} release notes.
+description: This section contains the {{ dataproc-name }} release notes.
 ---
 
 # {{ dataproc-full-name }} release notes
+
+## Q4 2025 {#q4-2025}
+
+* Added a new [host class](../concepts/instance-types.md): AMD Zen 4.
+* Added a dedicated IP address for UI Proxy: `158.160.167.170/32`.
+* You can now specify a separate service account to manage VMs of an autoscaling subcluster when [creating a cluster](../operations/cluster-create.md), [creating an autoscaling cluster](../operations/cluster-create-autoscale.md), or [updating a cluster](../operations/cluster-update.md).
 
 ## Q3 2025 {#q3-2025}
 
