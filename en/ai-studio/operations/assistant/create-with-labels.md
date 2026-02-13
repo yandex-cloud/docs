@@ -68,4 +68,4 @@ To use an example:
 * [{#T}](./create-with-websearch.md)
 * [{#T}](../../tutorials/pdf-searchindex-ai-assistant.md)
 * [{#T}](../../concepts/assistant/tools/index.md)
-* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)
+* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk/tree/master/examples/sync/assistants)

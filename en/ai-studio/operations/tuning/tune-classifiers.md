@@ -297,4 +297,4 @@ Once the model is fine-tuned, save its URI in this format: `cls://<base_model_UR
 #### See also {#see-also}
 
 * [{#T}](../../tutorials/models-fine-tuning.md)
-* For more examples, see our [GitHub repository](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/tuning)
+* For more examples, see our [GitHub repository](https://github.com/yandex-cloud/yandex-ai-studio-sdk/tree/master/examples/sync/tuning).

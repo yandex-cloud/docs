@@ -77,7 +77,7 @@ HTTP-роутеры поддерживают два типа маршрутов 
 * [{#T}](../tutorials/tls-termination/console.md)
 * [{#T}](../tutorials/alb-with-ddos-protection/console.md)
 * [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)
-* [{#T}](../tutorials/cdn-storage-integration.md)
+* [{#T}](../tutorials/cdn-storage-integration/index.md)
 * [{#T}](../tutorials/blue-green-canary-deployment.md)
 * [{#T}](../tutorials/logging.md)
 * [{#T}](../tutorials/balancer-with-sws-profile/index.md)

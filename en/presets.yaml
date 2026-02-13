@@ -5662,6 +5662,7 @@ default:
         value_source-type-balancer: L7 load balancer
         value_source-type-bucket: Bucket
         value_source-type-url: Server
+        value_stepper-additional: Additional
       certificate-manager:
         action_import: User certificate
         action_request: Let's Encrypt certificate
@@ -5847,6 +5848,7 @@ default:
         clone: Clone
         close: Close
         confirm: Confirm
+        connected_resources: Connected resources
         continue: Continue
         create: Create
         created-at: Date created

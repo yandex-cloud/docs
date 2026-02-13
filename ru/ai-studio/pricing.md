@@ -263,7 +263,7 @@ _{{ price-per-hour-count-per-second }}_
 
 #### Использование ассистентов и текстовых агентов {#rules-assistant}
 
-Использование {{ assistant-api }}, {{ responses-api }} и хранение файлов и поисковых индексов не тарифицируется. Потребленные токены оплачиваются по правилам и тарифам [моделей](#rules-generating) {{ model-gallery-name }}. 
+Использование {{ responses-api }}, а также хранение файлов и поисковых индексов не тарифицируется. Потребленные токены оплачиваются по правилам и тарифам [моделей](#rules-generating) {{ model-gallery-name }}. 
 
 #### Использование голосовых агентов {#rules-voice-agents}
 
@@ -312,9 +312,9 @@ _{{ price-per-hour-count-per-second }}_
 
 #### Использование инструментов в агентах {#rules-tools}
 
-Вызов инструментов {{ assistant-api }} не тарифицируется. 
+Вызовы инструмента [поиска по файлам](concepts/agents/tools/filesearch.md) File Search в текстовых и голосовых агентах не тарифицируются.
 
-Вызов инструмента поиска по файлам File Search в текстовых и голосовых агентах не тарифицируется.
+Вызовы инструмента [исполнения кода](concepts/agents/tools/code-interpreter.md) {{ code-interpreter }} на стадии [Preview](../overview/concepts/launch-stages.md) не тарифицируются.
 
 
 {% list tabs group=pricing %}

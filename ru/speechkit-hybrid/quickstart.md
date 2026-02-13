@@ -46,7 +46,7 @@ description: По этой инструкции вы можете создать
 
    * `compute.editor` — чтобы создать ВМ {{ yandex-cloud }};
    * `container-registry.images.puller` — чтобы работать с Docker-образами в реестре [{{ container-registry-full-name }}](../container-registry/index.yaml);
-   * `iam.serviceAccounts.keyAdmin` — чтобы создать [API-ключ](../iam/concepts/authorization/api-key.md) для авторизации в {{ billing-name }}.
+   * `iam.serviceAccounts.keyAdmin` — чтобы создать [API-ключ](../iam/concepts/authorization/api-key.md) для аутентификации в {{ billing-name }}.
 
 1. [Создайте API-ключ](../iam/operations/authentication/manage-api-keys.md#create-api-key).
 

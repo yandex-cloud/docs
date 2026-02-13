@@ -635,7 +635,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** и выберите созданный ранее профиль `sws-demo-profile`.
+  1. На панели слева нажмите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** и выберите созданный ранее профиль `sws-demo-profile`.
   1. На панели сверху нажмите кнопку ![plug-connection](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}** и в открывшемся окне:
 
       1. Выберите балансировщик `demo-alb-bms`.
@@ -643,7 +643,7 @@
       1. Выберите виртуальный хост `http-vh`.
       1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
 
-      Информация о подключенном виртуальном хосте появится на вкладке **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}** на странице с обзором профиля безопасности {{ sws-name }}.
+      Информация о подключенном виртуальном хосте появится в разделе ![cubes-3-overlap](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.common.connected_resources }}** на странице с обзором профиля безопасности {{ sws-name }}.
 
 {% endlist %}
 

@@ -47,7 +47,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [install-agent-linux](../../_includes/backup/operations/install-agent-linux.md) %}
 
-После этого ВМ можно привязать к [политике резервного копирования](../concepts/policy.md).
+После успешной установки агента ВМ можно привязать к [политике резервного копирования](../concepts/policy.md).
 
 Также чтобы подключить существующую ВМ к {{ backup-name }}, вы можете [сделать](../../compute/operations/disk-control/create-snapshot.md) снимки дисков этой ВМ и [создать](../../compute/operations/vm-create/create-from-snapshots.md) новую ВМ из этих снимков, выбрав опцию резервного копирования.
 
@@ -56,6 +56,7 @@ description: Следуя данной инструкции, вы сможете
 {% include [lvm-restoration-notice](../../_includes/backup/lvm-restoration-notice.md) %}
 
 {% endnote %}
+
 
 #### См. также {#see-also}
 

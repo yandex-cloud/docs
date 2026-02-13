@@ -45,15 +45,15 @@ To get started:
 ## Create a cluster {#cluster-create}
 
 1. In the management console, select the folder where you want to create your database cluster.
-1. [Go to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. [Navigate to](../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. Specify your {{ mmy-name }} cluster settings and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
-1. Wait until the {{ mmy-name }} cluster is ready: its status on the {{ mmy-name }} dashboard will change to **Running** and its state, to **Alive**. This may take some time.
+1. Wait until the {{ mmy-name }} cluster is ready: its status on the {{ mmy-name }} dashboard will change to **Running** and its state, to **Alive**. This may take a while.
 
 
 ## Connect to the database {#connect}
 
-1. If you are using [security groups](../vpc/concepts/security-groups.md) for a cloud network, [configure them](operations/connect.md#configuring-security-groups) to allow all relevant traffic between the {{ mmy-name }} cluster and the connecting host.
+1. If you are using [security groups](../vpc/concepts/security-groups.md) for a cloud network, [configure them](operations/connect/index.md#configure-security-groups) to allow all relevant traffic between the {{ mmy-name }} cluster and the connecting host.
 
 1. To connect to the database server, get an SSL certificate:
 
@@ -67,5 +67,5 @@ To get started:
 ## What's next {#whats-next}
 
 * Read about the [service concepts](concepts/index.md).
-* Learn more about [creating a {{ mmy-name }} cluster](operations/cluster-create.md) and [connecting to a database](operations/connect.md).
+* Learn more about [creating a {{ mmy-name }} cluster](operations/cluster-create.md) and [connecting to a database](operations/connect/index.md).
 * Check [questions and answers](qa/general.md).

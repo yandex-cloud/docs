@@ -15,7 +15,7 @@ To use the examples:
   1. Use the [pip](https://pip.pypa.io/en/stable/) package manager to install the [{{ ml-sdk-name }} library](../../ai-studio/sdk/index.md):
 
       ```bash
-      pip install yandex-cloud-ml-sdk
+      pip install yandex-ai-studio-sdk
       ```
 
 - cURL {#curl}

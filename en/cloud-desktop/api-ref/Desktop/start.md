@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:start
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:start
     method: post
     path:
       type: object
@@ -28,7 +28,7 @@ Start the specified desktop.
 ## HTTP request
 
 ```
-POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:start
+POST https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:start
 ```
 
 ## Path parameters

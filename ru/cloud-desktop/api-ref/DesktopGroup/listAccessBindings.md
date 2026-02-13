@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups/{resourceId}:listAccessBindings
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktopGroups/{resourceId}:listAccessBindings
     method: get
     path:
       type: object
@@ -53,7 +53,7 @@ Returns a list of the access bindings for the specified desktop group.
 ## HTTP request
 
 ```
-GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups/{resourceId}:listAccessBindings
+GET https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktopGroups/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

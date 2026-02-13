@@ -30,7 +30,7 @@ To delete a dataset:
       ```python
       from __future__ import annotations
 
-      from yandex_cloud_ml_sdk import YCloudML
+      from yandex_ai_studio_sdk import AIStudio
 
       YANDEX_API_KEY = "<API_key>"
       YANDEX_FOLDER_ID = "<folder_ID>"
@@ -39,7 +39,7 @@ To delete a dataset:
 
       def main() -> None:
 
-          sdk = YCloudML(
+          sdk = AIStudio(
               folder_id=YANDEX_FOLDER_ID,
               auth=YANDEX_API_KEY,
           )

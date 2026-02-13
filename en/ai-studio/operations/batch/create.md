@@ -23,7 +23,7 @@ description: Follow this guide to process large amounts of data by running a mod
   1. Use the [pip](https://pip.pypa.io/en/stable/) package manager to install the [{{ ml-sdk-name }}](../../sdk/index.md) library:
 
       ```bash
-      pip install yandex-cloud-ml-sdk
+      pip install yandex-ai-studio-sdk
       ```
 
 {% endlist %}

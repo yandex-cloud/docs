@@ -7,7 +7,7 @@ Users with this role can:
 * View information on Valkey™ cluster [shards](../../managed-valkey/concepts/sharding.md).
 * View information on Valkey™ alerts.
 * View Valkey™ cluster logs.
-* View information on [quotas](../../managed-valkey/concepts/limits.md#mrd-quotas) of {{ mrd-full-name }}.
-* View information on resource operations for {{ mrd-full-name }}.
+* View information on [quotas](../../managed-valkey/concepts/limits.md#mrd-quotas) of Yandex Managed Service for Valkey™.
+* View information on resource operations for Yandex Managed Service for Valkey™.
 
 This role includes the `managed-redis.viewer` permissions.

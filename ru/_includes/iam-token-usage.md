@@ -3,3 +3,9 @@
 ```yaml
 Authorization: Bearer <IAM-токен>
 ```
+
+Если вы записали IAM-токен в переменную, используйте ее:
+
+```yaml
+Authorization: Bearer ${IAM_TOKEN}
+```

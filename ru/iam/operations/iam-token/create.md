@@ -25,13 +25,35 @@ IAM-токен для аккаунта на Яндексе можно получ
 
 ## Получить IAM-токен с помощью YC CLI {#via-cli}
 
-{% include [cli-install](../../../_includes/cli-install.md) %}
+{% list tabs group=instructions %}
 
-Получите [IAM-токен](../../concepts/authorization/iam-token.md):
+- CLI {#cli}
 
-```bash
-yc iam create-token
-```
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  1. [Аутентифицируйтесь в CLI от имени пользователя](../../../cli/operations/authentication/user.md).
+  1. Получите IAM-токен:
+
+      ```bash
+      yc iam create-token
+      ```
+
+      Результат:
+
+      ```text
+      t1.9euelZrLop7Uz8up********
+      ```
+
+      Полученное значение — это IAM-токен. Вы можете скопировать и сохранить его в файле или записать в переменную:
+
+      ```bash
+      export IAM_TOKEN=`<IAM-токен>`
+      ```
+
+{% endlist %}
+
+{% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
+
 
 ### Пример использования IAM-токена, полученного с помощью CLI {#use-cli}
 

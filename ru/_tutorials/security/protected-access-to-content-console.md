@@ -879,7 +879,11 @@
         data:
           cm:
             id: fpqia0s2fc21********
+      provider_type: ourcdn
+      provider_cname: d88c6ee6********.topology.gslb.yccdn.ru
       ```
+
+      Сохраните значение CNAME провайдера (значение поля `provider_cname`) — оно понадобится позднее.
 
       Подробнее о команде `yc cdn resource create` читайте в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/resource/create.md).
 
@@ -914,7 +918,6 @@
 
 - {{ yandex-cloud }} CLI {#cli}
 
-  1. [Получите](../../cdn/operations/resources/get-resources-info.md#get-cname) значение доменного имени провайдера CDN.
   1. Создайте ресурсную запись CNAME в сервисе {{ dns-name }}:
 
       ```bash
@@ -925,7 +928,7 @@
 
       Где:
       * `<поддомен>` — поддомен, созданный для CDN-ресурса. Например, для доменного имени `cdn.example.com` здесь нужно указать `cdn`.
-      * `<значение_cname>` — полученное на предыдущем шаге значение `cname` для CDN-ресурса.
+      * `<значение_cname>` — полученное на предыдущем шаге значение `cname` CDN-провайдера.
 
       Результат:
 

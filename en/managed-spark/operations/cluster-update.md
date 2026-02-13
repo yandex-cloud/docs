@@ -1,6 +1,6 @@
 ---
 title: Updating an {{ SPRK }} cluster
-description: After creating a {{ SPRK }} cluster, you can edit its basic and advanced settings.
+description: After creating an {{ SPRK }} cluster, you can edit its basic and advanced settings.
 keywords:
   - Updating an {{ SPRK }} cluster
   - '{{ SPRK }} cluster'
@@ -17,7 +17,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. Go to the [folder page]({{ link-console-main }}).
+    1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
 
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
@@ -51,6 +51,105 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To change the cluster settings:
+
+    1. See the description of the CLI command for updating a cluster:
+
+        ```bash
+        {{ yc-mdb-sp }} cluster update --help
+        ```
+
+    1. Provide a list of settings to update in the update cluster command:
+
+        ```bash
+        {{ yc-mdb-sp }} cluster update <cluster_name_or_ID> \
+          --new-name <cluster_name> \
+          --description <cluster_description> \
+          --labels <label_list> \
+          --service-account-id <service_account_ID> \
+          --security-group-ids <list_of_security_group_IDs> \
+          --driver-preset-id <driver_resource_ID> \
+          --driver-fixed-size <number_of_driver_instances> \
+          --executor-preset-id <executor_resource_ID> \
+          --executor-fixed-size <number_of_executor_instances> \
+          --history-server-enabled <use_Spark_History_Server> \
+          --metastore-cluster-id <Apache_Hive™_Metastore_cluster_ID> \
+          --pip-packages <list_of_pip_packages> \
+          --deb-packages <list_of_deb_packages> \
+          --log-enabled \
+          --log-folder-id <folder_ID> \
+          --maintenance-window type=<maintenance_type>,`
+                               `day=<day_of_week>,`
+                               `hour=<hour> \
+          --deletion-protection
+        ```
+
+        Where:
+
+        * `--new-name`: Cluster name, unique within the cloud.
+        * `--description`: Cluster description.
+        * `--labels`: List of labels. Provide labels in `<key>=<value>` format.
+        * `--service-account-id`: ID of the service account for access to {{ yandex-cloud }} services. Make sure to assign the `managed-spark.integrationProvider` role to this service account.
+        * `--security-group-ids`: List of security group IDs.
+
+        * Host configuration to run {{ SPRK }} drivers:
+
+            * `--driver-preset-id`: Driver [host class](../concepts/instance-types.md).
+            * `--driver-fixed-size`: Fixed number of driver hosts.
+            * `--driver-min-size`: Minimum number of driver hosts for autoscaling.
+            * `--driver-max-size`: Maximum number of driver hosts for autoscaling.
+
+            Specify either a fixed number of hosts (`--driver-fixed-size`) or minimum and maximum number of hosts (`--driver-min-size` and `--driver-max-size`) for autoscaling.
+
+        * Host configuration to run {{ SPRK }} executors:
+
+            * `--executor-preset-id`: Executor [host class](../concepts/instance-types.md).
+            * `--executor-fixed-size`: Fixed number of executor hosts.
+            * `--executor-min-size`: Minimum number of executor hosts for autoscaling.
+            * `--executor-max-size`: Maximum number of executor hosts for autoscaling.
+
+            Specify either a fixed number of hosts (`--executor-fixed-size`) or minimum and maximum number of hosts (`--executor-min-size` and `--executor-max-size`) for autoscaling.
+
+        * `--history-server-enabled`: Enables the [Spark History Server](https://spark.apache.org/docs/latest/monitoring.html) monitoring service.
+        * `--metastore-cluster-id`: {{ metastore-name }} cluster ID. This setting connects the [{{ metastore-name }}](../../metadata-hub/concepts/metastore.md) metadata storage.
+
+        * Lists of packages enabling you to install additional libraries and applications in the cluster:
+
+            * `--pip-packages`: List of pip packages.
+            * `--deb-packages`: List of deb packages.
+
+            You can set version restrictions for the installed packages, e.g.:
+
+            ```bash
+            --pip-packages pandas==2.1.1,scikit-learn>=1.0.0,clickhouse-driver~=0.2.0
+            ```
+
+            The package name format and version are defined by the install command: `pip install` for pip packages and `apt install` for deb packages.
+
+        * Logging parameters:
+
+            * `--log-enabled`: Enables logging.
+            * `--log-folder-id`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
+            * `--log-group-id`: Custom log group ID. Logs will be written to this group.
+
+            Specify either `--log-folder-id` or `--log-group-id`.
+
+        * `--maintenance-window`: Maintenance window settings (including for stopped clusters), where `type` is the maintenance type:
+
+            {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
+        * `--deletion-protection`: Enables cluster protection against accidental deletion.
+
+            Even with deletion protection on, one can still connect to the cluster manually and delete it.
+
+        You can get the cluster name and ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
+
 - {{ TF }} {#tf}
 
     To change the cluster settings:
@@ -75,7 +174,7 @@ After creating a cluster, you can edit its basic and advanced settings.
           name                = "my-spark-cluster"
           folder_id           = "<folder_ID>"
           service_account_id  = "<service_account_ID>"
-          deletion_protection = <protect_cluster_against_deletion>
+          deletion_protection = <protect_cluster_from_deletion>
 
           labels = {
             <label_list>
@@ -98,7 +197,7 @@ After creating a cluster, you can edit its basic and advanced settings.
               }
             }
             history_server = {
-              enabled = <use_of_Apache_Spark_History_Server>
+              enabled = <use_Spark_History_Server>
             } 
             metastore = {
               cluster_id = "<Apache_Hive™_Metastore_cluster_ID>"
@@ -127,7 +226,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         * `description`: Cluster description.
         * `service_account_id`: Service account ID.
-        * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`.
+        * `deletion_protection`: Cluster deletion protection, `true` or `false`.
         * `labels`: List of labels. Provide labels in `<key> = "<value>"` format.
         * `security_group_ids`: List of security group IDs.
         * `driver`: Host configuration to run {{ SPRK }} drivers. In this section, specify:
@@ -143,8 +242,8 @@ After creating a cluster, you can edit its basic and advanced settings.
         * `maintenance_window`: Maintenance window settings (including for disabled clusters). In this section, specify:
 
           * Maintenance type in the `type` parameter. The possible values include:
-            * `ANYTIME`: At any time.
-            * `WEEKLY`: On schedule.
+            * `ANYTIME`: Any time.
+            * `WEEKLY`: On a schedule.
           * Day of week for the `WEEKLY` maintenance type in the `day` parameter, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
           * UTC hour from `1` to `24` for the `WEEKLY` maintenance type in the `hour` parameter.
 
@@ -164,7 +263,7 @@ After creating a cluster, you can edit its basic and advanced settings.
              * `folder_id`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
              * `log_group_id`: Custom log group ID. Logs will be written to this group.
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -178,7 +277,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -214,7 +313,7 @@ After creating a cluster, you can edit its basic and advanced settings.
              }
            },
            "history_server": {
-             "enabled": <use_of_Apache_Spark_History_Server>
+             "enabled": <use_Spark_History_Server>
            },
             "dependencies": {
               "pip_packages": [ <list_of_pip_packages> ],
@@ -315,7 +414,7 @@ After creating a cluster, you can edit its basic and advanced settings.
                    ```bash
                    "dependencies": {
                      "pip_packages": [
-                       "pandas==2.0.2",
+                       "pandas==2.1.1",
                        "scikit-learn>=1.0.0",
                        "clickhouse-driver~=0.2.0"
                      ]
@@ -334,7 +433,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
            * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
-              Even if it is enabled, one can still connect to the cluster manually and delete it.
+              Even with deletion protection on, one can still connect to the cluster manually and delete it.
 
            * `service_account_id`: ID of the service account for access to {{ yandex-cloud }} services. Make sure to assign the `managed-spark.integrationProvider` role to this service account:
 

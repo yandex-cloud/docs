@@ -69,7 +69,7 @@
 
 * [{#T}](../tutorials/thumbor.md)
 * [{#T}](../tutorials/blue-green-canary-deployment.md)
-* [{#T}](../tutorials/cdn-storage-integration.md)
+* [{#T}](../tutorials/cdn-storage-integration/index.md)
 * [{#T}](../tutorials/protected-access-to-content/terraform.md)
 
 
@@ -84,4 +84,4 @@
 
 ### Примеры использования {#examples-ins}
 
-* [{#T}](../tutorials/cdn-storage-integration.md)
+* [{#T}](../tutorials/cdn-storage-integration/index.md)

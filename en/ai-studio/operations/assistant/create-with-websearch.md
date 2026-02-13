@@ -38,7 +38,7 @@ To use the examples:
 
   1. Create an AI assistant:
 
-      1. Create a file named `assistant.json` with the body of the request to create an assistant:
+      1. Create a file named `assistant.json` with the body of the assistant creation request:
 
           **assistant.json**
 
@@ -298,7 +298,7 @@ To use the examples:
           }
           ```
 
-          {{ assistant-api }} has returned the run information: the launch is in `PENDING` status. Save the run ID (`id` field value). You will need it in the next step.
+          {{ assistant-api }} has returned the run information: the launch is in `PENDING` status. Save the run ID (`id` field value) for the next step.
   1. Get the result of the run with the assistant's response. To do this, make a request by specifying the run ID you got earlier:
 
       ```bash
@@ -370,4 +370,4 @@ To use the examples:
 * [{#T}](./create-with-labels.md)
 * [{#T}](../../tutorials/pdf-searchindex-ai-assistant.md)
 * [{#T}](../../concepts/assistant/tools/index.md)
-* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)
+* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk/tree/master/examples/sync/assistants)

@@ -2,7 +2,7 @@
 
 {{ foundation-models-full-name }} is part of {{ yandex-cloud }} and uses its authentication and authorization mechanism. You can send requests to {{ foundation-models-name }} models under your user account by authenticating with an [IAM token](../../iam/concepts/authorization/iam-token.md). This is the most secure way to do a quick trial as the IAM token lifetime is limited to 12 hours. However, we recommend accessing the API as a [service account](../../iam/concepts/users/service-accounts.md) with an [API key](../../iam/concepts/authorization/api-key.md).
 
-To set up authorization with an API key as a service account:
+To set up authentication with an API key on behalf of a service account:
 
 1. [Get your cloud ready](#prepare-cloud).
 1. [Create a service account](#create-account).
@@ -66,7 +66,7 @@ To set up authorization with an API key as a service account:
    Where:
    * `<IAM_token>`: Valid authorization token.
    * `<folder_ID>`: ID of the folder hosting the services.
-   * `<service_account_name>`: Service account name, e.g., `sa-api`. Follow these naming requirements:
+   * `<service_account_name>`: Service account name, e.g., `sa-api`. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 

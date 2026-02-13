@@ -33,7 +33,7 @@
 
     1. Если вы используете группы безопасности в кластере, убедитесь, что они настроены правильно и допускают подключение к кластеру [{{ mos-name }}](../../../managed-opensearch/operations/connect#configuring-security-groups).
 
-    1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect.md#ssl-certificate) для подключения к кластеру {{ mos-name }}.
+    1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) для подключения к кластеру {{ mos-name }}.
 
     1. [Создайте бакет {{ objstorage-name }}](../../../storage/operations/buckets/create.md).
 
@@ -89,7 +89,7 @@
 
 ## Подготовьте тестовые данные {#prepare-data}
 
-1. [Подключитесь к кластеру-источнику {{ mos-name }}](../../../managed-opensearch/operations/connect.md).
+1. [Подключитесь к кластеру-источнику {{ mos-name }}](../../../managed-opensearch/operations/connect/index.md).
 
 1. Создайте тестовый индекс `people` и задайте его схему:
 

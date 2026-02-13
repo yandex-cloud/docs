@@ -248,7 +248,7 @@
 
     Чтобы отслеживать ход процесса перераспределения данных с помощью SQL-запросов:
 
-    1. [Подключитесь к базе данных](connect.md) `postgres` от имени пользователя с [ролью](../concepts/cluster-users.md#mdb_admin) `mdb_admin`.
+    1. [Подключитесь к базе данных](connect/index.md) `postgres` от имени пользователя с [ролью](../concepts/cluster-users.md#mdb_admin) `mdb_admin`.
     1. Выполните запрос, чтобы получить текущий статус процесса:
 
         {% include [sql-redistribution-status](../../_includes/mdb/mgp/expand/sql-redistribution-status.md) %}
@@ -275,7 +275,7 @@
 
 Чтобы изменить ранг перераспределяемых таблиц:
 
-1. [Подключитесь к базе данных](connect.md) `postgres` от имени пользователя с [ролью](../concepts/cluster-users.md#mdb_admin) `mdb_admin`.
+1. [Подключитесь к базе данных](connect/index.md) `postgres` от имени пользователя с [ролью](../concepts/cluster-users.md#mdb_admin) `mdb_admin`.
 
 1. Выполните запрос, чтобы получить текущий статус процесса перераспределения данных:
 
@@ -304,7 +304,7 @@
     1. [Получите детальную информацию о кластере](cluster-list.md#get-cluster).
     1. Умножьте количество сегментов на хост на количество хостов-сегментов.
 
-1. [Подключитесь к нужной базе данных](connect.md) от имени пользователя с [ролью](../concepts/cluster-users.md#mdb_admin) `mdb_admin`.
+1. [Подключитесь к нужной базе данных](connect/index.md) от имени пользователя с [ролью](../concepts/cluster-users.md#mdb_admin) `mdb_admin`.
 
 1. Найдите таблицы, данные которых распределены неравномерно:
 

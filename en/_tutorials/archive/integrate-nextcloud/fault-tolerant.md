@@ -139,7 +139,7 @@ Create the VM to deploy Nextcloud on:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create the infrastructure in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, type `Ubuntu 24.04 LTS` and select a public [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-24-04-lts) image.
@@ -249,7 +249,7 @@ It may take a few minutes to create a cluster.
         1. In the **Database account** field, enter `user`, i.e., the database user name you specified when creating the {{ MY }} cluster or local database.
         1. In the **Database password** field, enter the database user password you specified when creating the {{ MY }} cluster or local database.
         1. In the **Database name** field, enter `nextcloud`, i.e., the database name you specified when creating the {{ MY }} cluster or local database.
-        1. In the **Database host** field, specify the FQDN of the cluster's [current master host](../../../managed-mysql/operations/connect.md#fqdn-master) and port in this format:
+        1. In the **Database host** field, specify the FQDN of the cluster's [current master host](../../../managed-mysql/operations/connect/fqdn.md#fqdn-master) and port in this format:
 
             ```text
             c-<cluster_ID>.rw.{{ dns-zone }}:3306
@@ -320,7 +320,7 @@ Before you create a VM snapshot to proceed with the instance group deployment, a
 
     - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the folder to create the infrastructure in.
+      1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![hard-drive](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
       1. In the line with the disk, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
@@ -379,7 +379,7 @@ For a fault-tolerant Nextcloud solution, scale it across an [instance group](../
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create the infrastructure in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.

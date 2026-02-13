@@ -106,6 +106,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог СИБ](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
   1. Выберите **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
   1. Введите имя профиля — `sws-ddos`.

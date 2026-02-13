@@ -66,7 +66,7 @@
 
 ## {{ ydb-full-name }} {#ydb}
 
-  * <code><b><small>Внешний ресурс</small></b></code> {{ TF }}: Основы. Бекенды для хранения состояния, 2025 — [Статья](https://ru.hexlet.io/courses/terraform-basics/lessons/remote-state/theory_unit).
+  * <code><b><small>Внешний ресурс</small></b></code> {{ TF }}: Основы. Бэкенды для хранения состояния, 2025 — [Статья](https://ru.hexlet.io/courses/terraform-basics/lessons/remote-state/theory_unit).
   * Serverless {{ ydb-short-name }} Internals, 2023 — Видео на [YouTube](https://www.youtube.com/watch?v=aL9NHR0i0Xs) и [Rutube](https://rutube.ru/video/cd00829cf8c814c94d4c422b030df1ec/).
   * Как задеплоить своего телеграм-бота (почти) бесплатно — Quick Guide в облачный Serverless, 2023 — [Статья](https://www.pvsm.ru/oblachny-e-servisy/384952).
   * <code><b><small>Внешний ресурс</small></b></code> Погружение в Serverless. Рождение Yandex Database, 2021 — [Статья](https://habr.com/ru/articles/552032/).

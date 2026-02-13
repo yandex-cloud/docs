@@ -260,7 +260,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      
      To encrypt the disk with a [custom KMS key](../../kms/concepts/key.md), provide `--disk-encryption-key-id <KMS_key_ID>`. To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
-     To allow access to the cluster from [{{ sf-full-name }}](../../functions/), provide the `--serverless-access` parameter. For details on setting up access, see [this {{ sf-name }} guide](../../functions/operations/database-connection.md).
+     To allow access to the cluster from [{{ sf-full-name }}](../../functions/), provide the `--serverless-access` parameter. For more information about setting up access, see [this {{ sf-name }} guide](../../functions/operations/database-connection.md).
 
      To allow access to the cluster from [{{ yq-full-name }}](../../query/index.yaml), provide `--yandexquery-access=true`. This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage and can be enabled upon request.
 
@@ -365,7 +365,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
      * `version`: {{ PG }} version, {{ pg.versions.tf.str }}.
-     * `pool_discard`: Odyssey `pool_discard` setting, `true` or `false`.
+     * `pool_discard`: Odyssey `pool_discard` parameter, `true` or `false`.
      * `pooling_mode`: Operation mode, `SESSION`, `TRANSACTION`, or `STATEMENT`.
 
      {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
@@ -577,7 +577,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        * `password`: User password. The password must be from 8 to 128 characters long.
 
           
-          You can also generate a password using {{ connection-manager-name }}. To do this, specify `"generatePassword": true` instead of `"password": "<user_password>"`.
+          You can also generate a password using {{ connection-manager-name }}. Do it by specifying `"generatePassword": true` instead of `"password": "<user_password>"`.
 
           To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
@@ -764,7 +764,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        * `password`: User password. The password must be from 8 to 128 characters long.
 
           
-          You can also generate a password using {{ connection-manager-name }}. To do this, specify `"generate_password": true` instead of `"password": "<user_password>"`.
+          You can also generate a password using {{ connection-manager-name }}. Do it by specifying `"generate_password": true` instead of `"password": "<user_password>"`.
 
           To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
@@ -852,8 +852,8 @@ To create a {{ PG }} cluster copy:
         ```
 
     1. Copy it from the terminal and paste it into the `.tf` file.
-    1. Move the file to the new `imported-cluster` directory.
-    1. Modify the copied configuration to prepare it for creating a new cluster:
+    1. Place the file in the new `imported-cluster` directory.
+    1. Edit the copied configuration so that you can create a new cluster from it:
 
         * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Delete `created_at`, `health`, `id`, and `status`.
@@ -866,7 +866,7 @@ To create a {{ PG }} cluster copy:
 
     1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Move the configuration file to the `imported-cluster` directory and [specify its settings](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
+    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
 
     1. Validate your {{ TF }} configuration:
 
@@ -894,7 +894,7 @@ To create a {{ PG }} cluster copy:
 
 - CLI {#cli}
 
-  To create a single-host cluster, provide one `--host` argument.
+  To create a single-host cluster, provide one `--host` parameter.
 
   Create a {{ mpg-name }} cluster with the following test specifications:
 
@@ -981,6 +981,9 @@ To create a {{ PG }} cluster copy:
     cluster_id = yandex_mdb_postgresql_cluster.mypg.id
     name       = "db1"
     owner      = "user1"
+    depends_on = [
+      yandex_mdb_postgresql_user.user1
+    ]
   }
 
   resource "yandex_mdb_postgresql_user" "user1" {

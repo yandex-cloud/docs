@@ -5,7 +5,7 @@ description: Из статьи вы узнаете, что находится в
 
 # Разграничение зон контроля пользователей сервисов управляемых баз данных (MDB) и {{ yandex-cloud }}
 
-При работе с сервисами управляемых баз данных (MDB) {{ mpg-short-name }}, {{ mch-short-name }}, {{ mgp-full-name }}, {{ mmg-full-name }}, {{ mrd-short-name }}, {{ mmy-short-name }}, {{ mos-short-name }} и {{ mkf-short-name }} необходимо учитывать, что контролирует [сервис MDB](#cloud-responsibilities), а что — [клиент {{ yandex-cloud }}](#customer-responsibilities). Понимание этих зон контроля помогает эффективно использовать облачные ресурсы и избегать возможных проблем при работе с базами данных.
+При работе с сервисами управляемых баз данных (MDB) {{ mpg-short-name }}, {{ mch-short-name }}, {{ mgp-full-name }}, {{ mmg-full-name }}, {{ mrd-short-name }}, {{ mmy-short-name }}, {{ mos-short-name }}, {{ mkf-short-name }} и {{ mspqr-name }} необходимо учитывать, что контролирует [сервис MDB](#cloud-responsibilities), а что — [клиент {{ yandex-cloud }}](#customer-responsibilities). Понимание этих зон контроля помогает эффективно использовать облачные ресурсы и избегать возможных проблем при работе с базами данных.
 
 ## Зона контроля {{ yandex-cloud }} {#cloud-responsibilities}
 
@@ -38,6 +38,7 @@ description: Из статьи вы узнаете, что находится в
   | {{ mmy-short-name }} | [Операции с кластерами](../../managed-mysql/operations/index.md)</br>[Резервное копирование](../../managed-mysql/concepts/backup.md)</br>[Высокая доступность кластера](../../managed-mysql/concepts/high-availability.md)</br>[Техническое обслуживание](../../managed-mysql/concepts/maintenance.md)</br>[Диагностика производительности](../../managed-mysql/operations/performance-diagnostics.md)</br>[Мониторинг состояния кластера](../../managed-mysql/operations/monitoring.md)</br>[Просмотр логов](../../managed-mysql/operations/cluster-logs.md) |
   | {{ mos-short-name }} | [Операции с кластерами](../../managed-opensearch/operations/index.md)</br>[Резервное копирование](../../managed-opensearch/concepts/backup.md)</br>[Техническое обслуживание](../../managed-opensearch/concepts/maintenance.md)</br>[Мониторинг состояния кластера](../../managed-opensearch/operations/monitoring.md)</br>[Просмотр логов](../../managed-opensearch/operations/cluster-logs.md)</br>[Политика работы с версиями](../../managed-opensearch/concepts/update-policy.md) |
   | {{ mkf-short-name }} | [Операции с кластерами](../../managed-kafka/operations/index.md)</br>[Высокая доступность кластера](../../managed-kafka/concepts/ha-cluster.md)</br>[Техническое обслуживание](../../managed-kafka/concepts/maintenance.md)</br>[Мониторинг состояния кластера](../../managed-kafka/operations/monitoring.md)</br>[Просмотр логов](../../managed-kafka/operations/cluster-logs.md)</br>[Политика работы с версиями](../../managed-kafka/concepts/update-policy.md) |
+  | {{ mspqr-name }} | [Операции с кластерами](../../managed-spqr/operations/index.md)</br>[Выбор стратегии шардирования](../../managed-spqr/concepts/sharding-method.md)</br>[Мониторинг состояния кластера](../../managed-spqr/metrics.md)</br>[Аудитные логи](../../managed-spqr/at-ref) |
 
   {% endcut %}
 

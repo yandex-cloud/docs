@@ -76,7 +76,7 @@
      * `yandex_iot_core_registry` — параметры реестра:
        * `name` — имя реестра.
        * `description` — описание реестра.
-       * `certificates` — список сертификатов реестра для авторизации с помощью [сертификатов](../../concepts/authorization.md#certs).
+       * `certificates` — список сертификатов реестра для аутентификации с помощью [сертификатов](../../concepts/authorization.md#certs).
 
       Пример описания реестра в конфигурации {{ TF }}:
 

@@ -154,7 +154,7 @@
 Убедитесь, что данные из {{ at-name }} успешно загружаются в {{ OS }}:
 
 1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
-1. Подключитесь к кластеру-приемнику с помощью [{{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards).
+1. Подключитесь к кластеру-приемнику с помощью [{{ OS }} Dashboards](../../managed-opensearch/operations/connect/clients.md#dashboards).
 1. Выберите общий тенант `Global`.
 1. Создайте новый шаблон индекса с именем `audit-trails*`:
 
@@ -190,7 +190,7 @@
     git clone https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-opensearch.git
     ```
 
-1. Подключитесь к кластеру-приемнику с помощью [{{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards).
+1. Подключитесь к кластеру-приемнику с помощью [{{ OS }} Dashboards](../../managed-opensearch/operations/connect/clients.md#dashboards).
 1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
 1. В разделе **Management** выберите **Stack Management**.
 1. Перейдите в раздел **Saved Objects** и импортируйте файлы из каталога `yc-export-auditlogs-to-opensearch/update-opensearch-scheme/content-for-transfer/`:

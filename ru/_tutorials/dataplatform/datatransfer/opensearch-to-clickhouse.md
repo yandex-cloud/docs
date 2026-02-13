@@ -33,9 +33,9 @@
 
        Если вы планируете подключаться к кластеру через сервис {{ websql-full-name }}, включите в настройках кластера настройку **{{ ui-key.yacloud.mdb.cluster.overview.label_access-websql-service }}**.
 
-    1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect.md#ssl-certificate) для подключения к кластеру {{ mos-name }}.
+    1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) для подключения к кластеру {{ mos-name }}.
 
-    1. Убедитесь, что группы безопасности кластеров [{{ mos-name }}](../../../managed-opensearch/operations/connect.md#security-groups) и [{{ mch-name }}](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) разрешают подключение через интернет.
+    1. Убедитесь, что группы безопасности кластеров [{{ mos-name }}](../../../managed-opensearch/operations/connect/index.md#security-groups) и [{{ mch-name }}](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) разрешают подключение через интернет.
 
 - {{ TF }} {#tf}
 

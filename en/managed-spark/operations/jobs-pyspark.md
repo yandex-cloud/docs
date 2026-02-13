@@ -19,7 +19,7 @@ To create a job:
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}).
+    1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
     1. Click **{{ ui-key.yacloud.spark.jobs.create_action }}**.
@@ -43,9 +43,63 @@ To create a job:
 
     1. Click **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
 
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To create a PySpark job:
+
+    1. See the description of the CLI command for creating a job:
+
+        ```bash
+        {{ yc-mdb-sp }} job create-pyspark --help
+        ```
+    
+    1. Create a job by running this command:
+
+        ```bash
+        {{ yc-mdb-sp }} job create-pyspark \
+          --cluster-id <cluster_ID> \
+          --name <job_name> \
+          --main-python-file-uri <path_to_main_PY_file> \
+          --python-file-uris <list_of_paths_to_PY_files> \
+          --jar-file-uris <list_of_paths_to_JAR_files> \
+          --file-uris <list_of_paths_to_files> \
+          --archive-uris <list_of_paths_to_archives> \
+          --packages <list_of_package_Maven_coordinates> \
+          --repositories <list_of_URLs_of_repositories_for_package_search> \
+          --exclude-packages <list_of_Maven_coordinates_of_excluded_packages> \
+          --properties <list_of_properties> \
+          --args <list_of_arguments> 
+        ```
+
+        Where:
+
+        * `--cluster-id`: Cluster ID.
+
+          You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+
+        * `--name` (optional): Job name.
+        * `--main-python-file-uri`: Path to the application's main PY file.
+        * `--python-file-uris`: List of paths to PY files.
+        * `--jar-file-uris`: List of paths to JAR files.
+        * `--file-uris`: List of paths to files.
+        * `--archive-uris`: List of paths to archives.
+        * `--packages`: List of Maven coordinates of packages in `groupId:artifactId:version` format.
+        * `--repositories`: List of URLs of additional repositories for package search.
+        * `--exclude-packages`: List of Maven coordinates of the packages to exclude, in `groupId:artifactId` format.
+        * `--properties`: List of component properties in `key=value` format.
+        * `--args`: List of application arguments.
+
+        Available file formats:
+          
+          {% include [jar-file-path-requirements](../../_includes/managed-spark/jar-file-path-requirements.md) %}
+
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -113,13 +167,13 @@ To create a job:
                 {% include [jar-file-path-requirements](../../_includes/managed-spark/jar-file-path-requirements.md) %}
 
             * `python_file_uris`: Paths to PY files.
-            * `packages`: Maven coordinates of the JAR files in `groupId:artifactId:version` format.
+            * `packages`: Maven coordinates of packages in `groupId:artifactId:version` format.
             * `repositories`: URLs of additional repositories for package search.
             * `exclude_packages`: Maven coordinates of the packages to exclude, in `groupId:artifactId` format.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Job/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Job/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

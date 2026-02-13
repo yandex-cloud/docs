@@ -119,4 +119,4 @@ In multi-label classification, the `confidence` value for each class is calculat
 #### See also {#see-also}
 
 * [{#T}](../../concepts/classifier/index.md)
-* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/text_classifiers)
+* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk/tree/master/examples/sync/text_classifiers)

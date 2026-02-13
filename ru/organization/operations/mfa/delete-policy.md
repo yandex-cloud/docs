@@ -47,6 +47,28 @@ description: Следуя данной инструкции, вы сможете
 
      Где `--id` — идентификатор политики MFA, которую нужно удалить.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Откройте конфигурационный файл {{ TF }} и удалите фрагмент с описанием политики MFA:
+
+     {% include [mfa-tf-code-block](../../../_includes/organization/mfa-tf-code-block.md) %}
+
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_mfa_enforcement` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement).
+
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} удалит политику MFA. Проверить удаление политики MFA можно в интерфейсе [{{ cloud-center }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../../cli/):
+
+     ```bash
+     yc organization-manager mfa-enforcement list --organization-id <идентификатор_организации>
+     ```
+
 - API {#api}
 
   Воспользуйтесь методом REST API [Delete](../../../organization/api-ref/MfaEnforcement/delete.md) для ресурса [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) или вызовом gRPC API [MfaEnforcementService/Delete](../../../organization/api-ref/grpc/MfaEnforcement/delete.md).

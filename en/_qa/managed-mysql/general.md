@@ -3,17 +3,17 @@
 {{ mmy-short-name }} is a solution that helps you create, operate, and scale {{ MY }} databases in the cloud.
 
 With {{ mmy-short-name }}, you can:
-- Create a database with the performance specs tailored to your needs.
+- Create a database with performance tailored to your needs.
 - Scale computing power and dedicated storage capacity for your databases as needed.
 - Get database logs.
 
-{{ mmy-short-name }} takes over time-consuming administrative tasks in {{ MY }}:
+{{ mmy-short-name }} handles the heavy lifting of {{ MY }} infrastructure management:
 - Monitors resource usage.
-- Automatically creates DB backups.
-- Provides fault tolerance through automatic failover to backup replicas.
+- Performs automated database backups.
+- Ensures fault tolerance through automatic failover to standby replicas.
 - Keeps your database software up-to-date.
 
-You work with a {{ mmy-short-name }} database cluster just like with your regular local database. This allows you to manage internal database settings to meet your app requirements.
+You can work with a {{ mmy-short-name }} database cluster the same way as with your regular local database. This allows you to manage internal database settings to meet your app requirements.
 
 
 #### What is the role of {{ mmy-short-name }} in database management and maintenance? {#services}
@@ -38,7 +38,7 @@ Furthermore, {{ mmy-short-name }} ensures data replication across database hosts
 
 A _database host_ is a cloud-based isolated database environment with dedicated computing resources and reserved storage capacity.
 
-A _database cluster_ consists of one or more database hosts with configurable replication between them.
+A _database cluster_ is one or more database hosts with configurable replication between them.
 
 
 #### How do I get started with {{ mmy-short-name }}? {#quickstart}
@@ -54,7 +54,7 @@ Before creating a database cluster in {{ mmy-short-name }}, you need to decide o
 
 For more information, see [Getting started](../../managed-mysql/quickstart.md).
 
-#### How many database hosts can there be in a cluster? {#how-many-hosts}
+#### How many database hosts can a cluster contain? {#how-many-hosts}
 
 
 The minimum number of hosts depends on the selected [storage](../../managed-mysql/concepts/storage.md) type:
@@ -79,19 +79,19 @@ For more information, see [Quotas and limits](../../managed-mysql/concepts/limit
 
 You can connect to {{ mmy-short-name }} databases using native DBMS connection methods.
 
-Learn more about connecting to clusters in [this guide](../../managed-mysql/operations/connect.md).
+Learn more about connecting to clusters in [this guide](../../managed-mysql/operations/connect/index.md).
 
 
 #### How many clusters can I create within a single cloud? {#db-limit}
 
-To learn more about MDB technical and organizational limitations, see [Quotas and limits](../../managed-mysql/concepts/limits.md).
+To learn more about technical and organizational limitations of MDB, see [Quotas and limits](../../managed-mysql/concepts/limits.md).
 
 
 #### How are database clusters maintained? {#service-window}
 
 Maintenance in {{ mmy-short-name }} includes:
 
-- Automatic installation of DBMS updates and patches for database hosts (including for stopped clusters).
+- Automatic installation of database management system updates and patches for hosts in both running and stopped clusters.
 - Changes in the host class and storage size.
 - Other {{ mmy-short-name }} maintenance activities.
 
@@ -120,8 +120,8 @@ In {{ mmy-short-name }}, the usage cost is calculated based on the following:
 
 - Selected host class.
 - Reserved storage capacity for the database host.
-- Size of database cluster backups. You are not charged for storing backups up to your storage size. Additional backup storage is charged according to our [pricing policy](../../managed-mysql/pricing.md).
-- Database host uptime in hours. Partial hours are rounded to the nearest whole hour. For the cost per hour of operation for each host class, see our [pricing policy](../../managed-mysql/pricing.md).
+- Size of database cluster backups. You are not charged for storing backups up to your storage size. Backup storage exceeding this limit is charged according to our [pricing policy](../../managed-mysql/pricing.md).
+- Database host uptime in hours. Partial hours are rounded to the nearest whole hour. The hourly cost for each host class is provided in our [pricing policy](../../managed-mysql/pricing.md).
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
@@ -136,11 +136,11 @@ Yes, backups are enabled by default. The {{ MY }} backup policies provide full d
 
 By default, backups are retained for seven days.
 
-#### When does a backup run? Is a database cluster available during backups? {#backup-window}
+#### When does a backup run? Can I access my database cluster during backup? {#backup-window}
 
-The backup window, the scheduled time for the database cluster’s full daily backup, is from 01:00 to 05:00 (UTC+3).
+The backup window, i.e., the scheduled time for the full daily backup of a database cluster, is from 01:00 to 05:00 (UTC+3).
 
-Clusters remain fully available during the backup window.
+Clusters remain fully accessible throughout the backup window.
 
 #### Can I change the retention period for automatic backups? {#backup-retain-days}
 
@@ -150,9 +150,9 @@ You can set the retention period for automatic backups when [creating](../../man
 
 For all DBMS types, you can monitor:
 
-- CPU, memory, network, and disk usage, in absolute terms.
-- Memory, network, and disk usage as a percentage of the set limits for the relevant cluster's host class.
-- Amount of data in a DB cluster and the remaining free space in your data storage.
+- CPU, memory, network, and disk utilization, in absolute terms.
+- Memory, network, and disk utilization as a percentage of the set limits for the cluster’s host class.
+- Total cluster data size and available storage space remaining.
 
 For all database hosts, you can monitor metrics specific to their DBMS type. For example, for {{ MY }}, you can monitor:
 - Average query execution time.

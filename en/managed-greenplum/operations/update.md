@@ -70,9 +70,9 @@ After creating a cluster, you can:
 
     1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of adjustable configuration fields for a {{ GP }} cluster, see the [{{ TF }} provider guide]({{ tf-provider-mgp }}).
+        For a complete list of configurable {{ GP }} cluster fields, refer to the [{{ TF }} provider guides]({{ tf-provider-mgp }}).
 
     1. In the {{ GP }} cluster description, change the `description` attribute value:
 
@@ -84,11 +84,11 @@ After creating a cluster, you can:
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -96,7 +96,7 @@ After creating a cluster, you can:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -125,13 +125,13 @@ After creating a cluster, you can:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -200,7 +200,7 @@ After creating a cluster, you can:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -236,13 +236,13 @@ After creating a cluster, you can:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -268,7 +268,7 @@ After creating a cluster, you can:
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
             Here, we provide only one setting.
 
@@ -341,13 +341,13 @@ If you enabled public access to the cluster but cannot access it from the inter
 
   To change additional cluster settings:
 
-    1. View the description of the CLI command for updating a cluster:
+    1. See the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-gp }} cluster update --help
         ```
 
-    1. Run the following command with the list of settings you want to update:
+    1. Run the following command by providing the list of settings you want to update:
 
         
         ```bash
@@ -392,9 +392,9 @@ If you enabled public access to the cluster but cannot access it from the inter
 
     1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of adjustable configuration fields for a {{ GP }} cluster, see the [{{ TF }} provider guide]({{ tf-provider-mgp }}).
+        For a complete list of configurable {{ GP }} cluster fields, refer to the [{{ TF }} provider guide]({{ tf-provider-mgp }}).
 
     1. In the {{ GP }} cluster description, change the values of additional settings as required:
 
@@ -424,9 +424,10 @@ If you enabled public access to the cluster but cannot access it from the inter
           }
 
           pooler_config {
-            pooling_mode             = <operation_mode>
-            pool_size                = <size>
-            pool_client_idle_timeout = <client_timeout>
+            pooling_mode                     = <operation_mode>
+            pool_size                        = <size>
+            pool_client_idle_timeout         = <client_timeout>
+            pool_idle_in_transaction_timeout = <client_timeout_during_transaction>
           }
         }
         ```
@@ -472,12 +473,13 @@ If you enabled public access to the cluster but cannot access it from the inter
             * `pooling_mode`: Operation mode, `SESSION` or `TRANSACTION`.
             * `pool_size`: Maximum number of client connections.
             * `pool_client_idle_timeout`: Idle timeout for a client connection (in seconds).
+            * `pool_idle_in_transaction_timeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -485,7 +487,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -496,7 +498,7 @@ If you enabled public access to the cluster but cannot access it from the inter
         
         ```json
         {
-          "updateMask": "config.backupWindowStart,config.access.dataLens,config.access.yandexQuery,maintenanceWindow,deletionProtection,configSpec.pool.mode,configSpec.pool.size,configSpec.pool.clientIdleTimeout,cloudStorage",
+          "updateMask": "config.backupWindowStart,config.access.dataLens,config.access.yandexQuery,maintenanceWindow,deletionProtection,configSpec.pool.mode,configSpec.pool.size,configSpec.pool.clientIdleTimeout,configSpec.pool.idleInTransactionTimeout,cloudStorage",
           "config": {
             "backupWindowStart": {
               "hours": "<hours>",
@@ -520,7 +522,8 @@ If you enabled public access to the cluster but cannot access it from the inter
             "pool": {
               "mode": "<operation_mode>",
               "size": "<number_of_client_connections>",
-              "clientIdleTimeout": "<client_timeout>"
+              "clientIdleTimeout": "<client_timeout>",
+              "idleInTransactionTimeout": "<client_timeout_during_transaction>"
             }
           },
           "cloudStorage": {
@@ -534,7 +537,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
         * `config`: Cluster settings:
 
@@ -572,6 +575,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             * `mode`: Operation mode, `SESSION` or `TRANSACTION`.
             * `size`: Maximum number of client connections.
             * `clientIdleTimeout`: Idle timeout for a client connection (in seconds).
+            * `idleInTransactionTimeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
         * `cloudStorage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ GP }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
@@ -598,7 +602,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -622,6 +626,7 @@ If you enabled public access to the cluster but cannot access it from the inter
               "config_spec.pool.mode",
               "config_spec.pool.size",
               "config_spec.pool.client_idle_timeout",
+              "config_spec.pool.idle_in_transaction_timeout",
               "cloud_storage"
             ]
           },
@@ -648,7 +653,8 @@ If you enabled public access to the cluster but cannot access it from the inter
             "pool": {
               "mode": "<operation_mode>",
               "size": "<number_of_client_connections>",
-              "client_idle_timeout": "<client_timeout>"
+              "client_idle_timeout": "<client_timeout>",
+              "idle_in_transaction_timeout": "<client_timeout_during_transaction>"
             }
           },
           "cloud_storage": {
@@ -662,7 +668,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
         * `config`: Cluster settings:
 
@@ -700,6 +706,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             * `mode`: Operation mode, `SESSION` or `TRANSACTION`.
             * `size`: Maximum number of client connections.
             * `client_idle_timeout`: Idle timeout for a client connection (in seconds).
+            * `pool_idle_in_transaction_timeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
         * `cloud_storage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ GP }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
@@ -749,7 +756,7 @@ You can change your cluster's [scheduled maintenance operations](../concepts/mai
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -782,7 +789,7 @@ You can change your cluster's [scheduled maintenance operations](../concepts/mai
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
         * `configSpec.backgroundActivities.analyzeAndVacuum`: Background process management settings:
 
@@ -797,12 +804,12 @@ You can change your cluster's [scheduled maintenance operations](../concepts/mai
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -841,7 +848,7 @@ You can change your cluster's [scheduled maintenance operations](../concepts/mai
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
         * `config_spec.background_activities.analyze_and_vacuum`: Background process management settings:
 
@@ -858,7 +865,7 @@ You can change your cluster's [scheduled maintenance operations](../concepts/mai
 
 ## Updating {{ GP }} settings {#change-gp-settings}
 
-You can change the [global DBMS settings](../concepts/settings-list.md) of your cluster. For a list of settings available for editing, see [{#T}](../concepts/settings-list.md).
+You can change your cluster's [global DBMS settings](../concepts/settings-list.md). For a list of settings you can edit, see [{#T}](../concepts/settings-list.md).
 
 {% note info %}
 
@@ -874,7 +881,7 @@ To update settings at the individual database level, use the following command:
 ALTER DATABASE <DB_name> SET <setting> = <value>;
 ```
 
-For a full list of settings, see the [{{ GP }} documentation](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html).
+For a full list of settings, see the [{{ GP }} guide](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html).
 
 {% endnote %}
 
@@ -895,9 +902,9 @@ For a full list of settings, see the [{{ GP }} documentation](https://techdocs.b
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change the [{{ GP }}](../concepts/settings-list.md) DBMS settings:
+  To change the [{{ GP }} settings](../concepts/settings-list.md):
 
-  1. View the full list of cluster settings:
+  1. View the full list of settings for the cluster:
 
      ```bash
      {{ yc-mdb-gp }} cluster get <cluster_name_or_ID>
@@ -918,15 +925,15 @@ For a full list of settings, see the [{{ GP }} documentation](https://techdocs.b
          --set <parameter1_name>=<value1>,<parameter2_name>=<value2>,...
       ```
 
-      {{ mgp-short-name }} will start updating the cluster settings.
+      {{ mgp-short-name }} will run the update cluster settings operation.
 
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of adjustable configuration fields for a {{ GP }} cluster, see the [{{ TF }} provider guide]({{ tf-provider-mgp }}).
+        For a complete list of configurable {{ GP }} cluster fields, refer to the [{{ TF }} provider guide]({{ tf-provider-mgp }}).
 
     1. In the cluster description, edit the [{{ GP }} settings](../concepts/settings-list.md) under `greenplum_config`:
 
@@ -941,11 +948,11 @@ For a full list of settings, see the [{{ GP }} documentation](https://techdocs.b
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -953,7 +960,7 @@ For a full list of settings, see the [{{ GP }} documentation](https://techdocs.b
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -982,13 +989,13 @@ For a full list of settings, see the [{{ GP }} documentation](https://techdocs.b
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
             List all {{ GP }} settings you want to update.
 
-        * `configSpec.greenplumConfig_<{{ GP }}_version>`: {{ GP }} settings. Specify each setting on a new line, separated by commas.
+        * `configSpec.greenplumConfig_<{{ GP }}_version>`: {{ GP }} settings. Use a separate line for each setting; separate them by commas.
 
-            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.greenplum.v1.UpdateClusterRequest) for the list of {{ GP }} versions supporting this option. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for the descriptions and possible values of the settings.
+            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.greenplum.v1.UpdateClusterRequest) for the list of {{ GP }} versions available for this parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for a description and possible values for each setting.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -996,13 +1003,13 @@ For a full list of settings, see the [{{ GP }} documentation](https://techdocs.b
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -1038,13 +1045,13 @@ For a full list of settings, see the [{{ GP }} documentation](https://techdocs.b
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
             List all {{ GP }} settings you want to update.
 
-        * `config_spec.greenplum_config_<{{ GP }}_version>`: {{ GP }} settings. Specify each setting on a new line, separated by commas.
+        * `config_spec.greenplum_config_<{{ GP }}_version>`: {{ GP }} settings. Use a separate line for each setting; separate them by commas.
 
-            See the [method description](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.greenplum.v1.UpdateClusterRequest) for the list of {{ GP }} versions supporting this option. See [{#T}](../concepts/settings-list.md) for the descriptions and possible values of the settings.
+            See the [method description](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.greenplum.v1.UpdateClusterRequest) for the list of {{ GP }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for a description and possible values for each setting.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1054,7 +1061,7 @@ For a full list of settings, see the [{{ GP }} documentation](https://techdocs.b
 
 ## Changing the host class {#change-resource-preset}
 
-You can change the host class for both master and segment hosts. When changing the host class:
+You can change the host class for both master hosts and segment hosts. When changing the host class:
 
 * The cluster's primary master host will change.
 * Using a [special FQDN](./connect.md#fqdn-master) does not guarantee a stable database connection: user sessions may be terminated.
@@ -1070,7 +1077,7 @@ We recommend changing the host class only when your cluster has no active worklo
   1. Open the [folder dashboard]({{ link-console-main }}).
   1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
   1. Select your cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the relevant class for {{ GP }} master hosts or segment hosts.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select a class for {{ GP }} master hosts or segment hosts.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -1081,13 +1088,13 @@ We recommend changing the host class only when your cluster has no active worklo
 
   To change the [host class](../concepts/instance-types.md) for a cluster:
 
-  1. View the description of the CLI command for updating a cluster:
+  1. See the description of the CLI command for updating a cluster:
 
       ```bash
       {{ yc-mdb-gp }} cluster update --help
       ```
 
-  1. Get the list of available host classes. The `ZONE IDS` column lists the availability zones where you can select the appropriate class:
+  1. Request a list of available classes (the `ZONE IDS` column lists the availability zones where you can select the appropriate class):
      * For master hosts:
 
         ```bash
@@ -1120,17 +1127,17 @@ We recommend changing the host class only when your cluster has no active worklo
           --segment-config resource-id=<segment_host_class_ID>
       ```
 
-      {{ mgp-short-name }} will start updating the host class for your cluster.
+      {{ mgp-short-name }} will run the update host class command for the cluster.
 
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-      For more information about creating this file, see [Creating clusters](cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-      For a complete list of adjustable configuration fields for a {{ GP }} cluster, see the [{{ TF }} provider guide]({{ tf-provider-mgp }}).
+      For a complete list of configurable {{ GP }} cluster fields, refer to the [{{ TF }} provider guide]({{ tf-provider-mgp }}).
 
-  1. In the {{ GP }} cluster description, edit the value of the `resource_preset_id` attribute under `master_subcluster.resources` or `segment_subcluster.resources`:
+  1. In the {{ GP }} cluster description, change the `resource_preset_id` attribute value under `master_subcluster.resources` or `segment_subcluster.resources`:
 
       ```hcl
       resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
@@ -1150,11 +1157,11 @@ We recommend changing the host class only when your cluster has no active worklo
       }
       ```
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1162,7 +1169,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1193,7 +1200,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
         * `masterConfig.resources.resourcePresetId` and `segmentConfig.resources.resourcePresetId`: New [host class](../concepts/instance-types.md) for master and segment hosts.
 
@@ -1203,13 +1210,13 @@ We recommend changing the host class only when your cluster has no active worklo
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -1245,7 +1252,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
         * `master_config.resources.resource_preset_id` and `segment_config.resources.resource_preset_id`: New [host class](../concepts/instance-types.md) for master and segment hosts.
 
@@ -1255,7 +1262,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
 {% endlist %}
 
-## Changing the disk type and increasing the storage size {#change-disk-size}
+## Change the disk type and increase the storage size {#change-disk-size}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
@@ -1263,16 +1270,16 @@ We recommend changing the host class only when your cluster has no active worklo
 
 - Management console {#console}
 
-  To change the disk type and  increase the storage size for a cluster:
+  To change the disk type and increase the storage size for a cluster:
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+  1. In the [management console]({{ link-console-main }}), select the folder with your cluster.
   1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
   1. Select your cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
 
       * Select the [disk type](../concepts/storage.md).
-      * Specify the required disk size.
+      * Specify the disk size.
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -1284,13 +1291,13 @@ We recommend changing the host class only when your cluster has no active worklo
 
   To increase your cluster storage size:
 
-  1. View the description of the CLI command for updating a cluster:
+  1. See the description of the CLI command for updating a cluster:
 
       ```bash
       {{ yc-mdb-gp }} cluster update --help
       ```
 
-  1. Specify the required storage size for master or segment hosts in the cluster update command (at least as large as `disk_size` in the cluster properties):
+  1. Specify the storage size for master or segment hosts in the cluster update command (at least as large as `disk_size` in the cluster properties):
 
       ```bash
       {{ yc-mdb-my }} cluster update <cluster_name_or_ID> \
@@ -1302,11 +1309,11 @@ We recommend changing the host class only when your cluster has no active worklo
 
     1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of adjustable configuration fields for a {{ GP }} cluster, see the [{{ TF }} provider guide]({{ tf-provider-mgp }}).
+        For a complete list of configurable {{ GP }} cluster fields, refer to the [{{ TF }} provider guide]({{ tf-provider-mgp }}).
 
-    1. In the {{ GP }} cluster description, edit the values of the `disk_type_id` and `disk_size` attributes under `master_subcluster.resources` or `segment_subcluster.resources`:
+    1. In the {{ GP }} cluster description, edit the `disk_type_id` and `disk_size` attributes under `master_subcluster.resources` or `segment_subcluster.resources`:
 
         ```hcl
         resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
@@ -1328,11 +1335,11 @@ We recommend changing the host class only when your cluster has no active worklo
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1340,7 +1347,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1373,12 +1380,12 @@ We recommend changing the host class only when your cluster has no active worklo
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
         * `masterConfig.resources`, `segmentConfig.resources`: Storage properties for master hosts and segment hosts:
 
             * `diskTypeId`: [Disk type](../concepts/storage.md).
-            * `diskSize`: New storage size, in bytes.
+            * `diskSize`: New storage size in bytes.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1386,13 +1393,13 @@ We recommend changing the host class only when your cluster has no active worklo
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -1432,12 +1439,12 @@ We recommend changing the host class only when your cluster has no active worklo
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
         * `master_config.resources`, `segment_config.resources`: Storage properties for master hosts and segment hosts:
 
             * `disk_type_id`: [Disk type](../concepts/storage.md).
-            * `disk_size`: New storage size, in bytes.
+            * `disk_size`: New storage size in bytes.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1452,7 +1459,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+    1. In the [management console]({{ link-console-main }}), select the folder with your cluster.
     1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
     1. Select your cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
@@ -1484,9 +1491,9 @@ We recommend changing the host class only when your cluster has no active worklo
 
     1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of adjustable configuration fields for a {{ GP }} cluster, see the [{{ TF }} provider guide]({{ tf-provider-mgp }}).
+        For a complete list of configurable {{ GP }} cluster fields, refer to the [{{ TF }} provider guide]({{ tf-provider-mgp }}).
 
     1. In the {{ GP }} cluster description, change the `service_account_id` attribute value:
 
@@ -1497,11 +1504,11 @@ We recommend changing the host class only when your cluster has no active worklo
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1509,7 +1516,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1531,7 +1538,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
             Here, we provide only one setting.
 
@@ -1543,13 +1550,13 @@ We recommend changing the host class only when your cluster has no active worklo
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -1573,7 +1580,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
         Where:
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
             Here, we provide only one setting.
 
@@ -1593,7 +1600,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+    1. In the [management console]({{ link-console-main }}), select the folder with your cluster.
     1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
     1. Select your cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
@@ -1650,9 +1657,9 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
     1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of adjustable configuration fields for a {{ GP }} cluster, see the [{{ TF }} provider guide]({{ tf-provider-mgp }}).
+        For a complete list of configurable {{ GP }} cluster fields, refer to the [{{ TF }} provider guide]({{ tf-provider-mgp }}).
 
     1. In the {{ GP }} cluster description, update the attribute values in the `logging` section:
 
@@ -1680,11 +1687,11 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
             Specify either `folder_id` or `log_group_id`.
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1692,7 +1699,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1720,7 +1727,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
         * `logging`: Logging settings:
 
@@ -1739,12 +1746,12 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -1780,7 +1787,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
         * `logging`: Logging settings:
 

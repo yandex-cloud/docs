@@ -14,7 +14,7 @@ description: Различные сценарии использования си
 * [Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}](../infrastructure-management/fault-tolerance.md)
 * [Отказоустойчивый сайт с балансировкой нагрузки через {{ network-load-balancer-full-name }}](../web/load-balancer-website/index.md)
 * [Отказоустойчивый сайт с балансировкой нагрузки через {{ alb-full-name }}](../web/application-load-balancer-website/index.md)
-* [Интеграция L7-балансировщика с {{ cdn-full-name }} и {{ objstorage-full-name }}](../web/cdn-storage-integration.md)
+* [Интеграция L7-балансировщика с {{ cdn-full-name }} и {{ objstorage-full-name }}](../web/cdn-storage-integration/index.md)
 * [Работа с группой виртуальных машин с автоматическим масштабированием](../infrastructure-management/vm-autoscale/index.md)
 * [Масштабирование группы ВМ по расписанию](../infrastructure-management/vm-scale-scheduled/index.md)
 * [Автоматическое масштабирование группы ВМ для обработки сообщений из очереди {{ message-queue-full-name }}](../infrastructure-management/autoscale-monitoring.md)

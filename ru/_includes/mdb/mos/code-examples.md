@@ -1,16 +1,4 @@
-### Bash {#bash}
-
-{% list tabs group=connection %}
-
-- Подключение с SSL {#with-ssl}
-
-    {% include [Default connection string](default-connstring.md) %}
-
-{% endlist %}
-
-{% include [see-fqdn](fqdn-host.md) %}
-
-### Go {#go}
+## Go {#go}
 
 Перед подключением установите зависимости:
 
@@ -89,24 +77,7 @@ go get github.com/opensearch-project/opensearch-go
 
 {% include [see-fqdn](fqdn-host.md) %}
 
-### PowerShell {#powershell}
-
-{% list tabs group=connection %}
-
-- Подключение с SSL {#with-ssl}
-
-   ```powershell
-   curl `
-     -Certificate <абсолютный_путь_к_файлу_сертификата> `
-     -Uri https://<FQDN_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }} `
-     -Credential admin
-   ```
-
-{% endlist %}
-
-{% include [see-fqdn](fqdn-host.md) %}
-
-### Python {#python}
+## Python {#python}
   
 Перед подключением установите зависимости:
 

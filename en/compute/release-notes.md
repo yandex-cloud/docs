@@ -10,7 +10,7 @@ description: This section contains the {{ compute-name }} release notes.
 * New VM [platforms](./concepts/vm-platforms.md) are now available:
   * AMD Zen 4 (`standard-v4a`).
   * AMD Zen 4 Compute-Optimized (`highfreq-v4a`).
-  * GPU PLATFORM V4 (`gpu-platform-v4`) with [GPU cluster](./concepts/gpus.md#gpu-clusters) support.
+  * GPU PLATFORM V4 (`gpu-standard-v4`) with [GPU cluster](./concepts/gpus.md#gpu-clusters) support.
 * Introduced the following new VM [hardware generations](./concepts/hardware-generations.md) on `PCI_TOPOLOGY_V2` with increased disk and network interface limits:
   * `Gen 1.2` with a [BIOS](https://en.wikipedia.org/wiki/BIOS) bootloader.
   * `Gen 2` with a [UEFI](https://en.wikipedia.org/wiki/UEFI) bootloader.

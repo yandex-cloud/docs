@@ -35,3 +35,9 @@
       ```
 
     {% endlist %}
+
+    {% note info %}
+
+    В случае появления ошибки `Failed to parse cloudbackup from instance attributes IAM token and instance registration id are empty, unable to provide authorization` убедитесь, что к ВМ [привязан](../../../backup/operations/connect-vm-linux.md#connect-sa-to-vm) сервисный аккаунт с [ролью](../../../backup/security/index.md#backup-editor) `backup.editor`.
+
+    {% endnote %}

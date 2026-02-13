@@ -7,7 +7,7 @@ description: This page describes the Data source (table) timed does not exist {{
 
 `ERR.DS_API.DB.SOURCE_DOES_NOT_EXIST`
 
-The error occurs when a table is deleted or renamed in a data source.
+You get this error when the table you are using does not exist in the data source. This may happen, for example, if the table was deleted or renamed.
 
 Use one of the ways below to resolve the error:
 

@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/images:copy
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/images:copy
     method: post
     path: null
     query: null
@@ -42,7 +42,7 @@ Copies the specified image to desktop image.
 ## HTTP request
 
 ```
-POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/images:copy
+POST https://clouddesktops.{{ api-host }}/cloud-desktop/v1/images:copy
 ```
 
 ## Body parameters {#yandex.cloud.clouddesktop.v1.api.CopyDesktopImageRequest}

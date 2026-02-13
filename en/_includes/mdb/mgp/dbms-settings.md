@@ -16,7 +16,7 @@ For {{ GP }}, the following parameter contexts are used:
 
 ### Parameters the user can manage globally
 
-The parameters listed bellow can be managed by the user globally at cluster level via the management console, YC CLI, Terraform, and API. Some of these parameters can also be managed locally at the session, user, or database level depending on parameter context.
+The parameters listed bellow can be managed by the user globally at cluster level via the management console, YC CLI, {{ TF }}, and API. Some of these parameters can also be managed locally at the session, user, or database level depending on parameter context.
 
 #### gp_add_column_inherits_table_setting {#setting-gp-add-column-inherits-table-setting}
 
@@ -376,7 +376,9 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 | 6.25 and higher | Integer | from 50 to 1,000 | 200 | `postmaster` |
 
 
-Maximum number of concurrent connections to the database cluster. When increasing this parameter, you should also increase [max_prepared_transactions](#setting-max-prepared-transactions). Increasing this parameter may cause the database to request more shared memory (see [master_shared_buffers](#setting-master-shared-buffers) and [segment_shared_buffers](#setting-segment-shared-buffers)).
+Maximum number of concurrent connections to the database cluster. You can connect up to `max_connections − 20` users, as `20` connections are reserved for superusers. The `superuser_reserved_connections` setting defines the number of connections for superusers, and you cannot change its value. For more information about `superuser_reserved_connections`, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#superuser_reserved_connections).
+
+When increasing `max_connections`, you should also increase [max_prepared_transactions](#setting-max-prepared-transactions). Increasing `max_connections` may cause the database to request more shared memory (see [master_shared_buffers](#setting-master-shared-buffers) and [segment_shared_buffers](#setting-segment-shared-buffers)).
 
 For segments, the `max_connections` value is calculated automatically using the following formula:
 ```

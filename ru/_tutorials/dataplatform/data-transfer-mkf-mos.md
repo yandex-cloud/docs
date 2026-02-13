@@ -46,7 +46,7 @@
         1. Для подключения к кластерам с локальной машины пользователя, настройте группы безопасности:
 
             * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-            * [{{ mos-name }}](../../managed-opensearch/operations/connect.md#security-groups).
+            * [{{ mos-name }}](../../managed-opensearch/operations/connect/index.md#security-groups).
 
 
     - {{ TF }} {#tf}
@@ -321,7 +321,7 @@
 
     - {{ OS }} Dashboards {#opensearch}
 
-        1. [Подключитесь](../../managed-opensearch/operations/connect.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
+        1. [Подключитесь](../../managed-opensearch/operations/connect/clients.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
         1. Выберите общий тенант `Global`.
         1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
         1. В разделе **OpenSearch Dashboards** выберите **Discover**.

@@ -56,7 +56,7 @@ To use the examples:
 
      All your dialogs are saved in the **{{ ui-key.yacloud.yagpt.experiments-page-subtitle }}** panel on the right. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the dialog to rename or delete it.
 
-  1. Under **{{ ui-key.yacloud.yagpt.model-using }}**, click ![image](../../../_assets/console-icons/code.svg) **View code** to get the code for a request to the model via the ML SDK for Python.
+  1. Under **{{ ui-key.yacloud.yagpt.model-using }}**, click ![image](../../../_assets/console-icons/code.svg) **View code** to get the code for a request to the model via the AI Studio SDK for Python.
 
      ![screen02](../../../_assets/ai-studio/quickstart/yandexart/screen02.png)
 
@@ -167,4 +167,4 @@ To use the examples:
 #### See also {#see-also}
 
 * [{#T}](../../concepts/generation/index.md)
-* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/image_generation)
+* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk/tree/master/examples/sync/image_generation)

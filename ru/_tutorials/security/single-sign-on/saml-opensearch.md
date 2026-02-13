@@ -8,7 +8,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Убедитесь, что вы можете [подключиться к {{ OS }} Dashboards](../../../managed-opensearch/operations/connect.md#dashboards) с использованием реквизитов пользователя `admin`. О том, как создать и настроить кластер {{ OS }}, см. в разделе [Создание кластера {{ OS }}](../../../managed-opensearch/operations/cluster-create.md).
+Убедитесь, что вы можете [подключиться к {{ OS }} Dashboards](../../../managed-opensearch/operations/connect/clients.md#dashboards) с использованием реквизитов пользователя `admin`. О том, как создать и настроить кластер {{ OS }}, см. в разделе [Создание кластера {{ OS }}](../../../managed-opensearch/operations/cluster-create.md).
 
 В этом практическом руководстве предполагается, что веб-интерфейс {{ OS }} Dashboards доступен по URL:
 
@@ -202,7 +202,7 @@ https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
 1. Если вы были авторизованы в {{ OS }} Dashboards, выйдите из профиля.
 1. На странице аутентификации {{ OS }} Dashboards нажмите **Log in with single sign-on**.
 1. На странице аутентификации {{ yandex-cloud }} укажите адрес электронной почты и пароль пользователя. Пользователь должен состоять в группе, добавленной в приложение.
-1. Убедитесь, что вы авторизовались в {{ OS }} Dashboards.
+1. Убедитесь, что вы аутентифицировались в {{ OS }} Dashboards.
 1. Если вы настроили сопоставление ролей, то:
      1. Нажмите на иконку пользователя в {{ OS }} Dashboards.
      1. Перейдите в **View roles and identities**.

@@ -94,6 +94,20 @@ Iteration 0: The term 'acropsh' is not recognized as the name of a cmdlet, funct
 * В политиках выполнения PowerShell разрешен запуск скриптов. Если запуск запрещен, разрешите его и перезапустите PowerShell. Подробнее см. в [документации Microsoft](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies).
 
 
+#### Ошибка авторизации при установке агента {{ backup-name }} на ВМ Linux {#install-auth-error}
+
+Текст ошибки:
+
+```text
+Failed to parse cloudbackup from instance attributes IAM token and instance registration id are empty, unable to provide authorization
+```
+
+Ошибка возникает при отсутствии или неправильной настройке сервисного аккаунта для виртуальной машины.
+
+Убедитесь, что:
+* К виртуальной машине [привязан](../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) сервисный аккаунт.
+* Сервисному аккаунту назначена [роль](../../backup/security/index.md#backup-editor) `backup.editor`.
+
 #### Как обновить агент {{ backup-name }} на ВМ? {#update-backup-agent}
 
 См. инструкцию [Обновить агент {{ backup-name }} на ВМ](../../backup/operations/update-backup-agent.md).

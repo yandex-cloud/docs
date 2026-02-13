@@ -1,4 +1,4 @@
-**Before connecting, install the required dependencies:**
+**Before connecting, install the dependencies:**
 
 Build `redis-tools` with TLS support using one of the two methods:
 

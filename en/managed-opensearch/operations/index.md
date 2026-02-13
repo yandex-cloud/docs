@@ -18,6 +18,7 @@ description: This page provides a list of step-by-step guides for {{ mos-name }}
 * [Managing host groups](host-groups.md)
 * [Migrating host groups to a different availability zone](host-migration.md)
 * [Managing backups](cluster-backups.md)
+* [Managing cluster access](cluster-access.md)
 * [Configuring access to {{ objstorage-name }}](s3-access.md)
 * [Deleting a cluster](cluster-delete.md)
 

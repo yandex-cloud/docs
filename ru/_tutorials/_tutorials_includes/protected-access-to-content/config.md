@@ -17,10 +17,6 @@ variable "bucket_name" {
   type = string
 }
 
-variable "cdn_cname" {
-  type = string
-}
-
 variable "secure_key" {
   type = string
 }
@@ -291,6 +287,6 @@ resource "yandex_dns_recordset" "cdn-cname" {
   name    = "${yandex_cdn_resource.my-resource.cname}."
   type    = "CNAME"
   ttl     = 600
-  data    = [var.cdn_cname]
+  data    = [yandex_cdn_resource.my-resource.provider_cname]
 }
 ```

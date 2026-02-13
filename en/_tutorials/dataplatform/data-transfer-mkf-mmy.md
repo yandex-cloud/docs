@@ -14,8 +14,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mkf-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
-* {{ mmy-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* {{ mkf-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mmy-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -27,13 +27,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - Manually {#manual}
 
-        1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) with your preferred configuration. Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
+        1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) of any suitable configuration. To be able to connect to the cluster not only from within the {{ yandex-cloud }} network but also from your local machine, enable public access when creating it.
 
         1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
 
         1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the new topic.
 
-        1. [Create a {{ mmy-name }} target cluster](../../managed-mysql/operations/cluster-create.md) of any suitable configuration with the following settings:
+        1. [Create a {{ mmy-name }} target cluster](../../managed-mysql/operations/cluster-create.md) with the following settings:
 
             * Database name: `db1`.
             * Username: `mmy-user`.
@@ -44,7 +44,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         1. To connect to the cluster from the user's local machine, configure security groups:
 
             * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-            * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#configure-security-groups).
+            * [{{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configure-security-groups).
 
 
     - {{ TF }} {#tf}
@@ -60,7 +60,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             * [Network](../../vpc/concepts/network.md#network).
             * [Subnet](../../vpc/concepts/network.md#subnet).
-            * [Security group](../../vpc/concepts/security-groups.md) and rules allowing inbound connections to the {{ mkf-name }} and {{ mmy-name }} clusters.
+            * [Security group](../../vpc/concepts/security-groups.md) and rules allowing connections to the {{ mkf-name }} and {{ mmy-name }} clusters.
             * {{ mkf-name }} source cluster.
             * {{ KF }} topic named `sensors`.
             * {{ KF }} user named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` access permissions to the `sensors` topic.
@@ -92,9 +92,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-1. Install the following tools:
+1. Install these tools:
 
-    - [kafkacat](https://github.com/edenhill/kcat): For reading from and writing to {{ KF }} topics.
+    - [kafkacat](https://github.com/edenhill/kcat): For data reads and writes in {{ KF }} topics.
 
         ```bash
         sudo apt update && sudo apt install --yes kafkacat
@@ -102,7 +102,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-    - [jq](https://stedolan.github.io/jq/) for stream processing of JSON files.
+    - [jq](https://stedolan.github.io/jq/): For stream processing of JSON files.
 
         ```bash
         sudo apt update && sudo apt-get install --yes jq
@@ -226,7 +226,7 @@ Create a local `sample.json` file with the following test data:
 
                 {% endcut %}
 
-1. Create a target endpoint and set up the transfer:
+1. Create a target endpoint and a transfer:
 
     {% list tabs group=instructions %}
 
@@ -246,7 +246,7 @@ Create a local `sample.json` file with the following test data:
 
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: Enter the user password.
 
-        1. [Create](../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type transfer configured to use the new endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type that will use the endpoints you created.
         1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     - {{ TF }} {#tf}
@@ -268,13 +268,13 @@ Create a local `sample.json` file with the following test data:
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        1. The transfer will activate automatically upon creation. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     {% endlist %}
 
 ## Test your transfer {#verify-transfer}
 
-Make sure the data from the topic in the source {{ mkf-name }} cluster is being moved to the {{ mmy-name }} cluster:
+Make sure data from the {{ mkf-name }} source cluster topic can be transferred to the {{ mmy-name }} cluster:
 
 1. Send data from `sample.json` to the {{ mkf-name }} `sensors` topic using `jq` and `kafkacat`:
 
@@ -286,7 +286,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
        -X security.protocol=SASL_SSL \
        -X sasl.mechanisms=SCRAM-SHA-512 \
        -X sasl.username="mkf-user" \
-       -X sasl.password="<source_cluster_user_password>" \
+       -X sasl.password="<user_password_in_source_cluster>" \
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
     ```
 
@@ -294,7 +294,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
 
 1. Check that the {{ mmy-name }} cluster's `sensors` table contains the data that was sent:
 
-    1. [Connect to the {{ mmy-name }} cluster](../../managed-mysql/operations/connect.md).
+    1. [Connect to the {{ mmy-name }} cluster](../../managed-mysql/operations/connect/index.md).
 
     1. Get the contents of the `sensors` table using the query below:
 
@@ -310,11 +310,11 @@ Before deleting the resources, [deactivate the transfer](../../data-transfer/ope
 
 {% endnote %}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete other resources using the same method used for their creation:
+1. Delete the other resources depending on how you created them:
 
    {% list tabs group=instructions %}
 

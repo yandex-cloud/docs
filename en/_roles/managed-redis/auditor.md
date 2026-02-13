@@ -1,1 +1,1 @@
-The `managed-redis.auditor` role allows you to view information on Valkey™ [hosts and clusters](../../managed-valkey/concepts/index.md), as well as [quotas](../../managed-valkey/concepts/limits.md#mrd-quotas) and resource operations for {{ mrd-full-name }}.
+The `managed-redis.auditor` role allows you to view information on Valkey™ [hosts and clusters](../../managed-valkey/concepts/index.md), as well as [quotas](../../managed-valkey/concepts/limits.md#mrd-quotas) and resource operations for Yandex Managed Service for Valkey™.

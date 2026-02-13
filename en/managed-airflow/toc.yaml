@@ -17,6 +17,8 @@ items:
             href: operations/cluster-update.md
           - name: Stopping and starting a cluster
             href: operations/cluster-stop.md
+          - name: Managing cluster access
+            href: operations/cluster-access.md
           - name: Maintenance
             href: operations/cluster-maintenance.md
           - name: Deleting a cluster

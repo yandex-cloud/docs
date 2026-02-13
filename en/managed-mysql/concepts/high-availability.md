@@ -27,7 +27,7 @@ High availability is achieved through [replication and master failover](replicat
 * Clusters use a mechanism for automatic selection and failover to a new master. If the master host fails, one of its replicas becomes a new master. You can also select a new master and [switch to it](../operations/update.md#start-manual-failover) manually.
 * For any replica, you can [manually select](replication.md#manual-source) a host as the replication source. Such a replica will not be involved in the master selection and failover mechanism.
 * If you use public access for the host, you must also enable it for the replicas, otherwise the cluster will become unavailable following master failover.
-* Using the [current master's FQDN](../operations/connect.md#fqdn-master) simplifies application development; however, your cluster will be temporarily unavailable while switching to a new master. To quickly switch to a new master, you need to implement the new master definition on the application side.
+* Using the [current master's FQDN](../operations/connect/fqdn.md#fqdn-master) simplifies application development; however, your cluster will be temporarily unavailable while switching to a new master. To quickly switch to a new master, you need to implement the new master definition on the application side.
 * {{ mmy-name }} clusters use [semi-sync replication](https://dev.mysql.com/doc/refman/5.7/en/replication-semisync.html): by default, the master waits for a transaction to be completed in at least one replica. You can increase the minimum number of replicas that must confirm a transaction using the {{ MY }} [Rpl semi sync master wait for slave count](settings-list.md#setting-rpl-wait-slave-count) setting. We recommend to set **Rpl semi sync master wait for slave count** to at least the maximum number of hosts per zone, not including hosts with a manually selected replication source. Then each transaction will be confirmed by at least one replica in another availability zone, so that even if an entire zone fails, the transactions will not be lost.
 
 ## Available storage space {#storage-settings}
@@ -48,5 +48,5 @@ The following settings may also affect cluster availability:
 * [Storage disk type](storage.md) you selected.
 * [Host classes](instance-types.md).
 * [Quotas and limits](limits.md).
-* [Configuring security groups](../operations/connect.md#configuring-security-groups).
+* [Configuring security groups](../operations/connect/index.md#configuring-security-groups).
 * {{ MY }} [Max connections](settings-list.md#setting-max-connections) and [Sync binlog](settings-list.md#setting-sync-binlog) settings.

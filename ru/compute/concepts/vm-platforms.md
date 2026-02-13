@@ -54,7 +54,7 @@ AMD EPYC™</br>with NVIDIA® Ampere® A100</br>(`gpu-standard-v3`) | [NVIDIA® 
 Gen2</br>(`gpu-standard-v3i`) | Gen2 | [Gen2](https://www.amd.com/en/products/processors/server/epyc/4th-generation-9004-and-8004-series/amd-epyc-9474f.html) | **Макс. кол-во GPU на 1 ВМ**: 8 </br> **Кол-во vCPU на 1 GPU**: 22,5 или 18 </br> **Объем RAM на 1 GPU**: 180 или 144 ГБ
 Intel Ice Lake with</br>NVIDIA® Tesla® T4</br>(`standard-v3-t4`) | [NVIDIA® Tesla® T4](https://www.nvidia.com/ru-ru/data-center/tesla-t4//) | Intel® Xeon® Gold 6338 | **Макс. кол-во GPU на 1 ВМ**: 1 </br> **Кол-во vCPU на 1 GPU**: 4, 8, 16 или 32 </br> **Объем RAM на 1 GPU**: 16, 32, 64 или 128 ГБ
 {{ t4i-ice-lake }}</br>(`standard-v3-t4i`) | T4i | Intel® Xeon® Gold 6338 | **Макс. кол-во GPU на 1 ВМ**: 1 </br> **Кол-во vCPU на 1 GPU**: 4, 8, 16 или 32 </br> **Объем RAM на 1 GPU**: 16, 32, 64 или 128 ГБ
-GPU PLATFORM V4</br>(`gpu-platform-v4`) | GPU V4 | Intel® Xeon® Platinum | **Макс. кол-во GPU на 1 ВМ**: 8 </br> **Кол-во vCPU на 1 GPU**: 22 или 22,5 </br> **Объем RAM на 1 GPU**: 220 или 225 ГБ
+GPU PLATFORM V4</br>(`gpu-standard-v4`) | GPU V4 | Intel® Xeon® Platinum | **Макс. кол-во GPU на 1 ВМ**: 8 </br> **Кол-во vCPU на 1 GPU**: 22 или 22,5 </br> **Объем RAM на 1 GPU**: 220 или 225 ГБ
 
 ## Смотрите также {#see-also}
 

@@ -23,14 +23,24 @@ items:
             href: operations/host-migration.md
           - name: Managing backups
             href: operations/cluster-backups.md
+          - name: Managing cluster access
+            href: operations/cluster-access.md
           - name: '{{ MY }} version upgrade'
             href: operations/cluster-version-update.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
+      - name: Connection
+        items:
+          - name: Pre-configuration
+            href: operations/connect/index.md
+          - name: FQDNs of hosts
+            href: operations/connect/fqdn.md
+          - name: Connecting from applications
+            href: operations/connect/clients.md
+          - name: Code examples
+            href: operations/connect/code-examples.md
       - name: Databases
         items:
-          - name: Connecting to a database
-            href: operations/connect.md
           - name: SQL queries in {{ websql-full-name }}
             href: operations/web-sql-query.md
           - name: Managing databases

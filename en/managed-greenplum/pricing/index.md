@@ -53,7 +53,7 @@ There are different ways to calculate the cost depending on the [host type](../c
 
 * Dedicated hosts
 
-  The cost is made up of two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} charges for these resources.
+  There are two cost components: the [{{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and the {{ mgp-name }} markup on these resources.
 
 
 
@@ -83,7 +83,7 @@ You pay for the following:
 
   * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
 
-  * Automatic backups in {{ mgp-name }} do not create a new copy but capture changes made to a database since its previous backup. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
+  * When performing automatic backups, {{ mgp-name }} does not create a new backup but saves the database changes introduced since the previous one. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
 
   * The number of hosts in a cluster does not affect the storage size and, consequently, the amount of free backups.
 
@@ -136,12 +136,12 @@ The price of local SSD storage (`local-ssd`) also depends on the host type.
 
 {% include [Access to Compute Optimized on request](../../_includes/mdb/note-compute-optimized-request.md) %}
 
-The cost calculation varies depending on the [host configuration](../concepts/instance-types.md):
+The cost calculation for standard hosts will vary depending on the [host configuration](../concepts/instance-types.md):
 
 * For i2 and i3 hosts (`io-optimized`), you should add the cost of the computing resources of {{ GP }} hosts and [the cost of using a software-accelerated network](../../compute/pricing.md).
 * For hosts with other configurations, you only pay for their computing resources.
 
-The cost of dedicated hosts is a sum of the [price for {{ compute-full-name }} computing resources](../../compute/pricing.md) and {{ mgp-name }} markup on these resources.
+For dedicated hosts, there are two cost components: the [{{ compute-full-name }} computing resources](../../compute/pricing.md) and the {{ mgp-name }} markup on these resources.
 
 
 

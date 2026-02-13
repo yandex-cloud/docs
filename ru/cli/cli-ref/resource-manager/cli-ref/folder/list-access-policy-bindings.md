@@ -19,10 +19,10 @@ Syntax:
 ||Flag | Description ||
 || `--id` | `string`
 
-Cloud id. ||
+Folder id. ||
 || `--name` | `string`
 
-Cloud name. ||
+Folder name. ||
 || `--limit` | `int`
 
 The maximum number of items to list. Default is 1000 items ||

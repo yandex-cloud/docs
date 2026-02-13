@@ -5,7 +5,7 @@
 
 To transfer data:
 
-1. [Set up the source cluster](#prepare-source).
+1. [Prepare the source cluster](#prepare-source).
 1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
@@ -14,9 +14,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mmy-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* {{ mmy-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* {{ objstorage-name }} bucket: Use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -27,7 +27,7 @@ Set up your infrastructure:
 
 - Manually {#manual}
 
-    1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) with any suitable configuration.
+    1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) of any suitable configuration.
     1. [Create a bucket in {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
 
 
@@ -44,7 +44,7 @@ Set up your infrastructure:
 
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
-        * [Security group](../../vpc/concepts/security-groups.md) and the rule permitting access to the {{ mmy-name }} cluster.
+        * [Security group](../../vpc/concepts/security-groups.md) and the rule required for connecting to the {{ mmy-name }} cluster.
         * {{ mmy-name }} source cluster.
         * Service account with the `editor`, `storage.editor`, and `storage.uploader` roles.
         * {{ objstorage-name }} bucket.
@@ -63,13 +63,13 @@ Set up your infrastructure:
             * `source_user` and `source_password`: Database owner username and password.
         * `transfer_enabled`: Set to `0` to ensure that no transfer is created before you [manually create the target endpoint](#prepare-transfer).
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -79,13 +79,13 @@ Set up your infrastructure:
 
 {% endlist %}
 
-## Set up the source cluster {#prepare-source}
+## Prepare the source cluster {#prepare-source}
 
 1. If you created the infrastructure manually, [set up your source cluster](../../data-transfer/operations/prepare.md#source-my).
 
-1. [Connect to the {{ mmy-name }} source cluster](../../managed-mysql/operations/connect.md).
+1. [Connect to the {{ mmy-name }} source cluster](../../managed-mysql/operations/connect/index.md).
 
-1. Add test data to the database. In this example, we will use a table containing information from car sensors.
+1. Populate the database with test data. In this example, we will use a table containing information from car sensors.
 
     Create a table:
 
@@ -124,7 +124,7 @@ Set up your infrastructure:
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: Specify the {{ objstorage-name }} bucket name.
 
           
-          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}**: Select or create a service account with the `storage.uploader` role.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}**: Select an existing service account or create a new one with the `storage.uploader` role.
 
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}**: `measurements`.
@@ -147,7 +147,7 @@ Set up your infrastructure:
 
               * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.include_tables.title }}**, **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.exclude_tables.title }}**: Regular expressions for the tables you want to transfer and for those you want to ignore. These parameters are optional.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**-type that will use the previously created endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the endpoints you created.
         1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
     - {{ TF }} {#tf}
@@ -155,22 +155,22 @@ Set up your infrastructure:
         1. In the `data-transfer-mmy-objs.tf` file, specify the following variables:
 
             * `target_endpoint_id`: Target endpoint ID.
-            * `transfer_enabled`: Set to `1` to create a transfer.
+            * `transfer_enabled`: `1` to create a transfer.
             * `include_tables_regex`, `exclude_tables_regex`: Regular expressions for the tables you want to transfer and for those you want to ignore. These variables are optional.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will show any errors found in your configuration files.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            The transfer will activate automatically upon creation.
+            The transfer will be activated automatically upon creation.
 
     {% endlist %}
 
@@ -193,11 +193,11 @@ Before deleting the resources, [deactivate the transfer](../../data-transfer/ope
 
 {% endnote %}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete other resources using the same method used for their creation:
+1. Delete the other resources depending on how you created them:
 
    {% list tabs group=instructions %}
 

@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups/{resourceId}:setAccessBindings
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktopGroups/{resourceId}:setAccessBindings
     method: post
     path:
       type: object
@@ -94,7 +94,7 @@ Sets access bindings for the specified desktop group.
 ## HTTP request
 
 ```
-POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups/{resourceId}:setAccessBindings
+POST https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktopGroups/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

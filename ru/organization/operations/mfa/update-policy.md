@@ -81,6 +81,39 @@ description: Следуя данной инструкции, вы сможете
      * `--description` — новое описание.
      * `--organization-id` — идентификатор организации.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Откройте конфигурационный файл {{ TF }} и измените параметры ресурса `yandex_organizationmanager_mfa_enforcement`:
+
+     ```hcl
+     resource "yandex_organizationmanager_mfa_enforcement" "example_mfa_policy" {
+       name            = "<новое_имя_политики>"
+       organization_id = "<идентификатор_организации>"
+       acr_id          = "<новый_тип_фактора_аутентификации>"
+       ttl             = "<новое_время_жизни>"
+       status          = "<новый_статус_политики>"
+       apply_at        = "<новое_время_активации>"
+       enroll_window   = "<новый_срок_создания>"
+       description     = "<новое_описание_политики>"
+     }
+     ```
+
+     {% include [mfa-tf-params-description](../../../_includes/organization/mfa-tf-params-description.md) %}
+
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} обновит политику MFA. Проверить изменения политики MFA можно в интерфейсе [{{ cloud-center }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../../cli/):
+
+     ```bash
+     yc organization-manager mfa-enforcement get <идентификатор_политики>
+     ```
+
 - API {#api}
 
   Воспользуйтесь методом REST API [Update](../../../organization/api-ref/MfaEnforcement/update.md) для ресурса [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) или вызовом gRPC API [MfaEnforcementService/Update](../../../organization/api-ref/grpc/MfaEnforcement/update.md).

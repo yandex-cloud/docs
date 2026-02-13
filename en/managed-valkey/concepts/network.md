@@ -38,7 +38,7 @@ When deleting a publicly accessible host, the assigned IP address is revoked.
 
 {{ VLK }} uses host IP addresses, not their [FQDNs](#hostname). If a {{ mrd-short-name }} cluster supports TLS, this prevents connection to {{ VLK }} hosts in the following situations:
 
-* The [{{ VLK }}](./supported-clients.md) client  connects to a host via SSL and requests to verify the host's FQDN against the certificate.
+* The [{{ VLK }}](./supported-clients.md) client connects to a host via SSL and requests to verify the host's FQDN against the certificate.
 
     The certificate contains the host's FQDN, not its IP address, so this verification will fail.
 
@@ -63,7 +63,7 @@ Enable the setting that allows FQDNs to replace IP addresses. You can do this wh
 
 {% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
 
-For information on how to configure security groups, see [{#T}](../operations/connect/index.md#configuring-security-groups).
+For information on how to configure security groups, see [{#T}](../operations/connect/index.md#configure-security-groups).
 
 {% note tip %}
 

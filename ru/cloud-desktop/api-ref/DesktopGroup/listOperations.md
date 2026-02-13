@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups/{desktopGroupId}/operations
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktopGroups/{desktopGroupId}/operations
     method: get
     path:
       type: object
@@ -57,7 +57,7 @@ Returns list of the operations for the specified desktop group.
 ## HTTP request
 
 ```
-GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups/{desktopGroupId}/operations
+GET https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktopGroups/{desktopGroupId}/operations
 ```
 
 ## Path parameters

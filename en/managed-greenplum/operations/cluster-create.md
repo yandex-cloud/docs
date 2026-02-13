@@ -9,7 +9,7 @@ For more information, see [{#T}](../concepts/index.md).
 ## Creating a cluster {#create-cluster}
 
 
-To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mgp.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} guides](../../iam/operations/roles/grant.md).
+To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mgp.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
 
 
 {% list tabs group=instructions %}
@@ -222,7 +222,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
             {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-    1. To set the start time for the backup, provide the required value in `HH:MM:SS` format under `--backup-window-start`:
+    1. To set the start time for the backup, provide a value in `HH:MM:SS` format under `--backup-window-start`:
 
         ```bash
         {{ yc-mdb-gp }} cluster create <cluster_name> \
@@ -247,7 +247,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
         {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
 
 
-    1. To set up a [maintenance](../concepts/maintenance.md) window (including for disabled clusters), provide the relevant value in the `--maintenance-window` parameter when creating your cluster:
+    1. To set up a [maintenance](../concepts/maintenance.md) window (including for disabled clusters), provide a value in the `--maintenance-window` parameter when creating your cluster:
 
         ```bash
         {{ yc-mdb-gp }} cluster create <cluster_name> \
@@ -322,7 +322,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
   1. Create a configuration file describing the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
 
-      The cluster is hosted on a cloud network. If you already have a suitable network, you do not need to describe it again.
+      The cluster is hosted on a cloud network. If you already have a network in place, you do not need to describe it again.
 
       Cluster hosts are located on the selected cloud network's subnets. If you already have suitable subnets, you do not need to describe them again.
 
@@ -408,7 +408,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
 
 
-      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mgp }}).
+      To learn more about resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mgp }}).
 
   
   1. Optionally, specify [dedicated host](../../compute/concepts/dedicated-host.md) groups to place master or segment hosts on dedicated hosts:
@@ -471,7 +471,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -524,7 +524,8 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
             "pool": {
               "mode": "<operation_mode>",
               "size": "<number_of_client_connections>",
-              "clientIdleTimeout": "<client_timeout>"
+              "clientIdleTimeout": "<client_timeout>",
+              "idleInTransactionTimeout": "<client_timeout_during_transaction>"
             }
           },
           "cloudStorage": {
@@ -600,6 +601,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
             * `mode`: Operation mode, `SESSION` or `TRANSACTION`.
             * `size`: Maximum number of client connections.
             * `clientIdleTimeout`: Idle timeout for a client connection (in seconds).
+            * `idleInTransactionTimeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
         * `cloudStorage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ GP }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
@@ -644,7 +646,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -699,7 +701,8 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
             "pool": {
               "mode": "<operation_mode>",
               "size": "<number_of_client_connections>",
-              "client_idle_timeout": "<client_timeout>"
+              "client_idle_timeout": "<client_timeout>",
+              "idle_in_transaction_timeout": "<client_timeout_during_transaction>"
             }
           },
           "cloud_storage": {
@@ -775,6 +778,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
             * `mode`: Operation mode, `SESSION` or `TRANSACTION`.
             * `size`: Maximum number of client connections.
             * `client_idle_timeout`: Idle timeout for a client connection (in seconds).
+            * `idle_in_transaction_timeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
         * `cloud_storage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ GP }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
@@ -865,20 +869,20 @@ To create a {{ GP }} cluster copy:
         ```
 
     1. Copy it from the terminal and paste it into the `.tf` file.
-    1. Move the file to the new `imported-cluster` directory.
-    1. Modify the copied configuration to prepare it for creating a new cluster:
+    1. Place the file in the new `imported-cluster` directory.
+    1. Edit the copied configuration so that you can create a new cluster from it:
 
         * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Delete the `created_at`, `health`, `id`, `status`, `master_hosts`, and `segment_hosts` parameters.
         * Add the `user_password` parameter.
-        * If the `maintenance_window` section contains `type = "ANYTIME"`, delete the `hour` setting.
+        * If the `maintenance_window` section has `type = "ANYTIME"`, delete the `hour` parameter.
         * Optionally, make further changes if you need a customized configuration.
 
     1. Navigate to the `imported-cluster` directory and [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
 
     1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Move the configuration file to the `imported-cluster` directory and [specify its settings](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
+    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
 
     1. Validate your {{ TF }} configuration:
 

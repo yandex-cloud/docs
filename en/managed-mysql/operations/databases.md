@@ -30,7 +30,7 @@ You can add and remove databases, view database details, and manage some databas
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -43,13 +43,13 @@ You can add and remove databases, view database details, and manage some databas
         --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/databases'
       ```
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Database/list.md#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -70,7 +70,7 @@ You can add and remove databases, view database details, and manage some databas
         yandex.cloud.mdb.mysql.v1.DatabaseService.List
       ```
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Database/list.md#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) to make sure your request was successful.
 
@@ -117,7 +117,7 @@ You can add and remove databases, view database details, and manage some databas
 
       {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
-      You can get the cluster name with the [list of clusters in the folder](cluster-list.md).
+      You can get the cluster name from the [list of clusters in your folder](cluster-list.md).
 
       {{ mmy-short-name }} will start creating the database.
 
@@ -138,19 +138,19 @@ You can add and remove databases, view database details, and manage some databas
 
       {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/mdb_mysql_database).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mysql_database).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -171,13 +171,13 @@ You can add and remove databases, view database details, and manage some databas
 
       {% include [database-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -203,7 +203,7 @@ You can add and remove databases, view database details, and manage some databas
 
       {% include [database-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -239,21 +239,21 @@ You can add and remove databases, view database details, and manage some databas
 
       To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-  1. Remove the `yandex_mdb_mysql_database` resource with the name of the database you are deleting.
+  1. Delete the `yandex_mdb_mysql_database` resource with the name of the database you want to remove.
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/mdb_mysql_database).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mysql_database).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -266,13 +266,13 @@ You can add and remove databases, view database details, and manage some databas
           --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/databases/<DB_name>'
       ```
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the database name, with the [list of databases in the cluster](#list-db).
+      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the database name from the [list of databases in your cluster](#list-db).
 
-  1. View the [server response](../api-ref/Database/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Database/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -294,7 +294,7 @@ You can add and remove databases, view database details, and manage some databas
           yandex.cloud.mdb.mysql.v1.DatabaseService.Delete
       ```
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the database name, with the [list of databases in the cluster](#list-db).
+      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the database name from the [list of databases in your cluster](#list-db).
 
   1. Check the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -338,7 +338,7 @@ You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mo
 
   Pay attention to quotation marks: the parameter value must include the entire string, including `sql_mode=`.
 
-  You can get the cluster name with the [list of clusters in the folder](cluster-list.md).
+  You can get the cluster name from the [list of clusters in your folder](cluster-list.md).
 
 - {{ TF }} {#tf}
 
@@ -358,21 +358,21 @@ You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mo
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/mdb_mysql_cluster#mysql-config).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mysql_cluster#mysql-config).
 
     {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -409,13 +409,13 @@ You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mo
           * [Version 5.7](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting)
           * [Version 8.0](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting)
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -452,7 +452,7 @@ You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mo
 
       Where:
 
-      * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+      * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
           Here, we provide only one setting.
 
@@ -461,7 +461,7 @@ You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mo
           * [Version 5.7](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting)
           * [Version 8.0](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting)
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -471,7 +471,7 @@ You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mo
 
 To configure the `CHARACTER SET` and `COLLATE` database settings:
 
-1. [Connect](connect.md) to the database as the database owner or as a user with the `ALTER` privilege for this database.
+1. [Connect](./connect/index.md) to the database as the database owner or as a user with the `ALTER` privilege for this database.
 1. Run the [ALTER DATABASE](https://dev.mysql.com/doc/refman/5.7/en/charset-database.html) query:
 
    ```sql

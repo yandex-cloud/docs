@@ -137,7 +137,7 @@ window.smartCaptcha.render('captcha-container', {
 
       function callback(token) {
         if (typeof token === "string" && token.length > 0) {
-            // Отправить форму на бекенд
+            // Отправить форму на бэкенд
             console.log(token);
             document.querySelector('form').submit()
         }

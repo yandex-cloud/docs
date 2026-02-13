@@ -5,6 +5,10 @@
 For more information about voice models, see [About technology](tts/index.md#voices).
 
 
+## Release as of 21/01/2026 {#210126}
+
+Added support for {{ speechkit-name }} synthesis in {{ ml-sdk-full-name }}. For more information, see [this {{ ml-sdk-name }} guide](../ai-studio/sdk/index.md) and the [project's GitHub repository](https://github.com/yandex-cloud/yandex-ai-studio-sdk).
+
 ## Release as of 28/05/25 {#280525}
 
 Added a new option of creating a unique voice, {{ brand-voice-lite-name }}. For more information, see [{#T}](tts/brand-voice/index.md).

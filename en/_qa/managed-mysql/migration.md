@@ -18,7 +18,7 @@ Got fatal error 1236 from source when reading data from binary log:
 'Could not find first log file name in binary log index file'
 ```
 
-This error may occur during external replication using the [master host's specific FQDN](../../managed-mysql/operations/connect.md#fqdn-master) if the master host in the source cluster has changed.
+This error may occur during external replication using the [master host's specific FQDN](../../managed-mysql/operations/connect/fqdn.md#fqdn-master) if the master host in the source cluster has changed.
 
 **Solution:**
 

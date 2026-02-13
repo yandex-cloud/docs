@@ -1,38 +1,3 @@
-### Bash
-
-Before connecting, install `mysql`:
-
-```bash
-sudo apt update && sudo apt install --yes mysql-client
-```
-
-{% list tabs group=connection %}
-
-- Connecting with SSL {#with-ssl}
-
-  {% include [default-connstring](default-connstring.md) %}
-
-- Connecting without SSL {#without-ssl}
-
-  ```bash
-  mysql --host=<FQDN_of_any_{{ MY }}_host> \
-        --port={{ port-mmy }} \
-        --ssl-mode=DISABLED \
-        --user=<username> \
-        --password \
-        <DB_name>
-  ```
-
-{% endlist %}
-
-{% include [see-fqdn](fqdn-host.md) %}
-
-When running any command, enter the database user password.
-
-Once connected to the DBMS, run the `SELECT version();` command.
-
-{% include [Successful connection](successful-connect.md) %}
-
 ### Go
 
 Before connecting, install the required dependencies:
@@ -391,7 +356,7 @@ npm install mysql2
     })
   ```
 
-  For this connection method, the code must include the full path to the `root.crt` certificate for {{ MY }} in the `ca` variable.
+  For this connection method, you must specify the full path to the {{ MY }} `root.crt` certificate in the `ca` variable.
 
 - Connecting without SSL {#without-ssl}
 
@@ -554,46 +519,6 @@ Connecting:
 ```bash
 php connect.php
 ```
-
-{% include [Successful connection](successful-connect.md) %}
-
-### PowerShell
-
-Before connecting, [download](https://dev.mysql.com/downloads/shell/) and install `MySQL Shell`.
-
-{% list tabs group=connection %}
-
-- Connecting with SSL {#with-ssl}
-
-  ```PowerShell
-  mysqlsh --host=<FQDN_of_any_{{ MY }}_host> `
-          --port={{ port-mmy }} `
-          --ssl-ca=<absolute_path_to_certificate_file> `
-          --ssl-mode=VERIFY_IDENTITY `
-          --user=<username> `
-          --password `
-          --database=<DB_name> `
-          --sql
-  ```
-
-- Connecting without SSL {#without-ssl}
-
-  ```PowerShell
-  mysqlsh --host=<FQDN_of_any_{{ MY }}_host> `
-          --port={{ port-mmy }} `
-          --ssl-mode=DISABLED `
-          --user=<username> `
-          --password `
-          --database=<DB_name>
-  ```
-
-{% endlist %}
-
-{% include [see-fqdn](fqdn-host.md) %}
-
-When running any command, enter the database user password.
-
-Once connected to the DBMS, run the `SELECT version();` command.
 
 {% include [Successful connection](successful-connect.md) %}
 

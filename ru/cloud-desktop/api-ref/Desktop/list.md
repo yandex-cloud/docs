@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops
     method: get
     path: null
     query:
@@ -65,7 +65,7 @@ Retrieves the list of desktop resources.
 ## HTTP request
 
 ```
-GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops
+GET https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops
 ```
 
 ## Query parameters {#yandex.cloud.clouddesktop.v1.api.ListDesktopsRequest}

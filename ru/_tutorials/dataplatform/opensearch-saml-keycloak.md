@@ -15,7 +15,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. Убедитесь, что вы можете [подключиться к {{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards) с использованием реквизитов пользователя `admin`.
+1. Убедитесь, что вы можете [подключиться к {{ OS }} Dashboards](../../managed-opensearch/operations/connect/clients.md#dashboards) с использованием реквизитов пользователя `admin`.
 
     В этом практическом руководстве предполагается, что веб-интерфейс {{ OS }} Dashboards доступен по URL:
 
@@ -251,7 +251,7 @@
 
     Чтобы сопоставить роли:
 
-    1. [Подключитесь](../../managed-opensearch/operations/connect.md#dashboards) к {{ OS }} Dashboards от имени пользователя `admin`.
+    1. [Подключитесь](../../managed-opensearch/operations/connect/clients.md#dashboards) к {{ OS }} Dashboards от имени пользователя `admin`.
     1. В меню слева выберите **{{ OS }} Plugins** → **Security**.
     1. На панели слева выберите **Roles**.
     1. Настройте сопоставления ролей:
@@ -276,7 +276,7 @@
 
     Это действие нужно выполнять с компьютера, который имеет доступ к {{ keycloak }}.
 
-1. [Подключитесь](../../managed-opensearch/operations/connect.md#dashboards) к {{ OS }} Dashboards.
+1. [Подключитесь](../../managed-opensearch/operations/connect/clients.md#dashboards) к {{ OS }} Dashboards.
 
     На странице логина нажмите кнопку **Log in with single sign-on** вместо ввода имени пользователя и пароля.
 
