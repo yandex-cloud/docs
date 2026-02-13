@@ -10,7 +10,7 @@ description: В статье описаны поля для интеграцио
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание
 --- | --- | --- | --- | --- | ---
 `endpoint` | `string` | Нет | `api.tracker.yandex.net` | Да | Хост для вызова {{ tracker-full-name }} API.
-`oauthToken` | `string` | Да | Нет | Да | [OAuth-токен](../../../../../iam/concepts/authorization/oauth-token.md), который будет использоваться для авторизации при обращении к {{ tracker-short-name }} API.
+`oauthToken` | `string` | Да | Нет | Да | [OAuth-токен](../../../../../iam/concepts/authorization/oauth-token.md), который будет использоваться для аутентификации при обращении к {{ tracker-short-name }} API.
 `organization` | [Organization](#tracker-organization) | Да | Нет | Нет | Идентификатор организации. Подробнее см. в [документации {{ tracker-short-name }}]({{ link-tracker-cloudless }}).
 `getIssue` | [TrackerGetIssue](#trackergetissue) | Нет | Нет | Нет | Описание действия получения задачи.
 `createIssue` | [TrackerCreateIssue](#trackercreateissue) | Нет | Нет | Нет | Описание действия создания задачи.

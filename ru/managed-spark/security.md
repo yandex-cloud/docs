@@ -12,7 +12,7 @@ description: Управление доступом в сервисе по соз
 * [какие роли действуют в сервисе](#roles-list);
 * [какие роли необходимы](#required-roles) для того или иного действия.
 
-Для использования сервиса необходимо авторизоваться в консоли управления с [аккаунтом на Яндексе](../iam/concepts/users/accounts.md#passport), [федеративным](../iam/concepts/users/accounts.md#saml-federation) или [локальным](../iam/concepts/users/accounts.md#local) аккаунтом.
+Для использования сервиса необходимо аутентифицироваться в консоли управления с [аккаунтом на Яндексе](../iam/concepts/users/accounts.md#passport), [федеративным](../iam/concepts/users/accounts.md#saml-federation) или [локальным](../iam/concepts/users/accounts.md#local) аккаунтом.
 
 {% include [about-access-management](../_includes/iam/about-access-management.md) %}
 

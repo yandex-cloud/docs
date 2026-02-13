@@ -29,6 +29,8 @@ items:
             href: operations/backup-retention-policies.md
           - name: Managing disk space
             href: operations/storage-space.md
+          - name: Managing cluster access
+            href: operations/cluster-access.md
           - name: Maintenance
             href: operations/cluster-maintenance.md
           - name: Updating the PostgreSQL version
@@ -73,7 +75,7 @@ items:
             href: operations/cluster-logs.md
           - name: Performance diagnostics
             href: operations/performance-diagnostics.md
-          - name: Cluster and host state monitoring
+          - name: Cluster and host status monitoring
             href: operations/monitoring.md
           - name: Connecting to DataLens
             href: operations/datalens-connect.md

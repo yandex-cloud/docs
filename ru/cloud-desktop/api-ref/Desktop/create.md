@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops
     method: post
     path: null
     query: null
@@ -60,7 +60,7 @@ Creates desktop in the specified folder.
 ## HTTP request
 
 ```
-POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops
+POST https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops
 ```
 
 ## Body parameters {#yandex.cloud.clouddesktop.v1.api.CreateDesktopRequest}

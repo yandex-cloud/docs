@@ -27,16 +27,28 @@ items:
             href: operations/host-migration.md
           - name: Managing backups
             href: operations/cluster-backups.md
+          - name: Managing cluster access
+            href: operations/cluster-access.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
+      - name: Connection
+        items:
+          - name: Pre-configuration
+            href: operations/connect/index.md
+          - name: FQDNs of hosts
+            href: operations/connect/fqdn.md
+          - name: Connecting from applications
+            href: operations/connect/clients.md
+          - name: Code examples
+            items:
+              - name: Overview
+                href: operations/connect/code-examples.md
+              - name: Connection examples for non-sharded clusters
+                href: operations/connect/non-sharded-code-examples.md
+              - name: Connection examples for sharded clusters
+                href: operations/connect/sharded-code-examples.md
       - name: Databases
         items:
-          - name: Setting up a connection
-            href: operations/connect/index.md
-          - name: Connecting to a non-sharded cluster
-            href: operations/connect/non-sharded.md
-          - name: Connecting to a sharded cluster
-            href: operations/connect/sharded.md
           - name: Queries in {{ websql-full-name }}
             href: operations/web-sql-query.md
       - name: Users

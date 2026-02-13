@@ -1,6 +1,6 @@
 ---
-title: Transferring data from a {{ ytsaurus-name }} source endpoint
-description: Follow this guide to set up a data transfer from a {{ ytsaurus-name }} source endpoint.
+title: How to set up a YTsaurus source endpoint in {{ data-transfer-full-name }}
+description: In this tutorial, you will learn how to configure a YTsaurus source endpoint when creating or modifying it in {{ data-transfer-full-name }}.
 ---
 
 # Transferring data from a {{ ytsaurus-name }} source endpoint

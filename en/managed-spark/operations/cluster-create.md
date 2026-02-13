@@ -85,6 +85,120 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To create an {{ SPRK }} cluster:
+
+    1. Verify that your folder has subnets for cluster host placement:
+
+        ```bash
+        yc vpc subnet list
+        ```
+
+        If your folder contains no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+
+    1. View the description of the CLI command for creating a cluster:
+
+        ```bash
+        {{ yc-mdb-sp }} cluster create --help
+        ```
+
+    1. Specify the cluster properties in this command (the example does not show all that are available):
+
+        ```bash
+        {{ yc-mdb-sp }} cluster create \
+           --name <cluster_name> \
+           --spark-version <<Apache_Spark_version>> \
+           --service-account-id <service_account_ID> \
+           --subnet-ids <list_of_subnet_IDs> \
+           --security-group-ids <list_of_security_group_IDs> \
+           --driver-preset-id=<class_of_driver_computing_resources> \
+           --driver-fixed-size <number_of_driver_hosts> \
+           --executor-preset-id <class_of_executor_computing_resources> \
+           --executor-min-size <minimum_number_of_executor_hosts> \
+           --executor-max-size <maximum_number_of_executor_hosts> \
+           --pip-packages <list_of_pip_packages> \
+           --deb-packages <list_of_deb_packages>\
+           --history-server-enabled \ 
+           --metastore-cluster-id <cluster_ID> \
+           --deletion-protection
+        ```
+
+        Where:
+
+        * `--name`: Cluster name. It must be unique within the folder.
+        * `--version`: {{ SPRK }} version.
+
+           {% include [change-version-note](../../_includes/managed-spark/change-version-note.md) %}
+
+        * `--service-account-id`: Service account ID.
+        * `--subnet-ids`: List of subnet IDs.
+        * `--security-group-ids`: List of security group IDs.
+        * `--driver-preset-id`: [Class](../concepts/instance-types.md) of [driver](../concepts/index.md#concepts) computing resources.
+        * `--driver-fixed-size`: Fixed number of driver instances.
+        * `--driver-min-size`: Minimum number of driver instances.
+        * `--driver-max-size`: Maximum number of driver instances.
+
+           Specify either a fixed number of drivers or minimum and maximum numbers of drivers for autoscaling.
+
+        * `--executor-preset-id`: [Class](../concepts/instance-types.md) of executor computing resources.
+        * `--executor-fixed-size`: Fixed number of executor instances.
+        * `--executor-min-size`: Minimum number of executor instances.
+        * `--executor-max-size`: Maximum number of executor instances.
+
+           Specify either a fixed number of executors or minimum and maximum numbers of executors for autoscaling.
+
+        * `--pip-packages`: List of pip packages enabling you to install additional libraries and applications in the cluster.
+
+            The package name format and version are determined by the `pip install` command.
+
+        * `--deb-packages`: List of deb packages enabling you to install additional libraries and applications in the cluster.
+
+            The package name format and version are determined by the `apt install` command.
+
+        * `--history-server-enabled`: Flag to enable history server. It allows using the service to monitor Spark History Server applications.
+
+        * `--metastore-cluster-id`: ID of the [{{ metastore-name }} cluster](../../metadata-hub/concepts/metastore.md) to use as a metadata storage.
+
+        * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+
+            Even with deletion protection on, one can still connect to the cluster manually and delete it.
+
+    1. To enable sending of {{ SPRK }} logs to [{{ cloud-logging-full-name }}](../../logging/), specify logging parameters:
+
+        ```bash
+        {{ yc-mdb-sp }} cluster create <cluster_name> \
+           ...
+           --log-enabled \
+           --log-folder-id <folder_ID>
+        ```
+
+        Where:
+
+        * `--log-enabled`: Enables logging.
+        * `--log-folder-id`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
+        * `--log-group-id`: Custom log group ID. Logs will be written to this group.
+
+            Specify either a folder ID or a custom log group ID.
+
+    1. To set up a maintenance window (including for disabled clusters), provide the required value in the `--maintenance-window` parameter:
+
+        ```bash
+        {{ yc-mdb-sp }} cluster create <cluster_name> \
+           ...
+           --maintenance-window type=<maintenance_type>,`
+                               `day=<day_of_week>,`
+                               `hour=<hour> \
+        ```
+
+        Where `type` is the maintenance type:
+
+        {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
 - {{ TF }} {#tf}
 
     {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -104,10 +218,10 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         {% include [Terraform cluster parameters description](../../_includes/mdb/msp/terraform/cluster-parameters.md) %}
 
     1. If necessary, configure additional DBMS settings:
-    
+
         {% include [Terraform cluster additional parameters description](../../_includes/mdb/msp/terraform/cluster-parameters-additional.md) %}
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -115,13 +229,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        This will create all the resources you need in the specified folder. You can verify that the new resources have appeared and check their configuration in the [management console]({{ link-console-main }}).
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings in the [management console]({{ link-console-main }}).
 
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-msp }}).
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
     
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
     
@@ -240,7 +354,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
        * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
-          Even if it is enabled, one can still connect to the cluster manually and delete it.
+          Even with deletion protection on, one can still connect to the cluster manually and delete it.
 
        * `service_account_id`: Service account ID.
 
@@ -265,7 +379,101 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
            yandex.cloud.spark.v1.ClusterService.Create \
            < body.json
        ```
-    
+
     1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+{% endlist %}
+
+## Examples {#examples}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    Create an {{ SPRK }} cluster with the following test specifications:
+
+    * Name: `myspark`.
+    * Service account: `ajev56jp96ji********`.
+    * Subnet: `{{ subnet-id }}`.
+    * Security group: `{{ security-group }}`.
+    * Two drivers with [computing resource class](../concepts/instance-types.md): `c2-m16`.
+    * Four executors with computing resource class: `c2-m16`.
+    * History server enabled.
+    * Accidental deletion protection enabled.
+
+    Run this command:
+
+    ```bash
+    {{ yc-mdb-sp }} cluster create \
+       --name myspark \
+       --service-account-id ajev56jp96ji******** \
+       --subnet-ids {{ subnet-id }} \
+       --security-group-ids {{ security-group }} \
+       --driver-preset-id c2-m16 \
+       --driver-fixed-size 2 \
+       --executor-preset-id c2-m16 \
+       --executor-fixed-size 4 \
+       --history-server-enabled \
+       --deletion-protection
+    ```
+
+- {{ TF }} {#tf}
+
+    Create an {{ SPRK }} cluster and its supporting network, using the following test specifications:
+
+    * Name: `myspark`.
+    * Service account: `ajev56jp96ji********`.
+    * Network: `msp-network`.
+    * Subnet: `msp-subnet`. The subnet availability zone is `ru-central1-a`; the range is `10.1.0.0/16`.
+    * Two drivers with [computing resource class](../concepts/instance-types.md): `c2-m16`.
+    * Four executors with computing resource class: `c2-m16`.
+    * History server enabled.
+    * Accidental deletion protection enabled.
+    * Logging disabled.
+
+    The configuration file for this cluster is as follows:
+
+    ```hcl
+    resource "yandex_spark_cluster" "myspark" {
+      name                = "myspark"
+      service_account_id  = "ajev56jp96ji********"
+      deletion_protection = true
+
+      network = {
+        subnet_ids = [yandex_vpc_subnet.msp-subnet.id]
+      }
+
+      config = {
+        resource_pools = {
+          driver = {
+            resource_preset_id = "c2-m16"
+            size               = 2
+          }
+          executor = {
+            resource_preset_id = "c2-m16"
+            size               = 4
+          }
+        }
+        history_server = {
+          enabled = true
+        }
+      }
+
+      logging = {
+        enabled = false
+      }
+    }
+
+    resource "yandex_vpc_network" "msp-network" {
+      name = "msp-network"
+    }
+
+    resource "yandex_vpc_subnet" "msp-subnet" {
+      name           = "msp-subnet"
+      zone           = "ru-central1-a"
+      network_id     = yandex_vpc_network.msp-network.id
+      v4_cidr_blocks = ["10.1.0.0/16"]
+    }
+    ```
 
 {% endlist %}

@@ -342,7 +342,7 @@
 
   1. Нажмите **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
 
-    На вкладке **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}** появится подключенный виртуальный хост.
+    В разделе ![cubes-3-overlap](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.common.connected_resources }}** появится подключенный виртуальный хост.
 
   {% include [disable-sp-route](../../_includes/smartwebsecurity/disable-sp-route.md) %}
 

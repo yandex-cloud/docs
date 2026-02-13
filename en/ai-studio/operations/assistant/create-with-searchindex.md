@@ -53,7 +53,7 @@ To use the examples:
 
       {% include [sdk-code-legend](../../../_includes/ai-studio/examples/sdk-code-legend.md) %}
 
-      * `<search_strategy_instruction>`: Prompt instructing the model on how to access the search index. Here is an example: `Search through the knowledge base only if the user has specifically asked you to do so`.
+      * `<search_strategy_instruction>`: Prompt instructing the model on how to access the search index. For example: `Search through the knowledge base only if the user has specifically asked you to do so`.
 
   1. Run the file you created:
 
@@ -183,7 +183,7 @@ To use the examples:
           }
           ```
 
-          In response, {{ assistant-api }} will return the ID of the downloaded file. Save this file ID (`id` field value). You will need it in the next step.
+          In response, {{ assistant-api }} will return the ID of the downloaded file. Save this file ID (`id` field value) for the next step.
   1. Create a [search index](../../concepts/assistant/index.md#files):
 
       1. Create a file named `index.json` with the body of the index creation request by specifying the file ID you got earlier:
@@ -225,7 +225,7 @@ To use the examples:
           }
           ```
 
-          You will get the [Operation](../../../api-design-guide/concepts/operation.md) object's ID in response. Save this ID (`id` field value). You will need it in the next step.
+          You will get the [Operation](../../../api-design-guide/concepts/operation.md) object's ID in response. Save this ID (`id` field value) for the next step.
       1. To check your readiness to create a search index, request the operation status by specifying the ID you saved earlier:
 
           ```bash
@@ -295,7 +295,7 @@ To use the examples:
           `true` in the `done` field indicates that the index has been created. Save the search index ID (`response.id` field value). You will need it to create an assistant and a [thread](../../concepts/assistant/index.md#content).
   1. Create an AI assistant:
 
-      1. Create a file named `assistant.json` with the body of the request to create an assistant:
+      1. Create a file named `assistant.json` with the body of the assistant creation request:
 
           **assistant.json**
 
@@ -325,7 +325,7 @@ To use the examples:
           Where:
           * `modelUri`: [URI](../../concepts/generation/models.md#generation) of the text generation model.
           * `searchIndexIds`: Search index ID you got at the previous step.
-          * `instruction`: Prompt instructing the model on how to access the search index. Here is an example: `Search through the knowledge base only if the user has specifically asked you to do so`.
+          * `instruction`: Prompt instructing the model on how to access the search index. For example: `Search through the knowledge base only if the user has specifically asked you to do so`.
       1. Send a request to create an AI assistant by specifying the path to the new `assistant.json` request body file:
 
           ```bash
@@ -392,7 +392,7 @@ To use the examples:
           In response, {{ assistant-api }} will return your new AI assistant's ID. Save the ID (`id` field value). You will need it when accessing the assistant.
   1. Create a thread:
 
-      1. Create a file named `thread.json` with the body of the request to create a thread:
+      1. Create a file named `thread.json` with the body of the thread creation request:
 
           **thread.json**
 
@@ -439,7 +439,7 @@ To use the examples:
           Save the obtained thread ID (`id` field value). You will need it later.
   1. In the thread, create a message without asking for access to the knowledge base:
 
-      1. Create a file named `message.json` with the body of the request to create a message by specifying the previously obtained thread ID and the request text in the context of the downloaded knowledge base file:
+      1. Create a file named `message.json` with the body of the message creation request by specifying the previously obtained thread ID and the request text in the context of the downloaded knowledge base file:
 
           **message.json**
 
@@ -541,7 +541,7 @@ To use the examples:
           }
           ```
 
-          {{ assistant-api }} has returned the run information: the launch is in `PENDING` status. Save the run ID (`id` field value). You will need it in the next step.
+          {{ assistant-api }} has returned the run information: the launch is in `PENDING` status. Save the run ID (`id` field value) for the next step.
 
       1. Get the result of the run with the assistant's response. To do this, make a request by specifying the run ID you got earlier:
 
@@ -695,7 +695,7 @@ To use the examples:
       }
       ```
 
-      {{ assistant-api }} has returned the run information: the launch is in `PENDING` status. Save the run ID (`id` field value). You will need it in the next step.
+      {{ assistant-api }} has returned the run information: the launch is in `PENDING` status. Save the run ID (`id` field value) for the next step.
   1. Get the result of the run with the assistant's second response. To do this, make a request by specifying the run ID you got earlier:
 
       ```bash
@@ -846,4 +846,4 @@ To use the examples:
 * [{#T}](./create-with-websearch.md)
 * [{#T}](../../tutorials/pdf-searchindex-ai-assistant.md)
 * [{#T}](../../concepts/assistant/tools/index.md)
-* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)
+* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk/tree/master/examples/sync/assistants)

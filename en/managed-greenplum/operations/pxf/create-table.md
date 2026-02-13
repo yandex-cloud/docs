@@ -156,8 +156,8 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
         * **Driver**: `com.mysql.jdbc.Driver`
         * **Url**: `jdbc:mysql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mmy }}/db1`, where:
 
-            * `c-<cluster_ID>.rw.{{ dns-zone }}` is a [special FQDN](../../../managed-mysql/operations/connect.md#fqdn-master) always pointing to the current master host in the {{ mmy-name }} cluster.
-            * `{{ port-mmy }}`: Port for [connection](../../../managed-mysql/operations/connect.md) to the {{ mmy-name }} cluster.
+            * `c-<cluster_ID>.rw.{{ dns-zone }}` is a [special FQDN](../../../managed-mysql/operations/connect/fqdn.md#fqdn-master) always pointing to the current master host in the {{ mmy-name }} cluster.
+            * `{{ port-mmy }}`: Port for [connection](../../../managed-mysql/operations/connect/index.md) to the {{ mmy-name }} cluster.
             * `db1`: DB name in the {{ mmy-name }} cluster.
 
         * **User**: `mysqluser`
@@ -166,7 +166,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
 
         With no data source created, you will need to provide the source connection properties in the SQL query for creating an external table.
 
-    1. [Connect to the {{ MY }} DB](../../../managed-mysql/operations/connect.md#connection-string) using `mysql`.
+    1. [Connect to the {{ MY }} DB](../../../managed-mysql/operations/connect/index.md#connection-string) using `mysql`.
     1. Create a test table and populate it with data:
 
         ```sql

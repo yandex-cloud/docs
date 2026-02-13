@@ -48,6 +48,8 @@ Cron expression for workflow schedule. Example: '0 * * * * *'. ||
 
 Timezone for workflow schedule, e.g. Europe/Moscow. Defaults to your local timezone. ||
 || `--remove-schedule` | Remove schedule for the workflow. ||
+|| `--set-is-public` | Make workflow public for execution. ||
+|| `--remove-is-public` | Make workflow private for execution. ||
 || `--no-logging` | Disable logging from workflow. ||
 || `--log-group-id` | `string`
 

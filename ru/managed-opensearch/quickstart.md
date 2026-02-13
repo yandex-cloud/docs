@@ -114,4 +114,4 @@ description: В этой инструкции вы научитесь созда
 ## Что дальше {#whats-next}
 
 * Изучите [концепции сервиса](concepts/index.md).
-* Узнайте подробнее о [создании кластера](operations/cluster-create.md) и [подключении к кластеру](operations/connect.md).
+* Узнайте подробнее о [создании кластера](operations/cluster-create.md) и [подключении к кластеру](operations/connect/index.md).

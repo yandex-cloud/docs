@@ -7,10 +7,10 @@ In this tutorial, you will learn how to create a virtual machine in {{ yandex-cl
 
 ## Required paid resources {#paid-resources}
 
-* {{ mkf-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
-* {{ mmy-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
-* Fee for public IP addresses assigned to cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* VM fee, which covers the use of computing resources, storage, and public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* {{ mkf-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mmy-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -21,7 +21,7 @@ In this tutorial, you will learn how to create a virtual machine in {{ yandex-cl
     * Database: `db1`
     * User: `user1`
 
-1. [Create a {{ mkf-name }} _target cluster_](../../managed-kafka/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
+1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) in any suitable configuration with publicly accessible hosts.
 
 1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) running [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) with a public IP address.
 
@@ -29,7 +29,7 @@ In this tutorial, you will learn how to create a virtual machine in {{ yandex-cl
 1. If you use security groups, configure them to allow connections to the clusters from the internet and from the VM you created, and to allow SSH access to that VM from the internet:
 
     * [Configuring {{ mkf-name }} cluster security groups](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-    * [Configuring {{ mmy-name }} cluster security groups](../../managed-mysql/operations/connect.md#configure-security-groups).
+    * [Configuring {{ mmy-name }} cluster security groups](../../managed-mysql/operations/connect/index.md#configure-security-groups).
 
 
 1. [Connect to your VM over SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) and complete its initial setup:
@@ -61,7 +61,7 @@ In this tutorial, you will learn how to create a virtual machine in {{ yandex-cl
     1. Install certificates on the VM and make sure you can access the clusters:
 
         * [{{ mkf-name }}](../../managed-kafka/operations/connect/clients.md) (use `kafkacat`).
-        * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#get-ssl-cert) (use `mysql`).
+        * [{{ mmy-name }}](../../managed-mysql/operations/connect/index.md#get-ssl-cert) (use `mysql`).
 
     1. Create a directory to store the files required for the Debezium connector:
 
@@ -84,9 +84,9 @@ In this tutorial, you will learn how to create a virtual machine in {{ yandex-cl
 
 1. [Assign](../../managed-mysql/operations/cluster-users.md#update-settings) the `REPLICATION CLIENT` and `REPLICATION SLAVE` global privileges to `user1`.
 
-1. [Connect](../../managed-mysql/operations/connect.md) to the `db1` database as `user1`.
+1. [Connect](../../managed-mysql/operations/connect/index.md) to the `db1` database as `user1`.
 
-1. Add test data to the database. In this example, we will use a simple table containing information from certain car sensors.
+1. Populate the database with test data. In this example, we will use a simple table with car sensor information.
 
     1. Create a table:
 
@@ -168,9 +168,9 @@ In this tutorial, you will learn how to create a virtual machine in {{ yandex-cl
     Where:
 
     * `name`: Logical name of the Debezium connector. It is used for the connector’s internal needs.
-    * `database.hostname`: [Special FQDN](../../managed-mysql/operations/connect.md#fqdn-master) for connecting to the master host of the source cluster.
+    * `database.hostname`: [Special FQDN](../../managed-mysql/operations/connect/fqdn.md#fqdn-master) for connecting to the master host of the source cluster.
 
-        You can get the cluster ID with the [list of clusters in the folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
+        You can get the cluster ID from the [list of clusters in your folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
 
     * `database.user`: {{ MY }} username.
     * `database.dbname`: {{ MY }} database name.
@@ -320,7 +320,7 @@ In this tutorial, you will learn how to create a virtual machine in {{ yandex-cl
 
     {% endcut %}
 
-1. [Connect to the source cluster](../../managed-mysql/operations/connect.md) and add another row to the `measurements` table:
+1. [Connect to the source cluster](../../managed-mysql/operations/connect/index.md) and add another row to the `measurements` table:
 
     ```sql
     INSERT INTO measurements VALUES ('iv7b74th678t********', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);

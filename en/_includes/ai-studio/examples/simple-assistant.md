@@ -2,11 +2,11 @@
 #!/usr/bin/env python3
 
 from __future__ import annotations
-from yandex_cloud_ml_sdk import YCloudML
+from yandex_ai_studio_sdk import AIStudio
 
 
 def main():
-    sdk = YCloudML(
+    sdk = AIStudio(
         folder_id="<folder_ID>",
         auth="<API_key>",
     )

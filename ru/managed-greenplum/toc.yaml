@@ -27,10 +27,18 @@ items:
             href: operations/cluster-access.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
+      - name: Подключение
+        items:
+          - name: Предварительная настройка
+            href: operations/connect/index.md
+          - name: FQDN хостов
+            href: operations/connect/fqdn.md
+          - name: Подключение из приложений
+            href: operations/connect/clients.md
+          - name: Примеры кода
+            href: operations/connect/code-examples.md
       - name: Базы данных
         items:
-          - name: Подключение к базе данных
-            href: operations/connect.md
           - name: Управление базами данных
             href: operations/databases.md
           - name: Запросы в {{ websql-full-name }}

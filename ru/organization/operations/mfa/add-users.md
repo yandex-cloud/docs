@@ -60,6 +60,42 @@ description: Следуя данной инструкции, вы сможете
 
      Можно указать несколько параметров `--audience-delta` для одновременного изменения нескольких объектов.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Чтобы добавить пользователя или группу в политику MFA, опишите в конфигурационном файле параметры ресурса `yandex_organizationmanager_mfa_enforcement_audience`:
+
+     ```hcl
+     resource "yandex_organizationmanager_mfa_enforcement_audience" "example_mfa_audience" {
+       mfa_enforcement_id = "<идентификатор_политики_MFA>"
+       subject_id         = "<идентификатор_пользователя_или_группы>"
+     }
+     ```
+
+     Где:
+
+     * `mfa_enforcement_id` — идентификатор политики MFA, к которой нужно добавить пользователя или группу. Обязательный параметр.
+     * `subject_id` — идентификатор пользователя или группы, которые нужно добавить в политику MFA. Обязательный параметр.
+
+     Чтобы добавить несколько пользователей или групп, создайте отдельный ресурс `yandex_organizationmanager_mfa_enforcement_audience` для каждого из них.
+
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_mfa_enforcement_audience` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement_audience).
+
+  1. Создайте ресурсы:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} создаст все требуемые ресурсы. Проверить добавление пользователей в политику MFA можно в интерфейсе [{{ cloud-center }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../../cli/):
+
+     ```bash
+     yc organization-manager mfa-enforcement list-audience --id <идентификатор_политики>
+     ```
+
+  1. Чтобы удалить пользователя или группу из политики MFA, удалите соответствующий ресурс `yandex_organizationmanager_mfa_enforcement_audience` из конфигурационного файла и примените изменения.
+
 - API {#api}
 
   Воспользуйтесь методом REST API [UpdateAudience](../../../organization/api-ref/MfaEnforcement/updateAudience.md) для ресурса [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) или вызовом gRPC API [MfaEnforcementService/UpdateAudience](../../../organization/api-ref/grpc/MfaEnforcement/updateAudience.md).

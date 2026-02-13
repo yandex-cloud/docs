@@ -2032,7 +2032,7 @@ You can create connections of the following types:
     1. From the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** list, select **{{ VLK }}**.
     1. Under **Connection to {{ VLK }}**, specify the connection parameters:
        1. In the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** field, select **Custom installation**.
-       1. In the **Hosts** field, specify the [FQDNs](../../managed-valkey/operations/connect/index.md#fqdn) or IP addresses of the hosts in the shard, HTTP or TCP port for connection, and the [shard](../../managed-valkey/operations/connect/sharded.md) name.
+       1. In the **Hosts** field, specify the [FQDNs](../../managed-valkey/operations/connect/index.md#fqdn) or IP addresses of the hosts in the shard, HTTP or TCP port for connection, and the [shard](../../managed-valkey/operations/connect/sharded-code-examples.md) name.
 
            When creating a connection to a custom database installation intended for [{{ datalens-full-name }}](../../datalens/concepts/index.md), specify the hosts’ external IP addresses.
 

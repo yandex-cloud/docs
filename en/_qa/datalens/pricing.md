@@ -46,11 +46,13 @@ This depends on your current service plan:
 
    If you [add a billing account](../../datalens/settings/service-plan.md#add-billing-account) by March 1, 2026, seat-based pricing will start to apply. Otherwise, your instance will be reduced to one seat starting March 1.
 
-   If you switch to **Business** before December 1, 2025, or complete your trial under the new plan between December 1 and December 31, 2025, you will [receive a 50% discount](../../datalens/pricing-changes.md#discounts) from the moment you switch, effective through all of 2026.
+   If you switch to **Business** before December 1, 2025, or complete your trial period under the new plan between December 1 and December 31, 2025, you may [get a 50% discount](../../datalens/pricing-changes.md#discounts) from that moment until the end of 2026. If you complete your trial period under the new plan between January 1 and January 31, 2026, you may [get a 20% discount](../../datalens/pricing-changes.md#discounts) from that moment until the end of 2026.
 
 ### How do I get the discount? {#discount}
 
 To be eligible for the 50% discount, you need to be a **Community** user as of November 16, 2025 and switch to the **Business** plan before December 1, 2025 or complete your trial period under the new plan between December 1 and December 31, 2025. The discount will apply immediately and remain in effect through all of 2026.
+
+To be eligible for the 20% discount, you need to be a **Community** user as of November 16, 2025 and complete your trial period under the new plan between January 1 and January 31, 2026. The discount will apply immediately and remain in effect through all of 2026.
 
 ### I am currently on the Business plan. How will my active users convert to seats? {#business-conversion}
 
@@ -66,7 +68,7 @@ Starting December 1, 2025, administrators will gain access to a seat management 
 * View the number of seats in the instance, including available (unassigned) ones.
 * View the list of users with seats.
 * Reassign seats from user to user.
-* Increase or decrease the number of seats in an instance.
+* Increase or decrease the number of seats in the instance.
 
 ### How does auto-assignment work? Will all users in my instance get their seats right away? {#auto}
 
@@ -92,13 +94,13 @@ As your instance users log in, they will get their seats, charged to your billin
 
 On December 1, 2025, your extended trial period of the new service plan will start and remain in effect until March 1, 2026. During the trial, you will have full access to **Business** features with seats auto-assigned to users at no charge, i.e., teams will be able to use {{ datalens-name }} for free. Your administrator will get access to seat management.
 
-If you have a linked billing account, seat-based billing will start on March 1, 2026. Otherwise, your instance will be scaled down to one seat starting March 1.
+If you have a linked billing account, seat-based billing will start on March 1, 2026. Otherwise, your instance will be reduced to one seat starting March 1.
 
 If you were on the **Community** plan as of November 16, 2025, you are eligible for a 50% discount on all your seats. To get the discount, switch to **Business** before December 1, 2025, or complete your trial period under the new plan between December 1 and December 31, 2025. The discount will apply immediately and remain in effect through all of 2026.
 
 {% note info %}
 
-When exiting the trial, your first month's seat cost is prorated based on remaining days in the month. 
+Following the end of the trial period, your seat charge for the first month will be calculated in proportion to the number of days left in the month. 
 
 {% endnote %}
 

@@ -33,6 +33,8 @@
 1. [Установите и сконфигурируйте](../../storage/tools/aws-cli.md) AWS Command Line Interface (AWS CLI).
 1. Опишите конфигурацию [политики доступа](../../storage/concepts/policy.md) в виде [схемы данных](../../storage/s3/api-ref/policy/scheme.md) формата JSON.
 
+    {% include [sts-for-one-bucket.md](sts-for-one-bucket.md) %}
+
     {% include [sts-sa-scope-note](sts-sa-scope-note.md) %}
 
     {% cut "Пример политики" %}

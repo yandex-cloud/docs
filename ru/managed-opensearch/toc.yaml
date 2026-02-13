@@ -13,12 +13,6 @@ items:
             href: operations/cluster-list.md
           - name: Создание кластера
             href: operations/cluster-create.md
-          - name: Подключение
-            items:
-              - name: Подключение к кластеру
-                href: operations/connect.md
-              - name: Настройка SAML-аутентификации
-                href: operations/saml-authentication.md
           - name: Изменение параметров
             items:
               - name: Изменение настроек кластера
@@ -43,6 +37,18 @@ items:
             href: operations/s3-access.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
+      - name: Подключение
+        items:
+          - name: Предварительная настройка
+            href: operations/connect/index.md
+          - name: FQDN хостов
+            href: operations/connect/fqdn.md
+          - name: Подключение из приложений
+            href: operations/connect/clients.md
+          - name: Примеры кода
+            href: operations/connect/code-examples.md
+          - name: Настройка SAML-аутентификации
+            href: operations/saml-authentication.md
       - name: Управление пользователями
         href: operations/cluster-users.md
       - name: Логи и мониторинг

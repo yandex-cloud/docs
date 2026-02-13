@@ -40,7 +40,7 @@
 
         * [Облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера.
 
-        * [Группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
+        * [Группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
         * [Зону доступности](../../overview/concepts/geo-scope.md) и [подсеть](../../vpc/concepts/network.md#subnet) для размещения кластера. Чтобы создать новую подсеть, нажмите **{{ ui-key.yacloud.mdb.forms.label_add-subnetwork }}** в списке подсетей.
 

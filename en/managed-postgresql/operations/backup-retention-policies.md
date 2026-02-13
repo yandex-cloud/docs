@@ -6,6 +6,27 @@
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** service.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
+  1. On the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** page, select the **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}** tab.
+  1. Click **Create policy**.
+  1. Specify the parameters of the new policy:
+
+      1. Enter a name and description.
+      1. Select one of the backup start options:
+
+          * **Every day**.
+          * **Every week**. For this option, additionally select one or more days of the week.
+          * **By month**. For this option, additionally select one or more months and one or more days of the month.
+
+          The backup start time is specified in the [cluster settings](update.md#change-additional-settings).
+
+      1. Specify backup storage parameters. You can keep backups permanently or set a retention period (at least seven days).
+
+    1. Click **{{ ui-key.yacloud.common.create }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -33,12 +54,12 @@
 
       Where:
 
-      * `day-of-month`: Day of month. Allowed values: `1–31`.
-      * `month`: Month. Allowed values: `1–12` or `JAN–DEC`.
-      * `day-of-week`: Day of week. Allowed values: `0–6` or `SUN–SAT`.
+      * `day-of-month`: Day of month. The possible value is `1–31`.
+      * `month`: Month. The possible values are `1–12` or `JAN–DEC`.
+      * `day-of-week`: Day of week. The possible values are `0–6` or `SUN–SAT`.
       * `retain-for-days`: Backup retention period in days. The minimum value is `7`.
 
-        The `day-of-month`, `month`, and `day-of-week` settings define the schedule for creating backups. The schedule is defined as a cron expression without hours and minutes.
+        The `day-of-month`, `month`, and `day-of-week` define the schedule for creating backups. The schedule is defined as a cron expression without hours and minutes.
         
         Cron expressions also support the following special characters:
 
@@ -100,9 +121,9 @@
      ```
 
       Where:
-      * `dayOfMonth`: Day of the month. Allowed values: `1-31`.
-      * `month`: Month. Allowed values: `1-12` or `JAN-DEC`.
-      * `dayOfWeek`: Day of the week. Allowed values: `0-6` or `SUN-SAT`.
+      * `dayOfMonth`: Day of the month. The possible value is `1-31`.
+      * `month`: Month. The possible values are `1-12` or `JAN-DEC`.
+      * `dayOfWeek`: Day of week. The possible values are `0-6` or `SUN-SAT`.
       * `retainForDays`: Backup retention period in days. The minimum value is `7`.
         
         The `dayOfMonth`, `month`, and `dayOfWeek` define the schedule for creating backups. The schedule is defined as a cron expression without hours and minutes.
@@ -164,9 +185,9 @@
 
         Where:
 
-        * `day_of_month`: Day of the month. Allowed values: `1–31`.
-        * `month`: Month. Allowed values: `1–12` or `JAN–DEC`.
-        * `day_of_week`: Day of the week. Allowed values: `0–6` or `SUN–SAT`.
+        * `day_of_month`: Day of month. The possible value is `1–31`.
+        * `month`: Month. The possible values are `1–12` or `JAN–DEC`.
+        * `day_of_week`: Day of week. The possible values are `0–6` or `SUN–SAT`.
         * `retain_for_days`: Backup retention period in days. The minimum value is `7`.
 
           The `day_of_month`, `month`, and `day_of_week` define the schedule for creating backups. The schedule is defined as a cron expression without hours and minutes.
@@ -197,6 +218,13 @@
 ## Getting a list of backup policies {#list-policies}
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** service.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
+  1. On the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** page, select the **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}** tab.
+
 
 - CLI {#cli}
 
@@ -248,7 +276,7 @@
       
       Where `page_size` is the number of query results per page. Specify a number greater than zero.
 
-     You can get the cluster ID from the [list of clusters](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/BackupRetentionPolicy/list.md#yandex.cloud.mdb.postgresql.v1.ListBackupRetentionPoliciesResponse) to make sure your request was successful.
 
@@ -281,7 +309,7 @@
 
         Where `page_size` is the number of query results per page. Specify a number greater than zero.
 
-        You can get the cluster ID from the [list of clusters](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters).
 
      1. Check the [server response](../api-ref/grpc/BackupRetentionPolicy/list.md#yandex.cloud.mdb.postgresql.v1.ListBackupRetentionPoliciesResponse) to make sure your request was successful.      
 
@@ -290,6 +318,16 @@
 ## Deleting a backup policy {#delete-policy}
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** service.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
+  1. On the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** page, select the **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}** tab.
+
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the policy you want to delete.
+  1. Select **{{ ui-key.yacloud.common.delete }}**.
+  1. Confirm deletion and click **Delete**.
 
 - CLI {#cli}
 

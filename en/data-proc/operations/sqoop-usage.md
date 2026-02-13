@@ -43,7 +43,7 @@ A JDBC connect string has the following format:
     jdbc:mysql://<DB_server_address>:3306/<DB_name>
     ```
 
-    For {{ mmy-full-name }}, use a string with a [special FQDN](../../managed-mysql/operations/connect.md#fqdn-master) pointing at the master host:
+    For {{ mmy-full-name }}, use a string with a [special FQDN](../../managed-mysql/operations/connect/fqdn.md#fqdn-master) pointing at the master host:
 
     ```http
     jdbc:mysql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mmy }}/<DB_name>

@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:restart
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:restart
     method: post
     path:
       type: object
@@ -28,7 +28,7 @@ Restart the specified desktop.
 ## HTTP request
 
 ```
-POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:restart
+POST https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:restart
 ```
 
 ## Path parameters

@@ -1,24 +1,24 @@
 #### How do I connect to a cluster? {#how-to-connect}
 
-View the connection examples in [this guide](../../managed-mysql/operations/connect.md#connection-string) or on the cluster page in the [management console]({{ link-console-main }}) (click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}** in the top panel).
+View the connection examples in [this guide](../../managed-mysql/operations/connect/index.md#connection-string) or on the cluster page in the [management console]({{ link-console-main }}) (click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}** in the top panel).
 
-{{ MY }} hosts with public access only support connections with an [SSL certificate](../../managed-mysql/operations/connect.md#get-ssl-cert).
+{{ MY }} hosts with public access only support connections with an [SSL certificate](../../managed-mysql/operations/connect/index.md#get-ssl-cert).
 
-There are also special FQDNs pointing to the [current master](../../managed-mysql/operations/connect.md#fqdn-master) and [most recent replica](../../managed-mysql/operations/connect.md#fqdn-replica) of the cluster.
+There are also special FQDNs pointing to the [current master](../../managed-mysql/operations/connect/fqdn.md#fqdn-master) and [most recent replica](../../managed-mysql/operations/connect/fqdn.md#fqdn-replica) of the cluster.
 
 #### Why cannot I connect from the internet? {#from-internet}
 
 Check whether your host is publicly accessible. To do this, in the [management console]({{ link-console-main }}):
 1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-1. Click the name of your cluster and open the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
 1. Check the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_public-ip }}** column value for your host.
 
-{{ MY }} hosts with public access only support connections with an [SSL certificate](../../managed-mysql/operations/connect.md#get-ssl-cert).
+{{ MY }} hosts with public access only support connections with an [SSL certificate](../../managed-mysql/operations/connect/index.md#get-ssl-cert).
 
 Additionally, consider the following:
 * If public access in your cluster is only enabled for certain hosts, automatic master failover can make the master unreachable from the internet.
-* If you are using [special FQDNs](../../managed-mysql/operations/connect.md#fqdn-master), check the host list to make sure the current master or replica have public access.
-* If you are using [{#T}](../../managed-mysql/concepts/network.md#security-groups), check their [settings](../../managed-mysql/operations/connect.md#configure-security-groups).
+* If you are using [special FQDNs](../../managed-mysql/operations/connect/fqdn.md#fqdn-master), check the host list to make sure the current master or replica have public access.
+* If you are using [{#T}](../../managed-mysql/concepts/network.md#security-groups), check their [settings](../../managed-mysql/operations/connect/index.md#configure-security-groups).
 
 #### Why cannot I connect from {{ yandex-cloud }}? {#from-yc}
 
@@ -30,8 +30,8 @@ To do this, in the management console:
 1. Make sure your VM is in one of the network’s subnets.
 
 Additionally, consider the following:
-* If you are connecting to a publicly accessible host, make sure to use an [SSL certificate](../../managed-mysql/operations/connect.md#get-ssl-cert).
-* If you are using [special FQDNs](../../managed-mysql/operations/connect.md#fqdn-master), check the host list to make sure the current master or replica have public access.
+* If you are connecting to a publicly accessible host, make sure to use an [SSL certificate](../../managed-mysql/operations/connect/index.md#get-ssl-cert).
+* If you are using [special FQDNs](../../managed-mysql/operations/connect/fqdn.md#fqdn-master), check the host list to make sure the current master or replica have public access.
 * If you are using [{#T}](../../managed-mysql/concepts/network.md#security-groups), check their settings.
 
 #### Why cannot I connect to a multi-host cluster? {#to-multi-host-cluster}
@@ -40,12 +40,12 @@ If public access in your cluster is only enabled for certain hosts, automatic ma
 
 Check whether your host is publicly accessible. To do this, in the [management console]({{ link-console-main }}):
 1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-1. Click the name of your cluster and open the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
 1. Check the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_public-ip }}** column value for your host.
 
 Additionally, consider the following:
 
-* If you are using [special FQDNs](../../managed-mysql/operations/connect.md#fqdn-master), check the host list to make sure the current master or replica have public access.
+* If you are using [special FQDNs](../../managed-mysql/operations/connect/fqdn.md#fqdn-master), check the host list to make sure the current master or replica have public access.
 
 
 * If you cannot connect to the host you added, check that the cluster [security group](../../managed-mysql/concepts/network.md#security-groups) is properly configured for the subnet containing your host.
@@ -55,20 +55,20 @@ Additionally, consider the following:
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
 
-#### What should I do if I get a revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
+#### What should I do if I get a revocation check error when obtaining an SSL certificate via PowerShell? {#get-ssl-error}
 
-Here is the full text of the error message:
+Complete error message:
 
 ```text
 curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
 The revocation function was unable to check revocation for the certificate
 ```
-This means that the service was unable to verify the site’s certificate against the revocation list during the connection attempt.
+This indicates that the verification of the website’s certificate against the revocation list failed during the connection attempt.
 
 To fix this error:
 
 * Make sure your corporate network policies are not blocking the verification.
-* Run the following command with the `--ssl-no-revoke` flag:
+* Run the following command with `--ssl-no-revoke`:
 
    ```powershell
    mkdir $HOME\.mysql; curl.exe --ssl-no-revoke -o $HOME\.mysql\root.crt {{ crt-web-path }}

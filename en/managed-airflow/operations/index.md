@@ -10,7 +10,8 @@ description: In this article, you will learn how to work with {{ maf-full-name }
 * [Information about existing clusters](cluster-list.md)
 * [Creating a cluster](cluster-create.md)
 * [Updating a cluster](cluster-update.md)
-* [Stopping and starting a cluster](cluster-stop.md)
+* [Stopping and restarting a cluster](cluster-stop.md)
+* [Managing cluster access](cluster-access.md)
 * [Cluster maintenance](cluster-maintenance.md)
 * [Deleting a cluster](cluster-delete.md)
 
@@ -42,7 +43,7 @@ description: In this article, you will learn how to work with {{ maf-full-name }
 
 ## Logs and monitoring {#logs}
 
-* [Monitoring cluster state](monitoring.md)
+* [Cluster state monitoring](monitoring.md)
 * [Viewing cluster logs](cluster-logs.md)
 * [Transferring cluster logs to {{ cloud-logging-full-name }}](af-logging.md)
 * [Getting DAG execution logs](export-dag-logs.md)

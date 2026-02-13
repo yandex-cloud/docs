@@ -52,7 +52,7 @@ keywords:
       1. Выберите [плагины](plugins.md#supported-plugins), которые нужно установить в кластер.
 
   
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#security-groups) для того, чтобы можно было подключаться к кластеру.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#security-groups) для того, чтобы можно было подключаться к кластеру.
 
 
   1. В блоке **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 1** задайте конфигурацию [группы хостов](../concepts/host-roles.md) `{{ OS }}`:
@@ -90,7 +90,7 @@ keywords:
       1. Выберите количество создаваемых хостов.
 
       
-      1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если вы хотите, чтобы к хостам можно было [подключаться](connect.md) через интернет.
+      1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если вы хотите, чтобы к хостам можно было [подключаться](connect/index.md) через интернет.
 
           {% note tip %}
 
@@ -107,7 +107,7 @@ keywords:
       1. Выберите количество создаваемых хостов.
         
       
-      1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если вы хотите, чтобы к хостам можно было [подключаться](connect.md) через интернет.
+      1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если вы хотите, чтобы к хостам можно было [подключаться](connect/index.md) через интернет.
 
           {% include [mos-tip-public-dashboards](../../_includes/mdb/mos/public-dashboards.md) %}
 
@@ -495,7 +495,7 @@ keywords:
                   * `subnetIds` — список идентификаторов подсетей.
 
                   
-                  * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета: `true` или `false`.
+                  * `assignPublicIp` — разрешение на [подключение](connect/index.md) к хосту из интернета: `true` или `false`.
 
 
                   * `diskSizeAutoscaling` — настройки автоматического увеличения размера хранилища:
@@ -694,7 +694,7 @@ keywords:
                   * `subnet_ids` — список идентификаторов подсетей.
 
                   
-                  * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета: `true` или `false`.
+                  * `assign_public_ip` — разрешение на [подключение](connect/index.md) к хосту из интернета: `true` или `false`.
 
 
                   * `disk_size_autoscaling` — настройки автоматического увеличения размера хранилища:

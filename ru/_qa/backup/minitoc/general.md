@@ -8,6 +8,8 @@
 
 * [Ошибка при подключении ВМ на Windows](#windows-connection-issue)
 
+* [Ошибка авторизации при установке агента {{ backup-name }} на ВМ Linux](#install-auth-error)
+
 * [Как обновить агент {{ backup-name }} на ВМ?](#update-backup-agent)
 
 * [Почему после обновления ОС перестало работать резервное копирование?](#kernel-update-consequences)

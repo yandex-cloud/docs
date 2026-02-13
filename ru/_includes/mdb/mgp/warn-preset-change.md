@@ -4,6 +4,6 @@
 
 * Хосты кластера будут недоступны.
 * Пользовательские сессии будут прерваны.
-* Подключение по [особому FQDN](../../../managed-greenplum/operations/connect.md#fqdn-master) не гарантирует стабильность соединения с БД.
+* Подключение по [особому FQDN](../../../managed-greenplum/operations/connect/fqdn.md#fqdn-master) не гарантирует стабильность соединения с БД.
 
 {% endnote %}

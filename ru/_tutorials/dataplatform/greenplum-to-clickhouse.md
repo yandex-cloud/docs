@@ -33,7 +33,7 @@
     1. Если вы используете группы безопасности в кластерах, убедитесь, что они настроены правильно и допускают подключение к кластерам:
 
         * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
-        * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
+        * [{{ mgp-name }}](../../managed-greenplum/operations/connect/index.md#configuring-security-groups).
 
 
     1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/clickhouse.md) типа `{{ CH }}`. В [параметрах](../../data-transfer/operations/endpoint/target/clickhouse.md#additional-settings) эндпоинта укажите политику очистки `Drop` или `Truncate`, чтобы данные на приемнике не дублировались при копировании.
@@ -93,7 +93,7 @@
 
 ## Активируйте трансфер {#activate-transfer}
 
-1. [Подключитесь к кластеру {{ GP }}](../../managed-greenplum/operations/connect.md), создайте в нем таблицу `x_tab` и заполните ее данными:
+1. [Подключитесь к кластеру {{ GP }}](../../managed-greenplum/operations/connect/index.md), создайте в нем таблицу `x_tab` и заполните ее данными:
 
     ```sql
     CREATE TABLE x_tab
@@ -129,7 +129,7 @@
 
 ## Проверьте работу копирования при повторной активации {#example-check-copy}
 
-1. [Подключитесь к кластеру {{ GP }}](../../managed-greenplum/operations/connect.md), удалите одну строку и измените другую в таблице `x_tab`:
+1. [Подключитесь к кластеру {{ GP }}](../../managed-greenplum/operations/connect/index.md), удалите одну строку и измените другую в таблице `x_tab`:
 
     ```sql
     DELETE FROM x_tab WHERE id = 41;

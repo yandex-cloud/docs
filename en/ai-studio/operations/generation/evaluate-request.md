@@ -53,7 +53,7 @@ The example below estimates the size of a prompt to a {{ yagpt-name }} model.
 
       {% include [sdk-code-legend](../../../_includes/ai-studio/examples/sdk-code-legend.md) %}
 
-      * `model`: Model URI. For more information, see [{#T}](../../sdk-ref/sync/chat/completions#yandex_cloud_ml_sdk._chat.completions.function.ChatCompletions.md).
+      * `model`: Model URI. For more information, see [{#T}](../../sdk-ref/sync/chat/completions#yandex_ai_studio_sdk._chat.completions.function.ChatCompletions.md).
 
   1. Run the file you created:
 
@@ -118,4 +118,4 @@ The example below estimates the size of a prompt to a {{ yagpt-name }} model.
 
 * [{#T}](../../concepts/generation/tokens.md)
 * [{#T}](../../concepts/generation/index.md)
-* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/completions)
+* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk/tree/master/examples/sync/completions)

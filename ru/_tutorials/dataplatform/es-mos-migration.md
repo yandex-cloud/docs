@@ -119,9 +119,9 @@
 
     {% include [source-3p](es-mos-migration/source-3p.md) %}
 
-1. [Установите SSL-сертификат](../../managed-opensearch/operations/connect.md#ssl-certificate).
+1. [Установите SSL-сертификат](../../managed-opensearch/operations/connect/index.md#ssl-certificate).
 
-1. Убедитесь, что вы можете [подключиться к кластеру-приемнику](../../managed-opensearch/operations/connect.md) {{ mos-name }} с помощью {{ OS }} API и Dashboards.
+1. Убедитесь, что вы можете [подключиться к кластеру-приемнику](../../managed-opensearch/operations/connect/index.md) {{ mos-name }} с помощью {{ OS }} API и Dashboards.
 
 ### Создайте снапшот на кластере-источнике {#create-snapshot}
 
@@ -225,7 +225,7 @@
 
     - {{ OS }} Dashboards {#opensearch}
     
-      1. [Подключитесь](../../managed-opensearch/operations/connect.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
+      1. [Подключитесь](../../managed-opensearch/operations/connect/clients.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
       1. Выберите общий тенант `Global`.
       1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
       1. В разделе **{{ OS }} Plugins** выберите **Index Management**.
@@ -321,7 +321,7 @@
 
     {% include [install-certificate](../../_includes/mdb/mos/install-certificate.md) %}
 
-1. Убедитесь, что вы можете [подключиться к кластеру-приемнику](../../managed-opensearch/operations/connect.md) {{ mos-name }} с помощью {{ OS }} API и Dashboards.
+1. Убедитесь, что вы можете [подключиться к кластеру-приемнику](../../managed-opensearch/operations/connect/index.md) {{ mos-name }} с помощью {{ OS }} API и Dashboards.
 
 
 1. Убедитесь, что у кластера-источника {{ ES }} есть доступ в интернет.
@@ -460,7 +460,7 @@
 
 - {{ OS }} Dashboards {#opensearch}
 
-  1. [Подключитесь](../../managed-opensearch/operations/connect.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
+  1. [Подключитесь](../../managed-opensearch/operations/connect/clients.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
   1. Выберите общий тенант `Global`.
   1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
   1. В разделе **{{ OS }} Plugins** выберите **Index Management**.

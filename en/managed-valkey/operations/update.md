@@ -21,7 +21,7 @@ After creating a cluster, you can:
 
 * [Set up automatic storage expansion](#disk-size-aut0scale).
 
-* [Configure](#change-valkey-config) {{ VLK }} servers as described in the [{{ VLK }}](https://valkey.io/documentation) documentation. For a list of supported settings, see [{#T}](../concepts/settings-list.md) and the [API reference](../api-ref/Cluster/update.md).
+* [Configure](#change-valkey-config) {{ VLK }} servers as described in the [{{ VLK }}](https://redis.io/documentation) documentation. For a list of supported settings, see [{#T}](../concepts/settings-list.md) and the [API reference](../api-ref/Cluster/update.md).
 
 * [Change additional cluster settings](#change-additional-settings).
 
@@ -49,7 +49,7 @@ Learn more about other cluster updates:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+  1. In the [management console]({{ link-console-main }}), select the folder with your cluster.
   1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
   1. Select your cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
@@ -64,7 +64,7 @@ Learn more about other cluster updates:
 
   To change the cluster name and description:
 
-  1. View the description of the CLI command for updating a cluster:
+  1. See the description of the CLI command for updating a cluster:
 
      ```bash
      {{ yc-mdb-rd }} cluster update --help
@@ -139,7 +139,7 @@ Learn more about other cluster updates:
 
         Where `updateMask` is the list of parameters to update as a single string, separated by commas.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -176,7 +176,7 @@ Learn more about other cluster updates:
 
         Where `update_mask` is the list of parameters to update as an array of strings (`paths[]`).
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -194,7 +194,7 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
     To enable or disable using FQDNs instead of IP addresses:
 
-    1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+    1. In the [management console]({{ link-console-main }}), select the folder with your cluster.
     1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
     1. Select your cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
@@ -209,7 +209,7 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
     To enable or disable using FQDNs instead of IP addresses:
 
-    1. View the description of the CLI command for updating a cluster:
+    1. See the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-rd }} cluster update --help
@@ -289,7 +289,7 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
         * `announceHostnames`: [Using FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting), `true` or `false`.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -325,13 +325,13 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
             Here, we provide only one setting.
 
         * `announce_hostnames`: [Using FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting), `true` or `false`.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -347,7 +347,7 @@ For more information about data persistence and its settings, see [Persistence](
 
     To change the persistence mode:
 
-    1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+    1. In the [management console]({{ link-console-main }}), select the folder with your cluster.
     1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
     1. Select your cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
@@ -362,7 +362,7 @@ For more information about data persistence and its settings, see [Persistence](
 
     To change the persistence mode:
 
-    1. View the description of the CLI command for updating a cluster:
+    1. See the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-rd }} cluster update --help
@@ -444,7 +444,7 @@ For more information about data persistence and its settings, see [Persistence](
 
             {% include [persistence-modes](../../_includes/mdb/mvk/persistence-modes.md) %}
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -480,7 +480,7 @@ For more information about data persistence and its settings, see [Persistence](
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
             Here, we provide only one setting.
 
@@ -488,7 +488,7 @@ For more information about data persistence and its settings, see [Persistence](
 
            {% include [persistence-modes](../../_includes/mdb/mvk/persistence-modes.md) %}
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -502,7 +502,7 @@ When changing the host class:
 * A single-host cluster will be unavailable for a few minutes and all database connections will be dropped.
 * In a non-sharded multiple-host cluster:
    * The master will change. Each host will undergo a rolling update and will be unavailable for a few minutes while it updates.
-   * Using a [special FQDN](./connect/non-sharded.md#special-fqdns) does not guarantee a stable database connection: user sessions may be terminated.
+   * Using a [special FQDN](./connect/fqdn.md#special-fqdns) does not guarantee a stable database connection: user sessions may be terminated.
 * In a sharded cluster:
    * Each shard with more than one host will switch its master.
    * Each shard will run a rolling update, stopping and updating hosts sequentially. The shard's master host will be unavailable for a few minutes while it updates.
@@ -514,7 +514,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+  1. In the [management console]({{ link-console-main }}), select the folder with your cluster.
   1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
   1. Select your cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
@@ -536,13 +536,13 @@ We recommend changing the host class only when your cluster has no active worklo
 
   To change the [host class](../concepts/instance-types.md) for a cluster:
 
-  1. View the description of the CLI command for updating a cluster:
+  1. See the description of the CLI command for updating a cluster:
 
      ```bash
      {{ yc-mdb-rd }} cluster update --help
      ```
 
-  1. Request a list of available host classes. The `ZONE IDS` column lists the availability zones where the relevant class can be selected:
+  1. Get the list of available host classes (the `ZONE IDS` column lists the availability zones you can select each class in):
 
      
      ```bash
@@ -640,7 +640,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
         * `configSpec.resources.resourcePresetId`: New [host class](../concepts/instance-types.md). To get the list of supported values, call the [ResourcePreset.List](../api-ref/ResourcePreset/list.md) method.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -680,13 +680,13 @@ We recommend changing the host class only when your cluster has no active worklo
 
         Where:
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
             Here, we provide only one setting.
 
         * `config_spec.resources.resource_preset_id`: New [host class](../concepts/instance-types.md). To get the list of supported values, call the [ResourcePreset.List](../api-ref/ResourcePreset/list.md) method.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -704,7 +704,7 @@ The {{ mrd-name }} cluster is unavailable for about five to seven minutes after 
 
   To change the disk type and increase the storage size for a cluster:
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+  1. In the [management console]({{ link-console-main }}), select the folder with your cluster.
   1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
   1. Select your cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
@@ -726,7 +726,7 @@ The {{ mrd-name }} cluster is unavailable for about five to seven minutes after 
 
   To increase the storage size of your {{ VLK }} hosts:
 
-  1. View the description of the CLI command for updating a cluster:
+  1. See the description of the CLI command for updating a cluster:
 
      ```bash
      {{ yc-mdb-rd }} cluster update --help
@@ -810,10 +810,10 @@ The {{ mrd-name }} cluster is unavailable for about five to seven minutes after 
         * `configSpec.resources`: Storage settings:
 
             * `diskTypeId`: [Disk type](../concepts/storage.md).
-            * `diskSize`: New storage size, in bytes.
+            * `diskSize`: New storage size in bytes.
 
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -859,16 +859,16 @@ The {{ mrd-name }} cluster is unavailable for about five to seven minutes after 
 
         Where:
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
         
         * `config_spec.resources`: Storage settings:
 
             * `disk_type_id`: [Disk type](../concepts/storage.md).
-            * `disk_size`: New storage size, in bytes.
+            * `disk_size`: New storage size in bytes.
 
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -902,7 +902,7 @@ For more information about storage and its autoscaling, see [Storage in {{ mrd-n
 
   To set up automatic storage expansion:
 
-  1. View the description of the CLI command for updating a cluster:
+  1. See the description of the CLI command for updating a cluster:
 
      ```bash
      {{ yc-mdb-rd }} cluster update --help
@@ -983,11 +983,11 @@ For more information about storage and its autoscaling, see [Storage in {{ mrd-n
 
         Where:
 
-          * `updateMask`: Comma-separated list of settings you want to update.
+          * `updateMask`: Comma-separated string of settings you want to update.
 
         {% include [autoscale-description](../../_includes/mdb/mvk/api/autoscaling-rest.md) %}
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1029,11 +1029,11 @@ For more information about storage and its autoscaling, see [Storage in {{ mrd-n
 
         Where:
 
-          * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+          * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
           {% include [autoscale-description](../../_includes/mdb/mvk/api/autoscaling-grpc.md) %}
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1049,7 +1049,7 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
   To change the [DBMS settings](../concepts/settings-list.md) for a cluster:
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+  1. In the [management console]({{ link-console-main }}), select the folder with your cluster.
   1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
   1. Select your cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
@@ -1129,13 +1129,13 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
         Where:
 
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings you want to update.
 
         * `configSpec.redisConfig_<{{ VLK }}_version>`: {{ VLK }} settings. Specify each setting on a new line, separated by commas.
 
-            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest) for the list of {{ VLK }} versions supporting this option. See [{#T}](../concepts/settings-list.md) for the descriptions and possible values of the settings.
+            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest) for the list of {{ VLK }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for the descriptions and possible values of the settings.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1183,13 +1183,13 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
         Where:
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
         * `config_spec.redis_config_<{{ VLK }}_version>`: {{ VLK }} settings. Specify each setting on a new line, separated by commas.
 
-            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest) for the list of {{ VLK }} versions supporting this option. See [{#T}](../concepts/settings-list.md) for the descriptions and possible values of the settings.
+            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest) for the list of {{ VLK }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for the descriptions and possible values of the settings.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1201,7 +1201,7 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+  1. In the [management console]({{ link-console-main }}), select the folder with your cluster.
   1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
   1. Select your cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
@@ -1219,13 +1219,13 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
   To change additional cluster settings:
 
-    1. View the description of the CLI command for updating a cluster:
+    1. See the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-rd }} cluster update --help
         ```
 
-    1. Run the following command with the list of settings you want to update:
+    1. Run the following command by providing the list of settings you want to update:
 
         
         ```bash
@@ -1280,7 +1280,7 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
             * `hours`: Backup start hour (UTC) in `HH` format, from `0` to `23`.
             * `minutes`: Backup start minute (UTC) in `mm` format, from `0` to `59`.
 
-        * To set the [maintenance window](../concepts/maintenance.md) that will also apply to stopped clusters, add the `maintenance_window` section to the cluster description:
+        * To set up the [maintenance window](../concepts/maintenance.md) that will also apply to stopped clusters, add the `maintenance_window` section to the cluster description:
 
             ```hcl
             resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
@@ -1359,7 +1359,7 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
         Where:
 
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings you want to update.
 
         * `configSpec.backupWindowStart`: [Backup](../concepts/backup.md) window settings.
 
@@ -1382,7 +1382,7 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
             {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1436,7 +1436,7 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
         Where:
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
         * `config_spec.backup_window_start`: [Backup](../concepts/backup.md) window settings.
 
@@ -1459,7 +1459,7 @@ You can change the DBMS settings for the hosts in your cluster. You can find all
 
             {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1479,7 +1479,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+    1. In the [management console]({{ link-console-main }}), select the folder with your cluster.
     1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
     1. Select your cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
@@ -1560,7 +1560,7 @@ You cannot disable sharding in a cluster where it is already enabled.
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>:enable_sharding'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         {% include [enable-sharding-shard-note](../../_includes/mdb/mvk/enable-sharding-shard-note.md) %}
 
@@ -1590,7 +1590,7 @@ You cannot disable sharding in a cluster where it is already enabled.
             yandex.cloud.mdb.redis.v1.ClusterService.EnableSharding
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         {% include [enable-sharding-shard-note](../../_includes/mdb/mvk/enable-sharding-shard-note.md) %}
 
@@ -1618,7 +1618,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
     To move a cluster:
 
-    1. View the description of the CLI command for moving a cluster:
+    1. See the description of the CLI command for moving a cluster:
 
         ```bash
         {{ yc-mdb-rd }} cluster move --help
@@ -1725,7 +1725,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+    1. In the [management console]({{ link-console-main }}), select the folder with your cluster.
     1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
     1. Select your cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
@@ -1739,7 +1739,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
     To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-    1. View the description of the CLI command for updating a cluster:
+    1. See the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-rd }} cluster update --help
@@ -1814,7 +1814,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
         * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1855,13 +1855,13 @@ You cannot disable sharding in a cluster where it is already enabled.
 
         Where:
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
             Here, we provide only one setting.
 
         * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

@@ -154,7 +154,7 @@ You can send requests to text generation models in [asynchronous mode](../../con
         https://{{ api-host-operation }}/operations/<operation_ID>
       ```
   
-      Sample result:
+      Example of the result:
   
       ```bash
       {
@@ -190,4 +190,4 @@ You can send requests to text generation models in [asynchronous mode](../../con
 #### See also {#see-also}
 
 * [{#T}](../../concepts/generation/index.md)
-* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/completions)
+* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk/tree/master/examples/sync/completions)

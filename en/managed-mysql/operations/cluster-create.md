@@ -42,7 +42,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   1. Enter a name for the {{ mmy-name }} cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
   1. Select the environment where you want to create your {{ mmy-name }} cluster (you cannot change the environment once the cluster is created):
      * `PRODUCTION`: For stable versions of your applications.
-     * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
+     * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by an SLA. However, it receives new features, improvements, and bug fixes earlier. In the prestable environment, you can test new versions for compatibility with your application.
   1. Select the DBMS version.
   1. Select the host class, which will determine the technical specifications of the [VMs](../../compute/concepts/vm-platforms.md) for deploying your database hosts. All available options are listed under [Host classes](../concepts/instance-types.md). Changing the host class of a {{ mmy-name }} cluster updates the specifications for all of its existing hosts.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
@@ -64,7 +64,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        * To [create](../../kms/operations/key.md#create) a new key, click **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
 
-       * To use the key you created earlier, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
+       * To use a previously created key, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
 
        To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
@@ -96,7 +96,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
 
      * [Cloud network](../../vpc/concepts/network.md#network) for the cluster.
-     * [Security groups](../../vpc/concepts/security-groups.md) for the cluster network traffic. You may also need to [configure security groups](connect.md#configuring-security-groups) to connect to the {{ mmy-name }} cluster.
+     * [Security groups](../../vpc/concepts/security-groups.md) for the cluster network traffic. You may also need to [configure security groups](./connect/index.md#configure-security-groups) to connect to the {{ mmy-name }} cluster.
 
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![image](../../_assets/console-icons/pencil.svg) and specify the settings for the database hosts created together with the {{ mmy-name }} cluster:
@@ -151,7 +151,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      If your folder has no subnets, [create them](../../vpc/operations/subnet-create.md) in [{{ vpc-full-name }}](../../vpc/).
 
 
-  1. See the description of the CLI command for creating a {{ mmy-name }} cluster:
+  1. View the description of the CLI command to create a {{ mmy-name }} cluster:
 
      ```bash
      {{ yc-mdb-my }} cluster create --help
@@ -203,7 +203,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        
        {% note info %}
 
-       You can also generate a password using {{ connection-manager-name }}. To do this, edit the command, specifying user properties as follows:
+       You can also generate a password using {{ connection-manager-name }}. To do this, edit the command, specifying the user properties as follows:
 
        ```bash
          --user name=<username>,generate-password=true
@@ -235,8 +235,8 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                                 `sessions-sampling-interval=<session_sampling_interval>,`
                                 `statements-sampling-interval=<statement_sampling_interval>
        --disk-size-autoscaling disk-size-limit=<max_storage_size_in_GB>,`
-                              `planned-usage-threshold=<threshold_for_scheduled_expansion_in_percent>,`
-                              `emergency-usage-threshold=<threshold_for_immediate_expansion_in_percent> \
+                              `planned-usage-threshold=<scheduled_expansion_threshold_in_percent>,`
+                              `emergency-usage-threshold=<immediate_expansion_threshold_in_percent> \
        --maintenance-window type=<maintenance_type>,`
                            `day=<day_of_week>,`
                            `hour=<hour>
@@ -256,7 +256,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      * `--datalens-access`: Enables access to the cluster from {{ datalens-full-name }}. The default value is `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
      * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
-     * `--yandexquery-access`: Enables YQL queries against cluster databases from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is currently at the [Preview](../../overview/concepts/launch-stages.md) stage. The default value is `false`.
+     * `--yandexquery-access`: Enables YQL queries against cluster databases from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. The default value is `false`.
 
 
      * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
@@ -267,7 +267,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      {% include [disk-size-autoscaling-cli](../../_includes/mdb/mmy/disk-size-autoscaling-cli.md) %}
 
-     * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters), where `type` is the maintenance type:
+     * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings (including for stopped clusters), where `type` is the maintenance type:
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
@@ -453,7 +453,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -491,8 +491,8 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                   "statementsSamplingInterval": "<statement_sampling_interval>"
               },
               "diskSizeAutoscaling": {
-                  "plannedUsageThreshold": "<threshold_for_scheduled_increase_in_percent>",
-                  "emergencyUsageThreshold": "<threshold_for_immediate_increase_in_percent>",
+                  "plannedUsageThreshold": "<scheduled_expansion_threshold_in_percent>",
+                  "emergencyUsageThreshold": "<immediate_expansion_threshold_in_percent>",
                   "diskSizeLimit": "<maximum_storage_size_in_bytes>"
               }
           },
@@ -543,10 +543,10 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       Where:
 
-      * `folderId`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      * `folderId`: Folder ID. You can get it from the [list of your cloud folders](../../resource-manager/operations/folder/get-id.md).
       * `name`: Cluster name.
       * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
-      * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) where the cluster will be deployed.
+      * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) where your cluster will be deployed.
 
       
       * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
@@ -572,7 +572,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             * `yandexQuery`: YQL queries against cluster databases from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is currently at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 
-            The possible setting values are `true` or `false`.
+            The possible values are `true` or `false`.
 
       * `performanceDiagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
 
@@ -582,7 +582,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       {% include [disk-size-autoscaling-rest](../../_includes/mdb/mmy/disk-size-autoscaling-rest.md) %}
 
-      * `databaseSpecs`: Database settings as an array of elements, one per database. Each element contains the `name` parameter with the database name.
+      * `databaseSpecs`: Database settings as an array of elements, one per database. Each element contains the database `name`.
 
           {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
@@ -609,7 +609,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
           * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
-          * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
+          * `assignPublicIp`: Permission to [connect](./connect/index.md) to the host from the internet, `true` or `false`.
       
       {% include [maintenance-window-rest](../../_includes/mdb/mmy/maintenance-window-rest.md) %}
 
@@ -624,11 +624,11 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           --data "@body.json"
       ```
 
-  1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -667,8 +667,8 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                   "statements_sampling_interval": "<statement_sampling_interval>"
               },
               "disk_size_autoscaling": {
-                  "planned_usage_threshold": "<threshold_for_scheduled_increase_in_percent>",
-                  "emergency_usage_threshold": "<threshold_for_immediate_increase_in_percent>",
+                  "planned_usage_threshold": "<scheduled_expansion_threshold_in_percent>",
+                  "emergency_usage_threshold": "<immediate_expansion_threshold_in_percent>",
                   "disk_size_limit": "<maximum_storage_size_in_bytes>"
               }
           },
@@ -716,13 +716,13 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       * `folder_id`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
       * `name`: Cluster name.
       * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
-      * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) where the cluster will be deployed.
+      * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) where your cluster will be deployed.
 
       
       * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
-      * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`.
+      * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -742,7 +742,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             * `yandex_query`: YQL queries against cluster databases from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is currently at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 
-            The possible setting values are `true` or `false`.
+            The possible values are `true` or `false`.
 
       * `performance_diagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
 
@@ -752,7 +752,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       {% include [disk-size-autoscaling-grpc](../../_includes/mdb/mmy/disk-size-autoscaling-grpc.md) %}
 
-      * `database_specs`: Database settings as an array of elements, one per database. Each element contains the `name` parameter with the database name.
+      * `database_specs`: Database settings as an array of elements, one per database. Each element contains the database `name`.
       * `user_specs`: User settings as an array of elements, one per user. Each element has the following structure:
 
           * `name`: Username.
@@ -765,18 +765,18 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
               To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
 
-          * `permissions`: User permission settings:
+          * `permissions`: User permissions:
 
               * `database_name`: Name of the database to which the user will have access.
               * `roles`: Array of user privileges, each provided as a separate string in the array. For the list of possible values, see [User privileges in a cluster](../concepts/user-rights.md#db-privileges).
 
-              For each database, add a separate element with permission settings to the `permissions` array.
+              In the `permissions` array, add a separate element with permission settings for each database.
 
       * `host_specs`: Cluster host settings as an array of elements, one per host. Each element has the following structure:
 
           * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
-          * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
+          * `assign_public_ip`: Permission to [connect](./connect/index.md) to the host from the internet, `true` or `false`.
 
       {% include [maintenance-window-grpc](../../_includes/mdb/mmy/maintenance-window-grpc.md) %}    
 
@@ -802,14 +802,14 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 {% note warning %}
 
-If you specified security group IDs when creating a {{ mmy-name }} cluster, you may also need to [configure security groups](connect.md#configure-security-groups) to connect to the cluster.
+If you specified security group IDs when creating a {{ mmy-name }} cluster, you may also need to [configure security groups](./connect/index.md#configure-security-groups) to connect to the cluster.
 
 {% endnote %}
 
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ MY }} cluster with the settings of another one created earlier. To do this, import the original {{ MY }} cluster configuration to {{ TF }}. Then you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is useful when you want to replicate a {{ MY }} cluster with multiple settings.
+You can create a {{ MY }} cluster with the settings of another one created earlier. Do this by importing the original {{ MY }} cluster configuration into {{ TF }}. Then you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. The import feature is handy when the original {{ MY }} cluster has a lot of settings and you need to create a similar one.
 
 To create a {{ MY }} cluster copy:
 
@@ -822,19 +822,19 @@ To create a {{ MY }} cluster copy:
     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. In the same working directory, place a `.tf` file with the following contents:
+    1. In your current working directory, create a `.tf` file with the following contents:
 
         ```hcl
         resource "yandex_mdb_mysql_cluster" "old" { }
         ```
 
-    1. Save the original {{ MY }} cluster ID to an environment variable:
+    1. Save the ID of the original {{ MY }} cluster to an environment variable:
 
         ```bash
         export MYSQL_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can get the ID with the [list of clusters in the folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
 
     1. Import the original {{ MY }} cluster settings to the {{ TF }} configuration:
 
@@ -852,25 +852,25 @@ To create a {{ MY }} cluster copy:
     1. Place the file in the new `imported-cluster` directory.
     1. Edit the copied configuration so that you can create a new cluster from it:
 
-        * Specify the new cluster name in the `resource` name and the `name` parameter.
+        * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Delete the `created_at`, `health`, `id`, and `status` parameters.
         * In the `host` sections, delete `fqdn`.
         * If the `maintenance_window` section has `type = "ANYTIME"`, delete the `hour` parameter.
         * Optionally, make further changes if you need a customized configuration.
 
-    1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
+    1. Navigate to the `imported-cluster` directory and [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
 
-    1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, as you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
+    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
 
-    1. Make sure the {{ TF }} configuration files are correct:
+    1. Validate your {{ TF }} configuration:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -957,7 +957,7 @@ To create a {{ MY }} cluster copy:
     * Database: `db1`, where `user1` has full privileges (same as `GRANT ALL PRIVILEGES on db1.*`).
     * Deletion protection: Enabled.
 
-  The configuration file for this {{ mmy-name }} cluster looks like this:
+  The configuration file for this {{ mmy-name }} cluster is as follows:
 
   
   ```hcl
@@ -1093,7 +1093,7 @@ To create a {{ MY }} cluster copy:
 
 - {{ TF }} {#tf}
 
-  Create a {{ mmy-name }} cluster and its network with the following test specifications:
+  Create a {{ mmy-name }} cluster and its supporting network, using the following test specifications:
 
     * Name: `my-mysql-3`.
     * Version: `{{ versions.tf.latest }}`.
@@ -1120,7 +1120,7 @@ To create a {{ MY }} cluster copy:
     * User: `user1`, password: `user1user1`.
     * Database: `db1`, where `user1` has full privileges (same as `GRANT ALL PRIVILEGES on db1.*`).
 
-  The configuration file for this {{ mmy-name }} cluster looks like this:
+  The configuration file for this {{ mmy-name }} cluster is as follows:
 
   
   ```hcl

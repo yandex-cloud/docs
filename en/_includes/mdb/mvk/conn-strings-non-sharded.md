@@ -1,54 +1,4 @@
-### Bash {#bash}
-
-{% list tabs group=connection %}
-
-- Connecting without SSL {#without-ssl}
-
-    {% include [Install requirements](./connect/bash/install-requirements.md) %}
-
-    **Connecting via Sentinel:**
-
-    1. Get the master host address by using Sentinel and any {{ VLK }} host:
-
-        ```bash
-        redis-cli \
-            -h <FQDN_of_any_{{ VLK }}_host> \
-            -p {{ port-mrd-sentinel }} \
-            sentinel \
-            get-master-addr-by-name <{{ VLK }}_cluster_name> | head -n 1
-        ```
-
-    1. Connect to the host with this address:
-
-        ```bash
-        redis-cli \
-            -h <{{ VLK }}_master_host_address> \
-            -a <{{ VLK }}_password>
-        ```
-
-    **Connecting directly to the master host:**
-
-    ```bash
-    redis-cli \
-        -h c-<cluster_ID>.rw.{{ dns-zone }} \
-        -a <password>
-    ```
-
-- Connecting with SSL {#with-ssl}
-
-    {% include [Install requirements SSL](./connect/bash/install-requirements-ssl.md) %}
-
-    **Connecting directly to the master host:**
-
-    {% include [default-connstring](default-connstring.md) %}
-
-{% endlist %}
-
-{% include [see-fqdn](../../../_includes/mdb/mvk/fqdn-host.md) %}
-
-{% include [after-connect](./connect/bash/after-connect.md) %}
-
-### C# {#csharp}
+## C# {#csharp}
 
 {% include [Install requirements](./connect/csharp/install-requirements.md) %}
 
@@ -312,7 +262,7 @@
 
 {% include [after-connect](./connect/csharp/after-connect.md) %}
 
-### Go {#go}
+## Go {#go}
 
 {% include [Install requirements](./connect/go/install-requirements.md) %}
 
@@ -455,7 +405,7 @@
 
 {% include [after-connect](./connect/go/after-connect.md) %}
 
-### Java {#java}
+## Java {#java}
 
 {% include [Install dependencies](./connect/java/install-requirements.md) %}
 
@@ -576,7 +526,7 @@
 
 {% include [after-connect](./connect/java/after-connect.md) %}
 
-### Node.js {#nodejs}
+## Node.js {#nodejs}
 
 {% include [install-requirements](./connect/nodejs/install-requirements.md) %}
 
@@ -696,7 +646,7 @@
 
 {% include [after-connect](./connect/nodejs/after-connect.md) %}
 
-### PHP {#php}
+## PHP {#php}
 
 {% include [Install dependencies](./connect/php/install-requirements.md) %}
 
@@ -797,9 +747,9 @@
 
 {% include [after-connect](./connect/php/after-connect.md) %}
 
-### Python {#python}
+## Python {#python}
 
-**Before connecting, install the dependencies**:
+**Before connecting, install the required dependencies**:
 
 ```bash
 sudo apt update && sudo apt install -y python3 python3-pip && \
@@ -875,7 +825,7 @@ pip3 install redis
 
 {% include [after-connect](./connect/python/after-connect.md) %}
 
-### Ruby {#ruby}
+## Ruby {#ruby}
 
 {% include [Install dependencies](./connect/ruby/install-requirements.md) %}
 

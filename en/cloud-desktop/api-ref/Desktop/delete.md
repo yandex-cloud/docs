@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}
     method: delete
     path:
       type: object
@@ -28,7 +28,7 @@ Deletes the specified desktop.
 ## HTTP request
 
 ```
-DELETE https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}
+DELETE https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}
 ```
 
 ## Path parameters

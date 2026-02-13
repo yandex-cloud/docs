@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:resetPassword
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:resetPassword
     method: post
     path:
       type: object
@@ -56,7 +56,7 @@ Reset password
 ## HTTP request
 
 ```
-POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:resetPassword
+POST https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:resetPassword
 ```
 
 ## Path parameters

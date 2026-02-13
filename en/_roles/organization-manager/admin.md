@@ -6,6 +6,7 @@ The `organization-manager.admin` role enables managing organization settings, id
 * View and edit info on the relevant Identity Hub organization.
 * View and edit organization settings.
 * View info on [access permissions](../../iam/concepts/access-control/index.md) granted for the relevant organization and modify such permissions.
+* List access policies assigned to the relevant organization, as well as assign and revoke such policies.
 * View the list of the organization's [users](../../organization/concepts/mfa.md), info on them (including their phone number), their latest authentication date, and the latest verification date for federated and local accounts via [two-factor authentication](../../organization/concepts/mfa.md).
 * View info on access permissions granted for [entities](../../iam/concepts/access-control/index.md#subject) in the Identity Hub organization.
 * Remove users from the organization.

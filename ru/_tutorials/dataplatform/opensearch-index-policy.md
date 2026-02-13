@@ -35,7 +35,7 @@
 
             {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
-        1. Если вы используете группы безопасности в кластере, убедитесь, что они настроены правильно и допускают подключение к кластеру [{{ mos-name }}](../../managed-opensearch/operations/connect.md#configuring-security-groups).
+        1. Если вы используете группы безопасности в кластере, убедитесь, что они настроены правильно и допускают подключение к кластеру [{{ mos-name }}](../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
 
     - С помощью {{ TF }} {#tf}
 
@@ -72,7 +72,7 @@
 
     {% endlist %}
 
-1. [Установите SSL-сертификат](../../managed-opensearch/operations/connect.md#ssl-certificate).
+1. [Установите SSL-сертификат](../../managed-opensearch/operations/connect/index.md#ssl-certificate).
 
 1. Проверьте подключение к кластеру с помощью утилиты [cURL](https://curl.haxx.se/):
 

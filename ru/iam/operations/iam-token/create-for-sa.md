@@ -21,16 +21,34 @@ description: Следуя данной инструкции, вы сможете
 
 ## Получить IAM-токен с помощью CLI {#via-cli}
 
-{% include [cli-set-sa-profile](../../../_includes/cli-set-sa-profile.md) %}
+{% list tabs group=instructions %}
 
-Теперь вы можете получить IAM-токен для сервисного аккаунта:
+- CLI {#cli}
+
+  {% include [cli-set-sa-profile](../../../_includes/cli-set-sa-profile.md) %}
+
+  Теперь вы можете получить IAM-токен для сервисного аккаунта:
+
+  
+  ```
+  yc iam create-token
+  ```
 
 
-```
-yc iam create-token
-```
 
+  Результат:
 
+  ```text
+  t1.9euelZrLop7Uz8up********
+  ```
+
+  Полученное значение — это IAM-токен. Вы можете скопировать и сохранить его в файле или записать в переменную:
+
+  ```bash
+  export IAM_TOKEN=`<IAM-токен>`
+  ```
+
+{% endlist %}
 
 {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 

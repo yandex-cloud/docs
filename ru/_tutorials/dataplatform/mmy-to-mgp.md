@@ -46,7 +46,7 @@
     1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
 
         * [{{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configure-security-groups).
-        * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
+        * [{{ mgp-name }}](../../managed-greenplum/operations/connect/index.md#configuring-security-groups).
 
 * С помощью {{ TF }} {#tf}
 
@@ -112,7 +112,7 @@
 
 ## Создайте базу данных в кластере-приемнике {#prepare-data}
 
-1. [Подключитесь к служебной базе данных](../../managed-greenplum/operations/connect.md) `postgres` в кластере-приемнике {{ GP }} от имени пользователя `mgp_user`.
+1. [Подключитесь к служебной базе данных](../../managed-greenplum/operations/connect/index.md) `postgres` в кластере-приемнике {{ GP }} от имени пользователя `mgp_user`.
 
 1. Создайте базу данных `mgp_db`:
 
@@ -177,7 +177,7 @@
 
 ### Проверьте работу копирования {#verify-copy}
 
-1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect.md) `mgp_db` в кластере-приемнике {{ GP }}.
+1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect/index.md) `mgp_db` в кластере-приемнике {{ GP }}.
 
 1. Выполните запрос:
 
@@ -198,7 +198,7 @@
 
 1. Убедитесь, что добавленная строка появилась в базе данных приемника:
 
-    1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect.md) `mgp_db` в кластере-приемнике {{ GP }}.
+    1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect/index.md) `mgp_db` в кластере-приемнике {{ GP }}.
     1. Выполните запрос:
 
         ```sql

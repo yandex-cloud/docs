@@ -80,7 +80,7 @@ You pay for the following:
 
     * If the combined size of the database and all its backups exceeds the cluster storage size, you only pay for the portion in excess of the storage size.
 
-   * When performing automatic backups, {{ mch-short-name }} does not create a new backup but saves the database changes introduced since the previous one. This means the storage space used by automatic backups increases only in proportion to the amount of changes.
+   * When performing automatic backups, {{ mch-short-name }} does not create a new backup but saves the database changes introduced since the previous one. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
 
    * The number of hosts in a cluster does not affect the storage size and, consequently, the amount of free backups.
 

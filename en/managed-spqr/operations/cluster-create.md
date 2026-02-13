@@ -42,6 +42,10 @@ keywords:
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select a [network](../../vpc/operations/network-create.md) and [security groups](../../vpc/concepts/security-groups.md) for the cluster.
 
+        
+        {% include [note-sg](../../_includes/managed-spqr/note-sg.md) %}
+
+
     1. Specify the computing resource configuration:
 
         * For standard sharding, specify the infrastructure host configuration under **{{ ui-key.yacloud.spqr.section_infra }}**.
@@ -234,6 +238,8 @@ keywords:
 
      
      * `securityGroupIds`: [Security group](../../vpc/concepts/security-groups.md) IDs.
+
+        {% include [note-sg](../../_includes/managed-spqr/note-sg.md) %}
 
 
      * `deletionProtection`: Cluster deletion protection, `true` or `false`.
@@ -507,6 +513,8 @@ keywords:
 
      
      * `security_group_ids`: [Security group](../../vpc/concepts/security-groups.md) IDs.
+
+        {% include [note-sg](../../_includes/managed-spqr/note-sg.md) %}
 
 
      * `deletion_protection`: Cluster deletion protection, `true` or `false`.

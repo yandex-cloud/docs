@@ -98,7 +98,7 @@
 
 - {{ OS }} Dashboards {#opensearch}
 
-  1. Подключитесь к кластеру {{ mos-name }} с помощью [{{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards).
+  1. Подключитесь к кластеру {{ mos-name }} с помощью [{{ OS }} Dashboards](../../managed-opensearch/operations/connect/clients.md#dashboards).
   1. Выберите общий тенант `Global`.
   1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../_assets/os-dashboards-sandwich.svg).
   1. В разделе **{{ OS }} Plugins** выберите **Index Management**.

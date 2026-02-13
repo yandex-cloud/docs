@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/images/{imageId}
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/images/{imageId}
     method: patch
     path:
       type: object
@@ -64,7 +64,7 @@ Updates desktop image properties.
 ## HTTP request
 
 ```
-PATCH https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/images/{imageId}
+PATCH https://clouddesktops.{{ api-host }}/cloud-desktop/v1/images/{imageId}
 ```
 
 ## Path parameters

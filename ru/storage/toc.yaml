@@ -159,8 +159,14 @@ items:
         href: tutorials/billing-resource-detailing.md
       - name: Шифрование на стороне сервера
         href: tutorials/server-side-encryption.md
-      - name: Интеграция L7-балансировщика с CDN и Object Storage
-        href: tutorials/cdn-storage-integration.md
+      - name: Интеграция L7-балансировщика с CDN и {{ objstorage-name }}
+        items:
+          - name: Обзор
+            href: tutorials/cdn-storage-integration/index.md
+          - name: Консоль управления, CLI и API
+            href: tutorials/cdn-storage-integration/console.md
+          - name: '{{ TF }}'
+            href: tutorials/cdn-storage-integration/terraform.md
       - name: Сине-зеленое и канареечное развертывание версий сервиса
         href: tutorials/blue-green-canary-deployment.md
       - name: Анализ логов с использованием DataLens

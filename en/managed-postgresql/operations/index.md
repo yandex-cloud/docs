@@ -17,6 +17,7 @@ description: This page provides a list of step-by-step guides for {{ mpg-name }}
 * [Managing backups](cluster-backups.md)
 * [Managing backup policies](backup-retention-policies.md)
 * [Managing disk space](storage-space.md)
+* [Managing cluster access](cluster-access.md)
 * [Maintenance](cluster-maintenance.md)
 * [{{ PG }} version upgrade](cluster-version-update.md)
 * [Deleting a cluster](cluster-delete.md)

@@ -5,6 +5,22 @@ description: This page presents the {{ foundation-models-full-name }} release no
 
 # {{ foundation-models-full-name }} release notes
 
+## Release as of 27/01/2026 {#270126}
+
+[Renamed](https://github.com/yandex-cloud/yandex-ai-studio-sdk/blob/master/compat/yandex-cloud-ml-sdk/MIGRATION.md) the Yandex ML SDK to the Yandex AI Studio SDK.
+
+## Release as of 26/01/2026 {#260126}
+
+The {{ assistant-api }} functionality is discontinued and no longer available.
+
+## Release as of 22/01/2026 {#220126}
+
+Added support for the [Conversations API](../conversations/index.md) for flexible management of conversation context.
+
+## Release as of 21/01/2026 {#210126}
+
+Added support for the [{{ speechkit-full-name }}](../../speechkit/tts/index.md) synthesis service in {{ ml-sdk-full-name }}.
+
 ## Release as of 25/11/2025 {#251125}
 
 {{ alice-ai }} is now available in the [common instance](../concepts/generation/models.md#generation) for all {{ ai-studio-name }} users. Same as {{ gpt-pro }}, Yandex's new model is really good with RAG scenarios, but it is by far a much better free dialog partner, which makes it a model of choice for AI agents.
@@ -41,7 +57,7 @@ Added the ability to deploy some models on [dedicated instances](../concepts/gen
 
 ## Release as of 03/09/2025 {#030925}
 
-The [common instance](../concepts/generation/models.md#generation) now features the Gemma 3 27B visual-linguistic model. For text-to-text, access the model in AI Playground; for images, use the {{ openai }} API or ML SDK.
+The [common instance](../concepts/generation/models.md#generation) now features the Gemma 3 27B visual-linguistic model. For text-to-text, access the model in AI Playground; for images, use the {{ openai }} API or AI Studio SDK.
 
 ## Release as of 28/08/2025 {#280825}
 

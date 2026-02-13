@@ -37,7 +37,7 @@
     1. Если вы используете группы безопасности в кластерах, убедитесь, что они настроены правильно и допускают подключение к кластерам:
 
         * [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups).
-        * [{{ mgp-name }}](../../../managed-greenplum/operations/connect.md#configuring-security-groups).
+        * [{{ mgp-name }}](../../../managed-greenplum/operations/connect/index.md#configuring-security-groups).
 
 
 - {{ TF }} {#tf}
@@ -134,7 +134,7 @@
 
 ## Активируйте трансфер {#activate-transfer}
 
-1. [Подключитесь к кластеру {{ GP }}](../../../managed-greenplum/operations/connect.md), создайте в нем таблицу `x_tab` и заполните ее данными:
+1. [Подключитесь к кластеру {{ GP }}](../../../managed-greenplum/operations/connect/index.md), создайте в нем таблицу `x_tab` и заполните ее данными:
 
     ```sql
     CREATE TABLE x_tab
@@ -171,7 +171,7 @@
 ## Проверьте работу копирования при повторной активации {#example-check-copy}
 
 1. В [параметрах эндпоинта-приемника](../../../data-transfer/operations/endpoint/target/postgresql.md#additional-settings) установите политику очистки `DROP` или `TRUNCATE`.
-1. [Подключитесь к кластеру {{ GP }}](../../../managed-greenplum/operations/connect.md).
+1. [Подключитесь к кластеру {{ GP }}](../../../managed-greenplum/operations/connect/index.md).
 1. Удалите строку с идентификатором `41` и измените строку с идентификатором `42` в таблице `x_tab`:
 
     ```sql

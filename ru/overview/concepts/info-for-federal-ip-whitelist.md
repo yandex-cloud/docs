@@ -1,3 +1,7 @@
+---
+title: Сведения, необходимые для включения ресурса в белый список Минцифры
+description: Из статьи вы узнаете, как определить публичные IP-адреса ваших ресурсов и сервисов, развернутых в инфраструктуре {{ yandex-cloud }}, которые вы хотите добавить в белый список ресурсов Минцифры, и как быть, если для ваших ресурсов и сервисов не выделены отдельные IP-адреса.
+---
 
 # Получение сведений, необходимых для включения ресурса в белый список Минцифры
 
@@ -58,7 +62,7 @@
 Примеры решений по использованию балансировщиков нагрузки для обеспечения доступа к приложениям:
 
 * [{#T}](../../tutorials/security/distributed-secured-infrastructure.md)
-* [{#T}](../../tutorials/web/cdn-storage-integration.md)
+* [{#T}](../../tutorials/web/cdn-storage-integration/index.md)
 * [{#T}](../../tutorials/security/alb-with-ddos-protection/index.md)
 * [{#T}](../../tutorials/security/balancer-with-sws-profile/index.md)
 * [{#T}](../../tutorials/security/alb-ingress-with-sws-profile.md)

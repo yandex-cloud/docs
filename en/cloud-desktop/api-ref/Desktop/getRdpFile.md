@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:getRdpFile
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:getRdpFile
     method: get
     path:
       type: object
@@ -55,7 +55,7 @@ Returns a RDP file for the specified desktop.
 ## HTTP request
 
 ```
-GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:getRdpFile
+GET https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:getRdpFile
 ```
 
 ## Path parameters

@@ -90,4 +90,4 @@ description: Follow this guide to create a chat with {{ gpt-lite }} using the {{
 #### See also {#see-also}
 
 * [{#T}](../../concepts/generation/models.md)
-* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/completions)
+* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk/tree/master/examples/sync/completions)

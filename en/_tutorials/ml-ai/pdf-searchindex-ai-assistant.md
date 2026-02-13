@@ -30,10 +30,10 @@ It may take up to one hour to set up your environment.
     pip install docling
     ```
 
-1. Install the [{{ ml-sdk-full-name }}](https://github.com/yandex-cloud/yandex-cloud-ml-sdk) library to work with the {{ foundation-models-full-name }} tools:
+1. Install the [{{ ml-sdk-full-name }}](https://github.com/yandex-cloud/yandex-ai-studio-sdk) library to work with the {{ foundation-models-full-name }} tools:
 
     ```bash
-    pip install yandex-cloud-ml-sdk
+    pip install yandex-ai-studio-sdk
     ```
 
 1. [Download](https://{{ s3-storage-host-doc-files }}/ml/assistant-example.pdf) `assistant-example.pdf` with the document to use as the information source for the AI assistant and convert it to Markdown format using the `docling` library you installed earlier:

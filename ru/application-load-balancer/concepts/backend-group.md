@@ -41,7 +41,7 @@ description: Из статьи вы узнаете про типы групп б
 
 ## Типы бэкендов {#types}
 
-В зависимости от типа группы бекендов определяются возможные типы бекендов:
+В зависимости от типа группы бэкендов определяются возможные типы бэкендов:
 * **{{ ui-key.yacloud.alb.label_proto-http }}**:
 
   * [_Целевые группы_](target-group.md) — набор IP-адресов виртуальных машин {{ compute-name }}, на которых запущены ваши сетевые приложения. К одному бэкенду может относится несколько целевых групп. Трафик между всеми ВМ из целевых групп, относящихся к одному бэкенду, распределяется равномерно с учетом [настроек бэкенда](#settings) и результатов [проверок состояния](#health-checks).
@@ -167,7 +167,7 @@ description: Из статьи вы узнаете про типы групп б
 * [{#T}](../tutorials/tls-termination/index.md)
 * [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/index.md)
 * [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/index.md)
-* [{#T}](../tutorials/cdn-storage-integration.md)
+* [{#T}](../tutorials/cdn-storage-integration/index.md)
 * [{#T}](../tutorials/blue-green-canary-deployment.md)
 * [{#T}](../tutorials/logging.md)
 

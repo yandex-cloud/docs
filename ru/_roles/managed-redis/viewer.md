@@ -7,7 +7,7 @@
 * просматривать информацию о [резервных копиях](../../managed-valkey/concepts/backup.md) кластеров Valkey™;
 * просматривать информацию об алертах Valkey™;
 * просматривать логи работы кластеров Valkey™;
-* просматривать информацию о [квотах](../../managed-valkey/concepts/limits.md#mrd-quotas) сервиса {{ mrd-full-name }};
-* просматривать информацию об операциях с ресурсами сервиса {{ mrd-full-name }}.
+* просматривать информацию о [квотах](../../managed-valkey/concepts/limits.md#mrd-quotas) сервиса Yandex Managed Service for Valkey™;
+* просматривать информацию об операциях с ресурсами сервиса Yandex Managed Service for Valkey™.
 
 Включает разрешения, предоставляемые ролью `managed-redis.auditor`.

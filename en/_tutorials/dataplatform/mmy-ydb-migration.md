@@ -16,7 +16,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 * {{ mmy-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
+* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). The cost depends on the deployment mode:
 
     * In serverless mode, you pay for data operations and storage volume, including stored backups.
     * In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage and backup size.
@@ -30,7 +30,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) of any suitable configuration.
 
-    1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) of your preferred configuration.
+    1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) of any suitable configuration.
 
     
     1. If using security groups, [configure them](../../managed-kafka/operations/connect/index.md#configuring-security-groups) to allow internet access to your cluster.
@@ -86,7 +86,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. If you created the infrastructure manually, [set up your source cluster](../../data-transfer/operations/prepare.md#source-my).
 
-1. [Connect to the {{ mmy-name }} source cluster](../../managed-mysql/operations/connect.md).
+1. [Connect to the {{ mmy-name }} source cluster](../../managed-mysql/operations/connect/index.md).
 
 1. Populate the database with test data. In this example, we will use a simple table with car sensor information.
 
@@ -167,7 +167,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
@@ -195,7 +195,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-1. [Connect to the {{ mmy-name }} source cluster](../../managed-mysql/operations/connect.md) and populate the `measurements` table with data:
+1. [Connect to the {{ mmy-name }} source cluster](../../managed-mysql/operations/connect/index.md) and populate the `measurements` table with data:
 
     ```sql
     INSERT INTO measurements VALUES

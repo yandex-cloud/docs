@@ -101,4 +101,4 @@ This example shows how to create an [assistant](../../concepts/assistant/index.m
 * [{#T}](./request-chunked-response.md)
 * [{#T}](../../tutorials/pdf-searchindex-ai-assistant.md)
 * [{#T}](../../concepts/assistant/tools/index.md)
-* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)
+* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk/tree/master/examples/sync/assistants)

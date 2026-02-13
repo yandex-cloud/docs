@@ -5668,6 +5668,7 @@ default:
         value_source-type-balancer: L7-балансировщик
         value_source-type-bucket: Бакет
         value_source-type-url: Сервер
+        value_stepper-additional: Дополнительно
       certificate-manager:
         action_import: Пользовательский сертификат
         action_request: Сертификат от Let's Encrypt
@@ -5853,6 +5854,7 @@ default:
         clone: Клонировать
         close: Закрыть
         confirm: Подтвердить
+        connected_resources: Подключенные ресурсы
         continue: Продолжить
         create: Создать
         created-at: Дата создания

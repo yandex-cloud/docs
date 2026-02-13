@@ -456,7 +456,13 @@ items:
           - name: >-
               Интеграция L7-балансировщика с {{ cdn-name }} и {{ objstorage-name
               }}
-            href: web/cdn-storage-integration.md
+            items:
+              - name: Обзор
+                href: web/cdn-storage-integration/index.md
+              - name: Консоль управления, CLI и API
+                href: web/cdn-storage-integration/console.md
+              - name: '{{ TF }}'
+                href: web/cdn-storage-integration/terraform.md
           - name: Работа с группой ВМ с автоматическим масштабированием
             items:
               - name: Обзор

@@ -34,7 +34,7 @@
 
         1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
             * [{{ mkf-name }}](../../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-            * [{{ mgp-name }}](../../../managed-greenplum/operations/connect.md#configuring-security-groups).
+            * [{{ mgp-name }}](../../../managed-greenplum/operations/connect/index.md#configuring-security-groups).
 
     - {{ TF }} {#tf}
 
@@ -218,7 +218,7 @@
 
 1. Убедитесь, что в базу данных {{ GP }} перенеслись данные из кластера-источника {{ mkf-name }}:
 
-    1. [Подключитесь к базе данных {{ GP }}](../../../managed-greenplum/operations/connect.md).
+    1. [Подключитесь к базе данных {{ GP }}](../../../managed-greenplum/operations/connect/index.md).
     1. Проверьте, что база данных содержит таблицу `sensors` с тестовыми данными из топика:
 
         ```sql

@@ -5,8 +5,8 @@ from __future__ import annotations
 
 import pathlib
 
-from yandex_cloud_ml_sdk import YCloudML
-from yandex_cloud_ml_sdk.search_indexes import (
+from yandex_ai_studio_sdk import AIStudio
+from yandex_ai_studio_sdk.search_indexes import (
     StaticIndexChunkingStrategy,
     TextSearchIndexType,
 )
@@ -18,7 +18,7 @@ instruction = "<search_strategy_instructions>"
 
 
 def main():
-    sdk = YCloudML(
+    sdk = AIStudio(
         folder_id=folder,
         auth=token,
     )

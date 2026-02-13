@@ -4,6 +4,7 @@ The `organization-manager.auditor` role enables viewing info on the organization
 
 * View info on the Identity Hub [organization](../../organization/concepts/organization.md) and its settings.
 * View info on [access permissions](../../iam/concepts/access-control/index.md) granted for the organization.
+* List access policies assigned to the organization.
 * View the list of the organization’s [users](../../organization/concepts/domains.md), info from the user accounts (except phone numbers), the latest authentication date, as well as the latest verification date for federated and local accounts via [two-factor authentication](../../organization/concepts/domains.md).
 * View info on access permissions granted for [entities](../../iam/concepts/access-control/index.md#subject) in the Identity Hub organization.
 * View info on the organization’s [identity federations](../../organization/concepts/add-federation.md).

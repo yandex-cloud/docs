@@ -107,7 +107,7 @@ The computing resources may have the following configurations:
   1 | 24 | 16 | 64
   1 | 24 | 32 | 128
 
-* GPU PLATFORM V4 (`gpu-platform-v4`):
+* GPU PLATFORM V4 (`gpu-standard-v4`):
 
   Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB
   --- | --- | --- | ---

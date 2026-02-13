@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:update
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:update
     method: patch
     path:
       type: object
@@ -28,7 +28,7 @@ Sync desktop with group configuration
 ## HTTP request
 
 ```
-PATCH https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:update
+PATCH https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:update
 ```
 
 ## Path parameters

@@ -75,6 +75,28 @@ description: Следуя данной инструкции, вы сможете
         --id <идентификатор_политики>
       ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Опишите в конфигурационном файле {{ TF }} параметры политики MFA:
+
+     {% include [mfa-tf-code-block](../../../_includes/organization/mfa-tf-code-block.md) %}
+
+     {% include [mfa-tf-params-description](../../../_includes/organization/mfa-tf-params-description.md) %}
+
+  1. Создайте ресурсы:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} создаст все требуемые ресурсы. Проверить создание политики MFA можно в интерфейсе [{{ cloud-center }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../../cli/):
+
+     ```bash
+     yc organization-manager mfa-enforcement get <идентификатор_политики>
+     ```
+
 - API {#api}
 
   Воспользуйтесь методом REST API [Create](../../../organization/api-ref/MfaEnforcement/create.md) для ресурса [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) или вызовом gRPC API [MfaEnforcementService/Create](../../../organization/api-ref/grpc/MfaEnforcement/create.md).

@@ -12,6 +12,7 @@ description: This page provides a list of step-by-step guides for {{ mch-name }}
 * [Updating cluster settings](update.md)
 * [{#T}](change-server-level-settings.md)
 * [{#T}](change-query-level-settings.md)
+* [{#T}](cluster-patch-version.md)
 * [{#T}](cluster-version-update.md)
 * [Stopping and starting a cluster](cluster-stop.md)
 * [Managing {{ CH }} hosts](hosts.md)
@@ -19,6 +20,7 @@ description: This page provides a list of step-by-step guides for {{ mch-name }}
 * [Managing {{ CK }} hosts](ck-hosts.md)
 * [Migrating cluster hosts to a different availability zone](host-migration.md)
 * [Managing backups](cluster-backups.md)
+* [Managing cluster access](cluster-access.md)
 * [Deleting a cluster](cluster-delete.md)
 
 ## Connecting to a cluster {#connect}

@@ -36,8 +36,8 @@
     1. В той же [зоне доступности](../../../overview/concepts/geo-scope.md) [создайте кластер-приемник {{ GP }}](../../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации. При создании кластера:
         * Включите публичный доступ для хостов.
         * Включите опцию **Доступ из Data Transfer**.
-    1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect.md#ssl-certificate) для подключения к кластеру {{ mos-name }}.
-    1. Убедитесь, что группы безопасности кластеров [{{ mos-name }}](../../../managed-opensearch/operations/connect.md#security-groups) и [{{ GP }}](../../../managed-greenplum/operations/connect.md#configuring-security-groups) разрешают подключение через интернет.
+    1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) для подключения к кластеру {{ mos-name }}.
+    1. Убедитесь, что группы безопасности кластеров [{{ mos-name }}](../../../managed-opensearch/operations/connect/index.md#security-groups) и [{{ GP }}](../../../managed-greenplum/operations/connect/index.md#configuring-security-groups) разрешают подключение через интернет.
 
 - {{ TF }} {#tf}
 
@@ -199,7 +199,7 @@
 1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. Убедитесь, что в {{ mgp-name }} перенеслись данные из кластера-источника {{ mos-name }}:
 
-   1. [Получите SSL-сертификат](../../../managed-greenplum/operations/connect.md#get-ssl-cert) для подключения к кластеру {{ GP }}.
+   1. [Получите SSL-сертификат](../../../managed-greenplum/operations/connect/index.md#get-ssl-cert) для подключения к кластеру {{ GP }}.
    1. Установите зависимости:
 
       ```bash

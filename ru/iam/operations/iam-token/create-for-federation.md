@@ -25,6 +25,18 @@ description: Следуя данной инструкции, вы сможете
       yc iam create-token
       ```
 
+      Результат:
+
+      ```text
+      t1.9euelZrLop7Uz8up********
+      ```
+
+      Полученное значение — это IAM-токен. Вы можете скопировать и сохранить его в файле или записать в переменную:
+
+      ```bash
+      export IAM_TOKEN=`<IAM-токен>`
+      ```
+
 {% endlist %}
 
 {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}

@@ -15,6 +15,10 @@ keywords:
 
 {{ mpg-full-name }} shards are based on existing {{ mpg-name }} clusters residing in the same folder and cloud network as the {{ SPQR }} cluster.
 
+
+{% include [note-sg](../../_includes/managed-spqr/note-sg.md) %}
+
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -97,7 +101,7 @@ Deleting a {{ SPQR }} shard does not affect the {{ mpg-name }} cluster.
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** tab.
-    1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon in the shard row and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+    1. Find the shard you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
     1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - REST API {#api}

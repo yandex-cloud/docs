@@ -34,7 +34,7 @@
             {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
         
-        1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../../managed-greenplum/operations/connect.md#configuring-security-groups) и допускают подключение к нему.
+        1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../../managed-greenplum/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
 
 
         1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md).
@@ -115,7 +115,7 @@
 
 ## Создайте базу данных в кластере-приемнике {#prepare-data}
 
-1. [Подключитесь к служебной базе данных](../../managed-greenplum/operations/connect.md) `postgres` в кластере-приемнике {{ GP }} от имени пользователя `user1`.
+1. [Подключитесь к служебной базе данных](../../managed-greenplum/operations/connect/index.md) `postgres` в кластере-приемнике {{ GP }} от имени пользователя `user1`.
 
 1. Создайте базу данных `db1`:
 
@@ -195,7 +195,7 @@
 
 ### Проверьте работу копирования {#verify-copy}
 
-1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect.md) `db1` в кластере-приемнике {{ GP }}.
+1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect/index.md) `db1` в кластере-приемнике {{ GP }}.
 
 1. Выполните запрос:
 
@@ -223,7 +223,7 @@
 
 1. Убедитесь, что данные из файла `demo_data2.csv` появились в базе данных приемника:
 
-    1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect.md) `db1` в кластере-приемнике {{ GP }}.
+    1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect/index.md) `db1` в кластере-приемнике {{ GP }}.
 
     1. Выполните запрос:
 
