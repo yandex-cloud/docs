@@ -47,7 +47,11 @@
 
 - {{ TF }} {#tf}
 
+   {% note warning %}
+
    You can grant user privileges via {{ TF }} only in a cluster with public hosts.
+
+   {% endnote %}
 
    User privileges are granted via {{ TF }} using a third-party provider, [Terraform Provider for PostgreSQL](https://github.com/cyrilgdn/terraform-provider-postgresql).
 
