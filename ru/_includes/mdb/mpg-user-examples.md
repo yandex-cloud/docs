@@ -47,7 +47,11 @@
 
 - {{ TF }} {#tf}
 
+    {% note warning %}
+
     Выдать привилегию пользователю через {{ TF }} можно только в кластере с хостами в публичном доступе.
+
+    {% endnote %}
 
     Для выдачи привилегий пользователям через {{ TF }} используется сторонний провайдер — [Terraform Provider for PostgreSQL](https://github.com/cyrilgdn/terraform-provider-postgresql).
 
