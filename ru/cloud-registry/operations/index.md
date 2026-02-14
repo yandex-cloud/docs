@@ -4,10 +4,11 @@ description: В этом разделе собраны пошаговые инс
 ---
 
 # Пошаговые инструкции для {{ cloud-registry-name }}
-
 * [Создание реестра](registry/create.md)
 
 ## Управление артефактами {#artifact}
+
+* [{#T}](list-artifacts.md)
 
 ### Docker {#docker}
 
@@ -19,18 +20,24 @@ description: В этом разделе собраны пошаговые инс
 
 ### Helm {#helm}
 
-* [Получить информацию об имеющихся Helm-чартах](helm/list.md)
+* [Установить и настроить Helm](helm/installation.md)
+* [{#T}](helm/authentication.md)
+* [Создать Helm-чарт](helm/create.md)
 * [Загрузить Helm-чарт в реестр](helm/push.md)
 * [Скачать Helm-чарт из реестра](helm/pull.md)
 * [Удалить Helm-чарт из реестра](helm/delete.md)
 
-### Java {#java}
+### Maven {#maven}
 
 * [Настроить Maven](maven/installation.md)
+* [{#T}](maven/authentication.md)
+* [Загрузить Maven-артефакт в реестр](maven/push.md)
+* [Скачать Maven-артефакт из реестра](maven/pull.md)
 
-### Node.js {#nodejs}
+### npm {#npm}
 
 * [Настроить npm](npm/installation.md)
+* [{#T}](npm/authentication.md)
 
 ### NuGet {#nuget}
 

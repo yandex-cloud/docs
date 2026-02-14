@@ -1,30 +1,18 @@
 ---
-title: Настроить Maven
-description: Следуя данной инструкции, вы настроите Maven.
+title: Настроить Maven в {{ cloud-registry-full-name }}
+description: Следуя данной инструкции, вы настроите Maven для работы с {{ cloud-registry-name }}.
 ---
 
-# Настроить Maven
+# Настроить Maven в {{ cloud-registry-name }}
 
-1. {% include [auth-env-vars](../../../_includes/cloud-registry/auth-env-vars.md) %}
-1. Откройте файл с глобальными настройками Maven.
+Перед началом работы с Maven-артефактами в {{ cloud-registry-name }} необходимо установить и настроить [Maven](https://maven.apache.org/) на локальном компьютере.
 
-    По умолчанию файл с настройками расположен в директории `.m2` текущего пользователя (`~/.m2/settings.xml` для Unix-подобных ОС и `%USERPROFILE%\.m2\settings.xml` для Windows). Подробнее о структуре файла настроек см. в [документации Maven](https://maven.apache.org/settings.html).
+## Установка Maven {#install}
 
-1. В раздел `repositories` файла с настройками Maven добавьте новый репозиторий:
+1. [Установите Maven](https://maven.apache.org/install.html) на вашем компьютере.
 
-    ```xml
-    <repository>
-        <id>local</id>
-        <url>{{ cloud-registry }}/maven/<идентификатор_реестра></url>
-    </repository>
-    ```
+#### См. также {#see-also}
 
-1. В раздел `servers` файла с настройками Maven добавьте новый сервер:
-
-    ```xml
-    <server>
-        <id>local</id>
-        <username>${env.REGISTRY_USERNAME}</username>
-        <password>${env.REGISTRY_PASSWORD}</password>
-    </server>
-    ```
+* [{#T}](authentication.md)
+* [Создать Maven-артефакт](create.md)
+* [Загрузить Maven-артефакт в реестр](push.md)

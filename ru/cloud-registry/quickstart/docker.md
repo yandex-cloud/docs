@@ -48,6 +48,4 @@ description: В этой инструкции вы создадите свой �
    ```
 
 #### Смотрите также {#see-also}
-
-* [Java-артефакт](../concepts/art-java.md)
-* [Node.js-артефакт](../concepts/art-nodejs.md)
+{% include [artifact-list](../../_includes/cloud-registry/artifacts-list.md) %}

@@ -1,8 +1,9 @@
 Сервис поддерживает:
-* [Docker-образы](../../cloud-registry/concepts/docker-image.md)
-* Helm-чарты
-* [Java-артефакты](../../cloud-registry/concepts/art-java.md)
-* [Node.js-артефакты](../../cloud-registry/concepts/art-nodejs.md)
-* [NuGet-артефакты](../../cloud-registry/concepts/art-nuget.md)
-* [Python-артефакты](../../cloud-registry/concepts/art-python.md)
-* [Binary-артефакты](../../cloud-registry/concepts/art-binary.md)
+* [Docker-образы](../../cloud-registry/concepts/docker.md)
+* [Helm-чарты](../../cloud-registry/concepts/helm.md)
+* [OCI-артефакты](../../cloud-registry/concepts/oci.md)
+* [Java-артефакты](../../cloud-registry/concepts/maven.md)
+* [Node.js-артефакты](../../cloud-registry/concepts/nodejs.md)
+* [NuGet-артефакты](../../cloud-registry/concepts/nuget.md)
+* [Python-артефакты](../../cloud-registry/concepts/python.md)
+* [Binary-артефакты](../../cloud-registry/concepts/binary.md)

@@ -1,97 +1,86 @@
 ---
-title: Настроить npm
-description: Следуя данной инструкции, вы настроите npm.
+title: Настроить пакетные менеджеры для Node.js
+description: Следуя данной инструкции, вы настроите npm, yarn или pnpm.
 ---
 
-# Настроить npm
+# Настроить пакетный менеджер для Node.js
 
-Чтобы сделать настройку:
+Перед настройкой пакетного менеджера настройте переменные окружения `REGISTRY_USERNAME` и `REGISTRY_PASSWORD`:
 
-* для всех проектов, выполните команду:
+{% include [auth-env-vars](../../../_includes/cloud-registry/auth-env-vars.md) %}
 
-    `npm config set registry https://{{ cloud-registry }}/npm/<идентификатор_реестра>`
+## Настроить для всех проектов {#all-projects}
 
-* для одного проекта:
+Выберите пакетный менеджер:
 
-    1. Создайте файл `.npmrc` в корне проекта.
-    1. В зависимости от способа аутентификации:
+{% list tabs %}
 
-        {% list tabs %}
+- npm {#npm}
 
-        - IAM-токен (Base64)
+  Выполните команду:
 
-          1. Получите [IAM-токен](../../../iam/concepts/authorization/iam-token.md) для [аккаунта на Яндексе](../../../iam/operations/iam-token/create.md) или [сервисного аккаунта](../../../iam/operations/iam-token/create-for-sa.md), от имени которого вы будете выполнять аутентификацию.
-          1. Создайте переменную окружения `NPM_AUTH`:
+  `npm config set registry https://{{ cloud-registry }}/npm/<идентификатор_реестра>`
 
-              ```bash
-              export NPM_AUTH=$(echo -n 'iam:<IAM-токен>' | base64)
-              ```
+- yarn {#yarn}
 
-              Где `NPM_AUTH` — тело полученного ранее IAM-токена в кодировке [Base64](https://www.base64encode.org/).
+  Выполните команду:
 
-          1. Добавьте в созданный ранее файл `.npmrc` следующие строки:
+  `yarn config set registry https://{{ cloud-registry }}/npm/<идентификатор_реестра>`
 
-              ```text
-              registry=https://{{ cloud-registry }}/npm/<идентификатор_реестра>
-              //{{ cloud-registry }}/npm/:_auth=${NPM_AUTH}
-              always-auth=true
-              ```
+- pnpm {#pnpm}
 
-        - IAM-токен
+  Выполните команду:
 
-          1. Получите [IAM-токен](../../../iam/concepts/authorization/iam-token.md) для [аккаунта на Яндексе](../../../iam/operations/iam-token/create.md) или [сервисного аккаунта](../../../iam/operations/iam-token/create-for-sa.md), от имени которого вы будете выполнять аутентификацию.
-          1. Создайте переменную окружения `NPM_AUTH`:
+  `pnpm config set registry https://{{ cloud-registry }}/npm/<идентификатор_реестра>`
 
-              ```bash
-              export NPM_AUTH="<IAM-токен>"
-              ```
+{% endlist %}
 
-              Где `NPM_AUTH` — тело полученного ранее IAM-токена.
+## Настроить для одного проекта {#single-project}
 
-          1. Добавьте в созданный ранее файл `.npmrc` следующие строки:
+Настройка для одного проекта одинакова для всех пакетных менеджеров:
 
-              ```text
-              registry=https://{{ cloud-registry }}/npm/<идентификатор_реестра>
-              //{{ cloud-registry }}/npm/:_authToken=${NPM_AUTH}
-              always-auth=true
-              ```
+1. Создайте файл `.npmrc` в корне проекта.
+1. В зависимости от способа аутентификации:
 
-        - OAuth-токен (Base64)
+    {% list tabs %}
 
-          1. [Получите]({{ link-cloud-oauth }}) OAuth-токен для [аккаунта на Яндексе](../../../iam/concepts/users/accounts.md#passport), от имени которого вы будете выполнять аутентификацию.
-          1. Создайте переменную окружения `NPM_AUTH`:
+    - Basic-аутентификация {#basic}
 
-              ```bash
-              export NPM_AUTH=$(echo -n 'oauth:<OAuth-токен>' | base64)
-              ```
+      1. Создайте переменную окружения `NPM_AUTH` с закодированными в [Base64](https://www.base64encode.org/) учетными данными:
 
-              Где `NPM_AUTH` — тело полученного ранее [OAuth-токена](../../../iam/concepts/authorization/oauth-token.md) в кодировке [Base64](https://www.base64encode.org/).
+          ```bash
+          export NPM_AUTH=$(echo -n "${REGISTRY_USERNAME}:${REGISTRY_PASSWORD}" | base64)
+          ```
 
-          1. Добавьте в созданный ранее файл `.npmrc` следующие строки:
+          Где:
+          * `REGISTRY_USERNAME` — переменная окружения, содержащая тип токена (`iam`, `oauth` или `api_key`).
+          * `REGISTRY_PASSWORD` — переменная окружения, содержащая тело токена для аутентификации.
+          * `NPM_AUTH` — переменная окружения, содержащая учетные данные в кодировке Base64.
 
-              ```text
-              registry=https://{{ cloud-registry }}/npm/<идентификатор_реестра>
-              //{{ cloud-registry }}/npm/:_auth=${NPM_AUTH}
-              always-auth=true
-              ```
+      1. Добавьте в созданный ранее файл `.npmrc` следующие строки:
 
-        - API-ключ (Base64)
+          ```text
+          registry=https://{{ cloud-registry }}/npm/<идентификатор_реестра>
+          //{{ cloud-registry }}/npm/:_auth=${NPM_AUTH}
+          always-auth=true
+          ```
 
-          1. [Создайте](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) API-ключ для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), от имени которого вы будете выполнять аутентификацию.
-          1. Создайте переменную окружения `NPM_AUTH`:
+    - Bearer-аутентификация {#bearer}
 
-              ```bash
-              export NPM_AUTH=$(echo -n 'api_key:<API-ключ>' | base64)
-              ```
+      {% note info %}
 
-              Где `NPM_AUTH` — тело созданного ранее [API-ключа](../../../iam/concepts/authorization/api-key.md) в кодировке [Base64](https://www.base64encode.org/).
+      Для Bearer-аутентификации используйте IAM-токен или API-ключ (не OAuth-токен).
 
-          1. Добавьте в созданный ранее файл `.npmrc` следующие строки:
+      {% endnote %}
 
-              ```text
-              registry=https://{{ cloud-registry }}/npm/<идентификатор_реестра>
-              //{{ cloud-registry }}/npm/:_auth=${NPM_AUTH}
-              always-auth=true
-              ```
+      1. Добавьте в созданный ранее файл `.npmrc` следующие строки:
 
-        {% endlist %}
+          ```text
+          registry=https://{{ cloud-registry }}/npm/<идентификатор_реестра>
+          //{{ cloud-registry }}/npm/:_authToken=${REGISTRY_PASSWORD}
+          always-auth=true
+          ```
+
+          Где `REGISTRY_PASSWORD` — переменная окружения, содержащая IAM-токен или API-ключ для аутентификации.
+
+    {% endlist %}

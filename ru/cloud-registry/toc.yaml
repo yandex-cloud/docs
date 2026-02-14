@@ -7,6 +7,10 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Листинг артефактов
+        href: operations/list-artifacts.md
+      - name: Аутентифицироваться в {{ cloud-registry-name }}
+        href: operations/authentication.md
       - name: Создание реестра
         href: operations/registry/create.md
       - name: Управление артефактами
@@ -25,6 +29,10 @@ items:
                 href: operations/docker/pull.md
           - name: Helm-чарт
             items:
+              - name: Установить и настроить Helm
+                href: operations/helm/installation.md
+              - name: Аутентифицироваться в {{ cloud-registry-name }}
+                href: operations/helm/authentication.md
               - name: Получить информацию об имеющихся Helm-чартах
                 href: operations/helm/list.md
               - name: Загрузить Helm-чарт в реестр
@@ -33,14 +41,22 @@ items:
                 href: operations/helm/pull.md
               - name: Удалить Helm-чарт из реестра
                 href: operations/helm/delete.md
-          - name: Java-артефакт
+          - name: Maven-артефакт
             items:
               - name: Настроить Maven
                 href: operations/maven/installation.md
-          - name: Node.js-артефакт
+              - name: Аутентифицироваться в {{ cloud-registry-name }} для Maven
+                href: operations/maven/authentication.md
+              - name: Загрузить Maven-артефакт в реестр
+                href: operations/maven/push.md
+              - name: Скачать Maven-артефакт из реестра
+                href: operations/maven/pull.md
+          - name: Npm-артефакт
             items:
               - name: Настроить npm
                 href: operations/npm/installation.md
+              - name: Аутентифицироваться в {{ cloud-registry-name }}
+                href: operations/npm/authentication.md
           - name: NuGet-артефакт
             items:
               - name: Настроить NuGet
@@ -73,10 +89,10 @@ items:
             href: concepts/artifacts.md
           - name: Docker-образ
             href: concepts/docker-image.md
-          - name: Java-артефакт
-            href: concepts/art-java.md
-          - name: Node.js-артефакт
-            href: concepts/art-nodejs.md
+          - name: Maven-артефакт
+            href: concepts/maven.md
+          - name: Npm-артефакт
+            href: concepts/npm.md
           - name: NuGet-артефакт
             href: concepts/art-nuget.md
           - name: Python-артефакт

@@ -1,17 +1,11 @@
 ---
-title: Аутентифицироваться в {{ cloud-registry-full-name }}
-description: Следуя данной инструкции, вы сможете аутентифицироваться для нужного интерфейса.
+title: Аутентифицироваться в {{ cloud-registry-full-name }} для Helm
+description: Следуя данной инструкции, вы сможете аутентифицироваться в {{ cloud-registry-name }} для работы с Helm-чартами.
 ---
 
 # Аутентифицироваться в {{ cloud-registry-name }}
 
-Перед началом работы с {{ cloud-registry-name }} необходимо [настроить Docker](installation.md) и аутентифицироваться для соответствующего интерфейса:
-* Для **Консоли управления** минимально необходимая [роль](../../../iam/concepts/access-control/roles.md) на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) — `viewer`.
-* Для **Docker CLI** или **{{ managed-k8s-full-name }}** минимально необходимая роль на [реестр](../../concepts/registry.md) `cloud-registry.artifacts.puller`.
-
-Назначьте нужную роль пользователю {{ yandex-cloud }}. Ознакомьтесь со [способами аутентификации](#method) и выберите подходящий.
-
-Подробнее про роли читайте в разделе [{#T}](../../security/index.md).
+Перед началом работы с Helm-чартами в {{ cloud-registry-name }} необходимо [установить и настроить Helm](installation.md)
 
 ## Способы аутентификации {#method}
 
@@ -21,25 +15,30 @@ description: Следуя данной инструкции, вы сможете
 
    {% include [auth-env-vars](../../../_includes/cloud-registry/auth-env-vars.md) %}
 
-1. Выполните команду `docker login`, используя настроенные переменные окружения:
+1. Выполните команду `helm registry login`, используя настроенные переменные окружения:
 
    ```bash
-   echo "$REGISTRY_PASSWORD" | docker login \
-     --username "$REGISTRY_USERNAME" \
-     --password-stdin \
-     {{ cloud-registry }}
+   echo "$REGISTRY_PASSWORD" | helm registry login {{ cloud-registry }} \
+     -u "$REGISTRY_USERNAME" \
+     --password-stdin
    ```
 
    Где:
    * `$REGISTRY_USERNAME` — переменная окружения, содержащая тип токена (`iam`, `oauth` или `api_key`).
    * `$REGISTRY_PASSWORD` — переменная окружения, содержащая тело токена для аутентификации.
-   * `{{ cloud-registry }}` — эндпоинт, к которому будет обращаться [Docker](/blog/posts/2022/03/docker-containers) при работе с реестром образов. Если его не указать, запрос пойдет в сервис по умолчанию — [Docker Hub](https://hub.docker.com).
+   * `{{ cloud-registry }}` — эндпоинт, к которому будет обращаться Helm при работе с реестром.
 
-При выполнении команды вы можете получить сообщение об ошибке: `docker login is not supported with yc credential helper`. В этом случае [отключите Docker Credential helper](#ch-not-use) или используйте его для аутентификации.
+   Результат:
+
+   ```text
+   Login succeeded
+   ```
+
+При выполнении команды вы можете получить сообщение об ошибке, связанной с credential helper. В этом случае [отключите Credential helper](#ch-not-use) или используйте его для аутентификации.
 
 ## Аутентифицироваться с помощью Docker Credential helper {#cred-helper}
 
-Docker Engine может хранить учетные данные пользователя во внешнем хранилище. Это безопаснее, чем хранить их в конфигурационном файле Docker. Чтобы использовать хранилище учетных данных, необходима внешняя программа — [Docker Credential helper](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers).
+Helm использует тот же механизм хранения учетных данных, что и Docker — [Docker Credential helper](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers). Это безопаснее, чем хранить учетные данные в конфигурационном файле. После настройки Credential helper для Docker, Helm автоматически будет использовать его для аутентификации.
 
 ### Настройка Credential helper {#ch-setting}
 
@@ -73,7 +72,7 @@ Docker Engine может хранить учетные данные пользо
    "{{ cloud-registry }}": "yc"
    ```
 
-1. Docker готов к использованию, например, для [загрузки Docker-образов](push.md).
+1. Helm готов к использованию, например, для [загрузки Helm-чартов](push.md).
 
 ### Дополнительные опции Credential helper {#ch-feature}
 

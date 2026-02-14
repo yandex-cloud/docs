@@ -5,48 +5,23 @@ description: Следуя данной инструкции, вы настрои
 
 # Настроить PyPI
 
-1. {% include [auth-env-vars](../../../_includes/cloud-registry/auth-env-vars.md) %}
-1. В корневой директории пользователя создайте файл `~/.pypirc` со следующим содержимым, указав в нем полученный токен:
+Перед настройкой пакетного менеджера настройте переменные окружения `REGISTRY_USERNAME` и `REGISTRY_PASSWORD`:
 
-    {% list tabs group=registry_auth %}
+{% include [auth-env-vars](../../../_includes/cloud-registry/auth-env-vars.md) %}
 
-    - IAM-токен {#iam-token}
+1. В корневой директории пользователя создайте файл `~/.pypirc` со следующим содержимым:
 
-      ```text
-      [distutils]
-      index-servers =
-          cloud-registry
+    ```text
+    [distutils]
+    index-servers =
+        cloud-registry
 
-      [cloud-registry]
-      repository = https://{{ cloud-registry }}/pypi/<идентификатор_реестра>/legacy/
-      username = iam
-      password = <IAM-токен>
-      ```
+    [cloud-registry]
+    repository = https://{{ cloud-registry }}/pypi/<идентификатор_реестра>/legacy/
+    username = REGISTRY_USERNAME
+    password = REGISTRY_PASSWORD
+    ```
 
-    - OAuth-токен {#oauth-token}
-
-      ```text
-      [distutils]
-      index-servers =
-          cloud-registry
-
-      [cloud-registry]
-      repository = https://{{ cloud-registry }}/pypi/<идентификатор_реестра>/legacy/
-      username = oauth
-      password = <OAuth-токен>
-      ```
-
-    - API-ключ {#api-key}
-
-      ```text
-      [distutils]
-      index-servers =
-          cloud-registry
-
-      [cloud-registry]
-      repository = https://{{ cloud-registry }}/pypi/<идентификатор_реестра>/legacy/
-      username = api_key
-      password = <API-ключ>
-      ```
-
-    {% endlist %}
+    Где:
+    * `REGISTRY_USERNAME` — тип токена (`iam`, `oauth` или `api_key`).
+    * `REGISTRY_PASSWORD` — тело токена для аутентификации.

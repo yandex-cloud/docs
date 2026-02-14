@@ -3,7 +3,7 @@ title: Управление доступом в {{ cloud-registry-full-name }}
 description: Управление доступом в сервисе для безопасного хранения артефактов программного обеспечения {{ cloud-registry-full-name }}. Чтобы разрешить доступ к ресурсам сервиса {{ cloud-registry-name }}, назначьте пользователю нужные роли из приведенного списка.
 ---
 
-# Управление доступом в {{ cloud-registry-full-name }}
+# Управление доступом в {{ cloud-registry-name }}
 
 Для управления правами доступа в {{ cloud-registry-name }} используются [роли](../../iam/concepts/access-control/roles.md).
 
