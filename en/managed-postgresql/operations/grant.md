@@ -118,7 +118,11 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
 - {{ TF }} {#tf}
 
+    {% note warning %}
+
     You can grant user privileges via {{ TF }} only in a cluster with public hosts.
+
+    {% endnote %}
 
     You can grant privileges to your users via {{ TF }} using the third-party [Terraform Provider for PostgreSQL](https://github.com/cyrilgdn/terraform-provider-postgresql).
 
