@@ -18,9 +18,4 @@ _Java-артефакт_ — это файл скомпилированного �
 Подробнее о Maven читайте в [документации](https://maven.apache.org/guides/index.html).
 
 #### См. также {#see-also}
-
-* [Docker-образ](./docker-image.md)
-* [{#T}](./art-nodejs.md)
-* [{#T}](./art-nuget.md)
-* [{#T}](./art-python.md)
-* [{#T}](./art-binary.md)
+{% include [artifact-list](../../_includes/cloud-registry/artifacts-list.md) %}

@@ -13,9 +13,4 @@ _Артефакт Python_ — это файл пакета, содержащий
 Артефакты Python используются для распространения библиотек, инструментов и компонентов, которые можно интегрировать в проекты на языке Python. Официальным репозиторием для распространения артефактов Python является [PyPI](https://docs.pypi.org/).
 
 #### См. также {#see-also}
-
-* [Docker-образ](./docker-image.md)
-* [{#T}](./art-java.md)
-* [{#T}](./art-nodejs.md)
-* [{#T}](./art-nuget.md)
-* [{#T}](./art-binary.md)
+{% include [artifact-list](../../_includes/cloud-registry/artifacts-list.md) %}

@@ -18,9 +18,4 @@ https://{{ cloud-registry }}/binaries/cn15fqbr806r********/sample-package/3.5.4/
 Удалить binary-артефакт вы можете в [консоли управления]({{ link-console-main }}). Перезаписать существующую версию binary-артефакта невозможно.
 
 #### См. также {#see-also}
-
-* [Docker-образ](./docker-image.md)
-* [{#T}](./art-java.md)
-* [{#T}](./art-nodejs.md)
-* [{#T}](./art-nuget.md)
-* [{#T}](./art-python.md)
+{% include [artifact-list](../../_includes/cloud-registry/artifacts-list.md) %}

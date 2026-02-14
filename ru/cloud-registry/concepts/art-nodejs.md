@@ -21,9 +21,4 @@ _Артефакт Node.js_ — это пакет, который содержи�
 Подробнее о NPM читайте в [документации](https://docs.npmjs.com/).
 
 #### См. также {#see-also}
-
-* [Docker-образ](./docker-image.md)
-* [{#T}](./art-java.md)
-* [{#T}](./art-nuget.md)
-* [{#T}](./art-python.md)
-* [{#T}](./art-binary.md)
+{% include [artifact-list](../../_includes/cloud-registry/artifacts-list.md) %}

@@ -9,4 +9,5 @@ _Артефакты_ — это пакеты программного обесп
 
 Артефакты {{ cloud-registry-name }} хранятся в [реестрах](registry.md).
 
+Сервис поддерживает:
 {% include [artifact-list](../../_includes/cloud-registry/artifacts-list.md) %}

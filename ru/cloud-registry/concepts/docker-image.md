@@ -32,9 +32,4 @@ _Хеш_ — генерируется автоматически, являетс
 Docker-образ и все его версии хранятся в реестре.
 
 #### См. также {#see-also}
-
-* [{#T}](./art-java.md)
-* [{#T}](./art-nodejs.md)
-* [{#T}](./art-nuget.md)
-* [{#T}](./art-python.md)
-* [{#T}](./art-binary.md)
+{% include [artifact-list](../../_includes/cloud-registry/artifacts-list.md) %}

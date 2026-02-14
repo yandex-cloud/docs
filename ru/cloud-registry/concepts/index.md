@@ -8,4 +8,5 @@
 
 Артефакты разработки хранятся в [реестрах](registry.md) {{ cloud-registry-name }}.
 
+Сервис поддерживает:
 {% include [artifact-list](../../_includes/cloud-registry/artifacts-list.md) %}
