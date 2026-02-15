@@ -22,8 +22,8 @@ _Артефакт Node.js_ — это пакет, который содержи�
 
 #### См. также {#see-also}
 
-* [Docker-образ](./docker-image.md)
-* [{#T}](./art-java.md)
-* [{#T}](./art-nuget.md)
-* [{#T}](./art-python.md)
-* [{#T}](./art-binary.md)
+* [Docker-образ](./docker.md)
+* [{#T}](./java.md)
+* [{#T}](./nuget.md)
+* [{#T}](./python.md)
+* [{#T}](./binary.md)

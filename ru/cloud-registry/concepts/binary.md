@@ -19,8 +19,8 @@ https://{{ cloud-registry }}/binaries/cn15fqbr806r********/sample-package/3.5.4/
 
 #### См. также {#see-also}
 
-* [Docker-образ](./docker-image.md)
-* [{#T}](./art-java.md)
-* [{#T}](./art-nodejs.md)
-* [{#T}](./art-nuget.md)
-* [{#T}](./art-python.md)
+* [Docker-образ](./docker.md)
+* [{#T}](./java.md)
+* [{#T}](./nodejs.md)
+* [{#T}](./nuget.md)
+* [{#T}](./python.md)

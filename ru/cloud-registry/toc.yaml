@@ -72,17 +72,17 @@ items:
           - name: Обзор
             href: concepts/artifacts.md
           - name: Docker-образ
-            href: concepts/docker-image.md
+            href: concepts/docker.md
           - name: Java-артефакт
-            href: concepts/art-java.md
+            href: concepts/java.md
           - name: Node.js-артефакт
-            href: concepts/art-nodejs.md
+            href: concepts/nodejs.md
           - name: NuGet-артефакт
-            href: concepts/art-nuget.md
+            href: concepts/nuget.md
           - name: Python-артефакт
-            href: concepts/art-python.md
+            href: concepts/python.md
           - name: Binary-артефакт
-            href: concepts/art-binary.md
+            href: concepts/binary.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

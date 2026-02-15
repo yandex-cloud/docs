@@ -14,8 +14,8 @@ _Артефакт Python_ — это файл пакета, содержащий
 
 #### См. также {#see-also}
 
-* [Docker-образ](./docker-image.md)
-* [{#T}](./art-java.md)
-* [{#T}](./art-nodejs.md)
-* [{#T}](./art-nuget.md)
-* [{#T}](./art-binary.md)
+* [Docker-образ](./docker.md)
+* [{#T}](./java.md)
+* [{#T}](./nodejs.md)
+* [{#T}](./nuget.md)
+* [{#T}](./binary.md)
